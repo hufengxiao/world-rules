@@ -1,0 +1,11 @@
+[package]
+name = "world_rules"
+version = "0.1.0"
+edition = "2021"
+description = "世界规则库 - 收集各种游戏、体育、社交、科学、法律规则"
+license = "MIT"
+repository = "https://github.com/your-username/world-rules"
+keywords = ["rules", "mahjong", "poker", "games", "etiquette"]
+
+[dependencies]
+thiserror = "1.0"
