@@ -6,7 +6,15 @@ pub use crate::rules::{
 
 // 游戏规则
 pub use crate::rules::games::{
-    mahjong::{MahjongRules, MahjongVariant, SichuanMahjongRules, GuobiaoMahjongRules, RiichiMahjongRules},
+    mahjong::{
+        MahjongRules, MahjongVariant, SichuanMahjongRules, GuobiaoMahjongRules, RiichiMahjongRules,
+        // 国内麻将变体
+        GuangdongMahjongRules, WuhanMahjongRules, ShanghaiMahjongRules, TaiwanMahjongRules,
+        BeijingMahjongRules, DongbeiMahjongRules, ChangshaMahjongRules, HangzhouMahjongRules,
+        NanjingMahjongRules, ChaoshanMahjongRules, TianjinMahjongRules, ChongqingMahjongRules,
+        KunmingMahjongRules, GuiyangMahjongRules, FuzhouMahjongRules, NanchangMahjongRules,
+        GuangxiMahjongRules, XinjiangMahjongRules, SichuanDetailedMahjongRules,
+    },
     doudizhu::DouDiZhuRules,
     blackjack::BlackjackRules,
     bridge::BridgeRules,

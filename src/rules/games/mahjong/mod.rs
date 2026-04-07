@@ -5,7 +5,31 @@
 mod rules;
 mod tiles;
 mod hands;
+pub mod variants;
 
 pub use rules::*;
 pub use tiles::{Tile, TileType, Wind, Dragon};
 pub use hands::{Hand, HandPattern, WinningHand};
+
+// 重新导出各地方麻将变体
+pub use variants::{
+    GuangdongMahjongRules,
+    WuhanMahjongRules,
+    ShanghaiMahjongRules,
+    TaiwanMahjongRules,
+    BeijingMahjongRules,
+    DongbeiMahjongRules,
+    ChangshaMahjongRules,
+    HangzhouMahjongRules,
+    NanjingMahjongRules,
+    ChaoshanMahjongRules,
+    TianjinMahjongRules,
+    ChongqingMahjongRules,
+    KunmingMahjongRules,
+    GuiyangMahjongRules,
+    FuzhouMahjongRules,
+    NanchangMahjongRules,
+    GuangxiMahjongRules,
+    XinjiangMahjongRules,
+    SichuanDetailedMahjongRules,
+};
