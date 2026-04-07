@@ -6,6 +6,8 @@ pub mod gift;
 pub mod tea;
 pub mod wedding;
 pub mod interview;
+pub mod funeral;
+pub mod festival;
 
 pub use dining::{DiningEtiquette, DiningCulture};
 pub use business::BusinessEtiquette;
@@ -13,3 +15,5 @@ pub use gift::GiftEtiquette;
 pub use tea::{TeaEtiquette, TeaCulture};
 pub use wedding::{WeddingEtiquette, WeddingCulture};
 pub use interview::InterviewEtiquette;
+pub use funeral::{FuneralEtiquette, FuneralCulture};
+pub use festival::{FestivalEtiquette, ChineseFestival};
