@@ -11,6 +11,8 @@ pub mod festival;
 pub mod elevator;
 pub mod cinema;
 pub mod library;
+pub mod flight;
+pub mod train;
 
 pub use dining::{DiningEtiquette, DiningCulture};
 pub use business::BusinessEtiquette;
@@ -23,3 +25,5 @@ pub use festival::{FestivalEtiquette, ChineseFestival};
 pub use elevator::ElevatorEtiquette;
 pub use cinema::CinemaEtiquette;
 pub use library::LibraryEtiquette;
+pub use flight::FlightEtiquette;
+pub use train::TrainEtiquette;

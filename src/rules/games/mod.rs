@@ -12,6 +12,8 @@ pub mod pao_de_kuai;
 pub mod sheng_ji;
 pub mod aeroplane_chess;
 pub mod chinese_checkers;
+pub mod guandan;
+pub mod military_chess;
 
 pub use mahjong::*;
 pub use doudizhu::DouDiZhuRules;
@@ -23,3 +25,5 @@ pub use pao_de_kuai::PaoDeKuaiRules;
 pub use sheng_ji::ShengJiRules;
 pub use aeroplane_chess::AeroplaneChessRules;
 pub use chinese_checkers::ChineseCheckersRules;
+pub use guandan::GuanDanRules;
+pub use military_chess::MilitaryChessRules;

@@ -16,6 +16,8 @@ pub use crate::rules::games::{
     sheng_ji::ShengJiRules,
     aeroplane_chess::AeroplaneChessRules,
     chinese_checkers::ChineseCheckersRules,
+    guandan::GuanDanRules,
+    military_chess::MilitaryChessRules,
 };
 
 // 棋类规则
@@ -33,6 +35,9 @@ pub use crate::rules::sports::{
     SkiingRules, SkiingType,
     CyclingRules, CyclingType,
     WeightliftingRules,
+    BilliardsRules, BilliardsType,
+    ShootingRules,
+    ArcheryRules,
 };
 
 // 社交礼仪
@@ -43,6 +48,7 @@ pub use crate::rules::social::{
     FuneralEtiquette, FuneralCulture,
     FestivalEtiquette, ChineseFestival,
     ElevatorEtiquette, CinemaEtiquette, LibraryEtiquette,
+    FlightEtiquette, TrainEtiquette,
 };
 
 // 科学规则

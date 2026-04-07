@@ -12,6 +12,9 @@ pub mod golf;
 pub mod skiing;
 pub mod cycling;
 pub mod weightlifting;
+pub mod billiards;
+pub mod shooting;
+pub mod archery;
 
 pub use football::FootballRules;
 pub use basketball::BasketballRules;
@@ -25,3 +28,6 @@ pub use golf::GolfRules;
 pub use skiing::{SkiingRules, SkiingType};
 pub use cycling::{CyclingRules, CyclingType};
 pub use weightlifting::WeightliftingRules;
+pub use billiards::{BilliardsRules, BilliardsType};
+pub use shooting::ShootingRules;
+pub use archery::ArcheryRules;
