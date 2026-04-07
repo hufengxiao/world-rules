@@ -16,6 +16,8 @@ pub mod guandan;
 pub mod military_chess;
 pub mod four_player_mahjong;
 pub mod two_player_mahjong;
+pub mod domino;
+pub mod texas_holdem;
 
 pub use mahjong::*;
 pub use doudizhu::DouDiZhuRules;
@@ -31,3 +33,5 @@ pub use guandan::GuanDanRules;
 pub use military_chess::MilitaryChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
 pub use two_player_mahjong::TwoPlayerMahjongRules;
+pub use domino::DominoRules;
+pub use texas_holdem::TexasHoldemRules;

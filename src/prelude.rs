@@ -20,11 +20,13 @@ pub use crate::rules::games::{
     military_chess::MilitaryChessRules,
     four_player_mahjong::FourPlayerMahjongRules,
     two_player_mahjong::TwoPlayerMahjongRules,
+    domino::DominoRules,
+    texas_holdem::TexasHoldemRules,
 };
 
 // 棋类规则
 pub use crate::rules::games::board_games::{
-    ChineseChessRules, ChessRules, GomokuRules,
+    ChineseChessRules, ChessRules, GomokuRules, GoRules,
 };
 
 // 体育规则
