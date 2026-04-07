@@ -2,8 +2,8 @@
 
 pub mod physics;
 pub mod math;
-// TODO: 待实现
-// pub mod chemistry;
+pub mod chemistry;
 
 pub use physics::PhysicsLaws;
 pub use math::MathRules;
+pub use chemistry::ChemistryRules;

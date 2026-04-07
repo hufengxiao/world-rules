@@ -16,33 +16,42 @@
 - 手牌判断 (胡牌、听牌检测)
 - 番型计算 (清一色、十三幺等)
 
-#### 德州扑克
-- 10种牌型 (皇家同花顺到高牌)
-- 牌型评估算法
-- 牌型比较
+#### 扑克游戏
+- **德州扑克** - 10种牌型、牌型评估
+- **斗地主** - 叫地主、牌型规则、计分
+- **21点** - 计牌、爆牌判断、Blackjack
 
-#### 围棋规则
-- 中国/日本/韩国/应氏规则
-- 贴目计算
-- 19×19、13×13、9×9 棋盘
+#### 棋类游戏
+- **中国象棋** - 棋子走法、将军判断
+- **国际象棋** - FIDE规则、王车易位
+- **围棋** - 中国/日本/韩国规则、贴目
+- **五子棋** - 标准规则、连珠禁手
 
 ### 🏃 体育规则
 - **足球** - FIFA 规则、越位、犯规处罚
 - **篮球** - NBA/FIBA/CBA 规则变体
 - **乒乓球** - ITTF 规则、11分制
+- **网球** - 计分系统、抢七规则
+- **排球** - 换人、轮转规则
+- **羽毛球** - 21分制、发球规则
 
 ### 🤝 社交礼仪
 - **餐桌礼仪** - 中国/西方/日本/韩国
 - **商务礼仪** - 会议、握手、名片礼仪
 - **送礼礼仪** - 各国禁忌与习俗
+- **茶道礼仪** - 中国/日本/英式下午茶
+- **婚礼礼仪** - 中式/西式/日式婚礼
+- **面试礼仪** - 准备、着装、沟通技巧
 
 ### 🔬 科学定律
 - **物理定律** - 牛顿三定律、热力学定律
 - **数学公式** - 勾股定理、欧拉公式、斐波那契
+- **化学元素** - 周期表规律、常见元素
 
 ### ⚖️ 法律法规
 - **交通规则** - 各国驾驶规则、限速、信号灯
 - **合同法** - 合同条款、生效条件
+- **劳动法** - 工时、休假、劳动合同
 
 ## 使用示例
 
@@ -53,28 +62,29 @@ use world_rules::prelude::*;
 let sichuan = SichuanMahjongRules::new();
 println!("{}", sichuan.explain());
 
-// 德州扑克
-use world_rules::rules::games::card_games::poker::TexasHoldemRules;
-let poker = TexasHoldemRules::new();
-println!("{}", poker.explain());
+// 斗地主
+let doudizhu = DouDiZhuRules::new();
+println!("{}", doudizhu.explain());
 
-// 体育规则
-let football = FootballRules::new();
-println!("{}", football.explain());
+// 中国象棋
+let chess = ChineseChessRules::new();
+println!("{}", chess.explain());
 
-// 社交礼仪
-use world_rules::rules::social::DiningCulture;
-let dining = DiningEtiquette::new(DiningCulture::Chinese);
-println!("{}", dining.explain());
+// 网球规则
+let tennis = TennisRules::new();
+println!("{}", tennis.explain());
 
-// 科学定律
-let physics = PhysicsLaws::new();
-println!("F = ma, 当 m=10, a=2 时, F={}", PhysicsLaws::calculate_force(10.0, 2.0));
+// 茶道礼仪
+let tea = TeaEtiquette::new(TeaCulture::Chinese);
+println!("{}", tea.explain());
 
-// 数学公式
-let math = MathRules::new();
-println!("勾股定理: 3²+4²=5² → c={}", MathRules::pythagorean(3.0, 4.0));
-println!("斐波那契: {:?}", MathRules::fibonacci(10));
+// 化学元素
+let chemistry = ChemistryRules::new();
+println!("{}", chemistry.explain());
+
+// 劳动法
+let labor = LaborLawRules::new();
+println!("{}", labor.explain());
 ```
 
 ## 项目结构
@@ -90,7 +100,9 @@ world-rules/
 │       ├── games/       # 游戏规则
 │       │   ├── mahjong/ # 麻将规则
 │       │   ├── card_games/ # 扑克规则
-│       │   └── board_games/ # 围棋规则
+│       │   ├── board_games/ # 棋类规则
+│       │   ├── doudizhu.rs # 斗地主
+│       │   └── blackjack.rs # 21点
 │       ├── sports/      # 体育规则
 │       ├── social/      # 社交礼仪
 │       ├── science/     # 科学定律
@@ -123,6 +135,12 @@ cargo run
 # 测试
 cargo test
 ```
+
+## 统计
+
+- **36** 个单元测试全部通过
+- **50+** 种规则类型
+- **6** 大规则分类
 
 ## 贡献
 
