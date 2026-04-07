@@ -12,6 +12,10 @@ pub use crate::rules::games::{
     bridge::BridgeRules,
     sudoku::SudokuRules,
     rubiks_cube::{RubiksCubeRules, CubeType},
+    pao_de_kuai::PaoDeKuaiRules,
+    sheng_ji::ShengJiRules,
+    aeroplane_chess::AeroplaneChessRules,
+    chinese_checkers::ChineseCheckersRules,
 };
 
 // 棋类规则
@@ -26,6 +30,9 @@ pub use crate::rules::sports::{
     SwimmingRules, SwimmingStyle,
     AthleticsRules, AthleticsEvent,
     GolfRules,
+    SkiingRules, SkiingType,
+    CyclingRules, CyclingType,
+    WeightliftingRules,
 };
 
 // 社交礼仪
@@ -35,14 +42,17 @@ pub use crate::rules::social::{
     WeddingEtiquette, WeddingCulture, InterviewEtiquette,
     FuneralEtiquette, FuneralCulture,
     FestivalEtiquette, ChineseFestival,
+    ElevatorEtiquette, CinemaEtiquette, LibraryEtiquette,
 };
 
 // 科学规则
 pub use crate::rules::science::{
     PhysicsLaws, MathRules, ChemistryRules, BiologyRules,
+    AstronomyRules, EconomicsRules,
 };
 
 // 法律规则
 pub use crate::rules::law::{
     TrafficRules, TrafficRegion, ContractRules, LaborLawRules, ConsumerLawRules,
+    IPRules, RoadSafetyRules,
 };

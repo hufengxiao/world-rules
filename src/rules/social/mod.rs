@@ -8,6 +8,9 @@ pub mod wedding;
 pub mod interview;
 pub mod funeral;
 pub mod festival;
+pub mod elevator;
+pub mod cinema;
+pub mod library;
 
 pub use dining::{DiningEtiquette, DiningCulture};
 pub use business::BusinessEtiquette;
@@ -17,3 +20,6 @@ pub use wedding::{WeddingEtiquette, WeddingCulture};
 pub use interview::InterviewEtiquette;
 pub use funeral::{FuneralEtiquette, FuneralCulture};
 pub use festival::{FestivalEtiquette, ChineseFestival};
+pub use elevator::ElevatorEtiquette;
+pub use cinema::CinemaEtiquette;
+pub use library::LibraryEtiquette;
