@@ -14,6 +14,8 @@ pub mod aeroplane_chess;
 pub mod chinese_checkers;
 pub mod guandan;
 pub mod military_chess;
+pub mod four_player_mahjong;
+pub mod two_player_mahjong;
 
 pub use mahjong::*;
 pub use doudizhu::DouDiZhuRules;
@@ -27,3 +29,5 @@ pub use aeroplane_chess::AeroplaneChessRules;
 pub use chinese_checkers::ChineseCheckersRules;
 pub use guandan::GuanDanRules;
 pub use military_chess::MilitaryChessRules;
+pub use four_player_mahjong::FourPlayerMahjongRules;
+pub use two_player_mahjong::TwoPlayerMahjongRules;

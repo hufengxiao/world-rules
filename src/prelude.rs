@@ -18,6 +18,8 @@ pub use crate::rules::games::{
     chinese_checkers::ChineseCheckersRules,
     guandan::GuanDanRules,
     military_chess::MilitaryChessRules,
+    four_player_mahjong::FourPlayerMahjongRules,
+    two_player_mahjong::TwoPlayerMahjongRules,
 };
 
 // 棋类规则
@@ -38,6 +40,9 @@ pub use crate::rules::sports::{
     BilliardsRules, BilliardsType,
     ShootingRules,
     ArcheryRules,
+    GymnasticsRules,
+    DivingRules,
+    SynchronizedSwimmingRules,
 };
 
 // 社交礼仪
@@ -54,11 +59,11 @@ pub use crate::rules::social::{
 // 科学规则
 pub use crate::rules::science::{
     PhysicsLaws, MathRules, ChemistryRules, BiologyRules,
-    AstronomyRules, EconomicsRules,
+    AstronomyRules, EconomicsRules, PsychologyRules, StatisticsRules,
 };
 
 // 法律规则
 pub use crate::rules::law::{
     TrafficRules, TrafficRegion, ContractRules, LaborLawRules, ConsumerLawRules,
-    IPRules, RoadSafetyRules,
+    IPRules, RoadSafetyRules, MarriageLawRules, InheritanceLawRules,
 };

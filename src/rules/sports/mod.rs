@@ -15,6 +15,9 @@ pub mod weightlifting;
 pub mod billiards;
 pub mod shooting;
 pub mod archery;
+pub mod gymnastics;
+pub mod diving;
+pub mod synchronized_swimming;
 
 pub use football::FootballRules;
 pub use basketball::BasketballRules;
@@ -31,3 +34,6 @@ pub use weightlifting::WeightliftingRules;
 pub use billiards::{BilliardsRules, BilliardsType};
 pub use shooting::ShootingRules;
 pub use archery::ArcheryRules;
+pub use gymnastics::{GymnasticsRules, GymnasticsType};
+pub use diving::DivingRules;
+pub use synchronized_swimming::SynchronizedSwimmingRules;
