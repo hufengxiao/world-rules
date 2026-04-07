@@ -60,6 +60,8 @@ pub use crate::rules::social::{
     FestivalEtiquette, ChineseFestival,
     ElevatorEtiquette, CinemaEtiquette, LibraryEtiquette,
     FlightEtiquette, TrainEtiquette,
+    ToastingEtiquette, SeatingEtiquette, GreetingEtiquette,
+    PhoneEtiquette, EmailEtiquette,
 };
 
 // 科学规则
@@ -72,4 +74,5 @@ pub use crate::rules::science::{
 pub use crate::rules::law::{
     TrafficRules, TrafficRegion, ContractRules, LaborLawRules, ConsumerLawRules,
     IPRules, RoadSafetyRules, MarriageLawRules, InheritanceLawRules,
+    CriminalLawRules, CivilLawRules, ConstitutionRules,
 };
