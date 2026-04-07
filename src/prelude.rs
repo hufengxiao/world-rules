@@ -40,9 +40,15 @@ pub use crate::rules::sports::{
     BilliardsRules, BilliardsType,
     ShootingRules,
     ArcheryRules,
-    GymnasticsRules,
+    GymnasticsRules, GymnasticsType,
     DivingRules,
     SynchronizedSwimmingRules,
+    BoxingRules,
+    JudoRules,
+    TaekwondoRules,
+    BaseballRules,
+    IceHockeyRules,
+    FigureSkatingRules,
 };
 
 // 社交礼仪
