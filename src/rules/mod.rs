@@ -6,6 +6,7 @@ pub mod sports;
 pub mod social;
 pub mod science;
 pub mod law;
+pub mod health;
 
 // 重新导出核心类型
 pub use core::{Rule, RuleCategory, RuleSet, RuleMetadata, RuleError, RuleResult};

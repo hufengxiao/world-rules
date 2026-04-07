@@ -78,3 +78,8 @@ pub use crate::rules::law::{
     IPRules, RoadSafetyRules, MarriageLawRules, InheritanceLawRules,
     CriminalLawRules, CivilLawRules, ConstitutionRules,
 };
+
+// 健康规则
+pub use crate::rules::health::{
+    NutritionRules, ExerciseRules, SleepRules, MentalHealthRules,
+};

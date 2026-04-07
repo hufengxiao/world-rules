@@ -15,6 +15,8 @@ pub enum RuleCategory {
     Science(String),
     /// 法律法规
     Law(String),
+    /// 健康规则
+    Health(String),
     /// 自定义分类
     Custom(String),
 }
@@ -39,6 +41,14 @@ impl RuleCategory {
     pub fn law(name: impl Into<String>) -> Self {
         Self::Law(name.into())
     }
+
+    pub fn health(name: impl Into<String>) -> Self {
+        Self::Health(name.into())
+    }
+
+    pub fn custom(category: impl Into<String>, name: impl Into<String>) -> Self {
+        Self::Custom(format!("{}/{}", category.into(), name.into()))
+    }
 }
 
 impl std::fmt::Display for RuleCategory {
@@ -49,6 +59,7 @@ impl std::fmt::Display for RuleCategory {
             RuleCategory::Social(name) => write!(f, "Social/{}", name),
             RuleCategory::Science(name) => write!(f, "Science/{}", name),
             RuleCategory::Law(name) => write!(f, "Law/{}", name),
+            RuleCategory::Health(name) => write!(f, "Health/{}", name),
             RuleCategory::Custom(name) => write!(f, "Custom/{}", name),
         }
     }
