@@ -21,6 +21,12 @@ pub mod nanchang;
 pub mod guangxi;
 pub mod xinjiang;
 pub mod sichuan;
+pub mod zhengzhou;
+pub mod xian;
+pub mod kejia;
+pub mod hainan;
+pub mod anhui;
+pub mod suzhou;
 
 // 重新导出所有变体规则
 pub use guangdong::GuangdongMahjongRules;
@@ -42,3 +48,9 @@ pub use nanchang::NanchangMahjongRules;
 pub use guangxi::GuangxiMahjongRules;
 pub use xinjiang::XinjiangMahjongRules;
 pub use sichuan::SichuanDetailedMahjongRules;
+pub use zhengzhou::ZhengzhouMahjongRules;
+pub use xian::XianMahjongRules;
+pub use kejia::KejiaMahjongRules;
+pub use hainan::HainanMahjongRules;
+pub use anhui::AnhuiMahjongRules;
+pub use suzhou::SuzhouMahjongRules;

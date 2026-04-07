@@ -32,4 +32,10 @@ pub use variants::{
     GuangxiMahjongRules,
     XinjiangMahjongRules,
     SichuanDetailedMahjongRules,
+    ZhengzhouMahjongRules,
+    XianMahjongRules,
+    KejiaMahjongRules,
+    HainanMahjongRules,
+    AnhuiMahjongRules,
+    SuzhouMahjongRules,
 };

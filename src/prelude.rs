@@ -14,6 +14,8 @@ pub use crate::rules::games::{
         NanjingMahjongRules, ChaoshanMahjongRules, TianjinMahjongRules, ChongqingMahjongRules,
         KunmingMahjongRules, GuiyangMahjongRules, FuzhouMahjongRules, NanchangMahjongRules,
         GuangxiMahjongRules, XinjiangMahjongRules, SichuanDetailedMahjongRules,
+        ZhengzhouMahjongRules, XianMahjongRules, KejiaMahjongRules, HainanMahjongRules,
+        AnhuiMahjongRules, SuzhouMahjongRules,
     },
     doudizhu::DouDiZhuRules,
     blackjack::BlackjackRules,
