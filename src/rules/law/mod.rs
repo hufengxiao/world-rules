@@ -29,6 +29,7 @@ pub mod patent;
 pub mod trademark;
 pub mod advertising;
 pub mod bidding;
+pub mod price;
 
 // 行政法类
 pub mod administrative;
@@ -42,6 +43,10 @@ pub mod fire_protection;
 pub mod land_administration;
 pub mod water;
 pub mod agriculture;
+pub mod meteorology;
+pub mod earthquake_prevention;
+pub mod archives;
+pub mod statistics;
 
 // 社会法类
 pub mod labor_extended;
@@ -51,6 +56,7 @@ pub mod consumer_extended;
 pub mod real_estate;
 pub mod social_insurance;
 pub mod tourism;
+pub mod property_management;
 
 // 程序法类
 pub mod arbitration;
@@ -70,6 +76,28 @@ pub mod foreign_investment;
 pub mod children_protection;
 pub mod women_protection;
 pub mod elderly_protection;
+pub mod disability_protection;
+
+// 慈善法类
+pub mod charity;
+
+// 应急管理法类
+pub mod emergency_response;
+
+// 医药法类
+pub mod drug_management;
+pub mod vaccine_management;
+
+// 交通能源法类
+pub mod electricity;
+pub mod railway;
+pub mod civil_aviation;
+pub mod post;
+pub mod telecommunications;
+
+// 资源法类
+pub mod forest;
+pub mod mineral_resources;
 
 pub use traffic::{TrafficRules, TrafficRegion};
 pub use contract::ContractRules;
@@ -100,6 +128,7 @@ pub use patent::PatentLawRules;
 pub use trademark::TrademarkLawRules;
 pub use advertising::AdvertisingLawRules;
 pub use bidding::BiddingLawRules;
+pub use price::PriceLawRules;
 
 // 行政法类
 pub use administrative::AdministrativeLawRules;
@@ -113,6 +142,10 @@ pub use fire_protection::FireProtectionLawRules;
 pub use land_administration::LandAdministrationLawRules;
 pub use water::WaterLawRules;
 pub use agriculture::AgricultureLawRules;
+pub use meteorology::MeteorologyLawRules;
+pub use earthquake_prevention::EarthquakePreventionLawRules;
+pub use archives::ArchivesLawRules;
+pub use statistics::StatisticsLawRules;
 
 // 社会法类
 pub use labor_extended::LaborLawExtendedRules;
@@ -122,6 +155,7 @@ pub use consumer_extended::ConsumerLawExtendedRules;
 pub use real_estate::RealEstateLawRules;
 pub use social_insurance::SocialInsuranceLawRules;
 pub use tourism::TourismLawRules;
+pub use property_management::PropertyManagementLawRules;
 
 // 程序法类
 pub use arbitration::ArbitrationLawRules;
@@ -141,3 +175,25 @@ pub use foreign_investment::ForeignInvestmentLawRules;
 pub use children_protection::ChildrenProtectionLawRules;
 pub use women_protection::WomenProtectionLawRules;
 pub use elderly_protection::ElderlyProtectionLawRules;
+pub use disability_protection::DisabilityProtectionLawRules;
+
+// 慈善法类
+pub use charity::CharityLawRules;
+
+// 应急管理法类
+pub use emergency_response::EmergencyResponseLawRules;
+
+// 医药法类
+pub use drug_management::DrugManagementLawRules;
+pub use vaccine_management::VaccineManagementLawRules;
+
+// 交通能源法类
+pub use electricity::ElectricityLawRules;
+pub use railway::RailwayLawRules;
+pub use civil_aviation::CivilAviationLawRules;
+pub use post::PostLawRules;
+pub use telecommunications::TelecommunicationsLawRules;
+
+// 资源法类
+pub use forest::ForestLawRules;
+pub use mineral_resources::MineralResourcesLawRules;
