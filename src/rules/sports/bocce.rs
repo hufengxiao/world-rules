@@ -1,24 +1,17 @@
 //! 滚球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, format_rule_sections};
+use crate::simple_rule;
 
-/// 滚球规则 (Bocce)
-pub struct BocceRules {
-    metadata: RuleMetadata,
+simple_rule! {
+    struct: BocceRules,
+    name: "滚球规则",
+    desc: "意大利滚球运动规则",
+    origin: "意大利",
+    tags: ["体育", "休闲"]
 }
 
 impl BocceRules {
-    pub fn new() -> Self {
-        Self {
-            metadata: RuleMetadata::new(
-                "滚球规则",
-                "意大利滚球运动规则"
-            )
-            .with_origin("意大利")
-            .with_tags(vec!["体育".into(), "休闲".into()]),
-        }
-    }
-
     /// 比赛规则
     pub fn competition_rules(&self) -> Vec<&'static str> {
         vec![
@@ -97,12 +90,6 @@ impl BocceRules {
     }
 }
 
-impl Default for BocceRules {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 impl Rule for BocceRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
@@ -117,17 +104,12 @@ impl Rule for BocceRules {
     }
 
     fn explain(&self) -> String {
-        format!(
-            "【滚球规则】\n\n\
-            场地规格:\n{}\n\n\
-            技术动作:\n{}\n\n\
-            得分规则:\n{}\n\n\
-            装备要求:\n{}\n",
-            self.court_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
-        )
+        format_rule_sections("滚球规则", &[
+            ("场地规格", &self.court_specifications()),
+            ("技术动作", &self.techniques()),
+            ("得分规则", &self.scoring()),
+            ("装备要求", &self.equipment()),
+        ])
     }
 }
 

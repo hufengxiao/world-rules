@@ -124,16 +124,24 @@ pub struct MahjongRules {
     min_fan: u8,
     /// 是否支持花牌
     with_flowers: bool,
+    /// 元数据（实例级缓存）
+    metadata: RuleMetadata,
 }
 
 impl MahjongRules {
     pub fn new(variant: MahjongVariant) -> Self {
         let (fan_table, min_fan, with_flowers) = Self::get_variant_config(&variant);
+        let metadata = RuleMetadata::new(
+            format!("{}规则", variant),
+            format!("{}的标准规则说明", variant),
+        )
+        .with_origin(format!("{}", variant));
         Self {
             variant,
             fan_table,
             min_fan,
             with_flowers,
+            metadata,
         }
     }
 
@@ -292,16 +300,7 @@ impl MahjongRules {
 
 impl Rule for MahjongRules {
     fn metadata(&self) -> &RuleMetadata {
-        // 使用 RefCell 或直接返回创建的 metadata
-        // 这里简化实现，每次创建新的
-        static METADATA: std::sync::OnceLock<RuleMetadata> = std::sync::OnceLock::new();
-        METADATA.get_or_init(|| {
-            RuleMetadata::new(
-                format!("{}规则", self.variant),
-                format!("{}的标准规则说明", self.variant),
-            )
-            .with_origin(format!("{}", self.variant))
-        })
+        &self.metadata
     }
 
     fn category(&self) -> RuleCategory {
@@ -512,5 +511,41 @@ mod tests {
         let rules = GuobiaoMahjongRules::new();
         assert!(rules.check_minimum_fan(8));
         assert!(!rules.check_minimum_fan(7));
+    }
+
+    /// 验证不同变体的 metadata 不会互相污染（OnceLock 修复）
+    #[test]
+    fn test_metadata_isolation_across_variants() {
+        let sichuan = MahjongRules::new(MahjongVariant::Sichuan);
+        let guobiao = MahjongRules::new(MahjongVariant::Guobiao);
+        let riichi = MahjongRules::new(MahjongVariant::Riichi);
+
+        assert!(sichuan.metadata().name.contains("四川"));
+        assert!(guobiao.metadata().name.contains("国标"));
+        assert!(riichi.metadata().name.contains("日本"));
+        assert_ne!(sichuan.metadata().name, guobiao.metadata().name);
+        assert_ne!(guobiao.metadata().name, riichi.metadata().name);
+    }
+
+    #[test]
+    fn test_variant_config_differences() {
+        let sichuan = MahjongRules::new(MahjongVariant::Sichuan);
+        let guobiao = MahjongRules::new(MahjongVariant::Guobiao);
+        let riichi = MahjongRules::new(MahjongVariant::Riichi);
+
+        assert!(!sichuan.with_flowers());
+        assert!(guobiao.with_flowers());
+        assert!(!riichi.with_flowers());
+
+        assert_eq!(sichuan.min_fan(), 1);
+        assert_eq!(guobiao.min_fan(), 8);
+        assert_eq!(riichi.min_fan(), 1);
+    }
+
+    #[test]
+    fn test_get_fan() {
+        let rules = MahjongRules::new(MahjongVariant::Guobiao);
+        assert_eq!(rules.get_fan(&FanType::ThirteenOrphans), 88);
+        assert_eq!(rules.get_fan(&FanType::PingHu), 2);
     }
 }

@@ -1,24 +1,17 @@
 //! 矿物学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, format_titled_sections};
+use crate::simple_rule;
 
-/// 矿物学定律集合
-pub struct MineralogyLaws {
-    metadata: RuleMetadata,
+simple_rule! {
+    struct: MineralogyLaws,
+    name: "矿物学定律",
+    desc: "矿物学基本定律",
+    origin: "地质学",
+    tags: ["科学", "地质", "矿物"]
 }
 
 impl MineralogyLaws {
-    pub fn new() -> Self {
-        Self {
-            metadata: RuleMetadata::new(
-                "矿物学定律",
-                "矿物学基本定律"
-            )
-            .with_origin("地质学")
-            .with_tags(vec!["科学".into(), "地质".into(), "矿物".into()]),
-        }
-    }
-
     /// 矿物形成定律
     pub fn formation_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
@@ -98,12 +91,6 @@ impl MineralogyLaws {
     }
 }
 
-impl Default for MineralogyLaws {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 impl Rule for MineralogyLaws {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
@@ -118,21 +105,11 @@ impl Rule for MineralogyLaws {
     }
 
     fn explain(&self) -> String {
-        format!(
-            "【矿物学定律】\n\n形成定律:\n{}\n\n结构定律:\n{}\n\n分类定律:\n{}\n",
-            self.formation_laws().iter()
-                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
-                .collect::<Vec<_>>()
-                .join("\n"),
-            self.structure_laws().iter()
-                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
-                .collect::<Vec<_>>()
-                .join("\n"),
-            self.classification_laws().iter()
-                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
-                .collect::<Vec<_>>()
-                .join("\n")
-        )
+        format_titled_sections("矿物学定律", &[
+            ("形成定律", &self.formation_laws()),
+            ("结构定律", &self.structure_laws()),
+            ("分类定律", &self.classification_laws()),
+        ])
     }
 }
 

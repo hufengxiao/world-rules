@@ -5,7 +5,7 @@ use super::cards::{Card, Suit, Rank};
 use std::collections::HashMap;
 
 /// 牌型等级
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 pub enum HandRank {
     /// 高牌
     HighCard,
@@ -62,7 +62,7 @@ impl HandRank {
 }
 
 /// 德州扑克手牌评估结果
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct HandEvaluation {
     pub rank: HandRank,
     pub cards: Vec<Card>,
@@ -277,7 +277,10 @@ impl TexasHoldemRules {
             return Some(straight);
         }
 
-        // 检查普通顺子
+        // 检查普通顺子（至少需要5张不同牌面）
+        if values.len() < 5 {
+            return None;
+        }
         for i in 0..values.len() - 4 {
             if values[i + 4] - values[i] == 4 {
                 let start = values[i];
@@ -473,15 +476,361 @@ impl Rule for TexasHoldemRules {
 mod tests {
     use super::*;
 
+    fn c(suit: Suit, rank: Rank) -> Card {
+        Card::new(suit, rank)
+    }
+
+    // ==================== 牌型等级排序 ====================
+
     #[test]
     fn test_hand_rank_order() {
         assert!(HandRank::RoyalFlush > HandRank::StraightFlush);
+        assert!(HandRank::StraightFlush > HandRank::FourOfAKind);
+        assert!(HandRank::FourOfAKind > HandRank::FullHouse);
         assert!(HandRank::FullHouse > HandRank::Flush);
+        assert!(HandRank::Flush > HandRank::Straight);
+        assert!(HandRank::Straight > HandRank::ThreeOfAKind);
+        assert!(HandRank::ThreeOfAKind > HandRank::TwoPair);
+        assert!(HandRank::TwoPair > HandRank::OnePair);
+        assert!(HandRank::OnePair > HandRank::HighCard);
     }
 
     #[test]
     fn test_texas_holdem_rules() {
         let rules = TexasHoldemRules::new();
         assert_eq!(rules.metadata().name, "德州扑克规则");
+    }
+
+    // ==================== 皇家同花顺 ====================
+
+    #[test]
+    fn test_royal_flush() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Spade, Rank::King),
+            c(Suit::Spade, Rank::Queen),
+            c(Suit::Spade, Rank::Jack),
+            c(Suit::Spade, Rank::Ten),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::RoyalFlush);
+    }
+
+    #[test]
+    fn test_royal_flush_all_suits() {
+        for suit in [Suit::Spade, Suit::Heart, Suit::Diamond, Suit::Club] {
+            let cards = vec![
+                c(suit, Rank::Ace), c(suit, Rank::King),
+                c(suit, Rank::Queen), c(suit, Rank::Jack), c(suit, Rank::Ten),
+            ];
+            assert_eq!(TexasHoldemRules::evaluate_hand(&cards).rank, HandRank::RoyalFlush);
+        }
+    }
+
+    // ==================== 同花顺 ====================
+
+    #[test]
+    fn test_straight_flush() {
+        let cards = vec![
+            c(Suit::Heart, Rank::Nine),
+            c(Suit::Heart, Rank::Eight),
+            c(Suit::Heart, Rank::Seven),
+            c(Suit::Heart, Rank::Six),
+            c(Suit::Heart, Rank::Five),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::StraightFlush);
+    }
+
+    #[test]
+    fn test_straight_flush_low_ace() {
+        // A-2-3-4-5 同花顺（小同花顺）
+        let cards = vec![
+            c(Suit::Diamond, Rank::Ace),
+            c(Suit::Diamond, Rank::Two),
+            c(Suit::Diamond, Rank::Three),
+            c(Suit::Diamond, Rank::Four),
+            c(Suit::Diamond, Rank::Five),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::StraightFlush);
+    }
+
+    // ==================== 四条 ====================
+
+    #[test]
+    fn test_four_of_a_kind() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Seven),
+            c(Suit::Heart, Rank::Seven),
+            c(Suit::Diamond, Rank::Seven),
+            c(Suit::Club, Rank::Seven),
+            c(Suit::Spade, Rank::Two),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::FourOfAKind);
+    }
+
+    #[test]
+    fn test_four_of_a_kind_aces() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::Ace),
+            c(Suit::Club, Rank::Ace),
+            c(Suit::Spade, Rank::King),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::FourOfAKind);
+    }
+
+    // ==================== 满堂红 ====================
+
+    #[test]
+    fn test_full_house() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Ten),
+            c(Suit::Heart, Rank::Ten),
+            c(Suit::Diamond, Rank::Ten),
+            c(Suit::Club, Rank::Four),
+            c(Suit::Spade, Rank::Four),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::FullHouse);
+    }
+
+    #[test]
+    fn test_full_house_kings_over_twos() {
+        let cards = vec![
+            c(Suit::Spade, Rank::King),
+            c(Suit::Heart, Rank::King),
+            c(Suit::Diamond, Rank::King),
+            c(Suit::Club, Rank::Two),
+            c(Suit::Spade, Rank::Two),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::FullHouse);
+    }
+
+    // ==================== 同花 ====================
+
+    #[test]
+    fn test_flush() {
+        let cards = vec![
+            c(Suit::Club, Rank::Two),
+            c(Suit::Club, Rank::Five),
+            c(Suit::Club, Rank::Eight),
+            c(Suit::Club, Rank::Jack),
+            c(Suit::Club, Rank::Ace),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::Flush);
+    }
+
+    // ==================== 顺子 ====================
+
+    #[test]
+    fn test_straight() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Six),
+            c(Suit::Heart, Rank::Seven),
+            c(Suit::Diamond, Rank::Eight),
+            c(Suit::Club, Rank::Nine),
+            c(Suit::Spade, Rank::Ten),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::Straight);
+    }
+
+    #[test]
+    fn test_straight_low_ace() {
+        // A-2-3-4-5 顺子
+        let cards = vec![
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Two),
+            c(Suit::Diamond, Rank::Three),
+            c(Suit::Club, Rank::Four),
+            c(Suit::Spade, Rank::Five),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::Straight);
+    }
+
+    #[test]
+    fn test_straight_high_ace() {
+        // 10-J-Q-K-A 顺子（不是同花）
+        let cards = vec![
+            c(Suit::Spade, Rank::Ten),
+            c(Suit::Heart, Rank::Jack),
+            c(Suit::Diamond, Rank::Queen),
+            c(Suit::Club, Rank::King),
+            c(Suit::Spade, Rank::Ace),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::Straight);
+    }
+
+    // ==================== 三条 ====================
+
+    #[test]
+    fn test_three_of_a_kind() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Nine),
+            c(Suit::Heart, Rank::Nine),
+            c(Suit::Diamond, Rank::Nine),
+            c(Suit::Club, Rank::Five),
+            c(Suit::Spade, Rank::Three),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::ThreeOfAKind);
+    }
+
+    // ==================== 两对 ====================
+
+    #[test]
+    fn test_two_pair() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Jack),
+            c(Suit::Heart, Rank::Jack),
+            c(Suit::Diamond, Rank::Five),
+            c(Suit::Club, Rank::Five),
+            c(Suit::Spade, Rank::Three),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::TwoPair);
+    }
+
+    #[test]
+    fn test_two_pair_aces_and_kings() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::King),
+            c(Suit::Club, Rank::King),
+            c(Suit::Spade, Rank::Two),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::TwoPair);
+    }
+
+    // ==================== 一对 ====================
+
+    #[test]
+    fn test_one_pair() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Queen),
+            c(Suit::Heart, Rank::Queen),
+            c(Suit::Diamond, Rank::Nine),
+            c(Suit::Club, Rank::Six),
+            c(Suit::Spade, Rank::Three),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::OnePair);
+    }
+
+    // ==================== 高牌 ====================
+
+    #[test]
+    fn test_high_card() {
+        let cards = vec![
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Queen),
+            c(Suit::Diamond, Rank::Nine),
+            c(Suit::Club, Rank::Six),
+            c(Suit::Spade, Rank::Three),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::HighCard);
+    }
+
+    // ==================== compare_hands 比较逻辑 ====================
+
+    #[test]
+    fn test_compare_different_ranks() {
+        let royal = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Spade, Rank::Ace), c(Suit::Spade, Rank::King),
+            c(Suit::Spade, Rank::Queen), c(Suit::Spade, Rank::Jack), c(Suit::Spade, Rank::Ten),
+        ]);
+        let high = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Queen),
+            c(Suit::Diamond, Rank::Nine), c(Suit::Club, Rank::Six), c(Suit::Spade, Rank::Three),
+        ]);
+        assert_eq!(TexasHoldemRules::compare_hands(&royal, &high), std::cmp::Ordering::Greater);
+        assert_eq!(TexasHoldemRules::compare_hands(&high, &royal), std::cmp::Ordering::Less);
+    }
+
+    #[test]
+    fn test_compare_same_rank_different_tiebreaker() {
+        // 一对A vs 一对K
+        let pair_aces = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::Five), c(Suit::Club, Rank::Three), c(Suit::Spade, Rank::Two),
+        ]);
+        let pair_kings = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Spade, Rank::King), c(Suit::Heart, Rank::King),
+            c(Suit::Diamond, Rank::Five), c(Suit::Club, Rank::Three), c(Suit::Spade, Rank::Two),
+        ]);
+        assert_eq!(TexasHoldemRules::compare_hands(&pair_aces, &pair_kings), std::cmp::Ordering::Greater);
+    }
+
+    #[test]
+    fn test_compare_equal_hands() {
+        let hand1 = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::Five), c(Suit::Club, Rank::Three), c(Suit::Spade, Rank::Two),
+        ]);
+        let hand2 = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Diamond, Rank::Ace), c(Suit::Club, Rank::Ace),
+            c(Suit::Spade, Rank::Five), c(Suit::Heart, Rank::Three), c(Suit::Diamond, Rank::Two),
+        ]);
+        assert_eq!(TexasHoldemRules::compare_hands(&hand1, &hand2), std::cmp::Ordering::Equal);
+    }
+
+    // ==================== 7张牌中选最佳5张 ====================
+
+    #[test]
+    fn test_7_cards_finds_best_hand() {
+        // 7张牌中包含同花顺
+        let cards = vec![
+            c(Suit::Heart, Rank::Five),
+            c(Suit::Heart, Rank::Six),
+            c(Suit::Heart, Rank::Seven),
+            c(Suit::Heart, Rank::Eight),
+            c(Suit::Heart, Rank::Nine),
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Diamond, Rank::King),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::StraightFlush);
+    }
+
+    #[test]
+    fn test_7_cards_flush_beats_straight() {
+        let cards = vec![
+            c(Suit::Club, Rank::Two),
+            c(Suit::Club, Rank::Five),
+            c(Suit::Club, Rank::Eight),
+            c(Suit::Club, Rank::Jack),
+            c(Suit::Club, Rank::Ace),
+            c(Suit::Spade, Rank::Six),
+            c(Suit::Heart, Rank::Seven),
+        ];
+        let eval = TexasHoldemRules::evaluate_hand(&cards);
+        assert_eq!(eval.rank, HandRank::Flush);
+    }
+
+    // ==================== 边界: 同花顺 vs 四条 ====================
+
+    #[test]
+    fn test_straight_flush_beats_four_of_a_kind() {
+        let sf = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Heart, Rank::Five), c(Suit::Heart, Rank::Six),
+            c(Suit::Heart, Rank::Seven), c(Suit::Heart, Rank::Eight), c(Suit::Heart, Rank::Nine),
+        ]);
+        let fk = TexasHoldemRules::evaluate_hand(&vec![
+            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::Ace), c(Suit::Club, Rank::Ace), c(Suit::Spade, Rank::King),
+        ]);
+        assert!(sf.rank > fk.rank);
     }
 }

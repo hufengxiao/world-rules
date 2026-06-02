@@ -3,7 +3,7 @@
 use std::fmt;
 
 /// 花色
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 pub enum Suit {
     /// 黑桃 (最高)
     Spade,
@@ -38,7 +38,7 @@ impl Suit {
 }
 
 /// 牌面大小
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 pub enum Rank {
     Two,
     Three,
@@ -53,6 +53,8 @@ pub enum Rank {
     Queen,
     King,
     Ace,
+    /// 大小王 (Joker)
+    Joker,
 }
 
 impl fmt::Display for Rank {
@@ -71,12 +73,13 @@ impl fmt::Display for Rank {
             Rank::Queen => write!(f, "Q"),
             Rank::King => write!(f, "K"),
             Rank::Ace => write!(f, "A"),
+            Rank::Joker => write!(f, "Joker"),
         }
     }
 }
 
 impl Rank {
-    /// 获取牌面数值 (Ace = 14)
+    /// 获取牌面数值 (Ace = 14, Joker = 15)
     pub fn value(&self) -> u8 {
         match self {
             Rank::Two => 2,
@@ -92,6 +95,7 @@ impl Rank {
             Rank::Queen => 12,
             Rank::King => 13,
             Rank::Ace => 14,
+            Rank::Joker => 15,
         }
     }
 
@@ -102,10 +106,15 @@ impl Rank {
             _ => self.value(),
         }
     }
+
+    /// 是否为 Joker
+    pub fn is_joker(&self) -> bool {
+        matches!(self, Rank::Joker)
+    }
 }
 
 /// 扑克牌
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 pub struct Card {
     pub suit: Suit,
     pub rank: Rank,
@@ -156,7 +165,15 @@ pub fn standard_deck() -> Vec<Card> {
 
 /// 带大小王的扑克牌堆 (54张)
 pub fn full_deck() -> Vec<Card> {
-    standard_deck() // 简化实现，实际需要添加大小王
+    let mut deck = standard_deck();
+    deck.push(Card::new(Suit::Spade, Rank::Joker));  // 大王
+    deck.push(Card::new(Suit::Club, Rank::Joker));    // 小王
+    deck
+}
+
+/// 大小王
+pub fn jokers() -> (Card, Card) {
+    (Card::new(Suit::Spade, Rank::Joker), Card::new(Suit::Club, Rank::Joker))
 }
 
 #[cfg(test)]
@@ -172,6 +189,38 @@ mod tests {
     #[test]
     fn test_deck_count() {
         assert_eq!(standard_deck().len(), 52);
+    }
+
+    #[test]
+    fn test_full_deck_count() {
+        assert_eq!(full_deck().len(), 54);
+    }
+
+    #[test]
+    fn test_full_deck_contains_jokers() {
+        let deck = full_deck();
+        let jokers: Vec<_> = deck.iter().filter(|c| c.rank == Rank::Joker).collect();
+        assert_eq!(jokers.len(), 2);
+    }
+
+    #[test]
+    fn test_joker_display() {
+        let (big, small) = jokers();
+        assert_eq!(big.to_string(), "♠Joker");
+        assert_eq!(small.to_string(), "♣Joker");
+    }
+
+    #[test]
+    fn test_joker_value() {
+        assert_eq!(Rank::Joker.value(), 15);
+        assert!(Rank::Joker.is_joker());
+        assert!(!Rank::Ace.is_joker());
+    }
+
+    #[test]
+    fn test_joker_ordering() {
+        assert!(Rank::Joker > Rank::Ace);
+        assert!(Rank::Joker > Rank::King);
     }
 
     #[test]

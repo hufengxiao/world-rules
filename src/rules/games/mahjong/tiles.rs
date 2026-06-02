@@ -3,7 +3,7 @@
 use std::fmt;
 
 /// 风牌
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 pub enum Wind {
     /// 东风
     Dong,
@@ -27,7 +27,7 @@ impl fmt::Display for Wind {
 }
 
 /// 箭牌
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 pub enum Dragon {
     /// 红中
     HongZhong,
@@ -48,7 +48,7 @@ impl fmt::Display for Dragon {
 }
 
 /// 花色
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 pub enum TileType {
     /// 万子 (1-9万)
     Wan(u8),
@@ -104,7 +104,7 @@ impl TileType {
 }
 
 /// 麻将牌
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
 pub struct Tile {
     pub tile_type: TileType,
 }

@@ -1,24 +1,17 @@
 //! 档案法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, format_rule_sections};
+use crate::simple_rule;
 
-/// 档案法规则
-pub struct ArchivesLawRules {
-    metadata: RuleMetadata,
+simple_rule! {
+    struct: ArchivesLawRules,
+    name: "档案法规则",
+    desc: "中国档案法基础知识",
+    origin: "中国",
+    tags: ["法律", "档案"]
 }
 
 impl ArchivesLawRules {
-    pub fn new() -> Self {
-        Self {
-            metadata: RuleMetadata::new(
-                "档案法规则",
-                "中国档案法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "档案".into()]),
-        }
-    }
-
     /// 档案管理原则
     pub fn archives_management_principles(&self) -> Vec<&'static str> {
         vec![
@@ -132,12 +125,6 @@ impl ArchivesLawRules {
     }
 }
 
-impl Default for ArchivesLawRules {
-    fn default() -> Self {
-        Self::new()
-    }
-}
-
 impl Rule for ArchivesLawRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
@@ -152,12 +139,11 @@ impl Rule for ArchivesLawRules {
     }
 
     fn explain(&self) -> String {
-        format!(
-            "【档案法规则】\n\n管理原则:\n{}\n\n档案保管:\n{}\n\n档案开放:\n{}\n",
-            self.archives_management_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.archives_preservation().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.archives_access().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
-        )
+        format_rule_sections("档案法规则", &[
+            ("管理原则", &self.archives_management_principles()),
+            ("档案保管", &self.archives_preservation()),
+            ("档案开放", &self.archives_access()),
+        ])
     }
 }
 
