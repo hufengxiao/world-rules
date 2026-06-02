@@ -100,6 +100,39 @@ impl AerospaceEngineeringLaws {
             "电气系统",
         ]
     }
+
+    /// 推进系统定律
+    pub fn propulsion_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("涡轮喷气定律", "喷气推进", "涡轮喷气发动机原理"),
+            ("涡扇定律", "高涵道比", "涡扇发动机效率"),
+            ("冲压定律", "高速冲压", "冲压发动机原理"),
+            ("火箭推进定律", "齐奥尔科夫斯基", "火箭速度增量公式"),
+            ("比冲定律", "推进效率", "发动机比冲衡量效率"),
+        ]
+    }
+
+    /// 航天环境定律
+    pub fn space_environment_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("真空定律", "太空真空", "太空高真空环境"),
+            ("辐射定律", "宇宙辐射", "太空辐射环境"),
+            ("微重力定律", "失重环境", "太空微重力环境"),
+            ("热循环定律", "温度变化", "太空温度极端变化"),
+            ("空间碎片定律", "轨道碎片", "太空碎片威胁"),
+        ]
+    }
+
+    /// 航天任务定律
+    pub fn mission_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("霍曼转移定律", "最省燃料", "椭圆轨道转移"),
+            ("引力弹弓定律", "引力助推", "利用行星引力加速"),
+            ("再入定律", "大气再入", "航天器再入大气层"),
+            ("热防护定律", "防热瓦", "再入热防护设计"),
+            ("交会对接定律", "空间对接", "航天器交会对接"),
+        ]
+    }
 }
 
 impl Default for AerospaceEngineeringLaws {
@@ -123,7 +156,7 @@ impl Rule for AerospaceEngineeringLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【航空航天工程定律】\n\n空气动力学定律:\n{}\n\n飞行力学定律:\n{}\n\n航天定律:\n{}\n",
+            "【航空航天工程定律】\n\n空气动力学定律:\n{}\n\n飞行力学定律:\n{}\n\n航天定律:\n{}\n\n推进系统定律:\n{}\n\n航天环境定律:\n{}\n\n航天任务定律:\n{}\n",
             self.aerodynamics_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -133,6 +166,18 @@ impl Rule for AerospaceEngineeringLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.space_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.propulsion_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.space_environment_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.mission_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

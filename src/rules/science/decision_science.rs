@@ -107,6 +107,20 @@ impl DecisionScienceLaws {
             "群体决策系统",
         ]
     }
+
+    /// 行为决策
+    pub fn behavioral_decision(&self) -> Vec<&'static str> {
+        vec![
+            "有限理性: 人类决策受认知能力限制",
+            "启发式判断: 用经验法则简化复杂决策",
+            "锚定效应: 初始信息对后续判断产生过度影响",
+            "可得性启发: 根据容易想到的例子判断概率",
+            "代表性启发: 根据相似性判断概率忽视基准率",
+            "框架效应: 同一问题不同表述导致不同选择",
+            "禀赋效应: 人们对自己拥有的东西估值更高",
+        ]
+    }
+
 }
 
 impl Default for DecisionScienceLaws {

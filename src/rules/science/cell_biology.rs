@@ -98,6 +98,39 @@ impl CellBiologyLaws {
         ]
     }
 
+    /// 细胞凋亡定律
+    pub fn apoptosis_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("程序性死亡定律", "细胞凋亡", "细胞程序性死亡过程"),
+            ("凋亡信号定律", "信号通路", "凋亡信号传导途径"),
+            ("caspase定律", "蛋白酶", "凋亡执行蛋白酶"),
+            ("线粒体凋亡定律", "细胞色素C", "线粒体凋亡途径"),
+            ("死亡受体定律", "外源途径", "死亡受体介导凋亡"),
+        ]
+    }
+
+    /// 细胞代谢定律
+    pub fn cell_metabolism_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("细胞呼吸定律", "有氧代谢", "细胞有氧呼吸产生ATP"),
+            ("糖酵解定律", "无氧代谢", "细胞质中糖酵解"),
+            ("三羧酸定律", "线粒体", "线粒体中TCA循环"),
+            ("氧化磷酸化定律", "电子传递", "线粒体电子传递链"),
+            ("脂肪酸氧化定律", "β氧化", "脂肪酸分解代谢"),
+        ]
+    }
+
+    /// 细胞周期调控定律
+    pub fn cell_cycle_regulation_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("细胞周期蛋白定律", "cyclin", "周期蛋白周期性变化"),
+            ("CDK定律", "激酶", "周期蛋白依赖性激酶"),
+            ("检查点定律", "监控点", "细胞周期检查点控制"),
+            ("p53定律", "抑癌基因", "p53调控细胞周期"),
+            ("Rb定律", "视网膜母细胞瘤", "Rb蛋白调控细胞周期"),
+        ]
+    }
+
     /// 细胞器类型
     pub fn organelles(&self) -> Vec<&'static str> {
         vec![
@@ -111,6 +144,31 @@ impl CellBiologyLaws {
             "液泡",
         ]
     }
+
+    /// 细胞器
+    pub fn cell_organelles(&self) -> Vec<&'static str> {
+        vec![
+            "线粒体: 细胞的发电站进行有氧呼吸产生ATP",
+            "内质网: 粗面内质网合成蛋白光面内质网合成脂质",
+            "高尔基体: 对蛋白质进行加工修饰分选和运输",
+            "溶酶体: 含水解酶分解细胞内废物和外来物质",
+            "核糖体: 由rRNA和蛋白质组成翻译mRNA合成蛋白质",
+            "细胞骨架: 微管微丝和中间纤维维持细胞形态",
+        ]
+    }
+
+    /// 细胞信号
+    pub fn cell_signaling(&self) -> Vec<&'static str> {
+        vec![
+            "信号转导: 细胞外信号转化为细胞内响应的过程",
+            "G蛋白偶联受体: 七次跨膜受体激活G蛋白传递信号",
+            "受体酪氨酸激酶: 配体结合后自磷酸化启动信号级联",
+            "第二信使: cAMP、Ca²⁺、IP3等细胞内信号分子",
+            "MAPK通路: 从细胞表面到细胞核的重要信号通路",
+            "细胞凋亡信号: 内源和外源途径激活caspase级联",
+        ]
+    }
+
 }
 
 impl Default for CellBiologyLaws {
@@ -134,7 +192,7 @@ impl Rule for CellBiologyLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【细胞生物学定律】\n\n结构定律:\n{}\n\n分裂定律:\n{}\n\n分化定律:\n{}\n",
+            "【细胞生物学定律】\n\n结构定律:\n{}\n\n分裂定律:\n{}\n\n分化定律:\n{}\n\n凋亡定律:\n{}\n\n细胞代谢定律:\n{}\n\n周期调控定律:\n{}\n",
             self.structure_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -144,6 +202,18 @@ impl Rule for CellBiologyLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.differentiation_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.apoptosis_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cell_metabolism_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cell_cycle_regulation_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

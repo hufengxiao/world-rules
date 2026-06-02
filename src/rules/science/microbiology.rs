@@ -99,6 +99,20 @@ impl MicrobiologyLaws {
             "农业生产",
         ]
     }
+
+    /// 病毒学
+    pub fn virology(&self) -> Vec<&'static str> {
+        vec![
+            "病毒结构: 蛋白质衣壳包裹核酸的非细胞形态",
+            "噬菌体: 感染细菌的病毒",
+            "病毒复制: 吸附穿入脱壳生物合成装配释放",
+            "逆转录病毒: 以RNA为模板合成DNA的病毒",
+            "病毒变异: 抗原漂移和抗原转变",
+            "疫苗灭活: 用物理化学方法使病毒失去感染性",
+            "朊病毒: 仅由蛋白质组成的感染性因子",
+        ]
+    }
+
 }
 
 impl Default for MicrobiologyLaws {

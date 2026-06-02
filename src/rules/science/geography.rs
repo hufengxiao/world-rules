@@ -99,6 +99,48 @@ impl GeographyLaws {
             "交通",
         ]
     }
+
+    /// 遥感地理定律
+    pub fn remote_sensing_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("遥感电磁波定律", "电磁波谱", "遥感利用电磁波探测"),
+            ("地物光谱定律", "光谱特征", "地物反射光谱特征规律"),
+            ("空间分辨率定律", "分辨率", "遥感影像空间分辨率"),
+            ("时间分辨率定律", "重访周期", "卫星重访时间分辨率"),
+            ("辐射分辨率定律", "灰度级", "遥感辐射量化精度"),
+            ("影像分类定律", "分类方法", "遥感影像分类规律"),
+            ("变化检测定律", "变化分析", "多时相遥感变化检测"),
+            ("数据融合定律", "多源融合", "多源遥感数据融合"),
+        ]
+    }
+
+    /// GIS地理定律
+    pub fn gis_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("空间数据定律", "数据模型", "GIS空间数据模型规律"),
+            ("空间分析定律", "空间分析", "GIS空间分析方法"),
+            ("缓冲区分析定律", "缓冲区", "空间缓冲区分析规律"),
+            ("叠加分析定律", "图层叠加", "空间图层叠加分析"),
+            ("网络分析定律", "网络分析", "GIS网络分析方法"),
+            ("插值定律", "空间插值", "空间数据插值规律"),
+            ("空间统计定律", "空间统计", "空间自相关分析"),
+            ("三维分析定律", "三维建模", "GIS三维地形分析"),
+        ]
+    }
+
+    /// 灾害地理定律
+    pub fn disaster_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("地震分布定律", "地震带", "地震空间分布规律"),
+            ("火山分布定律", "火山带", "火山活动空间分布"),
+            ("洪水规律定律", "洪水频率", "洪水发生频率规律"),
+            ("台风路径定律", "台风路径", "台风移动路径规律"),
+            ("滑坡泥石流定律", "地质灾害", "滑坡泥石流分布规律"),
+            ("干旱分布定律", "干旱区", "干旱空间分布规律"),
+            ("海啸定律", "海啸传播", "海啸产生与传播规律"),
+            ("风险评估定律", "灾害风险", "自然灾害风险评估"),
+        ]
+    }
 }
 
 impl Default for GeographyLaws {
@@ -122,7 +164,7 @@ impl Rule for GeographyLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【地理学定律】\n\n自然地理定律:\n{}\n\n人文地理定律:\n{}\n\n空间定律:\n{}\n",
+            "【地理学定律】\n\n自然地理定律:\n{}\n\n人文地理定律:\n{}\n\n空间定律:\n{}\n\n遥感地理定律:\n{}\n\nGIS地理定律:\n{}\n\n灾害地理定律:\n{}\n",
             self.physical_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -132,6 +174,18 @@ impl Rule for GeographyLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.spatial_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.remote_sensing_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.gis_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.disaster_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

@@ -99,6 +99,73 @@ impl AnalyticalChemistryLaws {
             "红外光谱仪",
         ]
     }
+
+    /// 光谱分析定律
+    pub fn spectroscopy_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("紫外可见光谱定律", "UV-Vis", "分子电子跃迁吸收规律"),
+            ("红外光谱定律", "IR吸收", "分子振动转动吸收"),
+            ("拉曼光谱定律", "拉曼散射", "非弹性散射光谱分析"),
+            ("原子吸收定律", "AAS", "原子对特征波长吸收"),
+            ("原子发射定律", "AES", "原子激发态发射光谱"),
+            ("荧光光谱定律", "荧光发射", "分子荧光发射规律"),
+            ("X射线荧光定律", "XRF", "X射线激发元素荧光"),
+            ("圆二色定律", "CD光谱", "手性分子圆二色性"),
+        ]
+    }
+
+    /// 电分析化学定律
+    pub fn electroanalytical_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("能斯特方程定律", "E = E°+RT/nF·ln(a)", "电极电位与浓度关系"),
+            ("法拉第电解定律", "m = MIt/(nF)", "电解产物质量计算"),
+            ("极谱分析定律", "极谱波", "极谱分析扩散电流规律"),
+            ("库仑分析定律", "电量测量", "库仑滴定定量分析"),
+            ("电位滴定定律", "电位突跃", "电位滴定终点判断"),
+            ("伏安分析定律", "伏安曲线", "循环伏安法分析规律"),
+            ("离子选择电极定律", "电位响应", "离子选择性电极响应"),
+            ("电导分析定律", "电导率", "溶液电导率分析规律"),
+        ]
+    }
+
+    /// 色谱分析定律
+    pub fn chromatography_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("塔板理论定律", "理论塔板", "色谱柱效率评价"),
+            ("速率理论定律", "van Deemter", "色谱峰展宽因素分析"),
+            ("保留时间定律", "保留值", "色谱保留时间规律"),
+            ("分离度定律", "分辨率", "色谱峰分离度计算"),
+            ("选择性定律", "选择性因子", "色谱分离选择性优化"),
+            ("气相色谱定律", "GC", "气相色谱分离规律"),
+            ("液相色谱定律", "HPLC", "高效液相色谱规律"),
+            ("离子色谱定律", "IC", "离子色谱分离规律"),
+        ]
+    }
+
+    /// 光谱分析
+    pub fn spectroscopy_methods(&self) -> Vec<&'static str> {
+        vec![
+            "紫外可见光谱: 分子电子跃迁产生的吸收光谱",
+            "红外光谱: 分子振动和转动能级跃迁的特征吸收",
+            "核磁共振: 原子核在磁场中的共振吸收",
+            "质谱法: 将分子离子化按质荷比分离检测",
+            "原子吸收光谱: 基态原子对特征波长光的吸收",
+            "荧光光谱: 分子受激发后发射的荧光分析",
+        ]
+    }
+
+    /// 分离分析
+    pub fn separation_methods(&self) -> Vec<&'static str> {
+        vec![
+            "气相色谱: 挥发性组分在气相和固定相间分配分离",
+            "液相色谱: 组分在液相和固定相间分配分离",
+            "离子色谱: 分离检测溶液中的离子",
+            "凝胶色谱: 按分子大小分离的体积排阻色谱",
+            "电泳: 带电粒子在电场中按迁移率分离",
+            "萃取: 利用物质在两种溶剂中分配系数不同分离",
+        ]
+    }
+
 }
 
 impl Default for AnalyticalChemistryLaws {
@@ -122,7 +189,7 @@ impl Rule for AnalyticalChemistryLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【分析化学定律】\n\n定量定律:\n{}\n\n定性定律:\n{}\n\n仪器定律:\n{}\n",
+            "【分析化学定律】\n\n定量定律:\n{}\n\n定性定律:\n{}\n\n仪器定律:\n{}\n\n光谱分析定律:\n{}\n\n电分析化学定律:\n{}\n\n色谱分析定律:\n{}\n",
             self.quantitative_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -132,6 +199,18 @@ impl Rule for AnalyticalChemistryLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.instrumental_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.spectroscopy_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.electroanalytical_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.chromatography_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

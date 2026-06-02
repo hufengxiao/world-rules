@@ -98,6 +98,48 @@ impl PoliticalScienceLaws {
             "精英主义理论",
         ]
     }
+
+    /// 公共政策定律
+    pub fn policy_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("政策议程定律", "议程设置", "政策议程确立过程"),
+            ("政策制定定律", "政策形成", "政策制定决策过程"),
+            ("政策执行定律", "政策实施", "政策执行偏差分析"),
+            ("政策评估定律", "效果评估", "政策效果评价标准"),
+            ("政策终结定律", "政策终结", "政策生命周期终结"),
+            ("政策扩散定律", "政策学习", "政策创新扩散模式"),
+            ("多源流定律", "多源流", "金登多源流政策模型"),
+            ("渐进决策定律", "渐进调适", "林德布洛姆渐进决策"),
+        ]
+    }
+
+    /// 比较政治定律
+    pub fn comparative_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("政治发展定律", "政治发展", "政治现代化发展规律"),
+            ("政治转型定律", "民主转型", "政治体制转型规律"),
+            ("政治文化定律", "政治文化", "阿尔蒙德政治文化理论"),
+            ("政治参与定律", "参与扩展", "政治参与扩展规律"),
+            ("国家能力定律", "国家能力", "国家治理能力建设"),
+            ("政治稳定定律", "政治稳定", "亨廷顿政治秩序论"),
+            ("政治腐败定律", "腐败治理", "政治腐败成因与治理"),
+            ("政治整合定律", "国家整合", "多民族国家政治整合"),
+        ]
+    }
+
+    /// 政治经济学定律
+    pub fn political_economy_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("国家与市场定律", "政经互动", "国家与市场关系理论"),
+            ("政治商业周期定律", "选举经济", "选举周期影响经济政策"),
+            ("集体行动定律", "集体困境", "奥尔森集体行动逻辑"),
+            ("寻租定律", "寻租行为", "政治寻租经济分析"),
+            ("制度经济学定律", "制度分析", "制度对经济的影响"),
+            ("全球化治理定律", "全球治理", "全球化下的治理挑战"),
+            ("发展型国家定律", "发展主义", "发展型国家模式理论"),
+            ("福利国家定律", "福利政策", "福利国家制度理论"),
+        ]
+    }
 }
 
 impl Default for PoliticalScienceLaws {
@@ -121,7 +163,7 @@ impl Rule for PoliticalScienceLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【政治学定律】\n\n权力定律:\n{}\n\n制度定律:\n{}\n\n国际关系定律:\n{}\n",
+            "【政治学定律】\n\n权力定律:\n{}\n\n制度定律:\n{}\n\n国际关系定律:\n{}\n\n公共政策定律:\n{}\n\n比较政治定律:\n{}\n\n政治经济学定律:\n{}\n",
             self.power_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -131,6 +173,18 @@ impl Rule for PoliticalScienceLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.international_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.policy_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.comparative_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.political_economy_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

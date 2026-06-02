@@ -100,6 +100,48 @@ impl ChemicalEngineeringLaws {
             "半连续过程",
         ]
     }
+
+    /// 化工热力学定律
+    pub fn thermodynamics_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("相平衡定律", "相平衡", "化工过程相平衡计算"),
+            ("化学平衡定律", "平衡常数", "化学反应平衡常数"),
+            ("反应热定律", "反应热", "化学反应热效应计算"),
+            ("逸度定律", "逸度", "实际气体逸度计算"),
+            ("活度定律", "活度", "溶液活度系数计算"),
+            ("状态方程定律", "状态方程", "立方型状态方程应用"),
+            ("混合规则定律", "混合规则", "混合物性质计算规则"),
+            ("过程热力学定律", "火用分析", "过程热力学效率分析"),
+        ]
+    }
+
+    /// 化工安全定律
+    pub fn safety_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("本质安全定律", "本质安全", "化工过程本质安全设计"),
+            ("HAZOP分析定律", "危害分析", "危险与可操作性分析"),
+            ("安全阀定律", "泄压保护", "安全阀泄压保护设计"),
+            ("防火防爆定律", "防火防爆", "化工防火防爆措施"),
+            ("毒性防护定律", "毒性控制", "化学品毒性防护措施"),
+            ("应急响应定律", "应急预案", "化工事故应急响应"),
+            ("安全连锁定律", "连锁保护", "安全连锁保护系统"),
+            ("风险评估定律", "定量风险", "化工定量风险评估"),
+        ]
+    }
+
+    /// 绿色化工定律
+    pub fn green_engineering_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("原子经济性定律", "原子利用", "最大化原子利用率"),
+            ("绿色溶剂定律", "溶剂选择", "绿色溶剂替代传统溶剂"),
+            ("催化绿色定律", "绿色催化", "催化替代化学计量反应"),
+            ("废物最小化定律", "源头减量", "化工废物源头最小化"),
+            ("能量集成定律", "热集成", "过程能量集成优化"),
+            ("水网络优化定律", "水回用", "化工用水网络优化"),
+            ("生命周期评价定律", "LCA", "产品全生命周期环境影响"),
+            ("过程强化定律", "过程强化", "化工过程强化技术"),
+        ]
+    }
 }
 
 impl Default for ChemicalEngineeringLaws {
@@ -123,7 +165,7 @@ impl Rule for ChemicalEngineeringLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【化学工程定律】\n\n反应工程定律:\n{}\n\n分离工程定律:\n{}\n\n传递定律:\n{}\n",
+            "【化学工程定律】\n\n反应工程定律:\n{}\n\n分离工程定律:\n{}\n\n传递定律:\n{}\n\n化工热力学定律:\n{}\n\n化工安全定律:\n{}\n\n绿色化工定律:\n{}\n",
             self.reaction_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -133,6 +175,18 @@ impl Rule for ChemicalEngineeringLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.transport_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.thermodynamics_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.green_engineering_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

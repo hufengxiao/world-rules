@@ -98,6 +98,48 @@ impl ArtScienceLaws {
             "巫术说",
         ]
     }
+
+    /// 艺术心理学定律
+    pub fn psychology_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("艺术感知定律", "感知过程", "艺术感知心理机制"),
+            ("艺术记忆定律", "记忆效应", "艺术记忆规律"),
+            ("艺术想象定律", "想象机制", "艺术想象力规律"),
+            ("艺术联想定律", "联想触发", "艺术联想规律"),
+            ("艺术直觉定律", "直觉判断", "艺术直觉认知"),
+            ("艺术通感定律", "感官联通", "跨感官艺术体验"),
+            ("艺术移情定律", "情感投射", "审美移情作用"),
+            ("艺术完形定律", "格式塔", "视觉完形倾向"),
+        ]
+    }
+
+    /// 艺术文化定律
+    pub fn culture_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("艺术符号定律", "符号系统", "艺术符号编码规律"),
+            ("艺术仪式定律", "仪式功能", "艺术与仪式关系"),
+            ("艺术身份定律", "身份建构", "艺术与身份认同"),
+            ("艺术权力定律", "权力表达", "艺术与权力关系"),
+            ("艺术全球化定律", "文化交融", "艺术全球化趋势"),
+            ("艺术民族定律", "民族特色", "艺术民族性表达"),
+            ("艺术世俗定律", "世俗化", "艺术世俗化进程"),
+            ("艺术遗产定律", "遗产保护", "艺术遗产传承"),
+        ]
+    }
+
+    /// 艺术批评定律
+    pub fn criticism_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("形式批评定律", "形式分析", "形式主义批评方法"),
+            ("社会批评定律", "社会视角", "社会学批评方法"),
+            ("心理批评定律", "心理分析", "精神分析批评"),
+            ("女性批评定律", "性别视角", "女性主义批评"),
+            ("后殖民批评定律", "殖民反思", "后殖民主义批评"),
+            ("解构批评定律", "文本解构", "解构主义批评"),
+            ("接受批评定律", "读者反应", "接受美学批评"),
+            ("生态批评定律", "生态视角", "生态美学批评"),
+        ]
+    }
 }
 
 impl Default for ArtScienceLaws {
@@ -121,7 +163,7 @@ impl Rule for ArtScienceLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【艺术学定律】\n\n创作定律:\n{}\n\n形式定律:\n{}\n\n审美定律:\n{}\n",
+            "【艺术学定律】\n\n创作定律:\n{}\n\n形式定律:\n{}\n\n审美定律:\n{}\n\n心理学定律:\n{}\n\n文化定律:\n{}\n\n批评定律:\n{}\n",
             self.creation_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -131,6 +173,18 @@ impl Rule for ArtScienceLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.aesthetics_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.psychology_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.culture_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.criticism_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

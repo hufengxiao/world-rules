@@ -100,6 +100,48 @@ impl ComplexityScienceLaws {
             "相干长度",
         ]
     }
+
+    /// 自组织临界定律
+    pub fn soc_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("沙堆定律", "临界沙堆", "沙堆模型自组织临界"),
+            ("幂律分布定律", "幂律", "复杂系统事件幂律分布"),
+            ("标度不变定律", "标度律", "系统在不同尺度的自相似"),
+            ("雪崩定律", "雪崩动力学", "临界态雪崩大小分布"),
+            ("长程关联定律", "长程关联", "临界态长程时空关联"),
+            ("临界慢化定律", "临界慢化", "接近临界点系统响应变慢"),
+            ("有限尺度效应定律", "尺度效应", "有限系统尺度效应分析"),
+            ("临界指数定律", "临界指数", "普适临界指数规律"),
+        ]
+    }
+
+    /// 复杂网络定律
+    pub fn complex_network_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("网络渗流定律", "渗流相变", "复杂网络渗流临界现象"),
+            ("网络传播定律", "网络传播", "复杂网络疾病传播规律"),
+            ("网络同步定律", "网络同步", "复杂网络同步条件"),
+            ("网络博弈定律", "网络博弈", "复杂网络上的博弈动力学"),
+            ("网络级联定律", "级联故障", "复杂网络级联失效规律"),
+            ("网络社区定律", "社区结构", "复杂网络社区形成机制"),
+            ("网络生长定律", "网络增长", "复杂网络生长演化规律"),
+            ("网络鲁棒定律", "鲁棒性", "复杂网络结构鲁棒性"),
+        ]
+    }
+
+    /// 混沌与分形定律
+    pub fn chaos_fractal_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("蝴蝶效应定律", "初值敏感", "混沌系统对初始条件极端敏感"),
+            ("洛伦兹吸引子定律", "奇怪吸引子", "洛伦兹方程奇怪吸引子"),
+            ("分形维数定律", "分形维", "分形几何维度度量"),
+            ("自相似定律", "自相似性", "分形结构自相似特征"),
+            ("曼德博集合定律", "曼德博集", "复数迭代分形边界"),
+            ("李雅普诺夫指数定律", "混沌判别", "正李雅普诺夫指数判混沌"),
+            ("分岔图定律", "分岔图", "参数变化的分岔图谱"),
+            ("重整化群定律", "标度变换", "重整化群方法分析临界现象"),
+        ]
+    }
 }
 
 impl Default for ComplexityScienceLaws {
@@ -123,7 +165,7 @@ impl Rule for ComplexityScienceLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【复杂性科学定律】\n\n复杂性定律:\n{}\n\n系统定律:\n{}\n\n行为定律:\n{}\n",
+            "【复杂性科学定律】\n\n复杂性定律:\n{}\n\n系统定律:\n{}\n\n行为定律:\n{}\n\n自组织临界定律:\n{}\n\n复杂网络定律:\n{}\n\n混沌与分形定律:\n{}\n",
             self.complexity_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -133,6 +175,18 @@ impl Rule for ComplexityScienceLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.behavior_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.soc_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.complex_network_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.chaos_fractal_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

@@ -124,6 +124,58 @@ impl ChemistryRules {
         ]
     }
 
+    /// 溶液化学规则
+    pub fn solution_rules(&self) -> Vec<&'static str> {
+        vec![
+            "溶液: 溶质溶解在溶剂中形成的均一混合物",
+            "溶解度: 一定温度下溶质在溶剂中最大溶解量",
+            "饱和溶液: 溶解度达到最大值的溶液",
+            "不饱和溶液: 溶解度未达最大值的溶液",
+            "结晶: 溶质从溶液中析出形成晶体",
+            "重结晶: 通过溶解结晶纯化物质",
+            "蒸馏: 利用沸点差异分离液体混合物",
+        ]
+    }
+
+    /// 气体化学规则
+    pub fn gas_rules(&self) -> Vec<&'static str> {
+        vec![
+            "理想气体: PV = nRT",
+            "道尔顿分压定律: 混合气体总压等于各组分分压之和",
+            "格拉罕姆扩散定律: 气体扩散速率与分子量平方根成反比",
+            "查理定律: 一定质量气体体积与温度成正比",
+            "波义耳定律: 一定质量气体压强与体积成反比",
+            "阿伏伽德罗定律: 同温同压下同体积气体分子数相同",
+            "临界温度: 气体可液化的最高温度",
+        ]
+    }
+
+    /// 电化学规则
+    pub fn electrochemistry_rules(&self) -> Vec<&'static str> {
+        vec![
+            "原电池: 化学能转变为电能的装置",
+            "电解池: 电能转变为化学能的装置",
+            "阳极: 发生氧化反应的电极",
+            "阴极: 发生还原反应的电极",
+            "电解质: 在水溶液或熔融状态下能导电的化合物",
+            "法拉第电解定律: 电解产物质量与电量成正比",
+            "电镀: 利用电解在金属表面镀上其他金属",
+        ]
+    }
+
+    /// 热化学规则
+    pub fn thermochemistry_rules(&self) -> Vec<&'static str> {
+        vec![
+            "焓变: 化学反应吸收或放出的热量",
+            "放热反应: 反应放出热量 ΔH < 0",
+            "吸热反应: 反应吸收热量 ΔH > 0",
+            "盖斯定律: 化学反应热效应只与始末状态有关",
+            "燃烧热: 1mol可燃物完全燃烧放出的热量",
+            "中和热: 强酸强碱稀溶液反应放热",
+            "键能: 化学键断裂吸收的能量",
+        ]
+    }
+
     /// 常见化学定律
     pub fn chemical_laws(&self) -> Vec<&'static str> {
         vec![
@@ -133,6 +185,33 @@ impl ChemistryRules {
             "阿伏伽德罗定律: 同温同压同体积气体分子数相同",
         ]
     }
+
+    /// 化学键
+    pub fn chemical_bonding(&self) -> Vec<&'static str> {
+        vec![
+            "离子键: 正负离子之间的静电引力",
+            "共价键: 原子间共用电子对形成的化学键",
+            "金属键: 金属阳离子与自由电子之间的相互作用",
+            "氢键: 电负性原子与已键合氢之间的弱相互作用",
+            "范德华力: 分子间普遍存在的弱相互作用",
+            "杂化轨道: 原子轨道混合形成新的等价轨道",
+            "分子轨道理论: 原子轨道线性组合形成分子轨道",
+        ]
+    }
+
+    /// 化学平衡
+    pub fn chemical_equilibrium(&self) -> Vec<&'static str> {
+        vec![
+            "勒夏特列原理: 平衡系统对外界改变产生抵消性移动",
+            "质量作用定律: 平衡常数K等于产物浓度幂之积除以反应物",
+            "范特霍夫方程: 温度对平衡常数的影响",
+            "溶度积: 难溶电解质饱和溶液中离子浓度幂之积",
+            "酸碱平衡: 酸碱质子理论和电离平衡",
+            "缓冲溶液: 能抵抗外加酸碱改变pH的溶液",
+            "电化学: 化学能与电能相互转化的规律",
+        ]
+    }
+
 }
 
 impl Default for ChemistryRules {
@@ -161,14 +240,22 @@ impl Rule for ChemistryRules {
             常见元素:\n{}\n\n\
             周期表规律:\n{}\n\n\
             化学反应类型:\n{}\n\n\
-            化学定律:\n{}\n",
+            化学定律:\n{}\n\n\
+            溶液化学规则:\n{}\n\n\
+            气体化学规则:\n{}\n\n\
+            电化学规则:\n{}\n\n\
+            热化学规则:\n{}\n",
             elements.iter()
                 .map(|e| format!("  • {}({}): {}号元素, {:.3}", e.symbol, e.name(), e.atomic_number, e.atomic_mass))
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.periodic_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
             self.reaction_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.chemical_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.chemical_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.solution_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.gas_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.electrochemistry_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.thermochemistry_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
         )
     }
 }

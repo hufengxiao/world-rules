@@ -100,6 +100,20 @@ impl MechanicalEngineeringLaws {
             "销",
         ]
     }
+
+    /// 振动分析
+    pub fn vibration_analysis(&self) -> Vec<&'static str> {
+        vec![
+            "自由振动: 系统在无外力作用下的振动",
+            "受迫振动: 系统在周期性外力作用下的振动",
+            "共振: 激励频率等于固有频率时振幅急剧增大",
+            "阻尼: 振动系统能量耗散的机制",
+            "模态分析: 确定结构的固有频率和振型",
+            "隔振: 减少振动从振源向结构的传递",
+            "临界转速: 旋转机械转子的固有频率对应的转速",
+        ]
+    }
+
 }
 
 impl Default for MechanicalEngineeringLaws {

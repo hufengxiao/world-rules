@@ -102,6 +102,39 @@ impl GeneticsLaws {
         ]
     }
 
+    /// 表观遗传定律
+    pub fn epigenetics_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("DNA甲基化定律", "基因沉默", "DNA甲基化抑制基因"),
+            ("组蛋白修饰定律", "染色质重塑", "组蛋白修饰影响表达"),
+            ("染色质重塑定律", "结构变化", "染色质结构变化"),
+            ("非编码RNA定律", "调控RNA", "非编码RNA调控基因"),
+            ("印记定律", "亲本印记", "基因印记表达"),
+        ]
+    }
+
+    /// 基因工程定律
+    pub fn genetic_engineering_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("重组DNA定律", "基因拼接", "DNA重组技术"),
+            ("基因克隆定律", "基因复制", "基因克隆扩增"),
+            ("转基因定律", "基因导入", "外源基因导入"),
+            ("基因编辑定律", "CRISPR", "基因编辑技术"),
+            ("基因治疗定律", "基因修复", "基因治疗疾病"),
+        ]
+    }
+
+    /// 发育遗传定律
+    pub fn developmental_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("Hox基因定律", "体节发育", "Hox基因控制体节"),
+            ("形态发生定律", "形态形成", "胚胎形态发生"),
+            ("细胞分化定律", "命运决定", "细胞命运决定"),
+            ("信号梯度定律", "浓度梯度", "信号分子浓度梯度"),
+            ("同源异形定律", "基因转换", "同源异形基因突变"),
+        ]
+    }
+
     /// 遗传技术
     pub fn techniques(&self) -> Vec<&'static str> {
         vec![
@@ -115,6 +148,32 @@ impl GeneticsLaws {
             "蛋白质组学",
         ]
     }
+
+    /// 孟德尔遗传
+    pub fn mendelian_genetics(&self) -> Vec<&'static str> {
+        vec![
+            "分离定律: 等位基因在形成配子时彼此分离",
+            "自由组合定律: 非等位基因自由组合",
+            "显隐性关系: 显性等位基因掩盖隐性等位基因的表达",
+            "不完全显性: 杂合子表现中间型性状",
+            "共显性: 两个等位基因同时表达",
+            "连锁遗传: 同一染色体上的基因倾向于一起遗传",
+        ]
+    }
+
+    /// 分子遗传学
+    pub fn molecular_genetics(&self) -> Vec<&'static str> {
+        vec![
+            "基因表达: DNA转录为RNA再翻译为蛋白质",
+            "基因突变: DNA序列的改变包括点突变和插入缺失",
+            "基因调控: 操纵子模型等基因表达调控机制",
+            "表观遗传: 不改变DNA序列的可遗传基因表达变化",
+            "RNA干扰: 小RNA分子沉默特定基因表达",
+            "基因组印记: 父源和母源等位基因差异表达",
+            "转座子: 基因组中可移动的DNA片段",
+        ]
+    }
+
 }
 
 impl Default for GeneticsLaws {
@@ -138,7 +197,7 @@ impl Rule for GeneticsLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【遗传学定律】\n\n孟德尔定律:\n{}\n\n染色体定律:\n{}\n\n分子遗传定律:\n{}\n",
+            "【遗传学定律】\n\n孟德尔定律:\n{}\n\n染色体定律:\n{}\n\n分子遗传定律:\n{}\n\n表观遗传定律:\n{}\n\n基因工程定律:\n{}\n\n发育遗传定律:\n{}\n",
             self.mendelian_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -148,6 +207,18 @@ impl Rule for GeneticsLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.molecular_genetics_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.epigenetics_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.genetic_engineering_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.developmental_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

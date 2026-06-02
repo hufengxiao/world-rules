@@ -98,6 +98,48 @@ impl PhilosophyLaws {
             "后现代主义",
         ]
     }
+
+    /// 美学定律
+    pub fn aesthetics_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("审美本质定律", "审美本质", "美的本质探求"),
+            ("审美经验定律", "经验结构", "审美经验分析"),
+            ("审美范畴定律", "优美崇高", "审美范畴体系"),
+            ("艺术哲学定律", "艺术本质", "艺术哲学思考"),
+            ("审美判断力定律", "判断力", "康德审美判断力批判"),
+            ("审美无功利定律", "无功利", "审美态度无功利性"),
+            ("审美趣味定律", "趣味标准", "审美趣味的普遍性"),
+            ("审美理念定律", "理念显现", "审美理念感性显现"),
+        ]
+    }
+
+    /// 政治哲学定律
+    pub fn political_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("社会契约定律", "契约论", "社会契约论基础"),
+            ("自然权利定律", "天赋人权", "自然权利理论"),
+            ("公共理性定律", "公共理性", "公共理性与正义"),
+            ("自由意志定律", "意志自由", "自由意志哲学基础"),
+            ("分配正义定律", "分配原则", "分配正义原则"),
+            ("程序正义定律", "程序公正", "程序正义理论"),
+            ("社群主义定律", "社群价值", "社群主义政治哲学"),
+            ("世界主义定律", "全球正义", "世界主义伦理观"),
+        ]
+    }
+
+    /// 科学哲学定律
+    pub fn philosophy_of_science_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("科学方法论定律", "方法论", "科学方法哲学反思"),
+            ("科学实在论定律", "实在论", "科学理论实在性"),
+            ("范式转换定律", "范式", "库恩科学革命结构"),
+            ("证伪主义定律", "可证伪", "波普尔证伪主义"),
+            ("科学划界定律", "划界标准", "科学与非科学划界"),
+            ("科学革命定律", "科学革命", "科学革命的结构"),
+            ("研究纲领定律", "研究纲领", "拉卡托斯研究纲领"),
+            ("科学社会建构定律", "社会建构", "科学知识社会建构"),
+        ]
+    }
 }
 
 impl Default for PhilosophyLaws {
@@ -121,7 +163,7 @@ impl Rule for PhilosophyLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【哲学定律】\n\n本体论定律:\n{}\n\n认识论定律:\n{}\n\n逻辑定律:\n{}\n",
+            "【哲学定律】\n\n本体论定律:\n{}\n\n认识论定律:\n{}\n\n逻辑定律:\n{}\n\n美学定律:\n{}\n\n政治哲学定律:\n{}\n\n科学哲学定律:\n{}\n",
             self.ontology_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -131,6 +173,18 @@ impl Rule for PhilosophyLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.logic_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.aesthetics_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.political_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.philosophy_of_science_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

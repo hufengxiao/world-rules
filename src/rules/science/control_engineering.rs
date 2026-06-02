@@ -99,6 +99,73 @@ impl ControlEngineeringLaws {
             "多变量系统",
         ]
     }
+
+    /// 数字控制定律
+    pub fn digital_control_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("采样定律", "香农采样", "采样频率大于信号最高频率两倍"),
+            ("Z变换定律", "离散域", "离散系统Z变换分析"),
+            ("数字PID定律", "数字PID", "数字PID控制算法"),
+            ("量化误差定律", "量化精度", "数字量化引入误差"),
+            ("数字滤波定律", "数字滤波", "数字滤波器设计规律"),
+            ("离散状态空间定律", "离散状态", "离散状态空间模型"),
+            ("数字重构定律", "信号重构", "数字信号重构恢复"),
+            ("多采样定律", "多速率", "多采样率控制系统"),
+        ]
+    }
+
+    /// 非线性控制定律
+    pub fn nonlinear_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("描述函数定律", "谐波线性化", "非线性环节描述函数分析"),
+            ("相平面定律", "相轨迹", "二阶非线性系统相平面"),
+            ("李雅普诺夫定律", "稳定性", "非线性系统李雅普诺夫方法"),
+            ("输入输出稳定性定律", "小增益", "非线性系统输入输出稳定性"),
+            ("反馈线性化定律", "精确线性化", "非线性系统反馈线性化"),
+            ("反步控制定律", "反步法", "非线性系统反步设计"),
+            ("自适应非线性定律", "自适应", "非线性系统自适应控制"),
+            ("无源性定律", "无源系统", "非线性系统无源性分析"),
+        ]
+    }
+
+    /// 智能控制定律
+    pub fn intelligent_control_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("专家控制定律", "知识库", "基于专家知识的控制"),
+            ("遗传算法控制定律", "进化优化", "遗传算法优化控制参数"),
+            ("粒子群控制定律", "群智能", "粒子群优化控制策略"),
+            ("深度强化学习定律", "深度RL", "深度强化学习控制策略"),
+            ("知识推理定律", "推理控制", "基于知识推理的控制"),
+            ("人机交互控制定律", "人机协同", "人机交互智能控制"),
+            ("自主控制定律", "自主决策", "无人系统自主控制"),
+            ("多智能体控制定律", "协调控制", "多智能体协调控制"),
+        ]
+    }
+
+    /// 反馈控制
+    pub fn feedback_control(&self) -> Vec<&'static str> {
+        vec![
+            "PID控制: 比例积分微分三种控制作用的组合",
+            "根轨迹法: 分析闭环极点随增益变化的轨迹",
+            "频率响应: 系统对正弦输入的稳态响应",
+            "伯德图: 用对数坐标绘制频率响应的幅值和相位",
+            "奈奎斯特判据: 通过开环频率响应判断闭环稳定性",
+            "相位裕度: 系统距离不稳定还有多大的裕量",
+        ]
+    }
+
+    /// 现代控制理论
+    pub fn modern_control(&self) -> Vec<&'static str> {
+        vec![
+            "状态空间法: 用一阶微分方程组描述系统",
+            "能控性: 系统能否通过输入从任意状态到达任意状态",
+            "能观性: 能否通过输出观测推断系统内部状态",
+            "极点配置: 通过状态反馈将闭环极点移到期望位置",
+            "观测器设计: 根据输入输出估计系统内部状态",
+            "最优控制: 使某性能指标最优的控制策略",
+        ]
+    }
+
 }
 
 impl Default for ControlEngineeringLaws {
@@ -122,7 +189,7 @@ impl Rule for ControlEngineeringLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【控制工程定律】\n\n理论定律:\n{}\n\n方法定律:\n{}\n\n分析定律:\n{}\n",
+            "【控制工程定律】\n\n理论定律:\n{}\n\n方法定律:\n{}\n\n分析定律:\n{}\n\n数字控制定律:\n{}\n\n非线性控制定律:\n{}\n\n智能控制定律:\n{}\n",
             self.theory_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -132,6 +199,18 @@ impl Rule for ControlEngineeringLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.analysis_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.digital_control_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.nonlinear_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.intelligent_control_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

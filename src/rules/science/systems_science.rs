@@ -99,6 +99,73 @@ impl SystemsScienceLaws {
             "系统仿真",
         ]
     }
+
+    /// 信息论定律
+    pub fn information_theory_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("信息熵定律", "H = -Σp·log(p)", "信息熵度量信息量"),
+            ("信道容量定律", "C = B·log(1+S/N)", "香农信道容量公式"),
+            ("编码定理", "信源编码", "无损压缩编码极限"),
+            ("率失真定律", "率失真函数", "有损压缩理论极限"),
+            ("互信息定律", "I(X;Y)", "变量间互信息度量"),
+            ("数据处理不等式", "信息不增", "数据处理不会增加信息"),
+            ("最大熵定律", "最大熵原理", "无约束下最大熵分布"),
+            ("最小描述长度定律", "MDL", "模型选择最短描述"),
+        ]
+    }
+
+    /// 控制论定律
+    pub fn cybernetics_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("必要多样性定律", "Ashby定律", "控制器多样性需匹配被控对象"),
+            ("反馈控制定律", "负反馈", "负反馈维持系统稳定"),
+            ("正反馈定律", "正反馈", "正反馈导致系统失控"),
+            ("黑箱定律", "黑箱方法", "通过输入输出理解系统"),
+            ("循环因果定律", "因果环", "系统中因果循环关系"),
+            ("自适应定律", "自适应", "系统自适应调节机制"),
+            ("学习系统定律", "学习能力", "系统通过反馈学习改进"),
+            ("目的论定律", "目的导向", "系统目的导向行为"),
+        ]
+    }
+
+    /// 协同学定律
+    pub fn synergetics_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("序参量定律", "序参量", "序参量支配系统行为"),
+            ("伺服原理定律", "快变量消除", "快变量受慢变量支配"),
+            ("协同效应定律", "协同作用", "子系统协同产生宏观有序"),
+            ("对称破缺定律", "对称破缺", "相变中对称性降低"),
+            ("临界涨落定律", "临界涨落", "临界点附近涨落放大"),
+            ("自组织临界定律", "SOC", "系统自发演化到临界态"),
+            ("模式形成定律", "空间模式", "耗散结构空间模式形成"),
+            ("竞争协作定律", "竞争协作", "子系统竞争与协作并存"),
+        ]
+    }
+
+    /// 系统思维
+    pub fn systems_thinking(&self) -> Vec<&'static str> {
+        vec![
+            "整体涌现: 整体具有部分所没有的性质",
+            "反馈环路: 正反馈增强变化负反馈维持稳定",
+            "非线性: 输出与输入不成比例的系统行为",
+            "自组织: 系统在没有外部指令下自发形成有序结构",
+            "耗散结构: 开放系统远离平衡态时形成的有序结构",
+            "协同学: 不同子系统协同作用产生宏观有序",
+        ]
+    }
+
+    /// 复杂系统
+    pub fn complex_systems(&self) -> Vec<&'static str> {
+        vec![
+            "复杂适应系统: 由适应性主体相互作用形成的系统",
+            "涌现行为: 系统整体表现出的微观层面没有的行为",
+            "幂律分布: 许多复杂系统中事件规模服从幂律",
+            "小世界网络: 高聚集系数和短平均路径长度的网络",
+            "无标度网络: 节点度分布服从幂律的网络",
+            "鲁棒性与脆弱性: 复杂系统对随机故障鲁棒对蓄意攻击脆弱",
+        ]
+    }
+
 }
 
 impl Default for SystemsScienceLaws {
@@ -122,7 +189,7 @@ impl Rule for SystemsScienceLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【系统科学定律】\n\n理论定律:\n{}\n\n分析方法:\n{}\n\n优化定律:\n{}\n",
+            "【系统科学定律】\n\n理论定律:\n{}\n\n分析方法:\n{}\n\n优化定律:\n{}\n\n信息论定律:\n{}\n\n控制论定律:\n{}\n\n协同学定律:\n{}\n",
             self.theory_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -132,6 +199,18 @@ impl Rule for SystemsScienceLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.optimization_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.information_theory_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cybernetics_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.synergetics_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

@@ -99,6 +99,20 @@ impl ElectricalEngineeringLaws {
             "电感",
         ]
     }
+
+    /// 电力系统
+    pub fn power_systems(&self) -> Vec<&'static str> {
+        vec![
+            "三相交流电: 三个相位差120度的交流电源",
+            "变压器原理: 电磁感应改变交流电压",
+            "输电损耗: 电流通过导线产生热损耗P=I²R",
+            "功率因数: 有功功率与视在功率之比",
+            "电网稳定性: 电力系统维持同步运行的能力",
+            "谐波: 非线性负载产生的频率为基频整数倍的分量",
+            "继电保护: 检测故障并自动隔离的保护系统",
+        ]
+    }
+
 }
 
 impl Default for ElectricalEngineeringLaws {

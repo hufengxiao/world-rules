@@ -95,6 +95,39 @@ impl OrganicChemistryLaws {
         ]
     }
 
+    /// 有机合成定律
+    pub fn synthesis_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("逆合成定律", "目标分子", "从目标分子反推合成路线"),
+            ("官能团转化定律", "基团变换", "官能团相互转化"),
+            ("保护基定律", "基团保护", "保护敏感官能团"),
+            ("选择性定律", "反应选择", "化学区域立体选择性"),
+            ("催化合成定律", "催化反应", "催化剂促进合成"),
+        ]
+    }
+
+    /// 天然产物定律
+    pub fn natural_product_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("萜类定律", "异戊二烯", "萜类化合物结构"),
+            ("生物碱定律", "含氮化合物", "生物碱结构活性"),
+            ("黄酮定律", "酚类化合物", "黄酮类化合物"),
+            ("甾体定律", "四环骨架", "甾体化合物结构"),
+            ("多糖定律", "糖类聚合", "多糖结构功能"),
+        ]
+    }
+
+    /// 有机分析定律
+    pub fn analysis_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("红外光谱定律", "官能团识别", "IR光谱鉴定官能团"),
+            ("核磁共振定律", "结构解析", "NMR确定分子结构"),
+            ("质谱定律", "分子量测定", "MS测定分子量"),
+            ("紫外光谱定律", "共轭体系", "UV光谱鉴定共轭"),
+            ("色谱定律", "分离分析", "色谱分离分析化合物"),
+        ]
+    }
+
     /// 有机化合物类型
     pub fn compound_types(&self) -> Vec<&'static str> {
         vec![
@@ -110,6 +143,32 @@ impl OrganicChemistryLaws {
             "激素",
         ]
     }
+
+    /// 立体化学
+    pub fn stereochemistry(&self) -> Vec<&'static str> {
+        vec![
+            "手性碳: 连有四个不同基团的碳原子",
+            "对映异构体: 互为镜像不能重叠的异构体",
+            "外消旋体: 等量对映体的混合物无旋光性",
+            "构象分析: 单键旋转产生的不同空间排列",
+            "顺反异构: 双键或环不能自由旋转产生的异构",
+            "光学活性: 手性物质使偏振光旋转的性质",
+        ]
+    }
+
+    /// 反应机理
+    pub fn reaction_mechanisms(&self) -> Vec<&'static str> {
+        vec![
+            "亲核取代: SN1和SN2两种机理",
+            "消除反应: E1和E2两种机理",
+            "亲电加成: 亲电试剂对不饱和键的加成",
+            "亲核加成: 亲核试剂对羰基的加成",
+            "自由基链反应: 引发增长和终止三步",
+            "重排反应: 分子内原子或基团的迁移",
+            "周环反应: 协同的环状过渡态反应",
+        ]
+    }
+
 }
 
 impl Default for OrganicChemistryLaws {
@@ -133,7 +192,7 @@ impl Rule for OrganicChemistryLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【有机化学定律】\n\n反应定律:\n{}\n\n机理定律:\n{}\n\n立体化学定律:\n{}\n",
+            "【有机化学定律】\n\n反应定律:\n{}\n\n机理定律:\n{}\n\n立体化学定律:\n{}\n\n有机合成定律:\n{}\n\n天然产物定律:\n{}\n\n有机分析定律:\n{}\n",
             self.reaction_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -143,6 +202,18 @@ impl Rule for OrganicChemistryLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.stereochemistry_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.synthesis_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.natural_product_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.analysis_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

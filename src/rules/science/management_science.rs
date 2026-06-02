@@ -98,6 +98,48 @@ impl ManagementScienceLaws {
             "知识管理",
         ]
     }
+
+    /// 领导力定律
+    pub fn leadership_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("领导特质定律", "特质理论", "领导者特质与效能"),
+            ("领导行为定律", "行为模式", "领导行为风格理论"),
+            ("情境领导定律", "情境适应", "领导风格因情境而异"),
+            ("变革型领导定律", "愿景激励", "变革型领导激发追随者"),
+            ("服务型领导定律", "服务导向", "领导者以服务为先"),
+            ("魅力型领导定律", "个人魅力", "领导魅力影响追随"),
+            ("共享领导定律", "分布式领导", "领导职能团队共享"),
+            ("真诚领导定律", "真实自我", "真诚领导建立信任"),
+        ]
+    }
+
+    /// 创新管理定律
+    pub fn innovation_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("创新扩散定律", "采纳曲线", "创新在组织中扩散"),
+            ("破坏性创新定律", "颠覆性技术", "破坏性创新颠覆市场"),
+            ("渐进创新定律", "持续改进", "渐进式创新积累优势"),
+            ("开放式创新定律", "外部合作", "开放式创新利用外部资源"),
+            ("创新文化定律", "容错文化", "创新需要容错文化"),
+            ("研发管理定律", "研发投入", "研发管理与创新产出"),
+            ("创新生态定律", "生态系统", "创新生态系统协同"),
+            ("创新扩散S曲线定律", "S曲线", "创新采纳呈S型曲线"),
+        ]
+    }
+
+    /// 人力资源管理定律
+    pub fn hr_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("人才选拔定律", "人岗匹配", "人才选拔与岗位匹配"),
+            ("培训开发定律", "能力提升", "培训提升员工能力"),
+            ("绩效考核定律", "绩效评估", "绩效考核激励机制"),
+            ("薪酬定律", "薪酬设计", "薪酬体系设计原则"),
+            ("员工满意度定律", "满意度", "员工满意度影响绩效"),
+            ("组织承诺定律", "忠诚度", "员工组织承诺与留任"),
+            ("工作生活平衡定律", "平衡需求", "工作与生活平衡"),
+            ("人才流失定律", "离职倾向", "人才流失预警与干预"),
+        ]
+    }
 }
 
 impl Default for ManagementScienceLaws {
@@ -121,7 +163,7 @@ impl Rule for ManagementScienceLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【管理科学定律】\n\n理论定律:\n{}\n\n组织定律:\n{}\n\n战略定律:\n{}\n",
+            "【管理科学定律】\n\n理论定律:\n{}\n\n组织定律:\n{}\n\n战略定律:\n{}\n\n领导力定律:\n{}\n\n创新管理定律:\n{}\n\n人力资源定律:\n{}\n",
             self.theory_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -131,6 +173,18 @@ impl Rule for ManagementScienceLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.strategy_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.leadership_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.innovation_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.hr_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

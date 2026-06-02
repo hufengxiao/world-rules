@@ -86,6 +86,39 @@ impl FluidMechanicsLaws {
         ]
     }
 
+    /// 流体传热定律
+    pub fn heat_transfer_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("对流定律", "热量传递", "流体对流传热"),
+            ("牛顿冷却定律", "温差传热", "物体冷却速率与温差成正比"),
+            ("热传导定律", "傅里叶定律", "热量传导规律"),
+            ("辐射传热定律", "电磁波", "热辐射传热"),
+            ("努塞尔定律", "对流换热", "对流换热系数关系"),
+        ]
+    }
+
+    /// 多相流定律
+    pub fn multiphase_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("气液两相流定律", "相间作用", "气液两相流动规律"),
+            ("液固两相流定律", "悬浮流动", "液固两相流动"),
+            ("气固两相流定律", "气力输送", "气固两相流动"),
+            ("沸腾定律", "相变传热", "液体沸腾传热"),
+            ("凝结定律", "相变传热", "蒸汽凝结传热"),
+        ]
+    }
+
+    /// 非牛顿流体定律
+    pub fn non_newtonian_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("幂律流体定律", "剪切变稀变稠", "幂律流体行为"),
+            ("宾汉流体定律", "屈服应力", "宾汉流体屈服后流动"),
+            ("粘弹性流体定律", "弹性恢复", "粘弹性流体行为"),
+            ("触变性定律", "时间依赖", "流体粘度随时间变化"),
+            ("震凝性定律", "搅拌增稠", "搅拌后粘度增加"),
+        ]
+    }
+
     /// 流体现象
     pub fn phenomena(&self) -> Vec<&'static str> {
         vec![
@@ -100,6 +133,32 @@ impl FluidMechanicsLaws {
             "旋涡脱落",
         ]
     }
+
+    /// 流体静力学
+    pub fn fluid_statics(&self) -> Vec<&'static str> {
+        vec![
+            "流体静压强: 静止流体中某点的压强各向相等",
+            "帕斯卡原理: 施加于封闭流体的压强等值传递各处",
+            "阿基米德原理: 浮力等于排开流体的重量",
+            "压强分布: 静止流体中压强随深度线性增加",
+            "等压面: 静止流体中压强相等的点组成的面",
+            "表面张力: 液体表面层分子间的内聚力效应",
+        ]
+    }
+
+    /// 流体动力学
+    pub fn fluid_dynamics(&self) -> Vec<&'static str> {
+        vec![
+            "流线: 某一时刻流场中与速度矢量相切的曲线",
+            "流量: 单位时间内通过某截面的流体体积",
+            "伯努利方程: P+½ρv²+ρgh=常数",
+            "雷诺数: Re=ρvL/μ判断层流与湍流",
+            "边界层: 壁面附近速度从零增至主流速度的薄层",
+            "涡量: 流体微团旋转角速度的两倍",
+            "空化: 流体局部压强低于饱和蒸汽压形成气泡",
+        ]
+    }
+
 }
 
 impl Default for FluidMechanicsLaws {
@@ -123,7 +182,7 @@ impl Rule for FluidMechanicsLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【流体力学定律】\n\n静力学定律:\n{}\n\n动力学定律:\n{}\n\n空气动力学定律:\n{}\n",
+            "【流体力学定律】\n\n静力学定律:\n{}\n\n动力学定律:\n{}\n\n空气动力学定律:\n{}\n\n流体传热定律:\n{}\n\n多相流定律:\n{}\n\n非牛顿流体定律:\n{}\n",
             self.hydrostatic_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -133,6 +192,18 @@ impl Rule for FluidMechanicsLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.aerodynamic_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.heat_transfer_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.multiphase_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.non_newtonian_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

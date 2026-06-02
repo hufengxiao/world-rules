@@ -105,6 +105,39 @@ impl InorganicChemistryLaws {
         ]
     }
 
+    /// 酸碱化学定律
+    pub fn acid_base_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("布朗斯特酸碱定律", "质子转移", "酸碱质子理论"),
+            ("路易斯酸碱定律", "电子对", "酸碱电子理论"),
+            ("pH定律", "氢离子浓度", "pH衡量酸碱度"),
+            ("缓冲溶液定律", "pH稳定", "缓冲溶液抵抗pH变化"),
+            ("电离平衡定律", "弱电解质", "弱酸弱碱电离平衡"),
+        ]
+    }
+
+    /// 金属有机化学定律
+    pub fn organometallic_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("有机金属定律", "金属碳键", "金属有机化合物"),
+            ("催化循环定律", "催化机理", "金属催化循环机理"),
+            ("氧化加成定律", "金属活化", "金属氧化加成反应"),
+            ("还原消除定律", "产物形成", "金属还原消除反应"),
+            ("插入反应定律", "配体插入", "配体插入金属配位键"),
+        ]
+    }
+
+    /// 固态化学定律
+    pub fn solid_state_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("能带定律", "电子能带", "固体电子能带结构"),
+            ("半导体定律", "导电性", "半导体导电机理"),
+            ("超导定律", "零电阻", "超导体零电阻现象"),
+            ("磁性定律", "磁有序", "固体磁性有序"),
+            ("铁电定律", "自发极化", "铁电体自发极化"),
+        ]
+    }
+
     /// 元素分类
     pub fn element_categories(&self) -> Vec<&'static str> {
         vec![
@@ -118,6 +151,32 @@ impl InorganicChemistryLaws {
             "卤素",
         ]
     }
+
+    /// 配位化学
+    pub fn coordination_chemistry(&self) -> Vec<&'static str> {
+        vec![
+            "配位键: 由配体提供孤对电子与中心金属形成",
+            "晶体场理论: 配体场导致中心金属d轨道分裂",
+            "配位数: 中心金属周围配位原子的数目",
+            "螯合效应: 多齿配体形成的配合物更稳定",
+            "光谱化学序列: 配体按分裂能大小排列",
+            "反位效应: 配体对其反位配体取代速率的影响",
+        ]
+    }
+
+    /// 固体化学
+    pub fn solid_state_chemistry(&self) -> Vec<&'static str> {
+        vec![
+            "晶体结构: 离子晶体分子晶体和原子晶体",
+            "晶格能: 将一摩尔离子晶体完全分离为气态离子的能量",
+            "能带理论: 原子轨道组合形成能带解释导电性",
+            "半导体: 导电性介于导体和绝缘体之间的材料",
+            "超导体: 低于临界温度时电阻完全消失的材料",
+            "纳米材料: 至少一个维度在纳米尺度的材料",
+            "液晶: 介于固体和液体之间的有序流体",
+        ]
+    }
+
 }
 
 impl Default for InorganicChemistryLaws {
@@ -141,7 +200,7 @@ impl Rule for InorganicChemistryLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【无机化学定律】\n\n周期定律:\n{}\n\n化学键定律:\n{}\n\n配位定律:\n{}\n",
+            "【无机化学定律】\n\n周期定律:\n{}\n\n化学键定律:\n{}\n\n配位定律:\n{}\n\n酸碱化学定律:\n{}\n\n金属有机化学定律:\n{}\n\n固态化学定律:\n{}\n",
             self.periodic_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -151,6 +210,18 @@ impl Rule for InorganicChemistryLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.coordination_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.acid_base_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.organometallic_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.solid_state_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

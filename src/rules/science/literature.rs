@@ -98,6 +98,48 @@ impl LiteratureLaws {
             "新批评理论",
         ]
     }
+
+    /// 叙事学定律
+    pub fn narratology_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("叙事视角定律", "视角选择", "叙事视角选择规律"),
+            ("叙事时间定律", "时间处理", "叙事时间变形规律"),
+            ("叙事声音定律", "叙述者", "叙事声音与可靠性"),
+            ("叙事聚焦定律", "聚焦方式", "叙事聚焦控制"),
+            ("叙事距离定律", "距离调节", "叙事距离与反讽"),
+            ("隐含作者定律", "隐含作者", "隐含作者与叙述者区分"),
+            ("叙事悬念定律", "悬念构建", "悬念构建与释放"),
+            ("叙事空白定律", "留白艺术", "叙事省略与空白"),
+        ]
+    }
+
+    /// 文学社会学定律
+    pub fn literary_sociology_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("文学场定律", "文学场域", "布尔迪厄文学场理论"),
+            ("文学资本定律", "文化资本", "文学资本积累与转化"),
+            ("文学生产定律", "生产机制", "文学生产社会条件"),
+            ("文学消费定律", "阅读消费", "文学消费社会学"),
+            ("文学制度定律", "制度框架", "文学制度与规范"),
+            ("文学审查定律", "审查机制", "文学审查与自我审查"),
+            ("文学赞助定律", "赞助机制", "文学赞助制度影响"),
+            ("文学生态定律", "生态平衡", "文学生态系统平衡"),
+        ]
+    }
+
+    /// 比较文学定律
+    pub fn comparative_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("影响研究定律", "影响关系", "文学跨国影响研究"),
+            ("平行研究定律", "平行比较", "无直接影响的平行比较"),
+            ("翻译文学定律", "翻译转换", "文学翻译转换规律"),
+            ("世界文学定律", "全球流通", "文学作品世界性流通"),
+            ("跨文化定律", "文化对话", "跨文化文学对话"),
+            ("主题学定律", "主题流变", "文学主题跨国流变"),
+            ("文类学定律", "体裁比较", "文学体裁跨国比较"),
+            ("形象学定律", "异国形象", "文学中的异国形象"),
+        ]
+    }
 }
 
 impl Default for LiteratureLaws {
@@ -121,7 +163,7 @@ impl Rule for LiteratureLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【文学定律】\n\n创作定律:\n{}\n\n形式定律:\n{}\n\n接受定律:\n{}\n",
+            "【文学定律】\n\n创作定律:\n{}\n\n形式定律:\n{}\n\n接受定律:\n{}\n\n叙事学定律:\n{}\n\n文学社会学定律:\n{}\n\n比较文学定律:\n{}\n",
             self.creation_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -131,6 +173,18 @@ impl Rule for LiteratureLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.reception_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.narratology_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.literary_sociology_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.comparative_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

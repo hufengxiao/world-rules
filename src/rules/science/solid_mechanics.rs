@@ -95,6 +95,39 @@ impl SolidMechanicsLaws {
         ]
     }
 
+    /// 复合材料力学定律
+    pub fn composite_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("层合板定律", "层叠结构", "层合板力学行为"),
+            ("纤维增强定律", "纤维承载", "纤维增强复合材料"),
+            ("等效刚度定律", "等效参数", "复合材料等效刚度"),
+            ("界面定律", "界面结合", "纤维基体界面性能"),
+            ("损伤累积定律", "渐进损伤", "复合材料损伤累积"),
+        ]
+    }
+
+    /// 结构稳定性定律
+    pub fn stability_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("欧拉压杆定律", "F = π²EI/L²", "细长压杆临界载荷"),
+            ("屈曲定律", "结构失稳", "结构屈曲失稳现象"),
+            ("后屈曲定律", "后屈曲行为", "屈曲后结构行为"),
+            ("跳跃定律", "突变失稳", "结构跳跃失稳"),
+            ("蠕变屈曲定律", "时间相关", "蠕变导致屈曲"),
+        ]
+    }
+
+    /// 接触力学定律
+    pub fn contact_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("赫兹接触定律", "接触应力", "弹性体接触应力分布"),
+            ("摩擦接触定律", "摩擦力", "接触面摩擦力"),
+            ("磨损定律", "表面磨损", "接触面磨损规律"),
+            ("润滑定律", "减少摩擦", "润滑减少摩擦磨损"),
+            ("粘着定律", "粘着磨损", "粘着磨损机制"),
+        ]
+    }
+
     /// 应变状态
     pub fn strain_states(&self) -> Vec<&'static str> {
         vec![
@@ -108,6 +141,32 @@ impl SolidMechanicsLaws {
             "弹性应变",
         ]
     }
+
+    /// 应力应变
+    pub fn stress_strain(&self) -> Vec<&'static str> {
+        vec![
+            "胡克定律: 在弹性范围内应力与应变成正比",
+            "弹性模量: 材料抵抗弹性变形能力的度量",
+            "泊松比: 横向应变与轴向应变之比",
+            "剪切模量: 材料抵抗剪切变形的能力",
+            "体积模量: 材料抵抗均匀压缩的能力",
+            "屈服准则: 判断材料是否开始塑性变形的条件",
+        ]
+    }
+
+    /// 强度理论
+    pub fn failure_theory(&self) -> Vec<&'static str> {
+        vec![
+            "最大拉应力理论: 第一强度理论",
+            "最大拉应变理论: 第二强度理论",
+            "最大剪应力理论: 第三强度理论Tresca准则",
+            "形状改变比能理论: 第四强度理论von Mises准则",
+            "断裂力学: 含裂纹构件的强度和寿命评估",
+            "疲劳: 材料在循环载荷下的渐进损伤和破坏",
+            "蠕变: 材件在恒定应力下随时间缓慢变形",
+        ]
+    }
+
 }
 
 impl Default for SolidMechanicsLaws {
@@ -131,7 +190,7 @@ impl Rule for SolidMechanicsLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【固体力学定律】\n\n弹性定律:\n{}\n\n塑性定律:\n{}\n\n断裂定律:\n{}\n",
+            "【固体力学定律】\n\n弹性定律:\n{}\n\n塑性定律:\n{}\n\n断裂定律:\n{}\n\n复合材料定律:\n{}\n\n结构稳定性定律:\n{}\n\n接触力学定律:\n{}\n",
             self.elasticity_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -141,6 +200,18 @@ impl Rule for SolidMechanicsLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.fracture_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.composite_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.stability_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.contact_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

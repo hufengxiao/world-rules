@@ -71,6 +71,39 @@ impl NuclearPhysicsLaws {
         ]
     }
 
+    /// 核辐射定律
+    pub fn radiation_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("辐射剂量定律", "剂量度量", "辐射剂量衡量标准"),
+            ("辐射防护三定律", "时间距离屏蔽", "减少辐射暴露三原则"),
+            ("辐射生物效应定律", "损伤机制", "辐射对生物体影响"),
+            ("放射性示踪定律", "示踪技术", "放射性同位素示踪"),
+            ("辐射探测定律", "探测方法", "辐射探测器工作原理"),
+        ]
+    }
+
+    /// 等离子体定律
+    pub fn plasma_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("等离子体定律", "第四态", "物质第四态等离子体"),
+            ("德拜长度定律", "屏蔽距离", "等离子体屏蔽效应"),
+            ("磁约束定律", "磁场约束", "磁场约束等离子体"),
+            ("惯性约束定律", "激光压缩", "惯性约束聚变"),
+            ("等离子体振荡定律", "集体行为", "等离子体集体振荡"),
+        ]
+    }
+
+    /// 粒子物理定律
+    pub fn particle_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("标准模型定律", "基本粒子", "粒子物理标准模型"),
+            ("夸克定律", "夸克组成", "质子中子由夸克组成"),
+            ("轻子定律", "基本轻子", "电子中微子等轻子"),
+            ("基本相互作用定律", "四种力", "四种基本相互作用"),
+            ("守恒定律", "守恒量", "能量动量电荷守恒"),
+        ]
+    }
+
     /// 核物理应用
     pub fn applications(&self) -> Vec<&'static str> {
         vec![
@@ -97,6 +130,31 @@ impl NuclearPhysicsLaws {
             ("核力强度", 1.0e2, "相对电磁力"),
         ]
     }
+
+    /// 放射性衰变
+    pub fn radioactive_decay(&self) -> Vec<&'static str> {
+        vec![
+            "α衰变: 原子核释放α粒子(⁴He核)",
+            "β衰变: 中子转变为质子释放电子和反中微子",
+            "γ衰变: 原子核从激发态跃迁释放高能光子",
+            "半衰期: 放射性核素数量减少一半所需时间",
+            "衰变链: 不稳定核素经多次衰变最终达到稳定",
+            "放射性活度: 单位时间内发生衰变的核数A=λN",
+        ]
+    }
+
+    /// 核反应
+    pub fn nuclear_reactions(&self) -> Vec<&'static str> {
+        vec![
+            "核裂变: 重核分裂为两个中等质量核释放能量",
+            "核聚变: 轻核结合为较重核释放能量",
+            "链式反应: 裂变产生的中子引发更多裂变",
+            "临界质量: 维持链式反应所需的最小裂变材料质量",
+            "核结合能: 将原子核完全分离为单个核子所需能量",
+            "质量亏损: 原子核质量小于组成核子质量之和",
+        ]
+    }
+
 }
 
 impl Default for NuclearPhysicsLaws {
@@ -120,7 +178,7 @@ impl Rule for NuclearPhysicsLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【核物理定律】\n\n衰变定律:\n{}\n\n核反应定律:\n{}\n\n核结构定律:\n{}\n",
+            "【核物理定律】\n\n衰变定律:\n{}\n\n核反应定律:\n{}\n\n核结构定律:\n{}\n\n核辐射定律:\n{}\n\n等离子体定律:\n{}\n\n粒子物理定律:\n{}\n",
             self.decay_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -130,6 +188,18 @@ impl Rule for NuclearPhysicsLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.structure_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.radiation_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.plasma_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.particle_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

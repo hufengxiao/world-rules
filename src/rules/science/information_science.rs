@@ -86,6 +86,40 @@ impl InformationScienceLaws {
         ]
     }
 
+    /// 人工智能定律
+    pub fn ai_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("机器学习定律", "模式识别", "从数据中学习规律"),
+            ("神经网络定律", "连接模型", "模拟神经元连接"),
+            ("深度学习定律", "层次特征", "多层网络提取特征"),
+            ("强化学习定律", "奖励反馈", "通过试错学习策略"),
+            ("自然语言定律", "语义理解", "理解人类语言"),
+            ("计算机视觉定律", "图像识别", "理解图像内容"),
+        ]
+    }
+
+    /// 网络科学定律
+    pub fn network_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("小世界定律", "六度分隔", "网络中任意两人距离短"),
+            ("无标度定律", "幂律分布", "网络节点度数幂律分布"),
+            ("网络中心性定律", "节点重要", "衡量节点重要性"),
+            ("社区检测定律", "群组发现", "发现网络社区结构"),
+            ("网络传播定律", "信息扩散", "信息在网络中传播"),
+        ]
+    }
+
+    /// 密码学定律
+    pub fn cryptography_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("对称加密定律", "密钥相同", "加密解密用同一密钥"),
+            ("非对称加密定律", "公钥私钥", "加密解密用不同密钥"),
+            ("哈希定律", "单向函数", "不可逆的信息摘要"),
+            ("数字签名定律", "身份认证", "数字签名验证身份"),
+            ("密钥交换定律", "安全协商", "安全协商共享密钥"),
+        ]
+    }
+
     /// 信息技术
     pub fn technologies(&self) -> Vec<&'static str> {
         vec![
@@ -122,7 +156,7 @@ impl Rule for InformationScienceLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【信息科学定律】\n\n理论定律:\n{}\n\n编码定律:\n{}\n\n处理定律:\n{}\n",
+            "【信息科学定律】\n\n理论定律:\n{}\n\n编码定律:\n{}\n\n处理定律:\n{}\n\n人工智能定律:\n{}\n\n网络科学定律:\n{}\n\n密码学定律:\n{}\n",
             self.theory_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -132,6 +166,18 @@ impl Rule for InformationScienceLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.processing_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.ai_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.network_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cryptography_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

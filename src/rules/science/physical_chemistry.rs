@@ -96,6 +96,20 @@ impl PhysicalChemistryLaws {
             "结构测定",
         ]
     }
+
+    /// 表面化学
+    pub fn surface_chemistry(&self) -> Vec<&'static str> {
+        vec![
+            "表面张力: 液体表面层分子间内聚力产生的张力",
+            "润湿: 液体在固体表面铺展的现象",
+            "吸附: 气体或溶质在固体表面富集",
+            "表面活性剂: 能显著降低表面张力的物质",
+            "胶体: 分散相粒径1-100nm的分散体系",
+            "乳液: 两种互不相溶液体形成的分散体系",
+            "催化: 降低反应活化能加速化学反应",
+        ]
+    }
+
 }
 
 impl Default for PhysicalChemistryLaws {

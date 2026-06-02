@@ -101,6 +101,39 @@ impl BiochemistryLaws {
         ]
     }
 
+    /// 信号传导定律
+    pub fn signaling_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("受体信号定律", "信号接收", "细胞表面受体信号传导"),
+            ("G蛋白定律", "信号转导", "G蛋白偶联受体信号"),
+            ("第二信使定律", "信号放大", "cAMP等第二信使"),
+            ("激酶级联定律", "磷酸化", "激酶级联放大信号"),
+            ("转录因子定律", "基因调控", "转录因子调控基因表达"),
+        ]
+    }
+
+    /// 膜生物学定律
+    pub fn membrane_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("流动镶嵌定律", "膜模型", "细胞膜流动镶嵌模型"),
+            ("膜通透性定律", "选择通透", "膜的选择性通透"),
+            ("膜电位定律", "电位差", "细胞膜内外电位差"),
+            ("离子通道定律", "离子转运", "离子通道转运离子"),
+            ("膜融合定律", "囊泡融合", "囊泡与膜融合"),
+        ]
+    }
+
+    /// 分子生物学定律
+    pub fn molecular_biology_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+        vec![
+            ("操纵子定律", "基因调控", "原核生物基因调控"),
+            ("转录调控定律", "启动子", "转录水平调控"),
+            ("RNA剪接定律", "内含子", "RNA剪接加工"),
+            ("蛋白质修饰定律", "翻译后修饰", "蛋白质翻译后修饰"),
+            ("泛素化定律", "蛋白降解", "泛素标记蛋白降解"),
+        ]
+    }
+
     /// 生物化学技术
     pub fn techniques(&self) -> Vec<&'static str> {
         vec![
@@ -114,6 +147,33 @@ impl BiochemistryLaws {
             "DNA测序",
         ]
     }
+
+    /// 蛋白质结构
+    pub fn protein_structure(&self) -> Vec<&'static str> {
+        vec![
+            "氨基酸: 20种标准氨基酸是蛋白质的基本构件",
+            "一级结构: 氨基酸的线性排列顺序",
+            "二级结构: α螺旋和β折叠等局部空间构象",
+            "三级结构: 整条多肽链的三维空间结构",
+            "四级结构: 多个亚基的组装方式",
+            "分子伴侣: 帮助蛋白质正确折叠的辅助蛋白",
+            "蛋白质变性: 理化因素破坏高级结构导致失活",
+        ]
+    }
+
+    /// 酶动力学
+    pub fn enzyme_kinetics(&self) -> Vec<&'static str> {
+        vec![
+            "米氏方程: v=Vmax[S]/(Km+[S])描述底物浓度与反应速度",
+            "酶的专一性: 酶对底物的选择性",
+            "竞争性抑制: 抑制剂与底物竞争酶的活性中心",
+            "非竞争性抑制: 抑制剂结合在酶的其他部位",
+            "别构调节: 调节物结合在酶的别构位点改变活性",
+            "酶原激活: 无活性前体经蛋白酶水解变为有活性",
+            "辅酶: 与酶结合的有机小分子如NAD⁺和FAD",
+        ]
+    }
+
 }
 
 impl Default for BiochemistryLaws {
@@ -137,7 +197,7 @@ impl Rule for BiochemistryLaws {
 
     fn explain(&self) -> String {
         format!(
-            "【生物化学定律】\n\n代谢定律:\n{}\n\n酶学定律:\n{}\n\n蛋白质定律:\n{}\n",
+            "【生物化学定律】\n\n代谢定律:\n{}\n\n酶学定律:\n{}\n\n蛋白质定律:\n{}\n\n信号传导定律:\n{}\n\n膜生物学定律:\n{}\n\n分子生物学定律:\n{}\n",
             self.metabolism_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
@@ -147,6 +207,18 @@ impl Rule for BiochemistryLaws {
                 .collect::<Vec<_>>()
                 .join("\n"),
             self.protein_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.signaling_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.membrane_laws().iter()
+                .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.molecular_biology_laws().iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")
