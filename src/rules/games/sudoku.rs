@@ -2,6 +2,36 @@
 
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
 
+/// 解析数独网格字符串
+///
+/// 格式: 81个字符，数字1-9表示填入，'.'或'0'表示空格
+fn parse_sudoku_grid(s: &str) -> Option<[[Option<u8>; 9]; 9]> {
+    let s: String = s
+        .chars()
+        .filter(|c| c.is_ascii_digit() || *c == '.')
+        .collect();
+    if s.len() != 81 {
+        return None;
+    }
+    let mut grid = [[None; 9]; 9];
+    for (i, ch) in s.chars().enumerate() {
+        let row = i / 9;
+        let col = i % 9;
+        if ch == '.' || ch == '0' {
+            grid[row][col] = None;
+        } else if let Some(d) = ch.to_digit(10) {
+            if d >= 1 && d <= 9 {
+                grid[row][col] = Some(d as u8);
+            } else {
+                return None;
+            }
+        } else {
+            return None;
+        }
+    }
+    Some(grid)
+}
+
 /// 数独难度
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SudokuDifficulty {
@@ -40,12 +70,9 @@ pub struct SudokuRules {
 impl SudokuRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "数独规则",
-                "标准数独游戏规则"
-            )
-            .with_origin("日本")
-            .with_tags(vec!["游戏".into(), "益智".into(), "数独".into()]),
+            metadata: RuleMetadata::new("数独规则", "标准数独游戏规则")
+                .with_origin("日本")
+                .with_tags(vec!["游戏".into(), "益智".into(), "数独".into()]),
         }
     }
 
@@ -175,7 +202,12 @@ impl Rule for SudokuRules {
     }
 
     fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
+        // 解析数独网格并验证合法性
+        let grid = match parse_sudoku_grid(context) {
+            Some(g) => g,
+            None => return Ok(false),
+        };
+        Ok(self.is_valid(&grid))
     }
 
     fn explain(&self) -> String {
@@ -189,10 +221,24 @@ impl Rule for SudokuRules {
             变体规则:\n{}\n",
             self.grid_size(),
             self.grid_size(),
-            3, 3, 9,
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.solving_techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.variants().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            3,
+            3,
+            9,
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.solving_techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.variants()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
@@ -212,5 +258,44 @@ mod tests {
         let rules = SudokuRules::new();
         let empty_grid: [[Option<u8>; 9]; 9] = [[None; 9]; 9];
         assert!(rules.is_valid(&empty_grid));
+    }
+}
+
+#[cfg(test)]
+mod validate_tests {
+    use super::*;
+
+    #[test]
+    fn test_validate_valid_partial_grid() {
+        let rules = SudokuRules::new();
+        // 合法的部分填充: 从完成的数独中挖掉一些数字
+        let grid =
+            "530070000600195000098000060800060003400803001700020006060000280000419005000080079";
+        assert_eq!(rules.validate(grid).unwrap(), true);
+    }
+
+    #[test]
+    fn test_validate_invalid_grid() {
+        let rules = SudokuRules::new();
+        // 第一行有两个5 → 非法
+        let grid =
+            "550000000000000000000000000000000000000000000000000000000000000000000000000000000";
+        assert_eq!(rules.validate(grid).unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_wrong_length() {
+        let rules = SudokuRules::new();
+        assert_eq!(rules.validate("12345").unwrap(), false);
+        assert_eq!(rules.validate("").unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_completed_grid() {
+        let rules = SudokuRules::new();
+        // 一个完整的合法数独
+        let grid =
+            "534678912672195348198342567859761423426853791713924856961537284287419635345286179";
+        assert_eq!(rules.validate(grid).unwrap(), true);
     }
 }

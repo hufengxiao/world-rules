@@ -10,12 +10,9 @@ pub struct FreestyleSkiingRules {
 impl FreestyleSkiingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "自由式滑雪规则",
-                "自由式滑雪比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("自由式滑雪规则", "自由式滑雪比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -43,13 +40,7 @@ impl FreestyleSkiingRules {
 
     /// 空中技巧规则
     pub fn aerials_rules(&self) -> Vec<&'static str> {
-        vec![
-            "跳台跳跃",
-            "空中动作",
-            "着陆质量",
-            "难度系数",
-            "姿态评分",
-        ]
+        vec!["跳台跳跃", "空中动作", "着陆质量", "难度系数", "姿态评分"]
     }
 
     /// 评分标准
@@ -134,10 +125,26 @@ impl Rule for FreestyleSkiingRules {
             评分标准:\n{}\n\n\
             技术动作:\n{}\n\n\
             安全规则:\n{}\n",
-            self.competition_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_criteria().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.tricks().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_criteria()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.tricks()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

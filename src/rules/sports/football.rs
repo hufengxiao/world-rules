@@ -23,12 +23,9 @@ pub struct FootballRules {
 impl FootballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "足球规则",
-                "国际足联 (FIFA) 标准足球规则"
-            )
-            .with_origin("FIFA")
-            .with_tags(vec!["体育".into(), "足球".into()]),
+            metadata: RuleMetadata::new("足球规则", "国际足联 (FIFA) 标准足球规则")
+                .with_origin("FIFA")
+                .with_tags(vec!["体育".into(), "足球".into()]),
         }
     }
 
@@ -142,5 +139,63 @@ mod tests {
         let rules = FootballRules::new();
         assert_eq!(rules.team_size(), 11);
         assert_eq!(rules.match_duration(), 90);
+    }
+}
+
+#[cfg(test)]
+mod extra_tests {
+    use super::*;
+
+    #[test]
+    fn test_field_dimensions() {
+        let rules = FootballRules::new();
+        let (w, h) = rules.field_dimensions();
+        assert!(w >= 100 && w <= 110);
+        assert!(h >= 64 && h <= 75);
+    }
+
+    #[test]
+    fn test_offside_detection() {
+        let rules = FootballRules::new();
+        // 攻击者在最后一名防守球员之后 → 越位
+        assert!(rules.check_offside(30, 25));
+        // 攻击者与最后一名防守球员齐平或在前 → 不越位
+        assert!(!rules.check_offside(25, 25));
+        assert!(!rules.check_offside(20, 25));
+    }
+
+    #[test]
+    fn test_foul_penalties() {
+        let rules = FootballRules::new();
+        assert!(matches!(
+            rules.get_foul_penalty(FoulType::Minor),
+            Penalty::FreeKick
+        ));
+        assert!(matches!(
+            rules.get_foul_penalty(FoulType::Serious),
+            Penalty::YellowCard
+        ));
+        assert!(matches!(
+            rules.get_foul_penalty(FoulType::Violent),
+            Penalty::RedCard
+        ));
+        assert!(matches!(
+            rules.get_foul_penalty(FoulType::PenaltyArea),
+            Penalty::PenaltyKick
+        ));
+    }
+
+    #[test]
+    fn test_half_duration() {
+        let rules = FootballRules::new();
+        assert_eq!(rules.half_duration(), 45);
+    }
+
+    #[test]
+    fn test_rule_trait() {
+        let rules = FootballRules::new();
+        assert!(rules.validate("match").is_ok());
+        assert!(!rules.explain().is_empty());
+        assert_eq!(rules.category(), RuleCategory::sports("football"));
     }
 }

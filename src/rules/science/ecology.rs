@@ -10,12 +10,9 @@ pub struct EcologyLaws {
 impl EcologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "生态学定律",
-                "生态学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "生态".into()]),
+            metadata: RuleMetadata::new("生态学定律", "生态学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "生态".into()]),
         }
     }
 
@@ -124,7 +121,6 @@ impl EcologyLaws {
             "生态效率: 能量在营养级间传递的效率约10-20%",
         ]
     }
-
 }
 
 impl Default for EcologyLaws {
@@ -149,15 +145,18 @@ impl Rule for EcologyLaws {
     fn explain(&self) -> String {
         format!(
             "【生态学定律】\n\n生态系统定律:\n{}\n\n种群定律:\n{}\n\n群落定律:\n{}\n",
-            self.ecosystem_laws().iter()
+            self.ecosystem_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.population_laws().iter()
+            self.population_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.community_laws().iter()
+            self.community_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

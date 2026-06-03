@@ -10,12 +10,9 @@ pub struct ForestLawRules {
 impl ForestLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "森林法规则",
-                "中国森林法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "森林".into()]),
+            metadata: RuleMetadata::new("森林法规则", "中国森林法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "森林".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ForestLawRules {
     fn explain(&self) -> String {
         format!(
             "【森林法规则】\n\n森林资源管理:\n{}\n\n森林采伐:\n{}\n\n森林保护:\n{}\n",
-            self.forest_resource_management().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.forest_harvesting().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.forest_protection().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.forest_resource_management()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.forest_harvesting()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.forest_protection()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

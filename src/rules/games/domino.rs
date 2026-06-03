@@ -10,12 +10,9 @@ pub struct DominoRules {
 impl DominoRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "多米诺骨牌规则",
-                "多米诺骨牌基本玩法"
-            )
-            .with_origin("欧洲")
-            .with_tags(vec!["游戏".into(), "骨牌".into()]),
+            metadata: RuleMetadata::new("多米诺骨牌规则", "多米诺骨牌基本玩法")
+                .with_origin("欧洲")
+                .with_tags(vec!["游戏".into(), "骨牌".into()]),
         }
     }
 
@@ -122,10 +119,26 @@ impl Rule for DominoRules {
             基本玩法:\n{}\n\n\
             连接规则:\n{}\n\n\
             多米诺效应:\n{}\n",
-            self.domino_tiles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.basic_play().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.connection_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.chain_effect().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.domino_tiles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.basic_play()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.connection_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.chain_effect()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

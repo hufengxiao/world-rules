@@ -26,7 +26,7 @@ impl DiningEtiquette {
         Self {
             metadata: RuleMetadata::new(
                 format!("{}餐桌礼仪", Self::culture_name(&culture)),
-                "餐桌礼仪规范"
+                "餐桌礼仪规范",
             )
             .with_origin(Self::culture_name(&culture)),
             culture,
@@ -49,12 +49,9 @@ impl DiningEtiquette {
     /// 获取用餐顺序
     pub fn dining_order(&self) -> Vec<&'static str> {
         match self.culture {
-            DiningCulture::Chinese => vec![
-                "长者先动筷",
-                "主人招呼开席",
-                "先凉菜后热菜",
-                "主食最后",
-            ],
+            DiningCulture::Chinese => {
+                vec!["长者先动筷", "主人招呼开席", "先凉菜后热菜", "主食最后"]
+            }
             DiningCulture::Western => vec![
                 " Appetizers (开胃菜)",
                 "Soup (汤)",
@@ -66,11 +63,7 @@ impl DiningEtiquette {
                 "按顺序享用",
                 "最后说「ごちそうさま」",
             ],
-            DiningCulture::Korean => vec![
-                "长辈先动筷",
-                "勺子用于汤饭",
-                "筷子用于夹菜",
-            ],
+            DiningCulture::Korean => vec!["长辈先动筷", "勺子用于汤饭", "筷子用于夹菜"],
         }
     }
 
@@ -90,16 +83,10 @@ impl DiningEtiquette {
                 "不能伸手越过他人取菜",
                 "餐巾不能塞在领口",
             ],
-            DiningCulture::Japanese => vec![
-                "不能传递食物",
-                "不能把筷子放在碗上",
-                "不能混合芥末和酱油",
-            ],
-            DiningCulture::Korean => vec![
-                "不能从长辈面前经过",
-                "不能提前离席",
-                "不能把碗端起来吃",
-            ],
+            DiningCulture::Japanese => {
+                vec!["不能传递食物", "不能把筷子放在碗上", "不能混合芥末和酱油"]
+            }
+            DiningCulture::Korean => vec!["不能从长辈面前经过", "不能提前离席", "不能把碗端起来吃"],
         }
     }
 }
@@ -126,8 +113,16 @@ impl Rule for DiningEtiquette {
             用餐顺序:\n{}\n\n\
             禁忌事项:\n{}\n",
             Self::culture_name(&self.culture),
-            order.iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            taboos.iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            order
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            taboos
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct EsportsRules {
 impl EsportsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电子竞技规则",
-                "电子竞技比赛规则"
-            )
-            .with_origin("国际")
-            .with_tags(vec!["体育".into(), "电子".into()]),
+            metadata: RuleMetadata::new("电子竞技规则", "电子竞技比赛规则")
+                .with_origin("国际")
+                .with_tags(vec!["体育".into(), "电子".into()]),
         }
     }
 
@@ -54,46 +51,22 @@ impl EsportsRules {
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "违规操作",
-            "作弊行为",
-            "不当言论",
-            "技术犯规",
-            "处罚规则",
-        ]
+        vec!["违规操作", "作弊行为", "不当言论", "技术犯规", "处罚规则"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "游戏设备",
-            "电脑配置",
-            "网络连接",
-            "比赛服装",
-            "防护装备",
-        ]
+        vec!["游戏设备", "电脑配置", "网络连接", "比赛服装", "防护装备"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "网络安全",
-            "设备安全",
-            "选手健康",
-            "比赛公平",
-            "应急处理",
-        ]
+        vec!["网络安全", "设备安全", "选手健康", "比赛公平", "应急处理"]
     }
 
     /// 评分标准
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "胜负判定",
-            "积分系统",
-            "排名规则",
-            "比赛统计",
-            "奖金分配",
-        ]
+        vec!["胜负判定", "积分系统", "排名规则", "比赛统计", "奖金分配"]
     }
 }
 
@@ -123,10 +96,26 @@ impl Rule for EsportsRules {
             犯规规则:\n{}\n\n\
             安全规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

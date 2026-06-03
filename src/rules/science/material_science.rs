@@ -10,12 +10,9 @@ pub struct MaterialScienceLaws {
 impl MaterialScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "材料科学定律",
-                "材料科学基本定律"
-            )
-            .with_origin("材料科学")
-            .with_tags(vec!["科学".into(), "材料".into()]),
+            metadata: RuleMetadata::new("材料科学定律", "材料科学基本定律")
+                .with_origin("材料科学")
+                .with_tags(vec!["科学".into(), "材料".into()]),
         }
     }
 
@@ -104,7 +101,6 @@ impl MaterialScienceLaws {
             "复合材料: 两种以上材料组合获得优异性能",
         ]
     }
-
 }
 
 impl Default for MaterialScienceLaws {
@@ -129,15 +125,18 @@ impl Rule for MaterialScienceLaws {
     fn explain(&self) -> String {
         format!(
             "【材料科学定律】\n\n力学定律:\n{}\n\n相变定律:\n{}\n\n晶体定律:\n{}\n",
-            self.mechanics_laws().iter()
+            self.mechanics_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.phase_change_laws().iter()
+            self.phase_change_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.crystal_laws().iter()
+            self.crystal_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

@@ -10,12 +10,9 @@ pub struct FoodSafetyLawRules {
 impl FoodSafetyLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "食品安全法规则",
-                "中国食品安全法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "食品安全".into()]),
+            metadata: RuleMetadata::new("食品安全法规则", "中国食品安全法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "食品安全".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for FoodSafetyLawRules {
     fn explain(&self) -> String {
         format!(
             "【食品安全法规则】\n\n安全原则:\n{}\n\n经营许可:\n{}\n\n安全标准:\n{}\n",
-            self.food_safety_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.food_business_permit().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.food_safety_standards().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.food_safety_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.food_business_permit()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.food_safety_standards()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

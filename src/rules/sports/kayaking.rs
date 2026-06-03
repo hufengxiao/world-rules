@@ -10,12 +10,9 @@ pub struct KayakingRules {
 impl KayakingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "皮划艇规则",
-                "皮划艇比赛基本规则"
-            )
-            .with_origin("欧洲")
-            .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("皮划艇规则", "皮划艇比赛基本规则")
+                .with_origin("欧洲")
+                .with_tags(vec!["体育".into(), "水上".into()]),
         }
     }
 
@@ -135,10 +132,26 @@ impl Rule for KayakingRules {
             激流回旋:\n{}\n\n\
             技术要求:\n{}\n\n\
             安全规则:\n{}\n",
-            self.boat_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.slalom_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technical_requirements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.boat_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.slalom_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technical_requirements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct ConsumerLawExtendedRules {
 impl ConsumerLawExtendedRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "消费者权益保护法扩展规则",
-                "中国消费者权益保护法详细知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "消费者".into()]),
+            metadata: RuleMetadata::new("消费者权益保护法扩展规则", "中国消费者权益保护法详细知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "消费者".into()]),
         }
     }
 
@@ -156,9 +153,21 @@ impl Rule for ConsumerLawExtendedRules {
     fn explain(&self) -> String {
         format!(
             "【消费者权益保护法扩展规则】\n\n消费者权利:\n{}\n\n经营者义务:\n{}\n\n三包规则:\n{}\n",
-            self.consumer_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.operator_obligations().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.warranty_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.consumer_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.operator_obligations()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.warranty_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

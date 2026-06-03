@@ -47,12 +47,9 @@ pub struct SwimmingRules {
 impl SwimmingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "游泳规则",
-                "FINA 国际泳联标准规则"
-            )
-            .with_origin("FINA")
-            .with_tags(vec!["体育".into(), "游泳".into()]),
+            metadata: RuleMetadata::new("游泳规则", "FINA 国际泳联标准规则")
+                .with_origin("FINA")
+                .with_tags(vec!["体育".into(), "游泳".into()]),
         }
     }
 
@@ -98,11 +95,9 @@ impl SwimmingRules {
     /// 各泳姿技术规则
     pub fn style_rules(&self, style: SwimmingStyle) -> Vec<&'static str> {
         match style {
-            SwimmingStyle::Freestyle => vec![
-                "可使用任何泳姿",
-                "通常采用爬泳",
-                "转身和终点可触壁任意部位",
-            ],
+            SwimmingStyle::Freestyle => {
+                vec!["可使用任何泳姿", "通常采用爬泳", "转身和终点可触壁任意部位"]
+            }
             SwimmingStyle::Breaststroke => vec![
                 "双手必须同时划水",
                 "双腿必须同时蹬腿",
@@ -179,11 +174,31 @@ impl Rule for SwimmingRules {
             出发规则:\n{}\n\n\
             转身规则:\n{}\n\n\
             犯规行为:\n{}\n",
-            self.pool_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.standard_distances().iter().map(|d| d.to_string()).collect::<Vec<_>>().join("/"),
-            self.starting_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.turn_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.pool_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.standard_distances()
+                .iter()
+                .map(|d| d.to_string())
+                .collect::<Vec<_>>()
+                .join("/"),
+            self.starting_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.turn_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
@@ -196,5 +211,41 @@ mod tests {
     fn test_swimming_rules() {
         let rules = SwimmingRules::new();
         assert!(rules.standard_distances().contains(&100));
+    }
+}
+
+#[cfg(test)]
+mod extra_tests {
+    use super::*;
+
+    #[test]
+    fn test_standard_distances() {
+        let rules = SwimmingRules::new();
+        let distances = rules.standard_distances();
+        assert!(distances.contains(&50));
+        assert!(distances.contains(&100));
+        assert!(distances.contains(&200));
+    }
+
+    #[test]
+    fn test_style_rules_exist() {
+        let rules = SwimmingRules::new();
+        assert!(!rules.style_rules(SwimmingStyle::Freestyle).is_empty());
+        assert!(!rules.style_rules(SwimmingStyle::Breaststroke).is_empty());
+        assert!(!rules.style_rules(SwimmingStyle::Butterfly).is_empty());
+        assert!(!rules.style_rules(SwimmingStyle::Backstroke).is_empty());
+    }
+
+    #[test]
+    fn test_fouls() {
+        let rules = SwimmingRules::new();
+        assert!(!rules.fouls().is_empty());
+    }
+
+    #[test]
+    fn test_rule_trait() {
+        let rules = SwimmingRules::new();
+        assert!(rules.validate("race").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

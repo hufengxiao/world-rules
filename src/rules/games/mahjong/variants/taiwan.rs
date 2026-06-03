@@ -12,12 +12,9 @@ pub struct TaiwanMahjongRules {
 impl TaiwanMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "台湾麻将规则",
-                "台湾16张麻将规则"
-            )
-            .with_origin("台湾")
-            .with_tags(vec!["游戏".into(), "麻将".into(), "台湾".into()]),
+            metadata: RuleMetadata::new("台湾麻将规则", "台湾16张麻将规则")
+                .with_origin("台湾")
+                .with_tags(vec!["游戏".into(), "麻将".into(), "台湾".into()]),
         }
     }
 
@@ -153,7 +150,8 @@ impl Rule for TaiwanMahjongRules {
     }
 
     fn explain(&self) -> String {
-        let tai_list: String = self.tai_system()
+        let tai_list: String = self
+            .tai_system()
             .iter()
             .map(|(name, tai)| format!("  • {}: {}台", name, tai))
             .collect::<Vec<_>>()
@@ -165,10 +163,22 @@ impl Rule for TaiwanMahjongRules {
             台数系统:\n{}\n\n\
             花牌规则:\n{}\n\n\
             计分公式:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
             tai_list,
-            self.flower_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_formula().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.flower_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_formula()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

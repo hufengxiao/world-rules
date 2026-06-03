@@ -10,12 +10,9 @@ pub struct NotarizationLawRules {
 impl NotarizationLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "公证法规则",
-                "中国公证法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "公证".into()]),
+            metadata: RuleMetadata::new("公证法规则", "中国公证法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "公证".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for NotarizationLawRules {
     fn explain(&self) -> String {
         format!(
             "【公证法规则】\n\n公证范围:\n{}\n\n公证程序:\n{}\n\n公证效力:\n{}\n",
-            self.notarization_scope().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.notarization_procedure().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.notarization_effect().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.notarization_scope()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.notarization_procedure()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.notarization_effect()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

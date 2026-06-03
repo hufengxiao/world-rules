@@ -37,12 +37,9 @@ pub struct ContractRules {
 impl ContractRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "合同法规则",
-                "合同订立与履行基本规则"
-            )
-            .with_origin("中国合同法")
-            .with_tags(vec!["法律".into(), "合同".into()]),
+            metadata: RuleMetadata::new("合同法规则", "合同订立与履行基本规则")
+                .with_origin("中国合同法")
+                .with_tags(vec!["法律".into(), "合同".into()]),
         }
     }
 
@@ -107,9 +104,62 @@ impl Rule for ContractRules {
             合同必备条款:\n{}\n\n\
             合同生效条件:\n{}\n\n\
             无效合同情形:\n{}\n",
-            self.essential_terms().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.validity_conditions().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.invalid_situations().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.essential_terms()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.validity_conditions()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.invalid_situations()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_contract_rules_new() {
+        let rules = ContractRules::new();
+        assert!(!rules.metadata().name.is_empty());
+    }
+
+    #[test]
+    fn test_contract_essential_terms() {
+        let rules = ContractRules::new();
+        let terms = rules.essential_terms();
+        assert!(!terms.is_empty());
+        assert!(terms.len() >= 3);
+    }
+
+    #[test]
+    fn test_contract_validity_conditions() {
+        let rules = ContractRules::new();
+        let conditions = rules.validity_conditions();
+        assert!(!conditions.is_empty());
+    }
+
+    #[test]
+    fn test_contract_invalid_situations() {
+        let rules = ContractRules::new();
+        let situations = rules.invalid_situations();
+        assert!(!situations.is_empty());
+    }
+
+    #[test]
+    fn test_contract_rule_trait() {
+        let rules = ContractRules::new();
+        assert_eq!(rules.category(), RuleCategory::law("contract"));
+        assert!(rules.validate("test").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

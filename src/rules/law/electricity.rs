@@ -10,12 +10,9 @@ pub struct ElectricityLawRules {
 impl ElectricityLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电力法规则",
-                "中国电力法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "电力".into()]),
+            metadata: RuleMetadata::new("电力法规则", "中国电力法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "电力".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ElectricityLawRules {
     fn explain(&self) -> String {
         format!(
             "【电力法规则】\n\n电力建设:\n{}\n\n电力供应:\n{}\n\n电力设施保护:\n{}\n",
-            self.power_construction().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.power_supply().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.power_facility_protection().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.power_construction()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.power_supply()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.power_facility_protection()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

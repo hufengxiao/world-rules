@@ -22,12 +22,9 @@ pub struct GomokuRules {
 impl GomokuRules {
     pub fn new(variant: GomokuVariant) -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "五子棋规则",
-                "五子棋标准规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "五子棋".into()]),
+            metadata: RuleMetadata::new("五子棋规则", "五子棋标准规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "五子棋".into()]),
             variant,
         }
     }
@@ -62,10 +59,7 @@ impl GomokuRules {
                 "前三手有开局限制",
                 "五手两打: 第五手黑方下两个点，白方选一个",
             ],
-            _ => vec![
-                "黑方先行",
-                "无开局限制",
-            ],
+            _ => vec!["黑方先行", "无开局限制"],
         }
     }
 
@@ -83,15 +77,23 @@ impl GomokuRules {
             // 正方向计数
             let mut i = 1;
             while let Some(Some(p)) = Self::get_cell(board, x, y, dx * i, dy * i) {
-                if p == player { count += 1; i += 1; }
-                else { break; }
+                if p == player {
+                    count += 1;
+                    i += 1;
+                } else {
+                    break;
+                }
             }
 
             // 反方向计数
             i = 1;
             while let Some(Some(p)) = Self::get_cell(board, x, y, -dx * i, -dy * i) {
-                if p == player { count += 1; i += 1; }
-                else { break; }
+                if p == player {
+                    count += 1;
+                    i += 1;
+                } else {
+                    break;
+                }
             }
 
             if count >= self.winning_length() {
@@ -102,7 +104,13 @@ impl GomokuRules {
         None
     }
 
-    fn get_cell(board: &[[Option<bool>; 15]; 15], x: u8, y: u8, dx: i8, dy: i8) -> Option<Option<bool>> {
+    fn get_cell(
+        board: &[[Option<bool>; 15]; 15],
+        x: u8,
+        y: u8,
+        dx: i8,
+        dy: i8,
+    ) -> Option<Option<bool>> {
         let nx = (x as i8 + dx) as usize;
         let ny = (y as i8 + dy) as usize;
         if nx < 15 && ny < 15 {
@@ -141,8 +149,16 @@ impl Rule for GomokuRules {
             self.board_size().0,
             self.board_size().1,
             self.winning_length(),
-            self.opening_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.forbidden_moves().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.opening_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.forbidden_moves()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

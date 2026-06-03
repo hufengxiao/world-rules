@@ -10,12 +10,9 @@ pub struct AdvertisingLawRules {
 impl AdvertisingLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "广告法规则",
-                "中国广告法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "广告".into()]),
+            metadata: RuleMetadata::new("广告法规则", "中国广告法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "广告".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for AdvertisingLawRules {
     fn explain(&self) -> String {
         format!(
             "【广告法规则】\n\n基本原则:\n{}\n\n内容规范:\n{}\n\n禁止广告:\n{}\n",
-            self.basic_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.content_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_ads().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.content_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_ads()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

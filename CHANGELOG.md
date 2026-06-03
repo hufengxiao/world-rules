@@ -1,5 +1,62 @@
 # Changelog
 
+## [0.3.0] - 2026-06-02
+
+### CLI 工具
+
+- **新增 `wr` 命令行工具** (`src/bin/wr.rs`):
+  - `wr list [--category <分类>] [--search <关键词>]` — 列出/搜索规则
+  - `wr show <名称>` — 显示规则详情
+  - `wr stats` — 显示统计信息
+  - `wr validate mahjong <牌面>` — 验证麻将胡牌
+  - `wr validate poker <牌面>` — 评估扑克牌型
+- 编译方式: `cargo build --features cli --bin wr`
+
+### 核心逻辑增强
+
+- **麻将 `validate()` 真实实现**: 解析牌面字符串，调用 `Hand::can_win()` 验证胡牌合法性
+  - 支持标准胡、七对子、十三幺
+  - 支持所有 25 种地方变体（共享解析逻辑）
+- **德州扑克 `validate()` 真实实现**: 解析牌面字符串，调用 `evaluate_hand()` 评估牌型
+  - 支持全部 10 种 HandRank
+  - 支持 5-7 张牌评估
+- **21点 `validate()` 真实实现**: 解析牌面，调用 `calculate_hand_value()` / `is_bust()` 验证
+- **数独 `validate()` 真实实现**: 解析 81 位网格字符串，调用 `is_valid()` 检查行/列/宫格冲突
+
+### 测试补全（+59 个测试）
+
+- **麻将 validate 测试** (7 个): 标准胡、非胡、七对子、空输入、无效输入、变体委托
+- **德州扑克 validate 测试** (6 个): 皇家同花顺、两对、无效牌、过少牌、空输入、七张牌
+- **21点 validate 测试** (4 个): Blackjack、under 21、bust、无效输入
+- **数独 validate 测试** (4 个): 合法网格、冲突网格、长度错误、完整解
+- **足球增强测试** (5 个): 场地规格、越位检测、犯规处罚、半场时间、Rule trait
+- **篮球增强测试** (3 个): NBA 默认值、三分线距离、Rule trait
+- **游泳增强测试** (4 个): 标准距离、泳姿规则、犯规、Rule trait
+- **物理增强测试** (5 个): 力计算、引力计算、定律列表、力学定律、Rule trait
+- **合同法测试** (5 个): 元数据、必要条款、生效条件、无效情形、Rule trait
+- **刑法增强测试** (6 个): 犯罪构成、刑罚种类、刑期限制、刑事责任年龄、正当防卫、Rule trait
+- **民法增强测试** (5 个): 基本原则、民事权利、诉讼时效、民事主体、Rule trait
+- **商务礼仪测试** (3 个): 中国/日本规则、Rule trait
+- **礼物礼仪测试** (3 个): 中国文化、不同文化、Rule trait
+
+### prelude.rs 扩展
+
+- 新增体育规则导出: `MuayThaiRules`, `ClimbingRules`, `F1Rules`, `SurfingRules`, `CurlingRules`, `MarathonRules`, `TriathlonRules`, `SkateboardingRules`, `FencingRules`, `RugbyRules`, `KarateRules`
+- 新增科学定律导出: `ComputerScienceLaws`, `GeoscienceLaws`, `MaterialScienceLaws`, `NeuroscienceLaws`, `QuantumMechanicsLaws`, `ThermodynamicsLaws`
+- 新增法律规则导出: `AdministrativeLawRules`, `CompanyLawRules`, `CopyrightLawRules`, `CybersecurityLawRules`, `PatentLawRules`, `SecuritiesLawRules`, `TaxLawRules`
+
+### 构建改进
+
+- Cargo.toml: 版本升至 0.3.0，新增 `cli` feature、`[[bin]]` 和 `[[example]]` 目标
+- 新增 `examples/demo.rs`（原 main.rs 的示例程序副本）
+
+### 测试结果
+
+```
+Before: 468 passed, 0 failed
+After:  527 passed, 0 failed (+59 tests, +12.6%)
+```
+
 ## [0.2.0] - 2026-06-01
 
 ### Phase 1: Bug Fixes

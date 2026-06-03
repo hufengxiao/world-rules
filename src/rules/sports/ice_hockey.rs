@@ -10,12 +10,9 @@ pub struct IceHockeyRules {
 impl IceHockeyRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "冰球规则",
-                "冰球比赛基本规则"
-            )
-            .with_origin("加拿大")
-            .with_tags(vec!["体育".into(), "冰上".into()]),
+            metadata: RuleMetadata::new("冰球规则", "冰球比赛基本规则")
+                .with_origin("加拿大")
+                .with_tags(vec!["体育".into(), "冰上".into()]),
         }
     }
 
@@ -136,10 +133,26 @@ impl Rule for IceHockeyRules {
             犯规类型:\n{}\n\n\
             常见犯规:\n{}\n\n\
             越位规则:\n{}\n",
-            self.periods().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.common_fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.offside().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.periods()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.common_fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.offside()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

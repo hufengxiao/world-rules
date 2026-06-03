@@ -10,12 +10,9 @@ pub struct PsychologyRules {
 impl PsychologyRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "心理学定律",
-                "心理学基本定律和效应"
-            )
-            .with_origin("心理学")
-            .with_tags(vec!["科学".into(), "心理学".into()]),
+            metadata: RuleMetadata::new("心理学定律", "心理学基本定律和效应")
+                .with_origin("心理学")
+                .with_tags(vec!["科学".into(), "心理学".into()]),
         }
     }
 
@@ -108,7 +105,6 @@ impl PsychologyRules {
         ]
     }
 
-
     /// 临床心理学
     pub fn clinical_psychology(&self) -> Vec<&'static str> {
         vec![
@@ -121,7 +117,6 @@ impl PsychologyRules {
             "辩证行为疗法: 结合认知行为和正念技能训练",
         ]
     }
-
 }
 
 impl Default for PsychologyRules {
@@ -151,10 +146,26 @@ impl Rule for PsychologyRules {
             认知偏差:\n{}\n\n\
             学习理论:\n{}\n\n\
             记忆规律:\n{}\n",
-            effects.iter().map(|(n, d)| format!("  • {}: {}", n, d)).collect::<Vec<_>>().join("\n"),
-            self.cognitive_biases().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.learning_theories().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.memory_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            effects
+                .iter()
+                .map(|(n, d)| format!("  • {}: {}", n, d))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cognitive_biases()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.learning_theories()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.memory_laws()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

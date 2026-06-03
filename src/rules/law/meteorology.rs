@@ -10,12 +10,9 @@ pub struct MeteorologyLawRules {
 impl MeteorologyLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "气象法规则",
-                "中国气象法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "气象".into()]),
+            metadata: RuleMetadata::new("气象法规则", "中国气象法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "气象".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for MeteorologyLawRules {
     fn explain(&self) -> String {
         format!(
             "【气象法规则】\n\n气象探测:\n{}\n\n气象预报:\n{}\n\n灾害防御:\n{}\n",
-            self.meteorological_observation().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.meteorological_forecast().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.meteorological_disaster_prevention().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.meteorological_observation()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.meteorological_forecast()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.meteorological_disaster_prevention()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct GeoscienceLaws {
 impl GeoscienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "地球科学定律",
-                "地球科学基本定律"
-            )
-            .with_origin("地球科学")
-            .with_tags(vec!["科学".into(), "地球".into()]),
+            metadata: RuleMetadata::new("地球科学定律", "地球科学基本定律")
+                .with_origin("地球科学")
+                .with_tags(vec!["科学".into(), "地球".into()]),
         }
     }
 
@@ -102,7 +99,6 @@ impl GeoscienceLaws {
         ]
     }
 
-
     /// 大气科学
     pub fn atmospheric_science(&self) -> Vec<&'static str> {
         vec![
@@ -115,7 +111,6 @@ impl GeoscienceLaws {
             "热带气旋: 在热带海洋上形成的强烈气旋系统",
         ]
     }
-
 }
 
 impl Default for GeoscienceLaws {
@@ -140,15 +135,18 @@ impl Rule for GeoscienceLaws {
     fn explain(&self) -> String {
         format!(
             "【地球科学定律】\n\n地质学定律:\n{}\n\n气象学定律:\n{}\n\n海洋学定律:\n{}\n",
-            self.geology_laws().iter()
+            self.geology_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.meteorology_laws().iter()
+            self.meteorology_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.oceanography_laws().iter()
+            self.oceanography_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

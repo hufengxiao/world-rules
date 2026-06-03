@@ -10,12 +10,9 @@ pub struct MarathonRules {
 impl MarathonRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "马拉松规则",
-                "马拉松比赛基本规则"
-            )
-            .with_origin("希腊")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("马拉松规则", "马拉松比赛基本规则")
+                .with_origin("希腊")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -76,13 +73,7 @@ impl MarathonRules {
 
     /// 分组规则
     pub fn categories(&self) -> Vec<&'static str> {
-        vec![
-            "男子组",
-            "女子组",
-            "年龄分组",
-            "轮椅组",
-            "精英组和大众组",
-        ]
+        vec!["男子组", "女子组", "年龄分组", "轮椅组", "精英组和大众组"]
     }
 
     /// 禁止行为
@@ -134,10 +125,26 @@ impl Rule for MarathonRules {
             补给规则:\n{}\n\n\
             赛事规则:\n{}\n\n\
             计时规则:\n{}\n",
-            self.distances().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.aid_station_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.race_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.timing().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.distances()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.aid_station_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.race_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.timing()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

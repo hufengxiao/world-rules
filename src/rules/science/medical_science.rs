@@ -10,21 +10,26 @@ pub struct MedicalScienceLaws {
 impl MedicalScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "医学定律",
-                "医学科学基本定律"
-            )
-            .with_origin("医学")
-            .with_tags(vec!["科学".into(), "医学".into()]),
+            metadata: RuleMetadata::new("医学定律", "医学科学基本定律")
+                .with_origin("医学")
+                .with_tags(vec!["科学".into(), "医学".into()]),
         }
     }
 
     /// 生理学定律
     pub fn physiology_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
-            ("心脏泵血定律", "心输出量 = HR × SV", "心率与每搏输出量决定心输出量"),
+            (
+                "心脏泵血定律",
+                "心输出量 = HR × SV",
+                "心率与每搏输出量决定心输出量",
+            ),
             ("血液流动定律", "血流 = ΔP/R", "血压差与血流阻力决定血流"),
-            ("肺通气定律", "通气量 = TV × RR", "潮气量与呼吸频率决定通气量"),
+            (
+                "肺通气定律",
+                "通气量 = TV × RR",
+                "潮气量与呼吸频率决定通气量",
+            ),
             ("氧扩散定律", "扩散 = ΔP × D", "氧气通过肺泡扩散"),
             ("能量代谢定律", "能量摄入 = 能量消耗 + 存储", "能量平衡方程"),
             ("体温调节定律", "产热 = 散热", "体温恒定条件"),
@@ -98,7 +103,6 @@ impl MedicalScienceLaws {
         ]
     }
 
-
     /// 基因医学
     pub fn genetic_medicine(&self) -> Vec<&'static str> {
         vec![
@@ -111,7 +115,6 @@ impl MedicalScienceLaws {
             "基因编辑治疗: 利用CRISPR等技术修复致病基因",
         ]
     }
-
 }
 
 impl Default for MedicalScienceLaws {

@@ -10,12 +10,9 @@ pub struct PhysicalChemistryLaws {
 impl PhysicalChemistryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "物理化学定律",
-                "物理化学基本定律"
-            )
-            .with_origin("化学")
-            .with_tags(vec!["科学".into(), "化学".into(), "物理".into()]),
+            metadata: RuleMetadata::new("物理化学定律", "物理化学基本定律")
+                .with_origin("化学")
+                .with_tags(vec!["科学".into(), "化学".into(), "物理".into()]),
         }
     }
 
@@ -109,7 +106,6 @@ impl PhysicalChemistryLaws {
             "催化: 降低反应活化能加速化学反应",
         ]
     }
-
 }
 
 impl Default for PhysicalChemistryLaws {
@@ -134,15 +130,18 @@ impl Rule for PhysicalChemistryLaws {
     fn explain(&self) -> String {
         format!(
             "【物理化学定律】\n\n热力学定律:\n{}\n\n动力学定律:\n{}\n\n电化学定律:\n{}\n",
-            self.thermodynamics_laws().iter()
+            self.thermodynamics_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.kinetics_laws().iter()
+            self.kinetics_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.electrochemistry_laws().iter()
+            self.electrochemistry_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

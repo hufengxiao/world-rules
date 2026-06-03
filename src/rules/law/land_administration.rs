@@ -10,12 +10,9 @@ pub struct LandAdministrationLawRules {
 impl LandAdministrationLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "土地管理法规则",
-                "中国土地管理法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "土地管理".into()]),
+            metadata: RuleMetadata::new("土地管理法规则", "中国土地管理法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "土地管理".into()]),
         }
     }
 
@@ -155,9 +152,21 @@ impl Rule for LandAdministrationLawRules {
     fn explain(&self) -> String {
         format!(
             "【土地管理法规则】\n\n土地所有权:\n{}\n\n土地使用权:\n{}\n\n用途分类:\n{}\n",
-            self.land_ownership().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.land_use_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.land_use_classification().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.land_ownership()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.land_use_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.land_use_classification()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

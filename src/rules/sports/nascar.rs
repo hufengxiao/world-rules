@@ -10,12 +10,9 @@ pub struct NASCARRules {
 impl NASCARRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "NASCAR赛车规则",
-                "美国 NASCAR赛车比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "赛车".into()]),
+            metadata: RuleMetadata::new("NASCAR赛车规则", "美国 NASCAR赛车比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "赛车".into()]),
         }
     }
 
@@ -65,13 +62,7 @@ impl NASCARRules {
 
     /// 积分系统
     pub fn scoring_system(&self) -> Vec<&'static str> {
-        vec![
-            "比赛积分",
-            "阶段积分",
-            "胜利积分",
-            "年度积分",
-            "积分排名",
-        ]
+        vec!["比赛积分", "阶段积分", "胜利积分", "年度积分", "积分排名"]
     }
 
     /// 装备要求
@@ -87,13 +78,7 @@ impl NASCARRules {
 
     /// 犯规规则
     pub fn penalties(&self) -> Vec<&'static str> {
-        vec![
-            "危险驾驶",
-            "违规超车",
-            "技术违规",
-            "罚时规则",
-            "取消资格",
-        ]
+        vec!["危险驾驶", "违规超车", "技术违规", "罚时规则", "取消资格"]
     }
 }
 
@@ -123,10 +108,26 @@ impl Rule for NASCARRules {
             技术规定:\n{}\n\n\
             积分系统:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technical_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technical_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

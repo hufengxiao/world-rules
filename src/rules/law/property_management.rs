@@ -10,12 +10,9 @@ pub struct PropertyManagementLawRules {
 impl PropertyManagementLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "物业管理条例规则",
-                "中国物业管理条例基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "物业管理".into()]),
+            metadata: RuleMetadata::new("物业管理条例规则", "中国物业管理条例基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "物业管理".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for PropertyManagementLawRules {
     fn explain(&self) -> String {
         format!(
             "【物业管理条例规则】\n\n业主权利:\n{}\n\n物业服务:\n{}\n\n物业维修:\n{}\n",
-            self.owner_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.property_services().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.property_maintenance().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.owner_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.property_services()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.property_maintenance()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

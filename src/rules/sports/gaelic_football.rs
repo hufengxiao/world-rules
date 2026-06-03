@@ -10,12 +10,9 @@ pub struct GaelicFootballRules {
 impl GaelicFootballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "爱尔兰足球规则",
-                "爱尔兰传统足球规则"
-            )
-            .with_origin("爱尔兰")
-            .with_tags(vec!["体育".into(), "团队".into()]),
+            metadata: RuleMetadata::new("爱尔兰足球规则", "爱尔兰传统足球规则")
+                .with_origin("爱尔兰")
+                .with_tags(vec!["体育".into(), "团队".into()]),
         }
     }
 
@@ -54,13 +51,7 @@ impl GaelicFootballRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "踢球技术",
-            "手传球",
-            "携带球",
-            "射门技术",
-            "防守技术",
-        ]
+        vec!["踢球技术", "手传球", "携带球", "射门技术", "防守技术"]
     }
 
     /// 得分规则
@@ -87,13 +78,7 @@ impl GaelicFootballRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "爱尔兰足球",
-            "比赛服装",
-            "防护装备",
-            "球鞋",
-            "无护具要求",
-        ]
+        vec!["爱尔兰足球", "比赛服装", "防护装备", "球鞋", "无护具要求"]
     }
 }
 
@@ -123,10 +108,26 @@ impl Rule for GaelicFootballRules {
             技术动作:\n{}\n\n\
             得分规则:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

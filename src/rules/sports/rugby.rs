@@ -10,12 +10,9 @@ pub struct RugbyRules {
 impl RugbyRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "橄榄球规则",
-                "橄榄球比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "球类".into()]),
+            metadata: RuleMetadata::new("橄榄球规则", "橄榄球比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "球类".into()]),
         }
     }
 
@@ -135,10 +132,26 @@ impl Rule for RugbyRules {
             得分规则:\n{}\n\n\
             基本规则:\n{}\n\n\
             犯规与处罚:\n{}\n",
-            self.match_formats().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls_penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.match_formats()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls_penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

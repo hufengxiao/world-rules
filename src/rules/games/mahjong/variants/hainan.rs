@@ -12,12 +12,9 @@ pub struct HainanMahjongRules {
 impl HainanMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "海南麻将规则",
-                "海南地区流行麻将规则"
-            )
-            .with_origin("海南")
-            .with_tags(vec!["游戏".into(), "麻将".into(), "海南".into()]),
+            metadata: RuleMetadata::new("海南麻将规则", "海南地区流行麻将规则")
+                .with_origin("海南")
+                .with_tags(vec!["游戏".into(), "麻将".into(), "海南".into()]),
         }
     }
 
@@ -110,7 +107,8 @@ impl Rule for HainanMahjongRules {
     }
 
     fn explain(&self) -> String {
-        let fan_list: String = self.fan_types()
+        let fan_list: String = self
+            .fan_types()
             .iter()
             .map(|(name, fan)| format!("  • {}: {}番", name, fan))
             .collect::<Vec<_>>()
@@ -121,8 +119,16 @@ impl Rule for HainanMahjongRules {
             基本设置:\n{}\n\n\
             杠牌规则:\n{}\n\n\
             番型规则:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.kong_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.kong_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
             fan_list
         )
     }

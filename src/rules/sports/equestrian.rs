@@ -10,12 +10,9 @@ pub struct EquestrianRules {
 impl EquestrianRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "马术规则",
-                "马术比赛基本规则"
-            )
-            .with_origin("欧洲")
-            .with_tags(vec!["体育".into(), "动物".into()]),
+            metadata: RuleMetadata::new("马术规则", "马术比赛基本规则")
+                .with_origin("欧洲")
+                .with_tags(vec!["体育".into(), "动物".into()]),
         }
     }
 
@@ -135,10 +132,26 @@ impl Rule for EquestrianRules {
             场地障碍规则:\n{}\n\n\
             装备要求:\n{}\n\n\
             安全规则:\n{}\n",
-            self.disciplines().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.show_jumping_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.disciplines()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.show_jumping_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

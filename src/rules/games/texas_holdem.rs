@@ -10,12 +10,9 @@ pub struct TexasHoldemRules {
 impl TexasHoldemRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "德州扑克规则",
-                "Texas Hold'em扑克规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["游戏".into(), "扑克".into()]),
+            metadata: RuleMetadata::new("德州扑克规则", "Texas Hold'em扑克规则")
+                .with_origin("美国")
+                .with_tags(vec!["游戏".into(), "扑克".into()]),
         }
     }
 
@@ -131,10 +128,26 @@ impl Rule for TexasHoldemRules {
             牌型排名:\n{}\n\n\
             下注行动:\n{}\n\n\
             盲注结构:\n{}\n",
-            self.game_flow().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.hand_rankings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.betting_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.blind_structure().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.game_flow()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.hand_rankings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.betting_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.blind_structure()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct ThreeXThreeBasketballRules {
 impl ThreeXThreeBasketballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "3×3篮球规则",
-                "3×3篮球比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "篮球".into()]),
+            metadata: RuleMetadata::new("3×3篮球规则", "3×3篮球比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "篮球".into()]),
         }
     }
 
@@ -98,13 +95,7 @@ impl ThreeXThreeBasketballRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "标准篮球",
-            "运动服",
-            "运动鞋",
-            "号码标识",
-            "可选护具",
-        ]
+        vec!["标准篮球", "运动服", "运动鞋", "号码标识", "可选护具"]
     }
 }
 
@@ -134,10 +125,26 @@ impl Rule for ThreeXThreeBasketballRules {
             得分规则:\n{}\n\n\
             犯规规则:\n{}\n\n\
             发球规则:\n{}\n",
-            self.court_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.possession_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.court_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.possession_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

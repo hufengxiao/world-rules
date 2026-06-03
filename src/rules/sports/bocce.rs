@@ -1,6 +1,6 @@
 //! 滚球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, format_rule_sections};
+use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
 use crate::simple_rule;
 
 simple_rule! {
@@ -36,13 +36,7 @@ impl BocceRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "投掷技术",
-            "滚球技术",
-            "瞄准技术",
-            "击球技术",
-            "控制技术",
-        ]
+        vec!["投掷技术", "滚球技术", "瞄准技术", "击球技术", "控制技术"]
     }
 
     /// 得分规则
@@ -80,13 +74,7 @@ impl BocceRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "滚球",
-            "目标球",
-            "测量工具",
-            "场地装备",
-            "比赛服装",
-        ]
+        vec!["滚球", "目标球", "测量工具", "场地装备", "比赛服装"]
     }
 }
 
@@ -104,12 +92,15 @@ impl Rule for BocceRules {
     }
 
     fn explain(&self) -> String {
-        format_rule_sections("滚球规则", &[
-            ("场地规格", &self.court_specifications()),
-            ("技术动作", &self.techniques()),
-            ("得分规则", &self.scoring()),
-            ("装备要求", &self.equipment()),
-        ])
+        format_rule_sections(
+            "滚球规则",
+            &[
+                ("场地规格", &self.court_specifications()),
+                ("技术动作", &self.techniques()),
+                ("得分规则", &self.scoring()),
+                ("装备要求", &self.equipment()),
+            ],
+        )
     }
 }
 

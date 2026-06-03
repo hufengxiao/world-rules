@@ -10,12 +10,9 @@ pub struct ManagementScienceLaws {
 impl ManagementScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "管理科学定律",
-                "管理科学基本定律"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "管理".into()]),
+            metadata: RuleMetadata::new("管理科学定律", "管理科学基本定律")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "管理".into()]),
         }
     }
 

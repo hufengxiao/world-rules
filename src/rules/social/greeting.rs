@@ -10,12 +10,9 @@ pub struct GreetingEtiquette {
 impl GreetingEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "见面礼仪",
-                "日常见面问候礼仪规范"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["社交".into(), "礼仪".into()]),
+            metadata: RuleMetadata::new("见面礼仪", "日常见面问候礼仪规范")
+                .with_origin("中国")
+                .with_tags(vec!["社交".into(), "礼仪".into()]),
         }
     }
 
@@ -136,10 +133,26 @@ impl Rule for GreetingEtiquette {
             介绍规则:\n{}\n\n\
             名片礼仪:\n{}\n\n\
             称呼礼仪:\n{}\n",
-            self.handshake_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.introduction_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.business_card_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.addressing_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.handshake_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.introduction_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.business_card_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.addressing_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

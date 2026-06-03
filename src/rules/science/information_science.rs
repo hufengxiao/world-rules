@@ -10,12 +10,9 @@ pub struct InformationScienceLaws {
 impl InformationScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "信息科学定律",
-                "信息科学基本定律"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "信息".into()]),
+            metadata: RuleMetadata::new("信息科学定律", "信息科学基本定律")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "信息".into()]),
         }
     }
 

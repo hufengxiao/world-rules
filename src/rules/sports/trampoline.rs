@@ -10,12 +10,9 @@ pub struct TrampolineRules {
 impl TrampolineRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "蹦床规则",
-                "蹦床比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "体操".into()]),
+            metadata: RuleMetadata::new("蹦床规则", "蹦床比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "体操".into()]),
         }
     }
 
@@ -32,13 +29,7 @@ impl TrampolineRules {
 
     /// 比赛项目
     pub fn competition_categories(&self) -> Vec<&'static str> {
-        vec![
-            "个人蹦床",
-            "双人蹦床",
-            "同步蹦床",
-            "小蹦床",
-            "团体比赛",
-        ]
+        vec!["个人蹦床", "双人蹦床", "同步蹦床", "小蹦床", "团体比赛"]
     }
 
     /// 动作要求
@@ -54,13 +45,7 @@ impl TrampolineRules {
 
     /// 动作类型
     pub fn skill_types(&self) -> Vec<&'static str> {
-        vec![
-            "直体动作",
-            "屈体动作",
-            "团身动作",
-            "旋转动作",
-            "组合动作",
-        ]
+        vec!["直体动作", "屈体动作", "团身动作", "旋转动作", "组合动作"]
     }
 
     /// 评分标准
@@ -98,13 +83,7 @@ impl TrampolineRules {
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "安全垫铺设",
-            "装备检查",
-            "医疗支持",
-            "裁判监督",
-            "教练在场",
-        ]
+        vec!["安全垫铺设", "装备检查", "医疗支持", "裁判监督", "教练在场"]
     }
 }
 
@@ -134,10 +113,26 @@ impl Rule for TrampolineRules {
             动作要求:\n{}\n\n\
             评分标准:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.competition_categories().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.routine_requirements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_criteria().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_categories()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.routine_requirements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_criteria()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

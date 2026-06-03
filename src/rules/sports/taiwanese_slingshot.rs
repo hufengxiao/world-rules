@@ -10,12 +10,9 @@ pub struct TaiwaneseSlingshotRules {
 impl TaiwaneseSlingshotRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "彈弓规则",
-                "台湾传统彈弓运动规则"
-            )
-            .with_origin("台湾")
-            .with_tags(vec!["体育".into(), "传统".into()]),
+            metadata: RuleMetadata::new("彈弓规则", "台湾传统彈弓运动规则")
+                .with_origin("台湾")
+                .with_tags(vec!["体育".into(), "传统".into()]),
         }
     }
 
@@ -43,24 +40,12 @@ impl TaiwaneseSlingshotRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "握弓技术",
-            "拉弹技术",
-            "瞄准技术",
-            "发射技术",
-            "姿势控制",
-        ]
+        vec!["握弓技术", "拉弹技术", "瞄准技术", "发射技术", "姿势控制"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "彈弓本体",
-            "弹丸材料",
-            "靶标设置",
-            "场地装备",
-            "安全装备",
-        ]
+        vec!["彈弓本体", "弹丸材料", "靶标设置", "场地装备", "安全装备"]
     }
 
     /// 安全规则
@@ -87,13 +72,7 @@ impl TaiwaneseSlingshotRules {
 
     /// 级别体系
     pub fn skill_levels(&self) -> Vec<&'static str> {
-        vec![
-            "初学者级别",
-            "中级水平",
-            "高级水平",
-            "专业级别",
-            "大师级别",
-        ]
+        vec!["初学者级别", "中级水平", "高级水平", "专业级别", "大师级别"]
     }
 }
 
@@ -123,10 +102,26 @@ impl Rule for TaiwaneseSlingshotRules {
             技术动作:\n{}\n\n\
             安全规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

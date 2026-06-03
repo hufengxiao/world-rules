@@ -10,12 +10,9 @@ pub struct PoloRules {
 impl PoloRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "马球规则",
-                "马球比赛规则"
-            )
-            .with_origin("波斯")
-            .with_tags(vec!["体育".into(), "马术".into()]),
+            metadata: RuleMetadata::new("马球规则", "马球比赛规则")
+                .with_origin("波斯")
+                .with_tags(vec!["体育".into(), "马术".into()]),
         }
     }
 
@@ -54,24 +51,12 @@ impl PoloRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "击球技术",
-            "骑马技术",
-            "传球技术",
-            "防守技术",
-            "战术运用",
-        ]
+        vec!["击球技术", "骑马技术", "传球技术", "防守技术", "战术运用"]
     }
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "危险骑乘",
-            "非法阻挡",
-            "犯规处罚",
-            "罚球规则",
-            "安全犯规",
-        ]
+        vec!["危险骑乘", "非法阻挡", "犯规处罚", "罚球规则", "安全犯规"]
     }
 
     /// 得分规则
@@ -87,24 +72,12 @@ impl PoloRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "马球杆",
-            "马球",
-            "骑马装备",
-            "防护装备",
-            "比赛服装",
-        ]
+        vec!["马球杆", "马球", "骑马装备", "防护装备", "比赛服装"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "马匹安全",
-            "骑手安全",
-            "防护装备",
-            "医疗支持",
-            "场地安全",
-        ]
+        vec!["马匹安全", "骑手安全", "防护装备", "医疗支持", "场地安全"]
     }
 }
 
@@ -134,10 +107,26 @@ impl Rule for PoloRules {
             技术动作:\n{}\n\n\
             得分规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

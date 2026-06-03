@@ -10,12 +10,9 @@ pub struct EnvironmentalScienceLaws {
 impl EnvironmentalScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "环境科学定律",
-                "环境科学基本定律"
-            )
-            .with_origin("环境科学")
-            .with_tags(vec!["科学".into(), "环境".into()]),
+            metadata: RuleMetadata::new("环境科学定律", "环境科学基本定律")
+                .with_origin("环境科学")
+                .with_tags(vec!["科学".into(), "环境".into()]),
         }
     }
 
@@ -110,7 +107,6 @@ impl EnvironmentalScienceLaws {
         ]
     }
 
-
     /// 可再生能源
     pub fn renewable_energy(&self) -> Vec<&'static str> {
         vec![
@@ -123,7 +119,6 @@ impl EnvironmentalScienceLaws {
             "氢能: 利用氢气与氧气反应产生能量和水",
         ]
     }
-
 }
 
 impl Default for EnvironmentalScienceLaws {
@@ -148,15 +143,18 @@ impl Rule for EnvironmentalScienceLaws {
     fn explain(&self) -> String {
         format!(
             "【环境科学定律】\n\n生态系统定律:\n{}\n\n环境污染定律:\n{}\n\n气候变化定律:\n{}\n",
-            self.ecosystem_laws().iter()
+            self.ecosystem_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.pollution_laws().iter()
+            self.pollution_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.climate_laws().iter()
+            self.climate_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

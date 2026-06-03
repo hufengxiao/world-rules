@@ -10,12 +10,9 @@ pub struct MotoGPRules {
 impl MotoGPRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "MotoGP赛车规则",
-                " MotoGP摩托车比赛规则"
-            )
-            .with_origin("国际")
-            .with_tags(vec!["体育".into(), "赛车".into()]),
+            metadata: RuleMetadata::new("MotoGP赛车规则", " MotoGP摩托车比赛规则")
+                .with_origin("国际")
+                .with_tags(vec!["体育".into(), "赛车".into()]),
         }
     }
 
@@ -32,13 +29,7 @@ impl MotoGPRules {
 
     /// 比赛规则
     pub fn competition_rules(&self) -> Vec<&'static str> {
-        vec![
-            "比赛距离",
-            "圈数规定",
-            "时间限制",
-            "出发规则",
-            "终点判定",
-        ]
+        vec!["比赛距离", "圈数规定", "时间限制", "出发规则", "终点判定"]
     }
 
     /// 技术规定
@@ -76,24 +67,12 @@ impl MotoGPRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "比赛摩托车",
-            "防护头盔",
-            "比赛服装",
-            "手套护具",
-            "靴子",
-        ]
+        vec!["比赛摩托车", "防护头盔", "比赛服装", "手套护具", "靴子"]
     }
 
     /// 犯规规则
     pub fn penalties(&self) -> Vec<&'static str> {
-        vec![
-            "危险驾驶",
-            "非法超车",
-            "犯规处罚",
-            "罚时规则",
-            "取消资格",
-        ]
+        vec!["危险驾驶", "非法超车", "犯规处罚", "罚时规则", "取消资格"]
     }
 }
 
@@ -123,10 +102,26 @@ impl Rule for MotoGPRules {
             技术规定:\n{}\n\n\
             积分系统:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_classes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technical_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_classes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technical_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

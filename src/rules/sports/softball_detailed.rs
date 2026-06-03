@@ -10,24 +10,15 @@ pub struct SoftballDetailedRules {
 impl SoftballDetailedRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "垒球详细规则",
-                "垒球比赛详细规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "团队".into()]),
+            metadata: RuleMetadata::new("垒球详细规则", "垒球比赛详细规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "团队".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "快投垒球",
-            "慢投垒球",
-            "男女比赛",
-            "青少年比赛",
-            "比赛分类",
-        ]
+        vec!["快投垒球", "慢投垒球", "男女比赛", "青少年比赛", "比赛分类"]
     }
 
     /// 比赛规则
@@ -76,24 +67,12 @@ impl SoftballDetailedRules {
 
     /// 得分规则
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "跑垒得分",
-            "有效得分",
-            "得分统计",
-            "比分记录",
-            "胜负判定",
-        ]
+        vec!["跑垒得分", "有效得分", "得分统计", "比分记录", "胜负判定"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "垒球",
-            "垒球棒",
-            "手套",
-            "比赛服装",
-            "防护装备",
-        ]
+        vec!["垒球", "垒球棒", "手套", "比赛服装", "防护装备"]
     }
 }
 
@@ -123,10 +102,26 @@ impl Rule for SoftballDetailedRules {
             投球规则:\n{}\n\n\
             得分规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.pitching_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.pitching_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

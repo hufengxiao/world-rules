@@ -10,12 +10,9 @@ pub struct ChemicalEngineeringLaws {
 impl ChemicalEngineeringLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "化学工程定律",
-                "化学工程基本定律"
-            )
-            .with_origin("工程")
-            .with_tags(vec!["科学".into(), "工程".into(), "化学".into()]),
+            metadata: RuleMetadata::new("化学工程定律", "化学工程基本定律")
+                .with_origin("工程")
+                .with_tags(vec!["科学".into(), "工程".into(), "化学".into()]),
         }
     }
 

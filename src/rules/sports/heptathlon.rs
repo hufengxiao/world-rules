@@ -10,12 +10,9 @@ pub struct HeptathlonRules {
 impl HeptathlonRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "七项全能规则",
-                "田径七项全能比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("七项全能规则", "田径七项全能比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -54,46 +51,22 @@ impl HeptathlonRules {
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "径赛犯规",
-            "田赛犯规",
-            "起跑犯规",
-            "试跳失败",
-            "试投失败",
-        ]
+        vec!["径赛犯规", "田赛犯规", "起跑犯规", "试跳失败", "试投失败"]
     }
 
     /// 成绩记录
     pub fn records(&self) -> Vec<&'static str> {
-        vec![
-            "每项成绩记录",
-            "积分计算",
-            "总积分",
-            "排名规则",
-            "记录标准",
-        ]
+        vec!["每项成绩记录", "积分计算", "总积分", "排名规则", "记录标准"]
     }
 
     /// 休息规则
     pub fn rest_rules(&self) -> Vec<&'static str> {
-        vec![
-            "项目间休息",
-            "比赛间隔",
-            "补充营养",
-            "医疗支持",
-            "恢复时间",
-        ]
+        vec!["项目间休息", "比赛间隔", "补充营养", "医疗支持", "恢复时间"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "跑步装备",
-            "跳跃装备",
-            "投掷装备",
-            "防护装备",
-            "比赛服装",
-        ]
+        vec!["跑步装备", "跳跃装备", "投掷装备", "防护装备", "比赛服装"]
     }
 }
 
@@ -123,10 +96,26 @@ impl Rule for HeptathlonRules {
             积分系统:\n{}\n\n\
             比赛规则:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

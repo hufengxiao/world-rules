@@ -10,12 +10,9 @@ pub struct FireProtectionLawRules {
 impl FireProtectionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "消防法规则",
-                "中国消防法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "消防".into()]),
+            metadata: RuleMetadata::new("消防法规则", "中国消防法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "消防".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for FireProtectionLawRules {
     fn explain(&self) -> String {
         format!(
             "【消防法规则】\n\n安全责任:\n{}\n\n消防设施:\n{}\n\n安全管理:\n{}\n",
-            self.fire_safety_responsibility().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fire_facilities().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fire_safety_management().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.fire_safety_responsibility()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fire_facilities()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fire_safety_management()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

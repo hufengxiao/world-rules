@@ -10,12 +10,9 @@ pub struct ArtScienceLaws {
 impl ArtScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "艺术学定律",
-                "艺术学基本定律"
-            )
-            .with_origin("人文科学")
-            .with_tags(vec!["科学".into(), "艺术".into()]),
+            metadata: RuleMetadata::new("艺术学定律", "艺术学基本定律")
+                .with_origin("人文科学")
+                .with_tags(vec!["科学".into(), "艺术".into()]),
         }
     }
 
@@ -74,14 +71,7 @@ impl ArtScienceLaws {
     /// 艺术类型
     pub fn art_forms(&self) -> Vec<&'static str> {
         vec![
-            "绘画",
-            "雕塑",
-            "音乐",
-            "舞蹈",
-            "戏剧",
-            "电影",
-            "摄影",
-            "设计",
+            "绘画", "雕塑", "音乐", "舞蹈", "戏剧", "电影", "摄影", "设计",
         ]
     }
 

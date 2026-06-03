@@ -10,12 +10,9 @@ pub struct InsuranceLawRules {
 impl InsuranceLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "保险法规则",
-                "中国保险法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "保险法".into()]),
+            metadata: RuleMetadata::new("保险法规则", "中国保险法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "保险法".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for InsuranceLawRules {
     fn explain(&self) -> String {
         format!(
             "【保险法规则】\n\n保险类型:\n{}\n\n保险合同要素:\n{}\n\n保险理赔:\n{}\n",
-            self.insurance_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.contract_elements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.claim_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.insurance_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.contract_elements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.claim_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

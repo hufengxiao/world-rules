@@ -37,7 +37,7 @@ impl BridgeSuit {
 /// 叫品
 #[derive(Debug, Clone)]
 pub struct Bid {
-    pub level: u8,      // 1-7
+    pub level: u8, // 1-7
     pub suit: BridgeSuit,
 }
 
@@ -49,12 +49,9 @@ pub struct BridgeRules {
 impl BridgeRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "桥牌规则",
-                "世界桥牌联合会标准规则"
-            )
-            .with_origin("国际")
-            .with_tags(vec!["游戏".into(), "扑克".into(), "桥牌".into()]),
+            metadata: RuleMetadata::new("桥牌规则", "世界桥牌联合会标准规则")
+                .with_origin("国际")
+                .with_tags(vec!["游戏".into(), "扑克".into(), "桥牌".into()]),
         }
     }
 
@@ -174,11 +171,31 @@ impl Rule for BridgeRules {
             满贯定义:\n{}\n\n\
             常用术语:\n{}\n",
             self.cards_per_player(),
-            self.bidding_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.play_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.slam_definitions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.common_terms().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.bidding_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.play_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.slam_definitions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.common_terms()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct TrainEtiquette {
 impl TrainEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "火车礼仪",
-                "乘坐火车礼仪规范"
-            )
-            .with_origin("通用")
-            .with_tags(vec!["社交".into(), "火车".into()]),
+            metadata: RuleMetadata::new("火车礼仪", "乘坐火车礼仪规范")
+                .with_origin("通用")
+                .with_tags(vec!["社交".into(), "火车".into()]),
         }
     }
 
@@ -51,11 +48,7 @@ impl TrainEtiquette {
 
     /// 用餐礼仪
     pub fn dining_etiquette(&self) -> Vec<&'static str> {
-        vec![
-            "不要带气味重的食物",
-            "用餐后清理垃圾",
-            "不要在座位上饮酒",
-        ]
+        vec!["不要带气味重的食物", "用餐后清理垃圾", "不要在座位上饮酒"]
     }
 
     /// 睡卧礼仪(卧铺)
@@ -105,10 +98,26 @@ impl Rule for TrainEtiquette {
             座位礼仪:\n{}\n\n\
             噪音控制:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.boarding_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.seating_etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.noise_control().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_behaviors().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.boarding_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.seating_etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.noise_control()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_behaviors()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

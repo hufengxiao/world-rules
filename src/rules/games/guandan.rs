@@ -14,12 +14,9 @@ pub struct GuanDanRules {
 impl GuanDanRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "掼蛋规则",
-                "掼蛋扑克游戏规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "扑克".into(), "掼蛋".into()]),
+            metadata: RuleMetadata::new("掼蛋规则", "掼蛋扑克游戏规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "扑克".into(), "掼蛋".into()]),
         }
     }
 
@@ -142,11 +139,31 @@ impl Rule for GuanDanRules {
             升级规则:\n{}\n",
             self.total_cards(),
             self.player_count(),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.pattern_descriptions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.level_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.tribute_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.level_up_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.pattern_descriptions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.level_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.tribute_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.level_up_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

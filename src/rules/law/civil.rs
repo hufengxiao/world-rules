@@ -10,12 +10,9 @@ pub struct CivilLawRules {
 impl CivilLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "民法规则",
-                "中国民法典基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "民法".into()]),
+            metadata: RuleMetadata::new("民法规则", "中国民法典基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "民法".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for CivilLawRules {
             自然人行为能力:\n{}\n\n\
             民事权利:\n{}\n\n\
             诉讼时效:\n{}\n",
-            self.basic_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.capacity_of_person().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.civil_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.limitation_of_action().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.capacity_of_person()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.civil_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.limitation_of_action()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
@@ -139,5 +152,44 @@ mod tests {
     fn test_civil_law_rules() {
         let rules = CivilLawRules::new();
         assert!(!rules.basic_principles().is_empty());
+    }
+}
+
+#[cfg(test)]
+mod extra_tests {
+    use super::*;
+
+    #[test]
+    fn test_basic_principles() {
+        let rules = CivilLawRules::new();
+        let principles = rules.basic_principles();
+        assert!(principles.len() >= 3);
+    }
+
+    #[test]
+    fn test_civil_rights() {
+        let rules = CivilLawRules::new();
+        let rights = rules.civil_rights();
+        assert!(!rights.is_empty());
+    }
+
+    #[test]
+    fn test_limitation_of_action() {
+        let rules = CivilLawRules::new();
+        assert!(!rules.limitation_of_action().is_empty());
+    }
+
+    #[test]
+    fn test_civil_subjects() {
+        let rules = CivilLawRules::new();
+        assert!(!rules.civil_subjects().is_empty());
+    }
+
+    #[test]
+    fn test_rule_trait() {
+        let rules = CivilLawRules::new();
+        assert_eq!(rules.category(), RuleCategory::law("civil"));
+        assert!(rules.validate("test").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

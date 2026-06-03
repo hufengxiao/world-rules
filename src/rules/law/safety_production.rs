@@ -10,12 +10,9 @@ pub struct SafetyProductionLawRules {
 impl SafetyProductionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "安全生产法规则",
-                "中国安全生产法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "安全生产".into()]),
+            metadata: RuleMetadata::new("安全生产法规则", "中国安全生产法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "安全生产".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for SafetyProductionLawRules {
     fn explain(&self) -> String {
         format!(
             "【安全生产法规则】\n\n安全原则:\n{}\n\n企业责任:\n{}\n\n管理制度:\n{}\n",
-            self.safety_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.enterprise_responsibility().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_management_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.safety_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.enterprise_responsibility()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_management_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

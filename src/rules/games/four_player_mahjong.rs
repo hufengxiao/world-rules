@@ -10,12 +10,9 @@ pub struct FourPlayerMahjongRules {
 impl FourPlayerMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "四人麻将规则",
-                "四人麻将通用规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "麻将".into()]),
+            metadata: RuleMetadata::new("四人麻将规则", "四人麻将通用规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "麻将".into()]),
         }
     }
 
@@ -43,12 +40,7 @@ impl FourPlayerMahjongRules {
 
     /// 胡牌条件
     pub fn winning_conditions(&self) -> Vec<&'static str> {
-        vec![
-            "4组牌+1对将(标准型)",
-            "7对子",
-            "十三幺",
-            "必须满足起胡番数",
-        ]
+        vec!["4组牌+1对将(标准型)", "7对子", "十三幺", "必须满足起胡番数"]
     }
 
     /// 结算规则
@@ -88,10 +80,26 @@ impl Rule for FourPlayerMahjongRules {
             游戏流程:\n{}\n\n\
             胡牌条件:\n{}\n\n\
             结算规则:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.game_flow().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.winning_conditions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.settlement_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.game_flow()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.winning_conditions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.settlement_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

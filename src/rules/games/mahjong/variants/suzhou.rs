@@ -12,12 +12,9 @@ pub struct SuzhouMahjongRules {
 impl SuzhouMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "苏州麻将规则",
-                "苏州地区流行麻将规则"
-            )
-            .with_origin("苏州")
-            .with_tags(vec!["游戏".into(), "麻将".into(), "苏州".into()]),
+            metadata: RuleMetadata::new("苏州麻将规则", "苏州地区流行麻将规则")
+                .with_origin("苏州")
+                .with_tags(vec!["游戏".into(), "麻将".into(), "苏州".into()]),
         }
     }
 
@@ -109,7 +106,8 @@ impl Rule for SuzhouMahjongRules {
     }
 
     fn explain(&self) -> String {
-        let fan_list: String = self.fan_types()
+        let fan_list: String = self
+            .fan_types()
             .iter()
             .map(|(name, fan)| format!("  • {}: {}番", name, fan))
             .collect::<Vec<_>>()
@@ -120,8 +118,16 @@ impl Rule for SuzhouMahjongRules {
             基本设置:\n{}\n\n\
             门清规则:\n{}\n\n\
             番型规则:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.menqing_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.menqing_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
             fan_list
         )
     }

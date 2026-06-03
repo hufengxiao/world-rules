@@ -186,7 +186,10 @@ impl RuleSet {
 
     /// 导出为 Markdown 格式
     pub fn to_markdown(&self) -> String {
-        let mut md = format!("# {}\n\n{}\n\n", self.metadata.name, self.metadata.description);
+        let mut md = format!(
+            "# {}\n\n{}\n\n",
+            self.metadata.name, self.metadata.description
+        );
 
         for (name, rule) in &self.rules {
             md.push_str(&format!("## {}\n\n{}\n\n", name, rule.explain()));
@@ -221,7 +224,11 @@ impl RuleSet {
             .filter(|(name, rule)| {
                 name.to_lowercase().contains(&query_lower)
                     || rule.metadata().name.to_lowercase().contains(&query_lower)
-                    || rule.metadata().description.to_lowercase().contains(&query_lower)
+                    || rule
+                        .metadata()
+                        .description
+                        .to_lowercase()
+                        .contains(&query_lower)
             })
             .map(|(name, _)| name.as_str())
             .collect()
@@ -285,7 +292,10 @@ pub fn format_rule_sections(title: &str, sections: &[(&str, &Vec<&'static str>)]
 /// 格式化三元组规则说明
 ///
 /// 用于科学定律等 (名称, 公式/分类, 描述) 结构
-pub fn format_titled_sections(title: &str, sections: &[(&str, &Vec<(&'static str, &'static str, &'static str)>)]) -> String {
+pub fn format_titled_sections(
+    title: &str,
+    sections: &[(&str, &Vec<(&'static str, &'static str, &'static str)>)],
+) -> String {
     let mut result = format!("【{}】", title);
     for (section_name, items) in sections {
         result.push_str(&format!("\n\n{}:\n", section_name));
@@ -356,23 +366,35 @@ mod tests {
     }
 
     impl Rule for MockRule {
-        fn metadata(&self) -> &RuleMetadata { &self.meta }
-        fn category(&self) -> RuleCategory { self.cat.clone() }
-        fn validate(&self, ctx: &str) -> RuleResult<bool> { Ok(!ctx.is_empty()) }
+        fn metadata(&self) -> &RuleMetadata {
+            &self.meta
+        }
+        fn category(&self) -> RuleCategory {
+            self.cat.clone()
+        }
+        fn validate(&self, ctx: &str) -> RuleResult<bool> {
+            Ok(!ctx.is_empty())
+        }
     }
 
     fn make_ruleset() -> RuleSet {
         let mut rs = RuleSet::new("测试规则集".to_string(), RuleCategory::games("test"));
         rs.add_rule(MockRule {
-            meta: RuleMetadata::new("足球规则", "足球比赛规则").with_origin("国际").with_tags(vec!["体育".into(), "球类".into()]),
+            meta: RuleMetadata::new("足球规则", "足球比赛规则")
+                .with_origin("国际")
+                .with_tags(vec!["体育".into(), "球类".into()]),
             cat: RuleCategory::sports("football"),
         });
         rs.add_rule(MockRule {
-            meta: RuleMetadata::new("篮球规则", "篮球比赛规则").with_origin("美国").with_tags(vec!["体育".into(), "球类".into()]),
+            meta: RuleMetadata::new("篮球规则", "篮球比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "球类".into()]),
             cat: RuleCategory::sports("basketball"),
         });
         rs.add_rule(MockRule {
-            meta: RuleMetadata::new("合同法", "合同法律规则").with_origin("中国").with_tags(vec!["法律".into(), "民法".into()]),
+            meta: RuleMetadata::new("合同法", "合同法律规则")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "民法".into()]),
             cat: RuleCategory::law("contract"),
         });
         rs
@@ -428,8 +450,14 @@ mod tests {
 
     #[test]
     fn test_rule_category_display() {
-        assert_eq!(format!("{}", RuleCategory::games("mahjong")), "Games/mahjong");
-        assert_eq!(format!("{}", RuleCategory::sports("football")), "Sports/football");
+        assert_eq!(
+            format!("{}", RuleCategory::games("mahjong")),
+            "Games/mahjong"
+        );
+        assert_eq!(
+            format!("{}", RuleCategory::sports("football")),
+            "Sports/football"
+        );
         assert_eq!(format!("{}", RuleCategory::law("traffic")), "Law/traffic");
     }
 

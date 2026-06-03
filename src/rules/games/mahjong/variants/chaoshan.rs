@@ -12,12 +12,9 @@ pub struct ChaoshanMahjongRules {
 impl ChaoshanMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "潮汕麻将规则",
-                "潮汕地区流行麻将规则"
-            )
-            .with_origin("潮汕")
-            .with_tags(vec!["游戏".into(), "麻将".into(), "潮汕".into()]),
+            metadata: RuleMetadata::new("潮汕麻将规则", "潮汕地区流行麻将规则")
+                .with_origin("潮汕")
+                .with_tags(vec!["游戏".into(), "麻将".into(), "潮汕".into()]),
         }
     }
 
@@ -135,7 +132,8 @@ impl Rule for ChaoshanMahjongRules {
     }
 
     fn explain(&self) -> String {
-        let fan_list: String = self.fan_types()
+        let fan_list: String = self
+            .fan_types()
             .iter()
             .map(|(name, fan)| format!("  • {}: {}番", name, fan))
             .collect::<Vec<_>>()
@@ -147,10 +145,22 @@ impl Rule for ChaoshanMahjongRules {
             番型规则:\n{}\n\n\
             三六九番:\n{}\n\n\
             计分规则:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
             fan_list,
-            self.sanliujiu_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.sanliujiu_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

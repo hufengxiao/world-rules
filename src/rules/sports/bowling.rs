@@ -10,12 +10,9 @@ pub struct BowlingRules {
 impl BowlingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "保龄球规则",
-                "保龄球比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "室内".into()]),
+            metadata: RuleMetadata::new("保龄球规则", "保龄球比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "室内".into()]),
         }
     }
 
@@ -124,10 +121,26 @@ impl Rule for BowlingRules {
             计分规则:\n{}\n\n\
             全倒规则:\n{}\n\n\
             补中规则:\n{}\n",
-            self.lane_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.strike_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.spare_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.lane_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.strike_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.spare_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

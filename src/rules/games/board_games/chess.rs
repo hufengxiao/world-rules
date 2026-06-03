@@ -38,12 +38,48 @@ impl ChessPieceType {
 
     pub fn symbol(&self, is_white: bool) -> &'static str {
         match self {
-            ChessPieceType::King => if is_white { "♔" } else { "♚" },
-            ChessPieceType::Queen => if is_white { "♕" } else { "♛" },
-            ChessPieceType::Rook => if is_white { "♖" } else { "♜" },
-            ChessPieceType::Bishop => if is_white { "♗" } else { "♝" },
-            ChessPieceType::Knight => if is_white { "♘" } else { "♞" },
-            ChessPieceType::Pawn => if is_white { "♙" } else { "♟" },
+            ChessPieceType::King => {
+                if is_white {
+                    "♔"
+                } else {
+                    "♚"
+                }
+            }
+            ChessPieceType::Queen => {
+                if is_white {
+                    "♕"
+                } else {
+                    "♛"
+                }
+            }
+            ChessPieceType::Rook => {
+                if is_white {
+                    "♖"
+                } else {
+                    "♜"
+                }
+            }
+            ChessPieceType::Bishop => {
+                if is_white {
+                    "♗"
+                } else {
+                    "♝"
+                }
+            }
+            ChessPieceType::Knight => {
+                if is_white {
+                    "♘"
+                } else {
+                    "♞"
+                }
+            }
+            ChessPieceType::Pawn => {
+                if is_white {
+                    "♙"
+                } else {
+                    "♟"
+                }
+            }
         }
     }
 
@@ -68,12 +104,9 @@ pub struct ChessRules {
 impl ChessRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "国际象棋规则",
-                "FIDE 国际象棋标准规则"
-            )
-            .with_origin("国际")
-            .with_tags(vec!["游戏".into(), "国际象棋".into()]),
+            metadata: RuleMetadata::new("国际象棋规则", "FIDE 国际象棋标准规则")
+                .with_origin("国际")
+                .with_tags(vec!["游戏".into(), "国际象棋".into()]),
         }
     }
 
@@ -84,12 +117,24 @@ impl ChessRules {
     /// 获取棋子走法说明
     pub fn piece_movement_rules(&self) -> Vec<(ChessPieceType, &'static str)> {
         vec![
-            (ChessPieceType::King, "王：可向任意方向移动一格，特殊情况下可王车易位"),
-            (ChessPieceType::Queen, "后：可横、竖、斜任意方向任意格数移动"),
+            (
+                ChessPieceType::King,
+                "王：可向任意方向移动一格，特殊情况下可王车易位",
+            ),
+            (
+                ChessPieceType::Queen,
+                "后：可横、竖、斜任意方向任意格数移动",
+            ),
             (ChessPieceType::Rook, "车：只能横或竖直线移动任意格数"),
             (ChessPieceType::Bishop, "象：只能斜线移动任意格数"),
-            (ChessPieceType::Knight, "马：走L字形（两格直线+一格斜线），可越子"),
-            (ChessPieceType::Pawn, "兵：前进一格（首次可两格），斜向吃子，可升变"),
+            (
+                ChessPieceType::Knight,
+                "马：走L字形（两格直线+一格斜线），可越子",
+            ),
+            (
+                ChessPieceType::Pawn,
+                "兵：前进一格（首次可两格），斜向吃子，可升变",
+            ),
         ]
     }
 
@@ -158,11 +203,13 @@ impl Rule for ChessRules {
             棋子价值参考:\n{}",
             self.board_size(),
             self.board_size(),
-            movements.iter()
+            movements
+                .iter()
                 .map(|(p, r)| format!("  • {}({}): {}", p.name(), p.symbol(true), r))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            special.iter()
+            special
+                .iter()
                 .map(|r| format!("  • {}", r))
                 .collect::<Vec<_>>()
                 .join("\n"),
@@ -172,10 +219,11 @@ impl Rule for ChessRules {
                 ChessPieceType::Bishop,
                 ChessPieceType::Knight,
                 ChessPieceType::Pawn,
-            ].iter()
-                .map(|p| format!("  • {}: {}", p.name(), p.value()))
-                .collect::<Vec<_>>()
-                .join("\n")
+            ]
+            .iter()
+            .map(|p| format!("  • {}: {}", p.name(), p.value()))
+            .collect::<Vec<_>>()
+            .join("\n")
         )
     }
 }

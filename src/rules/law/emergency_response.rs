@@ -10,12 +10,9 @@ pub struct EmergencyResponseLawRules {
 impl EmergencyResponseLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "突发事件应对法规则",
-                "中国突发事件应对法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "突发事件应对".into()]),
+            metadata: RuleMetadata::new("突发事件应对法规则", "中国突发事件应对法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "突发事件应对".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for EmergencyResponseLawRules {
     fn explain(&self) -> String {
         format!(
             "【突发事件应对法规则】\n\n事件类型:\n{}\n\n预防预警:\n{}\n\n应急响应:\n{}\n",
-            self.emergency_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prevention_warning().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.emergency_response_measures().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.emergency_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prevention_warning()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.emergency_response_measures()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

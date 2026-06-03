@@ -10,12 +10,9 @@ pub struct CivilAviationLawRules {
 impl CivilAviationLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "民用航空法规则",
-                "中国民用航空法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "民用航空".into()]),
+            metadata: RuleMetadata::new("民用航空法规则", "中国民用航空法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "民用航空".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for CivilAviationLawRules {
     fn explain(&self) -> String {
         format!(
             "【民用航空法规则】\n\n航空器管理:\n{}\n\n航空运输:\n{}\n\n航空安全:\n{}\n",
-            self.aircraft_management().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.air_transport().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.aviation_safety().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.aircraft_management()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.air_transport()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.aviation_safety()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

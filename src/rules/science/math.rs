@@ -52,22 +52,18 @@ impl MathTheoremType {
 
     pub fn description(&self) -> &'static str {
         match self {
-            MathTheoremType::EuclidAxioms =>
-                "平面几何的基本公理体系，包括点、线、面的定义和基本性质",
-            MathTheoremType::PythagoreanTheorem =>
-                "直角三角形两直角边的平方和等于斜边的平方",
-            MathTheoremType::CircleArea =>
-                "圆的面积等于半径平方乘以圆周率",
-            MathTheoremType::QuadraticFormula =>
-                "一元二次方程 ax²+bx+c=0 的求根公式",
-            MathTheoremType::EulerFormula =>
-                "连接指数函数、三角函数和复数的最美公式",
-            MathTheoremType::FibonacciSequence =>
-                "每个数等于前两个数之和: 1,1,2,3,5,8,13...",
-            MathTheoremType::SineLaw =>
-                "三角形边长与对应角的正弦值比值相等",
-            MathTheoremType::CosineLaw =>
-                "三角形任意一边的平方等于其他两边平方和减去两倍夹角余弦乘积",
+            MathTheoremType::EuclidAxioms => {
+                "平面几何的基本公理体系，包括点、线、面的定义和基本性质"
+            }
+            MathTheoremType::PythagoreanTheorem => "直角三角形两直角边的平方和等于斜边的平方",
+            MathTheoremType::CircleArea => "圆的面积等于半径平方乘以圆周率",
+            MathTheoremType::QuadraticFormula => "一元二次方程 ax²+bx+c=0 的求根公式",
+            MathTheoremType::EulerFormula => "连接指数函数、三角函数和复数的最美公式",
+            MathTheoremType::FibonacciSequence => "每个数等于前两个数之和: 1,1,2,3,5,8,13...",
+            MathTheoremType::SineLaw => "三角形边长与对应角的正弦值比值相等",
+            MathTheoremType::CosineLaw => {
+                "三角形任意一边的平方等于其他两边平方和减去两倍夹角余弦乘积"
+            }
         }
     }
 }
@@ -80,12 +76,9 @@ pub struct MathRules {
 impl MathRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "数学公式与定理",
-                "基础数学公式和定理"
-            )
-            .with_origin("数学")
-            .with_tags(vec!["科学".into(), "数学".into()]),
+            metadata: RuleMetadata::new("数学公式与定理", "基础数学公式和定理")
+                .with_origin("数学")
+                .with_tags(vec!["科学".into(), "数学".into()]),
         }
     }
 
@@ -119,10 +112,7 @@ impl MathRules {
             return None;
         }
         let sqrt_d = discriminant.sqrt();
-        Some((
-            (-b + sqrt_d) / (2.0 * a),
-            (-b - sqrt_d) / (2.0 * a),
-        ))
+        Some(((-b + sqrt_d) / (2.0 * a), (-b - sqrt_d) / (2.0 * a)))
     }
 
     /// 生成斐波那契数列
@@ -135,7 +125,7 @@ impl MathRules {
         }
         let mut seq = vec![1, 1];
         for i in 2..n {
-            seq.push(seq[i-1] + seq[i-2]);
+            seq.push(seq[i - 1] + seq[i - 2]);
         }
         seq
     }
@@ -193,7 +183,6 @@ impl MathRules {
             "布雷特施奈德公式: 任意四边形面积公式",
         ]
     }
-
 }
 
 impl Default for MathRules {
@@ -219,7 +208,8 @@ impl Rule for MathRules {
         let theorems = Self::all_theorems();
         format!(
             "【数学公式与定理】\n\n{}\n",
-            theorems.iter()
+            theorems
+                .iter()
                 .map(|t| format!(
                     "▶ {}\n   公式: {}\n   说明: {}\n",
                     t.name(),

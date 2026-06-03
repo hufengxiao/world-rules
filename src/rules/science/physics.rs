@@ -52,22 +52,22 @@ impl PhysicsLawType {
 
     pub fn description(&self) -> &'static str {
         match self {
-            PhysicsLawType::NewtonFirstLaw =>
-                "一切物体在没有受到外力作用时，总保持匀速直线运动状态或静止状态",
-            PhysicsLawType::NewtonSecondLaw =>
-                "物体的加速度与所受合力成正比，与质量成反比",
-            PhysicsLawType::NewtonThirdLaw =>
-                "两个物体之间的作用力和反作用力大小相等、方向相反",
-            PhysicsLawType::GravitationalLaw =>
-                "任意两个质点之间存在引力，大小与质量乘积成正比，与距离平方成反比",
-            PhysicsLawType::EnergyConservation =>
-                "能量既不会凭空产生，也不会凭空消失，只能从一种形式转化为另一种形式",
-            PhysicsLawType::MomentumConservation =>
-                "系统不受外力或所受外力之和为零时，系统总动量保持不变",
-            PhysicsLawType::ThermodynamicsFirstLaw =>
-                "系统内能的变化等于吸收的热量减去对外做的功",
-            PhysicsLawType::ThermodynamicsSecondLaw =>
-                "热量不能自发地从低温物体传向高温物体",
+            PhysicsLawType::NewtonFirstLaw => {
+                "一切物体在没有受到外力作用时，总保持匀速直线运动状态或静止状态"
+            }
+            PhysicsLawType::NewtonSecondLaw => "物体的加速度与所受合力成正比，与质量成反比",
+            PhysicsLawType::NewtonThirdLaw => "两个物体之间的作用力和反作用力大小相等、方向相反",
+            PhysicsLawType::GravitationalLaw => {
+                "任意两个质点之间存在引力，大小与质量乘积成正比，与距离平方成反比"
+            }
+            PhysicsLawType::EnergyConservation => {
+                "能量既不会凭空产生，也不会凭空消失，只能从一种形式转化为另一种形式"
+            }
+            PhysicsLawType::MomentumConservation => {
+                "系统不受外力或所受外力之和为零时，系统总动量保持不变"
+            }
+            PhysicsLawType::ThermodynamicsFirstLaw => "系统内能的变化等于吸收的热量减去对外做的功",
+            PhysicsLawType::ThermodynamicsSecondLaw => "热量不能自发地从低温物体传向高温物体",
         }
     }
 }
@@ -80,12 +80,9 @@ pub struct PhysicsLaws {
 impl PhysicsLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "物理定律",
-                "经典物理学基本定律"
-            )
-            .with_origin("物理学")
-            .with_tags(vec!["科学".into(), "物理".into()]),
+            metadata: RuleMetadata::new("物理定律", "经典物理学基本定律")
+                .with_origin("物理学")
+                .with_tags(vec!["科学".into(), "物理".into()]),
         }
     }
 
@@ -125,7 +122,6 @@ impl PhysicsLaws {
         ]
     }
 
-
     /// 力学定律
     pub fn mechanics_laws(&self) -> Vec<&'static str> {
         vec![
@@ -139,7 +135,6 @@ impl PhysicsLaws {
             "伯努利原理: 流体中流速大处压强小",
         ]
     }
-
 }
 
 impl Default for PhysicsLaws {
@@ -186,5 +181,44 @@ mod tests {
     fn test_newton_second_law() {
         let force = PhysicsLaws::calculate_force(10.0, 2.0);
         assert_eq!(force, 20.0);
+    }
+}
+
+#[cfg(test)]
+mod extra_tests {
+    use super::*;
+
+    #[test]
+    fn test_calculate_force_values() {
+        // F = m * a
+        assert_eq!(PhysicsLaws::calculate_force(0.0, 9.8), 0.0);
+        assert_eq!(PhysicsLaws::calculate_force(1.0, 9.8), 9.8);
+        assert_eq!(PhysicsLaws::calculate_force(100.0, 0.0), 0.0);
+    }
+
+    #[test]
+    fn test_calculate_gravity() {
+        // F = G * m1 * m2 / r^2 — 验证不 panic 且结果为正
+        let force = PhysicsLaws::calculate_gravity(1e10, 1e10, 100.0);
+        assert!(force > 0.0);
+    }
+
+    #[test]
+    fn test_all_laws_not_empty() {
+        let laws = PhysicsLaws::all_laws();
+        assert!(!laws.is_empty());
+    }
+
+    #[test]
+    fn test_mechanics_laws() {
+        let rules = PhysicsLaws::new();
+        assert!(!rules.mechanics_laws().is_empty());
+    }
+
+    #[test]
+    fn test_rule_trait() {
+        let rules = PhysicsLaws::new();
+        assert!(rules.validate("test").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

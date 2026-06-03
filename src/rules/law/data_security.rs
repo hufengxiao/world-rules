@@ -10,12 +10,9 @@ pub struct DataSecurityLawRules {
 impl DataSecurityLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "数据安全法规则",
-                "中国数据安全法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "数据安全".into()]),
+            metadata: RuleMetadata::new("数据安全法规则", "中国数据安全法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "数据安全".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for DataSecurityLawRules {
     fn explain(&self) -> String {
         format!(
             "【数据安全法规则】\n\n安全原则:\n{}\n\n分类分级:\n{}\n\n保护义务:\n{}\n",
-            self.data_security_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.data_classification().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.data_security_obligations().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.data_security_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.data_classification()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.data_security_obligations()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

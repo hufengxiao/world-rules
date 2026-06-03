@@ -10,12 +10,9 @@ pub struct LaborLawRules {
 impl LaborLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "劳动法规则",
-                "中国劳动法基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "劳动".into()]),
+            metadata: RuleMetadata::new("劳动法规则", "中国劳动法基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "劳动".into()]),
         }
     }
 
@@ -115,12 +112,36 @@ impl Rule for LaborLawRules {
             解除合同:\n{}\n\n\
             工资规定:\n{}\n\n\
             社会保险:\n{}\n",
-            self.working_hours().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.leave_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.contract_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.termination_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.wage_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.social_insurance().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.working_hours()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.leave_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.contract_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.termination_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.wage_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.social_insurance()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
@@ -132,6 +153,8 @@ mod tests {
     #[test]
     fn test_labor_law() {
         let rules = LaborLawRules::new();
-        assert!(rules.working_hours().contains(&"标准工作时间: 每日8小时，每周40小时"));
+        assert!(rules
+            .working_hours()
+            .contains(&"标准工作时间: 每日8小时，每周40小时"));
     }
 }

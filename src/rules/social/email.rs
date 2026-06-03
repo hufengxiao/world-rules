@@ -10,12 +10,9 @@ pub struct EmailEtiquette {
 impl EmailEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "邮件礼仪",
-                "电子邮件沟通礼仪规范"
-            )
-            .with_origin("现代办公")
-            .with_tags(vec!["社交".into(), "办公".into()]),
+            metadata: RuleMetadata::new("邮件礼仪", "电子邮件沟通礼仪规范")
+                .with_origin("现代办公")
+                .with_tags(vec!["社交".into(), "办公".into()]),
         }
     }
 
@@ -130,10 +127,26 @@ impl Rule for EmailEtiquette {
             正文格式:\n{}\n\n\
             回复礼仪:\n{}\n\n\
             附件礼仪:\n{}\n",
-            self.subject_line().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.body_format().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.reply_etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.attachment_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.subject_line()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.body_format()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.reply_etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.attachment_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

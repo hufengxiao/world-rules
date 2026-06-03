@@ -10,12 +10,9 @@ pub struct TennisRules {
 impl TennisRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "网球规则",
-                "ITF 国际网球联合会标准规则"
-            )
-            .with_origin("ITF")
-            .with_tags(vec!["体育".into(), "网球".into()]),
+            metadata: RuleMetadata::new("网球规则", "ITF 国际网球联合会标准规则")
+                .with_origin("ITF")
+                .with_tags(vec!["体育".into(), "网球".into()]),
         }
     }
 
@@ -109,11 +106,31 @@ impl Rule for TennisRules {
             盘数设置:\n{}\n\n\
             抢七规则:\n{}\n\n\
             发球规则:\n{}\n",
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.deuce_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.set_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.tiebreak_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.serving_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.deuce_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.set_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.tiebreak_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.serving_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

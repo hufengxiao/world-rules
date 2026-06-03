@@ -61,12 +61,9 @@ pub struct AthleticsRules {
 impl AthleticsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "田径规则",
-                "WA 世界田联标准规则"
-            )
-            .with_origin("WA")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("田径规则", "WA 世界田联标准规则")
+                .with_origin("WA")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -206,16 +203,56 @@ impl Rule for AthleticsRules {
             跳远规则:\n{}\n\n\
             跳高规则:\n{}\n\n\
             投掷规则:\n{}\n",
-            self.track_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.sprint_distances().iter().map(|d| d.to_string()).collect::<Vec<_>>().join("/"),
-            self.middle_distance_events().iter().map(|d| d.to_string()).collect::<Vec<_>>().join("/"),
-            self.long_distance_events().iter().map(|d| d.to_string()).collect::<Vec<_>>().join("/"),
-            self.starting_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.hurdles_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.relay_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.long_jump_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.high_jump_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.throwing_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.track_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.sprint_distances()
+                .iter()
+                .map(|d| d.to_string())
+                .collect::<Vec<_>>()
+                .join("/"),
+            self.middle_distance_events()
+                .iter()
+                .map(|d| d.to_string())
+                .collect::<Vec<_>>()
+                .join("/"),
+            self.long_distance_events()
+                .iter()
+                .map(|d| d.to_string())
+                .collect::<Vec<_>>()
+                .join("/"),
+            self.starting_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.hurdles_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.relay_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.long_jump_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.high_jump_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.throwing_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

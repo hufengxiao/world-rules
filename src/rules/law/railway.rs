@@ -10,12 +10,9 @@ pub struct RailwayLawRules {
 impl RailwayLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "铁路法规则",
-                "中国铁路法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "铁路".into()]),
+            metadata: RuleMetadata::new("铁路法规则", "中国铁路法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "铁路".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for RailwayLawRules {
     fn explain(&self) -> String {
         format!(
             "【铁路法规则】\n\n铁路建设:\n{}\n\n铁路运输:\n{}\n\n铁路安全:\n{}\n",
-            self.railway_construction().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.railway_transport().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.railway_safety().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.railway_construction()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.railway_transport()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.railway_safety()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

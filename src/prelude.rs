@@ -1,95 +1,96 @@
 //! 预导入模块
 
-pub use crate::rules::{
-    Rule, RuleCategory, RuleSet, RuleMetadata, RuleError, RuleResult,
-};
+pub use crate::rules::{Rule, RuleCategory, RuleError, RuleMetadata, RuleResult, RuleSet};
 
 // 游戏规则
 pub use crate::rules::games::{
-    mahjong::{
-        MahjongRules, MahjongVariant, SichuanMahjongRules, GuobiaoMahjongRules, RiichiMahjongRules,
-        // 国内麻将变体
-        GuangdongMahjongRules, WuhanMahjongRules, ShanghaiMahjongRules, TaiwanMahjongRules,
-        BeijingMahjongRules, DongbeiMahjongRules, ChangshaMahjongRules, HangzhouMahjongRules,
-        NanjingMahjongRules, ChaoshanMahjongRules, TianjinMahjongRules, ChongqingMahjongRules,
-        KunmingMahjongRules, GuiyangMahjongRules, FuzhouMahjongRules, NanchangMahjongRules,
-        GuangxiMahjongRules, XinjiangMahjongRules, SichuanDetailedMahjongRules,
-        ZhengzhouMahjongRules, XianMahjongRules, KejiaMahjongRules, HainanMahjongRules,
-        AnhuiMahjongRules, SuzhouMahjongRules,
-    },
-    doudizhu::DouDiZhuRules,
+    aeroplane_chess::AeroplaneChessRules,
     blackjack::BlackjackRules,
     bridge::BridgeRules,
-    sudoku::SudokuRules,
-    rubiks_cube::{RubiksCubeRules, CubeType},
-    pao_de_kuai::PaoDeKuaiRules,
-    sheng_ji::ShengJiRules,
-    aeroplane_chess::AeroplaneChessRules,
     chinese_checkers::ChineseCheckersRules,
-    guandan::GuanDanRules,
-    military_chess::MilitaryChessRules,
-    four_player_mahjong::FourPlayerMahjongRules,
-    two_player_mahjong::TwoPlayerMahjongRules,
     domino::DominoRules,
+    doudizhu::DouDiZhuRules,
+    four_player_mahjong::FourPlayerMahjongRules,
+    guandan::GuanDanRules,
+    mahjong::{
+        AnhuiMahjongRules,
+        BeijingMahjongRules,
+        ChangshaMahjongRules,
+        ChaoshanMahjongRules,
+        ChongqingMahjongRules,
+        DongbeiMahjongRules,
+        FuzhouMahjongRules,
+        // 国内麻将变体
+        GuangdongMahjongRules,
+        GuangxiMahjongRules,
+        GuiyangMahjongRules,
+        GuobiaoMahjongRules,
+        HainanMahjongRules,
+        HangzhouMahjongRules,
+        KejiaMahjongRules,
+        KunmingMahjongRules,
+        MahjongRules,
+        MahjongVariant,
+        NanchangMahjongRules,
+        NanjingMahjongRules,
+        RiichiMahjongRules,
+        ShanghaiMahjongRules,
+        SichuanDetailedMahjongRules,
+        SichuanMahjongRules,
+        SuzhouMahjongRules,
+        TaiwanMahjongRules,
+        TianjinMahjongRules,
+        WuhanMahjongRules,
+        XianMahjongRules,
+        XinjiangMahjongRules,
+        ZhengzhouMahjongRules,
+    },
+    military_chess::MilitaryChessRules,
+    pao_de_kuai::PaoDeKuaiRules,
+    rubiks_cube::{CubeType, RubiksCubeRules},
+    sheng_ji::ShengJiRules,
+    sudoku::SudokuRules,
     texas_holdem::TexasHoldemRules,
+    two_player_mahjong::TwoPlayerMahjongRules,
 };
 
 // 棋类规则
-pub use crate::rules::games::board_games::{
-    ChineseChessRules, ChessRules, GomokuRules, GoRules,
-};
+pub use crate::rules::games::board_games::{ChessRules, ChineseChessRules, GoRules, GomokuRules};
 
 // 体育规则
 pub use crate::rules::sports::{
-    FootballRules, BasketballRules, TableTennisRules,
-    TennisRules, VolleyballRules, BadmintonRules,
-    SwimmingRules, SwimmingStyle,
-    AthleticsRules, AthleticsEvent,
-    GolfRules,
-    SkiingRules, SkiingType,
-    CyclingRules, CyclingType,
-    WeightliftingRules,
-    BilliardsRules, BilliardsType,
-    ShootingRules,
-    ArcheryRules,
-    GymnasticsRules, GymnasticsType,
-    DivingRules,
-    SynchronizedSwimmingRules,
-    BoxingRules,
-    JudoRules,
-    TaekwondoRules,
-    BaseballRules,
-    IceHockeyRules,
-    FigureSkatingRules,
+    ArcheryRules, AthleticsEvent, AthleticsRules, BadmintonRules, BaseballRules, BasketballRules,
+    BilliardsRules, BilliardsType, BoxingRules, ClimbingRules, CurlingRules, CyclingRules,
+    CyclingType, DivingRules, F1Rules, FencingRules, FigureSkatingRules, FootballRules, GolfRules,
+    GymnasticsRules, GymnasticsType, IceHockeyRules, JudoRules, KarateRules, MarathonRules,
+    MuayThaiRules, RugbyRules, ShootingRules, SkateboardingRules, SkiingRules, SkiingType,
+    SurfingRules, SwimmingRules, SwimmingStyle, SynchronizedSwimmingRules, TableTennisRules,
+    TaekwondoRules, TennisRules, TriathlonRules, VolleyballRules, WeightliftingRules,
 };
 
 // 社交礼仪
 pub use crate::rules::social::{
-    DiningEtiquette, DiningCulture, BusinessEtiquette,
-    GiftEtiquette, TeaEtiquette, TeaCulture,
-    WeddingEtiquette, WeddingCulture, InterviewEtiquette,
-    FuneralEtiquette, FuneralCulture,
-    FestivalEtiquette, ChineseFestival,
-    ElevatorEtiquette, CinemaEtiquette, LibraryEtiquette,
-    FlightEtiquette, TrainEtiquette,
-    ToastingEtiquette, SeatingEtiquette, GreetingEtiquette,
-    PhoneEtiquette, EmailEtiquette,
+    BusinessEtiquette, ChineseFestival, CinemaEtiquette, DiningCulture, DiningEtiquette,
+    ElevatorEtiquette, EmailEtiquette, FestivalEtiquette, FlightEtiquette, FuneralCulture,
+    FuneralEtiquette, GiftEtiquette, GreetingEtiquette, InterviewEtiquette, LibraryEtiquette,
+    PhoneEtiquette, SeatingEtiquette, TeaCulture, TeaEtiquette, ToastingEtiquette, TrainEtiquette,
+    WeddingCulture, WeddingEtiquette,
 };
 
 // 科学规则
 pub use crate::rules::science::{
-    PhysicsLaws, MathRules, ChemistryRules, BiologyRules,
-    AstronomyRules, EconomicsRules, PsychologyRules, StatisticsRules,
+    AstronomyRules, BiologyRules, ChemistryRules, ComputerScienceLaws, EconomicsRules,
+    GeoscienceLaws, MaterialScienceLaws, MathRules, NeuroscienceLaws, PhysicsLaws, PsychologyRules,
+    QuantumMechanicsLaws, StatisticsRules, ThermodynamicsLaws,
 };
 
 // 法律规则
 pub use crate::rules::law::{
-    TrafficRules, TrafficRegion, ContractRules, LaborLawRules, ConsumerLawRules,
-    IPRules, RoadSafetyRules, MarriageLawRules, InheritanceLawRules,
-    CriminalLawRules, CivilLawRules, ConstitutionRules,
+    AdministrativeLawRules, CivilLawRules, CompanyLawRules, ConstitutionRules, ConsumerLawRules,
+    ContractRules, CopyrightLawRules, CriminalLawRules, CybersecurityLawRules, IPRules,
+    InheritanceLawRules, LaborLawRules, MarriageLawRules, PatentLawRules, RoadSafetyRules,
+    SecuritiesLawRules, TaxLawRules, TrafficRegion, TrafficRules,
 };
 
 // 健康规则
-pub use crate::rules::health::{
-    NutritionRules, ExerciseRules, SleepRules, MentalHealthRules,
-};
+pub use crate::rules::health::{ExerciseRules, MentalHealthRules, NutritionRules, SleepRules};

@@ -10,12 +10,9 @@ pub struct AstronomyRules {
 impl AstronomyRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "天文学定律",
-                "天文学基本定律和理论"
-            )
-            .with_origin("天文学")
-            .with_tags(vec!["科学".into(), "天文学".into()]),
+            metadata: RuleMetadata::new("天文学定律", "天文学基本定律和理论")
+                .with_origin("天文学")
+                .with_tags(vec!["科学".into(), "天文学".into()]),
         }
     }
 
@@ -108,7 +105,6 @@ impl AstronomyRules {
         ]
     }
 
-
     /// 系外行星
     pub fn exoplanet_science(&self) -> Vec<&'static str> {
         vec![
@@ -121,7 +117,6 @@ impl AstronomyRules {
             "系外行星大气: 通过凌日光谱分析行星大气成分",
         ]
     }
-
 }
 
 impl Default for AstronomyRules {
@@ -153,11 +148,31 @@ impl Rule for AstronomyRules {
             恒星演化:\n{}\n\n\
             太阳系:\n{}\n\n\
             距离单位:\n{}\n",
-            self.kepler_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.cosmological_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.stellar_evolution().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            planets.iter().map(|(n, d)| format!("  • {}: {}", n, d)).collect::<Vec<_>>().join("\n"),
-            units.iter().map(|(n, d)| format!("  • {}: {}", n, d)).collect::<Vec<_>>().join("\n")
+            self.kepler_laws()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cosmological_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.stellar_evolution()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            planets
+                .iter()
+                .map(|(n, d)| format!("  • {}: {}", n, d))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            units
+                .iter()
+                .map(|(n, d)| format!("  • {}: {}", n, d))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

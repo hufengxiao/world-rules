@@ -10,12 +10,9 @@ pub struct ElevatorEtiquette {
 impl ElevatorEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电梯礼仪",
-                "乘坐电梯礼仪规范"
-            )
-            .with_origin("通用")
-            .with_tags(vec!["社交".into(), "电梯".into()]),
+            metadata: RuleMetadata::new("电梯礼仪", "乘坐电梯礼仪规范")
+                .with_origin("通用")
+                .with_tags(vec!["社交".into(), "电梯".into()]),
         }
     }
 
@@ -97,10 +94,26 @@ impl Rule for ElevatorEtiquette {
             站立位置:\n{}\n\n\
             操作礼仪:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.boarding_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.standing_positions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.operation_etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_behaviors().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.boarding_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.standing_positions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.operation_etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_behaviors()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

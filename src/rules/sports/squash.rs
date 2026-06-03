@@ -10,12 +10,9 @@ pub struct SquashRules {
 impl SquashRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "壁球规则",
-                "壁球比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "球类".into()]),
+            metadata: RuleMetadata::new("壁球规则", "壁球比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "球类".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for SquashRules {
             比赛规则:\n{}\n\n\
             发球规则:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.court_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.match_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.service_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.court_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.match_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.service_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

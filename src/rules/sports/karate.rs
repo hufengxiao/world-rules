@@ -10,12 +10,9 @@ pub struct KarateRules {
 impl KarateRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "空手道规则",
-                "空手道比赛基本规则"
-            )
-            .with_origin("日本")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("空手道规则", "空手道比赛基本规则")
+                .with_origin("日本")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -124,10 +121,26 @@ impl Rule for KarateRules {
             得分规则:\n{}\n\n\
             犯规行为:\n{}\n\n\
             段位制度:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.belt_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.belt_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

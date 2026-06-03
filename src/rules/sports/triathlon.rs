@@ -10,12 +10,9 @@ pub struct TriathlonRules {
 impl TriathlonRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "铁人三项规则",
-                "铁人三项比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "综合".into()]),
+            metadata: RuleMetadata::new("铁人三项规则", "铁人三项比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "综合".into()]),
         }
     }
 
@@ -98,13 +95,7 @@ impl TriathlonRules {
 
     /// 分组规则
     pub fn categories(&self) -> Vec<&'static str> {
-        vec![
-            "男子组",
-            "女子组",
-            "年龄分组",
-            "精英组",
-            "接力组",
-        ]
+        vec!["男子组", "女子组", "年龄分组", "精英组", "接力组"]
     }
 }
 
@@ -134,10 +125,26 @@ impl Rule for TriathlonRules {
             比赛流程:\n{}\n\n\
             换项区规则:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.distances().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.race_sequence().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.transition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.distances()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.race_sequence()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.transition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

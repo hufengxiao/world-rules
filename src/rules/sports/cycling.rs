@@ -34,12 +34,9 @@ pub struct CyclingRules {
 impl CyclingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "自行车比赛规则",
-                "UCI 国际自行车联盟标准规则"
-            )
-            .with_origin("UCI")
-            .with_tags(vec!["体育".into(), "自行车".into()]),
+            metadata: RuleMetadata::new("自行车比赛规则", "UCI 国际自行车联盟标准规则")
+                .with_origin("UCI")
+                .with_tags(vec!["体育".into(), "自行车".into()]),
         }
     }
 
@@ -136,11 +133,31 @@ impl Rule for CyclingRules {
             山地车项目:\n{}\n\n\
             装备要求:\n{}\n\n\
             环法自行车赛:\n{}\n",
-            self.road_race_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.track_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.mtb_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.tour_de_france().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.road_race_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.track_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.mtb_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.tour_de_france()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

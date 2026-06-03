@@ -10,12 +10,9 @@ pub struct BotanyLaws {
 impl BotanyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "植物学定律",
-                "植物学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "植物".into()]),
+            metadata: RuleMetadata::new("植物学定律", "植物学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "植物".into()]),
         }
     }
 
@@ -87,14 +84,7 @@ impl BotanyLaws {
     /// 植物生长环境
     pub fn environments(&self) -> Vec<&'static str> {
         vec![
-            "热带",
-            "温带",
-            "寒带",
-            "沙漠",
-            "湿地",
-            "高山",
-            "海洋",
-            "淡水",
+            "热带", "温带", "寒带", "沙漠", "湿地", "高山", "海洋", "淡水",
         ]
     }
 
@@ -122,7 +112,6 @@ impl BotanyLaws {
         ]
     }
 
-
     /// 植物生态
     pub fn plant_ecology(&self) -> Vec<&'static str> {
         vec![
@@ -134,7 +123,6 @@ impl BotanyLaws {
             "植物防御: 物理和化学防御机制抵抗食草动物",
         ]
     }
-
 }
 
 impl Default for BotanyLaws {
@@ -159,15 +147,18 @@ impl Rule for BotanyLaws {
     fn explain(&self) -> String {
         format!(
             "【植物学定律】\n\n形态定律:\n{}\n\n生理定律:\n{}\n\n分类定律:\n{}\n",
-            self.morphology_laws().iter()
+            self.morphology_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.physiology_laws().iter()
+            self.physiology_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.classification_laws().iter()
+            self.classification_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

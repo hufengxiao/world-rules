@@ -10,12 +10,9 @@ pub struct EconomicsRules {
 impl EconomicsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "经济学定律",
-                "经济学基本定律和理论"
-            )
-            .with_origin("经济学")
-            .with_tags(vec!["科学".into(), "经济学".into()]),
+            metadata: RuleMetadata::new("经济学定律", "经济学基本定律和理论")
+                .with_origin("经济学")
+                .with_tags(vec!["科学".into(), "经济学".into()]),
         }
     }
 
@@ -112,7 +109,6 @@ impl EconomicsRules {
         ]
     }
 
-
     /// 金融经济学
     pub fn financial_economics(&self) -> Vec<&'static str> {
         vec![
@@ -125,7 +121,6 @@ impl EconomicsRules {
             "风险管理: VaR等风险度量和控制方法",
         ]
     }
-
 }
 
 impl Default for EconomicsRules {
@@ -156,12 +151,36 @@ impl Rule for EconomicsRules {
             帕累托效率:\n{}\n\n\
             机会成本:\n{}\n\n\
             经济周期:\n{}\n",
-            self.supply_demand_law().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.diminishing_marginal_utility().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.comparative_advantage().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.pareto_efficiency().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.opportunity_cost().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.business_cycle().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.supply_demand_law()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.diminishing_marginal_utility()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.comparative_advantage()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.pareto_efficiency()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.opportunity_cost()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.business_cycle()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

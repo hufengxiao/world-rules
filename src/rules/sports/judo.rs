@@ -10,12 +10,9 @@ pub struct JudoRules {
 impl JudoRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "柔道规则",
-                "柔道比赛基本规则"
-            )
-            .with_origin("日本")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("柔道规则", "柔道比赛基本规则")
+                .with_origin("日本")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -120,10 +117,26 @@ impl Rule for JudoRules {
             一本条件:\n{}\n\n\
             比赛时间:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.technique_levels().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.ippon_conditions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.match_duration().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.technique_levels()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.ippon_conditions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.match_duration()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

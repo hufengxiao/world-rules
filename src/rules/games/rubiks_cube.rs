@@ -59,12 +59,9 @@ pub struct RubiksCubeRules {
 impl RubiksCubeRules {
     pub fn new(cube_type: CubeType) -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                cube_type.name(),
-                "魔方还原规则"
-            )
-            .with_origin("匈牙利")
-            .with_tags(vec!["游戏".into(), "益智".into(), "魔方".into()]),
+            metadata: RuleMetadata::new(cube_type.name(), "魔方还原规则")
+                .with_origin("匈牙利")
+                .with_tags(vec!["游戏".into(), "益智".into(), "魔方".into()]),
             cube_type,
         }
     }
@@ -181,10 +178,26 @@ impl Rule for RubiksCubeRules {
             self.cube_type.pieces_per_face(),
             self.cube_type.total_pieces(),
             self.standard_colors().join("/"),
-            self.basic_moves().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.solving_methods().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.cfop_steps().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.notation().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_moves()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.solving_methods()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cfop_steps()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.notation()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -1,8 +1,48 @@
 //! 麻将规则定义
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
-use super::tiles::TileType;
 use super::hands::{Hand, HandPattern, WinningHand};
+use super::tiles::{Dragon, Tile, TileType, Wind};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+
+/// 从字符串解析麻将牌列表
+///
+/// 格式: 用空格分隔每张牌，如 "1万 2万 3万 东 南 西"
+fn parse_tiles(s: &str) -> Result<Vec<Tile>, String> {
+    let mut tiles = Vec::new();
+    for part in s.split_whitespace() {
+        let tile = parse_single_tile(part)?;
+        tiles.push(tile);
+    }
+    Ok(tiles)
+}
+
+fn parse_single_tile(s: &str) -> Result<Tile, String> {
+    match s {
+        "东" => Ok(Tile::feng(Wind::Dong)),
+        "南" => Ok(Tile::feng(Wind::Nan)),
+        "西" => Ok(Tile::feng(Wind::Xi)),
+        "北" => Ok(Tile::feng(Wind::Bei)),
+        "中" => Ok(Tile::jian(Dragon::HongZhong)),
+        "发" => Ok(Tile::jian(Dragon::FaCai)),
+        "白" => Ok(Tile::jian(Dragon::BaiBan)),
+        _ => {
+            let chars: Vec<char> = s.chars().collect();
+            if chars.len() < 2 {
+                return Err(format!("无法解析: {}", s));
+            }
+            let num = chars[0]
+                .to_digit(10)
+                .ok_or_else(|| format!("无效数字: {}", chars[0]))? as u8;
+            let suit: String = chars[1..].iter().collect();
+            match suit.as_str() {
+                "万" => Ok(Tile::wan(num)),
+                "条" => Ok(Tile::tiao(num)),
+                "筒" | "饼" => Ok(Tile::tong(num)),
+                _ => Err(format!("无效花色: {}", suit)),
+            }
+        }
+    }
+}
 
 /// 麻将规则变体
 #[derive(Debug, Clone)]
@@ -237,7 +277,10 @@ impl MahjongRules {
                 fans.push((FanType::SevenPairs, self.get_fan(&FanType::SevenPairs)));
             }
             HandPattern::ThirteenOrphans => {
-                fans.push((FanType::ThirteenOrphans, self.get_fan(&FanType::ThirteenOrphans)));
+                fans.push((
+                    FanType::ThirteenOrphans,
+                    self.get_fan(&FanType::ThirteenOrphans),
+                ));
             }
             _ => {}
         }
@@ -256,9 +299,9 @@ impl MahjongRules {
         let first_suit = tiles.iter().find_map(|t| t.tile_type.suit());
 
         match first_suit {
-            Some(suit) => tiles.iter().all(|t| {
-                t.tile_type.suit().map(|s| s == suit).unwrap_or(false)
-            }),
+            Some(suit) => tiles
+                .iter()
+                .all(|t| t.tile_type.suit().map(|s| s == suit).unwrap_or(false)),
             None => false,
         }
     }
@@ -267,9 +310,7 @@ impl MahjongRules {
     fn is_hun_yi_se(&self, hand: &Hand) -> bool {
         let tiles = hand.tiles();
 
-        let suits: Vec<_> = tiles.iter()
-            .filter_map(|t| t.tile_type.suit())
-            .collect();
+        let suits: Vec<_> = tiles.iter().filter_map(|t| t.tile_type.suit()).collect();
 
         if suits.is_empty() {
             return false;
@@ -308,8 +349,16 @@ impl Rule for MahjongRules {
     }
 
     fn validate(&self, context: &str) -> RuleResult<bool> {
-        // 验证游戏状态是否符合规则
-        Ok(!context.is_empty())
+        // 解析牌面并验证胡牌合法性
+        let tiles = match parse_tiles(context) {
+            Ok(t) => t,
+            Err(_) => return Ok(false),
+        };
+        let mut hand = Hand::new();
+        for tile in tiles {
+            hand.add_tile(tile);
+        }
+        Ok(hand.can_win())
     }
 
     fn explain(&self) -> String {
@@ -318,7 +367,11 @@ impl Rule for MahjongRules {
             self.metadata().name,
             self.metadata().description,
             self.min_fan,
-            if self.with_flowers { "支持" } else { "不支持" },
+            if self.with_flowers {
+                "支持"
+            } else {
+                "不支持"
+            },
             self.fan_table
                 .iter()
                 .map(|(ft, f)| format!("  - {}: {}番", ft.name(), f))
@@ -343,9 +396,15 @@ impl SichuanMahjongRules {
     /// 四川麻将特色: 缺一门
     pub fn check_missing_suit(&self, hand: &Hand) -> Option<&'static str> {
         let tiles = hand.tiles();
-        let has_wan = tiles.iter().any(|t| matches!(t.tile_type, TileType::Wan(_)));
-        let has_tiao = tiles.iter().any(|t| matches!(t.tile_type, TileType::Tiao(_)));
-        let has_tong = tiles.iter().any(|t| matches!(t.tile_type, TileType::Tong(_)));
+        let has_wan = tiles
+            .iter()
+            .any(|t| matches!(t.tile_type, TileType::Wan(_)));
+        let has_tiao = tiles
+            .iter()
+            .any(|t| matches!(t.tile_type, TileType::Tiao(_)));
+        let has_tong = tiles
+            .iter()
+            .any(|t| matches!(t.tile_type, TileType::Tong(_)));
 
         match (has_wan, has_tiao, has_tong) {
             (true, true, false) => Some("筒"),
@@ -492,6 +551,7 @@ impl Rule for RiichiMahjongRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::games::mahjong::GuangdongMahjongRules;
 
     #[test]
     fn test_mahjong_rules_creation() {
@@ -547,5 +607,52 @@ mod tests {
         let rules = MahjongRules::new(MahjongVariant::Guobiao);
         assert_eq!(rules.get_fan(&FanType::ThirteenOrphans), 88);
         assert_eq!(rules.get_fan(&FanType::PingHu), 2);
+    }
+
+    #[test]
+    fn test_validate_winning_hand() {
+        let rules = SichuanMahjongRules::new();
+        // 标准平胡: 1-9万 + 2条3条4条 + 4条对子
+        let result = rules.validate("1万 2万 3万 4万 5万 6万 7万 8万 9万 2条 3条 4条 4条 4条");
+        assert_eq!(result.unwrap(), true);
+    }
+
+    #[test]
+    fn test_validate_non_winning_hand() {
+        let rules = SichuanMahjongRules::new();
+        // 不能胡的14张
+        let result = rules.validate("1万 1万 1万 2条 2条 2条 3筒 3筒 3筒 4万 4万 5万 6万 7条");
+        assert_eq!(result.unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_invalid_input() {
+        let rules = SichuanMahjongRules::new();
+        // 无效输入
+        let result = rules.validate("abc def");
+        assert_eq!(result.unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_empty_input() {
+        let rules = SichuanMahjongRules::new();
+        let result = rules.validate("");
+        assert_eq!(result.unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_seven_pairs() {
+        let rules = GuobiaoMahjongRules::new();
+        // 七对子
+        let result = rules.validate("1万 1万 2万 2万 3万 3万 4万 4万 5万 5万 6万 6万 7万 7万");
+        assert_eq!(result.unwrap(), true);
+    }
+
+    #[test]
+    fn test_variant_validate_delegates_to_base() {
+        // 所有变体的 validate 都应该走同一个解析逻辑
+        let guangdong = GuangdongMahjongRules::new();
+        let result = guangdong.validate("1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条");
+        assert_eq!(result.unwrap(), true);
     }
 }

@@ -10,12 +10,9 @@ pub struct EvolutionaryBiologyLaws {
 impl EvolutionaryBiologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "进化生物学定律",
-                "进化生物学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "进化".into()]),
+            metadata: RuleMetadata::new("进化生物学定律", "进化生物学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "进化".into()]),
         }
     }
 
@@ -121,7 +118,6 @@ impl EvolutionaryBiologyLaws {
         ]
     }
 
-
     /// 进化遗传学
     pub fn evolutionary_genetics(&self) -> Vec<&'static str> {
         vec![
@@ -133,7 +129,6 @@ impl EvolutionaryBiologyLaws {
             "分子系统学: 利用DNA序列重建物种进化关系",
         ]
     }
-
 }
 
 impl Default for EvolutionaryBiologyLaws {
@@ -158,15 +153,18 @@ impl Rule for EvolutionaryBiologyLaws {
     fn explain(&self) -> String {
         format!(
             "【进化生物学定律】\n\n自然选择定律:\n{}\n\n进化机制定律:\n{}\n\n物种定律:\n{}\n",
-            self.natural_selection_laws().iter()
+            self.natural_selection_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.mechanism_laws().iter()
+            self.mechanism_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.species_laws().iter()
+            self.species_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

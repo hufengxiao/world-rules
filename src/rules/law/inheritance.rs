@@ -10,12 +10,9 @@ pub struct InheritanceLawRules {
 impl InheritanceLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "继承法规则",
-                "中国继承法基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "继承".into()]),
+            metadata: RuleMetadata::new("继承法规则", "中国继承法基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "继承".into()]),
         }
     }
 
@@ -106,9 +103,21 @@ impl Rule for InheritanceLawRules {
             法定继承人:\n{}\n\n\
             遗嘱形式:\n{}\n\n\
             继承份额:\n{}\n",
-            self.legal_heirs().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.will_forms().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.inheritance_shares().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.legal_heirs()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.will_forms()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.inheritance_shares()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct CivilEngineeringLaws {
 impl CivilEngineeringLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "土木工程定律",
-                "土木工程基本定律"
-            )
-            .with_origin("工程")
-            .with_tags(vec!["科学".into(), "工程".into(), "土木".into()]),
+            metadata: RuleMetadata::new("土木工程定律", "土木工程基本定律")
+                .with_origin("工程")
+                .with_tags(vec!["科学".into(), "工程".into(), "土木".into()]),
         }
     }
 

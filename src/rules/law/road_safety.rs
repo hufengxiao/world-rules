@@ -10,12 +10,9 @@ pub struct RoadSafetyRules {
 impl RoadSafetyRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "道路交通安全法",
-                "中国道路交通安全基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "交通".into(), "安全".into()]),
+            metadata: RuleMetadata::new("道路交通安全法", "中国道路交通安全基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "交通".into(), "安全".into()]),
         }
     }
 
@@ -123,12 +120,36 @@ impl Rule for RoadSafetyRules {
             超速处罚:\n{}\n\n\
             酒驾处罚:\n{}\n\n\
             紧急电话:\n{}\n",
-            self.pedestrian_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.non_motor_vehicle_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.motor_vehicle_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.speeding_penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.drunk_driving_penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            numbers.iter().map(|(n, t)| format!("  • {}: {}", n, t)).collect::<Vec<_>>().join("\n")
+            self.pedestrian_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.non_motor_vehicle_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.motor_vehicle_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.speeding_penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.drunk_driving_penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            numbers
+                .iter()
+                .map(|(n, t)| format!("  • {}: {}", n, t))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct SavateRules {
 impl SavateRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "法式踢拳规则",
-                "法国传统踢拳规则"
-            )
-            .with_origin("法国")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("法式踢拳规则", "法国传统踢拳规则")
+                .with_origin("法国")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -32,13 +29,7 @@ impl SavateRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "拳法技术",
-            "踢法技术",
-            "步法移动",
-            "防守技术",
-            "组合技法",
-        ]
+        vec!["拳法技术", "踢法技术", "步法移动", "防守技术", "组合技法"]
     }
 
     /// 得分标准
@@ -54,35 +45,17 @@ impl SavateRules {
 
     /// 允许动作
     pub fn allowed_actions(&self) -> Vec<&'static str> {
-        vec![
-            "拳法打击",
-            "踢腿攻击",
-            "扫腿技术",
-            "闪避防守",
-            "步法移动",
-        ]
+        vec!["拳法打击", "踢腿攻击", "扫腿技术", "闪避防守", "步法移动"]
     }
 
     /// 禁止动作
     pub fn prohibited_actions(&self) -> Vec<&'static str> {
-        vec![
-            "肘击",
-            "膝击",
-            "头撞",
-            "摔法",
-            "地面攻击",
-        ]
+        vec!["肘击", "膝击", "头撞", "摔法", "地面攻击"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "法式踢拳鞋",
-            "拳击手套",
-            "防护服装",
-            "头盔护具",
-            "护齿护具",
-        ]
+        vec!["法式踢拳鞋", "拳击手套", "防护服装", "头盔护具", "护齿护具"]
     }
 
     /// 级别体系
@@ -123,10 +96,26 @@ impl Rule for SavateRules {
             得分标准:\n{}\n\n\
             装备要求:\n{}\n\n\
             级别体系:\n{}\n",
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.glove_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.glove_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

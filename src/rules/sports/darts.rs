@@ -10,12 +10,9 @@ pub struct DartsRules {
 impl DartsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "飞镖规则",
-                "飞镖比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "室内".into()]),
+            metadata: RuleMetadata::new("飞镖规则", "飞镖比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "室内".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for DartsRules {
             得分区域:\n{}\n\n\
             501规则:\n{}\n\n\
             常见术语:\n{}\n",
-            self.board_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_areas().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rules_501().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.terminology().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.board_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_areas()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rules_501()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.terminology()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

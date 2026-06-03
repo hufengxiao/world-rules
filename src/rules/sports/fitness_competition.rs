@@ -10,57 +10,30 @@ pub struct FitnessCompetitionRules {
 impl FitnessCompetitionRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "健身比赛规则",
-                "健身比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "健身".into()]),
+            metadata: RuleMetadata::new("健身比赛规则", "健身比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "健身".into()]),
         }
     }
 
     /// 比赛分类
     pub fn competition_categories(&self) -> Vec<&'static str> {
-        vec![
-            "健身小姐",
-            "健身先生",
-            "健身模特",
-            "肌肉模特",
-            "健康模特",
-        ]
+        vec!["健身小姐", "健身先生", "健身模特", "肌肉模特", "健康模特"]
     }
 
     /// 比赛轮次
     pub fn competition_rounds(&self) -> Vec<&'static str> {
-        vec![
-            "泳装轮",
-            "晚装轮",
-            "运动装轮",
-            "体能挑战轮",
-            "综合评分",
-        ]
+        vec!["泳装轮", "晚装轮", "运动装轮", "体能挑战轮", "综合评分"]
     }
 
     /// 评分标准
     pub fn scoring_criteria(&self) -> Vec<&'static str> {
-        vec![
-            "身材比例",
-            "肌肉线条",
-            "皮肤状况",
-            "舞台表现",
-            "整体形象",
-        ]
+        vec!["身材比例", "肌肉线条", "皮肤状况", "舞台表现", "整体形象"]
     }
 
     /// 体能测试
     pub fn fitness_tests(&self) -> Vec<&'static str> {
-        vec![
-            "力量测试",
-            "柔韧测试",
-            "耐力测试",
-            "协调测试",
-            "体能挑战",
-        ]
+        vec!["力量测试", "柔韧测试", "耐力测试", "协调测试", "体能挑战"]
     }
 
     /// 装备要求
@@ -76,13 +49,7 @@ impl FitnessCompetitionRules {
 
     /// 准备规则
     pub fn preparation_rules(&self) -> Vec<&'static str> {
-        vec![
-            "赛前训练",
-            "饮食控制",
-            "皮肤护理",
-            "妆容准备",
-            "形象设计",
-        ]
+        vec!["赛前训练", "饮食控制", "皮肤护理", "妆容准备", "形象设计"]
     }
 
     /// 禁止行为
@@ -98,13 +65,7 @@ impl FitnessCompetitionRules {
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "预赛选拔",
-            "决赛评选",
-            "国际比赛",
-            "国内比赛",
-            "地区比赛",
-        ]
+        vec!["预赛选拔", "决赛评选", "国际比赛", "国内比赛", "地区比赛"]
     }
 }
 
@@ -134,10 +95,26 @@ impl Rule for FitnessCompetitionRules {
             评分标准:\n{}\n\n\
             体能测试:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.competition_rounds().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_criteria().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fitness_tests().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_rounds()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_criteria()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fitness_tests()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

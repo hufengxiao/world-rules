@@ -10,12 +10,9 @@ pub struct NuclearPhysicsLaws {
 impl NuclearPhysicsLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "核物理定律",
-                "核物理基本定律"
-            )
-            .with_origin("物理学")
-            .with_tags(vec!["科学".into(), "物理".into(), "核物理".into()]),
+            metadata: RuleMetadata::new("核物理定律", "核物理基本定律")
+                .with_origin("物理学")
+                .with_tags(vec!["科学".into(), "物理".into(), "核物理".into()]),
         }
     }
 
@@ -154,7 +151,6 @@ impl NuclearPhysicsLaws {
             "质量亏损: 原子核质量小于组成核子质量之和",
         ]
     }
-
 }
 
 impl Default for NuclearPhysicsLaws {

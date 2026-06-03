@@ -10,12 +10,9 @@ pub struct UltimateFrisbeeRules {
 impl UltimateFrisbeeRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "极限飞盘规则",
-                "极限飞盘比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "团队".into()]),
+            metadata: RuleMetadata::new("极限飞盘规则", "极限飞盘比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "团队".into()]),
         }
     }
 
@@ -54,13 +51,7 @@ impl UltimateFrisbeeRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "投掷技术",
-            "接盘技术",
-            "跑位技术",
-            "防守技术",
-            "传递策略",
-        ]
+        vec!["投掷技术", "接盘技术", "跑位技术", "防守技术", "传递策略"]
     }
 
     /// 犯规规则
@@ -87,13 +78,7 @@ impl UltimateFrisbeeRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "极限飞盘",
-            "比赛服装",
-            "场地装备",
-            "计分板",
-            "防护装备",
-        ]
+        vec!["极限飞盘", "比赛服装", "场地装备", "计分板", "防护装备"]
     }
 }
 
@@ -123,10 +108,26 @@ impl Rule for UltimateFrisbeeRules {
             技术动作:\n{}\n\n\
             得分规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

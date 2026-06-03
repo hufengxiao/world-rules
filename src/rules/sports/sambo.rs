@@ -10,24 +10,15 @@ pub struct SamboRules {
 impl SamboRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "桑搏规则",
-                "俄罗斯武术摔跤规则"
-            )
-            .with_origin("俄罗斯")
-            .with_tags(vec!["体育".into(), "摔跤".into()]),
+            metadata: RuleMetadata::new("桑搏规则", "俄罗斯武术摔跤规则")
+                .with_origin("俄罗斯")
+                .with_tags(vec!["体育".into(), "摔跤".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "运动桑搏",
-            "格斗桑搏",
-            "自由桑搏",
-            "特殊桑搏",
-            "青少年桑搏",
-        ]
+        vec!["运动桑搏", "格斗桑搏", "自由桑搏", "特殊桑搏", "青少年桑搏"]
     }
 
     /// 比赛规则
@@ -43,13 +34,7 @@ impl SamboRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "摔法技术",
-            "投掷技术",
-            "地面技术",
-            "擒拿技术",
-            "打击技术",
-        ]
+        vec!["摔法技术", "投掷技术", "地面技术", "擒拿技术", "打击技术"]
     }
 
     /// 得分标准
@@ -65,13 +50,7 @@ impl SamboRules {
 
     /// 允许动作
     pub fn allowed_actions(&self) -> Vec<&'static str> {
-        vec![
-            "各种摔法",
-            "投掷动作",
-            "地面控制",
-            "擒拿技术",
-            "腿部攻击",
-        ]
+        vec!["各种摔法", "投掷动作", "地面控制", "擒拿技术", "腿部攻击"]
     }
 
     /// 禁止动作
@@ -87,13 +66,7 @@ impl SamboRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "桑搏比赛服",
-            "摔跤鞋",
-            "护具套装",
-            "腰带标识",
-            "比赛场地",
-        ]
+        vec!["桑搏比赛服", "摔跤鞋", "护具套装", "腰带标识", "比赛场地"]
     }
 }
 
@@ -123,10 +96,26 @@ impl Rule for SamboRules {
             得分标准:\n{}\n\n\
             装备要求:\n{}\n\n\
             禁止动作:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

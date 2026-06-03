@@ -10,12 +10,9 @@ pub struct ToastingEtiquette {
 impl ToastingEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "敬酒礼仪",
-                "中国传统敬酒礼仪规范"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["社交".into(), "餐饮".into()]),
+            metadata: RuleMetadata::new("敬酒礼仪", "中国传统敬酒礼仪规范")
+                .with_origin("中国")
+                .with_tags(vec!["社交".into(), "餐饮".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for ToastingEtiquette {
             敬酒姿势:\n{}\n\n\
             接受敬酒:\n{}\n\n\
             酒量控制:\n{}\n",
-            self.toasting_order().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.posture().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.accepting_toast().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.drinking_guidelines().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.toasting_order()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.posture()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.accepting_toast()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.drinking_guidelines()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct VolleyballRules {
 impl VolleyballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "排球规则",
-                "FIVB 国际排球联合会标准规则"
-            )
-            .with_origin("FIVB")
-            .with_tags(vec!["体育".into(), "排球".into()]),
+            metadata: RuleMetadata::new("排球规则", "FIVB 国际排球联合会标准规则")
+                .with_origin("FIVB")
+                .with_tags(vec!["体育".into(), "排球".into()]),
         }
     }
 
@@ -51,7 +48,11 @@ impl VolleyballRules {
 
     /// 网高 (厘米)
     pub fn net_height(&self, is_men: bool) -> u16 {
-        if is_men { 243 } else { 224 }
+        if is_men {
+            243
+        } else {
+            224
+        }
     }
 
     /// 位置说明
@@ -138,9 +139,21 @@ impl Rule for VolleyballRules {
             self.match_sets(),
             (self.match_sets() + 1) / 2,
             self.lead_requirement(),
-            self.positions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.serving_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.positions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.serving_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -12,11 +12,8 @@ impl GiftEtiquette {
     pub fn new(culture: impl Into<String>) -> Self {
         let culture = culture.into();
         Self {
-            metadata: RuleMetadata::new(
-                format!("{}送礼礼仪", culture),
-                "送礼习俗与禁忌"
-            )
-            .with_origin(culture.clone()),
+            metadata: RuleMetadata::new(format!("{}送礼礼仪", culture), "送礼习俗与禁忌")
+                .with_origin(culture.clone()),
             culture,
         }
     }
@@ -24,48 +21,23 @@ impl GiftEtiquette {
     /// 获取不宜赠送的物品
     pub fn inappropriate_gifts(&self) -> Vec<&'static str> {
         match self.culture.as_str() {
-            "中国" => vec![
-                "钟 (送终)",
-                "伞 (散)",
-                "鞋 (邪)",
-                "梨 (离)",
-                "蜡烛",
-                "刀剪",
-            ],
-            "西方" => vec![
-                "空钱包",
-                "尖锐物品",
-                "二手物品",
-            ],
-            _ => vec![
-                "过于廉价的物品",
-                "过于昂贵的物品",
-                "有争议的物品",
-            ],
+            "中国" => vec!["钟 (送终)", "伞 (散)", "鞋 (邪)", "梨 (离)", "蜡烛", "刀剪"],
+            "西方" => vec!["空钱包", "尖锐物品", "二手物品"],
+            _ => vec!["过于廉价的物品", "过于昂贵的物品", "有争议的物品"],
         }
     }
 
     /// 获取送礼时机
     pub fn gift_timing(&self) -> Vec<&'static str> {
         match self.culture.as_str() {
-            "中国" => vec![
-                "春节",
-                "中秋",
-                "生日",
-                "婚礼",
-                "升职",
-            ],
+            "中国" => vec!["春节", "中秋", "生日", "婚礼", "升职"],
             "西方" => vec![
                 "Christmas (圣诞节)",
                 "Birthday (生日)",
                 "Wedding (婚礼)",
                 "Anniversary (纪念日)",
             ],
-            _ => vec![
-                "节日",
-                "生日",
-                "特殊纪念日",
-            ],
+            _ => vec!["节日", "生日", "特殊纪念日"],
         }
     }
 }
@@ -89,8 +61,44 @@ impl Rule for GiftEtiquette {
             不宜赠送:\n{}\n\n\
             送礼时机:\n{}\n",
             self.culture,
-            self.inappropriate_gifts().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.gift_timing().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.inappropriate_gifts()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.gift_timing()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_gift_etiquette_china() {
+        let rules = GiftEtiquette::new("中国");
+        assert!(!rules.metadata().name.is_empty());
+        assert!(!rules.inappropriate_gifts().is_empty());
+        assert!(!rules.gift_timing().is_empty());
+    }
+
+    #[test]
+    fn test_gift_etiquette_different_cultures() {
+        let china = GiftEtiquette::new("中国");
+        let western = GiftEtiquette::new("西方");
+        assert_ne!(china.metadata().name, western.metadata().name);
+    }
+
+    #[test]
+    fn test_gift_rule_trait() {
+        let rules = GiftEtiquette::new("中国");
+        assert_eq!(rules.category(), RuleCategory::social("gift"));
+        assert!(rules.validate("test").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

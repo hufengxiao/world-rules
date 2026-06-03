@@ -10,12 +10,9 @@ pub struct CellBiologyLaws {
 impl CellBiologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "细胞生物学定律",
-                "细胞生物学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "细胞".into()]),
+            metadata: RuleMetadata::new("细胞生物学定律", "细胞生物学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "细胞".into()]),
         }
     }
 
@@ -168,7 +165,6 @@ impl CellBiologyLaws {
             "细胞凋亡信号: 内源和外源途径激活caspase级联",
         ]
     }
-
 }
 
 impl Default for CellBiologyLaws {

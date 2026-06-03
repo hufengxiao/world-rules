@@ -10,12 +10,9 @@ pub struct IndoorArcheryRules {
 impl IndoorArcheryRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "室内射箭规则",
-                "室内射箭比赛基本规则"
-            )
-            .with_origin("国际")
-            .with_tags(vec!["体育".into(), "射箭".into()]),
+            metadata: RuleMetadata::new("室内射箭规则", "室内射箭比赛基本规则")
+                .with_origin("国际")
+                .with_tags(vec!["体育".into(), "射箭".into()]),
         }
     }
 
@@ -32,24 +29,12 @@ impl IndoorArcheryRules {
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "单轮比赛",
-            "双轮比赛",
-            "个人赛",
-            "团体赛",
-            "混合赛",
-        ]
+        vec!["单轮比赛", "双轮比赛", "个人赛", "团体赛", "混合赛"]
     }
 
     /// 箭数规则
     pub fn arrow_rules(&self) -> Vec<&'static str> {
-        vec![
-            "每轮36箭",
-            "每组3箭",
-            "时间限制",
-            "记分规则",
-            "箭数累计",
-        ]
+        vec!["每轮36箭", "每组3箭", "时间限制", "记分规则", "箭数累计"]
     }
 
     /// 靶面规格
@@ -87,13 +72,7 @@ impl IndoorArcheryRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "弓具标准",
-            "箭具标准",
-            "辅助装备",
-            "服装要求",
-            "安全装备",
-        ]
+        vec!["弓具标准", "箭具标准", "辅助装备", "服装要求", "安全装备"]
     }
 
     /// 安全规则
@@ -134,10 +113,26 @@ impl Rule for IndoorArcheryRules {
             得分规则:\n{}\n\n\
             时间规则:\n{}\n\n\
             安全规则:\n{}\n",
-            self.distances().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.time_limits().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.distances()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.time_limits()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct TableTennisRules {
 impl TableTennisRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "乒乓球规则",
-                "国际乒乓球联合会 (ITTF) 标准规则"
-            )
-            .with_origin("ITTF")
-            .with_tags(vec!["体育".into(), "乒乓球".into()]),
+            metadata: RuleMetadata::new("乒乓球规则", "国际乒乓球联合会 (ITTF) 标准规则")
+                .with_origin("ITTF")
+                .with_tags(vec!["体育".into(), "乒乓球".into()]),
         }
     }
 

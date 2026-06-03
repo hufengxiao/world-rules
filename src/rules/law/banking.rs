@@ -10,12 +10,9 @@ pub struct BankingLawRules {
 impl BankingLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "银行法规则",
-                "中国银行法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "银行法".into()]),
+            metadata: RuleMetadata::new("银行法规则", "中国银行法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "银行法".into()]),
         }
     }
 
@@ -160,9 +157,21 @@ impl Rule for BankingLawRules {
     fn explain(&self) -> String {
         format!(
             "【银行法规则】\n\n银行类型:\n{}\n\n存款规则:\n{}\n\n贷款规则:\n{}\n",
-            self.bank_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.deposit_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.loan_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.bank_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.deposit_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.loan_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

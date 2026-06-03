@@ -10,12 +10,9 @@ pub struct ArchaeologyLaws {
 impl ArchaeologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "考古学定律",
-                "考古学基本定律"
-            )
-            .with_origin("社会科学")
-            .with_tags(vec!["科学".into(), "考古".into()]),
+            metadata: RuleMetadata::new("考古学定律", "考古学基本定律")
+                .with_origin("社会科学")
+                .with_tags(vec!["科学".into(), "考古".into()]),
         }
     }
 
@@ -120,7 +117,6 @@ impl ArchaeologyLaws {
             "环境考古: 通过动植物遗存重建古代生态环境",
         ]
     }
-
 }
 
 impl Default for ArchaeologyLaws {
@@ -145,15 +141,18 @@ impl Rule for ArchaeologyLaws {
     fn explain(&self) -> String {
         format!(
             "【考古学定律】\n\n地层定律:\n{}\n\n类型定律:\n{}\n\n定年定律:\n{}\n",
-            self.stratigraphy_laws().iter()
+            self.stratigraphy_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.typology_laws().iter()
+            self.typology_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.dating_laws().iter()
+            self.dating_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

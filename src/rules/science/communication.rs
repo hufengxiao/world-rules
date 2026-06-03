@@ -10,12 +10,9 @@ pub struct CommunicationLaws {
 impl CommunicationLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "传播学定律",
-                "传播学基本定律"
-            )
-            .with_origin("社会科学")
-            .with_tags(vec!["科学".into(), "传播".into()]),
+            metadata: RuleMetadata::new("传播学定律", "传播学基本定律")
+                .with_origin("社会科学")
+                .with_tags(vec!["科学".into(), "传播".into()]),
         }
     }
 
@@ -121,7 +118,6 @@ impl CommunicationLaws {
         ]
     }
 
-
     /// 数字传播
     pub fn digital_communication(&self) -> Vec<&'static str> {
         vec![
@@ -133,7 +129,6 @@ impl CommunicationLaws {
             "网络舆论: 互联网上公众意见的形成和传播",
         ]
     }
-
 }
 
 impl Default for CommunicationLaws {
@@ -158,15 +153,18 @@ impl Rule for CommunicationLaws {
     fn explain(&self) -> String {
         format!(
             "【传播学定律】\n\n过程定律:\n{}\n\n效果定律:\n{}\n\n媒介定律:\n{}\n",
-            self.process_laws().iter()
+            self.process_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.effect_laws().iter()
+            self.effect_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.media_laws().iter()
+            self.media_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

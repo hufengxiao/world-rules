@@ -10,12 +10,9 @@ pub struct MaritimeLawRules {
 impl MaritimeLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "海商法规则",
-                "中国海商法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "海商".into()]),
+            metadata: RuleMetadata::new("海商法规则", "中国海商法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "海商".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for MaritimeLawRules {
     fn explain(&self) -> String {
         format!(
             "【海商法规则】\n\n船舶规则:\n{}\n\n货物运输:\n{}\n\n海难救助:\n{}\n",
-            self.ship_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.cargo_transport().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.salvage_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.ship_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cargo_transport()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.salvage_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

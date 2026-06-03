@@ -31,46 +31,25 @@ pub struct GymnasticsRules {
 impl GymnasticsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "体操规则",
-                "FIG 国际体操联合会标准规则"
-            )
-            .with_origin("FIG")
-            .with_tags(vec!["体育".into(), "体操".into()]),
+            metadata: RuleMetadata::new("体操规则", "FIG 国际体操联合会标准规则")
+                .with_origin("FIG")
+                .with_tags(vec!["体育".into(), "体操".into()]),
         }
     }
 
     /// 男子竞技体操项目
     pub fn men_apparatus(&self) -> Vec<&'static str> {
-        vec![
-            "自由体操",
-            "鞍马",
-            "吊环",
-            "跳马",
-            "双杠",
-            "单杠",
-        ]
+        vec!["自由体操", "鞍马", "吊环", "跳马", "双杠", "单杠"]
     }
 
     /// 女子竞技体操项目
     pub fn women_apparatus(&self) -> Vec<&'static str> {
-        vec![
-            "跳马",
-            "高低杠",
-            "平衡木",
-            "自由体操",
-        ]
+        vec!["跳马", "高低杠", "平衡木", "自由体操"]
     }
 
     /// 艺术体操器械
     pub fn rhythmic_apparatus(&self) -> Vec<&'static str> {
-        vec![
-            "绳",
-            "圈",
-            "球",
-            "棒",
-            "带",
-        ]
+        vec!["绳", "圈", "球", "棒", "带"]
     }
 
     /// 评分系统
@@ -85,13 +64,7 @@ impl GymnasticsRules {
 
     /// 扣分项目
     pub fn deductions(&self) -> Vec<&'static str> {
-        vec![
-            "动作失误",
-            "落地不稳",
-            "出界",
-            "时间违规",
-            "服装违规",
-        ]
+        vec!["动作失误", "落地不稳", "出界", "时间违规", "服装违规"]
     }
 
     /// 比赛形式
@@ -130,10 +103,26 @@ impl Rule for GymnasticsRules {
             女子项目:\n{}\n\n\
             评分系统:\n{}\n\n\
             比赛形式:\n{}\n",
-            self.men_apparatus().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.women_apparatus().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_formats().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.men_apparatus()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.women_apparatus()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_formats()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

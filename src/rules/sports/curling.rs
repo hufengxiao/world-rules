@@ -10,12 +10,9 @@ pub struct CurlingRules {
 impl CurlingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "冰壶规则",
-                "冰壶比赛基本规则"
-            )
-            .with_origin("苏格兰")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("冰壶规则", "冰壶比赛基本规则")
+                .with_origin("苏格兰")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for CurlingRules {
             计分规则:\n{}\n\n\
             投掷规则:\n{}\n\n\
             擦冰规则:\n{}\n",
-            self.rink_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.delivery_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.sweeping_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.rink_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.delivery_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.sweeping_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

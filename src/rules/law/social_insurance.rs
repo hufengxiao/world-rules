@@ -10,12 +10,9 @@ pub struct SocialInsuranceLawRules {
 impl SocialInsuranceLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "社会保险法规则",
-                "中国社会保险法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "社会保险".into()]),
+            metadata: RuleMetadata::new("社会保险法规则", "中国社会保险法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "社会保险".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for SocialInsuranceLawRules {
     fn explain(&self) -> String {
         format!(
             "【社会保险法规则】\n\n保险类型:\n{}\n\n养老保险:\n{}\n\n医疗保险:\n{}\n",
-            self.insurance_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.pension_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.medical_insurance_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.insurance_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.pension_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.medical_insurance_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

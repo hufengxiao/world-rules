@@ -52,12 +52,9 @@ pub struct PaoDeKuaiRules {
 impl PaoDeKuaiRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "跑得快规则",
-                "跑得快扑克游戏规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "扑克".into()]),
+            metadata: RuleMetadata::new("跑得快规则", "跑得快扑克游戏规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "扑克".into()]),
         }
     }
 
@@ -105,12 +102,7 @@ impl PaoDeKuaiRules {
 
     /// 计分规则
     pub fn scoring_rules(&self) -> Vec<&'static str> {
-        vec![
-            "第一名得3分",
-            "第二名得1分",
-            "第三名得0分",
-            "炸弹翻倍",
-        ]
+        vec!["第一名得3分", "第二名得1分", "第三名得0分", "炸弹翻倍"]
     }
 }
 
@@ -143,10 +135,26 @@ impl Rule for PaoDeKuaiRules {
             特殊规则:\n{}\n\n\
             计分规则:\n{}\n",
             51,
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            patterns.iter().map(|(n, d)| format!("  • {}: {}", n, d)).collect::<Vec<_>>().join("\n"),
-            self.special_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            patterns
+                .iter()
+                .map(|(n, d)| format!("  • {}: {}", n, d))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.special_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

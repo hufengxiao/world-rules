@@ -12,12 +12,9 @@ pub struct WuhanMahjongRules {
 impl WuhanMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "武汉麻将规则",
-                "武汉红中赖子杠麻将规则"
-            )
-            .with_origin("武汉")
-            .with_tags(vec!["游戏".into(), "麻将".into(), "武汉".into()]),
+            metadata: RuleMetadata::new("武汉麻将规则", "武汉红中赖子杠麻将规则")
+                .with_origin("武汉")
+                .with_tags(vec!["游戏".into(), "麻将".into(), "武汉".into()]),
         }
     }
 
@@ -150,7 +147,8 @@ impl Rule for WuhanMahjongRules {
     }
 
     fn explain(&self) -> String {
-        let fan_list: String = self.fan_types()
+        let fan_list: String = self
+            .fan_types()
             .iter()
             .map(|(name, fan)| format!("  • {}: {}番", name, fan))
             .collect::<Vec<_>>()
@@ -162,10 +160,22 @@ impl Rule for WuhanMahjongRules {
             赖子规则:\n{}\n\n\
             番型规则:\n{}\n\n\
             血战规则:\n{}\n",
-            self.tile_composition().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.laizi_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.tile_composition()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.laizi_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
             fan_list,
-            self.xuezhan_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.xuezhan_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

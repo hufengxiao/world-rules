@@ -10,12 +10,9 @@ pub struct BaseJumpingRules {
 impl BaseJumpingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "BASE跳规则",
-                "BASE跳运动规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "极限".into()]),
+            metadata: RuleMetadata::new("BASE跳规则", "BASE跳运动规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "极限".into()]),
         }
     }
 
@@ -32,35 +29,17 @@ impl BaseJumpingRules {
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "高度限制",
-            "装备检查",
-            "天气条件",
-            "经验要求",
-            "地点许可",
-        ]
+        vec!["高度限制", "装备检查", "天气条件", "经验要求", "地点许可"]
     }
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "跳跃技术",
-            "开伞技术",
-            "着陆技术",
-            "姿势控制",
-            "应急处理",
-        ]
+        vec!["跳跃技术", "开伞技术", "着陆技术", "姿势控制", "应急处理"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "BASE降落伞",
-            "防护头盔",
-            "跳伞服装",
-            "高度计",
-            "附属装备",
-        ]
+        vec!["BASE降落伞", "防护头盔", "跳伞服装", "高度计", "附属装备"]
     }
 
     /// 经验要求
@@ -76,24 +55,12 @@ impl BaseJumpingRules {
 
     /// 法律规则
     pub fn legal_rules(&self) -> Vec<&'static str> {
-        vec![
-            "地点许可",
-            "法律规定",
-            "保险要求",
-            "责任声明",
-            "合规要求",
-        ]
+        vec!["地点许可", "法律规定", "保险要求", "责任声明", "合规要求"]
     }
 
     /// 级别体系
     pub fn skill_levels(&self) -> Vec<&'static str> {
-        vec![
-            "初级BASE跳",
-            "中级水平",
-            "高级水平",
-            "专家级别",
-            "教练认证",
-        ]
+        vec!["初级BASE跳", "中级水平", "高级水平", "专家级别", "教练认证"]
     }
 }
 
@@ -123,10 +90,26 @@ impl Rule for BaseJumpingRules {
             安全规则:\n{}\n\n\
             装备要求:\n{}\n\n\
             经验要求:\n{}\n",
-            self.base_meaning().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.experience_requirements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.base_meaning()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.experience_requirements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

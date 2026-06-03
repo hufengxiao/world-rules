@@ -10,12 +10,9 @@ pub struct PoliticalScienceLaws {
 impl PoliticalScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "政治学定律",
-                "政治学基本定律"
-            )
-            .with_origin("社会科学")
-            .with_tags(vec!["科学".into(), "政治".into()]),
+            metadata: RuleMetadata::new("政治学定律", "政治学基本定律")
+                .with_origin("社会科学")
+                .with_tags(vec!["科学".into(), "政治".into()]),
         }
     }
 

@@ -24,7 +24,7 @@ impl TeaEtiquette {
         Self {
             metadata: RuleMetadata::new(
                 format!("{}茶道礼仪", Self::culture_name(&culture)),
-                "茶道礼仪规范"
+                "茶道礼仪规范",
             )
             .with_origin(Self::culture_name(&culture)),
             culture,
@@ -108,16 +108,8 @@ impl TeaEtiquette {
                 "茶托不能空置",
                 "客人杯空时要主动续茶",
             ],
-            TeaCulture::Japanese => vec![
-                "欣赏茶碗的美",
-                "不要随意触碰茶具",
-                "归还时要表示感谢",
-            ],
-            TeaCulture::English => vec![
-                "杯碟始终放在桌上",
-                "不用茶杯托着杯碟",
-                "茶匙不要留在杯中",
-            ],
+            TeaCulture::Japanese => vec!["欣赏茶碗的美", "不要随意触碰茶具", "归还时要表示感谢"],
+            TeaCulture::English => vec!["杯碟始终放在桌上", "不用茶杯托着杯碟", "茶匙不要留在杯中"],
         }
     }
 }
@@ -142,9 +134,21 @@ impl Rule for TeaEtiquette {
             品茶礼仪:\n{}\n\n\
             器具礼仪:\n{}\n",
             Self::culture_name(&self.culture),
-            self.brewing_steps().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.drinking_etiquette().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.utensil_etiquette().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.brewing_steps()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.drinking_etiquette()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.utensil_etiquette()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

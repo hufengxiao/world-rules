@@ -10,46 +10,25 @@ pub struct FreeDivingRules {
 impl FreeDivingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "自由潜水规则",
-                "自由潜水比赛规则"
-            )
-            .with_origin("法国")
-            .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("自由潜水规则", "自由潜水比赛规则")
+                .with_origin("法国")
+                .with_tags(vec!["体育".into(), "水上".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "恒重潜水",
-            "无限制潜水",
-            "静态闭气",
-            "动态潜水",
-            "变重潜水",
-        ]
+        vec!["恒重潜水", "无限制潜水", "静态闭气", "动态潜水", "变重潜水"]
     }
 
     /// 比赛规则
     pub fn competition_rules(&self) -> Vec<&'static str> {
-        vec![
-            "深度记录",
-            "时间记录",
-            "安全规则",
-            "裁判监督",
-            "比赛结束",
-        ]
+        vec!["深度记录", "时间记录", "安全规则", "裁判监督", "比赛结束"]
     }
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "闭气技术",
-            "潜水技术",
-            "压力控制",
-            "呼吸控制",
-            "安全技术",
-        ]
+        vec!["闭气技术", "潜水技术", "压力控制", "呼吸控制", "安全技术"]
     }
 
     /// 安全规则
@@ -65,35 +44,17 @@ impl FreeDivingRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "潜水装备",
-            "潜水服",
-            "安全装备",
-            "计时设备",
-            "深度计",
-        ]
+        vec!["潜水装备", "潜水服", "安全装备", "计时设备", "深度计"]
     }
 
     /// 级别体系
     pub fn skill_levels(&self) -> Vec<&'static str> {
-        vec![
-            "初学者级别",
-            "中级水平",
-            "高级水平",
-            "专业级别",
-            "教练认证",
-        ]
+        vec!["初学者级别", "中级水平", "高级水平", "专业级别", "教练认证"]
     }
 
     /// 记录规则
     pub fn records(&self) -> Vec<&'static str> {
-        vec![
-            "世界记录",
-            "国家记录",
-            "个人记录",
-            "认证规则",
-            "记录标准",
-        ]
+        vec!["世界记录", "国家记录", "个人记录", "认证规则", "记录标准"]
     }
 }
 
@@ -123,10 +84,26 @@ impl Rule for FreeDivingRules {
             技术动作:\n{}\n\n\
             安全规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

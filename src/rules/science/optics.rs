@@ -10,12 +10,9 @@ pub struct OpticsLaws {
 impl OpticsLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "光学定律",
-                "光学基本定律"
-            )
-            .with_origin("物理学")
-            .with_tags(vec!["科学".into(), "物理".into(), "光学".into()]),
+            metadata: RuleMetadata::new("光学定律", "光学基本定律")
+                .with_origin("物理学")
+                .with_tags(vec!["科学".into(), "物理".into(), "光学".into()]),
         }
     }
 
@@ -23,7 +20,11 @@ impl OpticsLaws {
     pub fn all_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("反射定律", "θ入 = θ出", "入射角等于反射角"),
-            ("折射定律(斯涅尔定律)", "n₁sinθ₁ = n₂sinθ₂", "光在不同介质界面折射"),
+            (
+                "折射定律(斯涅尔定律)",
+                "n₁sinθ₁ = n₂sinθ₂",
+                "光在不同介质界面折射",
+            ),
             ("光的干涉", "相干光叠加", "两束相干光产生干涉图样"),
             ("光的衍射", "惠更斯原理", "光绕过障碍物传播"),
             ("光的偏振", "横波特性", "光的振动方向选择性"),
@@ -104,7 +105,6 @@ impl OpticsLaws {
         ]
     }
 
-
     /// 光纤光学
     pub fn fiber_optics(&self) -> Vec<&'static str> {
         vec![
@@ -117,7 +117,6 @@ impl OpticsLaws {
             "光纤放大器: 掺铒光纤放大器直接放大光信号",
         ]
     }
-
 }
 
 impl Default for OpticsLaws {
@@ -142,7 +141,8 @@ impl Rule for OpticsLaws {
     fn explain(&self) -> String {
         format!(
             "【光学定律】\n\n{}\n",
-            self.all_laws().iter()
+            self.all_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!(
                     "▶ {}\n   公式/原理: {}\n   说明: {}\n",
                     name, formula, desc

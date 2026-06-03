@@ -10,12 +10,9 @@ pub struct CompanyLawRules {
 impl CompanyLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "公司法规则",
-                "中国公司法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "公司法".into()]),
+            metadata: RuleMetadata::new("公司法规则", "中国公司法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "公司法".into()]),
         }
     }
 
@@ -138,9 +135,21 @@ impl Rule for CompanyLawRules {
     fn explain(&self) -> String {
         format!(
             "【公司法规则】\n\n公司类型:\n{}\n\n股东权利:\n{}\n\n治理结构:\n{}\n",
-            self.company_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.shareholder_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.governance_structure().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.company_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.shareholder_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.governance_structure()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

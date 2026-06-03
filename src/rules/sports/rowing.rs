@@ -10,12 +10,9 @@ pub struct RowingRules {
 impl RowingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "赛艇规则",
-                "赛艇比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("赛艇规则", "赛艇比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "水上".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for RowingRules {
             比赛距离:\n{}\n\n\
             起航规则:\n{}\n\n\
             航道规则:\n{}\n",
-            self.boat_classes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.race_distances().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.start_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.lane_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.boat_classes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.race_distances()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.start_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.lane_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

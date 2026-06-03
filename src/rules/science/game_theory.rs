@@ -10,12 +10,9 @@ pub struct GameTheoryLaws {
 impl GameTheoryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "博弈论定律",
-                "博弈论基本定律"
-            )
-            .with_origin("数学")
-            .with_tags(vec!["科学".into(), "数学".into(), "博弈".into()]),
+            metadata: RuleMetadata::new("博弈论定律", "博弈论基本定律")
+                .with_origin("数学")
+                .with_tags(vec!["科学".into(), "数学".into(), "博弈".into()]),
         }
     }
 
@@ -129,7 +126,11 @@ impl GameTheoryLaws {
     /// 社会选择定律
     pub fn social_choice_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
-            ("阿罗不可能定律", "投票悖论", "满足所有合理条件的投票规则不存在"),
+            (
+                "阿罗不可能定律",
+                "投票悖论",
+                "满足所有合理条件的投票规则不存在",
+            ),
             ("孔多塞悖论", "循环偏好", "多数票可能产生循环"),
             ("吉巴德-萨特斯韦特定理", "策略投票", "投票策略操纵不可避免"),
             ("中位选民定律", "中间偏好", "中位选民决定结果"),
@@ -163,7 +164,6 @@ impl GameTheoryLaws {
             "社会选择理论: 如何从个体偏好汇总出社会偏好",
         ]
     }
-
 }
 
 impl Default for GameTheoryLaws {

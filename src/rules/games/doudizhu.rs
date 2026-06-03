@@ -75,12 +75,9 @@ pub struct DouDiZhuRules {
 impl DouDiZhuRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "斗地主规则",
-                "斗地主标准规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "扑克".into(), "斗地主".into()]),
+            metadata: RuleMetadata::new("斗地主规则", "斗地主标准规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "扑克".into(), "斗地主".into()]),
         }
     }
 
@@ -108,7 +105,10 @@ impl DouDiZhuRules {
             (CardPattern::TripleWithOne, "三张+任意一张单牌"),
             (CardPattern::TripleWithPair, "三张+任意一对"),
             (CardPattern::Straight, "五张或更多连续单牌（不含2和王）"),
-            (CardPattern::DoubleStraight, "三对或更多连续对子（不含2和王）"),
+            (
+                CardPattern::DoubleStraight,
+                "三对或更多连续对子（不含2和王）",
+            ),
             (CardPattern::Plane, "两个或更多连续三张（不含2和王）"),
             (CardPattern::PlaneWithWings, "飞机+同数量的单牌或对子"),
             (CardPattern::FourWithTwo, "四张+任意两张单牌或两对"),
@@ -119,7 +119,9 @@ impl DouDiZhuRules {
 
     /// 牌的大小顺序 (从小到大)
     pub fn card_order(&self) -> Vec<&'static str> {
-        vec!["3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2", "小王", "大王"]
+        vec![
+            "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2", "小王", "大王",
+        ]
     }
 
     /// 叫地主规则
@@ -183,10 +185,26 @@ impl Rule for DouDiZhuRules {
             计分规则:\n{}\n",
             self.landlord_cards(),
             self.farmer_cards(),
-            self.call_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            patterns.iter().map(|(p, d)| format!("  • {}: {}", p.name(), d)).collect::<Vec<_>>().join("\n"),
-            self.play_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.call_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            patterns
+                .iter()
+                .map(|(p, d)| format!("  • {}: {}", p.name(), d))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.play_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

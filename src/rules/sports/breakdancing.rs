@@ -10,24 +10,15 @@ pub struct BreakdancingRules {
 impl BreakdancingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "街舞规则",
-                "街舞比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "舞蹈".into()]),
+            metadata: RuleMetadata::new("街舞规则", "街舞比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "舞蹈".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "单人比赛",
-            "团队比赛",
-            "Battle比赛",
-            "表演比赛",
-            "综合比赛",
-        ]
+        vec!["单人比赛", "团队比赛", "Battle比赛", "表演比赛", "综合比赛"]
     }
 
     /// 技术动作
@@ -43,13 +34,7 @@ impl BreakdancingRules {
 
     /// 评分标准
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "技术难度",
-            "创意表现",
-            "音乐诠释",
-            "执行质量",
-            "整体表现",
-        ]
+        vec!["技术难度", "创意表现", "音乐诠释", "执行质量", "整体表现"]
     }
 
     /// 比赛规则
@@ -65,35 +50,17 @@ impl BreakdancingRules {
 
     /// Battle规则
     pub fn battle_rules(&self) -> Vec<&'static str> {
-        vec![
-            "1对1对决",
-            "回合制",
-            "轮流表演",
-            "裁判判定",
-            "胜负规则",
-        ]
+        vec!["1对1对决", "回合制", "轮流表演", "裁判判定", "胜负规则"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "比赛服装",
-            "运动鞋",
-            "护膝护腕",
-            "场地装备",
-            "音乐设备",
-        ]
+        vec!["比赛服装", "运动鞋", "护膝护腕", "场地装备", "音乐设备"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "场地安全",
-            "护具佩戴",
-            "动作控制",
-            "医疗支持",
-            "比赛控制",
-        ]
+        vec!["场地安全", "护具佩戴", "动作控制", "医疗支持", "比赛控制"]
     }
 }
 
@@ -123,10 +90,26 @@ impl Rule for BreakdancingRules {
             评分标准:\n{}\n\n\
             Battle规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.battle_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.battle_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

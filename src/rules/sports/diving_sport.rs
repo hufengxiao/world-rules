@@ -10,12 +10,9 @@ pub struct DivingSportRules {
 impl DivingSportRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "潜水规则",
-                "潜水运动基本规则"
-            )
-            .with_origin("法国")
-            .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("潜水规则", "潜水运动基本规则")
+                .with_origin("法国")
+                .with_tags(vec!["体育".into(), "水上".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for DivingSportRules {
             安全规则:\n{}\n\n\
             装备要求:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.diving_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.diving_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

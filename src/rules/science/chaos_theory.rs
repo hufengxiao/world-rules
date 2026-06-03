@@ -10,12 +10,9 @@ pub struct ChaosTheoryLaws {
 impl ChaosTheoryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "混沌理论定律",
-                "混沌理论基本定律"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "混沌".into()]),
+            metadata: RuleMetadata::new("混沌理论定律", "混沌理论基本定律")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "混沌".into()]),
         }
     }
 
@@ -121,7 +118,6 @@ impl ChaosTheoryLaws {
         ]
     }
 
-
     /// 分形几何
     pub fn fractal_geometry(&self) -> Vec<&'static str> {
         vec![
@@ -134,7 +130,6 @@ impl ChaosTheoryLaws {
             "分形压缩: 利用分形自相似性压缩图像",
         ]
     }
-
 }
 
 impl Default for ChaosTheoryLaws {
@@ -159,15 +154,18 @@ impl Rule for ChaosTheoryLaws {
     fn explain(&self) -> String {
         format!(
             "【混沌理论定律】\n\n特性定律:\n{}\n\n分形定律:\n{}\n\n倍周期定律:\n{}\n",
-            self.characteristics_laws().iter()
+            self.characteristics_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.fractal_laws().iter()
+            self.fractal_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.bifurcation_laws().iter()
+            self.bifurcation_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

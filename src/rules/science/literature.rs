@@ -10,12 +10,9 @@ pub struct LiteratureLaws {
 impl LiteratureLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "文学定律",
-                "文学基本定律"
-            )
-            .with_origin("人文科学")
-            .with_tags(vec!["科学".into(), "文学".into()]),
+            metadata: RuleMetadata::new("文学定律", "文学基本定律")
+                .with_origin("人文科学")
+                .with_tags(vec!["科学".into(), "文学".into()]),
         }
     }
 

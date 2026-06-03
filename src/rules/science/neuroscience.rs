@@ -10,19 +10,20 @@ pub struct NeuroscienceLaws {
 impl NeuroscienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "神经科学定律",
-                "神经科学基本定律"
-            )
-            .with_origin("神经科学")
-            .with_tags(vec!["科学".into(), "神经".into()]),
+            metadata: RuleMetadata::new("神经科学定律", "神经科学基本定律")
+                .with_origin("神经科学")
+                .with_tags(vec!["科学".into(), "神经".into()]),
         }
     }
 
     /// 神经传导定律
     pub fn conduction_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
-            ("动作电位定律", "全或无原则", "神经信号要么完全激发要么不激发"),
+            (
+                "动作电位定律",
+                "全或无原则",
+                "神经信号要么完全激发要么不激发",
+            ),
             ("离子通道定律", "选择性通透", "离子通道选择性通过特定离子"),
             ("突触传递定律", "化学传递", "神经信号通过化学递质传递"),
             ("神经编码定律", "频率编码", "神经信号通过频率编码信息"),
@@ -112,7 +113,6 @@ impl NeuroscienceLaws {
         ]
     }
 
-
     /// 认知神经科学
     pub fn cognitive_neuroscience(&self) -> Vec<&'static str> {
         vec![
@@ -125,7 +125,6 @@ impl NeuroscienceLaws {
             "社会认知: 内侧前额叶和颞顶联合区参与心理理论",
         ]
     }
-
 }
 
 impl Default for NeuroscienceLaws {
@@ -150,15 +149,18 @@ impl Rule for NeuroscienceLaws {
     fn explain(&self) -> String {
         format!(
             "【神经科学定律】\n\n神经传导定律:\n{}\n\n大脑功能定律:\n{}\n\n认知定律:\n{}\n",
-            self.conduction_laws().iter()
+            self.conduction_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.brain_function_laws().iter()
+            self.brain_function_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.cognitive_laws().iter()
+            self.cognitive_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

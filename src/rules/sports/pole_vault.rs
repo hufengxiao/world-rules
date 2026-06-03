@@ -10,12 +10,9 @@ pub struct PoleVaultRules {
 impl PoleVaultRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "撑杆跳规则",
-                "撑杆跳比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("撑杆跳规则", "撑杆跳比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -87,13 +84,7 @@ impl PoleVaultRules {
 
     /// 技术要求
     pub fn technique(&self) -> Vec<&'static str> {
-        vec![
-            "助跑速度",
-            "插杆时机",
-            "摆动技术",
-            "转体过杆",
-            "安全落地",
-        ]
+        vec!["助跑速度", "插杆时机", "摆动技术", "转体过杆", "安全落地"]
     }
 
     /// 安全规则
@@ -134,10 +125,26 @@ impl Rule for PoleVaultRules {
             比赛规则:\n{}\n\n\
             犯规规则:\n{}\n\n\
             技术要求:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technique().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technique()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct DiscGolfRules {
 impl DiscGolfRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "地板高尔夫规则",
-                "飞盘高尔夫比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "休闲".into()]),
+            metadata: RuleMetadata::new("地板高尔夫规则", "飞盘高尔夫比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "休闲".into()]),
         }
     }
 
@@ -43,57 +40,27 @@ impl DiscGolfRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "投掷技术",
-            "瞄准技术",
-            "距离控制",
-            "精准投掷",
-            "策略运用",
-        ]
+        vec!["投掷技术", "瞄准技术", "距离控制", "精准投掷", "策略运用"]
     }
 
     /// 得分规则
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "每洞杆数",
-            "总杆数计算",
-            "标准杆数",
-            "罚杆规则",
-            "比分记录",
-        ]
+        vec!["每洞杆数", "总杆数计算", "标准杆数", "罚杆规则", "比分记录"]
     }
 
     /// 飞盘类型
     pub fn disc_types(&self) -> Vec<&'static str> {
-        vec![
-            "距离盘",
-            "精准盘",
-            "中等距离盘",
-            "飞盘选择",
-            "规格要求",
-        ]
+        vec!["距离盘", "精准盘", "中等距离盘", "飞盘选择", "规格要求"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "飞盘",
-            "目标筐",
-            "场地装备",
-            "比赛服装",
-            "计分板",
-        ]
+        vec!["飞盘", "目标筐", "场地装备", "比赛服装", "计分板"]
     }
 
     /// 级别体系
     pub fn skill_levels(&self) -> Vec<&'static str> {
-        vec![
-            "初学者级别",
-            "中级水平",
-            "高级水平",
-            "专业级别",
-            "教练认证",
-        ]
+        vec!["初学者级别", "中级水平", "高级水平", "专业级别", "教练认证"]
     }
 }
 
@@ -123,10 +90,26 @@ impl Rule for DiscGolfRules {
             技术动作:\n{}\n\n\
             得分规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.course_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.course_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

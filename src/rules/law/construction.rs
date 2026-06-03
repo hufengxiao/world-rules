@@ -10,12 +10,9 @@ pub struct ConstructionLawRules {
 impl ConstructionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "建设工程法规则",
-                "中国建设工程法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "建设".into()]),
+            metadata: RuleMetadata::new("建设工程法规则", "中国建设工程法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "建设".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ConstructionLawRules {
     fn explain(&self) -> String {
         format!(
             "【建设工程法规则】\n\n建设许可:\n{}\n\n工程质量:\n{}\n\n工程安全:\n{}\n",
-            self.construction_permit().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.quality_control().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_control().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.construction_permit()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.quality_control()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_control()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct ExerciseRules {
 impl ExerciseRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "运动规则",
-                "健康运动基础知识"
-            )
-            .with_origin("运动医学")
-            .with_tags(vec!["健康".into(), "运动".into()]),
+            metadata: RuleMetadata::new("运动规则", "健康运动基础知识")
+                .with_origin("运动医学")
+                .with_tags(vec!["健康".into(), "运动".into()]),
         }
     }
 
@@ -126,9 +123,21 @@ impl Rule for ExerciseRules {
             运动类型:\n{}\n\n\
             运动频率建议:\n{}\n\n\
             运动注意事项:\n{}\n",
-            self.exercise_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.frequency_guidelines().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_tips().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.exercise_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.frequency_guidelines()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_tips()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

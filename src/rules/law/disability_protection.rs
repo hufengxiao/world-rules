@@ -10,12 +10,9 @@ pub struct DisabilityProtectionLawRules {
 impl DisabilityProtectionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "残疾人保障法规则",
-                "中国残疾人保障法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "残疾人保障".into()]),
+            metadata: RuleMetadata::new("残疾人保障法规则", "中国残疾人保障法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "残疾人保障".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for DisabilityProtectionLawRules {
     fn explain(&self) -> String {
         format!(
             "【残疾人保障法规则】\n\n残疾人权利:\n{}\n\n康复服务:\n{}\n\n就业保障:\n{}\n",
-            self.disability_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rehabilitation_services().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.employment_support().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.disability_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rehabilitation_services()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.employment_support()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

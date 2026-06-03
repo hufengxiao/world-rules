@@ -10,12 +10,9 @@ pub struct NetworkScienceLaws {
 impl NetworkScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "网络科学定律",
-                "网络科学基本定律"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "网络".into()]),
+            metadata: RuleMetadata::new("网络科学定律", "网络科学基本定律")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "网络".into()]),
         }
     }
 

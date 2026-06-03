@@ -10,12 +10,9 @@ pub struct KravMagaRules {
 impl KravMagaRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "克拉夫马伽规则",
-                "以色列自卫格斗体系规则"
-            )
-            .with_origin("以色列")
-            .with_tags(vec!["体育".into(), "格斗".into(), "自卫".into()]),
+            metadata: RuleMetadata::new("克拉夫马伽规则", "以色列自卫格斗体系规则")
+                .with_origin("以色列")
+                .with_tags(vec!["体育".into(), "格斗".into(), "自卫".into()]),
         }
     }
 
@@ -65,35 +62,17 @@ impl KravMagaRules {
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "护具佩戴",
-            "控制力度",
-            "循序渐进",
-            "医疗支持",
-            "教练指导",
-        ]
+        vec!["护具佩戴", "控制力度", "循序渐进", "医疗支持", "教练指导"]
     }
 
     /// 级别体系
     pub fn belt_system(&self) -> Vec<&'static str> {
-        vec![
-            "学员级别",
-            "实践者级别",
-            "专家级别",
-            "大师级别",
-            "级别认证",
-        ]
+        vec!["学员级别", "实践者级别", "专家级别", "大师级别", "级别认证"]
     }
 
     /// 训练装备
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "防护手套",
-            "护具套装",
-            "训练靶",
-            "模拟武器",
-            "训练服装",
-        ]
+        vec!["防护手套", "护具套装", "训练靶", "模拟武器", "训练服装"]
     }
 }
 
@@ -123,10 +102,26 @@ impl Rule for KravMagaRules {
             技术体系:\n{}\n\n\
             武器防御:\n{}\n\n\
             级别体系:\n{}\n",
-            self.training_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.weapon_defense().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.belt_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.training_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.weapon_defense()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.belt_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

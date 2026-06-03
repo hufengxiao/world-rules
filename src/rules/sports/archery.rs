@@ -10,12 +10,9 @@ pub struct ArcheryRules {
 impl ArcheryRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "射箭规则",
-                "WA 世界射箭联合会标准规则"
-            )
-            .with_origin("WA")
-            .with_tags(vec!["体育".into(), "射箭".into()]),
+            metadata: RuleMetadata::new("射箭规则", "WA 世界射箭联合会标准规则")
+                .with_origin("WA")
+                .with_tags(vec!["体育".into(), "射箭".into()]),
         }
     }
 
@@ -56,12 +53,7 @@ impl ArcheryRules {
 
     /// 弓的类型
     pub fn bow_types(&self) -> Vec<&'static str> {
-        vec![
-            "反曲弓(奥运项目)",
-            "复合弓",
-            "传统弓",
-            "光弓",
-        ]
+        vec!["反曲弓(奥运项目)", "复合弓", "传统弓", "光弓"]
     }
 
     /// 时间限制
@@ -76,12 +68,7 @@ impl ArcheryRules {
 
     /// 犯规行为
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "超时射箭",
-            "越线射箭",
-            "使用非法装备",
-            "干扰其他选手",
-        ]
+        vec!["超时射箭", "越线射箭", "使用非法装备", "干扰其他选手"]
     }
 }
 
@@ -111,10 +98,26 @@ impl Rule for ArcheryRules {
             计分规则:\n{}\n\n\
             弓的类型:\n{}\n\n\
             时间限制:\n{}\n",
-            self.olympic_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.bow_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.time_limits().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.olympic_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.bow_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.time_limits()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct AnalyticalChemistryLaws {
 impl AnalyticalChemistryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "分析化学定律",
-                "分析化学基本定律"
-            )
-            .with_origin("化学")
-            .with_tags(vec!["科学".into(), "化学".into(), "分析".into()]),
+            metadata: RuleMetadata::new("分析化学定律", "分析化学基本定律")
+                .with_origin("化学")
+                .with_tags(vec!["科学".into(), "化学".into(), "分析".into()]),
         }
     }
 
@@ -165,7 +162,6 @@ impl AnalyticalChemistryLaws {
             "萃取: 利用物质在两种溶剂中分配系数不同分离",
         ]
     }
-
 }
 
 impl Default for AnalyticalChemistryLaws {

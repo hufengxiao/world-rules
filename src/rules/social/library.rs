@@ -10,23 +10,15 @@ pub struct LibraryEtiquette {
 impl LibraryEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "图书馆礼仪",
-                "图书馆使用礼仪规范"
-            )
-            .with_origin("通用")
-            .with_tags(vec!["社交".into(), "图书馆".into()]),
+            metadata: RuleMetadata::new("图书馆礼仪", "图书馆使用礼仪规范")
+                .with_origin("通用")
+                .with_tags(vec!["社交".into(), "图书馆".into()]),
         }
     }
 
     /// 入馆礼仪
     pub fn entrance_rules(&self) -> Vec<&'static str> {
-        vec![
-            "保持安静",
-            "手机静音",
-            "不要带食物和饮料",
-            "按规范存放物品",
-        ]
+        vec!["保持安静", "手机静音", "不要带食物和饮料", "按规范存放物品"]
     }
 
     /// 借阅礼仪
@@ -98,10 +90,26 @@ impl Rule for LibraryEtiquette {
             借阅礼仪:\n{}\n\n\
             阅读礼仪:\n{}\n\n\
             座位礼仪:\n{}\n",
-            self.entrance_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.borrowing_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.reading_etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.seating_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.entrance_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.borrowing_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.reading_etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.seating_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

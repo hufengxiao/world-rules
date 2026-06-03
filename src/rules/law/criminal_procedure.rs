@@ -10,12 +10,9 @@ pub struct CriminalProcedureLawRules {
 impl CriminalProcedureLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "刑事诉讼法规则",
-                "中国刑事诉讼法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "刑事诉讼".into()]),
+            metadata: RuleMetadata::new("刑事诉讼法规则", "中国刑事诉讼法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "刑事诉讼".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for CriminalProcedureLawRules {
     fn explain(&self) -> String {
         format!(
             "【刑事诉讼法规则】\n\n基本原则:\n{}\n\n强制措施:\n{}\n\n刑事侦查:\n{}\n",
-            self.basic_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.compulsory_measures().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.criminal_investigation().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.compulsory_measures()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.criminal_investigation()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

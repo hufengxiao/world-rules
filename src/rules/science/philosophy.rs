@@ -10,12 +10,9 @@ pub struct PhilosophyLaws {
 impl PhilosophyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "哲学定律",
-                "哲学基本定律"
-            )
-            .with_origin("人文科学")
-            .with_tags(vec!["科学".into(), "哲学".into()]),
+            metadata: RuleMetadata::new("哲学定律", "哲学基本定律")
+                .with_origin("人文科学")
+                .with_tags(vec!["科学".into(), "哲学".into()]),
         }
     }
 

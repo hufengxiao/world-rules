@@ -10,23 +10,15 @@ pub struct TwoPlayerMahjongRules {
 impl TwoPlayerMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "二人麻将规则",
-                "二人麻将游戏规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "麻将".into()]),
+            metadata: RuleMetadata::new("二人麻将规则", "二人麻将游戏规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "麻将".into()]),
         }
     }
 
     /// 基本设置
     pub fn basic_settings(&self) -> Vec<&'static str> {
-        vec![
-            "两人对战",
-            "使用简化的牌组",
-            "去掉万子或条子",
-            "每人13张牌",
-        ]
+        vec!["两人对战", "使用简化的牌组", "去掉万子或条子", "每人13张牌"]
     }
 
     /// 游戏特点
@@ -41,21 +33,12 @@ impl TwoPlayerMahjongRules {
 
     /// 胡牌条件
     pub fn winning_conditions(&self) -> Vec<&'static str> {
-        vec![
-            "标准型: 4组+1对",
-            "七对子",
-            "番数要求较低",
-        ]
+        vec!["标准型: 4组+1对", "七对子", "番数要求较低"]
     }
 
     /// 与四人麻将区别
     pub fn differences(&self) -> Vec<&'static str> {
-        vec![
-            "不能吃牌",
-            "只能碰和杠",
-            "对局更快",
-            "计算简化",
-        ]
+        vec!["不能吃牌", "只能碰和杠", "对局更快", "计算简化"]
     }
 }
 
@@ -84,9 +67,21 @@ impl Rule for TwoPlayerMahjongRules {
             基本设置:\n{}\n\n\
             游戏特点:\n{}\n\n\
             与四人麻将区别:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.game_features().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.differences().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.game_features()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.differences()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

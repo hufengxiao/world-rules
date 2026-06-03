@@ -10,12 +10,9 @@ pub struct CharityLawRules {
 impl CharityLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "慈善法规则",
-                "中国慈善法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "慈善".into()]),
+            metadata: RuleMetadata::new("慈善法规则", "中国慈善法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "慈善".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for CharityLawRules {
     fn explain(&self) -> String {
         format!(
             "【慈善法规则】\n\n慈善活动范围:\n{}\n\n慈善募捐:\n{}\n\n慈善捐赠:\n{}\n",
-            self.charity_scope().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.charity_fundraising().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.charity_donation().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.charity_scope()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.charity_fundraising()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.charity_donation()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

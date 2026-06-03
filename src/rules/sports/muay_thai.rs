@@ -10,12 +10,9 @@ pub struct MuayThaiRules {
 impl MuayThaiRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "泰拳规则",
-                "泰拳比赛基本规则"
-            )
-            .with_origin("泰国")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("泰拳规则", "泰拳比赛基本规则")
+                .with_origin("泰国")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -135,10 +132,26 @@ impl Rule for MuayThaiRules {
             比赛回合:\n{}\n\n\
             得分标准:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.eight_limbs().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rounds().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.eight_limbs()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rounds()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

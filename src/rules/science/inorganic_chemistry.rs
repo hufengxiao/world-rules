@@ -10,12 +10,9 @@ pub struct InorganicChemistryLaws {
 impl InorganicChemistryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "无机化学定律",
-                "无机化学基本定律"
-            )
-            .with_origin("化学")
-            .with_tags(vec!["科学".into(), "化学".into(), "无机".into()]),
+            metadata: RuleMetadata::new("无机化学定律", "无机化学基本定律")
+                .with_origin("化学")
+                .with_tags(vec!["科学".into(), "化学".into(), "无机".into()]),
         }
     }
 
@@ -176,7 +173,6 @@ impl InorganicChemistryLaws {
             "液晶: 介于固体和液体之间的有序流体",
         ]
     }
-
 }
 
 impl Default for InorganicChemistryLaws {

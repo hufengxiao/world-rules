@@ -10,12 +10,9 @@ pub struct StatisticsRules {
 impl StatisticsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "统计学定律",
-                "统计学基本定律和方法"
-            )
-            .with_origin("统计学")
-            .with_tags(vec!["科学".into(), "统计学".into()]),
+            metadata: RuleMetadata::new("统计学定律", "统计学基本定律和方法")
+                .with_origin("统计学")
+                .with_tags(vec!["科学".into(), "统计学".into()]),
         }
     }
 
@@ -119,7 +116,6 @@ impl StatisticsRules {
         ]
     }
 
-
     /// 贝叶斯统计
     pub fn bayesian_statistics(&self) -> Vec<&'static str> {
         vec![
@@ -132,7 +128,6 @@ impl StatisticsRules {
             "可信区间: 贝叶斯框架下参数的区间估计",
         ]
     }
-
 }
 
 impl Default for StatisticsRules {
@@ -161,10 +156,26 @@ impl Rule for StatisticsRules {
             中心极限定理:\n{}\n\n\
             常用分布:\n{}\n\n\
             常见谬误:\n{}\n",
-            self.law_of_large_numbers().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.central_limit_theorem().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.common_distributions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.statistical_fallacies().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.law_of_large_numbers()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.central_limit_theorem()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.common_distributions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.statistical_fallacies()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

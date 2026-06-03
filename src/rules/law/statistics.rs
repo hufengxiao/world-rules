@@ -10,12 +10,9 @@ pub struct StatisticsLawRules {
 impl StatisticsLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "统计法规则",
-                "中国统计法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "统计".into()]),
+            metadata: RuleMetadata::new("统计法规则", "中国统计法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "统计".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for StatisticsLawRules {
     fn explain(&self) -> String {
         format!(
             "【统计法规则】\n\n工作原则:\n{}\n\n统计调查:\n{}\n\n统计资料:\n{}\n",
-            self.statistics_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.statistics_survey().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.statistics_data().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.statistics_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.statistics_survey()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.statistics_data()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

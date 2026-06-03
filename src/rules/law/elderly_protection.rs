@@ -10,12 +10,9 @@ pub struct ElderlyProtectionLawRules {
 impl ElderlyProtectionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "老年人权益保障法规则",
-                "中国老年人权益保障法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "老年人权益".into()]),
+            metadata: RuleMetadata::new("老年人权益保障法规则", "中国老年人权益保障法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "老年人权益".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ElderlyProtectionLawRules {
     fn explain(&self) -> String {
         format!(
             "【老年人权益保障法规则】\n\n老年人权利:\n{}\n\n家庭赡养:\n{}\n\n社会保障:\n{}\n",
-            self.elderly_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.family_support().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.social_security().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.elderly_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.family_support()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.social_security()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

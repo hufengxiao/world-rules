@@ -10,24 +10,15 @@ pub struct KendoRules {
 impl KendoRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "剑道规则",
-                "剑道比赛基本规则"
-            )
-            .with_origin("日本")
-            .with_tags(vec!["体育".into(), "武术".into()]),
+            metadata: RuleMetadata::new("剑道规则", "剑道比赛基本规则")
+                .with_origin("日本")
+                .with_tags(vec!["体育".into(), "武术".into()]),
         }
     }
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "个人赛",
-            "团体赛",
-            "锦标赛",
-            "演武赛",
-            "级别赛",
-        ]
+        vec!["个人赛", "团体赛", "锦标赛", "演武赛", "级别赛"]
     }
 
     /// 有效打击部位
@@ -76,13 +67,7 @@ impl KendoRules {
 
     /// 级位制度
     pub fn ranking_system(&self) -> Vec<&'static str> {
-        vec![
-            "初段至八段",
-            "级别考试",
-            "演武考核",
-            "技术要求",
-            "精神修养",
-        ]
+        vec!["初段至八段", "级别考试", "演武考核", "技术要求", "精神修养"]
     }
 
     /// 场地要求
@@ -98,13 +83,7 @@ impl KendoRules {
 
     /// 禁止行为
     pub fn prohibited_actions(&self) -> Vec<&'static str> {
-        vec![
-            "不当打击",
-            "危险动作",
-            "推搡行为",
-            "不当言语",
-            "装备违规",
-        ]
+        vec!["不当打击", "危险动作", "推搡行为", "不当言语", "装备违规"]
     }
 }
 
@@ -134,10 +113,26 @@ impl Rule for KendoRules {
             得分条件:\n{}\n\n\
             装备要求:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.valid_targets().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_conditions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.valid_targets()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_conditions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

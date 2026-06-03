@@ -10,12 +10,9 @@ pub struct BoxingRules {
 impl BoxingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "拳击规则",
-                "拳击比赛基本规则"
-            )
-            .with_origin("国际拳击协会")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("拳击规则", "拳击比赛基本规则")
+                .with_origin("国际拳击协会")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -132,10 +129,26 @@ impl Rule for BoxingRules {
             比赛回合:\n{}\n\n\
             禁止行为:\n{}\n\n\
             击倒规则:\n{}\n",
-            self.weight_classes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rounds().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.knockout_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.weight_classes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rounds()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.knockout_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

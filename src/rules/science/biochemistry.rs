@@ -10,12 +10,9 @@ pub struct BiochemistryLaws {
 impl BiochemistryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "生物化学定律",
-                "生物化学基本定律"
-            )
-            .with_origin("化学")
-            .with_tags(vec!["科学".into(), "化学".into(), "生物".into()]),
+            metadata: RuleMetadata::new("生物化学定律", "生物化学基本定律")
+                .with_origin("化学")
+                .with_tags(vec!["科学".into(), "化学".into(), "生物".into()]),
         }
     }
 
@@ -173,7 +170,6 @@ impl BiochemistryLaws {
             "辅酶: 与酶结合的有机小分子如NAD⁺和FAD",
         ]
     }
-
 }
 
 impl Default for BiochemistryLaws {

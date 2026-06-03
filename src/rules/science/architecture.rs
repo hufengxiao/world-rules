@@ -10,12 +10,9 @@ pub struct ArchitectureLaws {
 impl ArchitectureLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "建筑学定律",
-                "建筑学基本定律"
-            )
-            .with_origin("工程科学")
-            .with_tags(vec!["科学".into(), "建筑".into()]),
+            metadata: RuleMetadata::new("建筑学定律", "建筑学基本定律")
+                .with_origin("工程科学")
+                .with_tags(vec!["科学".into(), "建筑".into()]),
         }
     }
 
@@ -123,7 +120,6 @@ impl ArchitectureLaws {
         ]
     }
 
-
     /// 声学设计
     pub fn acoustic_design(&self) -> Vec<&'static str> {
         vec![
@@ -135,7 +131,6 @@ impl ArchitectureLaws {
             "语言清晰度: 听众理解语言信息的程度",
         ]
     }
-
 }
 
 impl Default for ArchitectureLaws {
@@ -160,15 +155,18 @@ impl Rule for ArchitectureLaws {
     fn explain(&self) -> String {
         format!(
             "【建筑学定律】\n\n设计定律:\n{}\n\n结构定律:\n{}\n\n物理定律:\n{}\n",
-            self.design_laws().iter()
+            self.design_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.structure_laws().iter()
+            self.structure_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.physics_laws().iter()
+            self.physics_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

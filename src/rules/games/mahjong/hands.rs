@@ -186,11 +186,7 @@ impl Hand {
         Self::check_standard_recursive(&counts, 0, false)
     }
 
-    fn check_standard_recursive(
-        counts: &HashMap<Tile, u8>,
-        melds: u8,
-        has_pair: bool,
-    ) -> bool {
+    fn check_standard_recursive(counts: &HashMap<Tile, u8>, melds: u8, has_pair: bool) -> bool {
         // 找第一张还有数量的牌（按排序顺序，保证确定性）
         let mut active: Vec<_> = counts.iter().filter(|(_, &c)| c > 0).collect();
         active.sort_by_key(|(&tile, _)| tile);
@@ -264,12 +260,18 @@ impl Hand {
 
         // 十三幺需要: 1,9万 + 1,9条 + 1,9筒 + 东南西北 + 中发白 + 其中任意一张成对
         let required: Vec<Tile> = vec![
-            Tile::wan(1), Tile::wan(9),
-            Tile::tiao(1), Tile::tiao(9),
-            Tile::tong(1), Tile::tong(9),
-            Tile::feng(Wind::Dong), Tile::feng(Wind::Nan),
-            Tile::feng(Wind::Xi), Tile::feng(Wind::Bei),
-            Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::FaCai),
+            Tile::wan(1),
+            Tile::wan(9),
+            Tile::tiao(1),
+            Tile::tiao(9),
+            Tile::tong(1),
+            Tile::tong(9),
+            Tile::feng(Wind::Dong),
+            Tile::feng(Wind::Nan),
+            Tile::feng(Wind::Xi),
+            Tile::feng(Wind::Bei),
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::FaCai),
             Tile::jian(Dragon::BaiBan),
         ];
 
@@ -283,7 +285,9 @@ impl Hand {
         }
 
         // 检查是否有一张成对
-        required.iter().any(|t| counts.get(t).copied().unwrap_or(0) == 2)
+        required
+            .iter()
+            .any(|t| counts.get(t).copied().unwrap_or(0) == 2)
     }
 }
 
@@ -295,8 +299,8 @@ impl Default for Hand {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use super::super::tiles::{Dragon, Wind};
+    use super::*;
 
     #[test]
     fn test_hand_creation() {
@@ -346,13 +350,20 @@ mod tests {
     #[test]
     fn test_win_seven_pairs_basic() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1),
-            Tile::wan(2), Tile::wan(2),
-            Tile::wan(3), Tile::wan(3),
-            Tile::wan(4), Tile::wan(4),
-            Tile::wan(5), Tile::wan(5),
-            Tile::wan(6), Tile::wan(6),
-            Tile::wan(7), Tile::wan(7),
+            Tile::wan(1),
+            Tile::wan(1),
+            Tile::wan(2),
+            Tile::wan(2),
+            Tile::wan(3),
+            Tile::wan(3),
+            Tile::wan(4),
+            Tile::wan(4),
+            Tile::wan(5),
+            Tile::wan(5),
+            Tile::wan(6),
+            Tile::wan(6),
+            Tile::wan(7),
+            Tile::wan(7),
         ];
         let hand = hand_from(tiles);
         assert!(hand.can_win());
@@ -362,12 +373,19 @@ mod tests {
     #[test]
     fn test_win_seven_pairs_rejects_3_of_same() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1), Tile::wan(1), // 3张1万
-            Tile::wan(2), Tile::wan(2),
-            Tile::wan(3), Tile::wan(3),
-            Tile::wan(4), Tile::wan(4),
-            Tile::wan(5), Tile::wan(5),
-            Tile::wan(6), Tile::wan(6),
+            Tile::wan(1),
+            Tile::wan(1),
+            Tile::wan(1), // 3张1万
+            Tile::wan(2),
+            Tile::wan(2),
+            Tile::wan(3),
+            Tile::wan(3),
+            Tile::wan(4),
+            Tile::wan(4),
+            Tile::wan(5),
+            Tile::wan(5),
+            Tile::wan(6),
+            Tile::wan(6),
             Tile::wan(7),
         ];
         let hand = hand_from(tiles);
@@ -383,12 +401,18 @@ mod tests {
     #[test]
     fn test_win_thirteen_orphans_basic() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(9),
-            Tile::tiao(1), Tile::tiao(9),
-            Tile::tong(1), Tile::tong(9),
-            Tile::feng(Wind::Dong), Tile::feng(Wind::Nan),
-            Tile::feng(Wind::Xi), Tile::feng(Wind::Bei),
-            Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::FaCai),
+            Tile::wan(1),
+            Tile::wan(9),
+            Tile::tiao(1),
+            Tile::tiao(9),
+            Tile::tong(1),
+            Tile::tong(9),
+            Tile::feng(Wind::Dong),
+            Tile::feng(Wind::Nan),
+            Tile::feng(Wind::Xi),
+            Tile::feng(Wind::Bei),
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::FaCai),
             Tile::jian(Dragon::BaiBan),
             Tile::wan(1), // 对子
         ];
@@ -400,13 +424,20 @@ mod tests {
     #[test]
     fn test_win_thirteen_orphans_missing_tile() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(9),
-            Tile::tiao(1), Tile::tiao(9),
-            Tile::tong(1), Tile::tong(9),
-            Tile::feng(Wind::Dong), Tile::feng(Wind::Nan),
-            Tile::feng(Wind::Xi), Tile::feng(Wind::Bei),
-            Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::FaCai),
-            Tile::wan(1), Tile::wan(2), // 缺白板，多了一张2万
+            Tile::wan(1),
+            Tile::wan(9),
+            Tile::tiao(1),
+            Tile::tiao(9),
+            Tile::tong(1),
+            Tile::tong(9),
+            Tile::feng(Wind::Dong),
+            Tile::feng(Wind::Nan),
+            Tile::feng(Wind::Xi),
+            Tile::feng(Wind::Bei),
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::FaCai),
+            Tile::wan(1),
+            Tile::wan(2), // 缺白板，多了一张2万
         ];
         let hand = hand_from(tiles);
         assert!(!hand.can_win());
@@ -416,11 +447,20 @@ mod tests {
     #[test]
     fn test_win_standard_basic() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1), // 对子
-            Tile::wan(2), Tile::wan(3), Tile::wan(4), // 顺子
-            Tile::wan(4), Tile::wan(5), Tile::wan(6), // 顺子
-            Tile::wan(5), Tile::wan(6), Tile::wan(7), // 顺子
-            Tile::wan(7), Tile::wan(8), Tile::wan(9), // 顺子
+            Tile::wan(1),
+            Tile::wan(1), // 对子
+            Tile::wan(2),
+            Tile::wan(3),
+            Tile::wan(4), // 顺子
+            Tile::wan(4),
+            Tile::wan(5),
+            Tile::wan(6), // 顺子
+            Tile::wan(5),
+            Tile::wan(6),
+            Tile::wan(7), // 顺子
+            Tile::wan(7),
+            Tile::wan(8),
+            Tile::wan(9), // 顺子
         ];
         let hand = hand_from(tiles);
         assert!(hand.can_win());
@@ -430,11 +470,20 @@ mod tests {
     #[test]
     fn test_win_standard_kezi_hand() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1), // 对子
-            Tile::wan(3), Tile::wan(3), Tile::wan(3), // 刻子
-            Tile::tiao(5), Tile::tiao(5), Tile::tiao(5), // 刻子
-            Tile::tong(7), Tile::tong(7), Tile::tong(7), // 刻子
-            Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::HongZhong), // 刻子
+            Tile::wan(1),
+            Tile::wan(1), // 对子
+            Tile::wan(3),
+            Tile::wan(3),
+            Tile::wan(3), // 刻子
+            Tile::tiao(5),
+            Tile::tiao(5),
+            Tile::tiao(5), // 刻子
+            Tile::tong(7),
+            Tile::tong(7),
+            Tile::tong(7), // 刻子
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::HongZhong), // 刻子
         ];
         let hand = hand_from(tiles);
         assert!(hand.can_win());
@@ -444,11 +493,19 @@ mod tests {
     #[test]
     fn test_cannot_win_with_13_tiles() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1),
-            Tile::wan(2), Tile::wan(3), Tile::wan(4),
-            Tile::wan(5), Tile::wan(6), Tile::wan(7),
-            Tile::tiao(2), Tile::tiao(3), Tile::tiao(4),
-            Tile::tong(6), Tile::tong(7),
+            Tile::wan(1),
+            Tile::wan(1),
+            Tile::wan(2),
+            Tile::wan(3),
+            Tile::wan(4),
+            Tile::wan(5),
+            Tile::wan(6),
+            Tile::wan(7),
+            Tile::tiao(2),
+            Tile::tiao(3),
+            Tile::tiao(4),
+            Tile::tong(6),
+            Tile::tong(7),
         ];
         let hand = hand_from(tiles);
         assert!(!hand.can_win());
@@ -458,11 +515,20 @@ mod tests {
     #[test]
     fn test_cannot_win_with_15_tiles() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1),
-            Tile::wan(2), Tile::wan(3), Tile::wan(4),
-            Tile::wan(5), Tile::wan(6), Tile::wan(7),
-            Tile::tiao(2), Tile::tiao(3), Tile::tiao(4),
-            Tile::tong(6), Tile::tong(7), Tile::tong(8),
+            Tile::wan(1),
+            Tile::wan(1),
+            Tile::wan(2),
+            Tile::wan(3),
+            Tile::wan(4),
+            Tile::wan(5),
+            Tile::wan(6),
+            Tile::wan(7),
+            Tile::tiao(2),
+            Tile::tiao(3),
+            Tile::tiao(4),
+            Tile::tong(6),
+            Tile::tong(7),
+            Tile::tong(8),
             Tile::tong(9),
         ];
         let hand = hand_from(tiles);
@@ -473,11 +539,20 @@ mod tests {
     #[test]
     fn test_win_all_honors() {
         let tiles = vec![
-            Tile::feng(Wind::Dong), Tile::feng(Wind::Dong), // 对子
-            Tile::feng(Wind::Nan), Tile::feng(Wind::Nan), Tile::feng(Wind::Nan), // 刻子
-            Tile::feng(Wind::Xi), Tile::feng(Wind::Xi), Tile::feng(Wind::Xi), // 刻子
-            Tile::feng(Wind::Bei), Tile::feng(Wind::Bei), Tile::feng(Wind::Bei), // 刻子
-            Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::HongZhong), // 刻子
+            Tile::feng(Wind::Dong),
+            Tile::feng(Wind::Dong), // 对子
+            Tile::feng(Wind::Nan),
+            Tile::feng(Wind::Nan),
+            Tile::feng(Wind::Nan), // 刻子
+            Tile::feng(Wind::Xi),
+            Tile::feng(Wind::Xi),
+            Tile::feng(Wind::Xi), // 刻子
+            Tile::feng(Wind::Bei),
+            Tile::feng(Wind::Bei),
+            Tile::feng(Wind::Bei), // 刻子
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::HongZhong), // 刻子
         ];
         let hand = hand_from(tiles);
         assert!(hand.can_win());
@@ -487,11 +562,20 @@ mod tests {
     #[test]
     fn test_win_mixed_suits() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1), // 对子
-            Tile::wan(2), Tile::wan(3), Tile::wan(4), // 顺子
-            Tile::wan(5), Tile::wan(6), Tile::wan(7), // 顺子
-            Tile::wan(6), Tile::wan(7), Tile::wan(8), // 顺子
-            Tile::tiao(2), Tile::tiao(3), Tile::tiao(4), // 顺子
+            Tile::wan(1),
+            Tile::wan(1), // 对子
+            Tile::wan(2),
+            Tile::wan(3),
+            Tile::wan(4), // 顺子
+            Tile::wan(5),
+            Tile::wan(6),
+            Tile::wan(7), // 顺子
+            Tile::wan(6),
+            Tile::wan(7),
+            Tile::wan(8), // 顺子
+            Tile::tiao(2),
+            Tile::tiao(3),
+            Tile::tiao(4), // 顺子
         ];
         let hand = hand_from(tiles);
         assert!(hand.can_win());
@@ -502,11 +586,19 @@ mod tests {
     fn test_is_ready_waiting_for_one() {
         // 11 234万 567万 678万 234条 -> 听 1万或某个万子
         let tiles = vec![
-            Tile::wan(1), Tile::wan(1),
-            Tile::wan(2), Tile::wan(3), Tile::wan(4),
-            Tile::wan(5), Tile::wan(6), Tile::wan(7),
-            Tile::wan(6), Tile::wan(7), Tile::wan(8),
-            Tile::tiao(2), Tile::tiao(3),
+            Tile::wan(1),
+            Tile::wan(1),
+            Tile::wan(2),
+            Tile::wan(3),
+            Tile::wan(4),
+            Tile::wan(5),
+            Tile::wan(6),
+            Tile::wan(7),
+            Tile::wan(6),
+            Tile::wan(7),
+            Tile::wan(8),
+            Tile::tiao(2),
+            Tile::tiao(3),
         ];
         let hand = hand_from(tiles);
         assert!(hand.is_ready());
@@ -518,12 +610,18 @@ mod tests {
     #[test]
     fn test_not_ready() {
         let tiles = vec![
-            Tile::wan(1), Tile::wan(2),
-            Tile::wan(4), Tile::wan(5),
-            Tile::tiao(1), Tile::tiao(3),
-            Tile::tong(5), Tile::tong(7),
-            Tile::feng(Wind::Dong), Tile::feng(Wind::Nan),
-            Tile::jian(Dragon::HongZhong), Tile::jian(Dragon::FaCai),
+            Tile::wan(1),
+            Tile::wan(2),
+            Tile::wan(4),
+            Tile::wan(5),
+            Tile::tiao(1),
+            Tile::tiao(3),
+            Tile::tong(5),
+            Tile::tong(7),
+            Tile::feng(Wind::Dong),
+            Tile::feng(Wind::Nan),
+            Tile::jian(Dragon::HongZhong),
+            Tile::jian(Dragon::FaCai),
             Tile::jian(Dragon::BaiBan),
         ];
         let hand = hand_from(tiles);
@@ -534,10 +632,7 @@ mod tests {
     /// tile_counts 统计正确
     #[test]
     fn test_tile_counts() {
-        let tiles = vec![
-            Tile::wan(1), Tile::wan(1), Tile::wan(1),
-            Tile::tiao(5),
-        ];
+        let tiles = vec![Tile::wan(1), Tile::wan(1), Tile::wan(1), Tile::tiao(5)];
         let hand = hand_from(tiles);
         let counts = hand.tile_counts();
         assert_eq!(counts.get(&Tile::wan(1)), Some(&3));

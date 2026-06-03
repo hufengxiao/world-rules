@@ -10,35 +10,20 @@ pub struct SkydivingRules {
 impl SkydivingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "跳伞规则",
-                "跳伞运动规则"
-            )
-            .with_origin("法国")
-            .with_tags(vec!["体育".into(), "航空".into()]),
+            metadata: RuleMetadata::new("跳伞规则", "跳伞运动规则")
+                .with_origin("法国")
+                .with_tags(vec!["体育".into(), "航空".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "定点跳伞",
-            "花样跳伞",
-            "造型跳伞",
-            "翼装跳伞",
-            "团体跳伞",
-        ]
+        vec!["定点跳伞", "花样跳伞", "造型跳伞", "翼装跳伞", "团体跳伞"]
     }
 
     /// 比赛规则
     pub fn competition_rules(&self) -> Vec<&'static str> {
-        vec![
-            "比赛高度",
-            "时间限制",
-            "评分标准",
-            "裁判评分",
-            "安全规则",
-        ]
+        vec!["比赛高度", "时间限制", "评分标准", "裁判评分", "安全规则"]
     }
 
     /// 技术动作
@@ -54,24 +39,12 @@ impl SkydivingRules {
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "双伞系统",
-            "高度限制",
-            "天气条件",
-            "装备检查",
-            "医疗支持",
-        ]
+        vec!["双伞系统", "高度限制", "天气条件", "装备检查", "医疗支持"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "主降落伞",
-            "备用降落伞",
-            "跳伞服装",
-            "高度计",
-            "头盔",
-        ]
+        vec!["主降落伞", "备用降落伞", "跳伞服装", "高度计", "头盔"]
     }
 
     /// 级别体系
@@ -87,13 +60,7 @@ impl SkydivingRules {
 
     /// 评分标准
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "定点精度",
-            "花样难度",
-            "执行质量",
-            "时间控制",
-            "团队配合",
-        ]
+        vec!["定点精度", "花样难度", "执行质量", "时间控制", "团队配合"]
     }
 }
 
@@ -123,10 +90,26 @@ impl Rule for SkydivingRules {
             技术动作:\n{}\n\n\
             安全规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

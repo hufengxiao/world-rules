@@ -10,12 +10,9 @@ pub struct SkiJumpingRules {
 impl SkiJumpingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "跳台滑雪规则",
-                "跳台滑雪比赛基本规则"
-            )
-            .with_origin("挪威")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("跳台滑雪规则", "跳台滑雪比赛基本规则")
+                .with_origin("挪威")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -32,13 +29,7 @@ impl SkiJumpingRules {
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "个人赛",
-            "团体赛",
-            "大型飞行赛",
-            "世界杯系列",
-            "奥运会项目",
-        ]
+        vec!["个人赛", "团体赛", "大型飞行赛", "世界杯系列", "奥运会项目"]
     }
 
     /// 评分标准
@@ -54,13 +45,7 @@ impl SkiJumpingRules {
 
     /// 技术要求
     pub fn technique(&self) -> Vec<&'static str> {
-        vec![
-            "助滑速度",
-            "起跳时机",
-            "飞行姿势",
-            "V形姿态",
-            "着陆技术",
-        ]
+        vec!["助滑速度", "起跳时机", "飞行姿势", "V形姿态", "着陆技术"]
     }
 
     /// 装备要求
@@ -98,13 +83,7 @@ impl SkiJumpingRules {
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "摔倒",
-            "着陆不稳",
-            "犯规起跳",
-            "装备违规",
-            "超时",
-        ]
+        vec!["摔倒", "着陆不稳", "犯规起跳", "装备违规", "超时"]
     }
 }
 
@@ -134,10 +113,26 @@ impl Rule for SkiJumpingRules {
             评分标准:\n{}\n\n\
             技术要求:\n{}\n\n\
             安全规则:\n{}\n",
-            self.hill_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_criteria().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technique().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.hill_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_criteria()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technique()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

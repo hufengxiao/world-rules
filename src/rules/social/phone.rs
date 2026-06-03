@@ -10,12 +10,9 @@ pub struct PhoneEtiquette {
 impl PhoneEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电话礼仪",
-                "电话沟通礼仪规范"
-            )
-            .with_origin("现代社交")
-            .with_tags(vec!["社交".into(), "沟通".into()]),
+            metadata: RuleMetadata::new("电话礼仪", "电话沟通礼仪规范")
+                .with_origin("现代社交")
+                .with_tags(vec!["社交".into(), "沟通".into()]),
         }
     }
 
@@ -131,10 +128,26 @@ impl Rule for PhoneEtiquette {
             打电话礼仪:\n{}\n\n\
             手机使用礼仪:\n{}\n\n\
             视频通话礼仪:\n{}\n",
-            self.answering_calls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.making_calls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.mobile_phone_usage().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.video_call_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.answering_calls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.making_calls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.mobile_phone_usage()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.video_call_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

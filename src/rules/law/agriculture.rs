@@ -10,12 +10,9 @@ pub struct AgricultureLawRules {
 impl AgricultureLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "农业法规则",
-                "中国农业法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "农业".into()]),
+            metadata: RuleMetadata::new("农业法规则", "中国农业法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "农业".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for AgricultureLawRules {
     fn explain(&self) -> String {
         format!(
             "【农业法规则】\n\n发展原则:\n{}\n\n生产规则:\n{}\n\n农民权益:\n{}\n",
-            self.development_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.production_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.farmer_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.development_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.production_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.farmer_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

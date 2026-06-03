@@ -10,12 +10,9 @@ pub struct FluidMechanicsLaws {
 impl FluidMechanicsLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "流体力学定律",
-                "流体力学基本定律"
-            )
-            .with_origin("物理学")
-            .with_tags(vec!["科学".into(), "物理".into(), "流体".into()]),
+            metadata: RuleMetadata::new("流体力学定律", "流体力学基本定律")
+                .with_origin("物理学")
+                .with_tags(vec!["科学".into(), "物理".into(), "流体".into()]),
         }
     }
 
@@ -158,7 +155,6 @@ impl FluidMechanicsLaws {
             "空化: 流体局部压强低于饱和蒸汽压形成气泡",
         ]
     }
-
 }
 
 impl Default for FluidMechanicsLaws {

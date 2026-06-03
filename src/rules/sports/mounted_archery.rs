@@ -10,24 +10,15 @@ pub struct MountedArcheryRules {
 impl MountedArcheryRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "定向射箭规则",
-                "骑马射箭运动规则"
-            )
-            .with_origin("蒙古")
-            .with_tags(vec!["体育".into(), "马术".into()]),
+            metadata: RuleMetadata::new("定向射箭规则", "骑马射箭运动规则")
+                .with_origin("蒙古")
+                .with_tags(vec!["体育".into(), "马术".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "传统骑射",
-            "现代骑射",
-            "速度骑射",
-            "精准骑射",
-            "综合比赛",
-        ]
+        vec!["传统骑射", "现代骑射", "速度骑射", "精准骑射", "综合比赛"]
     }
 
     /// 比赛规则
@@ -43,57 +34,27 @@ impl MountedArcheryRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "骑马技术",
-            "射箭技术",
-            "协调配合",
-            "节奏控制",
-            "稳定技术",
-        ]
+        vec!["骑马技术", "射箭技术", "协调配合", "节奏控制", "稳定技术"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "射箭弓",
-            "箭矢",
-            "骑马装备",
-            "防护装备",
-            "靶标系统",
-        ]
+        vec!["射箭弓", "箭矢", "骑马装备", "防护装备", "靶标系统"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "马匹安全",
-            "射箭安全",
-            "防护装备",
-            "医疗支持",
-            "场地安全",
-        ]
+        vec!["马匹安全", "射箭安全", "防护装备", "医疗支持", "场地安全"]
     }
 
     /// 评分标准
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "命中率评分",
-            "速度评分",
-            "综合评分",
-            "排名规则",
-            "分数计算",
-        ]
+        vec!["命中率评分", "速度评分", "综合评分", "排名规则", "分数计算"]
     }
 
     /// 级别体系
     pub fn skill_levels(&self) -> Vec<&'static str> {
-        vec![
-            "初级骑射",
-            "中级水平",
-            "高级水平",
-            "专业级别",
-            "大师级别",
-        ]
+        vec!["初级骑射", "中级水平", "高级水平", "专业级别", "大师级别"]
     }
 }
 
@@ -123,10 +84,26 @@ impl Rule for MountedArcheryRules {
             技术动作:\n{}\n\n\
             安全规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

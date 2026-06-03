@@ -10,12 +10,9 @@ pub struct MechanicalEngineeringLaws {
 impl MechanicalEngineeringLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "机械工程定律",
-                "机械工程基本定律"
-            )
-            .with_origin("工程")
-            .with_tags(vec!["科学".into(), "工程".into(), "机械".into()]),
+            metadata: RuleMetadata::new("机械工程定律", "机械工程基本定律")
+                .with_origin("工程")
+                .with_tags(vec!["科学".into(), "工程".into(), "机械".into()]),
         }
     }
 
@@ -89,16 +86,7 @@ impl MechanicalEngineeringLaws {
 
     /// 机械零件
     pub fn components(&self) -> Vec<&'static str> {
-        vec![
-            "轴",
-            "齿轮",
-            "轴承",
-            "联轴器",
-            "弹簧",
-            "螺栓",
-            "键",
-            "销",
-        ]
+        vec!["轴", "齿轮", "轴承", "联轴器", "弹簧", "螺栓", "键", "销"]
     }
 
     /// 振动分析
@@ -113,7 +101,6 @@ impl MechanicalEngineeringLaws {
             "临界转速: 旋转机械转子的固有频率对应的转速",
         ]
     }
-
 }
 
 impl Default for MechanicalEngineeringLaws {
@@ -138,15 +125,18 @@ impl Rule for MechanicalEngineeringLaws {
     fn explain(&self) -> String {
         format!(
             "【机械工程定律】\n\n设计定律:\n{}\n\n传动定律:\n{}\n\n制造定律:\n{}\n",
-            self.design_laws().iter()
+            self.design_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.transmission_laws().iter()
+            self.transmission_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.manufacturing_laws().iter()
+            self.manufacturing_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

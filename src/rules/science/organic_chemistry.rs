@@ -10,12 +10,9 @@ pub struct OrganicChemistryLaws {
 impl OrganicChemistryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "有机化学定律",
-                "有机化学基本定律"
-            )
-            .with_origin("化学")
-            .with_tags(vec!["科学".into(), "化学".into(), "有机".into()]),
+            metadata: RuleMetadata::new("有机化学定律", "有机化学基本定律")
+                .with_origin("化学")
+                .with_tags(vec!["科学".into(), "化学".into(), "有机".into()]),
         }
     }
 
@@ -168,7 +165,6 @@ impl OrganicChemistryLaws {
             "周环反应: 协同的环状过渡态反应",
         ]
     }
-
 }
 
 impl Default for OrganicChemistryLaws {

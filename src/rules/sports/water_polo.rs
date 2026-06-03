@@ -10,12 +10,9 @@ pub struct WaterPoloRules {
 impl WaterPoloRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "水球规则",
-                "水球比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("水球规则", "水球比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "水上".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for WaterPoloRules {
             基本规则:\n{}\n\n\
             得分规则:\n{}\n\n\
             犯规与处罚:\n{}\n",
-            self.pool_dimensions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls_penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.pool_dimensions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls_penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

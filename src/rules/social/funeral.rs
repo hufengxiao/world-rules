@@ -21,7 +21,7 @@ impl FuneralEtiquette {
         Self {
             metadata: RuleMetadata::new(
                 format!("{}葬礼礼仪", Self::culture_name(&culture)),
-                "葬礼礼仪规范"
+                "葬礼礼仪规范",
             )
             .with_origin(Self::culture_name(&culture)),
             culture,
@@ -48,21 +48,10 @@ impl FuneralEtiquette {
                 "火化/安葬",
                 "头七祭奠",
             ],
-            FuneralCulture::Western => vec![
-                "通知亲友",
-                "遗体告别",
-                "宗教仪式",
-                "墓地仪式",
-                "追思会",
-            ],
-            FuneralCulture::Japanese => vec![
-                "临终",
-                "通夜",
-                "告别式",
-                "火化",
-                "纳骨",
-                "法事",
-            ],
+            FuneralCulture::Western => {
+                vec!["通知亲友", "遗体告别", "宗教仪式", "墓地仪式", "追思会"]
+            }
+            FuneralCulture::Japanese => vec!["临终", "通夜", "告别式", "火化", "纳骨", "法事"],
         }
     }
 
@@ -83,12 +72,9 @@ impl FuneralEtiquette {
                 "默哀",
                 "慰问家属",
             ],
-            FuneralCulture::Japanese => vec![
-                "穿黑色丧服",
-                "准备香典 (礼金)",
-                "烧香",
-                "接受丧主回礼",
-            ],
+            FuneralCulture::Japanese => {
+                vec!["穿黑色丧服", "准备香典 (礼金)", "烧香", "接受丧主回礼"]
+            }
         }
     }
 
@@ -102,16 +88,8 @@ impl FuneralEtiquette {
                 "金额避免双数",
                 "写上姓名和奠仪字样",
             ],
-            FuneralCulture::Western => vec![
-                "可捐款代替礼金",
-                "送鲜花或花圈",
-                "金额因关系而异",
-            ],
-            FuneralCulture::Japanese => vec![
-                "香典: 3000-10000日元",
-                "新钞",
-                "专用香典袋",
-            ],
+            FuneralCulture::Western => vec!["可捐款代替礼金", "送鲜花或花圈", "金额因关系而异"],
+            FuneralCulture::Japanese => vec!["香典: 3000-10000日元", "新钞", "专用香典袋"],
         }
     }
 
@@ -125,16 +103,8 @@ impl FuneralEtiquette {
                 "不嬉笑打闹",
                 "不谈论喜庆话题",
             ],
-            FuneralCulture::Western => vec![
-                "不迟到",
-                "手机静音",
-                "仪式中不交谈",
-            ],
-            FuneralCulture::Japanese => vec![
-                "不说再见",
-                "不穿华丽服装",
-                "遵守礼仪规范",
-            ],
+            FuneralCulture::Western => vec!["不迟到", "手机静音", "仪式中不交谈"],
+            FuneralCulture::Japanese => vec!["不说再见", "不穿华丽服装", "遵守礼仪规范"],
         }
     }
 }
@@ -160,10 +130,26 @@ impl Rule for FuneralEtiquette {
             礼金指南:\n{}\n\n\
             禁忌事项:\n{}\n",
             Self::culture_name(&self.culture),
-            self.funeral_process().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.attendee_etiquette().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.gift_guidelines().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.taboos().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.funeral_process()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.attendee_etiquette()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.gift_guidelines()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.taboos()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

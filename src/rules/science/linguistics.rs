@@ -10,12 +10,9 @@ pub struct LinguisticsLaws {
 impl LinguisticsLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "语言学定律",
-                "语言学基本定律"
-            )
-            .with_origin("人文科学")
-            .with_tags(vec!["科学".into(), "语言".into()]),
+            metadata: RuleMetadata::new("语言学定律", "语言学基本定律")
+                .with_origin("人文科学")
+                .with_tags(vec!["科学".into(), "语言".into()]),
         }
     }
 
@@ -122,7 +119,6 @@ impl LinguisticsLaws {
         ]
     }
 
-
     /// 心理语言学
     pub fn psycholinguistics(&self) -> Vec<&'static str> {
         vec![
@@ -134,7 +130,6 @@ impl LinguisticsLaws {
             "语言产出: 从思想到言语表达的过程",
         ]
     }
-
 }
 
 impl Default for LinguisticsLaws {
@@ -159,15 +154,18 @@ impl Rule for LinguisticsLaws {
     fn explain(&self) -> String {
         format!(
             "【语言学定律】\n\n结构定律:\n{}\n\n演变定律:\n{}\n\n认知定律:\n{}\n",
-            self.structure_laws().iter()
+            self.structure_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.evolution_laws().iter()
+            self.evolution_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.cognition_laws().iter()
+            self.cognition_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

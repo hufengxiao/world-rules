@@ -10,12 +10,9 @@ pub struct ImmunologyLaws {
 impl ImmunologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "免疫学定律",
-                "免疫学基本定律"
-            )
-            .with_origin("医学")
-            .with_tags(vec!["科学".into(), "医学".into(), "免疫".into()]),
+            metadata: RuleMetadata::new("免疫学定律", "免疫学基本定律")
+                .with_origin("医学")
+                .with_tags(vec!["科学".into(), "医学".into(), "免疫".into()]),
         }
     }
 
@@ -121,7 +118,6 @@ impl ImmunologyLaws {
         ]
     }
 
-
     /// 疫苗免疫学
     pub fn vaccine_immunology(&self) -> Vec<&'static str> {
         vec![
@@ -133,7 +129,6 @@ impl ImmunologyLaws {
             "群体免疫: 大部分人群免疫后保护未免疫个体",
         ]
     }
-
 }
 
 impl Default for ImmunologyLaws {
@@ -158,15 +153,18 @@ impl Rule for ImmunologyLaws {
     fn explain(&self) -> String {
         format!(
             "【免疫学定律】\n\n识别定律:\n{}\n\n反应定律:\n{}\n\n调节定律:\n{}\n",
-            self.recognition_laws().iter()
+            self.recognition_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.response_laws().iter()
+            self.response_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.regulation_laws().iter()
+            self.regulation_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

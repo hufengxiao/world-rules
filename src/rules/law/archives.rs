@@ -1,6 +1,6 @@
 //! 档案法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, format_rule_sections};
+use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
 use crate::simple_rule;
 
 simple_rule! {
@@ -139,11 +139,14 @@ impl Rule for ArchivesLawRules {
     }
 
     fn explain(&self) -> String {
-        format_rule_sections("档案法规则", &[
-            ("管理原则", &self.archives_management_principles()),
-            ("档案保管", &self.archives_preservation()),
-            ("档案开放", &self.archives_access()),
-        ])
+        format_rule_sections(
+            "档案法规则",
+            &[
+                ("管理原则", &self.archives_management_principles()),
+                ("档案保管", &self.archives_preservation()),
+                ("档案开放", &self.archives_access()),
+            ],
+        )
     }
 }
 

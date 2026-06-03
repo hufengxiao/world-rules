@@ -10,12 +10,9 @@ pub struct ShengJiRules {
 impl ShengJiRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "升级规则",
-                "升级扑克游戏规则(拖拉机)"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "扑克".into(), "升级".into()]),
+            metadata: RuleMetadata::new("升级规则", "升级扑克游戏规则(拖拉机)")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "扑克".into(), "升级".into()]),
         }
     }
 
@@ -124,11 +121,31 @@ impl Rule for ShengJiRules {
             计分规则:\n{}\n",
             self.total_cards(),
             self.player_count(),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.pattern_descriptions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.trump_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.level_up_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.pattern_descriptions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.trump_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.level_up_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

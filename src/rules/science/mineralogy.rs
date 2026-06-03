@@ -1,6 +1,6 @@
 //! 矿物学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, format_titled_sections};
+use crate::rules::core::{format_titled_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
 use crate::simple_rule;
 
 simple_rule! {
@@ -116,7 +116,6 @@ impl MineralogyLaws {
         ]
     }
 
-
     /// 宝石学
     pub fn gemology(&self) -> Vec<&'static str> {
         vec![
@@ -129,7 +128,6 @@ impl MineralogyLaws {
             "宝石切工: 影响宝石外观和价值的重要因素",
         ]
     }
-
 }
 
 impl Rule for MineralogyLaws {
@@ -146,11 +144,14 @@ impl Rule for MineralogyLaws {
     }
 
     fn explain(&self) -> String {
-        format_titled_sections("矿物学定律", &[
-            ("形成定律", &self.formation_laws()),
-            ("结构定律", &self.structure_laws()),
-            ("分类定律", &self.classification_laws()),
-        ])
+        format_titled_sections(
+            "矿物学定律",
+            &[
+                ("形成定律", &self.formation_laws()),
+                ("结构定律", &self.structure_laws()),
+                ("分类定律", &self.classification_laws()),
+            ],
+        )
     }
 }
 

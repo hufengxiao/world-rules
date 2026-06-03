@@ -10,12 +10,9 @@ pub struct BlindFootballRules {
 impl BlindFootballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "盲人足球规则",
-                "盲人足球比赛基本规则"
-            )
-            .with_origin("西班牙")
-            .with_tags(vec!["体育".into(), "残奥".into()]),
+            metadata: RuleMetadata::new("盲人足球规则", "盲人足球比赛基本规则")
+                .with_origin("西班牙")
+                .with_tags(vec!["体育".into(), "残奥".into()]),
         }
     }
 
@@ -76,13 +73,7 @@ impl BlindFootballRules {
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "碰撞犯规",
-            "危险动作",
-            "故意干扰",
-            "手球",
-            "不当行为",
-        ]
+        vec!["碰撞犯规", "危险动作", "故意干扰", "手球", "不当行为"]
     }
 
     /// 安全规则
@@ -134,10 +125,26 @@ impl Rule for BlindFootballRules {
             辅助系统:\n{}\n\n\
             犯规规则:\n{}\n\n\
             安全规则:\n{}\n",
-            self.player_classification().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.guidance_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.player_classification()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.guidance_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

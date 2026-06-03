@@ -10,12 +10,9 @@ pub struct FencingRules {
 impl FencingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "击剑规则",
-                "击剑比赛基本规则"
-            )
-            .with_origin("欧洲")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("击剑规则", "击剑比赛基本规则")
+                .with_origin("欧洲")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for FencingRules {
             有效部位:\n{}\n\n\
             比赛形式:\n{}\n\n\
             优先权规则:\n{}\n",
-            self.weapon_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.target_areas().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.match_formats().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.right_of_way().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.weapon_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.target_areas()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.match_formats()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.right_of_way()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

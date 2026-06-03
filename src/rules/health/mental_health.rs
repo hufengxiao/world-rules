@@ -10,12 +10,9 @@ pub struct MentalHealthRules {
 impl MentalHealthRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "心理健康规则",
-                "心理健康基础知识"
-            )
-            .with_origin("心理学")
-            .with_tags(vec!["健康".into(), "心理".into()]),
+            metadata: RuleMetadata::new("心理健康规则", "心理健康基础知识")
+                .with_origin("心理学")
+                .with_tags(vec!["健康".into(), "心理".into()]),
         }
     }
 
@@ -133,9 +130,21 @@ impl Rule for MentalHealthRules {
             心理健康标准:\n{}\n\n\
             压力管理:\n{}\n\n\
             保持心理健康:\n{}\n",
-            self.mental_health_standards().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.stress_management().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.maintain_mental_health().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.mental_health_standards()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.stress_management()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.maintain_mental_health()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

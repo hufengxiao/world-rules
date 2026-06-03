@@ -10,12 +10,9 @@ pub struct MusicologyLaws {
 impl MusicologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "音乐学定律",
-                "音乐学基本定律"
-            )
-            .with_origin("艺术科学")
-            .with_tags(vec!["科学".into(), "音乐".into()]),
+            metadata: RuleMetadata::new("音乐学定律", "音乐学基本定律")
+                .with_origin("艺术科学")
+                .with_tags(vec!["科学".into(), "音乐".into()]),
         }
     }
 
@@ -86,14 +83,7 @@ impl MusicologyLaws {
     /// 音乐要素
     pub fn elements(&self) -> Vec<&'static str> {
         vec![
-            "音高",
-            "音长",
-            "音强",
-            "音色",
-            "节奏",
-            "旋律",
-            "和声",
-            "织体",
+            "音高", "音长", "音强", "音色", "节奏", "旋律", "和声", "织体",
         ]
     }
 
@@ -121,7 +111,6 @@ impl MusicologyLaws {
         ]
     }
 
-
     /// 民族音乐学
     pub fn ethnomusicology(&self) -> Vec<&'static str> {
         vec![
@@ -133,7 +122,6 @@ impl MusicologyLaws {
             "音乐认同: 音乐在构建群体认同中的作用",
         ]
     }
-
 }
 
 impl Default for MusicologyLaws {
@@ -158,15 +146,18 @@ impl Rule for MusicologyLaws {
     fn explain(&self) -> String {
         format!(
             "【音乐学定律】\n\n理论定律:\n{}\n\n物理定律:\n{}\n\n心理定律:\n{}\n",
-            self.theory_laws().iter()
+            self.theory_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.physics_laws().iter()
+            self.physics_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.psychology_laws().iter()
+            self.psychology_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

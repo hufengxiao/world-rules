@@ -10,12 +10,9 @@ pub struct FieldArcheryRules {
 impl FieldArcheryRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "野外射箭规则",
-                "野外射箭比赛基本规则"
-            )
-            .with_origin("国际")
-            .with_tags(vec!["体育".into(), "射箭".into()]),
+            metadata: RuleMetadata::new("野外射箭规则", "野外射箭比赛基本规则")
+                .with_origin("国际")
+                .with_tags(vec!["体育".into(), "射箭".into()]),
         }
     }
 
@@ -43,68 +40,32 @@ impl FieldArcheryRules {
 
     /// 靶面规格
     pub fn target_specifications(&self) -> Vec<&'static str> {
-        vec![
-            "野外靶设计",
-            "颜色区域",
-            "得分区",
-            "靶面更换",
-            "角度变化",
-        ]
+        vec!["野外靶设计", "颜色区域", "得分区", "靶面更换", "角度变化"]
     }
 
     /// 得分规则
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "最高6分",
-            "区域得分",
-            "总成绩计算",
-            "同分判定",
-            "比赛轮次",
-        ]
+        vec!["最高6分", "区域得分", "总成绩计算", "同分判定", "比赛轮次"]
     }
 
     /// 环境规则
     pub fn environment_rules(&self) -> Vec<&'static str> {
-        vec![
-            "地形适应",
-            "光线变化",
-            "风力影响",
-            "天气条件",
-            "场地安全",
-        ]
+        vec!["地形适应", "光线变化", "风力影响", "天气条件", "场地安全"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "弓具标准",
-            "箭具标准",
-            "野外适用",
-            "服装适应",
-            "安全装备",
-        ]
+        vec!["弓具标准", "箭具标准", "野外适用", "服装适应", "安全装备"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "安全行走",
-            "靶后区域",
-            "统一指挥",
-            "医疗支持",
-            "天气预警",
-        ]
+        vec!["安全行走", "靶后区域", "统一指挥", "医疗支持", "天气预警"]
     }
 
     /// 比赛路线
     pub fn course_design(&self) -> Vec<&'static str> {
-        vec![
-            "24靶标",
-            "路线设计",
-            "上坡下坡",
-            "距离变化",
-            "安全路径",
-        ]
+        vec!["24靶标", "路线设计", "上坡下坡", "距离变化", "安全路径"]
     }
 }
 
@@ -134,10 +95,26 @@ impl Rule for FieldArcheryRules {
             得分规则:\n{}\n\n\
             安全规则:\n{}\n\n\
             比赛路线:\n{}\n",
-            self.distances().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.course_design().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.distances()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.course_design()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct ConstitutionRules {
 impl ConstitutionRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "宪法规则",
-                "中国宪法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "宪法".into()]),
+            metadata: RuleMetadata::new("宪法规则", "中国宪法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "宪法".into()]),
         }
     }
 
@@ -127,10 +124,26 @@ impl Rule for ConstitutionRules {
             公民基本权利:\n{}\n\n\
             公民基本义务:\n{}\n\n\
             国家机构:\n{}\n",
-            self.constitution_status().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.citizen_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.citizen_obligations().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.state_organs().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.constitution_status()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.citizen_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.citizen_obligations()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.state_organs()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

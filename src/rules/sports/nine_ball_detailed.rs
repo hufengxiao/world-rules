@@ -10,12 +10,9 @@ pub struct NineBallDetailedRules {
 impl NineBallDetailedRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "九球详细规则",
-                "九球台球详细比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "台球".into()]),
+            metadata: RuleMetadata::new("九球详细规则", "九球台球详细比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "台球".into()]),
         }
     }
 
@@ -54,13 +51,7 @@ impl NineBallDetailedRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "击球技术",
-            "组合球技术",
-            "防守技术",
-            "开球技术",
-            "精确控制",
-        ]
+        vec!["击球技术", "组合球技术", "防守技术", "开球技术", "精确控制"]
     }
 
     /// 犯规规则
@@ -76,24 +67,12 @@ impl NineBallDetailedRules {
 
     /// 开球规则
     pub fn break_rules(&self) -> Vec<&'static str> {
-        vec![
-            "开球位置",
-            "开球要求",
-            "开球进球",
-            "开球犯规",
-            "开球控制",
-        ]
+        vec!["开球位置", "开球要求", "开球进球", "开球犯规", "开球控制"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "九球球杆",
-            "比赛用球",
-            "球台装备",
-            "架桥装备",
-            "比赛服装",
-        ]
+        vec!["九球球杆", "比赛用球", "球台装备", "架桥装备", "比赛服装"]
     }
 }
 
@@ -123,10 +102,26 @@ impl Rule for NineBallDetailedRules {
             比赛规则:\n{}\n\n\
             技术动作:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.ball_setup().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.ball_setup()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

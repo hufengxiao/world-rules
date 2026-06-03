@@ -10,12 +10,9 @@ pub struct CopyrightLawRules {
 impl CopyrightLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "著作权法规则",
-                "中国著作权法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "著作权".into()]),
+            metadata: RuleMetadata::new("著作权法规则", "中国著作权法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "著作权".into()]),
         }
     }
 
@@ -162,9 +159,21 @@ impl Rule for CopyrightLawRules {
     fn explain(&self) -> String {
         format!(
             "【著作权法规则】\n\n著作权客体:\n{}\n\n著作权权利:\n{}\n\n保护期限:\n{}\n",
-            self.copyright_objects().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.copyright_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.protection_period().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.copyright_objects()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.copyright_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.protection_period()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct SeatingEtiquette {
 impl SeatingEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "座次礼仪",
-                "中国传统座次礼仪规范"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["社交".into(), "餐饮".into()]),
+            metadata: RuleMetadata::new("座次礼仪", "中国传统座次礼仪规范")
+                .with_origin("中国")
+                .with_tags(vec!["社交".into(), "餐饮".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for SeatingEtiquette {
             会议座次:\n{}\n\n\
             车辆座次:\n{}\n\n\
             走路顺序:\n{}\n",
-            self.banquet_seating().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.meeting_seating().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.car_seating().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.walking_order().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.banquet_seating()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.meeting_seating()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.car_seating()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.walking_order()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

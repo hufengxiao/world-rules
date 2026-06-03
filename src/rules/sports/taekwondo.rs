@@ -10,12 +10,9 @@ pub struct TaekwondoRules {
 impl TaekwondoRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "跆拳道规则",
-                "跆拳道比赛基本规则"
-            )
-            .with_origin("韩国")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("跆拳道规则", "跆拳道比赛基本规则")
+                .with_origin("韩国")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -126,10 +123,26 @@ impl Rule for TaekwondoRules {
             得分分值:\n{}\n\n\
             比赛回合:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.scoring_areas().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.point_values().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rounds().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.scoring_areas()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.point_values()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rounds()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

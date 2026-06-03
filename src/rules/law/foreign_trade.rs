@@ -10,12 +10,9 @@ pub struct ForeignTradeLawRules {
 impl ForeignTradeLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "对外贸易法规则",
-                "中国对外贸易法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "对外贸易".into()]),
+            metadata: RuleMetadata::new("对外贸易法规则", "中国对外贸易法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "对外贸易".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ForeignTradeLawRules {
     fn explain(&self) -> String {
         format!(
             "【对外贸易法规则】\n\n贸易方式:\n{}\n\n进出口管理:\n{}\n\n贸易救济:\n{}\n",
-            self.trade_methods().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.trade_management().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.trade_remedy().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.trade_methods()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.trade_management()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.trade_remedy()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

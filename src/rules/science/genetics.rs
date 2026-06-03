@@ -10,12 +10,9 @@ pub struct GeneticsLaws {
 impl GeneticsLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "遗传学定律",
-                "遗传学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "遗传".into()]),
+            metadata: RuleMetadata::new("遗传学定律", "遗传学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "遗传".into()]),
         }
     }
 
@@ -173,7 +170,6 @@ impl GeneticsLaws {
             "转座子: 基因组中可移动的DNA片段",
         ]
     }
-
 }
 
 impl Default for GeneticsLaws {

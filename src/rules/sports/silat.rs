@@ -10,12 +10,9 @@ pub struct SilatRules {
 impl SilatRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "班卡西拉特规则",
-                "印尼传统武术规则"
-            )
-            .with_origin("印尼")
-            .with_tags(vec!["体育".into(), "武术".into()]),
+            metadata: RuleMetadata::new("班卡西拉特规则", "印尼传统武术规则")
+                .with_origin("印尼")
+                .with_tags(vec!["体育".into(), "武术".into()]),
         }
     }
 
@@ -32,24 +29,12 @@ impl SilatRules {
 
     /// 比赛项目
     pub fn competition_events(&self) -> Vec<&'static str> {
-        vec![
-            "单人对练",
-            "双人对练",
-            "套路表演",
-            "实战比赛",
-            "团体表演",
-        ]
+        vec!["单人对练", "双人对练", "套路表演", "实战比赛", "团体表演"]
     }
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "拳法技术",
-            "腿法技术",
-            "摔法技术",
-            "擒拿技术",
-            "武器技法",
-        ]
+        vec!["拳法技术", "腿法技术", "摔法技术", "擒拿技术", "武器技法"]
     }
 
     /// 比赛规则
@@ -76,13 +61,7 @@ impl SilatRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "传统服装",
-            "防护手套",
-            "护具套装",
-            "比赛场地",
-            "传统武器",
-        ]
+        vec!["传统服装", "防护手套", "护具套装", "比赛场地", "传统武器"]
     }
 
     /// 安全规则
@@ -123,10 +102,26 @@ impl Rule for SilatRules {
             比赛项目:\n{}\n\n\
             技术动作:\n{}\n\n\
             得分标准:\n{}\n",
-            self.styles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.styles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

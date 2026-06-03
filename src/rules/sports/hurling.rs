@@ -10,12 +10,9 @@ pub struct HurlingRules {
 impl HurlingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "爱尔兰曲棍球规则",
-                "爱尔兰传统曲棍球规则"
-            )
-            .with_origin("爱尔兰")
-            .with_tags(vec!["体育".into(), "团队".into()]),
+            metadata: RuleMetadata::new("爱尔兰曲棍球规则", "爱尔兰传统曲棍球规则")
+                .with_origin("爱尔兰")
+                .with_tags(vec!["体育".into(), "团队".into()]),
         }
     }
 
@@ -54,13 +51,7 @@ impl HurlingRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "击球技术",
-            "传球技术",
-            "携带球",
-            "射门技术",
-            "防守技术",
-        ]
+        vec!["击球技术", "传球技术", "携带球", "射门技术", "防守技术"]
     }
 
     /// 得分规则
@@ -87,13 +78,7 @@ impl HurlingRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "爱尔兰曲棍球杆",
-            "比赛用球",
-            "比赛服装",
-            "防护头盔",
-            "手套",
-        ]
+        vec!["爱尔兰曲棍球杆", "比赛用球", "比赛服装", "防护头盔", "手套"]
     }
 }
 
@@ -123,10 +108,26 @@ impl Rule for HurlingRules {
             技术动作:\n{}\n\n\
             得分规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

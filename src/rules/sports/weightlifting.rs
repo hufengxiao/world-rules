@@ -10,12 +10,9 @@ pub struct WeightliftingRules {
 impl WeightliftingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "举重规则",
-                "IWF 国际举重联合会标准规则"
-            )
-            .with_origin("IWF")
-            .with_tags(vec!["体育".into(), "举重".into()]),
+            metadata: RuleMetadata::new("举重规则", "IWF 国际举重联合会标准规则")
+                .with_origin("IWF")
+                .with_tags(vec!["体育".into(), "举重".into()]),
         }
     }
 
@@ -131,12 +128,36 @@ impl Rule for WeightliftingRules {
             试举规则:\n{}\n\n\
             判定标准:\n{}\n\n\
             计分方式:\n{}\n",
-            lifts.iter().map(|(n, d)| format!("  • {}: {}", n, d)).collect::<Vec<_>>().join("\n"),
-            self.men_weight_classes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.women_weight_classes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.attempt_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.judgment_criteria().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            lifts
+                .iter()
+                .map(|(n, d)| format!("  • {}: {}", n, d))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.men_weight_classes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.women_weight_classes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.attempt_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.judgment_criteria()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

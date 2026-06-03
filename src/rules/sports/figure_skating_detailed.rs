@@ -10,12 +10,9 @@ pub struct FigureSkatingDetailedRules {
 impl FigureSkatingDetailedRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "花样滑冰比赛规则",
-                "花样滑冰比赛详细规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("花样滑冰比赛规则", "花样滑冰比赛详细规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -54,24 +51,12 @@ impl FigureSkatingDetailedRules {
 
     /// 节目内容
     pub fn program_components(&self) -> Vec<&'static str> {
-        vec![
-            "滑行技术",
-            "连接动作",
-            "表演执行",
-            "编舞构成",
-            "音乐诠释",
-        ]
+        vec!["滑行技术", "连接动作", "表演执行", "编舞构成", "音乐诠释"]
     }
 
     /// 比赛规则
     pub fn competition_rules(&self) -> Vec<&'static str> {
-        vec![
-            "短节目",
-            "自由滑",
-            "时间限制",
-            "动作数量要求",
-            "服装规定",
-        ]
+        vec!["短节目", "自由滑", "时间限制", "动作数量要求", "服装规定"]
     }
 
     /// 犯规扣分
@@ -134,10 +119,26 @@ impl Rule for FigureSkatingDetailedRules {
             技术动作:\n{}\n\n\
             犯规扣分:\n{}\n\n\
             装备要求:\n{}\n",
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technical_elements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.deductions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technical_elements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.deductions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct MicrobiologyLaws {
 impl MicrobiologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "微生物学定律",
-                "微生物学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "微生物".into()]),
+            metadata: RuleMetadata::new("微生物学定律", "微生物学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "微生物".into()]),
         }
     }
 
@@ -112,7 +109,6 @@ impl MicrobiologyLaws {
             "朊病毒: 仅由蛋白质组成的感染性因子",
         ]
     }
-
 }
 
 impl Default for MicrobiologyLaws {
@@ -137,15 +133,18 @@ impl Rule for MicrobiologyLaws {
     fn explain(&self) -> String {
         format!(
             "【微生物学定律】\n\n生长定律:\n{}\n\n代谢定律:\n{}\n\n病毒定律:\n{}\n",
-            self.growth_laws().iter()
+            self.growth_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.metabolism_laws().iter()
+            self.metabolism_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.virus_laws().iter()
+            self.virus_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

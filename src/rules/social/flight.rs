@@ -10,12 +10,9 @@ pub struct FlightEtiquette {
 impl FlightEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "乘机礼仪",
-                "乘坐飞机礼仪规范"
-            )
-            .with_origin("通用")
-            .with_tags(vec!["社交".into(), "飞行".into()]),
+            metadata: RuleMetadata::new("乘机礼仪", "乘坐飞机礼仪规范")
+                .with_origin("通用")
+                .with_tags(vec!["社交".into(), "飞行".into()]),
         }
     }
 
@@ -41,21 +38,12 @@ impl FlightEtiquette {
 
     /// 用餐礼仪
     pub fn dining_etiquette(&self) -> Vec<&'static str> {
-        vec![
-            "用餐时将座椅调直",
-            "不要带气味重的食物",
-            "收起小桌板",
-        ]
+        vec!["用餐时将座椅调直", "不要带气味重的食物", "收起小桌板"]
     }
 
     /// 下机礼仪
     pub fn disembarkation_rules(&self) -> Vec<&'static str> {
-        vec![
-            "飞机停稳后再起身",
-            "按顺序下机",
-            "检查随身物品",
-            "不要拥挤",
-        ]
+        vec!["飞机停稳后再起身", "按顺序下机", "检查随身物品", "不要拥挤"]
     }
 
     /// 禁止行为
@@ -107,10 +95,26 @@ impl Rule for FlightEtiquette {
             座位礼仪:\n{}\n\n\
             安全须知:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.boarding_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.seating_etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_behaviors().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.boarding_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.seating_etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_behaviors()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

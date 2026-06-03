@@ -10,12 +10,9 @@ pub struct LongJumpRules {
 impl LongJumpRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "跳远规则",
-                "跳远比赛基本规则"
-            )
-            .with_origin("古代希腊")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("跳远规则", "跳远比赛基本规则")
+                .with_origin("古代希腊")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for LongJumpRules {
             比赛规则:\n{}\n\n\
             投掷技术:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.jumping_techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.jumping_techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

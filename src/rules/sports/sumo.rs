@@ -10,12 +10,9 @@ pub struct SumoRules {
 impl SumoRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "相扑规则",
-                "相扑比赛基本规则"
-            )
-            .with_origin("日本")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("相扑规则", "相扑比赛基本规则")
+                .with_origin("日本")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -67,13 +64,7 @@ impl SumoRules {
 
     /// 禁止动作
     pub fn prohibited_actions(&self) -> Vec<&'static str> {
-        vec![
-            "握拳殴打",
-            "抓头发",
-            "挖眼睛",
-            "攻击下身",
-            "掐脖子",
-        ]
+        vec!["握拳殴打", "抓头发", "挖眼睛", "攻击下身", "掐脖子"]
     }
 
     /// 装备要求
@@ -136,10 +127,26 @@ impl Rule for SumoRules {
             力士等级:\n{}\n\n\
             比赛规则:\n{}\n\n\
             禁止动作:\n{}\n",
-            self.ring_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rankings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.match_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.ring_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rankings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.match_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

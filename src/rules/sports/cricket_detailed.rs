@@ -10,12 +10,9 @@ pub struct CricketDetailedRules {
 impl CricketDetailedRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "板球详细规则",
-                "板球比赛详细规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "团队".into()]),
+            metadata: RuleMetadata::new("板球详细规则", "板球比赛详细规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "团队".into()]),
         }
     }
 
@@ -43,24 +40,12 @@ impl CricketDetailedRules {
 
     /// 队员配置
     pub fn team_composition(&self) -> Vec<&'static str> {
-        vec![
-            "每队11人上场",
-            "击球手",
-            "投球手",
-            "守备员",
-            "替补队员",
-        ]
+        vec!["每队11人上场", "击球手", "投球手", "守备员", "替补队员"]
     }
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "击球技术",
-            "投球技术",
-            "守备技术",
-            "跑垒技术",
-            "战术运用",
-        ]
+        vec!["击球技术", "投球技术", "守备技术", "跑垒技术", "战术运用"]
     }
 
     /// 得分规则
@@ -76,24 +61,12 @@ impl CricketDetailedRules {
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "投球犯规",
-            "击球犯规",
-            "守备犯规",
-            "犯规处罚",
-            "违规判定",
-        ]
+        vec!["投球犯规", "击球犯规", "守备犯规", "犯规处罚", "违规判定"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "板球棒",
-            "板球",
-            "防护装备",
-            "比赛服装",
-            "手套护具",
-        ]
+        vec!["板球棒", "板球", "防护装备", "比赛服装", "手套护具"]
     }
 }
 
@@ -123,10 +96,26 @@ impl Rule for CricketDetailedRules {
             技术动作:\n{}\n\n\
             得分规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

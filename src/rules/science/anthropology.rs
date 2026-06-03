@@ -10,12 +10,9 @@ pub struct AnthropologyLaws {
 impl AnthropologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "人类学定律",
-                "人类学基本定律"
-            )
-            .with_origin("社会科学")
-            .with_tags(vec!["科学".into(), "人类".into()]),
+            metadata: RuleMetadata::new("人类学定律", "人类学基本定律")
+                .with_origin("社会科学")
+                .with_tags(vec!["科学".into(), "人类".into()]),
         }
     }
 
@@ -121,7 +118,6 @@ impl AnthropologyLaws {
         ]
     }
 
-
     /// 语言人类学
     pub fn linguistic_anthropology(&self) -> Vec<&'static str> {
         vec![
@@ -133,7 +129,6 @@ impl AnthropologyLaws {
             "语言与权力: 语言使用反映和维护社会权力关系",
         ]
     }
-
 }
 
 impl Default for AnthropologyLaws {
@@ -158,15 +153,18 @@ impl Rule for AnthropologyLaws {
     fn explain(&self) -> String {
         format!(
             "【人类学定律】\n\n进化定律:\n{}\n\n文化定律:\n{}\n\n组织定律:\n{}\n",
-            self.evolution_laws().iter()
+            self.evolution_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.culture_laws().iter()
+            self.culture_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.organization_laws().iter()
+            self.organization_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

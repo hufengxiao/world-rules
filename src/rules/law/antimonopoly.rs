@@ -10,12 +10,9 @@ pub struct AntimonopolyLawRules {
 impl AntimonopolyLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "反垄断法规则",
-                "中国反垄断法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "反垄断".into()]),
+            metadata: RuleMetadata::new("反垄断法规则", "中国反垄断法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "反垄断".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for AntimonopolyLawRules {
     fn explain(&self) -> String {
         format!(
             "【反垄断法规则】\n\n垄断类型:\n{}\n\n滥用支配地位:\n{}\n\n经营者集中:\n{}\n",
-            self.monopoly_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.market_dominance_abuse().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.business_concentration().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.monopoly_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.market_dominance_abuse()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.business_concentration()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

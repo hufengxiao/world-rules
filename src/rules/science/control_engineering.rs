@@ -10,12 +10,9 @@ pub struct ControlEngineeringLaws {
 impl ControlEngineeringLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "控制工程定律",
-                "控制工程基本定律"
-            )
-            .with_origin("工程")
-            .with_tags(vec!["科学".into(), "工程".into(), "控制".into()]),
+            metadata: RuleMetadata::new("控制工程定律", "控制工程基本定律")
+                .with_origin("工程")
+                .with_tags(vec!["科学".into(), "工程".into(), "控制".into()]),
         }
     }
 
@@ -165,7 +162,6 @@ impl ControlEngineeringLaws {
             "最优控制: 使某性能指标最优的控制策略",
         ]
     }
-
 }
 
 impl Default for ControlEngineeringLaws {

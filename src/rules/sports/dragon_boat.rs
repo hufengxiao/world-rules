@@ -10,12 +10,9 @@ pub struct DragonBoatRules {
 impl DragonBoatRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "龙舟比赛规则",
-                "中国传统龙舟竞渡规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["体育".into(), "水上".into(), "传统".into()]),
+            metadata: RuleMetadata::new("龙舟比赛规则", "中国传统龙舟竞渡规则")
+                .with_origin("中国")
+                .with_tags(vec!["体育".into(), "水上".into(), "传统".into()]),
         }
     }
 
@@ -32,13 +29,7 @@ impl DragonBoatRules {
 
     /// 人员配置
     pub fn crew_composition(&self) -> Vec<&'static str> {
-        vec![
-            "划手配置",
-            "鼓手指挥",
-            "舵手控制",
-            "替补队员",
-            "团队协作",
-        ]
+        vec!["划手配置", "鼓手指挥", "舵手控制", "替补队员", "团队协作"]
     }
 
     /// 比赛规则
@@ -54,46 +45,22 @@ impl DragonBoatRules {
 
     /// 技术要求
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "划桨技术",
-            "配合节奏",
-            "鼓点指挥",
-            "舵手控制",
-            "起航技术",
-        ]
+        vec!["划桨技术", "配合节奏", "鼓点指挥", "舵手控制", "起航技术"]
     }
 
     /// 比赛分类
     pub fn competition_categories(&self) -> Vec<&'static str> {
-        vec![
-            "公开组",
-            "女子组",
-            "混合组",
-            "青少年组",
-            "企业组",
-        ]
+        vec!["公开组", "女子组", "混合组", "青少年组", "企业组"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "救生衣佩戴",
-            "水域安全",
-            "船只检查",
-            "救援准备",
-            "医疗支持",
-        ]
+        vec!["救生衣佩戴", "水域安全", "船只检查", "救援准备", "医疗支持"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "龙舟装备",
-            "划桨",
-            "救生衣",
-            "鼓手装备",
-            "舵手装备",
-        ]
+        vec!["龙舟装备", "划桨", "救生衣", "鼓手装备", "舵手装备"]
     }
 }
 
@@ -123,10 +90,26 @@ impl Rule for DragonBoatRules {
             人员配置:\n{}\n\n\
             比赛规则:\n{}\n\n\
             安全规则:\n{}\n",
-            self.boat_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.crew_composition().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.boat_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.crew_composition()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

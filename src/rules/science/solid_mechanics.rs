@@ -10,12 +10,9 @@ pub struct SolidMechanicsLaws {
 impl SolidMechanicsLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "固体力学定律",
-                "固体力学基本定律"
-            )
-            .with_origin("物理学")
-            .with_tags(vec!["科学".into(), "物理".into(), "力学".into()]),
+            metadata: RuleMetadata::new("固体力学定律", "固体力学基本定律")
+                .with_origin("物理学")
+                .with_tags(vec!["科学".into(), "物理".into(), "力学".into()]),
         }
     }
 
@@ -166,7 +163,6 @@ impl SolidMechanicsLaws {
             "蠕变: 材件在恒定应力下随时间缓慢变形",
         ]
     }
-
 }
 
 impl Default for SolidMechanicsLaws {

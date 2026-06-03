@@ -10,12 +10,9 @@ pub struct ClimbingRules {
 impl ClimbingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "攀岩规则",
-                "攀岩比赛基本规则"
-            )
-            .with_origin("欧洲")
-            .with_tags(vec!["体育".into(), "极限".into()]),
+            metadata: RuleMetadata::new("攀岩规则", "攀岩比赛基本规则")
+                .with_origin("欧洲")
+                .with_tags(vec!["体育".into(), "极限".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for ClimbingRules {
             得分系统:\n{}\n\n\
             装备要求:\n{}\n\n\
             安全规则:\n{}\n",
-            self.disciplines().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.disciplines()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

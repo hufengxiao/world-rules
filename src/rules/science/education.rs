@@ -10,12 +10,9 @@ pub struct EducationLaws {
 impl EducationLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "教育学定律",
-                "教育学基本定律"
-            )
-            .with_origin("社会科学")
-            .with_tags(vec!["科学".into(), "教育".into()]),
+            metadata: RuleMetadata::new("教育学定律", "教育学基本定律")
+                .with_origin("社会科学")
+                .with_tags(vec!["科学".into(), "教育".into()]),
         }
     }
 
@@ -122,7 +119,6 @@ impl EducationLaws {
         ]
     }
 
-
     /// 教育心理学
     pub fn educational_psychology(&self) -> Vec<&'static str> {
         vec![
@@ -134,7 +130,6 @@ impl EducationLaws {
             "成长型思维: 相信能力可以通过努力提升",
         ]
     }
-
 }
 
 impl Default for EducationLaws {
@@ -159,15 +154,18 @@ impl Rule for EducationLaws {
     fn explain(&self) -> String {
         format!(
             "【教育学定律】\n\n教育规律:\n{}\n\n教学定律:\n{}\n\n学习定律:\n{}\n",
-            self.education_laws().iter()
+            self.education_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.teaching_laws().iter()
+            self.teaching_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.learning_laws().iter()
+            self.learning_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

@@ -10,12 +10,9 @@ pub struct EarthquakePreventionLawRules {
 impl EarthquakePreventionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "防震减灾法规则",
-                "中国防震减灾法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "防震减灾".into()]),
+            metadata: RuleMetadata::new("防震减灾法规则", "中国防震减灾法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "防震减灾".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for EarthquakePreventionLawRules {
     fn explain(&self) -> String {
         format!(
             "【防震减灾法规则】\n\n监测预报:\n{}\n\n灾害预防:\n{}\n\n应急救援:\n{}\n",
-            self.earthquake_monitoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.earthquake_disaster_prevention().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.earthquake_emergency_response().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.earthquake_monitoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.earthquake_disaster_prevention()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.earthquake_emergency_response()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

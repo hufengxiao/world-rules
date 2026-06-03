@@ -10,35 +10,20 @@ pub struct TaiChiPushHandsRules {
 impl TaiChiPushHandsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "太极推手规则",
-                "太极推手比赛基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["体育".into(), "武术".into()]),
+            metadata: RuleMetadata::new("太极推手规则", "太极推手比赛基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["体育".into(), "武术".into()]),
         }
     }
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "定步推手",
-            "活步推手",
-            "散手推手",
-            "个人比赛",
-            "团体比赛",
-        ]
+        vec!["定步推手", "活步推手", "散手推手", "个人比赛", "团体比赛"]
     }
 
     /// 技术要求
     pub fn technique_requirements(&self) -> Vec<&'static str> {
-        vec![
-            "粘连黏随",
-            "不丢不顶",
-            "引进落空",
-            "借力打力",
-            "以柔克刚",
-        ]
+        vec!["粘连黏随", "不丢不顶", "引进落空", "借力打力", "以柔克刚"]
     }
 
     /// 比赛规则
@@ -76,13 +61,7 @@ impl TaiChiPushHandsRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "太极服装",
-            "软底鞋",
-            "比赛场地平整",
-            "无器械",
-            "号码标识",
-        ]
+        vec!["太极服装", "软底鞋", "比赛场地平整", "无器械", "号码标识"]
     }
 
     /// 场地规格
@@ -98,24 +77,12 @@ impl TaiChiPushHandsRules {
 
     /// 传统原则
     pub fn traditional_principles(&self) -> Vec<&'static str> {
-        vec![
-            "听劲懂劲",
-            "虚实分明",
-            "内外合一",
-            "气沉丹田",
-            "舍己从人",
-        ]
+        vec!["听劲懂劲", "虚实分明", "内外合一", "气沉丹田", "舍己从人"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "控制力度",
-            "避免伤害",
-            "医疗支持",
-            "裁判监督",
-            "选手保护",
-        ]
+        vec!["控制力度", "避免伤害", "医疗支持", "裁判监督", "选手保护"]
     }
 }
 
@@ -145,10 +112,26 @@ impl Rule for TaiChiPushHandsRules {
             得分标准:\n{}\n\n\
             犯规规则:\n{}\n\n\
             传统原则:\n{}\n",
-            self.technique_requirements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.traditional_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.technique_requirements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.traditional_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

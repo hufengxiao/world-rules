@@ -10,12 +10,9 @@ pub struct NutritionRules {
 impl NutritionRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "营养规则",
-                "健康营养基础知识"
-            )
-            .with_origin("营养学")
-            .with_tags(vec!["健康".into(), "营养".into()]),
+            metadata: RuleMetadata::new("营养规则", "健康营养基础知识")
+                .with_origin("营养学")
+                .with_tags(vec!["健康".into(), "营养".into()]),
         }
     }
 
@@ -119,9 +116,21 @@ impl Rule for NutritionRules {
             三大营养素:\n{}\n\n\
             膳食建议:\n{}\n\n\
             饮水建议:\n{}\n",
-            self.macronutrients().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.dietary_guidelines().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.water_intake().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.macronutrients()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.dietary_guidelines()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.water_intake()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

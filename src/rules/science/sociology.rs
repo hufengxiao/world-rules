@@ -10,12 +10,9 @@ pub struct SociologyLaws {
 impl SociologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "社会学定律",
-                "社会学基本定律"
-            )
-            .with_origin("社会科学")
-            .with_tags(vec!["科学".into(), "社会".into()]),
+            metadata: RuleMetadata::new("社会学定律", "社会学基本定律")
+                .with_origin("社会科学")
+                .with_tags(vec!["科学".into(), "社会".into()]),
         }
     }
 

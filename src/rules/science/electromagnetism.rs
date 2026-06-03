@@ -10,12 +10,9 @@ pub struct ElectromagnetismLaws {
 impl ElectromagnetismLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电磁学定律",
-                "电磁学基本定律"
-            )
-            .with_origin("物理学")
-            .with_tags(vec!["科学".into(), "物理".into(), "电磁".into()]),
+            metadata: RuleMetadata::new("电磁学定律", "电磁学基本定律")
+                .with_origin("物理学")
+                .with_tags(vec!["科学".into(), "物理".into(), "电磁".into()]),
         }
     }
 
@@ -25,7 +22,11 @@ impl ElectromagnetismLaws {
             ("高斯电场定律", "∇·E = ρ/ε₀", "电场散度等于电荷密度"),
             ("高斯磁通定律", "∇·B = 0", "磁场散度为零，不存在磁单极子"),
             ("法拉第感应定律", "∇×E = -∂B/∂t", "变化的磁场产生电场"),
-            ("安培-麦克斯韦定律", "∇×B = μ₀J + μ₀ε₀∂E/∂t", "电流和变化的电场产生磁场"),
+            (
+                "安培-麦克斯韦定律",
+                "∇×B = μ₀J + μ₀ε₀∂E/∂t",
+                "电流和变化的电场产生磁场",
+            ),
         ]
     }
 
@@ -97,7 +98,6 @@ impl ElectromagnetismLaws {
             "互感: 一个线圈电流变化在另一个线圈产生电动势",
         ]
     }
-
 }
 
 impl Default for ElectromagnetismLaws {
@@ -122,11 +122,13 @@ impl Rule for ElectromagnetismLaws {
     fn explain(&self) -> String {
         format!(
             "【电磁学定律】\n\n麦克斯韦方程组:\n{}\n\n其他定律:\n{}\n",
-            self.maxwell_equations().iter()
+            self.maxwell_equations()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.other_laws().iter()
+            self.other_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

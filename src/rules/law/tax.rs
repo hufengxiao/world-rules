@@ -10,12 +10,9 @@ pub struct TaxLawRules {
 impl TaxLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "税法规则",
-                "中国税法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "税法".into()]),
+            metadata: RuleMetadata::new("税法规则", "中国税法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "税法".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for TaxLawRules {
     fn explain(&self) -> String {
         format!(
             "【税法规则】\n\n税种分类:\n{}\n\n增值税规则:\n{}\n\n个人所得税:\n{}\n",
-            self.tax_categories().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.vat_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.individual_income_tax().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.tax_categories()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.vat_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.individual_income_tax()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

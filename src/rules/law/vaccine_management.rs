@@ -10,12 +10,9 @@ pub struct VaccineManagementLawRules {
 impl VaccineManagementLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "疫苗管理法规则",
-                "中国疫苗管理法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "疫苗管理".into()]),
+            metadata: RuleMetadata::new("疫苗管理法规则", "中国疫苗管理法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "疫苗管理".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for VaccineManagementLawRules {
     fn explain(&self) -> String {
         format!(
             "【疫苗管理法规则】\n\n疫苗研制:\n{}\n\n疫苗生产:\n{}\n\n疫苗接种:\n{}\n",
-            self.vaccine_research().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.vaccine_production().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.vaccine_administration().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.vaccine_research()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.vaccine_production()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.vaccine_administration()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

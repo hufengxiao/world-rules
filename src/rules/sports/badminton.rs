@@ -10,12 +10,9 @@ pub struct BadmintonRules {
 impl BadmintonRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "羽毛球规则",
-                "BWF 世界羽毛球联合会标准规则"
-            )
-            .with_origin("BWF")
-            .with_tags(vec!["体育".into(), "羽毛球".into()]),
+            metadata: RuleMetadata::new("羽毛球规则", "BWF 世界羽毛球联合会标准规则")
+                .with_origin("BWF")
+                .with_tags(vec!["体育".into(), "羽毛球".into()]),
         }
     }
 
@@ -121,9 +118,21 @@ impl Rule for BadmintonRules {
             self.court_dimensions(true).0,
             self.court_dimensions(true).1,
             self.net_height(),
-            self.scoring_explanation().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.serving_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.scoring_explanation()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.serving_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

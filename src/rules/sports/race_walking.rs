@@ -10,12 +10,9 @@ pub struct RaceWalkingRules {
 impl RaceWalkingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "竞走规则",
-                "竞走比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("竞走规则", "竞走比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -145,10 +142,26 @@ impl Rule for RaceWalkingRules {
             犯规警告:\n{}\n\n\
             取消资格:\n{}\n\n\
             比赛距离:\n{}\n",
-            self.technique_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.foul_warnings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.disqualification().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.distances().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.technique_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.foul_warnings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.disqualification()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.distances()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

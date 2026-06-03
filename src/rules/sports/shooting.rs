@@ -31,12 +31,9 @@ pub struct ShootingRules {
 impl ShootingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "射击规则",
-                "ISSF 国际射击运动联合会标准规则"
-            )
-            .with_origin("ISSF")
-            .with_tags(vec!["体育".into(), "射击".into()]),
+            metadata: RuleMetadata::new("射击规则", "ISSF 国际射击运动联合会标准规则")
+                .with_origin("ISSF")
+                .with_tags(vec!["体育".into(), "射击".into()]),
         }
     }
 
@@ -60,11 +57,7 @@ impl ShootingRules {
 
     /// 飞碟项目
     pub fn shotgun_events(&self) -> Vec<&'static str> {
-        vec![
-            "双向飞碟: 125靶",
-            "多向飞碟: 125靶",
-            "双多向飞碟: 150靶",
-        ]
+        vec!["双向飞碟: 125靶", "多向飞碟: 125靶", "双多向飞碟: 150靶"]
     }
 
     /// 计分规则
@@ -90,12 +83,7 @@ impl ShootingRules {
 
     /// 犯规行为
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "超时射击",
-            "站姿违规",
-            "装备违规",
-            "干扰其他选手",
-        ]
+        vec!["超时射击", "站姿违规", "装备违规", "干扰其他选手"]
     }
 }
 
@@ -126,11 +114,31 @@ impl Rule for ShootingRules {
             飞碟项目:\n{}\n\n\
             计分规则:\n{}\n\n\
             安全规则:\n{}\n",
-            self.pistol_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rifle_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.shotgun_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.pistol_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rifle_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.shotgun_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

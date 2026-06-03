@@ -10,12 +10,9 @@ pub struct SystemsScienceLaws {
 impl SystemsScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "系统科学定律",
-                "系统科学基本定律"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "系统".into()]),
+            metadata: RuleMetadata::new("系统科学定律", "系统科学基本定律")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "系统".into()]),
         }
     }
 
@@ -165,7 +162,6 @@ impl SystemsScienceLaws {
             "鲁棒性与脆弱性: 复杂系统对随机故障鲁棒对蓄意攻击脆弱",
         ]
     }
-
 }
 
 impl Default for SystemsScienceLaws {

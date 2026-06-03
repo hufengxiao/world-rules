@@ -10,12 +10,9 @@ pub struct TrademarkLawRules {
 impl TrademarkLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "商标法规则",
-                "中国商标法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "商标".into()]),
+            metadata: RuleMetadata::new("商标法规则", "中国商标法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "商标".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for TrademarkLawRules {
     fn explain(&self) -> String {
         format!(
             "【商标法规则】\n\n商标类型:\n{}\n\n注册条件:\n{}\n\n商标权内容:\n{}\n",
-            self.trademark_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.registration_conditions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.trademark_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.trademark_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.registration_conditions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.trademark_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

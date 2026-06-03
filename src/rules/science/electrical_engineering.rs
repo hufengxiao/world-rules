@@ -10,12 +10,9 @@ pub struct ElectricalEngineeringLaws {
 impl ElectricalEngineeringLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电气工程定律",
-                "电气工程基本定律"
-            )
-            .with_origin("工程")
-            .with_tags(vec!["科学".into(), "工程".into(), "电气".into()]),
+            metadata: RuleMetadata::new("电气工程定律", "电气工程基本定律")
+                .with_origin("工程")
+                .with_tags(vec!["科学".into(), "工程".into(), "电气".into()]),
         }
     }
 
@@ -89,14 +86,7 @@ impl ElectricalEngineeringLaws {
     /// 电气参数
     pub fn parameters(&self) -> Vec<&'static str> {
         vec![
-            "电压",
-            "电流",
-            "功率",
-            "频率",
-            "相位",
-            "阻抗",
-            "电容",
-            "电感",
+            "电压", "电流", "功率", "频率", "相位", "阻抗", "电容", "电感",
         ]
     }
 
@@ -112,7 +102,6 @@ impl ElectricalEngineeringLaws {
             "继电保护: 检测故障并自动隔离的保护系统",
         ]
     }
-
 }
 
 impl Default for ElectricalEngineeringLaws {
@@ -137,15 +126,18 @@ impl Rule for ElectricalEngineeringLaws {
     fn explain(&self) -> String {
         format!(
             "【电气工程定律】\n\n电路定律:\n{}\n\n电磁定律:\n{}\n\n电机定律:\n{}\n",
-            self.circuit_laws().iter()
+            self.circuit_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.electromagnetic_laws().iter()
+            self.electromagnetic_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.motor_laws().iter()
+            self.motor_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

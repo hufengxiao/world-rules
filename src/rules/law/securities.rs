@@ -10,12 +10,9 @@ pub struct SecuritiesLawRules {
 impl SecuritiesLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "证券法规则",
-                "中国证券法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "证券法".into()]),
+            metadata: RuleMetadata::new("证券法规则", "中国证券法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "证券法".into()]),
         }
     }
 
@@ -168,9 +165,21 @@ impl Rule for SecuritiesLawRules {
     fn explain(&self) -> String {
         format!(
             "【证券法规则】\n\n证券类型:\n{}\n\n信息披露:\n{}\n\n内幕交易规制:\n{}\n",
-            self.securities_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.information_disclosure().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.insider_trading_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.securities_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.information_disclosure()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.insider_trading_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

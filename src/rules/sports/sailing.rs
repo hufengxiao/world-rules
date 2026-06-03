@@ -10,12 +10,9 @@ pub struct SailingRules {
 impl SailingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "帆船规则",
-                "帆船比赛基本规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("帆船规则", "帆船比赛基本规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "水上".into()]),
         }
     }
 
@@ -135,10 +132,26 @@ impl Rule for SailingRules {
             起航规则:\n{}\n\n\
             避碰规则:\n{}\n\n\
             犯规处罚:\n{}\n",
-            self.olympic_classes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.start_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.collision_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.olympic_classes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.start_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.collision_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

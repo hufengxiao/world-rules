@@ -30,12 +30,9 @@ pub struct IPRules {
 impl IPRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "知识产权法",
-                "中国知识产权基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "知识产权".into()]),
+            metadata: RuleMetadata::new("知识产权法", "中国知识产权基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "知识产权".into()]),
         }
     }
 
@@ -131,11 +128,31 @@ impl Rule for IPRules {
             商标规则:\n{}\n\n\
             商业秘密规则:\n{}\n\n\
             侵权救济:\n{}\n",
-            self.copyright_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.patent_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.trademark_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.trade_secret_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.remedies().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.copyright_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.patent_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.trademark_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.trade_secret_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.remedies()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

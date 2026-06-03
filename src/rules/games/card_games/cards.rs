@@ -3,7 +3,9 @@
 use std::fmt;
 
 /// 花色
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
+#[derive(
+    Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize,
+)]
 pub enum Suit {
     /// 黑桃 (最高)
     Spade,
@@ -38,7 +40,9 @@ impl Suit {
 }
 
 /// 牌面大小
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
+#[derive(
+    Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, serde::Serialize, serde::Deserialize,
+)]
 pub enum Rank {
     Two,
     Three,
@@ -153,12 +157,23 @@ impl Ord for Card {
 pub fn standard_deck() -> Vec<Card> {
     let suits = [Suit::Spade, Suit::Heart, Suit::Diamond, Suit::Club];
     let ranks = [
-        Rank::Two, Rank::Three, Rank::Four, Rank::Five, Rank::Six,
-        Rank::Seven, Rank::Eight, Rank::Nine, Rank::Ten,
-        Rank::Jack, Rank::Queen, Rank::King, Rank::Ace,
+        Rank::Two,
+        Rank::Three,
+        Rank::Four,
+        Rank::Five,
+        Rank::Six,
+        Rank::Seven,
+        Rank::Eight,
+        Rank::Nine,
+        Rank::Ten,
+        Rank::Jack,
+        Rank::Queen,
+        Rank::King,
+        Rank::Ace,
     ];
 
-    suits.iter()
+    suits
+        .iter()
         .flat_map(|&s| ranks.iter().map(move |&r| Card::new(s, r)))
         .collect()
 }
@@ -166,14 +181,17 @@ pub fn standard_deck() -> Vec<Card> {
 /// 带大小王的扑克牌堆 (54张)
 pub fn full_deck() -> Vec<Card> {
     let mut deck = standard_deck();
-    deck.push(Card::new(Suit::Spade, Rank::Joker));  // 大王
-    deck.push(Card::new(Suit::Club, Rank::Joker));    // 小王
+    deck.push(Card::new(Suit::Spade, Rank::Joker)); // 大王
+    deck.push(Card::new(Suit::Club, Rank::Joker)); // 小王
     deck
 }
 
 /// 大小王
 pub fn jokers() -> (Card, Card) {
-    (Card::new(Suit::Spade, Rank::Joker), Card::new(Suit::Club, Rank::Joker))
+    (
+        Card::new(Suit::Spade, Rank::Joker),
+        Card::new(Suit::Club, Rank::Joker),
+    )
 }
 
 #[cfg(test)]

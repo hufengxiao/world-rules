@@ -10,12 +10,9 @@ pub struct BankruptcyLawRules {
 impl BankruptcyLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "破产法规则",
-                "中国破产法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "破产法".into()]),
+            metadata: RuleMetadata::new("破产法规则", "中国破产法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "破产法".into()]),
         }
     }
 
@@ -168,9 +165,21 @@ impl Rule for BankruptcyLawRules {
     fn explain(&self) -> String {
         format!(
             "【破产法规则】\n\n破产程序类型:\n{}\n\n破产财产:\n{}\n\n清偿顺序:\n{}\n",
-            self.bankruptcy_procedures().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.bankruptcy_property().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.payment_order().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.bankruptcy_procedures()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.bankruptcy_property()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.payment_order()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

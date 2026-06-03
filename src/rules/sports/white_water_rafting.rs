@@ -10,24 +10,15 @@ pub struct WhiteWaterRaftingRules {
 impl WhiteWaterRaftingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "白水漂流规则",
-                "白水漂流运动规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("白水漂流规则", "白水漂流运动规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "水上".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "竞速比赛",
-            "技术比赛",
-            "团队比赛",
-            "障碍比赛",
-            "综合比赛",
-        ]
+        vec!["竞速比赛", "技术比赛", "团队比赛", "障碍比赛", "综合比赛"]
     }
 
     /// 比赛规则
@@ -43,13 +34,7 @@ impl WhiteWaterRaftingRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "划桨技术",
-            "转向技术",
-            "控制技术",
-            "过障技术",
-            "团队配合",
-        ]
+        vec!["划桨技术", "转向技术", "控制技术", "过障技术", "团队配合"]
     }
 
     /// 水流分级
@@ -65,24 +50,12 @@ impl WhiteWaterRaftingRules {
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "救生衣必须",
-            "头盔佩戴",
-            "安全培训",
-            "救援准备",
-            "医疗支持",
-        ]
+        vec!["救生衣必须", "头盔佩戴", "安全培训", "救援准备", "医疗支持"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "漂流艇",
-            "划桨",
-            "救生衣",
-            "防护头盔",
-            "附属装备",
-        ]
+        vec!["漂流艇", "划桨", "救生衣", "防护头盔", "附属装备"]
     }
 
     /// 团队配置
@@ -123,10 +96,26 @@ impl Rule for WhiteWaterRaftingRules {
             技术动作:\n{}\n\n\
             水流分级:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.water_grades().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.water_grades()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -5,12 +5,12 @@ use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
 /// 中国传统节日
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ChineseFestival {
-    SpringFestival,    // 春节
-    LanternFestival,   // 元宵节
-    Qingming,          // 清明节
-    DragonBoat,        // 端午节
-    MidAutumn,         // 中秋节
-    DoubleNinth,       // 重阳节
+    SpringFestival,  // 春节
+    LanternFestival, // 元宵节
+    Qingming,        // 清明节
+    DragonBoat,      // 端午节
+    MidAutumn,       // 中秋节
+    DoubleNinth,     // 重阳节
 }
 
 impl ChineseFestival {
@@ -46,12 +46,9 @@ pub struct FestivalEtiquette {
 impl FestivalEtiquette {
     pub fn new(festival: ChineseFestival) -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                format!("{}礼仪", festival.name()),
-                "传统节日礼仪规范"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["社交".into(), "节日".into()]),
+            metadata: RuleMetadata::new(format!("{}礼仪", festival.name()), "传统节日礼仪规范")
+                .with_origin("中国")
+                .with_tags(vec!["社交".into(), "节日".into()]),
             festival,
         }
     }
@@ -67,36 +64,11 @@ impl FestivalEtiquette {
                 "穿新衣服",
                 "祭祖",
             ],
-            ChineseFestival::LanternFestival => vec![
-                "赏花灯",
-                "吃元宵/汤圆",
-                "猜灯谜",
-                "舞龙舞狮",
-            ],
-            ChineseFestival::Qingming => vec![
-                "扫墓祭祖",
-                "踏青",
-                "植树",
-                "放风筝",
-            ],
-            ChineseFestival::DragonBoat => vec![
-                "吃粽子",
-                "赛龙舟",
-                "挂艾草、菖蒲",
-                "饮雄黄酒",
-            ],
-            ChineseFestival::MidAutumn => vec![
-                "赏月",
-                "吃月饼",
-                "团圆饭",
-                "赏桂花",
-            ],
-            ChineseFestival::DoubleNinth => vec![
-                "登高",
-                "赏菊",
-                "插茱萸",
-                "敬老",
-            ],
+            ChineseFestival::LanternFestival => vec!["赏花灯", "吃元宵/汤圆", "猜灯谜", "舞龙舞狮"],
+            ChineseFestival::Qingming => vec!["扫墓祭祖", "踏青", "植树", "放风筝"],
+            ChineseFestival::DragonBoat => vec!["吃粽子", "赛龙舟", "挂艾草、菖蒲", "饮雄黄酒"],
+            ChineseFestival::MidAutumn => vec!["赏月", "吃月饼", "团圆饭", "赏桂花"],
+            ChineseFestival::DoubleNinth => vec!["登高", "赏菊", "插茱萸", "敬老"],
         }
     }
 
@@ -110,17 +82,10 @@ impl FestivalEtiquette {
                 "除夕夜全家团圆",
                 "初一回娘家是禁忌 (传统)",
             ],
-            ChineseFestival::Qingming => vec![
-                "扫墓时保持庄重",
-                "衣着朴素",
-                "清理墓地杂草",
-                "献花祭拜",
-            ],
-            ChineseFestival::MidAutumn => vec![
-                "与家人团圆",
-                "送月饼礼盒",
-                "赏月祈福",
-            ],
+            ChineseFestival::Qingming => {
+                vec!["扫墓时保持庄重", "衣着朴素", "清理墓地杂草", "献花祭拜"]
+            }
+            ChineseFestival::MidAutumn => vec!["与家人团圆", "送月饼礼盒", "赏月祈福"],
             _ => vec!["遵守传统习俗"],
         }
     }
@@ -134,11 +99,7 @@ impl FestivalEtiquette {
                 "不说脏话、不吉利话",
                 "不借钱、不讨债",
             ],
-            ChineseFestival::Qingming => vec![
-                "不穿鲜艳衣服",
-                "不在墓地喧哗",
-                "不拍墓地照片",
-            ],
+            ChineseFestival::Qingming => vec!["不穿鲜艳衣服", "不在墓地喧哗", "不拍墓地照片"],
             _ => vec![],
         }
     }
@@ -178,8 +139,16 @@ impl Rule for FestivalEtiquette {
             传统食物:\n{}\n",
             self.festival.name(),
             self.festival.date(),
-            self.customs().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.etiquette().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
+            self.customs()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.etiquette()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
             self.traditional_food().join("、")
         )
     }

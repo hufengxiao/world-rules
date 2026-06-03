@@ -10,12 +10,9 @@ pub struct CriminalLawRules {
 impl CriminalLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "刑法规则",
-                "中国刑法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "刑法".into()]),
+            metadata: RuleMetadata::new("刑法规则", "中国刑法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "刑法".into()]),
         }
     }
 
@@ -124,10 +121,26 @@ impl Rule for CriminalLawRules {
             刑罚种类:\n{}\n\n\
             刑事责任年龄:\n{}\n\n\
             正当防卫:\n{}\n",
-            self.crime_elements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.punishment_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.age_of_responsibility().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.self_defense().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.crime_elements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.punishment_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.age_of_responsibility()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.self_defense()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
@@ -140,5 +153,50 @@ mod tests {
     fn test_criminal_law_rules() {
         let rules = CriminalLawRules::new();
         assert!(!rules.crime_elements().is_empty());
+    }
+}
+
+#[cfg(test)]
+mod extra_tests {
+    use super::*;
+
+    #[test]
+    fn test_crime_elements() {
+        let rules = CriminalLawRules::new();
+        let elements = rules.crime_elements();
+        assert!(elements.len() >= 3);
+    }
+
+    #[test]
+    fn test_punishment_types() {
+        let rules = CriminalLawRules::new();
+        let types = rules.punishment_types();
+        assert!(!types.is_empty());
+    }
+
+    #[test]
+    fn test_sentence_limits() {
+        let rules = CriminalLawRules::new();
+        assert!(!rules.sentence_limits().is_empty());
+    }
+
+    #[test]
+    fn test_age_of_responsibility() {
+        let rules = CriminalLawRules::new();
+        assert!(!rules.age_of_responsibility().is_empty());
+    }
+
+    #[test]
+    fn test_self_defense() {
+        let rules = CriminalLawRules::new();
+        assert!(!rules.self_defense().is_empty());
+    }
+
+    #[test]
+    fn test_rule_trait() {
+        let rules = CriminalLawRules::new();
+        assert_eq!(rules.category(), RuleCategory::law("criminal"));
+        assert!(rules.validate("test").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

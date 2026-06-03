@@ -10,12 +10,9 @@ pub struct PostLawRules {
 impl PostLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "邮政法规则",
-                "中国邮政法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "邮政".into()]),
+            metadata: RuleMetadata::new("邮政法规则", "中国邮政法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "邮政".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for PostLawRules {
     fn explain(&self) -> String {
         format!(
             "【邮政法规则】\n\n邮政服务:\n{}\n\n邮件寄递:\n{}\n\n快递服务:\n{}\n",
-            self.postal_services().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.mail_delivery().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.express_services().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.postal_services()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.mail_delivery()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.express_services()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

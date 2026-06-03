@@ -21,7 +21,7 @@ impl WeddingEtiquette {
         Self {
             metadata: RuleMetadata::new(
                 format!("{}婚礼礼仪", Self::culture_name(&culture)),
-                "婚礼礼仪规范"
+                "婚礼礼仪规范",
             )
             .with_origin(Self::culture_name(&culture)),
             culture,
@@ -135,11 +135,7 @@ impl WeddingEtiquette {
                 "金额要双数 (避4)",
                 "用红包包装",
             ],
-            WeddingCulture::Western => vec![
-                "礼物为主",
-                "礼金通常$50-$200",
-                "可在婚礼网站登记礼物",
-            ],
+            WeddingCulture::Western => vec!["礼物为主", "礼金通常$50-$200", "可在婚礼网站登记礼物"],
             WeddingCulture::Japanese => vec![
                 "祝仪金通常1万-3万日元",
                 "新钞",
@@ -171,10 +167,26 @@ impl Rule for WeddingEtiquette {
             客人礼仪:\n{}\n\n\
             礼金指南:\n{}\n",
             Self::culture_name(&self.culture),
-            self.wedding_process().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.bride_groom_etiquette().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.guest_etiquette().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.gift_guidelines().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.wedding_process()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.bride_groom_etiquette()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.guest_etiquette()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.gift_guidelines()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

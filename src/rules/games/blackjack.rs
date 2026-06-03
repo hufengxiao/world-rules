@@ -1,7 +1,47 @@
 //! 21点规则
 
+use super::card_games::cards::{Card, Rank, Suit};
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
-use super::card_games::cards::{Card, Rank};
+
+fn parse_blackjack_cards(s: &str) -> Result<Vec<Card>, String> {
+    let mut cards = Vec::new();
+    for part in s.split_whitespace() {
+        let part = part.trim();
+        if part.len() < 2 {
+            return Err(format!("无法解析: {}", part));
+        }
+        let (rank_str, suit_char) = if part.starts_with("10") {
+            ("10", &part[2..])
+        } else {
+            (&part[..part.len() - 1], &part[part.len() - 1..])
+        };
+        let rank = match rank_str.to_uppercase().as_str() {
+            "A" => Rank::Ace,
+            "K" => Rank::King,
+            "Q" => Rank::Queen,
+            "J" => Rank::Jack,
+            "10" => Rank::Ten,
+            "9" => Rank::Nine,
+            "8" => Rank::Eight,
+            "7" => Rank::Seven,
+            "6" => Rank::Six,
+            "5" => Rank::Five,
+            "4" => Rank::Four,
+            "3" => Rank::Three,
+            "2" => Rank::Two,
+            _ => return Err(format!("无效点数: {}", rank_str)),
+        };
+        let suit = match suit_char.to_lowercase().as_str() {
+            "h" | "♥" => Suit::Heart,
+            "d" | "♦" => Suit::Diamond,
+            "s" | "♠" => Suit::Spade,
+            "c" | "♣" => Suit::Club,
+            _ => return Err(format!("无效花色: {}", suit_char)),
+        };
+        cards.push(Card::new(suit, rank));
+    }
+    Ok(cards)
+}
 
 /// 21点规则
 pub struct BlackjackRules {
@@ -11,12 +51,9 @@ pub struct BlackjackRules {
 impl BlackjackRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "21点规则",
-                "Blackjack 标准规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["游戏".into(), "扑克".into(), "21点".into()]),
+            metadata: RuleMetadata::new("21点规则", "Blackjack 标准规则")
+                .with_origin("美国")
+                .with_tags(vec!["游戏".into(), "扑克".into(), "21点".into()]),
         }
     }
 
@@ -66,11 +103,7 @@ impl BlackjackRules {
 
     /// 牌值说明
     pub fn card_values(&self) -> Vec<&'static str> {
-        vec![
-            "A: 可算1或11点",
-            "2-10: 按牌面点数",
-            "J、Q、K: 算10点",
-        ]
+        vec!["A: 可算1或11点", "2-10: 按牌面点数", "J、Q、K: 算10点"]
     }
 
     /// 玩家操作
@@ -121,7 +154,17 @@ impl Rule for BlackjackRules {
     }
 
     fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
+        // 解析牌面并验证21点手牌
+        let cards = match parse_blackjack_cards(context) {
+            Ok(c) => c,
+            Err(_) => return Ok(false),
+        };
+        if cards.is_empty() {
+            return Ok(false);
+        }
+        // 有效手牌: 至少有牌，且点数不超过21（或正好是bust也算"有效状态"）
+        let value = Self::calculate_hand_value(&cards);
+        Ok(value <= 21 || Self::is_bust(&cards))
     }
 
     fn explain(&self) -> String {
@@ -133,10 +176,26 @@ impl Rule for BlackjackRules {
             庄家规则:\n{}\n\n\
             赔率:\n{}\n",
             self.target_value(),
-            self.card_values().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.player_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.dealer_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.payout_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.card_values()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.player_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.dealer_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.payout_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
@@ -164,5 +223,32 @@ mod tests {
             Card::new(Suit::Diamond, Rank::Two),
         ];
         assert!(BlackjackRules::is_bust(&cards));
+    }
+
+    #[test]
+    fn test_validate_blackjack_hand() {
+        let rules = BlackjackRules::new();
+        // 21点
+        assert_eq!(rules.validate("Kh As").unwrap(), true);
+    }
+
+    #[test]
+    fn test_validate_under_21() {
+        let rules = BlackjackRules::new();
+        assert_eq!(rules.validate("5h 6d 7s").unwrap(), true);
+    }
+
+    #[test]
+    fn test_validate_bust() {
+        let rules = BlackjackRules::new();
+        // K+Q+2 = 22, bust
+        assert_eq!(rules.validate("Ks Qh 2d").unwrap(), true); // bust 也算有效状态
+    }
+
+    #[test]
+    fn test_validate_invalid() {
+        let rules = BlackjackRules::new();
+        assert_eq!(rules.validate("Xx Yy").unwrap(), false);
+        assert_eq!(rules.validate("").unwrap(), false);
     }
 }

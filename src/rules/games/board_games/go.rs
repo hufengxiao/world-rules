@@ -41,11 +41,7 @@ pub struct GoRules {
 impl GoRules {
     pub fn new(board_size: u8) -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "围棋规则",
-                "围棋标准规则说明"
-            )
-            .with_origin("中国"),
+            metadata: RuleMetadata::new("围棋规则", "围棋标准规则说明").with_origin("中国"),
             variant: GoVariant::Chinese,
             board_size,
         }

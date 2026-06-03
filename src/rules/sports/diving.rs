@@ -10,12 +10,9 @@ pub struct DivingRules {
 impl DivingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "跳水规则",
-                "FINA 国际泳联跳水标准规则"
-            )
-            .with_origin("FINA")
-            .with_tags(vec!["体育".into(), "跳水".into()]),
+            metadata: RuleMetadata::new("跳水规则", "FINA 国际泳联跳水标准规则")
+                .with_origin("FINA")
+                .with_tags(vec!["体育".into(), "跳水".into()]),
         }
     }
 
@@ -111,10 +108,26 @@ impl Rule for DivingRules {
             跳水姿势:\n{}\n\n\
             评分规则:\n{}\n\n\
             动作组别:\n{}\n",
-            self.events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            positions.iter().map(|(c, n)| format!("  • {} - {}", c, n)).collect::<Vec<_>>().join("\n"),
-            self.scoring_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.dive_groups().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            positions
+                .iter()
+                .map(|(c, n)| format!("  • {} - {}", c, n))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.dive_groups()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

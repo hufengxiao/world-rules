@@ -10,12 +10,9 @@ pub struct BiddingLawRules {
 impl BiddingLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "招投标法规则",
-                "中国招投标法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "招投标".into()]),
+            metadata: RuleMetadata::new("招投标法规则", "中国招投标法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "招投标".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for BiddingLawRules {
     fn explain(&self) -> String {
         format!(
             "【招投标法规则】\n\n招标原则:\n{}\n\n招标方式:\n{}\n\n招标程序:\n{}\n",
-            self.bidding_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.bidding_methods().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.bidding_procedure().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.bidding_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.bidding_methods()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.bidding_procedure()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct RealEstateLawRules {
 impl RealEstateLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "房地产法规则",
-                "中国房地产法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "房地产".into()]),
+            metadata: RuleMetadata::new("房地产法规则", "中国房地产法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "房地产".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for RealEstateLawRules {
     fn explain(&self) -> String {
         format!(
             "【房地产法规则】\n\n土地所有权:\n{}\n\n房地产交易:\n{}\n\n登记制度:\n{}\n",
-            self.land_ownership().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.real_estate_transaction().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.registration_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.land_ownership()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.real_estate_transaction()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.registration_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

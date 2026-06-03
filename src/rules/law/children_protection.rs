@@ -10,12 +10,9 @@ pub struct ChildrenProtectionLawRules {
 impl ChildrenProtectionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "未成年人保护法规则",
-                "中国未成年人保护法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "未成年人保护".into()]),
+            metadata: RuleMetadata::new("未成年人保护法规则", "中国未成年人保护法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "未成年人保护".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ChildrenProtectionLawRules {
     fn explain(&self) -> String {
         format!(
             "【未成年人保护法规则】\n\n未成年人权利:\n{}\n\n家庭保护:\n{}\n\n学校保护:\n{}\n",
-            self.children_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.family_protection().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.school_protection().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.children_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.family_protection()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.school_protection()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -22,12 +22,9 @@ pub struct BasketballRules {
 impl BasketballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "篮球规则",
-                "标准篮球比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "篮球".into()]),
+            metadata: RuleMetadata::new("篮球规则", "标准篮球比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "篮球".into()]),
             variant: BasketballVariant::NBA,
         }
     }
@@ -45,7 +42,7 @@ impl BasketballRules {
     /// 比赛时长 (分钟)
     pub fn match_duration(&self) -> u16 {
         match self.variant {
-            BasketballVariant::NBA => 48, // 4节×12分钟
+            BasketballVariant::NBA => 48,  // 4节×12分钟
             BasketballVariant::FIBA => 40, // 4节×10分钟
             BasketballVariant::CBA => 48,
         }
@@ -153,5 +150,33 @@ mod tests {
         let rules = BasketballRules::new();
         assert_eq!(rules.team_size(), 5);
         assert_eq!(rules.match_duration(), 48);
+    }
+}
+
+#[cfg(test)]
+mod extra_tests {
+    use super::*;
+
+    #[test]
+    fn test_nba_defaults() {
+        let rules = BasketballRules::new();
+        assert_eq!(rules.team_size(), 5);
+        assert_eq!(rules.quarter_duration(), 12);
+        assert_eq!(rules.shot_clock(), 24);
+        assert_eq!(rules.personal_foul_limit(), 6);
+    }
+
+    #[test]
+    fn test_three_point_distance() {
+        let rules = BasketballRules::new();
+        let dist = rules.three_point_distance();
+        assert!(dist > 6.0 && dist < 8.0); // FIBA/NBA 范围
+    }
+
+    #[test]
+    fn test_rule_trait() {
+        let rules = BasketballRules::new();
+        assert!(rules.validate("game").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

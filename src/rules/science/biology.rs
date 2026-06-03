@@ -43,12 +43,9 @@ pub struct BiologyRules {
 impl BiologyRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "生物学定律",
-                "生物学基本定律和理论"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物学".into()]),
+            metadata: RuleMetadata::new("生物学定律", "生物学基本定律和理论")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物学".into()]),
         }
     }
 
@@ -148,7 +145,6 @@ impl BiologyRules {
         ]
     }
 
-
     /// 生态基础
     pub fn ecology_basics(&self) -> Vec<&'static str> {
         vec![
@@ -160,7 +156,6 @@ impl BiologyRules {
             "生物入侵: 外来物种在新环境中快速扩散",
         ]
     }
-
 }
 
 impl Default for BiologyRules {
@@ -192,16 +187,41 @@ impl Rule for BiologyRules {
             中心法则:\n{}\n\n\
             DNA结构:\n{}\n\n\
             遗传密码:\n{}\n",
-            self.all_laws().iter()
+            self.all_laws()
+                .iter()
                 .map(|l| format!("▶ {}: {}", l.name(), l.description()))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.cell_theory().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.mendel_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.natural_selection().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.central_dogma().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.dna_structure().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.genetic_code().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.cell_theory()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.mendel_laws()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.natural_selection()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.central_dogma()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.dna_structure()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.genetic_code()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

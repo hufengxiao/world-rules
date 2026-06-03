@@ -10,12 +10,9 @@ pub struct WaterLawRules {
 impl WaterLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "水法规则",
-                "中国水法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "水资源".into()]),
+            metadata: RuleMetadata::new("水法规则", "中国水法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "水资源".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for WaterLawRules {
     fn explain(&self) -> String {
         format!(
             "【水法规则】\n\n管理原则:\n{}\n\n水资源保护:\n{}\n\n取水许可:\n{}\n",
-            self.management_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.water_protection().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.water_intake_permit().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.management_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.water_protection()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.water_intake_permit()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct DecisionScienceLaws {
 impl DecisionScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "决策科学定律",
-                "决策科学基本定律"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "决策".into()]),
+            metadata: RuleMetadata::new("决策科学定律", "决策科学基本定律")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "决策".into()]),
         }
     }
 
@@ -120,7 +117,6 @@ impl DecisionScienceLaws {
             "禀赋效应: 人们对自己拥有的东西估值更高",
         ]
     }
-
 }
 
 impl Default for DecisionScienceLaws {
@@ -145,15 +141,18 @@ impl Rule for DecisionScienceLaws {
     fn explain(&self) -> String {
         format!(
             "【决策科学定律】\n\n理论定律:\n{}\n\n方法定律:\n{}\n\n多准则定律:\n{}\n",
-            self.theory_laws().iter()
+            self.theory_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.method_laws().iter()
+            self.method_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.multi_criteria_laws().iter()
+            self.multi_criteria_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

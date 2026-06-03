@@ -10,24 +10,15 @@ pub struct DroneRacingRules {
 impl DroneRacingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "无人机竞速规则",
-                "无人机竞速比赛规则"
-            )
-            .with_origin("国际")
-            .with_tags(vec!["体育".into(), "科技".into()]),
+            metadata: RuleMetadata::new("无人机竞速规则", "无人机竞速比赛规则")
+                .with_origin("国际")
+                .with_tags(vec!["体育".into(), "科技".into()]),
         }
     }
 
     /// 比赛类型
     pub fn competition_types(&self) -> Vec<&'static str> {
-        vec![
-            "竞速比赛",
-            "花样比赛",
-            "FPV竞速",
-            "障碍比赛",
-            "综合比赛",
-        ]
+        vec!["竞速比赛", "花样比赛", "FPV竞速", "障碍比赛", "综合比赛"]
     }
 
     /// 比赛规则
@@ -43,24 +34,12 @@ impl DroneRacingRules {
 
     /// 技术操作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "遥控操控",
-            "FPV技术",
-            "速度控制",
-            "转弯技术",
-            "花样动作",
-        ]
+        vec!["遥控操控", "FPV技术", "速度控制", "转弯技术", "花样动作"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "竞速无人机",
-            "FPV眼镜",
-            "遥控设备",
-            "比赛服装",
-            "安全装备",
-        ]
+        vec!["竞速无人机", "FPV眼镜", "遥控设备", "比赛服装", "安全装备"]
     }
 
     /// 安全规则
@@ -76,24 +55,12 @@ impl DroneRacingRules {
 
     /// 评分标准
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "完成时间",
-            "花样评分",
-            "障碍评分",
-            "技术评分",
-            "综合评分",
-        ]
+        vec!["完成时间", "花样评分", "障碍评分", "技术评分", "综合评分"]
     }
 
     /// 级别体系
     pub fn skill_levels(&self) -> Vec<&'static str> {
-        vec![
-            "初学者级别",
-            "中级水平",
-            "高级水平",
-            "专业级别",
-            "教练认证",
-        ]
+        vec!["初学者级别", "中级水平", "高级水平", "专业级别", "教练认证"]
     }
 }
 
@@ -123,10 +90,26 @@ impl Rule for DroneRacingRules {
             技术操作:\n{}\n\n\
             安全规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

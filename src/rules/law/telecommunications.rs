@@ -10,12 +10,9 @@ pub struct TelecommunicationsLawRules {
 impl TelecommunicationsLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电信条例规则",
-                "中国电信条例基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "电信".into()]),
+            metadata: RuleMetadata::new("电信条例规则", "中国电信条例基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "电信".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for TelecommunicationsLawRules {
     fn explain(&self) -> String {
         format!(
             "【电信条例规则】\n\n电信业务:\n{}\n\n电信资源:\n{}\n\n电信服务:\n{}\n",
-            self.telecom_services().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.telecom_resources().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.telecom_service_quality().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.telecom_services()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.telecom_resources()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.telecom_service_quality()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

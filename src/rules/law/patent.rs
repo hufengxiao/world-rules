@@ -10,12 +10,9 @@ pub struct PatentLawRules {
 impl PatentLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "专利法规则",
-                "中国专利法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "专利".into()]),
+            metadata: RuleMetadata::new("专利法规则", "中国专利法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "专利".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for PatentLawRules {
     fn explain(&self) -> String {
         format!(
             "【专利法规则】\n\n专利类型:\n{}\n\n授予条件:\n{}\n\n专利权内容:\n{}\n",
-            self.patent_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.patent_requirements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.patent_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.patent_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.patent_requirements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.patent_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

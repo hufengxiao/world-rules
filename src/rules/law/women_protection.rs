@@ -10,12 +10,9 @@ pub struct WomenProtectionLawRules {
 impl WomenProtectionLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "妇女权益保障法规则",
-                "中国妇女权益保障法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "妇女权益".into()]),
+            metadata: RuleMetadata::new("妇女权益保障法规则", "中国妇女权益保障法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "妇女权益".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for WomenProtectionLawRules {
     fn explain(&self) -> String {
         format!(
             "【妇女权益保障法规则】\n\n权益原则:\n{}\n\n劳动权益:\n{}\n\n人身权利:\n{}\n",
-            self.rights_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.labor_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.personal_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.rights_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.labor_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.personal_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

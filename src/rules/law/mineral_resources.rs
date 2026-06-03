@@ -10,12 +10,9 @@ pub struct MineralResourcesLawRules {
 impl MineralResourcesLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "矿产资源法规则",
-                "中国矿产资源法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "矿产资源".into()]),
+            metadata: RuleMetadata::new("矿产资源法规则", "中国矿产资源法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "矿产资源".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for MineralResourcesLawRules {
     fn explain(&self) -> String {
         format!(
             "【矿产资源法规则】\n\n矿产资源管理:\n{}\n\n矿业权管理:\n{}\n\n矿产开采:\n{}\n",
-            self.mineral_management().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.mining_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.mineral_extraction().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.mineral_management()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.mining_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.mineral_extraction()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

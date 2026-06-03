@@ -10,12 +10,9 @@ pub struct ModernPentathlonRules {
 impl ModernPentathlonRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "现代五项规则",
-                "现代五项比赛基本规则"
-            )
-            .with_origin("法国")
-            .with_tags(vec!["体育".into(), "综合".into()]),
+            metadata: RuleMetadata::new("现代五项规则", "现代五项比赛基本规则")
+                .with_origin("法国")
+                .with_tags(vec!["体育".into(), "综合".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for ModernPentathlonRules {
             比赛顺序:\n{}\n\n\
             积分系统:\n{}\n\n\
             马术规则:\n{}\n",
-            self.disciplines().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_order().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.riding_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.disciplines()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_order()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.riding_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

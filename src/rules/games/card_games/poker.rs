@@ -1,11 +1,62 @@
 //! 德州扑克规则
 
+use super::cards::{Card, Rank, Suit};
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
-use super::cards::{Card, Suit, Rank};
 use std::collections::HashMap;
 
+/// 从字符串解析扑克牌列表
+///
+/// 格式: 用空格分隔，如 "Ah Kd Qs Jc 10h 9d 8s"
+/// 花色: h=红心 d=方块 s=黑桃 c=梅花
+fn parse_poker_cards(s: &str) -> Result<Vec<Card>, String> {
+    let mut cards = Vec::new();
+    for part in s.split_whitespace() {
+        let card = parse_single_card(part)?;
+        cards.push(card);
+    }
+    Ok(cards)
+}
+
+fn parse_single_card(s: &str) -> Result<Card, String> {
+    let s = s.trim();
+    if s.len() < 2 {
+        return Err(format!("无法解析: {}", s));
+    }
+    let (rank_str, suit_char) = if s.starts_with("10") {
+        ("10", &s[2..])
+    } else {
+        (&s[..s.len() - 1], &s[s.len() - 1..])
+    };
+    let rank = match rank_str.to_uppercase().as_str() {
+        "A" => Rank::Ace,
+        "K" => Rank::King,
+        "Q" => Rank::Queen,
+        "J" => Rank::Jack,
+        "10" => Rank::Ten,
+        "9" => Rank::Nine,
+        "8" => Rank::Eight,
+        "7" => Rank::Seven,
+        "6" => Rank::Six,
+        "5" => Rank::Five,
+        "4" => Rank::Four,
+        "3" => Rank::Three,
+        "2" => Rank::Two,
+        _ => return Err(format!("无效点数: {}", rank_str)),
+    };
+    let suit = match suit_char.to_lowercase().as_str() {
+        "h" | "♥" => Suit::Heart,
+        "d" | "♦" => Suit::Diamond,
+        "s" | "♠" => Suit::Spade,
+        "c" | "♣" => Suit::Club,
+        _ => return Err(format!("无效花色: {}", suit_char)),
+    };
+    Ok(Card::new(suit, rank))
+}
+
 /// 牌型等级
-#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize)]
+#[derive(
+    Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, serde::Serialize, serde::Deserialize,
+)]
 pub enum HandRank {
     /// 高牌
     HighCard,
@@ -77,12 +128,9 @@ pub struct TexasHoldemRules {
 impl TexasHoldemRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "德州扑克规则",
-                "Texas Hold'em 标准规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["扑克".into(), "德州".into(), "竞技".into()]),
+            metadata: RuleMetadata::new("德州扑克规则", "Texas Hold'em 标准规则")
+                .with_origin("美国")
+                .with_tags(vec!["扑克".into(), "德州".into(), "竞技".into()]),
         }
     }
 
@@ -125,9 +173,15 @@ impl TexasHoldemRules {
     fn check_royal_flush(cards: &[Card]) -> Option<HandEvaluation> {
         // 检查是否存在 A-K-Q-J-10 同花
         for suit in [Suit::Spade, Suit::Heart, Suit::Diamond, Suit::Club] {
-            let royal_cards: Vec<Card> = cards.iter()
+            let royal_cards: Vec<Card> = cards
+                .iter()
                 .filter(|c| c.suit == suit)
-                .filter(|c| matches!(c.rank, Rank::Ten | Rank::Jack | Rank::Queen | Rank::King | Rank::Ace))
+                .filter(|c| {
+                    matches!(
+                        c.rank,
+                        Rank::Ten | Rank::Jack | Rank::Queen | Rank::King | Rank::Ace
+                    )
+                })
                 .cloned()
                 .collect();
 
@@ -144,10 +198,7 @@ impl TexasHoldemRules {
 
     fn check_straight_flush(cards: &[Card]) -> Option<HandEvaluation> {
         for suit in [Suit::Spade, Suit::Heart, Suit::Diamond, Suit::Club] {
-            let suit_cards: Vec<Card> = cards.iter()
-                .filter(|c| c.suit == suit)
-                .cloned()
-                .collect();
+            let suit_cards: Vec<Card> = cards.iter().filter(|c| c.suit == suit).cloned().collect();
 
             if suit_cards.len() >= 5 {
                 if let Some(straight) = Self::find_straight(&suit_cards) {
@@ -168,12 +219,11 @@ impl TexasHoldemRules {
 
         for (&rank, &count) in &counts {
             if count == 4 {
-                let four_cards: Vec<Card> = cards.iter()
-                    .filter(|c| c.rank == rank)
-                    .cloned()
-                    .collect();
+                let four_cards: Vec<Card> =
+                    cards.iter().filter(|c| c.rank == rank).cloned().collect();
 
-                let kicker = cards.iter()
+                let kicker = cards
+                    .iter()
                     .filter(|c| c.rank != rank)
                     .max_by_key(|c| c.value())
                     .cloned();
@@ -196,23 +246,21 @@ impl TexasHoldemRules {
     fn check_full_house(cards: &[Card]) -> Option<HandEvaluation> {
         let counts = Self::count_ranks(cards);
 
-        let three_rank = counts.iter()
-            .find(|(_, &c)| c == 3)
-            .map(|(&r, _)| r);
+        let three_rank = counts.iter().find(|(_, &c)| c == 3).map(|(&r, _)| r);
 
-        let pair_rank = counts.iter()
+        let pair_rank = counts
+            .iter()
             .filter(|(_, &c)| c == 2 || c == 3)
             .filter(|(r, _)| Some(*r) != three_rank.as_ref())
             .max_by_key(|(&r, _)| r.value())
             .map(|(&r, _)| r);
 
         if let (Some(three), Some(pair)) = (three_rank, pair_rank) {
-            let three_cards: Vec<Card> = cards.iter()
-                .filter(|c| c.rank == three)
-                .cloned()
-                .collect();
+            let three_cards: Vec<Card> =
+                cards.iter().filter(|c| c.rank == three).cloned().collect();
 
-            let pair_cards: Vec<Card> = cards.iter()
+            let pair_cards: Vec<Card> = cards
+                .iter()
                 .filter(|c| c.rank == pair)
                 .take(2)
                 .cloned()
@@ -229,10 +277,7 @@ impl TexasHoldemRules {
 
     fn check_flush(cards: &[Card]) -> Option<HandEvaluation> {
         for suit in [Suit::Spade, Suit::Heart, Suit::Diamond, Suit::Club] {
-            let suit_cards: Vec<Card> = cards.iter()
-                .filter(|c| c.suit == suit)
-                .cloned()
-                .collect();
+            let suit_cards: Vec<Card> = cards.iter().filter(|c| c.suit == suit).cloned().collect();
 
             if suit_cards.len() >= 5 {
                 let mut sorted = suit_cards;
@@ -251,27 +296,33 @@ impl TexasHoldemRules {
     }
 
     fn check_straight(cards: &[Card]) -> Option<HandEvaluation> {
-        Self::find_straight(cards).map(|straight| {
-            HandEvaluation {
-                rank: HandRank::Straight,
-                cards: straight.clone(),
-                tiebreaker: vec![straight[0].value()],
-            }
+        Self::find_straight(cards).map(|straight| HandEvaluation {
+            rank: HandRank::Straight,
+            cards: straight.clone(),
+            tiebreaker: vec![straight[0].value()],
         })
     }
 
     fn find_straight(cards: &[Card]) -> Option<Vec<Card>> {
-        let mut values: Vec<u8> = cards.iter()
-            .map(|c| c.value())
-            .collect();
+        let mut values: Vec<u8> = cards.iter().map(|c| c.value()).collect();
         values.sort();
         values.dedup();
 
         // 检查 A-2-3-4-5 (小顺子)
-        if values.contains(&14) && values.contains(&2) && values.contains(&3)
-            && values.contains(&4) && values.contains(&5) {
-            let straight: Vec<Card> = cards.iter()
-                .filter(|c| matches!(c.rank, Rank::Ace | Rank::Two | Rank::Three | Rank::Four | Rank::Five))
+        if values.contains(&14)
+            && values.contains(&2)
+            && values.contains(&3)
+            && values.contains(&4)
+            && values.contains(&5)
+        {
+            let straight: Vec<Card> = cards
+                .iter()
+                .filter(|c| {
+                    matches!(
+                        c.rank,
+                        Rank::Ace | Rank::Two | Rank::Three | Rank::Four | Rank::Five
+                    )
+                })
                 .cloned()
                 .collect();
             return Some(straight);
@@ -284,7 +335,8 @@ impl TexasHoldemRules {
         for i in 0..values.len() - 4 {
             if values[i + 4] - values[i] == 4 {
                 let start = values[i];
-                let straight: Vec<Card> = cards.iter()
+                let straight: Vec<Card> = cards
+                    .iter()
                     .filter(|c| c.value() >= start && c.value() <= start + 4)
                     .cloned()
                     .collect();
@@ -299,15 +351,10 @@ impl TexasHoldemRules {
 
         for (&rank, &count) in &counts {
             if count == 3 {
-                let three_cards: Vec<Card> = cards.iter()
-                    .filter(|c| c.rank == rank)
-                    .cloned()
-                    .collect();
+                let three_cards: Vec<Card> =
+                    cards.iter().filter(|c| c.rank == rank).cloned().collect();
 
-                let kickers: Vec<Card> = cards.iter()
-                    .filter(|c| c.rank != rank)
-                    .cloned()
-                    .collect();
+                let kickers: Vec<Card> = cards.iter().filter(|c| c.rank != rank).cloned().collect();
 
                 let mut sorted_kickers = kickers;
                 sorted_kickers.sort_by(|a, b| b.value().cmp(&a.value()));
@@ -326,7 +373,8 @@ impl TexasHoldemRules {
     fn check_two_pair(cards: &[Card]) -> Option<HandEvaluation> {
         let counts = Self::count_ranks(cards);
 
-        let pairs: Vec<Rank> = counts.iter()
+        let pairs: Vec<Rank> = counts
+            .iter()
             .filter(|(_, &c)| c == 2)
             .map(|(&r, _)| r)
             .collect();
@@ -335,17 +383,20 @@ impl TexasHoldemRules {
             let mut sorted_pairs = pairs;
             sorted_pairs.sort_by(|a, b| b.value().cmp(&a.value()));
 
-            let pair1_cards: Vec<Card> = cards.iter()
+            let pair1_cards: Vec<Card> = cards
+                .iter()
                 .filter(|c| c.rank == sorted_pairs[0])
                 .cloned()
                 .collect();
 
-            let pair2_cards: Vec<Card> = cards.iter()
+            let pair2_cards: Vec<Card> = cards
+                .iter()
                 .filter(|c| c.rank == sorted_pairs[1])
                 .cloned()
                 .collect();
 
-            let kicker = cards.iter()
+            let kicker = cards
+                .iter()
                 .filter(|c| !sorted_pairs.contains(&c.rank))
                 .max_by_key(|c| c.value())
                 .cloned();
@@ -369,15 +420,10 @@ impl TexasHoldemRules {
 
         for (&rank, &count) in &counts {
             if count == 2 {
-                let pair_cards: Vec<Card> = cards.iter()
-                    .filter(|c| c.rank == rank)
-                    .cloned()
-                    .collect();
+                let pair_cards: Vec<Card> =
+                    cards.iter().filter(|c| c.rank == rank).cloned().collect();
 
-                let kickers: Vec<Card> = cards.iter()
-                    .filter(|c| c.rank != rank)
-                    .cloned()
-                    .collect();
+                let kickers: Vec<Card> = cards.iter().filter(|c| c.rank != rank).cloned().collect();
 
                 let mut sorted_kickers = kickers;
                 sorted_kickers.sort_by(|a, b| b.value().cmp(&a.value()));
@@ -415,16 +461,15 @@ impl TexasHoldemRules {
 
     /// 比较两手牌大小
     pub fn compare_hands(hand1: &HandEvaluation, hand2: &HandEvaluation) -> std::cmp::Ordering {
-        hand1.rank.cmp(&hand2.rank)
-            .then_with(|| {
-                for (a, b) in hand1.tiebreaker.iter().zip(hand2.tiebreaker.iter()) {
-                    match a.cmp(b) {
-                        std::cmp::Ordering::Equal => continue,
-                        other => return other,
-                    }
+        hand1.rank.cmp(&hand2.rank).then_with(|| {
+            for (a, b) in hand1.tiebreaker.iter().zip(hand2.tiebreaker.iter()) {
+                match a.cmp(b) {
+                    std::cmp::Ordering::Equal => continue,
+                    other => return other,
                 }
-                std::cmp::Ordering::Equal
-            })
+            }
+            std::cmp::Ordering::Equal
+        })
     }
 }
 
@@ -444,7 +489,17 @@ impl Rule for TexasHoldemRules {
     }
 
     fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
+        // 解析牌面并评估牌型
+        let cards = match parse_poker_cards(context) {
+            Ok(c) => c,
+            Err(_) => return Ok(false),
+        };
+        if cards.len() < 5 {
+            return Ok(false);
+        }
+        let eval = Self::evaluate_hand(&cards);
+        // 只要能评估出牌型就有效
+        Ok(eval.rank != HandRank::HighCard || cards.len() >= 5)
     }
 
     fn explain(&self) -> String {
@@ -520,10 +575,16 @@ mod tests {
     fn test_royal_flush_all_suits() {
         for suit in [Suit::Spade, Suit::Heart, Suit::Diamond, Suit::Club] {
             let cards = vec![
-                c(suit, Rank::Ace), c(suit, Rank::King),
-                c(suit, Rank::Queen), c(suit, Rank::Jack), c(suit, Rank::Ten),
+                c(suit, Rank::Ace),
+                c(suit, Rank::King),
+                c(suit, Rank::Queen),
+                c(suit, Rank::Jack),
+                c(suit, Rank::Ten),
             ];
-            assert_eq!(TexasHoldemRules::evaluate_hand(&cards).rank, HandRank::RoyalFlush);
+            assert_eq!(
+                TexasHoldemRules::evaluate_hand(&cards).rank,
+                HandRank::RoyalFlush
+            );
         }
     }
 
@@ -748,42 +809,72 @@ mod tests {
     #[test]
     fn test_compare_different_ranks() {
         let royal = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Spade, Rank::Ace), c(Suit::Spade, Rank::King),
-            c(Suit::Spade, Rank::Queen), c(Suit::Spade, Rank::Jack), c(Suit::Spade, Rank::Ten),
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Spade, Rank::King),
+            c(Suit::Spade, Rank::Queen),
+            c(Suit::Spade, Rank::Jack),
+            c(Suit::Spade, Rank::Ten),
         ]);
         let high = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Queen),
-            c(Suit::Diamond, Rank::Nine), c(Suit::Club, Rank::Six), c(Suit::Spade, Rank::Three),
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Queen),
+            c(Suit::Diamond, Rank::Nine),
+            c(Suit::Club, Rank::Six),
+            c(Suit::Spade, Rank::Three),
         ]);
-        assert_eq!(TexasHoldemRules::compare_hands(&royal, &high), std::cmp::Ordering::Greater);
-        assert_eq!(TexasHoldemRules::compare_hands(&high, &royal), std::cmp::Ordering::Less);
+        assert_eq!(
+            TexasHoldemRules::compare_hands(&royal, &high),
+            std::cmp::Ordering::Greater
+        );
+        assert_eq!(
+            TexasHoldemRules::compare_hands(&high, &royal),
+            std::cmp::Ordering::Less
+        );
     }
 
     #[test]
     fn test_compare_same_rank_different_tiebreaker() {
         // 一对A vs 一对K
         let pair_aces = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Ace),
-            c(Suit::Diamond, Rank::Five), c(Suit::Club, Rank::Three), c(Suit::Spade, Rank::Two),
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::Five),
+            c(Suit::Club, Rank::Three),
+            c(Suit::Spade, Rank::Two),
         ]);
         let pair_kings = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Spade, Rank::King), c(Suit::Heart, Rank::King),
-            c(Suit::Diamond, Rank::Five), c(Suit::Club, Rank::Three), c(Suit::Spade, Rank::Two),
+            c(Suit::Spade, Rank::King),
+            c(Suit::Heart, Rank::King),
+            c(Suit::Diamond, Rank::Five),
+            c(Suit::Club, Rank::Three),
+            c(Suit::Spade, Rank::Two),
         ]);
-        assert_eq!(TexasHoldemRules::compare_hands(&pair_aces, &pair_kings), std::cmp::Ordering::Greater);
+        assert_eq!(
+            TexasHoldemRules::compare_hands(&pair_aces, &pair_kings),
+            std::cmp::Ordering::Greater
+        );
     }
 
     #[test]
     fn test_compare_equal_hands() {
         let hand1 = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Ace),
-            c(Suit::Diamond, Rank::Five), c(Suit::Club, Rank::Three), c(Suit::Spade, Rank::Two),
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::Five),
+            c(Suit::Club, Rank::Three),
+            c(Suit::Spade, Rank::Two),
         ]);
         let hand2 = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Diamond, Rank::Ace), c(Suit::Club, Rank::Ace),
-            c(Suit::Spade, Rank::Five), c(Suit::Heart, Rank::Three), c(Suit::Diamond, Rank::Two),
+            c(Suit::Diamond, Rank::Ace),
+            c(Suit::Club, Rank::Ace),
+            c(Suit::Spade, Rank::Five),
+            c(Suit::Heart, Rank::Three),
+            c(Suit::Diamond, Rank::Two),
         ]);
-        assert_eq!(TexasHoldemRules::compare_hands(&hand1, &hand2), std::cmp::Ordering::Equal);
+        assert_eq!(
+            TexasHoldemRules::compare_hands(&hand1, &hand2),
+            std::cmp::Ordering::Equal
+        );
     }
 
     // ==================== 7张牌中选最佳5张 ====================
@@ -824,13 +915,63 @@ mod tests {
     #[test]
     fn test_straight_flush_beats_four_of_a_kind() {
         let sf = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Heart, Rank::Five), c(Suit::Heart, Rank::Six),
-            c(Suit::Heart, Rank::Seven), c(Suit::Heart, Rank::Eight), c(Suit::Heart, Rank::Nine),
+            c(Suit::Heart, Rank::Five),
+            c(Suit::Heart, Rank::Six),
+            c(Suit::Heart, Rank::Seven),
+            c(Suit::Heart, Rank::Eight),
+            c(Suit::Heart, Rank::Nine),
         ]);
         let fk = TexasHoldemRules::evaluate_hand(&vec![
-            c(Suit::Spade, Rank::Ace), c(Suit::Heart, Rank::Ace),
-            c(Suit::Diamond, Rank::Ace), c(Suit::Club, Rank::Ace), c(Suit::Spade, Rank::King),
+            c(Suit::Spade, Rank::Ace),
+            c(Suit::Heart, Rank::Ace),
+            c(Suit::Diamond, Rank::Ace),
+            c(Suit::Club, Rank::Ace),
+            c(Suit::Spade, Rank::King),
         ]);
         assert!(sf.rank > fk.rank);
+    }
+
+    // ==================== validate() 真实逻辑测试 ====================
+
+    #[test]
+    fn test_validate_royal_flush() {
+        let rules = TexasHoldemRules::new();
+        let result = rules.validate("Ah Kh Qh Jh 10h");
+        assert_eq!(result.unwrap(), true);
+    }
+
+    #[test]
+    fn test_validate_two_pair() {
+        let rules = TexasHoldemRules::new();
+        let result = rules.validate("Ah Ad Ks Kc 5h");
+        assert_eq!(result.unwrap(), true);
+    }
+
+    #[test]
+    fn test_validate_invalid_cards() {
+        let rules = TexasHoldemRules::new();
+        let result = rules.validate("Xx Yy Zz");
+        assert_eq!(result.unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_too_few_cards() {
+        let rules = TexasHoldemRules::new();
+        let result = rules.validate("Ah Kd");
+        assert_eq!(result.unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_empty() {
+        let rules = TexasHoldemRules::new();
+        let result = rules.validate("");
+        assert_eq!(result.unwrap(), false);
+    }
+
+    #[test]
+    fn test_validate_seven_cards() {
+        let rules = TexasHoldemRules::new();
+        let result = rules.validate("Ah Kh Qh Jh 10h 9d 8s");
+        assert_eq!(result.unwrap(), true);
     }
 }

@@ -12,11 +12,8 @@ impl BusinessEtiquette {
     pub fn new(region: impl Into<String>) -> Self {
         let region = region.into();
         Self {
-            metadata: RuleMetadata::new(
-                format!("{}商务礼仪", region),
-                "商务场合礼仪规范"
-            )
-            .with_origin(region.clone()),
+            metadata: RuleMetadata::new(format!("{}商务礼仪", region), "商务场合礼仪规范")
+                .with_origin(region.clone()),
             region,
         }
     }
@@ -80,9 +77,51 @@ impl Rule for BusinessEtiquette {
             握手礼仪:\n{}\n\n\
             名片礼仪:\n{}\n",
             self.region,
-            self.meeting_etiquette().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.handshake_rules().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.business_card_rules().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.meeting_etiquette()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.handshake_rules()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.business_card_rules()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_business_etiquette_china() {
+        let rules = BusinessEtiquette::new("中国");
+        assert!(!rules.metadata().name.is_empty());
+        assert!(!rules.meeting_etiquette().is_empty());
+        assert!(!rules.handshake_rules().is_empty());
+        assert!(!rules.business_card_rules().is_empty());
+    }
+
+    #[test]
+    fn test_business_etiquette_different_regions() {
+        let china = BusinessEtiquette::new("中国");
+        let japan = BusinessEtiquette::new("日本");
+        // 不同地区的规则描述应不同
+        assert_ne!(china.metadata().name, japan.metadata().name);
+    }
+
+    #[test]
+    fn test_business_rule_trait() {
+        let rules = BusinessEtiquette::new("中国");
+        assert_eq!(rules.category(), RuleCategory::social("business"));
+        assert!(rules.validate("test").is_ok());
+        assert!(!rules.explain().is_empty());
     }
 }

@@ -10,12 +10,9 @@ pub struct ConsumerLawRules {
 impl ConsumerLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "消费者权益保护法",
-                "中国消费者权益保护基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "消费者".into()]),
+            metadata: RuleMetadata::new("消费者权益保护法", "中国消费者权益保护基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "消费者".into()]),
         }
     }
 
@@ -127,12 +124,36 @@ impl Rule for ConsumerLawRules {
             赔偿标准:\n{}\n\n\
             投诉渠道:\n{}\n\n\
             不适用7天退货的商品:\n{}\n",
-            self.consumer_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.business_obligations().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.return_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.compensation_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.complaint_channels().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.no_return_exceptions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.consumer_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.business_obligations()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.return_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.compensation_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.complaint_channels()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.no_return_exceptions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
@@ -144,6 +165,8 @@ mod tests {
     #[test]
     fn test_consumer_law() {
         let rules = ConsumerLawRules::new();
-        assert!(rules.consumer_rights().contains(&"安全权: 人身、财产安全不受损害"));
+        assert!(rules
+            .consumer_rights()
+            .contains(&"安全权: 人身、财产安全不受损害"));
     }
 }

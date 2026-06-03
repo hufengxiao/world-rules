@@ -10,12 +10,9 @@ pub struct PriceLawRules {
 impl PriceLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "价格法规则",
-                "中国价格法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "价格".into()]),
+            metadata: RuleMetadata::new("价格法规则", "中国价格法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "价格".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for PriceLawRules {
     fn explain(&self) -> String {
         format!(
             "【价格法规则】\n\n价格原则:\n{}\n\n价格形式:\n{}\n\n价格违法行为:\n{}\n",
-            self.price_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.price_forms().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.price_violations().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.price_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.price_forms()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.price_violations()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

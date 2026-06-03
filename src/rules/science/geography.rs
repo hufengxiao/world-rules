@@ -10,12 +10,9 @@ pub struct GeographyLaws {
 impl GeographyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "地理学定律",
-                "地理学基本定律"
-            )
-            .with_origin("自然科学")
-            .with_tags(vec!["科学".into(), "地理".into()]),
+            metadata: RuleMetadata::new("地理学定律", "地理学基本定律")
+                .with_origin("自然科学")
+                .with_tags(vec!["科学".into(), "地理".into()]),
         }
     }
 
@@ -89,14 +86,7 @@ impl GeographyLaws {
     /// 地理要素
     pub fn elements(&self) -> Vec<&'static str> {
         vec![
-            "地形",
-            "气候",
-            "水文",
-            "土壤",
-            "植被",
-            "人口",
-            "城市",
-            "交通",
+            "地形", "气候", "水文", "土壤", "植被", "人口", "城市", "交通",
         ]
     }
 

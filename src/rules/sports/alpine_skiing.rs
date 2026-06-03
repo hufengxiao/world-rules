@@ -10,12 +10,9 @@ pub struct AlpineSkiingRules {
 impl AlpineSkiingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "高山滑雪规则",
-                "高山滑雪比赛基本规则"
-            )
-            .with_origin("奥地利")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("高山滑雪规则", "高山滑雪比赛基本规则")
+                .with_origin("奥地利")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -98,13 +95,7 @@ impl AlpineSkiingRules {
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "漏门",
-            "旗门错误通过",
-            "摔倒后重新通过",
-            "装备违规",
-            "超时",
-        ]
+        vec!["漏门", "旗门错误通过", "摔倒后重新通过", "装备违规", "超时"]
     }
 }
 
@@ -134,10 +125,26 @@ impl Rule for AlpineSkiingRules {
             旗门规则:\n{}\n\n\
             安全规则:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.competition_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.gate_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.gate_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

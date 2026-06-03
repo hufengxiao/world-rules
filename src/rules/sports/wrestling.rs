@@ -10,12 +10,9 @@ pub struct WrestlingRules {
 impl WrestlingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "摔跤规则",
-                "摔跤比赛基本规则"
-            )
-            .with_origin("古代奥运会")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("摔跤规则", "摔跤比赛基本规则")
+                .with_origin("古代奥运会")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -76,13 +73,7 @@ impl WrestlingRules {
 
     /// 犯规行为
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "抓衣服",
-            "咬人",
-            "掐人",
-            "攻击要害部位",
-            "危险动作",
-        ]
+        vec!["抓衣服", "咬人", "掐人", "攻击要害部位", "危险动作"]
     }
 
     /// 比赛场地
@@ -123,10 +114,26 @@ impl Rule for WrestlingRules {
             得分规则:\n{}\n\n\
             有效动作:\n{}\n\n\
             犯规行为:\n{}\n",
-            self.wrestling_styles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.valid_moves().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.wrestling_styles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.valid_moves()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

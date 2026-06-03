@@ -10,12 +10,9 @@ pub struct BjjRules {
 impl BjjRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "巴西柔术规则",
-                "巴西柔术比赛基本规则"
-            )
-            .with_origin("巴西")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("巴西柔术规则", "巴西柔术比赛基本规则")
+                .with_origin("巴西")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -135,10 +132,26 @@ impl Rule for BjjRules {
             得分系统:\n{}\n\n\
             降服技术:\n{}\n\n\
             比赛时间:\n{}\n",
-            self.belt_levels().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.submissions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.match_duration().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.belt_levels()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.submissions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.match_duration()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

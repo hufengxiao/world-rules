@@ -76,12 +76,9 @@ pub struct MilitaryChessRules {
 impl MilitaryChessRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "军棋规则",
-                "军棋游戏规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "军棋".into()]),
+            metadata: RuleMetadata::new("军棋规则", "军棋游戏规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "军棋".into()]),
         }
     }
 
@@ -140,11 +137,7 @@ impl MilitaryChessRules {
 
     /// 获胜条件
     pub fn winning_conditions(&self) -> Vec<&'static str> {
-        vec![
-            "夺取对方军旗",
-            "对方无棋可走",
-            "对方认输",
-        ]
+        vec!["夺取对方军旗", "对方无棋可走", "对方认输"]
     }
 }
 
@@ -178,10 +171,26 @@ impl Rule for MilitaryChessRules {
             获胜条件:\n{}\n",
             self.player_count(),
             self.pieces_per_side(),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.capture_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.special_positions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.winning_conditions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.capture_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.special_positions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.winning_conditions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

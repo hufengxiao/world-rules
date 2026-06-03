@@ -12,12 +12,9 @@ pub struct DongbeiMahjongRules {
 impl DongbeiMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "东北麻将规则",
-                "东北地区流行麻将规则"
-            )
-            .with_origin("东北")
-            .with_tags(vec!["游戏".into(), "麻将".into(), "东北".into()]),
+            metadata: RuleMetadata::new("东北麻将规则", "东北地区流行麻将规则")
+                .with_origin("东北")
+                .with_tags(vec!["游戏".into(), "麻将".into(), "东北".into()]),
         }
     }
 
@@ -142,7 +139,8 @@ impl Rule for DongbeiMahjongRules {
     }
 
     fn explain(&self) -> String {
-        let fan_list: String = self.fan_types()
+        let fan_list: String = self
+            .fan_types()
             .iter()
             .map(|(name, fan)| format!("  • {}: {}番", name, fan))
             .collect::<Vec<_>>()
@@ -154,9 +152,21 @@ impl Rule for DongbeiMahjongRules {
             立棍规则:\n{}\n\n\
             会牌规则:\n{}\n\n\
             番型规则:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.ligen_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.hui_card_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.ligen_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.hui_card_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
             fan_list
         )
     }

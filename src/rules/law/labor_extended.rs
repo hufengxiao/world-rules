@@ -10,12 +10,9 @@ pub struct LaborLawExtendedRules {
 impl LaborLawExtendedRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "劳动法扩展规则",
-                "中国劳动法详细知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "劳动法".into()]),
+            metadata: RuleMetadata::new("劳动法扩展规则", "中国劳动法详细知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "劳动法".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for LaborLawExtendedRules {
     fn explain(&self) -> String {
         format!(
             "【劳动法扩展规则】\n\n合同类型:\n{}\n\n工时休假:\n{}\n\n社会保险:\n{}\n",
-            self.contract_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.working_hours().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.social_insurance().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.contract_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.working_hours()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.social_insurance()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

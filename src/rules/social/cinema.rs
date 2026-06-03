@@ -10,12 +10,9 @@ pub struct CinemaEtiquette {
 impl CinemaEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电影院礼仪",
-                "观影礼仪规范"
-            )
-            .with_origin("通用")
-            .with_tags(vec!["社交".into(), "电影".into()]),
+            metadata: RuleMetadata::new("电影院礼仪", "观影礼仪规范")
+                .with_origin("通用")
+                .with_tags(vec!["社交".into(), "电影".into()]),
         }
     }
 
@@ -98,10 +95,26 @@ impl Rule for CinemaEtiquette {
             观影礼仪:\n{}\n\n\
             饮食礼仪:\n{}\n\n\
             散场礼仪:\n{}\n",
-            self.entrance_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.viewing_etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.eating_etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.exit_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.entrance_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.viewing_etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.eating_etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.exit_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,24 +10,15 @@ pub struct ParaglidingRules {
 impl ParaglidingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "滑翔伞规则",
-                "滑翔伞比赛基本规则"
-            )
-            .with_origin("法国")
-            .with_tags(vec!["体育".into(), "航空".into()]),
+            metadata: RuleMetadata::new("滑翔伞规则", "滑翔伞比赛基本规则")
+                .with_origin("法国")
+                .with_tags(vec!["体育".into(), "航空".into()]),
         }
     }
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "竞速比赛",
-            "距离比赛",
-            "定点比赛",
-            "自由飞行",
-            "越野飞行",
-        ]
+        vec!["竞速比赛", "距离比赛", "定点比赛", "自由飞行", "越野飞行"]
     }
 
     /// 竞速规则
@@ -54,24 +45,12 @@ impl ParaglidingRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "滑翔伞翼",
-            "座袋",
-            "头盔: 必须佩戴",
-            "高度仪表",
-            "GPS设备",
-        ]
+        vec!["滑翔伞翼", "座袋", "头盔: 必须佩戴", "高度仪表", "GPS设备"]
     }
 
     /// 气象要求
     pub fn weather_requirements(&self) -> Vec<&'static str> {
-        vec![
-            "风力限制",
-            "风向监测",
-            "云层状况",
-            "温度影响",
-            "天气预警",
-        ]
+        vec!["风力限制", "风向监测", "云层状况", "温度影响", "天气预警"]
     }
 
     /// 安全规则
@@ -134,10 +113,26 @@ impl Rule for ParaglidingRules {
             安全规则:\n{}\n\n\
             认证等级:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.competition_formats().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.certification_levels().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_formats()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.certification_levels()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -12,12 +12,9 @@ pub struct KejiaMahjongRules {
 impl KejiaMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "客家麻将规则",
-                "客家地区流行麻将规则"
-            )
-            .with_origin("客家")
-            .with_tags(vec!["游戏".into(), "麻将".into(), "客家".into()]),
+            metadata: RuleMetadata::new("客家麻将规则", "客家地区流行麻将规则")
+                .with_origin("客家")
+                .with_tags(vec!["游戏".into(), "麻将".into(), "客家".into()]),
         }
     }
 
@@ -111,7 +108,8 @@ impl Rule for KejiaMahjongRules {
     }
 
     fn explain(&self) -> String {
-        let fan_list: String = self.fan_types()
+        let fan_list: String = self
+            .fan_types()
             .iter()
             .map(|(name, fan)| format!("  • {}: {}番", name, fan))
             .collect::<Vec<_>>()
@@ -122,8 +120,16 @@ impl Rule for KejiaMahjongRules {
             基本设置:\n{}\n\n\
             六八规则:\n{}\n\n\
             番型规则:\n{}\n",
-            self.basic_settings().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.liuba_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
+            self.basic_settings()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.liuba_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
             fan_list
         )
     }

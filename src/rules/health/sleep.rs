@@ -10,12 +10,9 @@ pub struct SleepRules {
 impl SleepRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "睡眠规则",
-                "健康睡眠基础知识"
-            )
-            .with_origin("睡眠医学")
-            .with_tags(vec!["健康".into(), "睡眠".into()]),
+            metadata: RuleMetadata::new("睡眠规则", "健康睡眠基础知识")
+                .with_origin("睡眠医学")
+                .with_tags(vec!["健康".into(), "睡眠".into()]),
         }
     }
 
@@ -121,9 +118,21 @@ impl Rule for SleepRules {
             睡眠时长建议:\n{}\n\n\
             良好睡眠习惯:\n{}\n\n\
             改善睡眠建议:\n{}\n",
-            self.sleep_duration().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.good_sleep_habits().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.improve_sleep().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.sleep_duration()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.good_sleep_habits()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.improve_sleep()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

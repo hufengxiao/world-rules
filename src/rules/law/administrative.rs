@@ -10,12 +10,9 @@ pub struct AdministrativeLawRules {
 impl AdministrativeLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "行政法规则",
-                "中国行政法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "行政法".into()]),
+            metadata: RuleMetadata::new("行政法规则", "中国行政法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "行政法".into()]),
         }
     }
 
@@ -166,9 +163,21 @@ impl Rule for AdministrativeLawRules {
     fn explain(&self) -> String {
         format!(
             "【行政法规则】\n\n行政行为类型:\n{}\n\n行政处罚规则:\n{}\n\n行政复议:\n{}\n",
-            self.administrative_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.administrative_penalty().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.administrative_review().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.administrative_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.administrative_penalty()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.administrative_review()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct ComplexityScienceLaws {
 impl ComplexityScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "复杂性科学定律",
-                "复杂性科学基本定律"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "复杂".into()]),
+            metadata: RuleMetadata::new("复杂性科学定律", "复杂性科学基本定律")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "复杂".into()]),
         }
     }
 

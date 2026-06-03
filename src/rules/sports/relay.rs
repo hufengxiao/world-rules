@@ -10,12 +10,9 @@ pub struct RelayRules {
 impl RelayRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "接力跑规则",
-                "接力跑比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("接力跑规则", "接力跑比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for RelayRules {
             交接规则:\n{}\n\n\
             交接区规格:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.event_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.baton_passing().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.passing_zone().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.event_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.baton_passing()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.passing_zone()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

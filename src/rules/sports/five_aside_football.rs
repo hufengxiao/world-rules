@@ -10,12 +10,9 @@ pub struct FiveAsideFootballRules {
 impl FiveAsideFootballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "五人制足球规则",
-                "五人制足球比赛基本规则"
-            )
-            .with_origin("巴西")
-            .with_tags(vec!["体育".into(), "足球".into()]),
+            metadata: RuleMetadata::new("五人制足球规则", "五人制足球比赛基本规则")
+                .with_origin("巴西")
+                .with_tags(vec!["体育".into(), "足球".into()]),
         }
     }
 
@@ -54,13 +51,7 @@ impl FiveAsideFootballRules {
 
     /// 球规格
     pub fn ball_specifications(&self) -> Vec<&'static str> {
-        vec![
-            "4号球",
-            "重量较轻",
-            "材质要求",
-            "弹性适中",
-            "比赛专用球",
-        ]
+        vec!["4号球", "重量较轻", "材质要求", "弹性适中", "比赛专用球"]
     }
 
     /// 换人规则
@@ -98,13 +89,7 @@ impl FiveAsideFootballRules {
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "室内比赛",
-            "室外比赛",
-            "世界杯",
-            "欧洲杯",
-            "国内联赛",
-        ]
+        vec!["室内比赛", "室外比赛", "世界杯", "欧洲杯", "国内联赛"]
     }
 }
 
@@ -134,10 +119,26 @@ impl Rule for FiveAsideFootballRules {
             换人规则:\n{}\n\n\
             犯规规则:\n{}\n\n\
             守门员规则:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.substitution_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.goalkeeper_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.substitution_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.goalkeeper_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

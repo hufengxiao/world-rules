@@ -10,12 +10,9 @@ pub struct ArbitrationLawRules {
 impl ArbitrationLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "仲裁法规则",
-                "中国仲裁法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "仲裁".into()]),
+            metadata: RuleMetadata::new("仲裁法规则", "中国仲裁法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "仲裁".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ArbitrationLawRules {
     fn explain(&self) -> String {
         format!(
             "【仲裁法规则】\n\n适用范围:\n{}\n\n仲裁协议:\n{}\n\n仲裁程序:\n{}\n",
-            self.arbitration_scope().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.arbitration_agreement().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.arbitration_procedure().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.arbitration_scope()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.arbitration_agreement()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.arbitration_procedure()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

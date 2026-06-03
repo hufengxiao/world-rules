@@ -10,24 +10,15 @@ pub struct IaidoRules {
 impl IaidoRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "居合道规则",
-                "居合道比赛基本规则"
-            )
-            .with_origin("日本")
-            .with_tags(vec!["体育".into(), "武术".into()]),
+            metadata: RuleMetadata::new("居合道规则", "居合道比赛基本规则")
+                .with_origin("日本")
+                .with_tags(vec!["体育".into(), "武术".into()]),
         }
     }
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "演武表演",
-            "技法展示",
-            "级别评定",
-            "比赛较少",
-            "团体演武",
-        ]
+        vec!["演武表演", "技法展示", "级别评定", "比赛较少", "团体演武"]
     }
 
     /// 基本技法
@@ -54,24 +45,12 @@ impl IaidoRules {
 
     /// 级位制度
     pub fn ranking_system(&self) -> Vec<&'static str> {
-        vec![
-            "初段至八段",
-            "级别考试",
-            "演武考核",
-            "技术要求",
-            "精神修养",
-        ]
+        vec!["初段至八段", "级别考试", "演武考核", "技术要求", "精神修养"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "居合刀: 模拟刀剑",
-            "刀袋",
-            "道服",
-            "袴",
-            "腰带",
-        ]
+        vec!["居合刀: 模拟刀剑", "刀袋", "道服", "袴", "腰带"]
     }
 
     /// 场地要求
@@ -87,13 +66,7 @@ impl IaidoRules {
 
     /// 评分标准
     pub fn scoring_criteria(&self) -> Vec<&'static str> {
-        vec![
-            "技法正确性",
-            "气势",
-            "姿势",
-            "节奏",
-            "精神状态",
-        ]
+        vec!["技法正确性", "气势", "姿势", "节奏", "精神状态"]
     }
 
     /// 安全规则
@@ -134,10 +107,26 @@ impl Rule for IaidoRules {
             级位制度:\n{}\n\n\
             装备要求:\n{}\n\n\
             评分标准:\n{}\n",
-            self.basic_techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.ranking_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_criteria().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.ranking_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_criteria()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

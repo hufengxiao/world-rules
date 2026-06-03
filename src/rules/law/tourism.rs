@@ -10,12 +10,9 @@ pub struct TourismLawRules {
 impl TourismLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "旅游法规则",
-                "中国旅游法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "旅游".into()]),
+            metadata: RuleMetadata::new("旅游法规则", "中国旅游法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "旅游".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for TourismLawRules {
     fn explain(&self) -> String {
         format!(
             "【旅游法规则】\n\n旅游者权利:\n{}\n\n旅行社规则:\n{}\n\n旅游合同:\n{}\n",
-            self.tourist_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.travel_agency_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.tourism_contract().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.tourist_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.travel_agency_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.tourism_contract()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct GolfRules {
 impl GolfRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "高尔夫规则",
-                "R&A/USGA 高尔夫标准规则"
-            )
-            .with_origin("苏格兰")
-            .with_tags(vec!["体育".into(), "高尔夫".into()]),
+            metadata: RuleMetadata::new("高尔夫规则", "R&A/USGA 高尔夫标准规则")
+                .with_origin("苏格兰")
+                .with_tags(vec!["体育".into(), "高尔夫".into()]),
         }
     }
 
@@ -146,12 +143,36 @@ impl Rule for GolfRules {
             礼仪规范:\n{}\n",
             self.standard_holes(),
             self.club_limit(),
-            self.course_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            scores.iter().map(|(cn, en)| format!("  • {} ({})", cn, en)).collect::<Vec<_>>().join("\n"),
-            self.competition_formats().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.etiquette().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.course_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            scores
+                .iter()
+                .map(|(cn, en)| format!("  • {} ({})", cn, en))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_formats()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.etiquette()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

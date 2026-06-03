@@ -37,12 +37,9 @@ pub struct SkiingRules {
 impl SkiingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "滑雪规则",
-                "FIS 国际滑雪联合会标准规则"
-            )
-            .with_origin("FIS")
-            .with_tags(vec!["体育".into(), "滑雪".into()]),
+            metadata: RuleMetadata::new("滑雪规则", "FIS 国际滑雪联合会标准规则")
+                .with_origin("FIS")
+                .with_tags(vec!["体育".into(), "滑雪".into()]),
         }
     }
 
@@ -130,11 +127,31 @@ impl Rule for SkiingRules {
             安全规则:\n{}\n\n\
             越野滑雪技术:\n{}\n\n\
             跳台滑雪评分:\n{}\n",
-            self.alpine_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            ratings.iter().map(|(r, d)| format!("  • {}: {}", r, d)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.cross_country_techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.ski_jumping_scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.alpine_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            ratings
+                .iter()
+                .map(|(r, d)| format!("  • {}: {}", r, d))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.cross_country_techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.ski_jumping_scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

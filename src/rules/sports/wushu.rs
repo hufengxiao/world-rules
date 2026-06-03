@@ -10,12 +10,9 @@ pub struct WushuRules {
 impl WushuRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "武术规则",
-                "武术比赛基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["体育".into(), "传统".into()]),
+            metadata: RuleMetadata::new("武术规则", "武术比赛基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["体育".into(), "传统".into()]),
         }
     }
 
@@ -136,10 +133,26 @@ impl Rule for WushuRules {
             套路类型:\n{}\n\n\
             评分标准:\n{}\n\n\
             禁止行为:\n{}\n",
-            self.competition_categories().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.routine_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_criteria().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_categories()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.routine_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_criteria()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

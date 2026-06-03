@@ -22,7 +22,7 @@ impl TrafficRules {
         Self {
             metadata: RuleMetadata::new(
                 format!("{}交通规则", Self::region_name(&region)),
-                "道路交通法规"
+                "道路交通法规",
             )
             .with_origin(Self::region_name(&region)),
             region,
@@ -126,8 +126,16 @@ impl Rule for TrafficRules {
             self.city_speed_limit(),
             self.highway_speed_limit(),
             self.drunk_drive_limit(),
-            self.basic_rules().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.traffic_light_meanings().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.traffic_light_meanings()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

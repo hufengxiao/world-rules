@@ -74,30 +74,123 @@ pub struct ChemistryRules {
 impl ChemistryRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "化学元素周期表",
-                "元素周期表基础规则"
-            )
-            .with_origin("科学")
-            .with_tags(vec!["科学".into(), "化学".into()]),
+            metadata: RuleMetadata::new("化学元素周期表", "元素周期表基础规则")
+                .with_origin("科学")
+                .with_tags(vec!["科学".into(), "化学".into()]),
         }
     }
 
     /// 获取部分常见元素
     pub fn common_elements() -> Vec<Element> {
         vec![
-            Element { atomic_number: 1, symbol: "H", chinese_name: "氢", english_name: "Hydrogen", atomic_mass: 1.008, category: ElementCategory::Nonmetal, electron_shells: 1 },
-            Element { atomic_number: 2, symbol: "He", chinese_name: "氦", english_name: "Helium", atomic_mass: 4.003, category: ElementCategory::NobleGas, electron_shells: 1 },
-            Element { atomic_number: 6, symbol: "C", chinese_name: "碳", english_name: "Carbon", atomic_mass: 12.011, category: ElementCategory::Nonmetal, electron_shells: 2 },
-            Element { atomic_number: 7, symbol: "N", chinese_name: "氮", english_name: "Nitrogen", atomic_mass: 14.007, category: ElementCategory::Nonmetal, electron_shells: 2 },
-            Element { atomic_number: 8, symbol: "O", chinese_name: "氧", english_name: "Oxygen", atomic_mass: 15.999, category: ElementCategory::Nonmetal, electron_shells: 2 },
-            Element { atomic_number: 11, symbol: "Na", chinese_name: "钠", english_name: "Sodium", atomic_mass: 22.990, category: ElementCategory::AlkaliMetal, electron_shells: 3 },
-            Element { atomic_number: 12, symbol: "Mg", chinese_name: "镁", english_name: "Magnesium", atomic_mass: 24.305, category: ElementCategory::AlkalineEarthMetal, electron_shells: 3 },
-            Element { atomic_number: 26, symbol: "Fe", chinese_name: "铁", english_name: "Iron", atomic_mass: 55.845, category: ElementCategory::TransitionMetal, electron_shells: 4 },
-            Element { atomic_number: 29, symbol: "Cu", chinese_name: "铜", english_name: "Copper", atomic_mass: 63.546, category: ElementCategory::TransitionMetal, electron_shells: 4 },
-            Element { atomic_number: 30, symbol: "Zn", chinese_name: "锌", english_name: "Zinc", atomic_mass: 65.38, category: ElementCategory::TransitionMetal, electron_shells: 4 },
-            Element { atomic_number: 47, symbol: "Ag", chinese_name: "银", english_name: "Silver", atomic_mass: 107.87, category: ElementCategory::TransitionMetal, electron_shells: 5 },
-            Element { atomic_number: 79, symbol: "Au", chinese_name: "金", english_name: "Gold", atomic_mass: 196.97, category: ElementCategory::TransitionMetal, electron_shells: 6 },
+            Element {
+                atomic_number: 1,
+                symbol: "H",
+                chinese_name: "氢",
+                english_name: "Hydrogen",
+                atomic_mass: 1.008,
+                category: ElementCategory::Nonmetal,
+                electron_shells: 1,
+            },
+            Element {
+                atomic_number: 2,
+                symbol: "He",
+                chinese_name: "氦",
+                english_name: "Helium",
+                atomic_mass: 4.003,
+                category: ElementCategory::NobleGas,
+                electron_shells: 1,
+            },
+            Element {
+                atomic_number: 6,
+                symbol: "C",
+                chinese_name: "碳",
+                english_name: "Carbon",
+                atomic_mass: 12.011,
+                category: ElementCategory::Nonmetal,
+                electron_shells: 2,
+            },
+            Element {
+                atomic_number: 7,
+                symbol: "N",
+                chinese_name: "氮",
+                english_name: "Nitrogen",
+                atomic_mass: 14.007,
+                category: ElementCategory::Nonmetal,
+                electron_shells: 2,
+            },
+            Element {
+                atomic_number: 8,
+                symbol: "O",
+                chinese_name: "氧",
+                english_name: "Oxygen",
+                atomic_mass: 15.999,
+                category: ElementCategory::Nonmetal,
+                electron_shells: 2,
+            },
+            Element {
+                atomic_number: 11,
+                symbol: "Na",
+                chinese_name: "钠",
+                english_name: "Sodium",
+                atomic_mass: 22.990,
+                category: ElementCategory::AlkaliMetal,
+                electron_shells: 3,
+            },
+            Element {
+                atomic_number: 12,
+                symbol: "Mg",
+                chinese_name: "镁",
+                english_name: "Magnesium",
+                atomic_mass: 24.305,
+                category: ElementCategory::AlkalineEarthMetal,
+                electron_shells: 3,
+            },
+            Element {
+                atomic_number: 26,
+                symbol: "Fe",
+                chinese_name: "铁",
+                english_name: "Iron",
+                atomic_mass: 55.845,
+                category: ElementCategory::TransitionMetal,
+                electron_shells: 4,
+            },
+            Element {
+                atomic_number: 29,
+                symbol: "Cu",
+                chinese_name: "铜",
+                english_name: "Copper",
+                atomic_mass: 63.546,
+                category: ElementCategory::TransitionMetal,
+                electron_shells: 4,
+            },
+            Element {
+                atomic_number: 30,
+                symbol: "Zn",
+                chinese_name: "锌",
+                english_name: "Zinc",
+                atomic_mass: 65.38,
+                category: ElementCategory::TransitionMetal,
+                electron_shells: 4,
+            },
+            Element {
+                atomic_number: 47,
+                symbol: "Ag",
+                chinese_name: "银",
+                english_name: "Silver",
+                atomic_mass: 107.87,
+                category: ElementCategory::TransitionMetal,
+                electron_shells: 5,
+            },
+            Element {
+                atomic_number: 79,
+                symbol: "Au",
+                chinese_name: "金",
+                english_name: "Gold",
+                atomic_mass: 196.97,
+                category: ElementCategory::TransitionMetal,
+                electron_shells: 6,
+            },
         ]
     }
 
@@ -211,7 +304,6 @@ impl ChemistryRules {
             "电化学: 化学能与电能相互转化的规律",
         ]
     }
-
 }
 
 impl Default for ChemistryRules {
@@ -245,17 +337,52 @@ impl Rule for ChemistryRules {
             气体化学规则:\n{}\n\n\
             电化学规则:\n{}\n\n\
             热化学规则:\n{}\n",
-            elements.iter()
-                .map(|e| format!("  • {}({}): {}号元素, {:.3}", e.symbol, e.name(), e.atomic_number, e.atomic_mass))
+            elements
+                .iter()
+                .map(|e| format!(
+                    "  • {}({}): {}号元素, {:.3}",
+                    e.symbol,
+                    e.name(),
+                    e.atomic_number,
+                    e.atomic_mass
+                ))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.periodic_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.reaction_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.chemical_laws().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.solution_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.gas_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.electrochemistry_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.thermochemistry_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.periodic_laws()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.reaction_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.chemical_laws()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.solution_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.gas_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.electrochemistry_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.thermochemistry_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

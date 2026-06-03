@@ -10,12 +10,9 @@ pub struct PaleontologyLaws {
 impl PaleontologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "古生物学定律",
-                "古生物学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "古生物".into()]),
+            metadata: RuleMetadata::new("古生物学定律", "古生物学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "古生物".into()]),
         }
     }
 
@@ -121,7 +118,6 @@ impl PaleontologyLaws {
         ]
     }
 
-
     /// 人类进化
     pub fn human_evolution(&self) -> Vec<&'static str> {
         vec![
@@ -133,7 +129,6 @@ impl PaleontologyLaws {
             "走出非洲: 现代人类约7万年前从非洲迁移到全球",
         ]
     }
-
 }
 
 impl Default for PaleontologyLaws {
@@ -158,15 +153,18 @@ impl Rule for PaleontologyLaws {
     fn explain(&self) -> String {
         format!(
             "【古生物学定律】\n\n化石定律:\n{}\n\n进化定律:\n{}\n\n生物地层定律:\n{}\n",
-            self.fossil_laws().iter()
+            self.fossil_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.evolution_laws().iter()
+            self.evolution_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.biostratigraphy_laws().iter()
+            self.biostratigraphy_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

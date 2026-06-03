@@ -10,12 +10,9 @@ pub struct HammerThrowRules {
 impl HammerThrowRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "链球规则",
-                "田径链球投掷规则"
-            )
-            .with_origin("英国")
-            .with_tags(vec!["体育".into(), "田径".into()]),
+            metadata: RuleMetadata::new("链球规则", "田径链球投掷规则")
+                .with_origin("英国")
+                .with_tags(vec!["体育".into(), "田径".into()]),
         }
     }
 
@@ -43,13 +40,7 @@ impl HammerThrowRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "握持技术",
-            "预备姿势",
-            "旋转技术",
-            "出手技术",
-            "跟进动作",
-        ]
+        vec!["握持技术", "预备姿势", "旋转技术", "出手技术", "跟进动作"]
     }
 
     /// 装备要求
@@ -65,13 +56,7 @@ impl HammerThrowRules {
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "安全围栏",
-            "观众距离",
-            "裁判监督",
-            "场地检查",
-            "医疗支持",
-        ]
+        vec!["安全围栏", "观众距离", "裁判监督", "场地检查", "医疗支持"]
     }
 
     /// 犯规规则
@@ -123,10 +108,26 @@ impl Rule for HammerThrowRules {
             技术动作:\n{}\n\n\
             装备要求:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.throwing_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.throwing_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

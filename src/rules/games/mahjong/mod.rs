@@ -2,40 +2,22 @@
 //!
 //! 支持多种麻将变体规则
 
+mod hands;
 mod rules;
 mod tiles;
-mod hands;
 pub mod variants;
 
-pub use rules::*;
-pub use tiles::{Tile, TileType, Wind, Dragon};
 pub use hands::{Hand, HandPattern, WinningHand};
+pub use rules::*;
+pub use tiles::{Dragon, Tile, TileType, Wind};
 
 // 重新导出各地方麻将变体
 pub use variants::{
-    GuangdongMahjongRules,
-    WuhanMahjongRules,
-    ShanghaiMahjongRules,
-    TaiwanMahjongRules,
-    BeijingMahjongRules,
-    DongbeiMahjongRules,
-    ChangshaMahjongRules,
-    HangzhouMahjongRules,
-    NanjingMahjongRules,
-    ChaoshanMahjongRules,
-    TianjinMahjongRules,
-    ChongqingMahjongRules,
-    KunmingMahjongRules,
-    GuiyangMahjongRules,
-    FuzhouMahjongRules,
-    NanchangMahjongRules,
-    GuangxiMahjongRules,
-    XinjiangMahjongRules,
-    SichuanDetailedMahjongRules,
+    AnhuiMahjongRules, BeijingMahjongRules, ChangshaMahjongRules, ChaoshanMahjongRules,
+    ChongqingMahjongRules, DongbeiMahjongRules, FuzhouMahjongRules, GuangdongMahjongRules,
+    GuangxiMahjongRules, GuiyangMahjongRules, HainanMahjongRules, HangzhouMahjongRules,
+    KejiaMahjongRules, KunmingMahjongRules, NanchangMahjongRules, NanjingMahjongRules,
+    ShanghaiMahjongRules, SichuanDetailedMahjongRules, SuzhouMahjongRules, TaiwanMahjongRules,
+    TianjinMahjongRules, WuhanMahjongRules, XianMahjongRules, XinjiangMahjongRules,
     ZhengzhouMahjongRules,
-    XianMahjongRules,
-    KejiaMahjongRules,
-    HainanMahjongRules,
-    AnhuiMahjongRules,
-    SuzhouMahjongRules,
 };

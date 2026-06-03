@@ -10,12 +10,9 @@ pub struct DragRacingRules {
 impl DragRacingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "直线加速赛规则",
-                "直线加速赛比赛规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "赛车".into()]),
+            metadata: RuleMetadata::new("直线加速赛规则", "直线加速赛比赛规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "赛车".into()]),
         }
     }
 
@@ -43,13 +40,7 @@ impl DragRacingRules {
 
     /// 技术规定
     pub fn technical_rules(&self) -> Vec<&'static str> {
-        vec![
-            "发动机规格",
-            "燃料规定",
-            "重量限制",
-            "安全改装",
-            "技术检查",
-        ]
+        vec!["发动机规格", "燃料规定", "重量限制", "安全改装", "技术检查"]
     }
 
     /// 安全规则
@@ -65,13 +56,7 @@ impl DragRacingRules {
 
     /// 计时规则
     pub fn timing_rules(&self) -> Vec<&'static str> {
-        vec![
-            "反应时间",
-            "完成时间",
-            "终点速度",
-            "精确计时",
-            "成绩记录",
-        ]
+        vec!["反应时间", "完成时间", "终点速度", "精确计时", "成绩记录"]
     }
 
     /// 装备要求
@@ -87,13 +72,7 @@ impl DragRacingRules {
 
     /// 犯规规则
     pub fn penalties(&self) -> Vec<&'static str> {
-        vec![
-            "提前出发",
-            "车道违规",
-            "技术违规",
-            "犯规处罚",
-            "取消资格",
-        ]
+        vec!["提前出发", "车道违规", "技术违规", "犯规处罚", "取消资格"]
     }
 }
 
@@ -123,10 +102,26 @@ impl Rule for DragRacingRules {
             技术规定:\n{}\n\n\
             计时规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_classes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technical_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.timing_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_classes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technical_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.timing_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

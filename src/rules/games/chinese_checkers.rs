@@ -10,12 +10,9 @@ pub struct ChineseCheckersRules {
 impl ChineseCheckersRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "跳棋规则",
-                "中国跳棋游戏规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "跳棋".into()]),
+            metadata: RuleMetadata::new("跳棋规则", "中国跳棋游戏规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "跳棋".into()]),
         }
     }
 
@@ -104,10 +101,26 @@ impl Rule for ChineseCheckersRules {
             self.player_range().0,
             self.player_range().1,
             self.pieces_per_player(),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.movement_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.strategies().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.game_modes().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.movement_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.strategies()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.game_modes()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

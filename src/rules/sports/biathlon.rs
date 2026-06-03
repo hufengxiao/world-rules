@@ -10,12 +10,9 @@ pub struct BiathlonRules {
 impl BiathlonRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "冬季两项规则",
-                "滑雪射击组合运动规则"
-            )
-            .with_origin("挪威")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("冬季两项规则", "滑雪射击组合运动规则")
+                .with_origin("挪威")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -54,35 +51,17 @@ impl BiathlonRules {
 
     /// 滑雪规则
     pub fn skiing_rules(&self) -> Vec<&'static str> {
-        vec![
-            "自由技术",
-            "滑行技术",
-            "路线要求",
-            "装备交换",
-            "时间限制",
-        ]
+        vec!["自由技术", "滑行技术", "路线要求", "装备交换", "时间限制"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "滑雪装备",
-            "步枪装备",
-            "射击靶标",
-            "防护装备",
-            "服装要求",
-        ]
+        vec!["滑雪装备", "步枪装备", "射击靶标", "防护装备", "服装要求"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "步枪安全",
-            "射击安全",
-            "滑雪安全",
-            "医疗支持",
-            "应急处理",
-        ]
+        vec!["步枪安全", "射击安全", "滑雪安全", "医疗支持", "应急处理"]
     }
 
     /// 评分规则
@@ -123,10 +102,26 @@ impl Rule for BiathlonRules {
             射击规则:\n{}\n\n\
             装备要求:\n{}\n\n\
             安全规则:\n{}\n",
-            self.competition_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.shooting_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.shooting_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

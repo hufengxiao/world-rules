@@ -10,12 +10,9 @@ pub struct DrugManagementLawRules {
 impl DrugManagementLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "药品管理法规则",
-                "中国药品管理法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "药品管理".into()]),
+            metadata: RuleMetadata::new("药品管理法规则", "中国药品管理法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "药品管理".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for DrugManagementLawRules {
     fn explain(&self) -> String {
         format!(
             "【药品管理法规则】\n\n药品研制:\n{}\n\n药品生产:\n{}\n\n药品经营:\n{}\n",
-            self.drug_research().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.drug_production().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.drug_distribution().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.drug_research()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.drug_production()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.drug_distribution()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

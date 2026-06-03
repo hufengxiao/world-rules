@@ -32,11 +32,8 @@ pub struct BilliardsRules {
 impl BilliardsRules {
     pub fn new(billiards_type: BilliardsType) -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                format!("{}规则", billiards_type.name()),
-                "台球运动规则"
-            )
-            .with_origin("国际"),
+            metadata: RuleMetadata::new(format!("{}规则", billiards_type.name()), "台球运动规则")
+                .with_origin("国际"),
             billiards_type,
         }
     }
@@ -100,19 +97,9 @@ impl BilliardsRules {
     /// 比赛形式
     pub fn match_formats(&self) -> Vec<&'static str> {
         match self.billiards_type {
-            BilliardsType::ChineseEightBall => vec![
-                "单败淘汰赛",
-                "双败淘汰赛",
-                "团体赛",
-            ],
-            BilliardsType::NineBall => vec![
-                "抢局制(如抢9)",
-                "长局制(决赛)",
-            ],
-            BilliardsType::Snooker => vec![
-                "抢局制(如抢10)",
-                "长局制(世锦赛决赛抢18)",
-            ],
+            BilliardsType::ChineseEightBall => vec!["单败淘汰赛", "双败淘汰赛", "团体赛"],
+            BilliardsType::NineBall => vec!["抢局制(如抢9)", "长局制(决赛)"],
+            BilliardsType::Snooker => vec!["抢局制(如抢10)", "长局制(世锦赛决赛抢18)"],
         }
     }
 }
@@ -138,8 +125,16 @@ impl Rule for BilliardsRules {
             犯规规则:\n{}\n",
             self.billiards_type.name(),
             self.ball_count(),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.foul_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.foul_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

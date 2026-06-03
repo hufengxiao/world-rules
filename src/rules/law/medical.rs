@@ -10,12 +10,9 @@ pub struct MedicalLawRules {
 impl MedicalLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "医疗法规则",
-                "中国医疗法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "医疗".into()]),
+            metadata: RuleMetadata::new("医疗法规则", "中国医疗法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "医疗".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for MedicalLawRules {
     fn explain(&self) -> String {
         format!(
             "【医疗法规则】\n\n医疗机构管理:\n{}\n\n患者权利:\n{}\n\n医疗纠纷处理:\n{}\n",
-            self.medical_institution().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.patient_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.medical_dispute().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.medical_institution()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.patient_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.medical_dispute()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

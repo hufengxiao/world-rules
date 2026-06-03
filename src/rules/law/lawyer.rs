@@ -10,12 +10,9 @@ pub struct LawyerLawRules {
 impl LawyerLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "律师法规则",
-                "中国律师法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "律师".into()]),
+            metadata: RuleMetadata::new("律师法规则", "中国律师法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "律师".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for LawyerLawRules {
     fn explain(&self) -> String {
         format!(
             "【律师法规则】\n\n执业条件:\n{}\n\n律师权利:\n{}\n\n律师义务:\n{}\n",
-            self.practice_conditions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.lawyer_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.lawyer_obligations().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.practice_conditions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.lawyer_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.lawyer_obligations()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

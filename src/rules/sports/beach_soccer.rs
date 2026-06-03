@@ -10,12 +10,9 @@ pub struct BeachSoccerRules {
 impl BeachSoccerRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "沙滩足球规则",
-                "沙滩足球比赛基本规则"
-            )
-            .with_origin("巴西")
-            .with_tags(vec!["体育".into(), "足球".into()]),
+            metadata: RuleMetadata::new("沙滩足球规则", "沙滩足球比赛基本规则")
+                .with_origin("巴西")
+                .with_tags(vec!["体育".into(), "足球".into()]),
         }
     }
 
@@ -54,13 +51,7 @@ impl BeachSoccerRules {
 
     /// 球规格
     pub fn ball_specifications(&self) -> Vec<&'static str> {
-        vec![
-            "重量较轻",
-            "材质特殊",
-            "适合沙滩",
-            "弹性较低",
-            "比赛专用球",
-        ]
+        vec!["重量较轻", "材质特殊", "适合沙滩", "弹性较低", "比赛专用球"]
     }
 
     /// 犯规规则
@@ -87,13 +78,7 @@ impl BeachSoccerRules {
 
     /// 比赛形式
     pub fn competition_formats(&self) -> Vec<&'static str> {
-        vec![
-            "世界杯",
-            "欧洲杯",
-            "国内联赛",
-            "沙滩足球锦标赛",
-            "友谊赛",
-        ]
+        vec!["世界杯", "欧洲杯", "国内联赛", "沙滩足球锦标赛", "友谊赛"]
     }
 
     /// 安全规则
@@ -134,10 +119,26 @@ impl Rule for BeachSoccerRules {
             比赛时间:\n{}\n\n\
             犯规规则:\n{}\n\n\
             罚球规则:\n{}\n",
-            self.field_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.game_duration().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.free_kick_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.field_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.game_duration()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.free_kick_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -30,12 +30,9 @@ pub struct AeroplaneChessRules {
 impl AeroplaneChessRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "飞行棋规则",
-                "飞行棋游戏规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["游戏".into(), "飞行棋".into()]),
+            metadata: RuleMetadata::new("飞行棋规则", "飞行棋游戏规则")
+                .with_origin("中国")
+                .with_tags(vec!["游戏".into(), "飞行棋".into()]),
         }
     }
 
@@ -126,10 +123,26 @@ impl Rule for AeroplaneChessRules {
             碰撞规则:\n{}\n",
             self.player_count(),
             self.planes_per_player(),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.special_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.dice_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.collision_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.special_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.dice_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.collision_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

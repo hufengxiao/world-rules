@@ -10,12 +10,9 @@ pub struct ZoologyLaws {
 impl ZoologyLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "动物学定律",
-                "动物学基本定律"
-            )
-            .with_origin("生物学")
-            .with_tags(vec!["科学".into(), "生物".into(), "动物".into()]),
+            metadata: RuleMetadata::new("动物学定律", "动物学基本定律")
+                .with_origin("生物学")
+                .with_tags(vec!["科学".into(), "生物".into(), "动物".into()]),
         }
     }
 

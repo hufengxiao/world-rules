@@ -10,24 +10,15 @@ pub struct PowerliftingRules {
 impl PowerliftingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "力举规则",
-                "力举比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "力量".into()]),
+            metadata: RuleMetadata::new("力举规则", "力举比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "力量".into()]),
         }
     }
 
     /// 比赛项目
     pub fn competition_events(&self) -> Vec<&'static str> {
-        vec![
-            "深蹲",
-            "卧推",
-            "硬拉",
-            "三项综合",
-            "单项比赛",
-        ]
+        vec!["深蹲", "卧推", "硬拉", "三项综合", "单项比赛"]
     }
 
     /// 体重级别
@@ -76,35 +67,17 @@ impl PowerliftingRules {
 
     /// 硬拉规则
     pub fn deadlift_rules(&self) -> Vec<&'static str> {
-        vec![
-            "杠铃离地",
-            "双腿伸直",
-            "身体直立",
-            "锁定姿势",
-            "放下控制",
-        ]
+        vec!["杠铃离地", "双腿伸直", "身体直立", "锁定姿势", "放下控制"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "举重腰带",
-            "举重鞋",
-            "护膝护腕",
-            "举重服",
-            "无装备比赛",
-        ]
+        vec!["举重腰带", "举重鞋", "护膝护腕", "举重服", "无装备比赛"]
     }
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "深度不够",
-            "姿势不完整",
-            "犯规动作",
-            "超时",
-            "重量违规",
-        ]
+        vec!["深度不够", "姿势不完整", "犯规动作", "超时", "重量违规"]
     }
 }
 
@@ -134,10 +107,26 @@ impl Rule for PowerliftingRules {
             深蹲规则:\n{}\n\n\
             卧推规则:\n{}\n\n\
             犯规规则:\n{}\n",
-            self.competition_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.squat_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.bench_press_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.squat_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.bench_press_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

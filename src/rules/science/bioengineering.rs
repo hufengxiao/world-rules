@@ -10,12 +10,9 @@ pub struct BioengineeringLaws {
 impl BioengineeringLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "生物工程定律",
-                "生物工程基本定律"
-            )
-            .with_origin("工程")
-            .with_tags(vec!["科学".into(), "工程".into(), "生物".into()]),
+            metadata: RuleMetadata::new("生物工程定律", "生物工程基本定律")
+                .with_origin("工程")
+                .with_tags(vec!["科学".into(), "工程".into(), "生物".into()]),
         }
     }
 
@@ -120,7 +117,6 @@ impl BioengineeringLaws {
         ]
     }
 
-
     /// 组织工程
     pub fn tissue_engineering(&self) -> Vec<&'static str> {
         vec![
@@ -132,7 +128,6 @@ impl BioengineeringLaws {
             "组织血管化: 工程化组织中建立血管网络",
         ]
     }
-
 }
 
 impl Default for BioengineeringLaws {
@@ -157,15 +152,18 @@ impl Rule for BioengineeringLaws {
     fn explain(&self) -> String {
         format!(
             "【生物工程定律】\n\n基因工程定律:\n{}\n\n蛋白质工程定律:\n{}\n\n细胞工程定律:\n{}\n",
-            self.genetic_engineering_laws().iter()
+            self.genetic_engineering_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.protein_engineering_laws().iter()
+            self.protein_engineering_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.cell_engineering_laws().iter()
+            self.cell_engineering_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

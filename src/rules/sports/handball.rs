@@ -10,12 +10,9 @@ pub struct HandballRules {
 impl HandballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "手球规则",
-                "手球比赛基本规则"
-            )
-            .with_origin("欧洲")
-            .with_tags(vec!["体育".into(), "球类".into()]),
+            metadata: RuleMetadata::new("手球规则", "手球比赛基本规则")
+                .with_origin("欧洲")
+                .with_tags(vec!["体育".into(), "球类".into()]),
         }
     }
 
@@ -123,10 +120,26 @@ impl Rule for HandballRules {
             基本规则:\n{}\n\n\
             得分规则:\n{}\n\n\
             犯规与处罚:\n{}\n",
-            self.court_dimensions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.basic_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls_penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.court_dimensions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.basic_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls_penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

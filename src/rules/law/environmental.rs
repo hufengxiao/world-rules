@@ -10,12 +10,9 @@ pub struct EnvironmentalLawRules {
 impl EnvironmentalLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "环境法规则",
-                "中国环境法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "环境法".into()]),
+            metadata: RuleMetadata::new("环境法规则", "中国环境法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "环境法".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for EnvironmentalLawRules {
     fn explain(&self) -> String {
         format!(
             "【环境法规则】\n\n环保原则:\n{}\n\n污染防治:\n{}\n\n环境许可:\n{}\n",
-            self.environmental_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.pollution_control().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.environmental_permit().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.environmental_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.pollution_control()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.environmental_permit()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

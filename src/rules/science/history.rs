@@ -10,12 +10,9 @@ pub struct HistoryLaws {
 impl HistoryLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "历史学定律",
-                "历史学基本定律"
-            )
-            .with_origin("社会科学")
-            .with_tags(vec!["科学".into(), "历史".into()]),
+            metadata: RuleMetadata::new("历史学定律", "历史学基本定律")
+                .with_origin("社会科学")
+                .with_tags(vec!["科学".into(), "历史".into()]),
         }
     }
 
@@ -121,7 +118,6 @@ impl HistoryLaws {
         ]
     }
 
-
     /// 经济史
     pub fn economic_history(&self) -> Vec<&'static str> {
         vec![
@@ -133,7 +129,6 @@ impl HistoryLaws {
             "数字革命: 计算机和互联网引发的经济转型",
         ]
     }
-
 }
 
 impl Default for HistoryLaws {
@@ -158,15 +153,18 @@ impl Rule for HistoryLaws {
     fn explain(&self) -> String {
         format!(
             "【历史学定律】\n\n发展定律:\n{}\n\n因果定律:\n{}\n\n认知定律:\n{}\n",
-            self.development_laws().iter()
+            self.development_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.causality_laws().iter()
+            self.causality_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.cognition_laws().iter()
+            self.cognition_laws()
+                .iter()
                 .map(|(name, formula, desc)| format!("▶ {}: {} - {}", name, formula, desc))
                 .collect::<Vec<_>>()
                 .join("\n")

@@ -10,12 +10,9 @@ pub struct ComputerScienceLaws {
 impl ComputerScienceLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "计算机科学定律",
-                "计算机科学基本定律和定理"
-            )
-            .with_origin("计算机科学")
-            .with_tags(vec!["科学".into(), "计算机".into()]),
+            metadata: RuleMetadata::new("计算机科学定律", "计算机科学基本定律和定理")
+                .with_origin("计算机科学")
+                .with_tags(vec!["科学".into(), "计算机".into()]),
         }
     }
 
@@ -23,11 +20,19 @@ impl ComputerScienceLaws {
     pub fn theory_laws(&self) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("图灵机理论", "可计算性", "图灵机定义可计算函数"),
-            ("邱奇-图灵论题", "可计算性等价", "所有有效计算方法等价于图灵机"),
+            (
+                "邱奇-图灵论题",
+                "可计算性等价",
+                "所有有效计算方法等价于图灵机",
+            ),
             ("停机问题", "不可判定", "不存在判定程序是否会停机的算法"),
             ("P与NP问题", "复杂性类", "多项式时间内可判定与可验证"),
             ("NP完全理论", "最难NP问题", "NP完全问题是NP问题中最难的"),
-            ("哥德尔不完备定理", "形式系统局限", "任何足够强的形式系统都不完备"),
+            (
+                "哥德尔不完备定理",
+                "形式系统局限",
+                "任何足够强的形式系统都不完备",
+            ),
             ("递归定理", "自引用", "程序可以引用自己的代码"),
             ("莱斯定理", "程序性质不可判定", "非平凡程序性质不可判定"),
         ]
@@ -110,7 +115,6 @@ impl ComputerScienceLaws {
         ]
     }
 
-
     /// 分布式系统
     pub fn distributed_systems(&self) -> Vec<&'static str> {
         vec![
@@ -123,7 +127,6 @@ impl ComputerScienceLaws {
             "消息队列: 异步通信的中间件",
         ]
     }
-
 }
 
 impl Default for ComputerScienceLaws {

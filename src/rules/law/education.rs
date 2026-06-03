@@ -10,12 +10,9 @@ pub struct EducationLawRules {
 impl EducationLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "教育法规则",
-                "中国教育法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "教育".into()]),
+            metadata: RuleMetadata::new("教育法规则", "中国教育法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "教育".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for EducationLawRules {
     fn explain(&self) -> String {
         format!(
             "【教育法规则】\n\n教育类型:\n{}\n\n义务教育:\n{}\n\n学生权利:\n{}\n",
-            self.education_types().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.compulsory_education().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.student_rights().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.education_types()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.compulsory_education()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.student_rights()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

@@ -10,12 +10,9 @@ pub struct SandaRules {
 impl SandaRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "散打规则",
-                "散打比赛基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["体育".into(), "格斗".into()]),
+            metadata: RuleMetadata::new("散打规则", "散打比赛基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["体育".into(), "格斗".into()]),
         }
     }
 
@@ -140,10 +137,26 @@ impl Rule for SandaRules {
             得分规则:\n{}\n\n\
             禁止动作:\n{}\n\n\
             比赛回合:\n{}\n",
-            self.permitted_techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.rounds().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.permitted_techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.rounds()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

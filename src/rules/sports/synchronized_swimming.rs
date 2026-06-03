@@ -10,12 +10,9 @@ pub struct SynchronizedSwimmingRules {
 impl SynchronizedSwimmingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "花样游泳规则",
-                "FINA 花样游泳标准规则"
-            )
-            .with_origin("FINA")
-            .with_tags(vec!["体育".into(), "花样游泳".into()]),
+            metadata: RuleMetadata::new("花样游泳规则", "FINA 花样游泳标准规则")
+                .with_origin("FINA")
+                .with_tags(vec!["体育".into(), "花样游泳".into()]),
         }
     }
 
@@ -54,23 +51,12 @@ impl SynchronizedSwimmingRules {
 
     /// 评分要素
     pub fn scoring_elements(&self) -> Vec<&'static str> {
-        vec![
-            "队形变化",
-            "同步性",
-            "难度表现",
-            "艺术表现力",
-            "水中的位置",
-        ]
+        vec!["队形变化", "同步性", "难度表现", "艺术表现力", "水中的位置"]
     }
 
     /// 扣分因素
     pub fn deductions(&self) -> Vec<&'static str> {
-        vec![
-            "动作不同步",
-            "出界",
-            "时间超时/不足",
-            "触碰池底",
-        ]
+        vec!["动作不同步", "出界", "时间超时/不足", "触碰池底"]
     }
 }
 
@@ -99,9 +85,21 @@ impl Rule for SynchronizedSwimmingRules {
             比赛项目:\n{}\n\n\
             评分系统:\n{}\n\n\
             评分要素:\n{}\n",
-            self.events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_system().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring_elements().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_system()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring_elements()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

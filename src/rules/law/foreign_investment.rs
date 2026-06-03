@@ -10,12 +10,9 @@ pub struct ForeignInvestmentLawRules {
 impl ForeignInvestmentLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "外商投资法规则",
-                "中国外商投资法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "外商投资".into()]),
+            metadata: RuleMetadata::new("外商投资法规则", "中国外商投资法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "外商投资".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for ForeignInvestmentLawRules {
     fn explain(&self) -> String {
         format!(
             "【外商投资法规则】\n\n投资原则:\n{}\n\n投资形式:\n{}\n\n投资准入:\n{}\n",
-            self.investment_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.investment_forms().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.investment_access().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.investment_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.investment_forms()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.investment_access()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

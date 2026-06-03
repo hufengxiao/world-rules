@@ -10,12 +10,9 @@ pub struct ShortTrackRules {
 impl ShortTrackRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "短道速滑规则",
-                "短道速滑比赛基本规则"
-            )
-            .with_origin("加拿大")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("短道速滑规则", "短道速滑比赛基本规则")
+                .with_origin("加拿大")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for ShortTrackRules {
             起跑规则:\n{}\n\n\
             领先权规则:\n{}\n\n\
             犯规处罚:\n{}\n",
-            self.distances().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.start_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.passing_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.penalties().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.distances()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.start_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.passing_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.penalties()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

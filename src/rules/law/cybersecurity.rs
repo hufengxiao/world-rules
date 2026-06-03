@@ -10,12 +10,9 @@ pub struct CybersecurityLawRules {
 impl CybersecurityLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "网络安全法规则",
-                "中国网络安全法基础知识"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "网络安全".into()]),
+            metadata: RuleMetadata::new("网络安全法规则", "中国网络安全法基础知识")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "网络安全".into()]),
         }
     }
 
@@ -154,9 +151,21 @@ impl Rule for CybersecurityLawRules {
     fn explain(&self) -> String {
         format!(
             "【网络安全法规则】\n\n安全原则:\n{}\n\n运营者义务:\n{}\n\n个人信息保护:\n{}\n",
-            self.cybersecurity_principles().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.network_operator_obligations().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.personal_information_protection().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.cybersecurity_principles()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.network_operator_obligations()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.personal_information_protection()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

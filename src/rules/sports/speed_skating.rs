@@ -10,24 +10,15 @@ pub struct SpeedSkatingRules {
 impl SpeedSkatingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "速度滑冰规则",
-                "速度滑冰比赛规则"
-            )
-            .with_origin("荷兰")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("速度滑冰规则", "速度滑冰比赛规则")
+                .with_origin("荷兰")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
     /// 比赛项目
     pub fn competition_events(&self) -> Vec<&'static str> {
-        vec![
-            "500米",
-            "1000米",
-            "1500米",
-            "5000米",
-            "10000米",
-        ]
+        vec!["500米", "1000米", "1500米", "5000米", "10000米"]
     }
 
     /// 比赛规则
@@ -43,13 +34,7 @@ impl SpeedSkatingRules {
 
     /// 滑冰技术
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "起跑技术",
-            "滑行技术",
-            "弯道技术",
-            "换道技术",
-            "终点冲刺",
-        ]
+        vec!["起跑技术", "滑行技术", "弯道技术", "换道技术", "终点冲刺"]
     }
 
     /// 场地规格
@@ -65,24 +50,12 @@ impl SpeedSkatingRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "速滑冰刀",
-            "比赛服装",
-            "防护装备",
-            "头盔",
-            "冰鞋",
-        ]
+        vec!["速滑冰刀", "比赛服装", "防护装备", "头盔", "冰鞋"]
     }
 
     /// 安全规则
     pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec![
-            "冰面安全",
-            "换道安全",
-            "摔倒处理",
-            "医疗支持",
-            "比赛控制",
-        ]
+        vec!["冰面安全", "换道安全", "摔倒处理", "医疗支持", "比赛控制"]
     }
 
     /// 计时规则
@@ -123,10 +96,26 @@ impl Rule for SpeedSkatingRules {
             滑冰技术:\n{}\n\n\
             场地规格:\n{}\n\n\
             装备要求:\n{}\n",
-            self.competition_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.track_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.track_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

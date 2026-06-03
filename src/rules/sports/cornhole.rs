@@ -10,12 +10,9 @@ pub struct CornholeRules {
 impl CornholeRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "袋球规则",
-                "美国袋球运动规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "休闲".into()]),
+            metadata: RuleMetadata::new("袋球规则", "美国袋球运动规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "休闲".into()]),
         }
     }
 
@@ -43,24 +40,12 @@ impl CornholeRules {
 
     /// 技术动作
     pub fn techniques(&self) -> Vec<&'static str> {
-        vec![
-            "投掷技术",
-            "瞄准技术",
-            "滑袋技术",
-            "控制技术",
-            "节奏控制",
-        ]
+        vec!["投掷技术", "瞄准技术", "滑袋技术", "控制技术", "节奏控制"]
     }
 
     /// 得分规则
     pub fn scoring(&self) -> Vec<&'static str> {
-        vec![
-            "入孔: 3分",
-            "板上: 1分",
-            "取消规则",
-            "得分计算",
-            "比分记录",
-        ]
+        vec!["入孔: 3分", "板上: 1分", "取消规则", "得分计算", "比分记录"]
     }
 
     /// 袋的规格
@@ -76,24 +61,12 @@ impl CornholeRules {
 
     /// 团队配置
     pub fn team_composition(&self) -> Vec<&'static str> {
-        vec![
-            "单人比赛",
-            "双人比赛",
-            "每队4袋",
-            "队员轮换",
-            "比赛顺序",
-        ]
+        vec!["单人比赛", "双人比赛", "每队4袋", "队员轮换", "比赛顺序"]
     }
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "板框",
-            "投掷袋",
-            "场地装备",
-            "计分板",
-            "比赛服装",
-        ]
+        vec!["板框", "投掷袋", "场地装备", "计分板", "比赛服装"]
     }
 }
 
@@ -123,10 +96,26 @@ impl Rule for CornholeRules {
             技术动作:\n{}\n\n\
             得分规则:\n{}\n\n\
             装备要求:\n{}\n",
-            self.court_specifications().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.techniques().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.scoring().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.equipment().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.court_specifications()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.techniques()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.scoring()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.equipment()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

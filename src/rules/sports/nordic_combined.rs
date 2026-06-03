@@ -10,12 +10,9 @@ pub struct NordicCombinedRules {
 impl NordicCombinedRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "北欧两项规则",
-                "北欧两项比赛基本规则"
-            )
-            .with_origin("挪威")
-            .with_tags(vec!["体育".into(), "冬季".into()]),
+            metadata: RuleMetadata::new("北欧两项规则", "北欧两项比赛基本规则")
+                .with_origin("挪威")
+                .with_tags(vec!["体育".into(), "冬季".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for NordicCombinedRules {
             积分转换:\n{}\n\n\
             比赛规则:\n{}\n\n\
             技术要求:\n{}\n",
-            self.competition_events().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.points_conversion().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.technique().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.competition_events()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.points_conversion()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.technique()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

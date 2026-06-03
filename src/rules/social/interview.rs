@@ -10,12 +10,9 @@ pub struct InterviewEtiquette {
 impl InterviewEtiquette {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "面试礼仪",
-                "求职面试礼仪规范"
-            )
-            .with_origin("通用")
-            .with_tags(vec!["社交".into(), "面试".into(), "求职".into()]),
+            metadata: RuleMetadata::new("面试礼仪", "求职面试礼仪规范")
+                .with_origin("通用")
+                .with_tags(vec!["社交".into(), "面试".into(), "求职".into()]),
         }
     }
 
@@ -111,11 +108,31 @@ impl Rule for InterviewEtiquette {
             面试中礼仪:\n{}\n\n\
             面试后礼仪:\n{}\n\n\
             常见错误:\n{}\n",
-            self.preparation().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.dress_code().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.during_interview().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.after_interview().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n"),
-            self.common_mistakes().iter().map(|s| format!("  • {}", s)).collect::<Vec<_>>().join("\n")
+            self.preparation()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.dress_code()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.during_interview()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.after_interview()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.common_mistakes()
+                .iter()
+                .map(|s| format!("  • {}", s))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

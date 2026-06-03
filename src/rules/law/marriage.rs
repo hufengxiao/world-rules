@@ -10,12 +10,9 @@ pub struct MarriageLawRules {
 impl MarriageLawRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "婚姻法规则",
-                "中国婚姻法基本规则"
-            )
-            .with_origin("中国")
-            .with_tags(vec!["法律".into(), "婚姻".into()]),
+            metadata: RuleMetadata::new("婚姻法规则", "中国婚姻法基本规则")
+                .with_origin("中国")
+                .with_tags(vec!["法律".into(), "婚姻".into()]),
         }
     }
 
@@ -59,12 +56,7 @@ impl MarriageLawRules {
 
     /// 离婚条件(诉讼)
     pub fn divorce_conditions(&self) -> Vec<&'static str> {
-        vec![
-            "感情确已破裂",
-            "分居满两年",
-            "一方有重大过错",
-            "调解无效",
-        ]
+        vec!["感情确已破裂", "分居满两年", "一方有重大过错", "调解无效"]
     }
 
     /// 子女抚养
@@ -114,10 +106,26 @@ impl Rule for MarriageLawRules {
             夫妻财产:\n{}\n\n\
             离婚方式:\n{}\n\n\
             子女抚养:\n{}\n",
-            self.marriage_conditions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.property_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.divorce_methods().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.child_custody().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.marriage_conditions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.property_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.divorce_methods()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.child_custody()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

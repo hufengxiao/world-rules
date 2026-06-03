@@ -10,12 +10,9 @@ pub struct WheelchairTennisRules {
 impl WheelchairTennisRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "轮椅网球规则",
-                "轮椅网球比赛基本规则"
-            )
-            .with_origin("美国")
-            .with_tags(vec!["体育".into(), "残奥".into()]),
+            metadata: RuleMetadata::new("轮椅网球规则", "轮椅网球比赛基本规则")
+                .with_origin("美国")
+                .with_tags(vec!["体育".into(), "残奥".into()]),
         }
     }
 
@@ -76,13 +73,7 @@ impl WheelchairTennisRules {
 
     /// 犯规规则
     pub fn fouls(&self) -> Vec<&'static str> {
-        vec![
-            "超过两跳",
-            "轮椅违规",
-            "触碰网",
-            "不当行为",
-            "危险动作",
-        ]
+        vec!["超过两跳", "轮椅违规", "触碰网", "不当行为", "危险动作"]
     }
 
     /// 安全规则
@@ -98,13 +89,7 @@ impl WheelchairTennisRules {
 
     /// 装备要求
     pub fn equipment(&self) -> Vec<&'static str> {
-        vec![
-            "轮椅",
-            "网球拍",
-            "网球",
-            "服装",
-            "号码标识",
-        ]
+        vec!["轮椅", "网球拍", "网球", "服装", "号码标识"]
     }
 }
 
@@ -134,10 +119,26 @@ impl Rule for WheelchairTennisRules {
             比赛规则:\n{}\n\n\
             犯规规则:\n{}\n\n\
             安全规则:\n{}\n",
-            self.classification().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.competition_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.fouls().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.classification()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.competition_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.fouls()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }

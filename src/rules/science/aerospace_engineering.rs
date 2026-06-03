@@ -10,12 +10,9 @@ pub struct AerospaceEngineeringLaws {
 impl AerospaceEngineeringLaws {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "航空航天工程定律",
-                "航空航天工程基本定律"
-            )
-            .with_origin("工程")
-            .with_tags(vec!["科学".into(), "工程".into(), "航空".into()]),
+            metadata: RuleMetadata::new("航空航天工程定律", "航空航天工程基本定律")
+                .with_origin("工程")
+                .with_tags(vec!["科学".into(), "工程".into(), "航空".into()]),
         }
     }
 

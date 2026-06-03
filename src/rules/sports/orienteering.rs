@@ -10,12 +10,9 @@ pub struct OrienteeringRules {
 impl OrienteeringRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "定向越野规则",
-                "定向越野比赛基本规则"
-            )
-            .with_origin("瑞典")
-            .with_tags(vec!["体育".into(), "越野".into()]),
+            metadata: RuleMetadata::new("定向越野规则", "定向越野比赛基本规则")
+                .with_origin("瑞典")
+                .with_tags(vec!["体育".into(), "越野".into()]),
         }
     }
 
@@ -134,10 +131,26 @@ impl Rule for OrienteeringRules {
             地图使用:\n{}\n\n\
             禁止行为:\n{}\n\n\
             安全规则:\n{}\n",
-            self.checkpoint_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.map_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.prohibited_actions().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n"),
-            self.safety_rules().iter().map(|r| format!("  • {}", r)).collect::<Vec<_>>().join("\n")
+            self.checkpoint_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.map_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.prohibited_actions()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n"),
+            self.safety_rules()
+                .iter()
+                .map(|r| format!("  • {}", r))
+                .collect::<Vec<_>>()
+                .join("\n")
         )
     }
 }
