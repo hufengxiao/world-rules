@@ -10,8 +10,8 @@ fn parse_blackjack_cards(s: &str) -> Result<Vec<Card>, String> {
         if part.len() < 2 {
             return Err(format!("无法解析: {}", part));
         }
-        let (rank_str, suit_char) = if part.starts_with("10") {
-            ("10", &part[2..])
+        let (rank_str, suit_char) = if let Some(rest) = part.strip_prefix("10") {
+            ("10", rest)
         } else {
             (&part[..part.len() - 1], &part[part.len() - 1..])
         };
@@ -77,7 +77,7 @@ impl BlackjackRules {
                     value += 10;
                 }
                 _ => {
-                    value += card.rank.value() as u8;
+                    value += card.rank.value();
                 }
             }
         }

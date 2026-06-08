@@ -131,7 +131,7 @@ impl Hand {
     /// 检查是否听牌
     pub fn is_ready(&self) -> bool {
         // 简化实现：检查是否差一张牌胡
-        self.find_waiting_tiles().len() > 0
+        !self.find_waiting_tiles().is_empty()
     }
 
     /// 找出听哪些牌

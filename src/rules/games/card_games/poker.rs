@@ -22,8 +22,8 @@ fn parse_single_card(s: &str) -> Result<Card, String> {
     if s.len() < 2 {
         return Err(format!("无法解析: {}", s));
     }
-    let (rank_str, suit_char) = if s.starts_with("10") {
-        ("10", &s[2..])
+    let (rank_str, suit_char) = if let Some(rest) = s.strip_prefix("10") {
+        ("10", rest)
     } else {
         (&s[..s.len() - 1], &s[s.len() - 1..])
     };
@@ -281,7 +281,7 @@ impl TexasHoldemRules {
 
             if suit_cards.len() >= 5 {
                 let mut sorted = suit_cards;
-                sorted.sort_by(|a, b| b.value().cmp(&a.value()));
+                sorted.sort_by_key(|c| std::cmp::Reverse(c.value()));
                 sorted.truncate(5);
                 let tiebreaker: Vec<u8> = sorted.iter().map(|c| c.value()).collect();
 
@@ -357,7 +357,7 @@ impl TexasHoldemRules {
                 let kickers: Vec<Card> = cards.iter().filter(|c| c.rank != rank).cloned().collect();
 
                 let mut sorted_kickers = kickers;
-                sorted_kickers.sort_by(|a, b| b.value().cmp(&a.value()));
+                sorted_kickers.sort_by_key(|c| std::cmp::Reverse(c.value()));
                 sorted_kickers.truncate(2);
 
                 return Some(HandEvaluation {
@@ -381,7 +381,7 @@ impl TexasHoldemRules {
 
         if pairs.len() >= 2 {
             let mut sorted_pairs = pairs;
-            sorted_pairs.sort_by(|a, b| b.value().cmp(&a.value()));
+            sorted_pairs.sort_by_key(|c| std::cmp::Reverse(c.value()));
 
             let pair1_cards: Vec<Card> = cards
                 .iter()
@@ -426,7 +426,7 @@ impl TexasHoldemRules {
                 let kickers: Vec<Card> = cards.iter().filter(|c| c.rank != rank).cloned().collect();
 
                 let mut sorted_kickers = kickers;
-                sorted_kickers.sort_by(|a, b| b.value().cmp(&a.value()));
+                sorted_kickers.sort_by_key(|c| std::cmp::Reverse(c.value()));
                 sorted_kickers.truncate(3);
 
                 return Some(HandEvaluation {
@@ -441,7 +441,7 @@ impl TexasHoldemRules {
 
     fn check_high_card(cards: &[Card]) -> HandEvaluation {
         let mut sorted: Vec<Card> = cards.to_vec();
-        sorted.sort_by(|a, b| b.value().cmp(&a.value()));
+        sorted.sort_by_key(|c| std::cmp::Reverse(c.value()));
         sorted.truncate(5);
 
         HandEvaluation {
@@ -503,8 +503,7 @@ impl Rule for TexasHoldemRules {
     }
 
     fn explain(&self) -> String {
-        format!(
-            "【德州扑克规则】\n\n\
+        "【德州扑克规则】\n\n\
             每位玩家获得2张底牌，共5张公共牌。\n\
             最佳5张牌组合决定胜负。\n\n\
             牌型等级 (从高到低):\n\
@@ -522,8 +521,7 @@ impl Rule for TexasHoldemRules {
             - 翻牌前 (Preflop): 发底牌\n\
             - 翻牌 (Flop): 3张公共牌\n\
             - 转牌 (Turn): 第4张公共牌\n\
-            - 河牌 (River): 第5张公共牌"
-        )
+            - 河牌 (River): 第5张公共牌".to_string()
     }
 }
 

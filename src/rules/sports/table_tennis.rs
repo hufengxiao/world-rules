@@ -99,7 +99,7 @@ impl Rule for TableTennisRules {
             self.game_win_score(),
             self.lead_requirement(),
             self.match_games(),
-            (self.match_games() + 1) / 2,
+            self.match_games().div_ceil(2),
             self.serve_change_interval(),
             self.table_dimensions().0,
             self.table_dimensions().1,

@@ -20,7 +20,7 @@ fn parse_sudoku_grid(s: &str) -> Option<[[Option<u8>; 9]; 9]> {
         if ch == '.' || ch == '0' {
             grid[row][col] = None;
         } else if let Some(d) = ch.to_digit(10) {
-            if d >= 1 && d <= 9 {
+            if (1..=9).contains(&d) {
                 grid[row][col] = Some(d as u8);
             } else {
                 return None;
@@ -135,8 +135,7 @@ impl SudokuRules {
         }
 
         // 检查列
-        for col in 0..9 {
-            let column: Vec<Option<u8>> = (0..9).map(|r| grid[r][col]).collect();
+        for column in (0..9).map(|col| (0..9).map(|r| grid[r][col]).collect::<Vec<_>>()) {
             if !self.is_valid_line(&column) {
                 return false;
             }

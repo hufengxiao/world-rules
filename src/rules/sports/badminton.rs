@@ -112,7 +112,7 @@ impl Rule for BadmintonRules {
             基本规则:\n{}\n",
             self.game_win_score(),
             self.match_games(),
-            (self.match_games() + 1) / 2,
+            self.match_games().div_ceil(2),
             self.court_dimensions(false).0,
             self.court_dimensions(false).1,
             self.court_dimensions(true).0,

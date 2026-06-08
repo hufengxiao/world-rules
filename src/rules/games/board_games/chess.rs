@@ -213,13 +213,11 @@ impl Rule for ChessRules {
                 .map(|r| format!("  • {}", r))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            vec![
-                ChessPieceType::Queen,
+            [ChessPieceType::Queen,
                 ChessPieceType::Rook,
                 ChessPieceType::Bishop,
                 ChessPieceType::Knight,
-                ChessPieceType::Pawn,
-            ]
+                ChessPieceType::Pawn]
             .iter()
             .map(|p| format!("  • {}: {}", p.name(), p.value()))
             .collect::<Vec<_>>()

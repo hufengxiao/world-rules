@@ -160,14 +160,12 @@ impl ChineseChessRules {
                         // 未过河只能前进
                         to_y == y.saturating_sub(1) && x == to_x
                     }
+                } else if y <= 4 {
+                    // 已过河
+                    (to_y == y.saturating_add(1) && x == to_x) || (y == to_y && dx == 1)
                 } else {
-                    if y <= 4 {
-                        // 已过河
-                        (to_y == y.saturating_add(1) && x == to_x) || (y == to_y && dx == 1)
-                    } else {
-                        // 未过河只能前进
-                        to_y == y.saturating_add(1) && x == to_x
-                    }
+                    // 未过河只能前进
+                    to_y == y.saturating_add(1) && x == to_x
                 }
             }
         }

@@ -2,6 +2,9 @@
 
 use std::collections::HashMap;
 
+/// 三元组规则条目 (名称, 公式/分类, 描述)
+pub type TitledItem = (&'static str, &'static str, &'static str);
+
 /// 规则分类
 #[derive(Debug, Clone, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 pub enum RuleCategory {
@@ -176,8 +179,8 @@ impl RuleSet {
         self.rules.insert(name, Box::new(rule));
     }
 
-    pub fn get_rule(&self, name: &str) -> Option<&Box<dyn Rule>> {
-        self.rules.get(name)
+    pub fn get_rule(&self, name: &str) -> Option<&dyn Rule> {
+        self.rules.get(name).map(|b| b.as_ref())
     }
 
     pub fn list_rules(&self) -> Vec<&str> {
@@ -260,7 +263,7 @@ impl RuleSet {
     /// 统计各分类的规则数量
     pub fn count_by_category(&self) -> std::collections::HashMap<String, usize> {
         let mut counts = std::collections::HashMap::new();
-        for (_, rule) in &self.rules {
+        for rule in self.rules.values() {
             let key = format!("{}", rule.category());
             *counts.entry(key).or_insert(0) += 1;
         }
@@ -294,7 +297,7 @@ pub fn format_rule_sections(title: &str, sections: &[(&str, &Vec<&'static str>)]
 /// 用于科学定律等 (名称, 公式/分类, 描述) 结构
 pub fn format_titled_sections(
     title: &str,
-    sections: &[(&str, &Vec<(&'static str, &'static str, &'static str)>)],
+    sections: &[(&str, &Vec<TitledItem>)],
 ) -> String {
     let mut result = format!("【{}】", title);
     for (section_name, items) in sections {

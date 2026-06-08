@@ -137,7 +137,7 @@ impl Rule for VolleyballRules {
             self.set_win_score(),
             self.final_set_score(),
             self.match_sets(),
-            (self.match_sets() + 1) / 2,
+            self.match_sets().div_ceil(2),
             self.lead_requirement(),
             self.positions()
                 .iter()
