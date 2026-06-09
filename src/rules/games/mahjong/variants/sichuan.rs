@@ -12,7 +12,7 @@ pub struct SichuanDetailedMahjongRules {
 impl SichuanDetailedMahjongRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("四川麻将规则", "四川血战到底详细规则")
+            metadata: RuleMetadata::new("四川麻将详细规则", "四川血战到底详细规则")
                 .with_origin("四川")
                 .with_tags(vec!["游戏".into(), "麻将".into(), "四川".into()]),
         }

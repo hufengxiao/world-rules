@@ -1,6 +1,6 @@
 [package]
 name = "world_rules"
-version = "0.6.2"
+version = "0.6.3"
 edition = "2021"
 description = "世界规则库 - 收集各种游戏、体育、社交、科学、法律规则"
 license = "MIT"

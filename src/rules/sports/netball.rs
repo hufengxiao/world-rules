@@ -10,7 +10,7 @@ pub struct NetballRules {
 impl NetballRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("网球规则", "女子网球比赛规则")
+            metadata: RuleMetadata::new("网篮球规则", "女子网篮球比赛规则")
                 .with_origin("英国")
                 .with_tags(vec!["体育".into(), "团队".into()]),
         }

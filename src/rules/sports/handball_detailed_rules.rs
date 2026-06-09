@@ -4,7 +4,7 @@ use crate::simple_rule;
 
 simple_rule! {
     struct: HandballDetailedRulesRules,
-    name: "手球详细规则",
+    name: "手球比赛规则",
     desc: "手球详细比赛规则",
     origin: "IHF",
     tags: ["体育", "球类"],

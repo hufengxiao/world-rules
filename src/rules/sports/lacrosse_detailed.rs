@@ -4,7 +4,7 @@ use crate::simple_rule;
 
 simple_rule! {
     struct: LacrosseDetailedRules,
-    name: "长曲棍球规则",
+    name: "长曲棍球详细规则",
     desc: "长曲棍球详细规则",
     origin: "FIL",
     tags: ["体育", "球类"],

@@ -256,15 +256,11 @@ pub fn all_rules() -> Vec<(
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
-        let r = MahjongRules::new(crate::rules::games::mahjong::MahjongVariant::Sichuan);
+        let r = MonopolyRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
         let r = MilitaryChessRules::new();
-        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
-    }
-    {
-        let r = MonopolyRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
