@@ -297,10 +297,7 @@ pub fn format_rule_sections(title: &str, sections: &[(&str, &Vec<&'static str>)]
 /// 格式化三元组规则说明
 ///
 /// 用于科学定律等 (名称, 公式/分类, 描述) 结构
-pub fn format_titled_sections(
-    title: &str,
-    sections: &[(&str, &Vec<TitledItem>)],
-) -> String {
+pub fn format_titled_sections(title: &str, sections: &[(&str, &Vec<TitledItem>)]) -> String {
     let mut result = format!("【{}】", title);
     for (section_name, items) in sections {
         result.push_str(&format!("\n\n{}:\n", section_name));

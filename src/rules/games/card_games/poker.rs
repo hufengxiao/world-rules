@@ -521,7 +521,8 @@ impl Rule for TexasHoldemRules {
             - 翻牌前 (Preflop): 发底牌\n\
             - 翻牌 (Flop): 3张公共牌\n\
             - 转牌 (Turn): 第4张公共牌\n\
-            - 河牌 (River): 第5张公共牌".to_string()
+            - 河牌 (River): 第5张公共牌"
+            .to_string()
     }
 }
 

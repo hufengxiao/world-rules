@@ -74,44 +74,158 @@ pub use train::TrainEtiquette;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
 pub use workplace::WorkplaceRules;
 
-pub fn all_rules() -> Vec<(&'static str, crate::rules::core::RuleMetadata, crate::rules::core::RuleCategory)> {
+pub fn all_rules() -> Vec<(
+    &'static str,
+    crate::rules::core::RuleMetadata,
+    crate::rules::core::RuleCategory,
+    String,
+)> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
-    { let r = AirplaneEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = BarRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = BusinessEtiquette::new("中国"); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = CafeRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = CinemaEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = DatingEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = DiningEtiquette::new(crate::rules::social::dining::DiningCulture::Chinese); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = ElevatorDetailedRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = ElevatorEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = EmailEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = FestivalEtiquette::new(crate::rules::social::festival::ChineseFestival::SpringFestival); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = FlightEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = FuneralEtiquette::new(crate::rules::social::funeral::FuneralCulture::Chinese); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = GiftEtiquette::new("中国"); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = GolfEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = GreetingEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = HospitalEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = InterviewEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = LibraryEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = LiveStreamingRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = MahjongEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = NeighborRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = OnlineRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = PartyRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = PetEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = PhoneEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = QueueRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = SeatingEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = ShoppingEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = SmokingRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = SocialMediaEtiquetteRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = TeaEtiquette::new(crate::rules::social::tea::TeaCulture::Chinese); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = ToastingEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = TrainEtiquette::new(); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = WeddingEtiquette::new(crate::rules::social::wedding::WeddingCulture::Chinese); rules.push(("social", r.metadata().clone(), r.category())); }
-    { let r = WorkplaceRules::new(); rules.push(("social", r.metadata().clone(), r.category())); }
+    {
+        let r = AirplaneEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BarRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BusinessEtiquette::new("中国");
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CafeRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CinemaEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DatingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiningEtiquette::new(crate::rules::social::dining::DiningCulture::Chinese);
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElevatorDetailedRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElevatorEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EmailEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r =
+            FestivalEtiquette::new(crate::rules::social::festival::ChineseFestival::SpringFestival);
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FlightEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FuneralEtiquette::new(crate::rules::social::funeral::FuneralCulture::Chinese);
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GiftEtiquette::new("中国");
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GolfEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GreetingEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HospitalEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = InterviewEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LibraryEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LiveStreamingRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MahjongEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NeighborRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OnlineRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PartyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PetEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PhoneEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = QueueRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SeatingEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShoppingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SmokingRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SocialMediaEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TeaEtiquette::new(crate::rules::social::tea::TeaCulture::Chinese);
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ToastingEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TrainEtiquette::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WeddingEtiquette::new(crate::rules::social::wedding::WeddingCulture::Chinese);
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorkplaceRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     rules
 }

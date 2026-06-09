@@ -26,20 +26,61 @@ pub use oral_health::OralHealthRules;
 pub use skin_health::SkinHealthRules;
 pub use sleep::SleepRules;
 
-pub fn all_rules() -> Vec<(&'static str, crate::rules::core::RuleMetadata, crate::rules::core::RuleCategory)> {
+pub fn all_rules() -> Vec<(
+    &'static str,
+    crate::rules::core::RuleMetadata,
+    crate::rules::core::RuleCategory,
+    String,
+)> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
-    { let r = ChildrenHealthRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = ChronicDiseaseRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = ElderlyHealthRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = ExerciseRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = EyeHealthRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = MentalHealthRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = MentalWellnessRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = NutritionRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = OccupationalHealthRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = OralHealthRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = SkinHealthRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
-    { let r = SleepRules::new(); rules.push(("health", r.metadata().clone(), r.category())); }
+    {
+        let r = ChildrenHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChronicDiseaseRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElderlyHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ExerciseRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EyeHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MentalHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MentalWellnessRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NutritionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OccupationalHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OralHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkinHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SleepRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     rules
 }

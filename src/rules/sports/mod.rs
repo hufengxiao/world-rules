@@ -450,232 +450,910 @@ pub use wrestling::WrestlingRules;
 pub use wushu::WushuRules;
 pub use yoga_competition::YogaCompetitionRules;
 
-pub fn all_rules() -> Vec<(&'static str, crate::rules::core::RuleMetadata, crate::rules::core::RuleCategory)> {
+pub fn all_rules() -> Vec<(
+    &'static str,
+    crate::rules::core::RuleMetadata,
+    crate::rules::core::RuleCategory,
+    String,
+)> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
-    { let r = AikidoRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = AirHockeyRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = AirshipRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = AlpineSkiingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = AmericanFootballDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ArcheryDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ArcheryRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = AthleticsDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = AthleticsRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = AustralianFootballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BadmintonDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BadmintonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BallroomDancingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BaseJumpingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BaseballDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BaseballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = Basketball3x3DetailRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BasketballDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BasketballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BeachHandballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BeachSoccerRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BeachVolleyballDetailRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BeachVolleyballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BiathlonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BilliardsDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BilliardsRules::new(crate::rules::sports::billiards::BilliardsType::ChineseEightBall); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BjjRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BlindFootballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BmxRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BobsleighRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BocceRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BodybuildingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BodybuildingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BowlingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BowlingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BoxingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BoxingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BreakdancingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = BungeeJumpingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CanoePoloRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CapoeiraRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ClimbingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CornholeRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CricketDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CricketRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CrossCountrySkiingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CurlingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CurlingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = CyclingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DartsDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DartsRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DecathlonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DiscGolfDetailRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DiscGolfDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DiscGolfRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DiscusRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DivingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DivingSportRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DragRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DragonBoatRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = DroneRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = EquestrianRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = EsportsDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = EsportsRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = F1Rules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FencingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FencingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FieldArcheryRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FigureSkatingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FigureSkatingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FitnessCompetitionRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FiveAsideFootballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FloorballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FoosballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FootballDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FootballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FreeDivingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = FreestyleSkiingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = GaelicFootballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = GateballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = GolfDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = GolfRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = GymnasticsDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = GymnasticsRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HammerThrowRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HandballDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HandballDetailedRulesRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HandballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HapkidoRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HeptathlonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HighJumpRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HockeyRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HorseshoesRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HotAirBalloonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HurdlesRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = HurlingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IaidoRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IceClimbingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IceDancingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IceHockeyDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IceHockeyRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IceSailingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IndoorArcheryRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = IndoorSoccerRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = JavelinRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = JetSkiRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = JiuJitsuRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = JudoDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = JudoRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KabaddiRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KalaripayattuRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KarateDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KarateRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KayakingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KendoRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KickboxingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KitesurfingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = KravMagaRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = LacrosseDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = LacrosseRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = LatinDanceRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = LethweiRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = LongJumpRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = LugeRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = MarathonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ModelAirplaneRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ModernPentathlonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = MotoGPRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = MotogpDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = MotorboatRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = MountedArcheryRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = MuayThaiRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = MudRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = NASCARRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = NetballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = NineBallDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = NordicCombinedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = OrienteeringDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = OrienteeringRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = PaddleboardingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = PairSkatingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ParaglidingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ParkourRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = PetanqueRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = PoleVaultRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = PoloRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = PowerliftingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = PowerliftingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RaceWalkingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RallyRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RelayRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RhythmicGymnasticsRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RollerSkatingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RowingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RugbyDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RugbyRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = RugbySevensRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SailingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SamboRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SandMotorcycleRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SandVolleyballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SandaRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SavateRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SepakTakrawRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SevenAsideFootballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ShaolinKungFuRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ShootingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ShootingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ShortTrackRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ShotPutRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SilatRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SittingVolleyballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SkateboardingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SkeletonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SkiJumpingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SkiingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SkydivingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SlalomKayakingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SnookerDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SnowboardingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SoftballDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SoftballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SpeedSkatingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SpeedSkatingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SquashRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SteeplechaseRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SumoRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SurfingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SwimmingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SwimmingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = SynchronizedSwimmingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TableTennisDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TableTennisRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TaekwondoDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TaekwondoRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TaiChiPushHandsRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TaiwaneseSlingshotRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TennisDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TennisRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ThaiBoxingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = ThreeXThreeBasketballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TrampolineRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TriathlonDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TriathlonRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = TripleJumpRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = UltimateFrisbeeRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = VolleyballDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = VolleyballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WakeboardingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WaterPoloDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WaterPoloRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WaterSkiingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WaterSkiingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WaterSlideRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WeightliftingDetailedRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WeightliftingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WheelchairBasketballRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WheelchairRacingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WheelchairTennisRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WhiteWaterRaftingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WindsurfingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WrestlingRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = WushuRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
-    { let r = YogaCompetitionRules::new(); rules.push(("sports", r.metadata().clone(), r.category())); }
+    {
+        let r = AikidoRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AirHockeyRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AirshipRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AlpineSkiingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AmericanFootballDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ArcheryDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ArcheryRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AthleticsDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AthleticsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AustralianFootballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BadmintonDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BadmintonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BallroomDancingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BaseJumpingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BaseballDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BaseballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = Basketball3x3DetailRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BeachHandballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BeachSoccerRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BeachVolleyballDetailRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BeachVolleyballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BiathlonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BilliardsDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r =
+            BilliardsRules::new(crate::rules::sports::billiards::BilliardsType::ChineseEightBall);
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BjjRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BlindFootballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BmxRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BobsleighRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BocceRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BodybuildingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BodybuildingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BowlingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BowlingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BoxingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BoxingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BreakdancingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BungeeJumpingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CanoePoloRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CapoeiraRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ClimbingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CornholeRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CricketDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CricketRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CrossCountrySkiingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CurlingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CurlingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CyclingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DartsDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DartsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DecathlonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiscGolfDetailRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiscGolfDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiscGolfRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiscusRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DivingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DivingSportRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DragRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DragonBoatRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DroneRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EquestrianRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EsportsDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EsportsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = F1Rules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FencingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FencingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FieldArcheryRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FigureSkatingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FigureSkatingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FitnessCompetitionRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FiveAsideFootballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FloorballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FoosballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FootballDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FootballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FreeDivingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FreestyleSkiingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GaelicFootballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GateballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GolfDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GolfRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GymnasticsDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GymnasticsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HammerThrowRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HandballDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HandballDetailedRulesRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HandballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HapkidoRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HeptathlonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HighJumpRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HockeyRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HorseshoesRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HotAirBalloonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HurdlesRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HurlingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IaidoRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IceClimbingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IceDancingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IceHockeyDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IceHockeyRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IceSailingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IndoorArcheryRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IndoorSoccerRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JavelinRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JetSkiRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JiuJitsuRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JudoDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JudoRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KabaddiRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KalaripayattuRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KarateDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KarateRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KayakingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KendoRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KickboxingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KitesurfingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KravMagaRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LacrosseDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LacrosseRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LatinDanceRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LethweiRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LongJumpRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LugeRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MarathonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ModelAirplaneRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ModernPentathlonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MotoGPRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MotogpDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MotorboatRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MountedArcheryRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MuayThaiRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MudRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NASCARRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NetballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NineBallDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NordicCombinedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OrienteeringDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OrienteeringRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PaddleboardingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PairSkatingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ParaglidingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ParkourRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PetanqueRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PoleVaultRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PoloRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PowerliftingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PowerliftingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RaceWalkingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RallyRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RelayRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RhythmicGymnasticsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RollerSkatingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RowingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RugbyDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RugbyRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RugbySevensRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SailingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SamboRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SandMotorcycleRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SandVolleyballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SandaRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SavateRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SepakTakrawRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SevenAsideFootballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShaolinKungFuRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShootingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShootingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShortTrackRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShotPutRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SilatRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SittingVolleyballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkateboardingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkeletonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkiJumpingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkiingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkydivingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SlalomKayakingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SnookerDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SnowboardingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SoftballDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SoftballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SpeedSkatingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SpeedSkatingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SquashRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SteeplechaseRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SumoRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SurfingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SynchronizedSwimmingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TableTennisDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TableTennisRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TaekwondoDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TaekwondoRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TaiChiPushHandsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TaiwaneseSlingshotRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TennisDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TennisRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ThaiBoxingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ThreeXThreeBasketballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TrampolineRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TriathlonDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TriathlonRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TripleJumpRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = UltimateFrisbeeRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VolleyballDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VolleyballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WakeboardingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterPoloDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterPoloRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterSkiingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterSkiingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterSlideRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WeightliftingDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WeightliftingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WheelchairBasketballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WheelchairRacingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WheelchairTennisRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WhiteWaterRaftingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WindsurfingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WrestlingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WushuRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = YogaCompetitionRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     rules
 }

@@ -21,11 +21,11 @@ fn main() {
 
     match args[1].as_str() {
         "list" => cmd_list(&args[2..]),
-        "show" => cmd_show(&args[2..]),
+        "show" | "explain" | "info" => cmd_show(&args[2..]),
         "stats" => cmd_stats(),
         "validate" | "val" => cmd_validate(&args[2..]),
         "help" | "--help" | "-h" => print_usage(),
-        "version" | "--version" | "-V" => println!("wr 0.6.0"),
+        "version" | "--version" | "-V" => println!("wr {}", env!("CARGO_PKG_VERSION")),
         other => {
             eprintln!("未知命令: {}", other);
             print_usage();
@@ -35,10 +35,10 @@ fn main() {
 
 fn print_usage() {
     println!(
-        r#"世界规则库 (wr) v0.5.0
+        r#"世界规则库 (wr) v{ver}
 
 用法:
-  wr list [--category <分类>] [--search <关键词>]
+  wr list [--category <分类>] [--search <关键词>] [--tag <标签>]
   wr show <规则名称>
   wr stats
   wr validate mahjong <牌面>
@@ -48,13 +48,16 @@ fn print_usage() {
   wr list                        列出所有规则
   wr list --category sports      列出体育规则
   wr list --search 麻将          搜索包含"麻将"的规则
-  wr show 四川麻将               显示四川麻将详情
+  wr list --tag 扑克             按标签过滤
+  wr show 围棋                   显示围棋规则详解
+  wr explain 德州扑克             同 show，显示规则详解
   wr stats                       显示统计信息
   wr validate mahjong "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条"
   wr validate poker "Ah Kd Qs Jc 10h 9d 8s"
 
 麻将牌面格式: 1万 2万 3万 ... 东 南 西 北 中 发 白
-扑克牌面格式: Ah Kd Qs Jc 10h (花色: h红心 d方块 s黑桃 c梅花)"#
+扑克牌面格式: Ah Kd Qs Jc 10h (花色: h红心 d方块 s黑桃 c梅花)"#,
+        ver = env!("CARGO_PKG_VERSION"),
     );
 }
 
@@ -67,7 +70,7 @@ fn parse_flag(args: &[String], flag: &str) -> Option<String> {
     None
 }
 
-fn collect_all_rules() -> Vec<(&'static str, RuleMetadata, RuleCategory)> {
+fn collect_all_rules() -> Vec<(&'static str, RuleMetadata, RuleCategory, String)> {
     let mut rules = Vec::new();
     rules.extend(world_rules::rules::games::all_rules());
     rules.extend(world_rules::rules::sports::all_rules());
@@ -93,22 +96,30 @@ fn cat_name(cat: &str) -> &'static str {
 fn cmd_list(args: &[String]) {
     let category = parse_flag(args, "--category");
     let search = parse_flag(args, "--search");
+    let tag = parse_flag(args, "--tag");
 
     let all = collect_all_rules();
     let mut filtered: Vec<_> = all
         .iter()
-        .filter(|(cat, _, _)| {
+        .filter(|(cat, _, _, _)| {
             if let Some(ref c) = category {
                 cat.contains(&c.to_lowercase())
             } else {
                 true
             }
         })
-        .filter(|(_, meta, _)| {
+        .filter(|(_, meta, _, _)| {
             if let Some(ref q) = search {
                 let q_lower = q.to_lowercase();
                 meta.name.to_lowercase().contains(&q_lower)
                     || meta.description.to_lowercase().contains(&q_lower)
+            } else {
+                true
+            }
+        })
+        .filter(|(_, meta, _, _)| {
+            if let Some(ref t) = tag {
+                meta.tags.iter().any(|tg| tg.contains(t.as_str()))
             } else {
                 true
             }
@@ -118,7 +129,7 @@ fn cmd_list(args: &[String]) {
     filtered.sort_by(|a, b| a.0.cmp(b.0).then_with(|| a.1.name.cmp(&b.1.name)));
 
     let mut current_cat = "";
-    for (cat, meta, _) in &filtered {
+    for (cat, meta, _, _) in &filtered {
         if *cat != current_cat {
             current_cat = cat;
             println!("\n=== {} ===", cat_name(cat));
@@ -148,13 +159,37 @@ fn cmd_show(args: &[String]) {
     let all = collect_all_rules();
     let name_lower = name.to_lowercase();
 
-    let matches: Vec<_> = all
+    // 1. 精确匹配 name（忽略后缀"规则"）
+    let strip = |s: &str| -> String { s.strip_suffix("规则").unwrap_or(s).to_string() };
+    let exact: Vec<_> = all
         .iter()
-        .filter(|(_, meta, _)| {
-            meta.name.to_lowercase().contains(&name_lower)
-                || meta.description.to_lowercase().contains(&name_lower)
-        })
+        .filter(|(_, meta, _, _)| strip(&meta.name) == *name || meta.name == *name)
         .collect();
+
+    // 2. 前缀匹配
+    let prefix: Vec<_> = if exact.is_empty() {
+        all.iter()
+            .filter(|(_, meta, _, _)| {
+                strip(&meta.name).starts_with(&name_lower) || meta.name.starts_with(name)
+            })
+            .collect()
+    } else {
+        vec![]
+    };
+
+    // 3. 模糊匹配（fallback）
+    let matches = if !exact.is_empty() {
+        exact
+    } else if !prefix.is_empty() {
+        prefix
+    } else {
+        all.iter()
+            .filter(|(_, meta, _, _)| {
+                meta.name.to_lowercase().contains(&name_lower)
+                    || meta.description.to_lowercase().contains(&name_lower)
+            })
+            .collect()
+    };
 
     if matches.is_empty() {
         eprintln!("未找到匹配 '{}' 的规则", name);
@@ -164,34 +199,50 @@ fn cmd_show(args: &[String]) {
 
     if matches.len() > 1 {
         println!("找到 {} 条匹配规则:\n", matches.len());
-        for (_, meta, cat) in &matches {
-            println!("  • {} ({})", meta.name, cat);
+        for (_, meta, cat, _) in &matches {
+            let origin = meta.origin.as_deref().unwrap_or("");
+            let origin_str = if origin.is_empty() {
+                String::new()
+            } else {
+                format!(" · {}", origin)
+            };
+            println!("  • {} ({}){}", meta.name, cat, origin_str);
         }
-        println!("\n请使用更精确的名称。");
+        println!(
+            "\n提示: 使用更精确的名称，或 'wr list --search {}' 查看更多。",
+            name
+        );
         return;
     }
 
-    let (_, meta, cat) = matches[0];
-    println!("┌─────────────────────────────────────");
-    println!("│ 📋 {}", meta.name);
-    println!("├─────────────────────────────────────");
-    println!("│ 分类: {}", cat);
-    println!("│ 版本: {}", meta.version);
+    let (_, meta, cat, explain) = matches[0];
+    let width = 42;
+    println!("┌{}┐", "─".repeat(width));
+    println!("│ 📋 {:<width$}", meta.name, width = width - 4);
+    println!("├{}┤", "─".repeat(width));
+    println!("│ 分类: {:<width$}", cat, width = width - 6);
+    println!("│ 版本: {:<width$}", meta.version, width = width - 6);
     if let Some(origin) = &meta.origin {
-        println!("│ 来源: {}", origin);
+        println!("│ 来源: {:<width$}", origin, width = width - 6);
     }
     if !meta.tags.is_empty() {
-        println!("│ 标签: {}", meta.tags.join(", "));
+        println!(
+            "│ 标签: {:<width$}",
+            meta.tags.join(", "),
+            width = width - 6
+        );
     }
-    println!("├─────────────────────────────────────");
-    println!("│ {}", meta.description);
-    println!("└─────────────────────────────────────");
+    println!("├{}┤", "─".repeat(width));
+    for line in explain.lines() {
+        println!("│ {:<width$}", line, width = width - 2);
+    }
+    println!("└{}┘", "─".repeat(width));
 }
 
 fn cmd_stats() {
     let all = collect_all_rules();
     let mut counts: std::collections::HashMap<&str, usize> = std::collections::HashMap::new();
-    for (cat, _, _) in &all {
+    for (cat, _, _, _) in &all {
         *counts.entry(cat).or_insert(0) += 1;
     }
 
@@ -242,7 +293,7 @@ fn cmd_validate_mahjong(tiles_str: &str) {
 
     let mut hand = Hand::new();
     for tile in &tiles {
-        hand.add_tile(tile.clone());
+        hand.add_tile(*tile);
     }
 
     let hand_tiles = hand.tiles();
@@ -382,8 +433,8 @@ fn parse_single_card(s: &str) -> Result<world_rules::rules::games::card_games::C
         return Err(format!("无法解析: {}", s));
     }
 
-    let (rank_str, suit_char) = if s.starts_with("10") {
-        ("10", &s[2..])
+    let (rank_str, suit_char) = if let Some(rest) = s.strip_prefix("10") {
+        ("10", rest)
     } else {
         (&s[..s.len() - 1], &s[s.len() - 1..])
     };
