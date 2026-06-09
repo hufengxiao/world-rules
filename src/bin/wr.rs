@@ -97,6 +97,7 @@ fn cmd_list(args: &[String]) {
     let category = parse_flag(args, "--category");
     let search = parse_flag(args, "--search");
     let tag = parse_flag(args, "--tag");
+    let json = args.iter().any(|a| a == "--json");
 
     let all = collect_all_rules();
     let mut filtered: Vec<_> = all
@@ -128,6 +129,29 @@ fn cmd_list(args: &[String]) {
 
     filtered.sort_by(|a, b| a.0.cmp(b.0).then_with(|| a.1.name.cmp(&b.1.name)));
 
+    if json {
+        print!("[");
+        for (i, (cat, meta, _, explain)) in filtered.iter().enumerate() {
+            if i > 0 {
+                print!(",");
+            }
+            let origin = meta.origin.as_deref().unwrap_or("");
+            let tags_json: Vec<String> = meta.tags.iter().map(|t| format!("\"{}\"", t)).collect();
+            let explain_escaped = explain
+                .replace('\\', "\\\\")
+                .replace('"', "\\\"")
+                .replace('\n', "\\n")
+                .replace('\r', "\\r")
+                .replace('\t', "\\t");
+            print!(
+                "{{\"name\":\"{}\",\"category\":\"{}\",\"origin\":\"{}\",\"tags\":[{}],\"version\":\"{}\",\"explain\":\"{}\"}}",
+                meta.name, cat, origin, tags_json.join(","), meta.version, explain_escaped
+            );
+        }
+        println!("]");
+        return;
+    }
+
     let mut current_cat = "";
     for (cat, meta, _, _) in &filtered {
         if *cat != current_cat {
@@ -151,11 +175,13 @@ fn cmd_list(args: &[String]) {
 }
 
 fn cmd_show(args: &[String]) {
+    let json = args.iter().any(|a| a == "--json");
+    let args: Vec<&String> = args.iter().filter(|a| a.as_str() != "--json").collect();
     if args.is_empty() {
         eprintln!("用法: wr show <规则名称>");
         return;
     }
-    let name = &args[0];
+    let name = args[0];
     let all = collect_all_rules();
     let name_lower = name.to_lowercase();
 
@@ -198,24 +224,64 @@ fn cmd_show(args: &[String]) {
     }
 
     if matches.len() > 1 {
-        println!("找到 {} 条匹配规则:\n", matches.len());
-        for (_, meta, cat, _) in &matches {
-            let origin = meta.origin.as_deref().unwrap_or("");
-            let origin_str = if origin.is_empty() {
-                String::new()
-            } else {
-                format!(" · {}", origin)
-            };
-            println!("  • {} ({}){}", meta.name, cat, origin_str);
+        if json {
+            print!("[");
+            for (i, (_, meta, cat, explain)) in matches.iter().enumerate() {
+                if i > 0 {
+                    print!(",");
+                }
+                let origin = meta.origin.as_deref().unwrap_or("");
+                let tags_json: Vec<String> =
+                    meta.tags.iter().map(|t| format!("\"{}\"", t)).collect();
+                let explain_escaped = explain
+                    .replace('\\', "\\\\")
+                    .replace('"', "\\\"")
+                    .replace('\n', "\\n")
+                    .replace('\r', "\\r")
+                    .replace('\t', "\\t");
+                print!(
+                    "{{\"name\":\"{}\",\"category\":\"{}\",\"origin\":\"{}\",\"tags\":[{}],\"version\":\"{}\",\"explain\":\"{}\"}}",
+                    meta.name, cat, origin, tags_json.join(","), meta.version, explain_escaped
+                );
+            }
+            println!("]");
+        } else {
+            println!("找到 {} 条匹配规则:\n", matches.len());
+            for (_, meta, cat, _) in &matches {
+                let origin = meta.origin.as_deref().unwrap_or("");
+                let origin_str = if origin.is_empty() {
+                    String::new()
+                } else {
+                    format!(" · {}", origin)
+                };
+                println!("  • {} ({}){}", meta.name, cat, origin_str);
+            }
+            println!(
+                "\n提示: 使用更精确的名称，或 'wr list --search {}' 查看更多。",
+                name
+            );
         }
-        println!(
-            "\n提示: 使用更精确的名称，或 'wr list --search {}' 查看更多。",
-            name
-        );
         return;
     }
 
     let (_, meta, cat, explain) = matches[0];
+
+    if json {
+        let origin = meta.origin.as_deref().unwrap_or("");
+        let tags_json: Vec<String> = meta.tags.iter().map(|t| format!("\"{}\"", t)).collect();
+        let explain_escaped = explain
+            .replace('\\', "\\\\")
+            .replace('"', "\\\"")
+            .replace('\n', "\\n")
+            .replace('\r', "\\r")
+            .replace('\t', "\\t");
+        println!(
+            "{{\"name\":\"{}\",\"category\":\"{}\",\"origin\":\"{}\",\"tags\":[{}],\"version\":\"{}\",\"explain\":\"{}\"}}",
+            meta.name, cat, origin, tags_json.join(","), meta.version, explain_escaped
+        );
+        return;
+    }
+
     let width = 42;
     println!("┌{}┐", "─".repeat(width));
     println!("│ 📋 {:<width$}", meta.name, width = width - 4);
