@@ -1,6 +1,6 @@
 //! 电梯礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 电梯礼仪规则
 pub struct ElevatorEtiquette {
@@ -81,10 +81,6 @@ impl Rule for ElevatorEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("elevator")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

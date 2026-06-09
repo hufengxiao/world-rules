@@ -2,7 +2,7 @@
 //!
 //! 新疆麻将特点鲜明，规则独特
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 新疆麻将规则
 pub struct XinjiangMahjongRules {
@@ -110,10 +110,6 @@ impl Rule for XinjiangMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_xinjiang")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

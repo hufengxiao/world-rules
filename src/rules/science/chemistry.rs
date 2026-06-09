@@ -1,6 +1,6 @@
 //! 化学元素周期表
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 元素分类
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -319,10 +319,6 @@ impl Rule for ChemistryRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("chemistry")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

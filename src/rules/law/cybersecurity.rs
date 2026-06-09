@@ -1,6 +1,6 @@
 //! 网络安全法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 网络安全法规则
 pub struct CybersecurityLawRules {
@@ -142,10 +142,6 @@ impl Rule for CybersecurityLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("cybersecurity")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

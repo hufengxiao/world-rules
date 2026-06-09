@@ -1,6 +1,6 @@
 //! 电信条例基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 电信条例规则
 pub struct TelecommunicationsLawRules {
@@ -142,10 +142,6 @@ impl Rule for TelecommunicationsLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("telecommunications")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

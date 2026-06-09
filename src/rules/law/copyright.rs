@@ -1,6 +1,6 @@
 //! 著作权法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 著作权法规则
 pub struct CopyrightLawRules {
@@ -150,10 +150,6 @@ impl Rule for CopyrightLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("copyright")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

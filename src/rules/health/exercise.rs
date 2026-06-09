@@ -1,6 +1,6 @@
 //! 运动规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 运动规则
 pub struct ExerciseRules {
@@ -111,10 +111,6 @@ impl Rule for ExerciseRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::health("exercise")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

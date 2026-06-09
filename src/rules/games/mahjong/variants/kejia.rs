@@ -2,7 +2,7 @@
 //!
 //! 客家麻将是客家地区的特色玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 客家麻将规则
 pub struct KejiaMahjongRules {
@@ -101,10 +101,6 @@ impl Rule for KejiaMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_kejia")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

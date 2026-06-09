@@ -1,6 +1,5 @@
 //! 档案法基础规则
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,11 +7,12 @@ simple_rule! {
     name: "档案法规则",
     desc: "中国档案法基础知识",
     origin: "中国",
-    tags: ["法律", "档案"]
+    tags: ["法律", "档案"],
+    category: RuleCategory::law("archives"),
+    sections: [("管理原则", archives_management_principles), ("档案保管", archives_preservation), ("档案开放", archives_access)]
 }
 
 impl ArchivesLawRules {
-    /// 档案管理原则
     pub fn archives_management_principles(&self) -> Vec<&'static str> {
         vec![
             "统一管理原则",
@@ -26,21 +26,6 @@ impl ArchivesLawRules {
         ]
     }
 
-    /// 档案收集规则
-    pub fn archives_collection(&self) -> Vec<&'static str> {
-        vec![
-            "档案归档范围",
-            "档案归档要求",
-            "档案移交规则",
-            "档案接收规则",
-            "档案征集规则",
-            "档案捐赠规则",
-            "档案代管规则",
-            "档案收集监督检查",
-        ]
-    }
-
-    /// 档案保管规则
     pub fn archives_preservation(&self) -> Vec<&'static str> {
         vec![
             "档案保管条件要求",
@@ -54,7 +39,6 @@ impl ArchivesLawRules {
         ]
     }
 
-    /// 档案开放利用
     pub fn archives_access(&self) -> Vec<&'static str> {
         vec![
             "档案开放范围规定",
@@ -66,98 +50,5 @@ impl ArchivesLawRules {
             "档案利用收费管理",
             "档案利用监督检查",
         ]
-    }
-
-    /// 档案信息化管理
-    pub fn archives_digitization(&self) -> Vec<&'static str> {
-        vec![
-            "档案数字化建设规划",
-            "档案数字化技术标准",
-            "电子档案管理规范",
-            "档案信息安全管理",
-            "档案数据库建设管理",
-            "档案信息化应用推广",
-            "档案数字资源共享",
-            "档案信息化监督检查",
-        ]
-    }
-
-    /// 档案机构管理
-    pub fn archives_institutions(&self) -> Vec<&'static str> {
-        vec![
-            "档案馆建设管理",
-            "档案机构设置规定",
-            "档案人员资质要求",
-            "档案人员培训管理",
-            "档案机构职责分工",
-            "档案机构协作机制",
-            "档案机构监督检查",
-            "档案机构考核评估",
-        ]
-    }
-
-    /// 档案违法行为
-    pub fn archives_violations(&self) -> Vec<&'static str> {
-        vec![
-            "丢失档案违法行为",
-            "擅自销毁档案行为",
-            "涂改伪造档案行为",
-            "擅自提供档案行为",
-            "擅自公布档案行为",
-            "档案保管不当行为",
-            "拒不归档移交行为",
-            "妨碍档案执法行为",
-        ]
-    }
-
-    /// 档案法律责任
-    pub fn archives_legal_responsibility(&self) -> Vec<&'static str> {
-        vec![
-            "档案违法行政责任",
-            "档案违法民事责任",
-            "档案违法刑事责任",
-            "档案损害赔偿责任",
-            "档案违法处罚措施",
-            "档案违法举报处理",
-            "档案争议处理机制",
-            "档案救济途径保障",
-        ]
-    }
-}
-
-impl Rule for ArchivesLawRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-
-    fn category(&self) -> RuleCategory {
-        RuleCategory::law("archives")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
-    }
-
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "档案法规则",
-            &[
-                ("管理原则", &self.archives_management_principles()),
-                ("档案保管", &self.archives_preservation()),
-                ("档案开放", &self.archives_access()),
-            ],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_archives_law_rules() {
-        let rules = ArchivesLawRules::new();
-        assert!(!rules.archives_management_principles().is_empty());
-        assert!(!rules.archives_collection().is_empty());
     }
 }

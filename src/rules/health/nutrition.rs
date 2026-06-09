@@ -1,6 +1,6 @@
 //! 营养规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 营养规则
 pub struct NutritionRules {
@@ -104,10 +104,6 @@ impl Rule for NutritionRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::health("nutrition")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -2,7 +2,7 @@
 //!
 //! 福州麻将是福建地区的代表玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 福州麻将规则
 pub struct FuzhouMahjongRules {
@@ -112,10 +112,6 @@ impl Rule for FuzhouMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_fuzhou")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 摩托艇规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 摩托艇规则
 pub struct MotorboatRacingRules {
@@ -76,10 +76,6 @@ impl Rule for MotorboatRacingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("motorboat_racing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

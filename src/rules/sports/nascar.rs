@@ -1,6 +1,6 @@
 //! NASCAR赛车规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// NASCAR赛车规则
 pub struct NASCARRules {
@@ -95,10 +95,6 @@ impl Rule for NASCARRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("nascar")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

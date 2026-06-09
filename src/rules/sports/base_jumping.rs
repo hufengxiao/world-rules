@@ -1,6 +1,6 @@
 //! BASE跳规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// BASE跳规则
 pub struct BaseJumpingRules {
@@ -77,10 +77,6 @@ impl Rule for BaseJumpingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("base_jumping")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

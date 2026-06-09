@@ -1,6 +1,6 @@
 //! 矿产资源法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 矿产资源法规则
 pub struct MineralResourcesLawRules {
@@ -142,10 +142,6 @@ impl Rule for MineralResourcesLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("mineral_resources")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

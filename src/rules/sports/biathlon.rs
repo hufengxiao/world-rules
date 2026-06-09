@@ -1,6 +1,6 @@
 //! 冬季两项规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 冬季两项规则 (滑雪射击)
 pub struct BiathlonRules {
@@ -89,10 +89,6 @@ impl Rule for BiathlonRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("biathlon")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 反垄断法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 反垄断法规则
 pub struct AntimonopolyLawRules {
@@ -142,10 +142,6 @@ impl Rule for AntimonopolyLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("antimonopoly")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

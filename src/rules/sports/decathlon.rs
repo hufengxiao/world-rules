@@ -1,6 +1,6 @@
 //! 十项全能规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 十项全能规则
 pub struct DecathlonRules {
@@ -83,10 +83,6 @@ impl Rule for DecathlonRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("decathlon")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

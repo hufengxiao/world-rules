@@ -1,6 +1,6 @@
 //! 外商投资法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 外商投资法规则
 pub struct ForeignInvestmentLawRules {
@@ -142,10 +142,6 @@ impl Rule for ForeignInvestmentLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("foreign_investment")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

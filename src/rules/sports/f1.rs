@@ -1,6 +1,6 @@
 //! 一级方程式赛车规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 一级方程式赛车规则
 pub struct F1Rules {
@@ -113,10 +113,6 @@ impl Rule for F1Rules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("f1")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 滑翔伞规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 滑翔伞规则
 pub struct ParaglidingRules {
@@ -100,10 +100,6 @@ impl Rule for ParaglidingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("paragliding")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

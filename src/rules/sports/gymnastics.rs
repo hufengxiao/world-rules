@@ -1,6 +1,6 @@
 //! 体操规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 体操项目类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -90,10 +90,6 @@ impl Rule for GymnasticsRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("gymnastics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

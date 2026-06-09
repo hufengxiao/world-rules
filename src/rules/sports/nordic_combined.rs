@@ -1,6 +1,6 @@
 //! 北欧两项规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 北欧两项规则
 pub struct NordicCombinedRules {
@@ -118,10 +118,6 @@ impl Rule for NordicCombinedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("nordic_combined")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

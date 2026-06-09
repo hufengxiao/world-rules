@@ -1,6 +1,6 @@
 //! 白水漂流规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 白水漂流规则 (White Water Rafting)
 pub struct WhiteWaterRaftingRules {
@@ -83,10 +83,6 @@ impl Rule for WhiteWaterRaftingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("white_water_rafting")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

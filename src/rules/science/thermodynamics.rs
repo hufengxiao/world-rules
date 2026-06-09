@@ -1,6 +1,6 @@
 //! 热力学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 热力学定律集合
 pub struct ThermodynamicsLaws {
@@ -185,10 +185,6 @@ impl Rule for ThermodynamicsLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("thermodynamics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

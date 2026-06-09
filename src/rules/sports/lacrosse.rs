@@ -1,6 +1,6 @@
 //! 长曲棍球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 长曲棍球规则 (Lacrosse)
 pub struct LacrosseRules {
@@ -95,10 +95,6 @@ impl Rule for LacrosseRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("lacrosse")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

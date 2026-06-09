@@ -1,6 +1,6 @@
 //! 建设工程法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 建设工程法规则
 pub struct ConstructionLawRules {
@@ -142,10 +142,6 @@ impl Rule for ConstructionLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("construction")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

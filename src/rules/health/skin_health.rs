@@ -1,6 +1,5 @@
 //! 皮肤健康规则
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "皮肤健康规则",
     desc: "皮肤健康护理规则",
     origin: "国际",
-    tags: ["健康", "护肤"]
+    tags: ["健康", "护肤"],
+    category: RuleCategory::health("skin_health"),
+    sections: [("清洁", section_0), ("防晒", section_1)]
 }
 
 impl SkinHealthRules {
@@ -18,34 +19,5 @@ impl SkinHealthRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["日常防晒SPF30+", "补涂防晒", "物理防晒"]
-    }
-}
-
-impl Rule for SkinHealthRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::health("skin_health")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "皮肤健康规则",
-            &[("清洁", &self.section_0()), ("防晒", &self.section_1())],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_skin_health_rules() {
-        let r = SkinHealthRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

@@ -1,6 +1,6 @@
 //! 军棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 军棋棋子
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
@@ -154,10 +154,6 @@ impl Rule for MilitaryChessRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("military_chess")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

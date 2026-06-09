@@ -1,6 +1,6 @@
 //! 居合道规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 居合道规则
 pub struct IaidoRules {
@@ -94,10 +94,6 @@ impl Rule for IaidoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("iaido")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

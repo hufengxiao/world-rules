@@ -2,7 +2,7 @@
 //!
 //! 武汉麻将又称"红中赖子杠"，是湖北地区最流行的麻将玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 武汉麻将规则
 pub struct WuhanMahjongRules {
@@ -140,10 +140,6 @@ impl Rule for WuhanMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_wuhan")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

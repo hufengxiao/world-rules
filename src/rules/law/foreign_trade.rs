@@ -1,6 +1,6 @@
 //! 对外贸易法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 对外贸易法规则
 pub struct ForeignTradeLawRules {
@@ -142,10 +142,6 @@ impl Rule for ForeignTradeLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("foreign_trade")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

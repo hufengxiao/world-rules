@@ -2,7 +2,7 @@
 //!
 //! 海南麻将是海南地区的特色玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 海南麻将规则
 pub struct HainanMahjongRules {
@@ -100,10 +100,6 @@ impl Rule for HainanMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_hainan")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

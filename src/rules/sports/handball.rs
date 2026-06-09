@@ -1,6 +1,6 @@
 //! 手球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 手球规则
 pub struct HandballRules {
@@ -107,10 +107,6 @@ impl Rule for HandballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("handball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

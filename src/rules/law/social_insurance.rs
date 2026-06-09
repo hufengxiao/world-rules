@@ -1,6 +1,6 @@
 //! 社会保险法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 社会保险法规则
 pub struct SocialInsuranceLawRules {
@@ -142,10 +142,6 @@ impl Rule for SocialInsuranceLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("social_insurance")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

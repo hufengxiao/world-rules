@@ -1,6 +1,6 @@
 //! 少林功夫规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 少林功夫规则
 pub struct ShaolinKungFuRules {
@@ -82,10 +82,6 @@ impl Rule for ShaolinKungFuRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("shaolin_kung_fu")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

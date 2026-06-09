@@ -1,6 +1,6 @@
 //! 自行车比赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 自行车比赛类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -119,10 +119,6 @@ impl Rule for CyclingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("cycling")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

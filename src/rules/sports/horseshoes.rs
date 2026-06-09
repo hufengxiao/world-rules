@@ -1,6 +1,6 @@
 //! 马蹄铁规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 马蹄铁规则 (Horseshoes)
 pub struct HorseshoesRules {
@@ -89,10 +89,6 @@ impl Rule for HorseshoesRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("horseshoes")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

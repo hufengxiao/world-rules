@@ -1,6 +1,6 @@
 //! 慈善法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 慈善法规则
 pub struct CharityLawRules {
@@ -142,10 +142,6 @@ impl Rule for CharityLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("charity")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

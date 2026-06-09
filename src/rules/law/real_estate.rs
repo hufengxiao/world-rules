@@ -1,6 +1,6 @@
 //! 房地产法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 房地产法规则
 pub struct RealEstateLawRules {
@@ -142,10 +142,6 @@ impl Rule for RealEstateLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("real_estate")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

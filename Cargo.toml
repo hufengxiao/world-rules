@@ -1,10 +1,10 @@
 [package]
 name = "world_rules"
-version = "0.5.0"
+version = "0.6.0"
 edition = "2021"
 description = "世界规则库 - 收集各种游戏、体育、社交、科学、法律规则"
 license = "MIT"
-repository = "https://github.com/your-username/world-rules"
+repository = "https://github.com/hufengxiao/world-rules"
 keywords = ["rules", "mahjong", "poker", "games", "etiquette", "sports", "law", "science"]
 categories = ["game-development", "command-line-utilities"]
 

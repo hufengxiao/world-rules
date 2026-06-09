@@ -1,6 +1,6 @@
 //! 轮滑规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 轮滑规则
 pub struct RollerSkatingRules {
@@ -112,10 +112,6 @@ impl Rule for RollerSkatingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("roller_skating")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

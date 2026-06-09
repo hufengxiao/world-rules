@@ -1,6 +1,6 @@
 //! 马球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 马球规则 (Polo)
 pub struct PoloRules {
@@ -94,10 +94,6 @@ impl Rule for PoloRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("polo")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

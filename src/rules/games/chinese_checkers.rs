@@ -1,6 +1,6 @@
 //! 跳棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 跳棋规则
 pub struct ChineseCheckersRules {
@@ -83,10 +83,6 @@ impl Rule for ChineseCheckersRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("chinese_checkers")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

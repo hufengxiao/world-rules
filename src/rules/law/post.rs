@@ -1,6 +1,6 @@
 //! 邮政法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 邮政法规则
 pub struct PostLawRules {
@@ -142,10 +142,6 @@ impl Rule for PostLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("post")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

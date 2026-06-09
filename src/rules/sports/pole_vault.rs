@@ -1,6 +1,6 @@
 //! 撑杆跳规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 撑杆跳规则
 pub struct PoleVaultRules {
@@ -112,10 +112,6 @@ impl Rule for PoleVaultRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("pole_vault")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

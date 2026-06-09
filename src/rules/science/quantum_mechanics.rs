@@ -1,6 +1,6 @@
 //! 量子力学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 量子力学定律集合
 pub struct QuantumMechanicsLaws {
@@ -137,10 +137,6 @@ impl Rule for QuantumMechanicsLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("quantum_mechanics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

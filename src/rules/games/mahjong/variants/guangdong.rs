@@ -2,7 +2,7 @@
 //!
 //! 广东麻将是最流行的麻将玩法之一，特点是花样繁多，计分复杂
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 广东麻将规则
 pub struct GuangdongMahjongRules {
@@ -119,10 +119,6 @@ impl Rule for GuangdongMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_guangdong")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

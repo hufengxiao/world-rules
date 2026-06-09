@@ -1,6 +1,6 @@
 //! 足球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 足球比赛状态
 #[derive(Debug, Clone)]
@@ -98,10 +98,6 @@ impl Rule for FootballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("football")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

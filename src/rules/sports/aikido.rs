@@ -1,6 +1,6 @@
 //! 合气道规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 合气道规则
 pub struct AikidoRules {
@@ -94,10 +94,6 @@ impl Rule for AikidoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("aikido")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

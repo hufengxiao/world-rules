@@ -1,6 +1,6 @@
 //! 医学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 医学定律集合
 pub struct MedicalScienceLaws {
@@ -130,10 +130,6 @@ impl Rule for MedicalScienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("medical_science")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

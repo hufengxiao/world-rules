@@ -1,6 +1,6 @@
 //! 九球详细规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 九球详细规则
 pub struct NineBallDetailedRules {
@@ -89,10 +89,6 @@ impl Rule for NineBallDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("nine_ball_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

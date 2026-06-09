@@ -1,6 +1,6 @@
 //! 链球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 链球规则
 pub struct HammerThrowRules {
@@ -95,10 +95,6 @@ impl Rule for HammerThrowRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("hammer_throw")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

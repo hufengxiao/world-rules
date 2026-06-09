@@ -1,6 +1,6 @@
 //! 花样滑冰规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 花样滑冰比赛规则 (详细版)
 pub struct FigureSkatingDetailedRules {
@@ -106,10 +106,6 @@ impl Rule for FigureSkatingDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("figure_skating_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 残疾人保障法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 残疾人保障法规则
 pub struct DisabilityProtectionLawRules {
@@ -142,10 +142,6 @@ impl Rule for DisabilityProtectionLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("disability_protection")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

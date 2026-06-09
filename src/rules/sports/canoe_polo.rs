@@ -1,6 +1,6 @@
 //! 独木舟 Polo规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 独木舟 Polo规则
 pub struct CanoePoloRules {
@@ -83,10 +83,6 @@ impl Rule for CanoePoloRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("canoe_polo")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

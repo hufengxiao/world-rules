@@ -1,6 +1,6 @@
 //! 物理定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 物理定律类型
 #[derive(Debug, Clone)]
@@ -150,10 +150,6 @@ impl Rule for PhysicsLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("physics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

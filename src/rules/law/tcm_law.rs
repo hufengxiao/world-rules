@@ -1,6 +1,5 @@
 //! 中医药法
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "中医药法",
     desc: "中医药法律规则",
     origin: "中国",
-    tags: ["法律", "医疗"]
+    tags: ["法律", "医疗"],
+    category: RuleCategory::law("tcm_law"),
+    sections: [("服务", section_0), ("中药", section_1)]
 }
 
 impl TcmLawRules {
@@ -18,34 +19,5 @@ impl TcmLawRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["中药材种植", "中药饮片", "中成药审批"]
-    }
-}
-
-impl Rule for TcmLawRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::law("tcm_law")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "中医药法",
-            &[("服务", &self.section_0()), ("中药", &self.section_1())],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_tcm_law_rules() {
-        let r = TcmLawRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

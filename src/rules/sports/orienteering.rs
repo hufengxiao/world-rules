@@ -1,6 +1,6 @@
 //! 定向越野规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 定向越野规则
 pub struct OrienteeringRules {
@@ -118,10 +118,6 @@ impl Rule for OrienteeringRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("orienteering")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

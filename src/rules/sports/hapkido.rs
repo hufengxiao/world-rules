@@ -1,6 +1,6 @@
 //! 韩国合气道规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 韩国合气道规则
 pub struct HapkidoRules {
@@ -71,10 +71,6 @@ impl Rule for HapkidoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("hapkido")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

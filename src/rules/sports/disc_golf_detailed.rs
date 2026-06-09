@@ -1,6 +1,6 @@
 //! 飞盘高尔夫详细规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 飞盘高尔夫详细规则 (Disc Golf Detailed)
 pub struct DiscGolfDetailedRules {
@@ -89,10 +89,6 @@ impl Rule for DiscGolfDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("disc_golf_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

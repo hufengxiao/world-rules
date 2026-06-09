@@ -1,6 +1,6 @@
 //! 蹦床规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 蹦床规则
 pub struct TrampolineRules {
@@ -100,10 +100,6 @@ impl Rule for TrampolineRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("trampoline")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

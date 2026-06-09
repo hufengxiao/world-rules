@@ -1,6 +1,6 @@
 //! 破产法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 破产法规则
 pub struct BankruptcyLawRules {
@@ -156,10 +156,6 @@ impl Rule for BankruptcyLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("bankruptcy")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 环境科学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 环境科学定律集合
 pub struct EnvironmentalScienceLaws {
@@ -134,10 +134,6 @@ impl Rule for EnvironmentalScienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("environmental_science")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 睡眠规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 睡眠规则
 pub struct SleepRules {
@@ -106,10 +106,6 @@ impl Rule for SleepRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::health("sleep")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

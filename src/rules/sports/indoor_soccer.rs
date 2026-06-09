@@ -1,6 +1,6 @@
 //! 室内足球详细规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 室内足球详细规则 (Indoor Soccer)
 pub struct IndoorSoccerRules {
@@ -94,10 +94,6 @@ impl Rule for IndoorSoccerRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("indoor_soccer")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

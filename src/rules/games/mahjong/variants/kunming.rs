@@ -2,7 +2,7 @@
 //!
 //! 昆明麻将是云南地区的代表玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 昆明麻将规则
 pub struct KunmingMahjongRules {
@@ -121,10 +121,6 @@ impl Rule for KunmingMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_kunming")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

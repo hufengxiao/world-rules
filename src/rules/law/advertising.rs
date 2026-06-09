@@ -1,6 +1,6 @@
 //! 广告法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 广告法规则
 pub struct AdvertisingLawRules {
@@ -142,10 +142,6 @@ impl Rule for AdvertisingLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("advertising")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

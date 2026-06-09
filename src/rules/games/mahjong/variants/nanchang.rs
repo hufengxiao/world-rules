@@ -2,7 +2,7 @@
 //!
 //! 南昌麻将是江西地区的代表玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 南昌麻将规则
 pub struct NanchangMahjongRules {
@@ -110,10 +110,6 @@ impl Rule for NanchangMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_nanchang")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

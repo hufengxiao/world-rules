@@ -1,6 +1,6 @@
 //! 定向射箭规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 定向射箭规则 (Mounted Archery)
 pub struct MountedArcheryRules {
@@ -71,10 +71,6 @@ impl Rule for MountedArcheryRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("mounted_archery")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

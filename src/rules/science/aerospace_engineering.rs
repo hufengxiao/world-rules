@@ -1,6 +1,6 @@
 //! 航空航天工程定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 航空航天工程定律集合
 pub struct AerospaceEngineeringLaws {
@@ -145,10 +145,6 @@ impl Rule for AerospaceEngineeringLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("aerospace_engineering")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

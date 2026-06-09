@@ -1,6 +1,6 @@
 //! 克拉夫马伽规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 克拉夫马伽规则 (以色列自卫术)
 pub struct KravMagaRules {
@@ -89,10 +89,6 @@ impl Rule for KravMagaRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("krav_maga")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

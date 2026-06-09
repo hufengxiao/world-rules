@@ -1,6 +1,6 @@
 //! 沙地摩托车规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 沙地摩托车规则
 pub struct SandMotorcycleRules {
@@ -77,10 +77,6 @@ impl Rule for SandMotorcycleRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("sand_motorcycle")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

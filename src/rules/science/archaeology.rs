@@ -1,6 +1,6 @@
 //! 考古学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 考古学定律集合
 pub struct ArchaeologyLaws {
@@ -132,10 +132,6 @@ impl Rule for ArchaeologyLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("archaeology")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 未成年人保护法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 未成年人保护法规则
 pub struct ChildrenProtectionLawRules {
@@ -142,10 +142,6 @@ impl Rule for ChildrenProtectionLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("children_protection")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

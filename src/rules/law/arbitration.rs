@@ -1,6 +1,6 @@
 //! 仲裁法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 仲裁法规则
 pub struct ArbitrationLawRules {
@@ -142,10 +142,6 @@ impl Rule for ArbitrationLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("arbitration")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

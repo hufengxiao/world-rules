@@ -1,6 +1,6 @@
 //! 太极推手规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 太极推手规则
 pub struct TaiChiPushHandsRules {
@@ -99,10 +99,6 @@ impl Rule for TaiChiPushHandsRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("tai_chi_push_hands")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

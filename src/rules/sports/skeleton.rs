@@ -1,6 +1,6 @@
 //! 钢架雪车规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 钢架雪车规则
 pub struct SkeletonRules {
@@ -112,10 +112,6 @@ impl Rule for SkeletonRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("skeleton")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

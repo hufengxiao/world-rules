@@ -2,7 +2,7 @@
 //!
 //! 北京麻将特点是讲究"飘胡"，计分相对简单
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 北京麻将规则
 pub struct BeijingMahjongRules {
@@ -122,10 +122,6 @@ impl Rule for BeijingMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_beijing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

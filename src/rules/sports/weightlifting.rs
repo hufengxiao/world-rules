@@ -1,6 +1,6 @@
 //! 举重规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 举重规则
 pub struct WeightliftingRules {
@@ -112,10 +112,6 @@ impl Rule for WeightliftingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("weightlifting")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 音乐学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 音乐学定律集合
 pub struct MusicologyLaws {
@@ -137,10 +137,6 @@ impl Rule for MusicologyLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("musicology")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

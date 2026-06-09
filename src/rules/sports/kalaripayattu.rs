@@ -1,6 +1,6 @@
 //! 卡拉里帕亚特规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 卡拉里帕亚特规则 (印度传统武术)
 pub struct KalaripayattuRules {
@@ -65,10 +65,6 @@ impl Rule for KalaripayattuRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("kalaripayattu")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

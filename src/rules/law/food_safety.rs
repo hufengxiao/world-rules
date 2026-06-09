@@ -1,6 +1,6 @@
 //! 食品安全法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 食品安全法规则
 pub struct FoodSafetyLawRules {
@@ -142,10 +142,6 @@ impl Rule for FoodSafetyLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("food_safety")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

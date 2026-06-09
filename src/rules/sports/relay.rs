@@ -1,6 +1,6 @@
 //! 接力跑规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 接力跑规则
 pub struct RelayRules {
@@ -118,10 +118,6 @@ impl Rule for RelayRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("relay")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

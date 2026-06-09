@@ -1,6 +1,6 @@
 //! 公司法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 公司法规则
 pub struct CompanyLawRules {
@@ -126,10 +126,6 @@ impl Rule for CompanyLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("company")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

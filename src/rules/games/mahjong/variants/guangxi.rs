@@ -2,7 +2,7 @@
 //!
 //! 广西麻将讲究"转转"玩法，特点鲜明
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 广西麻将规则
 pub struct GuangxiMahjongRules {
@@ -110,10 +110,6 @@ impl Rule for GuangxiMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_guangxi")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -2,7 +2,7 @@
 //!
 //! 上海麻将特点是有花牌，计分复杂，讲究"门清"
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 上海麻将规则
 pub struct ShanghaiMahjongRules {
@@ -138,10 +138,6 @@ impl Rule for ShanghaiMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_shanghai")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

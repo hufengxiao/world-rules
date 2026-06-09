@@ -1,6 +1,6 @@
 //! 行政法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 行政法规则
 pub struct AdministrativeLawRules {
@@ -154,10 +154,6 @@ impl Rule for AdministrativeLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("administrative")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

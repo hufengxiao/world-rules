@@ -1,6 +1,6 @@
 //! 餐桌礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 餐桌礼仪地区变体
 #[derive(Debug, Clone)]
@@ -98,10 +98,6 @@ impl Rule for DiningEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("dining")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

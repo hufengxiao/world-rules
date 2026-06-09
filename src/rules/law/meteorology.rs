@@ -1,6 +1,6 @@
 //! 气象法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 气象法规则
 pub struct MeteorologyLawRules {
@@ -142,10 +142,6 @@ impl Rule for MeteorologyLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("meteorology")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 热气球比赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 热气球比赛规则
 pub struct HotAirBalloonRules {
@@ -83,10 +83,6 @@ impl Rule for HotAirBalloonRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("hot_air_balloon")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

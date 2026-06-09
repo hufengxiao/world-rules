@@ -1,6 +1,6 @@
 //! 突发事件应对法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 突发事件应对法规则
 pub struct EmergencyResponseLawRules {
@@ -142,10 +142,6 @@ impl Rule for EmergencyResponseLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("emergency_response")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

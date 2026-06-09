@@ -1,6 +1,6 @@
 //! 森林法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 森林法规则
 pub struct ForestLawRules {
@@ -142,10 +142,6 @@ impl Rule for ForestLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("forest")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

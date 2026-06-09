@@ -1,6 +1,6 @@
 //! 疫苗管理法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 疫苗管理法规则
 pub struct VaccineManagementLawRules {
@@ -142,10 +142,6 @@ impl Rule for VaccineManagementLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("vaccine_management")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

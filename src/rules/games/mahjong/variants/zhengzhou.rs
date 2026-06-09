@@ -2,7 +2,7 @@
 //!
 //! 郑州麻将是河南地区的代表玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 郑州麻将规则
 pub struct ZhengzhouMahjongRules {
@@ -99,10 +99,6 @@ impl Rule for ZhengzhouMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_zhengzhou")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 专利法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 专利法规则
 pub struct PatentLawRules {
@@ -142,10 +142,6 @@ impl Rule for PatentLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("patent")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

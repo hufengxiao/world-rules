@@ -1,6 +1,6 @@
 //! 生态学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 生态学定律集合
 pub struct EcologyLaws {
@@ -136,10 +136,6 @@ impl Rule for EcologyLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("ecology")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

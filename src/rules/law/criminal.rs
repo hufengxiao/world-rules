@@ -1,6 +1,6 @@
 //! 刑法基础知识
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 刑法规则
 pub struct CriminalLawRules {
@@ -108,10 +108,6 @@ impl Rule for CriminalLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("criminal")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

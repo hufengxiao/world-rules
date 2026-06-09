@@ -1,6 +1,6 @@
 //! 水上摩托规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 水上摩托规则 (Jet Ski)
 pub struct JetSkiRules {
@@ -71,10 +71,6 @@ impl Rule for JetSkiRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("jet_ski")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

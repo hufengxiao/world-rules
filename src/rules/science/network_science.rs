@@ -1,6 +1,6 @@
 //! 网络科学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 网络科学定律集合
 pub struct NetworkScienceLaws {
@@ -152,10 +152,6 @@ impl Rule for NetworkScienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("network_science")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

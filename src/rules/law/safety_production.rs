@@ -1,6 +1,6 @@
 //! 安全生产法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 安全生产法规则
 pub struct SafetyProductionLawRules {
@@ -142,10 +142,6 @@ impl Rule for SafetyProductionLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("safety_production")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

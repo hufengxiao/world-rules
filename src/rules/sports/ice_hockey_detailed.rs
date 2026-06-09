@@ -1,6 +1,6 @@
 //! 冰球比赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 冰球比赛规则 (详细版)
 pub struct IceHockeyDetailedRules {
@@ -100,10 +100,6 @@ impl Rule for IceHockeyDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("ice_hockey_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

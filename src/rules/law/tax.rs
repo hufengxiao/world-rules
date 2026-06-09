@@ -1,6 +1,6 @@
 //! 税法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 税法规则
 pub struct TaxLawRules {
@@ -142,10 +142,6 @@ impl Rule for TaxLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("tax")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

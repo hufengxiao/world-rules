@@ -1,6 +1,6 @@
 //! 旱地冰球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 旱地冰球规则 (Floorball)
 pub struct FloorballRules {
@@ -89,10 +89,6 @@ impl Rule for FloorballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("floorball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

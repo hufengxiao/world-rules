@@ -1,6 +1,6 @@
 //! 电影院礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 电影院礼仪规则
 pub struct CinemaEtiquette {
@@ -82,10 +82,6 @@ impl Rule for CinemaEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("cinema")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

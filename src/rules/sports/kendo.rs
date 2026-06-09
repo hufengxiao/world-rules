@@ -1,6 +1,6 @@
 //! 剑道规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 剑道规则
 pub struct KendoRules {
@@ -100,10 +100,6 @@ impl Rule for KendoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("kendo")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

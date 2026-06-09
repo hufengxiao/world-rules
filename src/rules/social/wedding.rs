@@ -1,6 +1,6 @@
 //! 婚礼礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 婚礼文化类型
 #[derive(Debug, Clone)]
@@ -153,10 +153,6 @@ impl Rule for WeddingEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("wedding")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 沙滩足球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 沙滩足球规则
 pub struct BeachSoccerRules {
@@ -106,10 +106,6 @@ impl Rule for BeachSoccerRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("beach_soccer")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

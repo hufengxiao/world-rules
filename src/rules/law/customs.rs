@@ -1,6 +1,6 @@
 //! 海关法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 海关法规则
 pub struct CustomsLawRules {
@@ -142,10 +142,6 @@ impl Rule for CustomsLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("customs")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

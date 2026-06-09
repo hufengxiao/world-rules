@@ -1,6 +1,6 @@
 //! 篮球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 篮球规则变体
 #[derive(Debug, Clone)]
@@ -103,10 +103,6 @@ impl Rule for BasketballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("basketball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

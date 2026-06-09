@@ -1,6 +1,6 @@
 //! 继承法规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 继承法规则
 pub struct InheritanceLawRules {
@@ -91,10 +91,6 @@ impl Rule for InheritanceLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("inheritance")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

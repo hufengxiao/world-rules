@@ -1,6 +1,6 @@
 //! 地球科学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 地球科学定律集合
 pub struct GeoscienceLaws {
@@ -126,10 +126,6 @@ impl Rule for GeoscienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("geoscience")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

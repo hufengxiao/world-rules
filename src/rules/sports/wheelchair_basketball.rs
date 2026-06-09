@@ -1,6 +1,6 @@
 //! 轮椅篮球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 轮椅篮球规则
 pub struct WheelchairBasketballRules {
@@ -118,10 +118,6 @@ impl Rule for WheelchairBasketballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("wheelchair_basketball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

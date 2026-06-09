@@ -1,6 +1,6 @@
 //! 冰壶详细规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 冰壶详细规则
 pub struct CurlingDetailedRules {
@@ -83,10 +83,6 @@ impl Rule for CurlingDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("curling_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

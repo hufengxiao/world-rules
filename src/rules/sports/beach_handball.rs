@@ -1,6 +1,6 @@
 //! 沙滩手球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 沙滩手球规则
 pub struct BeachHandballRules {
@@ -106,10 +106,6 @@ impl Rule for BeachHandballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("beach_handball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

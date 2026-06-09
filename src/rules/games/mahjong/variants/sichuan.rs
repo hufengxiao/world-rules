@@ -2,7 +2,7 @@
 //!
 //! 四川麻将是西南地区最流行的玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 四川麻将规则(详细版)
 pub struct SichuanDetailedMahjongRules {
@@ -158,10 +158,6 @@ impl Rule for SichuanDetailedMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_sichuan")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

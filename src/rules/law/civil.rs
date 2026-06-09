@@ -1,6 +1,6 @@
 //! 民法基础知识
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 民法规则
 pub struct CivilLawRules {
@@ -107,10 +107,6 @@ impl Rule for CivilLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("civil")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

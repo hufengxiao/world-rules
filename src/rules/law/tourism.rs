@@ -1,6 +1,6 @@
 //! 旅游法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 旅游法规则
 pub struct TourismLawRules {
@@ -142,10 +142,6 @@ impl Rule for TourismLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("tourism")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

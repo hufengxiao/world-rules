@@ -1,6 +1,6 @@
 //! 铅球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 铅球规则
 pub struct ShotPutRules {
@@ -118,10 +118,6 @@ impl Rule for ShotPutRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("shot_put")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

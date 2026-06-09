@@ -1,6 +1,6 @@
 //! 铁饼规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 铁饼规则
 pub struct DiscusRules {
@@ -118,10 +118,6 @@ impl Rule for DiscusRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("discus")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

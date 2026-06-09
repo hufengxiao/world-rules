@@ -1,6 +1,6 @@
 //! 泥地摩托车规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 泥地摩托车规则 (Mud Racing)
 pub struct MudRacingRules {
@@ -77,10 +77,6 @@ impl Rule for MudRacingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("mud_racing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

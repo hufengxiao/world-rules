@@ -1,6 +1,6 @@
 //! 无人机竞速规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 无人机竞速规则
 pub struct DroneRacingRules {
@@ -77,10 +77,6 @@ impl Rule for DroneRacingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("drone_racing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 五子棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 五子棋规则变体
 #[derive(Debug, Clone)]
@@ -128,10 +128,6 @@ impl Rule for GomokuRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("gomoku")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

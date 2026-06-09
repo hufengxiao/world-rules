@@ -1,6 +1,6 @@
 //! 国际象棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 国际象棋棋子类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -185,10 +185,6 @@ impl Rule for ChessRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("chess")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

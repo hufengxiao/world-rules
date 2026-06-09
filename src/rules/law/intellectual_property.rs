@@ -1,6 +1,6 @@
 //! 知识产权法规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 知识产权类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -114,10 +114,6 @@ impl Rule for IPRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("intellectual_property")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

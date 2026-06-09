@@ -1,6 +1,6 @@
 //! 保龄球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 保龄球规则
 pub struct BowlingRules {
@@ -108,10 +108,6 @@ impl Rule for BowlingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("bowling")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

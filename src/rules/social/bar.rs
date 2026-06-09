@@ -1,6 +1,5 @@
 //! 酒吧礼仪
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "酒吧礼仪",
     desc: "酒吧社交礼仪",
     origin: "国际",
-    tags: ["社交", "酒吧"]
+    tags: ["社交", "酒吧"],
+    category: RuleCategory::social("bar"),
+    sections: [("点酒", section_0), ("行为", section_1)]
 }
 
 impl BarRules {
@@ -18,34 +19,5 @@ impl BarRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["不大声喧哗", "尊重调酒师", "适度社交"]
-    }
-}
-
-impl Rule for BarRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::social("bar")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "酒吧礼仪",
-            &[("点酒", &self.section_0()), ("行为", &self.section_1())],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_bar_rules() {
-        let r = BarRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

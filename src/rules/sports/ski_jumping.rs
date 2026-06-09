@@ -1,6 +1,6 @@
 //! 跳台滑雪规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 跳台滑雪规则
 pub struct SkiJumpingRules {
@@ -100,10 +100,6 @@ impl Rule for SkiJumpingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("ski_jumping")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

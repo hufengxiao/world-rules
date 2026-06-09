@@ -1,6 +1,6 @@
 //! MotoGP赛车规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// MotoGP赛车规则
 pub struct MotoGPRules {
@@ -89,10 +89,6 @@ impl Rule for MotoGPRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("motogp")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

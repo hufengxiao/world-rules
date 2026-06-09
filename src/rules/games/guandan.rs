@@ -1,6 +1,6 @@
 //! 掼蛋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 掼蛋牌型
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -121,10 +121,6 @@ impl Rule for GuanDanRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("guandan")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

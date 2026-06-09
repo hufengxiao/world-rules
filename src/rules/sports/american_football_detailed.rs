@@ -1,6 +1,6 @@
 //! 美式足球详细规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 美式足球详细规则
 pub struct AmericanFootballDetailedRules {
@@ -95,10 +95,6 @@ impl Rule for AmericanFootballDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("american_football_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

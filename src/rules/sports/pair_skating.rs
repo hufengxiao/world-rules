@@ -1,6 +1,6 @@
 //! 花样滑冰双人滑规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 花样滑冰双人滑规则
 pub struct PairSkatingRules {
@@ -89,10 +89,6 @@ impl Rule for PairSkatingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("pair_skating")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

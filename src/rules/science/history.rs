@@ -1,6 +1,6 @@
 //! 历史学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 历史学定律集合
 pub struct HistoryLaws {
@@ -144,10 +144,6 @@ impl Rule for HistoryLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("history")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

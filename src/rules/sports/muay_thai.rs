@@ -1,6 +1,6 @@
 //! 泰拳规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 泰拳规则
 pub struct MuayThaiRules {
@@ -119,10 +119,6 @@ impl Rule for MuayThaiRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("muay_thai")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

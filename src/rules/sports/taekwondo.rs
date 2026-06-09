@@ -1,6 +1,6 @@
 //! 跆拳道规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 跆拳道规则
 pub struct TaekwondoRules {
@@ -110,10 +110,6 @@ impl Rule for TaekwondoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("taekwondo")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

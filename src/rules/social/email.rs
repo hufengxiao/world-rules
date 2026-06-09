@@ -1,6 +1,6 @@
 //! 邮件礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 邮件礼仪
 pub struct EmailEtiquette {
@@ -114,10 +114,6 @@ impl Rule for EmailEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("email")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

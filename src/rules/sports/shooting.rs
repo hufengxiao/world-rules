@@ -1,6 +1,6 @@
 //! 射击规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 射击项目类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -100,10 +100,6 @@ impl Rule for ShootingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("shooting")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

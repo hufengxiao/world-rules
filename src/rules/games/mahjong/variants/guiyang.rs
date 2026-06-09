@@ -2,7 +2,7 @@
 //!
 //! 贵阳麻将是贵州地区的代表玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 贵阳麻将规则
 pub struct GuiyangMahjongRules {
@@ -108,10 +108,6 @@ impl Rule for GuiyangMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_guiyang")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

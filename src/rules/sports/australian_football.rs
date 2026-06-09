@@ -1,6 +1,6 @@
 //! 澳式足球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 澳式足球规则
 pub struct AustralianFootballRules {
@@ -89,10 +89,6 @@ impl Rule for AustralianFootballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("australian_football")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

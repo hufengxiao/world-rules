@@ -1,6 +1,6 @@
 //! 座次礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 座次礼仪
 pub struct SeatingEtiquette {
@@ -107,10 +107,6 @@ impl Rule for SeatingEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("seating")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 统计法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 统计法规则
 pub struct StatisticsLawRules {
@@ -142,10 +142,6 @@ impl Rule for StatisticsLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("statistics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

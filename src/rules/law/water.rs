@@ -1,6 +1,6 @@
 //! 水法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 水法规则
 pub struct WaterLawRules {
@@ -142,10 +142,6 @@ impl Rule for WaterLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("water")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 飞镖规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 飞镖规则
 pub struct DartsRules {
@@ -107,10 +107,6 @@ impl Rule for DartsRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("darts")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

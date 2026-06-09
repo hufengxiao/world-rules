@@ -1,6 +1,6 @@
 //! 直线加速赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 直线加速赛规则 (Drag Racing)
 pub struct DragRacingRules {
@@ -89,10 +89,6 @@ impl Rule for DragRacingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("drag_racing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

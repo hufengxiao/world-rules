@@ -1,6 +1,6 @@
 //! 电子竞技规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 电子竞技规则
 pub struct EsportsRules {
@@ -83,10 +83,6 @@ impl Rule for EsportsRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("esports")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

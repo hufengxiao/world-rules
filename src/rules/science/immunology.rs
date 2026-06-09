@@ -1,6 +1,6 @@
 //! 免疫学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 免疫学定律集合
 pub struct ImmunologyLaws {
@@ -144,10 +144,6 @@ impl Rule for ImmunologyLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("immunology")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

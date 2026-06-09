@@ -1,6 +1,6 @@
 //! 消防法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 消防法规则
 pub struct FireProtectionLawRules {
@@ -142,10 +142,6 @@ impl Rule for FireProtectionLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("fire_protection")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

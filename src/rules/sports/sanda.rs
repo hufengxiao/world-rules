@@ -1,6 +1,6 @@
 //! 散打规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 散打规则
 pub struct SandaRules {
@@ -124,10 +124,6 @@ impl Rule for SandaRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("sanda")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

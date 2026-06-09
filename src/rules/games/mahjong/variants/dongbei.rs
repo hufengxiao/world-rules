@@ -2,7 +2,7 @@
 //!
 //! 东北麻将特点是讲究"立棍"、"会牌"等独特玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 东北麻将规则
 pub struct DongbeiMahjongRules {
@@ -132,10 +132,6 @@ impl Rule for DongbeiMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_dongbei")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

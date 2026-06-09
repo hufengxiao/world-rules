@@ -1,6 +1,6 @@
 //! 射箭比赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 射箭比赛规则 - 室内射箭
 pub struct IndoorArcheryRules {
@@ -100,10 +100,6 @@ impl Rule for IndoorArcheryRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("indoor_archery")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

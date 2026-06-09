@@ -1,6 +1,6 @@
 //! 网球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 网球规则 (Netball)
 pub struct NetballRules {
@@ -89,10 +89,6 @@ impl Rule for NetballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("netball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -2,7 +2,7 @@
 //!
 //! 重庆麻将与四川麻将类似，但有独特特点
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 重庆麻将规则
 pub struct ChongqingMahjongRules {
@@ -130,10 +130,6 @@ impl Rule for ChongqingMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_chongqing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

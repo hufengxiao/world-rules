@@ -2,7 +2,7 @@
 //!
 //! 天津麻将特点是"混儿"规则，计分方式独特
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 天津麻将规则
 pub struct TianjinMahjongRules {
@@ -122,10 +122,6 @@ impl Rule for TianjinMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_tianjin")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

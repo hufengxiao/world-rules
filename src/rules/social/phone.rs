@@ -1,6 +1,6 @@
 //! 电话礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 电话礼仪
 pub struct PhoneEtiquette {
@@ -115,10 +115,6 @@ impl Rule for PhoneEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("phone")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

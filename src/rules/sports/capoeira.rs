@@ -1,6 +1,6 @@
 //! 卡波耶拉规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 卡波耶拉规则 (巴西武术舞蹈)
 pub struct CapoeiraRules {
@@ -71,10 +71,6 @@ impl Rule for CapoeiraRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("capoeira")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

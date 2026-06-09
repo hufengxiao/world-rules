@@ -1,6 +1,6 @@
 //! 婚姻法规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 婚姻法规则
 pub struct MarriageLawRules {
@@ -93,10 +93,6 @@ impl Rule for MarriageLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("marriage")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 升级规则 (拖拉机)
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 升级规则
 pub struct ShengJiRules {
@@ -103,10 +103,6 @@ impl Rule for ShengJiRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("sheng_ji")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

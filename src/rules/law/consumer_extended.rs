@@ -1,6 +1,6 @@
 //! 消费者权益保护法扩展规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 消费者权益保护法扩展规则
 pub struct ConsumerLawExtendedRules {
@@ -144,10 +144,6 @@ impl Rule for ConsumerLawExtendedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("consumer_extended")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 心理学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 心理学规则
 pub struct PsychologyRules {
@@ -132,10 +132,6 @@ impl Rule for PsychologyRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("psychology")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

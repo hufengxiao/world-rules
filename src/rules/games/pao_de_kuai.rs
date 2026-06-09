@@ -1,6 +1,6 @@
 //! 跑得快规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 跑得快牌型
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -119,10 +119,6 @@ impl Rule for PaoDeKuaiRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("pao_de_kuai")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

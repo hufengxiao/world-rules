@@ -1,6 +1,6 @@
 //! 合同法规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 合同类型
 #[derive(Debug, Clone)]
@@ -92,10 +92,6 @@ impl Rule for ContractRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("contract")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

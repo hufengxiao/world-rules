@@ -1,6 +1,6 @@
 //! 律师法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 律师法规则
 pub struct LawyerLawRules {
@@ -142,10 +142,6 @@ impl Rule for LawyerLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("lawyer")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

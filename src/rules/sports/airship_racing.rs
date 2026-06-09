@@ -1,6 +1,6 @@
 //! 飞艇比赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 飞艇比赛规则
 pub struct AirshipRacingRules {
@@ -71,10 +71,6 @@ impl Rule for AirshipRacingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("airship_racing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

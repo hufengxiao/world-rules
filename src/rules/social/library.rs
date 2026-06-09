@@ -1,6 +1,6 @@
 //! 图书馆礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 图书馆礼仪规则
 pub struct LibraryEtiquette {
@@ -77,10 +77,6 @@ impl Rule for LibraryEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("library")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

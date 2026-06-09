@@ -1,6 +1,6 @@
 //! 七人制足球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 七人制足球规则
 pub struct SevenAsideFootballRules {
@@ -112,10 +112,6 @@ impl Rule for SevenAsideFootballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("seven_aside_football")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

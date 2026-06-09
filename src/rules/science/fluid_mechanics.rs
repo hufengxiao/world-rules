@@ -1,6 +1,6 @@
 //! 流体力学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 流体力学定律集合
 pub struct FluidMechanicsLaws {
@@ -170,10 +170,6 @@ impl Rule for FluidMechanicsLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("fluid_mechanics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

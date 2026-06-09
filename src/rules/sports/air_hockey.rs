@@ -1,6 +1,6 @@
 //! 空气曲棍球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 空气曲棍球规则 (Air Hockey)
 pub struct AirHockeyRules {
@@ -89,10 +89,6 @@ impl Rule for AirHockeyRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("air_hockey")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

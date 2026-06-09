@@ -1,6 +1,6 @@
 //! 多米诺骨牌规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 多米诺骨牌规则
 pub struct DominoRules {
@@ -106,10 +106,6 @@ impl Rule for DominoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("domino")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

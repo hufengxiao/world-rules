@@ -1,6 +1,6 @@
 //! 瑜伽比赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 瑜伽比赛规则
 pub struct YogaCompetitionRules {
@@ -93,10 +93,6 @@ impl Rule for YogaCompetitionRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("yoga_competition")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

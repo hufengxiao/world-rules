@@ -1,6 +1,6 @@
 //! 极限飞盘规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 极限飞盘规则 (Ultimate Frisbee)
 pub struct UltimateFrisbeeRules {
@@ -95,10 +95,6 @@ impl Rule for UltimateFrisbeeRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("ultimate_frisbee")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

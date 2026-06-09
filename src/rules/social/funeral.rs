@@ -1,6 +1,6 @@
 //! 葬礼礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 葬礼文化类型
 #[derive(Debug, Clone)]
@@ -116,10 +116,6 @@ impl Rule for FuneralEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("funeral")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

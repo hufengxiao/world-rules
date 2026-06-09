@@ -1,6 +1,6 @@
 //! 雪橇规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 雪橇规则 (Luge)
 pub struct LugeRules {
@@ -77,10 +77,6 @@ impl Rule for LugeRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("luge")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

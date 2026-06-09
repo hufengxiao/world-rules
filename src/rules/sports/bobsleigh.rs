@@ -1,6 +1,6 @@
 //! 雪车规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 雪车规则
 pub struct BobsleighRules {
@@ -112,10 +112,6 @@ impl Rule for BobsleighRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("bobsleigh")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

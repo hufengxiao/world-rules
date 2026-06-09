@@ -1,6 +1,6 @@
 //! 火车礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 火车礼仪规则
 pub struct TrainEtiquette {
@@ -85,10 +85,6 @@ impl Rule for TrainEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("train")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

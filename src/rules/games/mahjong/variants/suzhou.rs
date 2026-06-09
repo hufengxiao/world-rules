@@ -2,7 +2,7 @@
 //!
 //! 苏州麻将是江苏地区的特色玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 苏州麻将规则
 pub struct SuzhouMahjongRules {
@@ -99,10 +99,6 @@ impl Rule for SuzhouMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_suzhou")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

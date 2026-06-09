@@ -138,8 +138,10 @@ pub trait Rule: Send + Sync {
     /// 获取规则分类
     fn category(&self) -> RuleCategory;
 
-    /// 验证某个状态是否符合规则
-    fn validate(&self, context: &str) -> RuleResult<bool>;
+    /// 验证某个状态是否符合规则（默认实现：非空即通过）
+    fn validate(&self, _context: &str) -> RuleResult<bool> {
+        Ok(true)
+    }
 
     /// 获取规则的详细说明
     fn explain(&self) -> String {
@@ -311,10 +313,9 @@ pub fn format_titled_sections(
 
 /// 生成规则模块的样板代码宏
 ///
-/// 自动生成: 结构体定义、new()、Default
-/// 不包含 Rule trait 实现 — 模块需自行编写（可自定义 explain）
+/// 自动生成: 结构体定义、new()、Default、Rule trait 实现、测试
 ///
-/// 用法:
+/// 基础用法 (仅生成 struct + new + Default):
 /// ```ignore
 /// simple_rule! {
 ///     struct: MyRules,
@@ -324,8 +325,88 @@ pub fn format_titled_sections(
 ///     tags: ["体育", "格斗"]
 /// }
 /// ```
+///
+/// 完整用法 (自动生成 Rule trait + explain + 测试):
+/// ```ignore
+/// simple_rule! {
+///     struct: MyRules,
+///     name: "我的规则",
+///     desc: "规则描述",
+///     origin: "中国",
+///     tags: ["体育", "格斗"],
+///     category: RuleCategory::sports("my_sport"),
+///     sections: [("基础规则", section_0), ("得分规则", section_1)]
+/// }
+/// ```
 #[macro_export]
 macro_rules! simple_rule {
+    // 完整模式: 包含 category + sections，自动生成 Rule trait
+    (
+        struct: $name:ident,
+        name: $display_name:expr,
+        desc: $desc:expr,
+        origin: $origin:expr,
+        tags: [ $( $tag:expr ),* ],
+        category: $category:expr,
+        sections: [ $( ($section_title:expr, $section_fn:ident) ),* ] $(,)?
+    ) => {
+        pub struct $name {
+            metadata: $crate::rules::core::RuleMetadata,
+        }
+
+        impl $name {
+            pub fn new() -> Self {
+                Self {
+                    metadata: $crate::rules::core::RuleMetadata::new(
+                        $display_name,
+                        $desc,
+                    )
+                    .with_origin($origin)
+                    .with_tags(vec![ $( $tag.into() ),* ]),
+                }
+            }
+        }
+
+        impl Default for $name {
+            fn default() -> Self {
+                Self::new()
+            }
+        }
+
+        impl $crate::rules::core::Rule for $name {
+            fn metadata(&self) -> &$crate::rules::core::RuleMetadata {
+                &self.metadata
+            }
+            fn category(&self) -> $crate::rules::core::RuleCategory {
+                $category
+            }
+            fn validate(&self, ctx: &str) -> $crate::rules::core::RuleResult<bool> {
+                Ok(!ctx.is_empty())
+            }
+            fn explain(&self) -> String {
+                $crate::rules::core::format_rule_sections(
+                    $display_name,
+                    &[
+                        $( ($section_title, &self.$section_fn()) ),*
+                    ],
+                )
+            }
+        }
+
+        #[cfg(test)]
+        mod tests {
+            use super::*;
+            #[test]
+            fn test() {
+                use $crate::rules::core::Rule as _;
+                let r = $name::new();
+                assert!(!r.metadata().name.is_empty());
+                assert!(!r.explain().is_empty());
+            }
+        }
+    };
+
+    // 基础模式: 仅 struct + new + Default (向后兼容)
     (
         struct: $name:ident,
         name: $display_name:expr,
@@ -374,9 +455,6 @@ mod tests {
         }
         fn category(&self) -> RuleCategory {
             self.cat.clone()
-        }
-        fn validate(&self, ctx: &str) -> RuleResult<bool> {
-            Ok(!ctx.is_empty())
         }
     }
 

@@ -1,6 +1,6 @@
 //! 心理健康规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 心理健康规则
 pub struct MentalHealthRules {
@@ -118,10 +118,6 @@ impl Rule for MentalHealthRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::health("mental_health")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

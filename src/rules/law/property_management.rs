@@ -1,6 +1,6 @@
 //! 物业管理条例基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 物业管理条例规则
 pub struct PropertyManagementLawRules {
@@ -142,10 +142,6 @@ impl Rule for PropertyManagementLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("property_management")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

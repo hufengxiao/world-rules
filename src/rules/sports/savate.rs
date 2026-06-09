@@ -1,6 +1,6 @@
 //! 法式踢拳规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 法式踢拳规则 (Savate)
 pub struct SavateRules {
@@ -83,10 +83,6 @@ impl Rule for SavateRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("savate")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

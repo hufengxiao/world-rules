@@ -1,6 +1,6 @@
 //! 马术规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 马术规则
 pub struct EquestrianRules {
@@ -119,10 +119,6 @@ impl Rule for EquestrianRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("equestrian")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

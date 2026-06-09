@@ -1,6 +1,6 @@
 //! 药品管理法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 药品管理法规则
 pub struct DrugManagementLawRules {
@@ -142,10 +142,6 @@ impl Rule for DrugManagementLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("drug_management")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

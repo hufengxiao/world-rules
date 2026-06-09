@@ -1,6 +1,6 @@
 //! 马拉松规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 马拉松规则
 pub struct MarathonRules {
@@ -112,10 +112,6 @@ impl Rule for MarathonRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("marathon")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

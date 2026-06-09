@@ -1,6 +1,6 @@
 //! 斯诺克详细规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 斯诺克详细规则
 pub struct SnookerDetailedRules {
@@ -95,10 +95,6 @@ impl Rule for SnookerDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("snooker_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 敬酒礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 敬酒礼仪
 pub struct ToastingEtiquette {
@@ -107,10 +107,6 @@ impl Rule for ToastingEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("toasting")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

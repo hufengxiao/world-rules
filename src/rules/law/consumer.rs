@@ -1,6 +1,6 @@
 //! 消费者权益保护法规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 消费者权益保护法规则
 pub struct ConsumerLawRules {
@@ -109,10 +109,6 @@ impl Rule for ConsumerLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("consumer")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

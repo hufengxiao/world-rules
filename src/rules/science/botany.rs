@@ -1,6 +1,6 @@
 //! 植物学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 植物学定律集合
 pub struct BotanyLaws {
@@ -138,10 +138,6 @@ impl Rule for BotanyLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("botany")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

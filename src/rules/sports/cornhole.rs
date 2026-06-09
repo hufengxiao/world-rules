@@ -1,6 +1,6 @@
 //! 袋球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 袋球规则 (Cornhole)
 pub struct CornholeRules {
@@ -83,10 +83,6 @@ impl Rule for CornholeRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("cornhole")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

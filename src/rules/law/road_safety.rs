@@ -1,6 +1,6 @@
 //! 道路交通安全法规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 道路交通安全法规则
 pub struct RoadSafetyRules {
@@ -104,10 +104,6 @@ impl Rule for RoadSafetyRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("road_safety")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

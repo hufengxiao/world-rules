@@ -1,6 +1,6 @@
 //! 语言学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 语言学定律集合
 pub struct LinguisticsLaws {
@@ -145,10 +145,6 @@ impl Rule for LinguisticsLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("linguistics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,5 @@
 //! 排队礼仪
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "排队礼仪",
     desc: "公共排队礼仪",
     origin: "国际",
-    tags: ["社交", "公共"]
+    tags: ["社交", "公共"],
+    category: RuleCategory::social("queue"),
+    sections: [("基本规则", section_0), ("特殊情况", section_1)]
 }
 
 impl QueueRules {
@@ -18,37 +19,5 @@ impl QueueRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["老人孕妇优先", "紧急情况说明", "代排需征得同意"]
-    }
-}
-
-impl Rule for QueueRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::social("queue")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "排队礼仪",
-            &[
-                ("基本规则", &self.section_0()),
-                ("特殊情况", &self.section_1()),
-            ],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_queue_rules() {
-        let r = QueueRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

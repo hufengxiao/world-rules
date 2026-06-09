@@ -1,6 +1,6 @@
 //! 天文学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 天文学规则
 pub struct AstronomyRules {
@@ -132,10 +132,6 @@ impl Rule for AstronomyRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("astronomy")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 桥牌规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 花色等级 (从高到低)
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
@@ -154,10 +154,6 @@ impl Rule for BridgeRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("bridge")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

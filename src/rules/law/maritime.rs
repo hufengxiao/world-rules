@@ -1,6 +1,6 @@
 //! 海商法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 海商法规则
 pub struct MaritimeLawRules {
@@ -142,10 +142,6 @@ impl Rule for MaritimeLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("maritime")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

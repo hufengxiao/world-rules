@@ -1,6 +1,6 @@
 //! 艺术体操规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 艺术体操规则
 pub struct RhythmicGymnasticsRules {
@@ -100,10 +100,6 @@ impl Rule for RhythmicGymnasticsRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("rhythmic_gymnastics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 人类学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 人类学定律集合
 pub struct AnthropologyLaws {
@@ -144,10 +144,6 @@ impl Rule for AnthropologyLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("anthropology")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

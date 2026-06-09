@@ -1,6 +1,6 @@
 //! 跳水规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 跳水规则
 pub struct DivingRules {
@@ -94,10 +94,6 @@ impl Rule for DivingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("diving")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

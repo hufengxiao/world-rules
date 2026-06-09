@@ -2,7 +2,7 @@
 //!
 //! 南京麻将特点是"成牌"制度，计分方式独特
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 南京麻将规则
 pub struct NanjingMahjongRules {
@@ -115,10 +115,6 @@ impl Rule for NanjingMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_nanjing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

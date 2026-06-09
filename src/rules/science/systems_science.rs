@@ -1,6 +1,6 @@
 //! 系统科学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 系统科学定律集合
 pub struct SystemsScienceLaws {
@@ -177,10 +177,6 @@ impl Rule for SystemsScienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("systems_science")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

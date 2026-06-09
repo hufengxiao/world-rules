@@ -1,6 +1,6 @@
 //! 健美比赛规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 健美比赛规则
 pub struct BodybuildingRules {
@@ -100,10 +100,6 @@ impl Rule for BodybuildingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("bodybuilding")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

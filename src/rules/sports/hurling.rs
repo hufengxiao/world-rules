@@ -1,6 +1,6 @@
 //! 爱尔兰曲棍球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 爱尔兰曲棍球规则 (Hurling)
 pub struct HurlingRules {
@@ -95,10 +95,6 @@ impl Rule for HurlingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("hurling")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 机械工程定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 机械工程定律集合
 pub struct MechanicalEngineeringLaws {
@@ -116,10 +116,6 @@ impl Rule for MechanicalEngineeringLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("mechanical_engineering")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

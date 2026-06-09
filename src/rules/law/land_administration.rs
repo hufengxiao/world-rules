@@ -1,6 +1,6 @@
 //! 土地管理法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 土地管理法规则
 pub struct LandAdministrationLawRules {
@@ -143,10 +143,6 @@ impl Rule for LandAdministrationLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("land_administration")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

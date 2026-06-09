@@ -1,6 +1,6 @@
 //! 沙地排球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 沙地排球规则 (Sand Volleyball)
 pub struct SandVolleyballRules {
@@ -77,10 +77,6 @@ impl Rule for SandVolleyballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("sand_volleyball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

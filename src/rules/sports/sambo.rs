@@ -1,6 +1,6 @@
 //! 桑搏规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 桑搏规则 (俄罗斯摔跤)
 pub struct SamboRules {
@@ -83,10 +83,6 @@ impl Rule for SamboRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("sambo")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

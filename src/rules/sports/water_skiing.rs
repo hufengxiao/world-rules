@@ -1,6 +1,6 @@
 //! 滑水规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 滑水规则
 pub struct WaterSkiingRules {
@@ -106,10 +106,6 @@ impl Rule for WaterSkiingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("water_skiing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

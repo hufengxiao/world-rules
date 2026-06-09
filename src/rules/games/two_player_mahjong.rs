@@ -1,6 +1,6 @@
 //! 二人麻将规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 二人麻将规则
 pub struct TwoPlayerMahjongRules {
@@ -55,10 +55,6 @@ impl Rule for TwoPlayerMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("two_player_mahjong")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

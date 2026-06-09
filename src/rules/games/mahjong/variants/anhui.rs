@@ -2,7 +2,7 @@
 //!
 //! 安徽麻将是安徽地区的代表玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 安徽麻将规则
 pub struct AnhuiMahjongRules {
@@ -99,10 +99,6 @@ impl Rule for AnhuiMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_anhui")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 跳远规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 跳远规则
 pub struct LongJumpRules {
@@ -118,10 +118,6 @@ impl Rule for LongJumpRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("long_jump")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

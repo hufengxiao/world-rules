@@ -1,6 +1,6 @@
 //! 短道速滑规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 短道速滑规则
 pub struct ShortTrackRules {
@@ -118,10 +118,6 @@ impl Rule for ShortTrackRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("short_track")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

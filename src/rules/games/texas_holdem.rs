@@ -1,6 +1,6 @@
 //! 扑克规则 - 德州扑克
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 德州扑克规则
 pub struct TexasHoldemRules {
@@ -115,10 +115,6 @@ impl Rule for TexasHoldemRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("texas_holdem")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

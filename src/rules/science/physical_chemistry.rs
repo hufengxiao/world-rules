@@ -1,6 +1,6 @@
 //! 物理化学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 物理化学定律集合
 pub struct PhysicalChemistryLaws {
@@ -121,10 +121,6 @@ impl Rule for PhysicalChemistryLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("physical_chemistry")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

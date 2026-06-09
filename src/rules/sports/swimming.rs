@@ -1,6 +1,6 @@
 //! 游泳规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 泳姿类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -160,10 +160,6 @@ impl Rule for SwimmingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("swimming")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

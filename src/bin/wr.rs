@@ -8,16 +8,8 @@
 //!   wr validate poker <cards>
 
 use std::env;
-use world_rules::prelude::*;
-use world_rules::rules::core::RuleMetadata;
-use world_rules::rules::games::board_games::gomoku::GomokuVariant;
-use world_rules::rules::games::board_games::{GoRules, GomokuRules};
+use world_rules::rules::core::{RuleCategory, RuleMetadata};
 use world_rules::rules::games::mahjong::Hand;
-use world_rules::rules::games::rubiks_cube::CubeType;
-use world_rules::rules::sports::{
-    ClimbingRules, CurlingRules, F1Rules, MarathonRules, MuayThaiRules, SkateboardingRules,
-    SurfingRules, TriathlonRules,
-};
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -33,7 +25,7 @@ fn main() {
         "stats" => cmd_stats(),
         "validate" | "val" => cmd_validate(&args[2..]),
         "help" | "--help" | "-h" => print_usage(),
-        "version" | "--version" | "-V" => println!("wr 0.3.0"),
+        "version" | "--version" | "-V" => println!("wr 0.6.0"),
         other => {
             eprintln!("未知命令: {}", other);
             print_usage();
@@ -43,7 +35,7 @@ fn main() {
 
 fn print_usage() {
     println!(
-        r#"世界规则库 (wr) v0.3.0
+        r#"世界规则库 (wr) v0.5.0
 
 用法:
   wr list [--category <分类>] [--search <关键词>]
@@ -76,144 +68,13 @@ fn parse_flag(args: &[String], flag: &str) -> Option<String> {
 }
 
 fn collect_all_rules() -> Vec<(&'static str, RuleMetadata, RuleCategory)> {
-    let mut rules: Vec<(&'static str, RuleMetadata, RuleCategory)> = Vec::new();
-
-    // 游戏规则
-    let game_rules: Vec<Box<dyn Rule>> = vec![
-        Box::new(SichuanMahjongRules::new()),
-        Box::new(GuobiaoMahjongRules::new()),
-        Box::new(RiichiMahjongRules::new()),
-        Box::new(GuangdongMahjongRules::new()),
-        Box::new(WuhanMahjongRules::new()),
-        Box::new(ShanghaiMahjongRules::new()),
-        Box::new(BeijingMahjongRules::new()),
-        Box::new(DongbeiMahjongRules::new()),
-        Box::new(ChangshaMahjongRules::new()),
-        Box::new(HangzhouMahjongRules::new()),
-        Box::new(NanjingMahjongRules::new()),
-        Box::new(ChaoshanMahjongRules::new()),
-        Box::new(TianjinMahjongRules::new()),
-        Box::new(ChongqingMahjongRules::new()),
-        Box::new(KunmingMahjongRules::new()),
-        Box::new(GuiyangMahjongRules::new()),
-        Box::new(FuzhouMahjongRules::new()),
-        Box::new(NanchangMahjongRules::new()),
-        Box::new(GuangxiMahjongRules::new()),
-        Box::new(XinjiangMahjongRules::new()),
-        Box::new(SichuanDetailedMahjongRules::new()),
-        Box::new(ZhengzhouMahjongRules::new()),
-        Box::new(XianMahjongRules::new()),
-        Box::new(KejiaMahjongRules::new()),
-        Box::new(HainanMahjongRules::new()),
-        Box::new(AnhuiMahjongRules::new()),
-        Box::new(DouDiZhuRules::new()),
-        Box::new(BlackjackRules::new()),
-        Box::new(BridgeRules::new()),
-        Box::new(SudokuRules::new()),
-        Box::new(RubiksCubeRules::new(CubeType::ThreeByThree)),
-        Box::new(PaoDeKuaiRules::new()),
-        Box::new(ShengJiRules::new()),
-        Box::new(TexasHoldemRules::new()),
-        Box::new(ChineseChessRules::new()),
-        Box::new(ChessRules::new()),
-        Box::new(GoRules::new(19)),
-        Box::new(GomokuRules::new(GomokuVariant::Standard)),
-    ];
-    for r in game_rules {
-        rules.push(("games", r.metadata().clone(), r.category()));
-    }
-
-    // 体育规则
-    let sport_rules: Vec<Box<dyn Rule>> = vec![
-        Box::new(FootballRules::new()),
-        Box::new(BasketballRules::new()),
-        Box::new(TableTennisRules::new()),
-        Box::new(TennisRules::new()),
-        Box::new(VolleyballRules::new()),
-        Box::new(BadmintonRules::new()),
-        Box::new(SwimmingRules::new()),
-        Box::new(GolfRules::new()),
-        Box::new(BoxingRules::new()),
-        Box::new(JudoRules::new()),
-        Box::new(TaekwondoRules::new()),
-        Box::new(BaseballRules::new()),
-        Box::new(IceHockeyRules::new()),
-        Box::new(FigureSkatingRules::new()),
-        Box::new(WeightliftingRules::new()),
-        Box::new(ShootingRules::new()),
-        Box::new(ArcheryRules::new()),
-        Box::new(DivingRules::new()),
-        Box::new(MuayThaiRules::new()),
-        Box::new(ClimbingRules::new()),
-        Box::new(SkateboardingRules::new()),
-        Box::new(F1Rules::new()),
-        Box::new(SurfingRules::new()),
-        Box::new(CurlingRules::new()),
-        Box::new(MarathonRules::new()),
-        Box::new(TriathlonRules::new()),
-    ];
-    for r in sport_rules {
-        rules.push(("sports", r.metadata().clone(), r.category()));
-    }
-
-    // 社交礼仪
-    let social_rules: Vec<Box<dyn Rule>> = vec![
-        Box::new(DiningEtiquette::new(DiningCulture::Chinese)),
-        Box::new(DiningEtiquette::new(DiningCulture::Western)),
-        Box::new(BusinessEtiquette::new("中国")),
-        Box::new(GiftEtiquette::new("中国")),
-        Box::new(TeaEtiquette::new(TeaCulture::Chinese)),
-        Box::new(InterviewEtiquette::new()),
-        Box::new(FestivalEtiquette::new(ChineseFestival::SpringFestival)),
-        Box::new(PhoneEtiquette::new()),
-        Box::new(EmailEtiquette::new()),
-    ];
-    for r in social_rules {
-        rules.push(("social", r.metadata().clone(), r.category()));
-    }
-
-    // 科学规则
-    let science_rules: Vec<Box<dyn Rule>> = vec![
-        Box::new(PhysicsLaws::new()),
-        Box::new(MathRules::new()),
-        Box::new(ChemistryRules::new()),
-        Box::new(BiologyRules::new()),
-        Box::new(AstronomyRules::new()),
-        Box::new(EconomicsRules::new()),
-        Box::new(PsychologyRules::new()),
-        Box::new(StatisticsRules::new()),
-    ];
-    for r in science_rules {
-        rules.push(("science", r.metadata().clone(), r.category()));
-    }
-
-    // 法律规则
-    let law_rules: Vec<Box<dyn Rule>> = vec![
-        Box::new(TrafficRules::new(TrafficRegion::China)),
-        Box::new(ContractRules::new()),
-        Box::new(LaborLawRules::new()),
-        Box::new(ConsumerLawRules::new()),
-        Box::new(CriminalLawRules::new()),
-        Box::new(CivilLawRules::new()),
-        Box::new(ConstitutionRules::new()),
-        Box::new(MarriageLawRules::new()),
-        Box::new(InheritanceLawRules::new()),
-    ];
-    for r in law_rules {
-        rules.push(("law", r.metadata().clone(), r.category()));
-    }
-
-    // 健康规则
-    let health_rules: Vec<Box<dyn Rule>> = vec![
-        Box::new(NutritionRules::new()),
-        Box::new(ExerciseRules::new()),
-        Box::new(SleepRules::new()),
-        Box::new(MentalHealthRules::new()),
-    ];
-    for r in health_rules {
-        rules.push(("health", r.metadata().clone(), r.category()));
-    }
-
+    let mut rules = Vec::new();
+    rules.extend(world_rules::rules::games::all_rules());
+    rules.extend(world_rules::rules::sports::all_rules());
+    rules.extend(world_rules::rules::social::all_rules());
+    rules.extend(world_rules::rules::science::all_rules());
+    rules.extend(world_rules::rules::law::all_rules());
+    rules.extend(world_rules::rules::health::all_rules());
     rules
 }
 
@@ -348,8 +209,8 @@ fn cmd_stats() {
     }
     println!("╠═══════════════════════════════════════╣");
     println!("║ 📊 本 CLI 展示规则: {:>4}             ║", total);
-    println!("║ 📚 库内规则总数:    3000+             ║");
-    println!("║ ✅ 单元测试:        468 passed        ║");
+    println!("║ 📚 库内模块总数:    624               ║");
+    println!("║ ✅ 单元测试:        751 passed        ║");
     println!("╚═══════════════════════════════════════╝");
 }
 

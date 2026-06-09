@@ -1,6 +1,5 @@
 //! 职业健康规则
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "职业健康规则",
     desc: "职业健康与安全规则",
     origin: "国际",
-    tags: ["健康", "职业"]
+    tags: ["健康", "职业"],
+    category: RuleCategory::health("occupational_health"),
+    sections: [("防护", section_0), ("心理", section_1)]
 }
 
 impl OccupationalHealthRules {
@@ -18,34 +19,5 @@ impl OccupationalHealthRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["工作压力管理", "职业倦怠预防", "工作生活平衡"]
-    }
-}
-
-impl Rule for OccupationalHealthRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::health("occupational_health")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "职业健康规则",
-            &[("防护", &self.section_0()), ("心理", &self.section_1())],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_occupational_health_rules() {
-        let r = OccupationalHealthRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

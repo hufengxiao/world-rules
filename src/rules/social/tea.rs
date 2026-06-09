@@ -1,6 +1,6 @@
 //! 茶道礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 茶道流派
 #[derive(Debug, Clone)]
@@ -121,10 +121,6 @@ impl Rule for TeaEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("tea")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

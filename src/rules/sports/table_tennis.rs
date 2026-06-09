@@ -1,6 +1,6 @@
 //! 乒乓球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 乒乓球规则
 pub struct TableTennisRules {
@@ -72,10 +72,6 @@ impl Rule for TableTennisRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("table_tennis")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

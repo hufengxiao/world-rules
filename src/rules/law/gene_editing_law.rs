@@ -1,6 +1,5 @@
 //! 基因编辑法规
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "基因编辑法规",
     desc: "基因编辑技术法律规则",
     origin: "国际",
-    tags: ["法律", "生物"]
+    tags: ["法律", "生物"],
+    category: RuleCategory::law("gene_editing_law"),
+    sections: [("研究限制", section_0), ("应用监管", section_1)]
 }
 
 impl GeneEditingLawRules {
@@ -18,37 +19,5 @@ impl GeneEditingLawRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["基因治疗审批", "转基因监管", "基因检测规范"]
-    }
-}
-
-impl Rule for GeneEditingLawRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::law("gene_editing_law")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "基因编辑法规",
-            &[
-                ("研究限制", &self.section_0()),
-                ("应用监管", &self.section_1()),
-            ],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_gene_editing_law_rules() {
-        let r = GeneEditingLawRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

@@ -1,6 +1,6 @@
 //! 三级跳远规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 三级跳远规则
 pub struct TripleJumpRules {
@@ -118,10 +118,6 @@ impl Rule for TripleJumpRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("triple_jump")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 电气工程定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 电气工程定律集合
 pub struct ElectricalEngineeringLaws {
@@ -117,10 +117,6 @@ impl Rule for ElectricalEngineeringLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("electrical_engineering")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

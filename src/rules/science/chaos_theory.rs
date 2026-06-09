@@ -1,6 +1,6 @@
 //! 混沌理论定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 混沌理论定律集合
 pub struct ChaosTheoryLaws {
@@ -145,10 +145,6 @@ impl Rule for ChaosTheoryLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("chaos_theory")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

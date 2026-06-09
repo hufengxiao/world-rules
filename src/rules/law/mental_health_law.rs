@@ -1,6 +1,5 @@
 //! 精神卫生法
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "精神卫生法",
     desc: "精神卫生法律规则",
     origin: "中国",
-    tags: ["法律", "医疗"]
+    tags: ["法律", "医疗"],
+    category: RuleCategory::law("mental_health_law"),
+    sections: [("患者权益", section_0), ("诊疗规范", section_1)]
 }
 
 impl MentalHealthLawRules {
@@ -18,37 +19,5 @@ impl MentalHealthLawRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["自愿原则", "非自愿住院条件", "治疗规范"]
-    }
-}
-
-impl Rule for MentalHealthLawRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::law("mental_health_law")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "精神卫生法",
-            &[
-                ("患者权益", &self.section_0()),
-                ("诊疗规范", &self.section_1()),
-            ],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_mental_health_law_rules() {
-        let r = MentalHealthLawRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

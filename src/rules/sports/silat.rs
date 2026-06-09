@@ -1,6 +1,6 @@
 //! 班卡西拉特规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 班卡西拉特规则 (印尼传统武术)
 pub struct SilatRules {
@@ -89,10 +89,6 @@ impl Rule for SilatRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("silat")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

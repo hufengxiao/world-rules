@@ -1,6 +1,6 @@
 //! 复杂性科学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 复杂性科学定律集合
 pub struct ComplexityScienceLaws {
@@ -154,10 +154,6 @@ impl Rule for ComplexityScienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("complexity_science")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

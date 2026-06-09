@@ -1,6 +1,6 @@
 //! 障碍跑规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 障碍跑规则 (Steeplechase)
 pub struct SteeplechaseRules {
@@ -83,10 +83,6 @@ impl Rule for SteeplechaseRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("steeplechase")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 传播学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 传播学定律集合
 pub struct CommunicationLaws {
@@ -144,10 +144,6 @@ impl Rule for CommunicationLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("communication")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

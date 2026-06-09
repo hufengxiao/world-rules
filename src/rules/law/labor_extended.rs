@@ -1,6 +1,6 @@
 //! 劳动法扩展规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 劳动法扩展规则
 pub struct LaborLawExtendedRules {
@@ -142,10 +142,6 @@ impl Rule for LaborLawExtendedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("labor_extended")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

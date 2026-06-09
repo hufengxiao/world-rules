@@ -1,6 +1,5 @@
 //! 眼睛健康规则
-
-use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::RuleCategory;
 use crate::simple_rule;
 
 simple_rule! {
@@ -8,7 +7,9 @@ simple_rule! {
     name: "眼睛健康规则",
     desc: "眼睛健康保护规则",
     origin: "国际",
-    tags: ["健康", "视力"]
+    tags: ["健康", "视力"],
+    category: RuleCategory::health("eye_health"),
+    sections: [("用眼", section_0), ("保护", section_1)]
 }
 
 impl EyeHealthRules {
@@ -18,34 +19,5 @@ impl EyeHealthRules {
 
     pub fn section_1(&self) -> Vec<&'static str> {
         vec!["佩戴太阳镜", "防蓝光", "眼保健操"]
-    }
-}
-
-impl Rule for EyeHealthRules {
-    fn metadata(&self) -> &RuleMetadata {
-        &self.metadata
-    }
-    fn category(&self) -> RuleCategory {
-        RuleCategory::health("eye_health")
-    }
-    fn validate(&self, ctx: &str) -> RuleResult<bool> {
-        Ok(!ctx.is_empty())
-    }
-    fn explain(&self) -> String {
-        format_rule_sections(
-            "眼睛健康规则",
-            &[("用眼", &self.section_0()), ("保护", &self.section_1())],
-        )
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-    #[test]
-    fn test_eye_health_rules() {
-        let r = EyeHealthRules::new();
-        assert!(!r.metadata().name.is_empty());
-        assert!(!r.explain().is_empty());
     }
 }

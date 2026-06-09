@@ -2,7 +2,7 @@
 //!
 //! 杭州麻将是浙江地区流行的玩法，讲究"财神"规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 杭州麻将规则
 pub struct HangzhouMahjongRules {
@@ -122,10 +122,6 @@ impl Rule for HangzhouMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_hangzhou")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

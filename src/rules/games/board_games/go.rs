@@ -1,6 +1,6 @@
 //! 围棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 围棋棋子颜色
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -95,10 +95,6 @@ impl Rule for GoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("go")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

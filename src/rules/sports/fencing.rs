@@ -1,6 +1,6 @@
 //! 击剑规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 击剑规则
 pub struct FencingRules {
@@ -107,10 +107,6 @@ impl Rule for FencingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("fencing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

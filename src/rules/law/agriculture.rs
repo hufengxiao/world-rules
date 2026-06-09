@@ -1,6 +1,6 @@
 //! 农业法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 农业法规则
 pub struct AgricultureLawRules {
@@ -142,10 +142,6 @@ impl Rule for AgricultureLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("agriculture")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

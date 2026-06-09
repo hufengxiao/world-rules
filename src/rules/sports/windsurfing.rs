@@ -1,6 +1,6 @@
 //! 帆板运动规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 帆板运动规则 ( Windsurfing)
 pub struct WindsurfingRules {
@@ -71,10 +71,6 @@ impl Rule for WindsurfingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("windsurfing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

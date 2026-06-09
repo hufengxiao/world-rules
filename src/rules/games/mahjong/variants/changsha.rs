@@ -2,7 +2,7 @@
 //!
 //! 长沙麻将特点是"跑得快"式计分，讲究"将"牌
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 长沙麻将规则
 pub struct ChangshaMahjongRules {
@@ -115,10 +115,6 @@ impl Rule for ChangshaMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_changsha")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

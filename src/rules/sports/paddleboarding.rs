@@ -1,6 +1,6 @@
 //! 站立式桨板规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 站立式桨板规则 (SUP)
 pub struct PaddleboardingRules {
@@ -65,10 +65,6 @@ impl Rule for PaddleboardingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("paddleboarding")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 文学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 文学定律集合
 pub struct LiteratureLaws {
@@ -152,10 +152,6 @@ impl Rule for LiteratureLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("literature")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 交通规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 交通规则地区
 #[derive(Debug, Clone)]
@@ -106,10 +106,6 @@ impl Rule for TrafficRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("traffic")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

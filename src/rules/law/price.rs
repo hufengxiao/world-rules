@@ -1,6 +1,6 @@
 //! 价格法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 价格法规则
 pub struct PriceLawRules {
@@ -142,10 +142,6 @@ impl Rule for PriceLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("price")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 老年人权益保障法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 老年人权益保障法规则
 pub struct ElderlyProtectionLawRules {
@@ -142,10 +142,6 @@ impl Rule for ElderlyProtectionLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("elderly_protection")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

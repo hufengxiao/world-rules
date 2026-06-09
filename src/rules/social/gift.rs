@@ -1,6 +1,6 @@
 //! 礼物礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 送礼礼仪规则
 pub struct GiftEtiquette {
@@ -49,10 +49,6 @@ impl Rule for GiftEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("gift")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

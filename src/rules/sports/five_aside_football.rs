@@ -1,6 +1,6 @@
 //! 五人制足球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 五人制足球规则
 pub struct FiveAsideFootballRules {
@@ -106,10 +106,6 @@ impl Rule for FiveAsideFootballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("five_aside_football")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

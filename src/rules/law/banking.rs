@@ -1,6 +1,6 @@
 //! 银行法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 银行法规则
 pub struct BankingLawRules {
@@ -148,10 +148,6 @@ impl Rule for BankingLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("banking")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

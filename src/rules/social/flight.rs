@@ -1,6 +1,6 @@
 //! 乘机礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 乘机礼仪规则
 pub struct FlightEtiquette {
@@ -82,10 +82,6 @@ impl Rule for FlightEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("flight")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

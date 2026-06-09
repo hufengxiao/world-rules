@@ -1,6 +1,6 @@
 //! 柔道规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 柔道规则
 pub struct JudoRules {
@@ -104,10 +104,6 @@ impl Rule for JudoRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("judo")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

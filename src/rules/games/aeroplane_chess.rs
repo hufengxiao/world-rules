@@ -1,6 +1,6 @@
 //! 飞行棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 飞机颜色
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -106,10 +106,6 @@ impl Rule for AeroplaneChessRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("aeroplane_chess")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

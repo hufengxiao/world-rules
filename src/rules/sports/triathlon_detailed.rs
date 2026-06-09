@@ -1,6 +1,6 @@
 //! 铁人三项详细规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 铁人三项详细规则
 pub struct TriathlonDetailedRules {
@@ -101,10 +101,6 @@ impl Rule for TriathlonDetailedRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("triathlon_detailed")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

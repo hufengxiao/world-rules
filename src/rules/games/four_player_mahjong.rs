@@ -1,6 +1,6 @@
 //! 四人麻将规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 四人麻将规则
 pub struct FourPlayerMahjongRules {
@@ -67,10 +67,6 @@ impl Rule for FourPlayerMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("four_player_mahjong")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 卡巴迪规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 卡巴迪规则
 pub struct KabaddiRules {
@@ -89,10 +89,6 @@ impl Rule for KabaddiRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("kabaddi")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

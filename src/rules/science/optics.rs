@@ -1,6 +1,6 @@
 //! 光学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 光学定律集合
 pub struct OpticsLaws {
@@ -132,10 +132,6 @@ impl Rule for OpticsLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("optics")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 数据安全法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 数据安全法规则
 pub struct DataSecurityLawRules {
@@ -142,10 +142,6 @@ impl Rule for DataSecurityLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("data_security")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

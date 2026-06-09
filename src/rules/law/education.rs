@@ -1,6 +1,6 @@
 //! 教育法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 教育法规则
 pub struct EducationLawRules {
@@ -142,10 +142,6 @@ impl Rule for EducationLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("education")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 艺术学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 艺术学定律集合
 pub struct ArtScienceLaws {
@@ -145,10 +145,6 @@ impl Rule for ArtScienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("art_science")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

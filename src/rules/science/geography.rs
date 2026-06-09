@@ -1,6 +1,6 @@
 //! 地理学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 地理学定律集合
 pub struct GeographyLaws {
@@ -146,10 +146,6 @@ impl Rule for GeographyLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("geography")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

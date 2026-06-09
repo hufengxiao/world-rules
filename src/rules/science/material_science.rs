@@ -1,6 +1,6 @@
 //! 材料科学定律
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 材料科学定律集合
 pub struct MaterialScienceLaws {
@@ -116,10 +116,6 @@ impl Rule for MaterialScienceLaws {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::science("material_science")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

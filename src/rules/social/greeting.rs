@@ -1,6 +1,6 @@
 //! 见面礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 见面礼仪
 pub struct GreetingEtiquette {
@@ -120,10 +120,6 @@ impl Rule for GreetingEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("greeting")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

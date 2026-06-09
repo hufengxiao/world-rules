@@ -1,6 +1,6 @@
 //! 七项全能规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 七项全能规则
 pub struct HeptathlonRules {
@@ -83,10 +83,6 @@ impl Rule for HeptathlonRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("heptathlon")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

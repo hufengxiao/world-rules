@@ -2,7 +2,7 @@
 //!
 //! 台湾麻将特点是16张起手，有台数计分系统
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 台湾麻将规则
 pub struct TaiwanMahjongRules {
@@ -143,10 +143,6 @@ impl Rule for TaiwanMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_taiwan")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

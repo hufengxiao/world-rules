@@ -1,6 +1,6 @@
 //! 商务礼仪
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 商务礼仪规则
 pub struct BusinessEtiquette {
@@ -64,10 +64,6 @@ impl Rule for BusinessEtiquette {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::social("business")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

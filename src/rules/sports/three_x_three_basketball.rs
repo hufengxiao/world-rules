@@ -1,6 +1,6 @@
 //! 3×3篮球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 3×3篮球规则
 pub struct ThreeXThreeBasketballRules {
@@ -112,10 +112,6 @@ impl Rule for ThreeXThreeBasketballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("three_x_three_basketball")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

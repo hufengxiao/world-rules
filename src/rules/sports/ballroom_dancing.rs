@@ -1,6 +1,6 @@
 //! 交际舞规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 交际舞规则
 pub struct BallroomDancingRules {
@@ -71,10 +71,6 @@ impl Rule for BallroomDancingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("ballroom_dancing")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

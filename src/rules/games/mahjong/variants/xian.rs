@@ -2,7 +2,7 @@
 //!
 //! 西安麻将是陕西地区的代表玩法
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 西安麻将规则
 pub struct XianMahjongRules {
@@ -99,10 +99,6 @@ impl Rule for XianMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_xian")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 速度滑冰规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 速度滑冰规则
 pub struct SpeedSkatingRules {
@@ -83,10 +83,6 @@ impl Rule for SpeedSkatingRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("speed_skating")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

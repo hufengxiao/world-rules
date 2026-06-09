@@ -1,6 +1,6 @@
 //! 盲人足球规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 盲人足球规则
 pub struct BlindFootballRules {
@@ -112,10 +112,6 @@ impl Rule for BlindFootballRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::sports("blind_football")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

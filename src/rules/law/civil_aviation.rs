@@ -1,6 +1,6 @@
 //! 民用航空法基础规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 民用航空法规则
 pub struct CivilAviationLawRules {
@@ -142,10 +142,6 @@ impl Rule for CivilAviationLawRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::law("civil_aviation")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

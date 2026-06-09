@@ -2,7 +2,7 @@
 //!
 //! 潮汕麻将是广东潮汕地区的特色玩法，讲究"番"的计算
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 潮汕麻将规则
 pub struct ChaoshanMahjongRules {
@@ -125,10 +125,6 @@ impl Rule for ChaoshanMahjongRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("mahjong_chaoshan")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {

@@ -1,6 +1,6 @@
 //! 斗地主规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 牌型
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -168,10 +168,6 @@ impl Rule for DouDiZhuRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("doudizhu")
-    }
-
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        Ok(!context.is_empty())
     }
 
     fn explain(&self) -> String {
