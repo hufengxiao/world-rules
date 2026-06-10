@@ -1,5 +1,30 @@
 # Changelog
 
+## v0.7.3 (2026-06-10)
+
+### CLI 象棋走法验证
+- `wr validate chess 车 0,0 0,5` — 车纵向移动 ✅
+- `wr validate chess 马 1,0 2,2` — 马走日 ✅
+- `wr validate chess 车 0,0 1,1` — 车斜向 ❌
+- 支持中英文棋子名: 车/Rook, 马/Horse, 象/Elephant, 士/Advisor, 将/King, 炮/Cannon, 兵/Pawn
+
+### ChineseChessRules validate 真实化
+- `validate()` 从 `Ok(!ctx.is_empty())` 升级为真实走法验证
+- 解析 "棋子 起点 终点" → `is_valid_move()` → 判断合法
+- 支持全部 7 种棋子的走法规则
+
+### 集成测试 28→36 (+8)
+- 车: 直线合法/斜向非法
+- 马: 日字合法/直线非法
+- 帅: 九宫内合法/出九宫非法
+- 士: 斜走合法/直走非法
+- 象: 田字合法/直线非法
+- 炮: 直线合法/斜向非法
+- 兵: 前进合法/后退非法
+- 非法输入: 无效棋子/格式错误/越界
+
+### 825 总测试 (785 unit + 36 integration + 4 doc)
+
 ## v0.7.2 (2026-06-10)
 
 ### CLI 斗地主验证

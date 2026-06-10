@@ -461,3 +461,106 @@ fn gomoku_no_win() {
     let result = rules.check_win(&board, (7, 6));
     assert_eq!(result, None, "4子不应判胜");
 }
+
+// ===== 中国象棋 validate 集成测试 =====
+
+#[test]
+fn chess_validate_rook_straight() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 车纵向移动
+    assert!(rules.validate("车 0,0 0,5").unwrap());
+    // 车横向移动
+    assert!(rules.validate("车 0,0 5,0").unwrap());
+    // 车斜向不行
+    assert!(!rules.validate("车 0,0 1,1").unwrap());
+}
+
+#[test]
+fn chess_validate_horse_l_shape() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 马走日
+    assert!(rules.validate("马 1,0 2,2").unwrap());
+    assert!(rules.validate("马 1,0 0,2").unwrap());
+    // 马走直线不行
+    assert!(!rules.validate("马 1,0 1,2").unwrap());
+}
+
+#[test]
+fn chess_validate_king_palace() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 帅在九宫内移动
+    assert!(rules.validate("帅 4,7 4,8").unwrap());
+    // 帅出九宫不行
+    assert!(!rules.validate("帅 4,7 4,6").unwrap()); // 6不在红方九宫(7-9)
+}
+
+#[test]
+fn chess_validate_advisor_diagonal() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 士斜走
+    assert!(rules.validate("士 3,7 4,8").unwrap());
+    // 士直走不行
+    assert!(!rules.validate("士 3,7 3,8").unwrap());
+}
+
+#[test]
+fn chess_validate_elephant_field() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 象走田
+    assert!(rules.validate("象 0,5 2,7").unwrap());
+    // 象走直线不行
+    assert!(!rules.validate("象 0,5 0,7").unwrap());
+}
+
+#[test]
+fn chess_validate_cannon_straight() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 炮直线移动
+    assert!(rules.validate("炮 1,2 1,5").unwrap());
+    // 炮斜向不行
+    assert!(!rules.validate("炮 1,2 2,3").unwrap());
+}
+
+#[test]
+fn chess_validate_pawn_forward() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 兵前进
+    assert!(rules.validate("兵 0,3 0,2").unwrap());
+    // 兵后退不行
+    assert!(!rules.validate("兵 0,3 0,4").unwrap());
+}
+
+#[test]
+fn chess_validate_invalid_input() {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    let rules = ChineseChessRules::new();
+    // 无效棋子
+    assert!(!rules.validate("龙 0,0 0,1").unwrap());
+    // 格式错误
+    assert!(!rules.validate("车 0,0").unwrap());
+    // 越界位置
+    assert!(!rules.validate("车 0,0 9,0").unwrap());
+}

@@ -1,6 +1,20 @@
 //! 中国象棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+
+/// 解析位置字符串 "x,y" 为 (u8, u8)
+fn parse_position(s: &str) -> Option<(u8, u8)> {
+    let parts: Vec<&str> = s.split(',').collect();
+    if parts.len() != 2 {
+        return None;
+    }
+    let x = parts[0].parse::<u8>().ok()?;
+    let y = parts[1].parse::<u8>().ok()?;
+    if x > 8 || y > 9 {
+        return None;
+    }
+    Some((x, y))
+}
 
 /// 棋子类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -378,6 +392,41 @@ impl Rule for ChineseChessRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("chinese_chess")
+    }
+
+    fn validate(&self, context: &str) -> RuleResult<bool> {
+        // 格式: "车 0,0 0,5" 或 "Rook 0,0 0,5"
+        let parts: Vec<&str> = context.split_whitespace().collect();
+        if parts.len() != 3 {
+            return Ok(false);
+        }
+
+        let piece_type = match parts[0] {
+            "车" | "Rook" | "rook" => PieceType::Rook,
+            "马" | "Horse" | "horse" => PieceType::Horse,
+            "象" | "相" | "Elephant" | "elephant" => PieceType::Elephant,
+            "士" | "仕" | "Advisor" | "advisor" => PieceType::Advisor,
+            "将" | "帅" | "King" | "king" => PieceType::King,
+            "炮" | "Cannon" | "cannon" => PieceType::Cannon,
+            "兵" | "卒" | "Pawn" | "pawn" => PieceType::Pawn,
+            _ => return Ok(false),
+        };
+
+        let from = parse_position(parts[1]);
+        let to = parse_position(parts[2]);
+
+        let (from, to) = match (from, to) {
+            (Some(f), Some(t)) => (f, t),
+            _ => return Ok(false),
+        };
+
+        let piece = Piece {
+            piece_type,
+            is_red: true, // 默认红方
+            position: from,
+        };
+
+        Ok(self.is_valid_move(&piece, to))
     }
 
     fn explain(&self) -> String {

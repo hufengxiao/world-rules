@@ -108,6 +108,7 @@ fn print_usage() {
   wr validate mahjong <牌面>
   wr validate poker <牌面>
   wr validate doudizhu <牌面>
+  wr validate chess <棋子> <起点> <终点>
 
 示例:
   wr list                        列出所有规则
@@ -120,6 +121,7 @@ fn print_usage() {
   wr validate mahjong "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条"
   wr validate poker "Ah Kd Qs Jc 10h 9d 8s"
   wr validate doudizhu "3s 3s 3s 4h 4h 4h"
+  wr validate chess 车 0,0 0,5
 
 麻将牌面格式: 1万 2万 3万 ... 东 南 西 北 中 发 白
 扑克牌面格式: Ah Kd Qs Jc 10h (花色: h红心 d方块 s黑桃 c梅花)
@@ -364,16 +366,17 @@ fn cmd_stats() {
 fn cmd_validate(args: &[String]) {
     if args.len() < 2 {
         eprintln!("用法: wr validate <游戏类型> <牌面>");
-        eprintln!("支持: mahjong, poker, doudizhu");
+        eprintln!("支持: mahjong, poker, doudizhu, chess");
         return;
     }
     match args[0].as_str() {
         "mahjong" | "mj" | "麻将" => cmd_validate_mahjong(&args[1]),
         "poker" | "德州" | "德州扑克" => cmd_validate_poker(&args[1]),
         "doudizhu" | "ddz" | "斗地主" => cmd_validate_doudizhu(&args[1]),
+        "chess" | "象棋" | "中国象棋" => cmd_validate_chess(&args[1..]),
         other => {
             eprintln!("不支持的游戏类型: {}", other);
-            eprintln!("支持: mahjong, poker, doudizhu");
+            eprintln!("支持: mahjong, poker, doudizhu, chess");
         }
     }
 }
@@ -543,6 +546,34 @@ fn cmd_validate_doudizhu(cards_str: &str) {
         None => {
             println!("❌ 无法识别牌型");
             println!("   可能原因: 牌数不匹配、不连续、含非法组合");
+        }
+    }
+}
+
+fn cmd_validate_chess(args: &[String]) {
+    use world_rules::prelude::Rule;
+    use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+
+    if args.len() < 3 {
+        eprintln!("用法: wr validate chess <棋子> <起点> <终点>");
+        eprintln!("示例: wr validate chess 车 0,0 0,5");
+        eprintln!("棋子: 车 马 象/相 士/仕 将/帅 炮 兵/卒");
+        eprintln!("      Rook Horse Elephant Advisor King Cannon Pawn");
+        return;
+    }
+
+    let move_str = format!("{} {} {}", args[0], args[1], args[2]);
+    let rules = ChineseChessRules::new();
+
+    match rules.validate(&move_str) {
+        Ok(true) => {
+            println!("✅ 合法走法: {} {} → {}", args[0], args[1], args[2]);
+        }
+        Ok(false) => {
+            println!("❌ 非法走法: {} {} → {}", args[0], args[1], args[2]);
+        }
+        Err(e) => {
+            eprintln!("验证失败: {}", e);
         }
     }
 }
