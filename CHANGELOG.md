@@ -1,5 +1,20 @@
 # Changelog
 
+## v0.7.0 (2026-06-10)
+
+### 工程成熟度升级
+- 新增 LICENSE 文件 (MIT)
+- Cargo.toml 补全: authors, default-run, exclude
+- 移除过时的 AUDIT_REPORT.md (来自 v0.1.0)
+- 新增 GitHub Actions CI (fmt + clippy + test + build)
+- 新增 17 个集成测试 (tests/integration.rs)
+  - 麻将胡牌算法: 标准胡/七对子/字牌/听牌/空手牌
+  - 德州扑克牌型: 皇家同花顺/四条/满堂红/同花/顺子/高牌
+  - 核心 API: metadata/explain/category/数学计算
+- cmd_stats() 移除硬编码数字，改为动态计算 + 版本号显示
+- CLI JSON 输出改用 serde_json 序列化 (替代手动转义)
+- 移除重复的 main.rs binary (demo 已在 examples/demo.rs)
+
 ## v0.6.3 (2026-06-09)
 
 ### 重复规则消除

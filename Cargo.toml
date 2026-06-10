@@ -1,12 +1,14 @@
 [package]
 name = "world_rules"
-version = "0.6.3"
+version = "0.7.0"
 edition = "2021"
 description = "世界规则库 - 收集各种游戏、体育、社交、科学、法律规则"
 license = "MIT"
 repository = "https://github.com/hufengxiao/world-rules"
+authors = ["hufengxiao"]
 keywords = ["rules", "mahjong", "poker", "games", "etiquette", "sports", "law", "science"]
 categories = ["game-development", "command-line-utilities"]
+exclude = ["AUDIT_REPORT.md", ".github/"]
 
 [dependencies]
 thiserror = "1.0"

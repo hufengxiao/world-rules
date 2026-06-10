@@ -11,6 +11,70 @@ use std::env;
 use world_rules::rules::core::{RuleCategory, RuleMetadata};
 use world_rules::rules::games::mahjong::Hand;
 
+/// JSON 输出结构
+#[derive(serde::Serialize)]
+struct RuleJson {
+    name: String,
+    category: String,
+    origin: String,
+    #[serde(rename = "type")]
+    type_name: String,
+    version: String,
+    tags: Vec<String>,
+    description: String,
+    explain: String,
+}
+
+fn to_rule_json(cat: &str, meta: &RuleMetadata, explain: &str) -> RuleJson {
+    RuleJson {
+        name: meta.name.clone(),
+        category: cat.to_string(),
+        origin: meta.origin.clone().unwrap_or_default(),
+        type_name: cat_name(cat).to_string(),
+        version: meta.version.clone(),
+        tags: meta.tags.clone(),
+        description: meta.description.clone(),
+        explain: explain.to_string(),
+    }
+}
+
+fn rule_cat_str(cat: &RuleCategory) -> String {
+    match cat {
+        RuleCategory::Games(n) => format!("games/{}", n),
+        RuleCategory::Sports(n) => format!("sports/{}", n),
+        RuleCategory::Social(n) => format!("social/{}", n),
+        RuleCategory::Science(n) => format!("science/{}", n),
+        RuleCategory::Law(n) => format!("law/{}", n),
+        RuleCategory::Health(n) => format!("health/{}", n),
+        RuleCategory::Custom(n) => n.clone(),
+    }
+}
+
+fn rule_cat_type(cat: &RuleCategory) -> &'static str {
+    match cat {
+        RuleCategory::Games(_) => "🎮 游戏规则",
+        RuleCategory::Sports(_) => "🏃 体育规则",
+        RuleCategory::Social(_) => "🤝 社交礼仪",
+        RuleCategory::Science(_) => "🔬 科学定律",
+        RuleCategory::Law(_) => "⚖️ 法律法规",
+        RuleCategory::Health(_) => "🏥 健康规则",
+        RuleCategory::Custom(_) => "其他",
+    }
+}
+
+fn rule_to_json(cat: &RuleCategory, meta: &RuleMetadata, explain: &str) -> RuleJson {
+    RuleJson {
+        name: meta.name.clone(),
+        category: rule_cat_str(cat),
+        origin: meta.origin.clone().unwrap_or_default(),
+        type_name: rule_cat_type(cat).to_string(),
+        version: meta.version.clone(),
+        tags: meta.tags.clone(),
+        description: meta.description.clone(),
+        explain: explain.to_string(),
+    }
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -130,25 +194,11 @@ fn cmd_list(args: &[String]) {
     filtered.sort_by(|a, b| a.0.cmp(b.0).then_with(|| a.1.name.cmp(&b.1.name)));
 
     if json {
-        print!("[");
-        for (i, (cat, meta, _, explain)) in filtered.iter().enumerate() {
-            if i > 0 {
-                print!(",");
-            }
-            let origin = meta.origin.as_deref().unwrap_or("");
-            let tags_json: Vec<String> = meta.tags.iter().map(|t| format!("\"{}\"", t)).collect();
-            let explain_escaped = explain
-                .replace('\\', "\\\\")
-                .replace('"', "\\\"")
-                .replace('\n', "\\n")
-                .replace('\r', "\\r")
-                .replace('\t', "\\t");
-            print!(
-                "{{\"name\":\"{}\",\"category\":\"{}\",\"origin\":\"{}\",\"tags\":[{}],\"version\":\"{}\",\"explain\":\"{}\"}}",
-                meta.name, cat, origin, tags_json.join(","), meta.version, explain_escaped
-            );
-        }
-        println!("]");
+        let items: Vec<_> = filtered
+            .iter()
+            .map(|(cat, meta, _, explain)| to_rule_json(cat, meta, explain))
+            .collect();
+        println!("{}", serde_json::to_string_pretty(&items).unwrap());
         return;
     }
 
@@ -225,26 +275,11 @@ fn cmd_show(args: &[String]) {
 
     if matches.len() > 1 {
         if json {
-            print!("[");
-            for (i, (_, meta, cat, explain)) in matches.iter().enumerate() {
-                if i > 0 {
-                    print!(",");
-                }
-                let origin = meta.origin.as_deref().unwrap_or("");
-                let tags_json: Vec<String> =
-                    meta.tags.iter().map(|t| format!("\"{}\"", t)).collect();
-                let explain_escaped = explain
-                    .replace('\\', "\\\\")
-                    .replace('"', "\\\"")
-                    .replace('\n', "\\n")
-                    .replace('\r', "\\r")
-                    .replace('\t', "\\t");
-                print!(
-                    "{{\"name\":\"{}\",\"category\":\"{}\",\"origin\":\"{}\",\"tags\":[{}],\"version\":\"{}\",\"explain\":\"{}\"}}",
-                    meta.name, cat, origin, tags_json.join(","), meta.version, explain_escaped
-                );
-            }
-            println!("]");
+            let items: Vec<_> = matches
+                .iter()
+                .map(|(_, meta, cat, explain)| rule_to_json(cat, meta, explain))
+                .collect();
+            println!("{}", serde_json::to_string_pretty(&items).unwrap());
         } else {
             println!("找到 {} 条匹配规则:\n", matches.len());
             for (_, meta, cat, _) in &matches {
@@ -267,18 +302,8 @@ fn cmd_show(args: &[String]) {
     let (_, meta, cat, explain) = matches[0];
 
     if json {
-        let origin = meta.origin.as_deref().unwrap_or("");
-        let tags_json: Vec<String> = meta.tags.iter().map(|t| format!("\"{}\"", t)).collect();
-        let explain_escaped = explain
-            .replace('\\', "\\\\")
-            .replace('"', "\\\"")
-            .replace('\n', "\\n")
-            .replace('\r', "\\r")
-            .replace('\t', "\\t");
-        println!(
-            "{{\"name\":\"{}\",\"category\":\"{}\",\"origin\":\"{}\",\"tags\":[{}],\"version\":\"{}\",\"explain\":\"{}\"}}",
-            meta.name, cat, origin, tags_json.join(","), meta.version, explain_escaped
-        );
+        let item = rule_to_json(cat, meta, explain);
+        println!("{}", serde_json::to_string_pretty(&item).unwrap());
         return;
     }
 
@@ -325,9 +350,11 @@ fn cmd_stats() {
         println!("║ {} {:>4} {}", cat_name(cat), count, bar);
     }
     println!("╠═══════════════════════════════════════╣");
-    println!("║ 📊 本 CLI 展示规则: {:>4}             ║", total);
-    println!("║ 📚 库内模块总数:    623               ║");
-    println!("║ ✅ 单元测试:        751 passed        ║");
+    println!("║ 📊 CLI 可用规则:   {:>4}             ║", total);
+    println!(
+        "║ 📦 版本:           {}             ║",
+        env!("CARGO_PKG_VERSION")
+    );
     println!("╚═══════════════════════════════════════╝");
 }
 
