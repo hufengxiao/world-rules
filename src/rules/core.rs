@@ -6,6 +6,17 @@ use std::collections::HashMap;
 pub type TitledItem = (&'static str, &'static str, &'static str);
 
 /// 规则分类
+///
+/// 每个规则都属于一个大分类下的子分类。
+/// 大分类通过枚举变体区分，子分类通过 `String` 字段区分。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::core::RuleCategory;
+///
+/// let cat = RuleCategory::games("mahjong");
+/// assert_eq!(cat.to_string(), "Games/mahjong");
+/// ```
 #[derive(Debug, Clone, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 pub enum RuleCategory {
     /// 游戏规则
@@ -69,6 +80,19 @@ impl std::fmt::Display for RuleCategory {
 }
 
 /// 规则元数据
+///
+/// 包含规则的基本信息：名称、描述、版本、来源和标签。
+/// 通过 builder 模式构造。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::core::RuleMetadata;
+///
+/// let meta = RuleMetadata::new("四川麻将", "血战到底规则")
+///     .with_origin("四川")
+///     .with_tags(vec!["麻将".into(), "地方变体".into()]);
+/// assert_eq!(meta.name, "四川麻将");
+/// ```
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct RuleMetadata {
     /// 规则名称
@@ -111,6 +135,8 @@ impl RuleMetadata {
 }
 
 /// 规则错误类型
+///
+/// 统一的错误枚举，用于规则验证和查询过程中的错误处理。
 #[derive(Debug, thiserror::Error)]
 pub enum RuleError {
     #[error("规则不存在: {0}")]
@@ -130,7 +156,24 @@ pub type RuleResult<T> = Result<T, RuleError>;
 
 /// 规则核心 trait
 ///
-/// 所有规则都需要实现此 trait
+/// 所有规则都需要实现此 trait。提供了元数据查询、分类、验证和说明四个核心方法。
+///
+/// # 实现指南
+///
+/// 使用 `simple_rule!` 宏可以自动生成大部分实现。手动实现时：
+/// - `metadata()` 返回规则的名称、描述等基本信息
+/// - `category()` 返回规则所属的分类
+/// - `validate()` 验证给定上下文是否符合规则（默认实现返回 `Ok(true)`）
+/// - `explain()` 返回规则的详细说明文本
+///
+/// # 示例
+/// ```
+/// use world_rules::prelude::*;
+///
+/// let rule = SichuanMahjongRules::new();
+/// assert!(!rule.metadata().name.is_empty());
+/// assert!(!rule.explain().is_empty());
+/// ```
 pub trait Rule: Send + Sync {
     /// 获取规则元数据
     fn metadata(&self) -> &RuleMetadata;

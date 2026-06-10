@@ -1,18 +1,41 @@
 //! 斗地主规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
 use std::collections::HashMap;
 
 /// 斗地主牌面花色
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum DdzSuit {
+    /// 黑桃
     Spade,
+    /// 红心
     Heart,
+    /// 方块
     Diamond,
+    /// 梅花
     Club,
 }
 
 /// 斗地主牌
+///
+/// 通过 `rank` (点数) 和 `suit` (花色) 表示一张牌。
+/// 王牌无花色，rank=16 为小王，rank=17 为大王。
+///
+/// # 点数映射
+/// - 3-10: 对应数字
+/// - J=11, Q=12, K=13, A=14, 2=15
+/// - 小王=16, 大王=17
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::doudizhu::{DdzCard, DdzSuit};
+///
+/// let card = DdzCard::new(3, DdzSuit::Spade);
+/// assert_eq!(card.rank, 3);
+///
+/// let joker = DdzCard::joker_big();
+/// assert_eq!(joker.rank, 17);
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct DdzCard {
     /// 点数 (3=3, 4=4, ..., 10=10, J=11, Q=12, K=13, A=14, 2=15, 小王=16, 大王=17)
@@ -89,6 +112,33 @@ impl DdzCard {
     /// 解析多张牌 (空格分隔)
     pub fn parse_many(s: &str) -> Result<Vec<Self>, String> {
         s.split_whitespace().map(Self::parse_card).collect()
+    }
+}
+
+impl std::fmt::Display for DdzCard {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self.rank {
+            16 => write!(f, "小王"),
+            17 => write!(f, "大王"),
+            _ => {
+                let rank_str = match self.rank {
+                    11 => "J".to_string(),
+                    12 => "Q".to_string(),
+                    13 => "K".to_string(),
+                    14 => "A".to_string(),
+                    15 => "2".to_string(),
+                    n => n.to_string(),
+                };
+                let suit_str = match self.suit {
+                    Some(DdzSuit::Spade) => "♠",
+                    Some(DdzSuit::Heart) => "♥",
+                    Some(DdzSuit::Diamond) => "♦",
+                    Some(DdzSuit::Club) => "♣",
+                    None => "",
+                };
+                write!(f, "{}{}", rank_str, suit_str)
+            }
+        }
     }
 }
 
@@ -182,7 +232,10 @@ pub fn recognize_pattern(cards: &[DdzCard]) -> Option<(CardPattern, u8)> {
     if n >= 6 && n.is_multiple_of(2) && counts.values().all(|&c| c == 2) {
         let mut ranks: Vec<u8> = counts.keys().copied().collect();
         ranks.sort();
-        if ranks.len() >= 3 && ranks.iter().all(|&r| (3..=14).contains(&r)) && is_consecutive(&ranks) {
+        if ranks.len() >= 3
+            && ranks.iter().all(|&r| (3..=14).contains(&r))
+            && is_consecutive(&ranks)
+        {
             return Some((CardPattern::DoubleStraight, *ranks.last().unwrap()));
         }
     }
@@ -308,7 +361,11 @@ pub fn can_beat(current: &[(CardPattern, u8)], previous: &[(CardPattern, u8)]) -
     false
 }
 
-/// 牌型
+/// 斗地主牌型
+///
+/// 表示斗地主中所有合法的出牌组合。
+/// 优先级从低到高：单张(1) → 王炸(12)。
+/// 炸弹可以压任何非炸弹牌型，王炸可以压任何牌型。
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum CardPattern {
     /// 单张
@@ -474,6 +531,14 @@ impl Rule for DouDiZhuRules {
 
     fn category(&self) -> RuleCategory {
         RuleCategory::games("doudizhu")
+    }
+
+    fn validate(&self, context: &str) -> RuleResult<bool> {
+        let cards = match DdzCard::parse_many(context) {
+            Ok(c) => c,
+            Err(_) => return Ok(false),
+        };
+        Ok(recognize_pattern(&cards).is_some())
     }
 
     fn explain(&self) -> String {
@@ -669,5 +734,142 @@ mod tests {
         let prev = vec![(CardPattern::Pair, 8)];
         let cur = vec![(CardPattern::Single, 14)]; // 单张A不能压对子
         assert!(!can_beat(&cur, &prev));
+    }
+
+    // ===== DdzCard Display 测试 =====
+
+    #[test]
+    fn test_card_display_number() {
+        let card = DdzCard::new(3, DdzSuit::Spade);
+        assert_eq!(format!("{}", card), "3♠");
+    }
+
+    #[test]
+    fn test_card_display_face() {
+        let card = DdzCard::new(11, DdzSuit::Heart);
+        assert_eq!(format!("{}", card), "J♥");
+    }
+
+    #[test]
+    fn test_card_display_ace() {
+        let card = DdzCard::new(14, DdzSuit::Diamond);
+        assert_eq!(format!("{}", card), "A♦");
+    }
+
+    #[test]
+    fn test_card_display_two() {
+        let card = DdzCard::new(15, DdzSuit::Club);
+        assert_eq!(format!("{}", card), "2♣");
+    }
+
+    #[test]
+    fn test_card_display_jokers() {
+        assert_eq!(format!("{}", DdzCard::joker_small()), "小王");
+        assert_eq!(format!("{}", DdzCard::joker_big()), "大王");
+    }
+
+    // ===== DdzCard 解析测试 =====
+
+    #[test]
+    fn test_parse_card_basic() {
+        let card = DdzCard::parse_card("3s").unwrap();
+        assert_eq!(card.rank, 3);
+        assert_eq!(card.suit, Some(DdzSuit::Spade));
+    }
+
+    #[test]
+    fn test_parse_card_ten() {
+        let card = DdzCard::parse_card("10h").unwrap();
+        assert_eq!(card.rank, 10);
+        assert_eq!(card.suit, Some(DdzSuit::Heart));
+    }
+
+    #[test]
+    fn test_parse_card_joker() {
+        let small = DdzCard::parse_card("X").unwrap();
+        assert_eq!(small.rank, 16);
+        let big = DdzCard::parse_card("D").unwrap();
+        assert_eq!(big.rank, 17);
+    }
+
+    #[test]
+    fn test_parse_card_chinese_joker() {
+        let small = DdzCard::parse_card("小王").unwrap();
+        assert_eq!(small.rank, 16);
+        let big = DdzCard::parse_card("大王").unwrap();
+        assert_eq!(big.rank, 17);
+    }
+
+    #[test]
+    fn test_parse_many() {
+        let cards = DdzCard::parse_many("3s 3h 3d").unwrap();
+        assert_eq!(cards.len(), 3);
+        assert!(cards.iter().all(|c| c.rank == 3));
+    }
+
+    #[test]
+    fn test_parse_invalid() {
+        assert!(DdzCard::parse_card("Z").is_err());
+        assert!(DdzCard::parse_card("1s").is_err()); // 1不是合法点数
+    }
+
+    // ===== validate 通过 Rule trait 测试 =====
+
+    #[test]
+    fn test_validate_valid_pattern() {
+        use crate::rules::core::Rule as _;
+        let rules = DouDiZhuRules::new();
+        // 炸弹
+        assert!(rules.validate("3s 3h 3d 3c").unwrap());
+        // 单张
+        assert!(rules.validate("5s").unwrap());
+        // 王炸
+        assert!(rules.validate("X D").unwrap());
+    }
+
+    #[test]
+    fn test_validate_invalid_pattern() {
+        use crate::rules::core::Rule as _;
+        let rules = DouDiZhuRules::new();
+        // 两张不同牌
+        assert!(!rules.validate("3s 5h").unwrap());
+        // 空字符串
+        assert!(!rules.validate("").unwrap());
+        // 无效输入
+        assert!(!rules.validate("abc").unwrap());
+    }
+
+    // ===== 更多边界测试 =====
+
+    #[test]
+    fn test_recognize_four_with_two_singles() {
+        // 四带二 (4张+2张单牌)
+        let cards = vec![c(8), c(8), c(8), c(8), c(3), c(5)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::FourWithTwo);
+        assert_eq!(rank, 8);
+    }
+
+    #[test]
+    fn test_straight_must_be_at_least_5() {
+        // 4张连续不是顺子
+        let cards = vec![c(3), c(4), c(5), c(6)];
+        assert!(recognize_pattern(&cards).is_none());
+    }
+
+    #[test]
+    fn test_double_straight_must_be_at_least_3_pairs() {
+        // 2对连续不是连对
+        let cards = vec![c(3), c(3), c(4), c(4)];
+        assert!(recognize_pattern(&cards).is_none());
+    }
+
+    #[test]
+    fn test_bomb_priority_order() {
+        // 3的炸弹 < 2的炸弹
+        let bomb3 = recognize_pattern(&[c(3), c(3), c(3), c(3)]).unwrap();
+        let bomb2 = recognize_pattern(&[c(15), c(15), c(15), c(15)]).unwrap();
+        assert!(can_beat(&[bomb2.clone()], &[bomb3.clone()]));
+        assert!(!can_beat(&[bomb3], &[bomb2]));
     }
 }

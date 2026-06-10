@@ -1,5 +1,36 @@
 # Changelog
 
+## v0.7.2 (2026-06-10)
+
+### CLI 斗地主验证
+- `wr validate doudizhu "3s 3s 3s 4h 4h 4h"` — 牌型识别输出
+- 支持别名: `ddz`, `斗地主`
+- 完整帮助文本 + 牌面格式说明
+
+### DouDiZhuRules validate 真实化
+- `validate()` 从 `Ok(!ctx.is_empty())` 升级为真实牌型识别
+- 解析牌面 → `recognize_pattern()` → 判断是否合法牌型
+
+### DdzCard Display + 解析
+- `DdzCard` 实现 `Display` trait (3♠, J♥, A♦, 2♣, 小王, 大王)
+- `parse_card()` 支持 "3s", "10h", "Jd", "X", "D", "小王", "大王"
+
+### Doc Comments 文档化
+- `Rule` trait: 实现指南 + 示例
+- `RuleCategory`: 分类说明 + 示例
+- `RuleMetadata`: builder 模式说明 + 示例
+- `RuleError`: 错误类型说明
+- `DdzCard`: 点数映射 + 示例
+- `DdzSuit`: 花色说明
+- `CardPattern`: 优先级说明
+
+### 边界测试补充 (768→785 单元测试)
+- DdzCard Display: 数字/花牌/A/2/王牌
+- DdzCard 解析: 基本/10/王牌/中文王牌/批量/非法输入
+- validate 通过 Rule trait: 合法/非法牌型
+- 边界: 四带二/顺子至少5张/连对至少3对/炸弹优先级
+- 817 总测试 (785 unit + 28 integration + 4 doc)
+
 ## v0.7.1 (2026-06-10)
 
 ### 斗地主牌型识别引擎

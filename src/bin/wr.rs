@@ -107,6 +107,7 @@ fn print_usage() {
   wr stats
   wr validate mahjong <牌面>
   wr validate poker <牌面>
+  wr validate doudizhu <牌面>
 
 示例:
   wr list                        列出所有规则
@@ -118,9 +119,11 @@ fn print_usage() {
   wr stats                       显示统计信息
   wr validate mahjong "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条"
   wr validate poker "Ah Kd Qs Jc 10h 9d 8s"
+  wr validate doudizhu "3s 3s 3s 4h 4h 4h"
 
 麻将牌面格式: 1万 2万 3万 ... 东 南 西 北 中 发 白
-扑克牌面格式: Ah Kd Qs Jc 10h (花色: h红心 d方块 s黑桃 c梅花)"#,
+扑克牌面格式: Ah Kd Qs Jc 10h (花色: h红心 d方块 s黑桃 c梅花)
+斗地主牌面格式: 3s 4h 10d Jc 2s X D (s黑桃 h红心 d方块 c梅花, X小王 D大王)"#,
         ver = env!("CARGO_PKG_VERSION"),
     );
 }
@@ -361,15 +364,16 @@ fn cmd_stats() {
 fn cmd_validate(args: &[String]) {
     if args.len() < 2 {
         eprintln!("用法: wr validate <游戏类型> <牌面>");
-        eprintln!("支持: mahjong, poker");
+        eprintln!("支持: mahjong, poker, doudizhu");
         return;
     }
     match args[0].as_str() {
         "mahjong" | "mj" | "麻将" => cmd_validate_mahjong(&args[1]),
         "poker" | "德州" | "德州扑克" => cmd_validate_poker(&args[1]),
+        "doudizhu" | "ddz" | "斗地主" => cmd_validate_doudizhu(&args[1]),
         other => {
             eprintln!("不支持的游戏类型: {}", other);
-            eprintln!("支持: mahjong, poker");
+            eprintln!("支持: mahjong, poker, doudizhu");
         }
     }
 }
@@ -506,6 +510,40 @@ fn cmd_validate_poker(cards_str: &str) {
     println!("   英文: {}", eval.rank.english_name());
     if !eval.tiebreaker.is_empty() {
         println!("   附带: {:?}", eval.tiebreaker);
+    }
+}
+
+fn cmd_validate_doudizhu(cards_str: &str) {
+    use world_rules::rules::games::doudizhu::{recognize_pattern, DdzCard};
+
+    let cards = match DdzCard::parse_many(cards_str) {
+        Ok(c) => c,
+        Err(e) => {
+            eprintln!("解析牌面失败: {}", e);
+            eprintln!("格式: 用空格分隔，如 \"3s 3s 3s 4h 4h\"");
+            eprintln!("点数: 3-10, J, Q, K, A, 2");
+            eprintln!("花色: s黑桃 h红心 d方块 c梅花");
+            eprintln!("王牌: X小王 D大王");
+            return;
+        }
+    };
+
+    println!("手牌 ({}张):", cards.len());
+    for card in &cards {
+        print!(" {} ", card);
+    }
+    println!("\n");
+
+    match recognize_pattern(&cards) {
+        Some((pat, rank)) => {
+            println!("✅ 识别牌型: {}", pat.name());
+            println!("   优先级: {}", pat.priority());
+            println!("   关键牌: {}", rank);
+        }
+        None => {
+            println!("❌ 无法识别牌型");
+            println!("   可能原因: 牌数不匹配、不连续、含非法组合");
+        }
     }
 }
 
