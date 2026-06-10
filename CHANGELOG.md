@@ -1,5 +1,16 @@
 # Changelog
 
+## v0.7.4 (2026-06-10)
+
+### 库 API 完善
+- `Display` for `RuleMetadata` — `"四川麻将 (四川) [麻将, 地方变体]"`
+- `Display` for `RuleSet` — `"【测试规则集】描述 (3 条规则)"`
+- `RuleSet::len()` / `is_empty()` — 规则数量查询
+- `#[must_use]` 注解: `get_rule`, `list_rules`, `len`, `is_empty`
+- Doc comments: `RuleSet` 示例 + 说明
+
+### 826 总测试 (785 unit + 36 integration + 5 doc)
+
 ## v0.7.3 (2026-06-10)
 
 ### CLI 象棋走法验证

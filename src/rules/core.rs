@@ -134,6 +134,19 @@ impl RuleMetadata {
     }
 }
 
+impl std::fmt::Display for RuleMetadata {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.name)?;
+        if let Some(origin) = &self.origin {
+            write!(f, " ({})", origin)?;
+        }
+        if !self.tags.is_empty() {
+            write!(f, " [{}]", self.tags.join(", "))?;
+        }
+        Ok(())
+    }
+}
+
 /// 规则错误类型
 ///
 /// 统一的错误枚举，用于规则验证和查询过程中的错误处理。
@@ -199,10 +212,32 @@ pub trait Rule: Send + Sync {
 }
 
 /// 规则集 - 包含一组相关规则
+///
+/// 管理一组相关的规则，支持按分类/标签/名称查询。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::core::{RuleSet, RuleCategory, RuleMetadata};
+///
+/// let mut rs = RuleSet::new("测试规则集".to_string(), RuleCategory::games("test"));
+/// assert_eq!(rs.list_rules().len(), 0);
+/// ```
 pub struct RuleSet {
     pub metadata: RuleMetadata,
     pub category: RuleCategory,
     pub rules: HashMap<String, Box<dyn Rule>>,
+}
+
+impl std::fmt::Display for RuleSet {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(
+            f,
+            "【{}】{} ({} 条规则)",
+            self.metadata.name,
+            self.metadata.description,
+            self.rules.len()
+        )
+    }
 }
 
 impl RuleSet {
@@ -224,10 +259,24 @@ impl RuleSet {
         self.rules.insert(name, Box::new(rule));
     }
 
+    /// 获取规则数量
+    #[must_use]
+    pub fn len(&self) -> usize {
+        self.rules.len()
+    }
+
+    /// 是否为空
+    #[must_use]
+    pub fn is_empty(&self) -> bool {
+        self.rules.is_empty()
+    }
+
+    #[must_use]
     pub fn get_rule(&self, name: &str) -> Option<&dyn Rule> {
         self.rules.get(name).map(|b| b.as_ref())
     }
 
+    #[must_use]
     pub fn list_rules(&self) -> Vec<&str> {
         self.rules.keys().map(|s| s.as_str()).collect()
     }
