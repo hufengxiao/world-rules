@@ -438,8 +438,8 @@ fn gomoku_horizontal_win() {
     let mut board = [[None; 15]; 15];
 
     // 黑子横排5个
-    for col in 3..8 {
-        board[7][col] = Some(true); // true = 黑
+    for item in board[7].iter_mut().take(8).skip(3) {
+        *item = Some(true); // true = 黑
     }
 
     let result = rules.check_win(&board, (7, 7));
@@ -454,8 +454,8 @@ fn gomoku_no_win() {
     let mut board = [[None; 15]; 15];
 
     // 只有4个
-    for col in 3..7 {
-        board[7][col] = Some(true);
+    for item in board[7].iter_mut().take(7).skip(3) {
+        *item = Some(true);
     }
 
     let result = rules.check_win(&board, (7, 6));

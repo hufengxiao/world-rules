@@ -229,26 +229,26 @@ mod tests {
     fn test_validate_blackjack_hand() {
         let rules = BlackjackRules::new();
         // 21点
-        assert_eq!(rules.validate("Kh As").unwrap(), true);
+        assert!(rules.validate("Kh As").unwrap());
     }
 
     #[test]
     fn test_validate_under_21() {
         let rules = BlackjackRules::new();
-        assert_eq!(rules.validate("5h 6d 7s").unwrap(), true);
+        assert!(rules.validate("5h 6d 7s").unwrap());
     }
 
     #[test]
     fn test_validate_bust() {
         let rules = BlackjackRules::new();
         // K+Q+2 = 22, bust
-        assert_eq!(rules.validate("Ks Qh 2d").unwrap(), true); // bust 也算有效状态
+        assert!(rules.validate("Ks Qh 2d").unwrap()); // bust 也算有效状态
     }
 
     #[test]
     fn test_validate_invalid() {
         let rules = BlackjackRules::new();
-        assert_eq!(rules.validate("Xx Yy").unwrap(), false);
-        assert_eq!(rules.validate("").unwrap(), false);
+        assert!(!rules.validate("Xx Yy").unwrap());
+        assert!(!rules.validate("").unwrap());
     }
 }

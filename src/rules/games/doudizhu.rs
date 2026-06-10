@@ -869,7 +869,10 @@ mod tests {
         // 3的炸弹 < 2的炸弹
         let bomb3 = recognize_pattern(&[c(3), c(3), c(3), c(3)]).unwrap();
         let bomb2 = recognize_pattern(&[c(15), c(15), c(15), c(15)]).unwrap();
-        assert!(can_beat(&[bomb2.clone()], &[bomb3.clone()]));
+        assert!(can_beat(
+            std::slice::from_ref(&bomb2),
+            std::slice::from_ref(&bomb3)
+        ));
         assert!(!can_beat(&[bomb3], &[bomb2]));
     }
 }

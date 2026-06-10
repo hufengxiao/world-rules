@@ -146,8 +146,8 @@ mod extra_tests {
     fn test_field_dimensions() {
         let rules = FootballRules::new();
         let (w, h) = rules.field_dimensions();
-        assert!(w >= 100 && w <= 110);
-        assert!(h >= 64 && h <= 75);
+        assert!((100..=110).contains(&w));
+        assert!((64..=75).contains(&h));
     }
 
     #[test]

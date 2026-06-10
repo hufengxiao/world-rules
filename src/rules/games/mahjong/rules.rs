@@ -614,7 +614,7 @@ mod tests {
         let rules = SichuanMahjongRules::new();
         // 标准平胡: 1-9万 + 2条3条4条 + 4条对子
         let result = rules.validate("1万 2万 3万 4万 5万 6万 7万 8万 9万 2条 3条 4条 4条 4条");
-        assert_eq!(result.unwrap(), true);
+        assert!(result.unwrap());
     }
 
     #[test]
@@ -622,7 +622,7 @@ mod tests {
         let rules = SichuanMahjongRules::new();
         // 不能胡的14张
         let result = rules.validate("1万 1万 1万 2条 2条 2条 3筒 3筒 3筒 4万 4万 5万 6万 7条");
-        assert_eq!(result.unwrap(), false);
+        assert!(!result.unwrap());
     }
 
     #[test]
@@ -630,14 +630,14 @@ mod tests {
         let rules = SichuanMahjongRules::new();
         // 无效输入
         let result = rules.validate("abc def");
-        assert_eq!(result.unwrap(), false);
+        assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_empty_input() {
         let rules = SichuanMahjongRules::new();
         let result = rules.validate("");
-        assert_eq!(result.unwrap(), false);
+        assert!(!result.unwrap());
     }
 
     #[test]
@@ -645,7 +645,7 @@ mod tests {
         let rules = GuobiaoMahjongRules::new();
         // 七对子
         let result = rules.validate("1万 1万 2万 2万 3万 3万 4万 4万 5万 5万 6万 6万 7万 7万");
-        assert_eq!(result.unwrap(), true);
+        assert!(result.unwrap());
     }
 
     #[test]
@@ -653,6 +653,6 @@ mod tests {
         // 所有变体的 validate 都应该走同一个解析逻辑
         let guangdong = GuangdongMahjongRules::new();
         let result = guangdong.validate("1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条");
-        assert_eq!(result.unwrap(), true);
+        assert!(result.unwrap());
     }
 }

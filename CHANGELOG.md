@@ -1,5 +1,21 @@
 # Changelog
 
+## v0.7.5 (2026-06-10)
+
+### 示例代码
+- `examples/validate_games.rs` — 展示所有游戏验证功能
+  - 麻将胡牌验证、德州扑克评估、斗地主识别、象棋走法
+
+### 贡献指南
+- `CONTRIBUTING.md` — simple_rule! 宏用法、分类规范、代码规范
+
+### 代码质量
+- clippy --all-targets 零 warning（含测试代码）
+- 修复 4 个 clippy lint: from_ref/loop variable
+- cargo publish --dry-run 通过
+
+### 826 总测试 (785 unit + 36 integration + 5 doc)
+
 ## v0.7.4 (2026-06-10)
 
 ### 库 API 完善

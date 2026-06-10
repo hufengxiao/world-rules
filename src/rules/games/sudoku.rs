@@ -270,7 +270,7 @@ mod validate_tests {
         // 合法的部分填充: 从完成的数独中挖掉一些数字
         let grid =
             "530070000600195000098000060800060003400803001700020006060000280000419005000080079";
-        assert_eq!(rules.validate(grid).unwrap(), true);
+        assert!(rules.validate(grid).unwrap());
     }
 
     #[test]
@@ -279,14 +279,14 @@ mod validate_tests {
         // 第一行有两个5 → 非法
         let grid =
             "550000000000000000000000000000000000000000000000000000000000000000000000000000000";
-        assert_eq!(rules.validate(grid).unwrap(), false);
+        assert!(!rules.validate(grid).unwrap());
     }
 
     #[test]
     fn test_validate_wrong_length() {
         let rules = SudokuRules::new();
-        assert_eq!(rules.validate("12345").unwrap(), false);
-        assert_eq!(rules.validate("").unwrap(), false);
+        assert!(!rules.validate("12345").unwrap());
+        assert!(!rules.validate("").unwrap());
     }
 
     #[test]
@@ -295,6 +295,6 @@ mod validate_tests {
         // 一个完整的合法数独
         let grid =
             "534678912672195348198342567859761423426853791713924856961537284287419635345286179";
-        assert_eq!(rules.validate(grid).unwrap(), true);
+        assert!(rules.validate(grid).unwrap());
     }
 }

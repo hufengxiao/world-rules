@@ -807,14 +807,14 @@ mod tests {
 
     #[test]
     fn test_compare_different_ranks() {
-        let royal = TexasHoldemRules::evaluate_hand(&vec![
+        let royal = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Spade, Rank::Ace),
             c(Suit::Spade, Rank::King),
             c(Suit::Spade, Rank::Queen),
             c(Suit::Spade, Rank::Jack),
             c(Suit::Spade, Rank::Ten),
         ]);
-        let high = TexasHoldemRules::evaluate_hand(&vec![
+        let high = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Spade, Rank::Ace),
             c(Suit::Heart, Rank::Queen),
             c(Suit::Diamond, Rank::Nine),
@@ -834,14 +834,14 @@ mod tests {
     #[test]
     fn test_compare_same_rank_different_tiebreaker() {
         // 一对A vs 一对K
-        let pair_aces = TexasHoldemRules::evaluate_hand(&vec![
+        let pair_aces = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Spade, Rank::Ace),
             c(Suit::Heart, Rank::Ace),
             c(Suit::Diamond, Rank::Five),
             c(Suit::Club, Rank::Three),
             c(Suit::Spade, Rank::Two),
         ]);
-        let pair_kings = TexasHoldemRules::evaluate_hand(&vec![
+        let pair_kings = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Spade, Rank::King),
             c(Suit::Heart, Rank::King),
             c(Suit::Diamond, Rank::Five),
@@ -856,14 +856,14 @@ mod tests {
 
     #[test]
     fn test_compare_equal_hands() {
-        let hand1 = TexasHoldemRules::evaluate_hand(&vec![
+        let hand1 = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Spade, Rank::Ace),
             c(Suit::Heart, Rank::Ace),
             c(Suit::Diamond, Rank::Five),
             c(Suit::Club, Rank::Three),
             c(Suit::Spade, Rank::Two),
         ]);
-        let hand2 = TexasHoldemRules::evaluate_hand(&vec![
+        let hand2 = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Diamond, Rank::Ace),
             c(Suit::Club, Rank::Ace),
             c(Suit::Spade, Rank::Five),
@@ -913,14 +913,14 @@ mod tests {
 
     #[test]
     fn test_straight_flush_beats_four_of_a_kind() {
-        let sf = TexasHoldemRules::evaluate_hand(&vec![
+        let sf = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Heart, Rank::Five),
             c(Suit::Heart, Rank::Six),
             c(Suit::Heart, Rank::Seven),
             c(Suit::Heart, Rank::Eight),
             c(Suit::Heart, Rank::Nine),
         ]);
-        let fk = TexasHoldemRules::evaluate_hand(&vec![
+        let fk = TexasHoldemRules::evaluate_hand(&[
             c(Suit::Spade, Rank::Ace),
             c(Suit::Heart, Rank::Ace),
             c(Suit::Diamond, Rank::Ace),
@@ -936,41 +936,41 @@ mod tests {
     fn test_validate_royal_flush() {
         let rules = TexasHoldemRules::new();
         let result = rules.validate("Ah Kh Qh Jh 10h");
-        assert_eq!(result.unwrap(), true);
+        assert!(result.unwrap());
     }
 
     #[test]
     fn test_validate_two_pair() {
         let rules = TexasHoldemRules::new();
         let result = rules.validate("Ah Ad Ks Kc 5h");
-        assert_eq!(result.unwrap(), true);
+        assert!(result.unwrap());
     }
 
     #[test]
     fn test_validate_invalid_cards() {
         let rules = TexasHoldemRules::new();
         let result = rules.validate("Xx Yy Zz");
-        assert_eq!(result.unwrap(), false);
+        assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_too_few_cards() {
         let rules = TexasHoldemRules::new();
         let result = rules.validate("Ah Kd");
-        assert_eq!(result.unwrap(), false);
+        assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_empty() {
         let rules = TexasHoldemRules::new();
         let result = rules.validate("");
-        assert_eq!(result.unwrap(), false);
+        assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_seven_cards() {
         let rules = TexasHoldemRules::new();
         let result = rules.validate("Ah Kh Qh Jh 10h 9d 8s");
-        assert_eq!(result.unwrap(), true);
+        assert!(result.unwrap());
     }
 }
