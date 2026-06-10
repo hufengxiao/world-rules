@@ -7,7 +7,7 @@ mod rules;
 mod tiles;
 pub mod variants;
 
-pub use hands::{Hand, HandPattern, WinningHand};
+pub use hands::{Hand, HandPattern, Meld, WinningHand};
 pub use rules::*;
 pub use tiles::{Dragon, Tile, TileType, Wind};
 

@@ -1,6 +1,312 @@
 //! 斗地主规则
 
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
+use std::collections::HashMap;
+
+/// 斗地主牌面花色
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum DdzSuit {
+    Spade,
+    Heart,
+    Diamond,
+    Club,
+}
+
+/// 斗地主牌
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct DdzCard {
+    /// 点数 (3=3, 4=4, ..., 10=10, J=11, Q=12, K=13, A=14, 2=15, 小王=16, 大王=17)
+    pub rank: u8,
+    /// 花色 (王牌无花色)
+    pub suit: Option<DdzSuit>,
+}
+
+impl DdzCard {
+    pub fn new(rank: u8, suit: DdzSuit) -> Self {
+        Self {
+            rank: rank.clamp(3, 15),
+            suit: Some(suit),
+        }
+    }
+
+    pub fn joker_small() -> Self {
+        Self {
+            rank: 16,
+            suit: None,
+        }
+    }
+
+    pub fn joker_big() -> Self {
+        Self {
+            rank: 17,
+            suit: None,
+        }
+    }
+
+    /// 从字符串解析 (如 "3s", "10h", "Jd", "2c", "X"=小王, "D"=大王)
+    pub fn parse_card(s: &str) -> Result<Self, String> {
+        let s = s.trim();
+        match s {
+            "X" | "x" | "小王" => Ok(Self::joker_small()),
+            "D" | "d" | "大王" => Ok(Self::joker_big()),
+            _ => {
+                if s.len() < 2 {
+                    return Err(format!("无法解析: {}", s));
+                }
+                let (rank_str, suit_char) = if let Some(rest) = s.strip_prefix("10") {
+                    ("10", rest)
+                } else {
+                    (&s[..s.len() - 1], &s[s.len() - 1..])
+                };
+                let rank = match rank_str.to_uppercase().as_str() {
+                    "3" => 3,
+                    "4" => 4,
+                    "5" => 5,
+                    "6" => 6,
+                    "7" => 7,
+                    "8" => 8,
+                    "9" => 9,
+                    "10" => 10,
+                    "J" => 11,
+                    "Q" => 12,
+                    "K" => 13,
+                    "A" => 14,
+                    "2" => 15,
+                    _ => return Err(format!("无效点数: {}", rank_str)),
+                };
+                let suit = match suit_char.to_lowercase().as_str() {
+                    "s" | "♠" => DdzSuit::Spade,
+                    "h" | "♥" => DdzSuit::Heart,
+                    "d" | "♦" => DdzSuit::Diamond,
+                    "c" | "♣" => DdzSuit::Club,
+                    _ => return Err(format!("无效花色: {}", suit_char)),
+                };
+                Ok(Self::new(rank, suit))
+            }
+        }
+    }
+
+    /// 解析多张牌 (空格分隔)
+    pub fn parse_many(s: &str) -> Result<Vec<Self>, String> {
+        s.split_whitespace().map(Self::parse_card).collect()
+    }
+}
+
+/// 识别牌型，返回 (牌型, 关键牌点数用于比较)
+///
+/// 关键牌点数: 顺子/连对取最大牌, 飞机取最大三张, 炸弹/王炸取牌面值
+pub fn recognize_pattern(cards: &[DdzCard]) -> Option<(CardPattern, u8)> {
+    let n = cards.len();
+    if n == 0 {
+        return None;
+    }
+
+    let mut counts: HashMap<u8, u8> = HashMap::new();
+    for c in cards {
+        *counts.entry(c.rank).or_insert(0) += 1;
+    }
+
+    // 王炸: 大小王
+    if n == 2 && counts.contains_key(&16) && counts.contains_key(&17) {
+        return Some((CardPattern::Rocket, 17));
+    }
+
+    let mut by_count: HashMap<u8, Vec<u8>> = HashMap::new();
+    for (&rank, &count) in &counts {
+        by_count.entry(count).or_default().push(rank);
+    }
+    for v in by_count.values_mut() {
+        v.sort();
+    }
+
+    // 炸弹: 4张相同
+    if n == 4 {
+        if let Some(ranks) = by_count.get(&4) {
+            if ranks.len() == 1 {
+                return Some((CardPattern::Bomb, ranks[0]));
+            }
+        }
+    }
+
+    // 单张
+    if n == 1 {
+        return Some((CardPattern::Single, cards[0].rank));
+    }
+
+    // 对子
+    if n == 2 {
+        if let Some(ranks) = by_count.get(&2) {
+            if ranks.len() == 1 {
+                return Some((CardPattern::Pair, ranks[0]));
+            }
+        }
+    }
+
+    // 三张
+    if n == 3 {
+        if let Some(ranks) = by_count.get(&3) {
+            if ranks.len() == 1 {
+                return Some((CardPattern::Triple, ranks[0]));
+            }
+        }
+    }
+
+    // 三带一
+    if n == 4 {
+        if let Some(ranks) = by_count.get(&3) {
+            if ranks.len() == 1 && by_count.get(&1).is_some_and(|v| v.len() == 1) {
+                return Some((CardPattern::TripleWithOne, ranks[0]));
+            }
+        }
+    }
+
+    // 三带二
+    if n == 5 {
+        if let Some(ranks) = by_count.get(&3) {
+            if ranks.len() == 1 && by_count.get(&2).is_some_and(|v| v.len() == 1) {
+                return Some((CardPattern::TripleWithPair, ranks[0]));
+            }
+        }
+    }
+
+    // 顺子: 5+张连续单牌 (3-A, 不含2和王)
+    if n >= 5 && counts.values().all(|&c| c == 1) {
+        let mut ranks: Vec<u8> = counts.keys().copied().collect();
+        ranks.sort();
+        if ranks.iter().all(|&r| (3..=14).contains(&r)) && is_consecutive(&ranks) {
+            return Some((CardPattern::Straight, *ranks.last().unwrap()));
+        }
+    }
+
+    // 连对: 3+对连续对子
+    if n >= 6 && n.is_multiple_of(2) && counts.values().all(|&c| c == 2) {
+        let mut ranks: Vec<u8> = counts.keys().copied().collect();
+        ranks.sort();
+        if ranks.len() >= 3 && ranks.iter().all(|&r| (3..=14).contains(&r)) && is_consecutive(&ranks) {
+            return Some((CardPattern::DoubleStraight, *ranks.last().unwrap()));
+        }
+    }
+
+    // 飞机 (不带翅膀): 2+个连续三张
+    if n >= 6 && n.is_multiple_of(3) {
+        if let Some(ranks) = by_count.get(&3) {
+            if ranks.len() == n / 3
+                && ranks.iter().all(|&r| (3..=14).contains(&r))
+                && is_consecutive(ranks)
+            {
+                return Some((CardPattern::Plane, *ranks.last().unwrap()));
+            }
+        }
+    }
+
+    // 飞机带翅膀 (带单牌)
+    if n >= 8 {
+        if let Some(triple_ranks) = by_count.get(&3) {
+            let triple_count = triple_ranks.len();
+            if triple_count >= 2
+                && triple_ranks.iter().all(|&r| (3..=14).contains(&r))
+                && is_consecutive(triple_ranks)
+            {
+                let remaining = n - triple_count * 3;
+                if remaining == triple_count {
+                    // 带单牌
+                    return Some((CardPattern::PlaneWithWings, *triple_ranks.last().unwrap()));
+                }
+            }
+        }
+    }
+
+    // 飞机带翅膀 (带对子)
+    if n >= 10 {
+        if let Some(triple_ranks) = by_count.get(&3) {
+            let triple_count = triple_ranks.len();
+            if triple_count >= 2
+                && triple_ranks.iter().all(|&r| (3..=14).contains(&r))
+                && is_consecutive(triple_ranks)
+            {
+                let remaining = n - triple_count * 3;
+                if remaining == triple_count * 2 {
+                    // 检查剩余是否全是对子
+                    let pair_count = by_count.get(&2).map_or(0, |v| v.len());
+                    if pair_count == triple_count {
+                        return Some((CardPattern::PlaneWithWings, *triple_ranks.last().unwrap()));
+                    }
+                }
+            }
+        }
+    }
+
+    // 四带二 (带2张单牌)
+    if n == 6 {
+        if let Some(ranks) = by_count.get(&4) {
+            if ranks.len() == 1 {
+                return Some((CardPattern::FourWithTwo, ranks[0]));
+            }
+        }
+    }
+
+    // 四带二对
+    if n == 8 {
+        if let Some(ranks) = by_count.get(&4) {
+            if ranks.len() == 1 {
+                let pair_count = by_count.get(&2).map_or(0, |v| v.len());
+                if pair_count == 2 {
+                    return Some((CardPattern::FourWithTwo, ranks[0]));
+                }
+            }
+        }
+    }
+
+    None
+}
+
+fn is_consecutive(sorted_ranks: &[u8]) -> bool {
+    for i in 1..sorted_ranks.len() {
+        if sorted_ranks[i] != sorted_ranks[i - 1] + 1 {
+            return false;
+        }
+    }
+    true
+}
+
+/// 判断当前出牌是否能压过上家
+///
+/// 规则:
+/// - 炸弹可以压任何非炸弹牌型
+/// - 王炸可以压任何牌型
+/// - 同类型牌型比较关键牌点数
+pub fn can_beat(current: &[(CardPattern, u8)], previous: &[(CardPattern, u8)]) -> bool {
+    if current.len() != 1 || previous.len() != 1 {
+        return false;
+    }
+    let (cur_pat, cur_rank) = &current[0];
+    let (prev_pat, prev_rank) = &previous[0];
+
+    // 王炸最大
+    if *cur_pat == CardPattern::Rocket {
+        return true;
+    }
+
+    // 炸弹压非炸弹
+    if *cur_pat == CardPattern::Bomb
+        && *prev_pat != CardPattern::Bomb
+        && *prev_pat != CardPattern::Rocket
+    {
+        return true;
+    }
+
+    // 同类型比较
+    if cur_pat == prev_pat {
+        return cur_rank > prev_rank;
+    }
+
+    // 炸弹对炸弹比较
+    if *cur_pat == CardPattern::Bomb && *prev_pat == CardPattern::Bomb {
+        return cur_rank > prev_rank;
+    }
+
+    false
+}
 
 /// 牌型
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -219,5 +525,149 @@ mod tests {
     #[test]
     fn test_pattern_priority() {
         assert!(CardPattern::Rocket.priority() > CardPattern::Bomb.priority());
+    }
+
+    // ===== 牌型识别测试 =====
+
+    fn c(rank: u8) -> DdzCard {
+        DdzCard::new(rank, DdzSuit::Spade)
+    }
+
+    #[test]
+    fn test_recognize_single() {
+        let cards = vec![c(3)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Single);
+        assert_eq!(rank, 3);
+    }
+
+    #[test]
+    fn test_recognize_pair() {
+        let cards = vec![c(5), c(5)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Pair);
+        assert_eq!(rank, 5);
+    }
+
+    #[test]
+    fn test_recognize_triple() {
+        let cards = vec![c(7), c(7), c(7)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Triple);
+        assert_eq!(rank, 7);
+    }
+
+    #[test]
+    fn test_recognize_triple_with_one() {
+        let cards = vec![c(8), c(8), c(8), c(3)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::TripleWithOne);
+        assert_eq!(rank, 8);
+    }
+
+    #[test]
+    fn test_recognize_triple_with_pair() {
+        let cards = vec![c(9), c(9), c(9), c(4), c(4)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::TripleWithPair);
+        assert_eq!(rank, 9);
+    }
+
+    #[test]
+    fn test_recognize_straight() {
+        // 3-4-5-6-7
+        let cards = vec![c(3), c(4), c(5), c(6), c(7)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Straight);
+        assert_eq!(rank, 7);
+    }
+
+    #[test]
+    fn test_recognize_straight_long() {
+        // 3-4-5-6-7-8-9-10-J-Q-K-A (12张)
+        let cards: Vec<DdzCard> = (3..=14).map(c).collect();
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Straight);
+        assert_eq!(rank, 14); // A
+    }
+
+    #[test]
+    fn test_straight_rejects_2() {
+        // 含2的"顺子"不合法
+        let cards = vec![c(10), c(11), c(12), c(13), c(15)]; // 10-J-Q-K-2
+        assert!(recognize_pattern(&cards).is_none());
+    }
+
+    #[test]
+    fn test_recognize_double_straight() {
+        // 33-44-55
+        let cards = vec![c(3), c(3), c(4), c(4), c(5), c(5)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::DoubleStraight);
+        assert_eq!(rank, 5);
+    }
+
+    #[test]
+    fn test_recognize_bomb() {
+        let cards = vec![c(8), c(8), c(8), c(8)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Bomb);
+        assert_eq!(rank, 8);
+    }
+
+    #[test]
+    fn test_recognize_rocket() {
+        let cards = vec![DdzCard::joker_small(), DdzCard::joker_big()];
+        let (pat, _) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Rocket);
+    }
+
+    #[test]
+    fn test_recognize_plane() {
+        // 333-444
+        let cards = vec![c(3), c(3), c(3), c(4), c(4), c(4)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::Plane);
+        assert_eq!(rank, 4);
+    }
+
+    #[test]
+    fn test_recognize_plane_with_wings() {
+        // 333-444 + 5-6
+        let cards = vec![c(3), c(3), c(3), c(4), c(4), c(4), c(5), c(6)];
+        let (pat, rank) = recognize_pattern(&cards).unwrap();
+        assert_eq!(pat, CardPattern::PlaneWithWings);
+        assert_eq!(rank, 4);
+    }
+
+    // ===== can_beat 测试 =====
+
+    #[test]
+    fn test_beat_single() {
+        let prev = vec![(CardPattern::Single, 5)];
+        let cur = vec![(CardPattern::Single, 8)];
+        assert!(can_beat(&cur, &prev));
+        assert!(!can_beat(&prev, &cur));
+    }
+
+    #[test]
+    fn test_bomb_beats_straight() {
+        let prev = vec![(CardPattern::Straight, 10)];
+        let cur = vec![(CardPattern::Bomb, 3)];
+        assert!(can_beat(&cur, &prev));
+    }
+
+    #[test]
+    fn test_rocket_beats_bomb() {
+        let prev = vec![(CardPattern::Bomb, 15)]; // 2的炸弹
+        let cur = vec![(CardPattern::Rocket, 17)];
+        assert!(can_beat(&cur, &prev));
+    }
+
+    #[test]
+    fn test_cannot_beat_different_type() {
+        let prev = vec![(CardPattern::Pair, 8)];
+        let cur = vec![(CardPattern::Single, 14)]; // 单张A不能压对子
+        assert!(!can_beat(&cur, &prev));
     }
 }
