@@ -1,7 +1,7 @@
 //! 德州扑克规则
 
 use super::cards::{Card, Rank, Suit};
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use std::collections::HashMap;
 
 /// 从字符串解析扑克牌列表
@@ -488,9 +488,15 @@ impl Rule for TexasHoldemRules {
         RuleCategory::games("poker")
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
+        let cards_str = match context {
+            ValidateContext::PokerCards(s) => s.as_str(),
+            ValidateContext::Generic(s) => s.as_str(),
+            _ => return Ok(false),
+        };
+
         // 解析牌面并评估牌型
-        let cards = match parse_poker_cards(context) {
+        let cards = match parse_poker_cards(cards_str) {
             Ok(c) => c,
             Err(_) => return Ok(false),
         };

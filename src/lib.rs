@@ -5,4 +5,4 @@
 pub mod prelude;
 pub mod rules;
 
-pub use rules::{Rule, RuleCategory, RuleMetadata, RuleSet};
+pub use rules::{Rule, RuleCategory, RuleMetadata, RuleSet, ValidateContext};

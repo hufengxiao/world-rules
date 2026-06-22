@@ -2,7 +2,7 @@
 
 use super::hands::{Hand, HandPattern, WinningHand};
 use super::tiles::{Dragon, Tile, TileType, Wind};
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 
 /// 从字符串解析麻将牌列表
 ///
@@ -348,9 +348,15 @@ impl Rule for MahjongRules {
         RuleCategory::games("mahjong")
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
+        let tiles_str = match context {
+            ValidateContext::MahjongTiles(s) => s.as_str(),
+            ValidateContext::Generic(s) => s.as_str(),
+            _ => return Ok(false),
+        };
+
         // 解析牌面并验证胡牌合法性
-        let tiles = match parse_tiles(context) {
+        let tiles = match parse_tiles(tiles_str) {
             Ok(t) => t,
             Err(_) => return Ok(false),
         };
@@ -431,7 +437,7 @@ impl Rule for SichuanMahjongRules {
         self.base.category()
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
         self.base.validate(context)
     }
 
@@ -481,7 +487,7 @@ impl Rule for GuobiaoMahjongRules {
         self.base.category()
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
         self.base.validate(context)
     }
 
@@ -531,7 +537,7 @@ impl Rule for RiichiMahjongRules {
         self.base.category()
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
         self.base.validate(context)
     }
 

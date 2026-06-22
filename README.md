@@ -115,6 +115,12 @@ world-rules/
 
 详见 [docs/RULES_CATALOG.md](docs/RULES_CATALOG.md)
 
+n## 演进路线
+
+详见 [ROADMAP.md](ROADMAP.md)，包含 12 个 Milestone 的详细规划。
+
+每个 Milestone 遵循 Loop Engineering 反馈环：
+规划 → 实现 → 测试 → 发布 → 反馈 → 下一轮
 ## 贡献
 
 欢迎贡献更多规则！

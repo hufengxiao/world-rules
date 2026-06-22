@@ -9,4 +9,4 @@ pub mod social;
 pub mod sports;
 
 // 重新导出核心类型
-pub use core::{Rule, RuleCategory, RuleError, RuleMetadata, RuleResult, RuleSet};
+pub use core::{Rule, RuleCategory, RuleError, RuleMetadata, RuleResult, RuleSet, ValidateContext};

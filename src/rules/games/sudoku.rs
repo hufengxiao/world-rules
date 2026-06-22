@@ -1,6 +1,6 @@
 //! 数独规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 
 /// 解析数独网格字符串
 ///
@@ -200,9 +200,14 @@ impl Rule for SudokuRules {
         RuleCategory::games("sudoku")
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
+        let grid_str = match context {
+            ValidateContext::Generic(s) => s.as_str(),
+            _ => return Ok(false),
+        };
+
         // 解析数独网格并验证合法性
-        let grid = match parse_sudoku_grid(context) {
+        let grid = match parse_sudoku_grid(grid_str) {
             Some(g) => g,
             None => return Ok(false),
         };

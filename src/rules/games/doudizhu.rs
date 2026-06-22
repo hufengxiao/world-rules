@@ -1,6 +1,6 @@
 //! 斗地主规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use std::collections::HashMap;
 
 /// 斗地主牌面花色
@@ -533,8 +533,14 @@ impl Rule for DouDiZhuRules {
         RuleCategory::games("doudizhu")
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        let cards = match DdzCard::parse_many(context) {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
+        let cards_str = match context {
+            ValidateContext::DouDiZhuCards(s) => s.as_str(),
+            ValidateContext::Generic(s) => s.as_str(),
+            _ => return Ok(false),
+        };
+
+        let cards = match DdzCard::parse_many(cards_str) {
             Ok(c) => c,
             Err(_) => return Ok(false),
         };

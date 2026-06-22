@@ -163,9 +163,124 @@ pub enum RuleError {
 
     #[error("不支持的操作: {0}")]
     UnsupportedOperation(String),
+
+    #[error("上下文类型不匹配: 期望 {expected}, 实际 {actual}")]
+    ContextMismatch { expected: String, actual: String },
 }
 
 pub type RuleResult<T> = Result<T, RuleError>;
+
+/// 验证上下文
+///
+/// 为不同游戏类型提供类型安全的验证上下文。
+/// 使用枚举确保在编译时就能识别上下文类型，避免字符串解析错误。
+///
+/// # 示例
+/// ```rust
+/// use world_rules::rules::core::ValidateContext;
+///
+/// let ctx = ValidateContext::doudizhu_cards("3s 4h 5d");
+/// assert!(matches!(ctx, ValidateContext::DouDiZhuCards(_)));
+///
+/// let ctx = ValidateContext::chess_move("车", "0,0", "0,5");
+/// assert!(matches!(ctx, ValidateContext::ChessMove { .. }));
+/// ```
+#[derive(Debug, Clone)]
+pub enum ValidateContext {
+    /// 斗地主牌面 (如 "3s 4h 5d")
+    DouDiZhuCards(String),
+    /// 麻将牌面 (如 "1m 2m 3m")
+    MahjongTiles(String),
+    /// 扑克牌面 (如 "As Kh Qd")
+    PokerCards(String),
+    /// 象棋走法
+    ChessMove {
+        piece: String,
+        from: String,
+        to: String,
+    },
+    /// 五子棋棋盘 (坐标列表: (x, y, is_black))
+    GomokuBoard(Vec<(usize, usize, bool)>),
+    /// 通用上下文
+    Generic(String),
+}
+
+impl ValidateContext {
+    /// 创建斗地主牌面上下文
+    pub fn doudizhu_cards(cards: impl Into<String>) -> Self {
+        Self::DouDiZhuCards(cards.into())
+    }
+
+    /// 创建麻将牌面上下文
+    pub fn mahjong_tiles(tiles: impl Into<String>) -> Self {
+        Self::MahjongTiles(tiles.into())
+    }
+
+    /// 创建扑克牌面上下文
+    pub fn poker_cards(cards: impl Into<String>) -> Self {
+        Self::PokerCards(cards.into())
+    }
+
+    /// 创建象棋走法上下文
+    pub fn chess_move(
+        piece: impl Into<String>,
+        from: impl Into<String>,
+        to: impl Into<String>,
+    ) -> Self {
+        Self::ChessMove {
+            piece: piece.into(),
+            from: from.into(),
+            to: to.into(),
+        }
+    }
+
+    /// 创建五子棋棋盘上下文
+    pub fn gomoku_board(moves: Vec<(usize, usize, bool)>) -> Self {
+        Self::GomokuBoard(moves)
+    }
+
+    /// 创建通用上下文
+    pub fn generic(context: impl Into<String>) -> Self {
+        Self::Generic(context.into())
+    }
+
+    /// 获取上下文类型名称
+    pub fn type_name(&self) -> &'static str {
+        match self {
+            Self::DouDiZhuCards(_) => "斗地主牌面",
+            Self::MahjongTiles(_) => "麻将牌面",
+            Self::PokerCards(_) => "扑克牌面",
+            Self::ChessMove { .. } => "象棋走法",
+            Self::GomokuBoard(_) => "五子棋棋盘",
+            Self::Generic(_) => "通用上下文",
+        }
+    }
+
+    /// 尝试获取通用上下文字符串
+    pub fn as_generic_str(&self) -> Option<&str> {
+        match self {
+            Self::Generic(s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
+impl std::fmt::Display for ValidateContext {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::DouDiZhuCards(cards) => write!(f, "斗地主: {}", cards),
+            Self::MahjongTiles(tiles) => write!(f, "麻将: {}", tiles),
+            Self::PokerCards(cards) => write!(f, "扑克: {}", cards),
+            Self::ChessMove { piece, from, to } => {
+                write!(f, "象棋: {} {}->{}", piece, from, to)
+            }
+            Self::GomokuBoard(moves) => {
+                write!(f, "五子棋: {} 步", moves.len())
+            }
+            Self::Generic(s) => write!(f, "{}", s),
+        }
+    }
+}
 
 /// 规则核心 trait
 ///
@@ -180,7 +295,7 @@ pub type RuleResult<T> = Result<T, RuleError>;
 /// - `explain()` 返回规则的详细说明文本
 ///
 /// # 示例
-/// ```
+/// ```rust
 /// use world_rules::prelude::*;
 ///
 /// let rule = SichuanMahjongRules::new();
@@ -194,15 +309,17 @@ pub trait Rule: Send + Sync {
     /// 获取规则分类
     fn category(&self) -> RuleCategory;
 
-    /// 验证某个状态是否符合规则（默认实现：非空即通过）
-    fn validate(&self, _context: &str) -> RuleResult<bool> {
+    /// 验证某个状态是否符合规则（默认实现：接受通用上下文即通过）
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
+        // 默认实现：接受任何上下文
+        let _ = context;
         Ok(true)
     }
 
     /// 获取规则的详细说明
     fn explain(&self) -> String {
         format!(
-            "【{}】\n{}\n版本: {}\n来源: {}",
+            "【{}】\n{}版本: {}\n来源: {}",
             self.metadata().name,
             self.metadata().description,
             self.metadata().version,
@@ -469,8 +586,10 @@ macro_rules! simple_rule {
             fn category(&self) -> $crate::rules::core::RuleCategory {
                 $category
             }
-            fn validate(&self, ctx: &str) -> $crate::rules::core::RuleResult<bool> {
-                Ok(!ctx.is_empty())
+            fn validate(&self, ctx: &$crate::rules::core::ValidateContext) -> $crate::rules::core::RuleResult<bool> {
+                // 默认实现：接受任何上下文
+                let _ = ctx;
+                Ok(true)
             }
             fn explain(&self) -> String {
                 $crate::rules::core::format_rule_sections(

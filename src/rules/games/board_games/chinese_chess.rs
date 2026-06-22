@@ -1,6 +1,6 @@
 //! 中国象棋规则
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 
 /// 解析位置字符串 "x,y" 为 (u8, u8)
 fn parse_position(s: &str) -> Option<(u8, u8)> {
@@ -394,14 +394,23 @@ impl Rule for ChineseChessRules {
         RuleCategory::games("chinese_chess")
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
-        // 格式: "车 0,0 0,5" 或 "Rook 0,0 0,5"
-        let parts: Vec<&str> = context.split_whitespace().collect();
-        if parts.len() != 3 {
-            return Ok(false);
-        }
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
+        let (piece_str, from_str, to_str) = match context {
+            ValidateContext::ChessMove { piece, from, to } => {
+                (piece.as_str(), from.as_str(), to.as_str())
+            }
+            ValidateContext::Generic(s) => {
+                // 格式: "车 0,0 0,5" 或 "Rook 0,0 0,5"
+                let parts: Vec<&str> = s.split_whitespace().collect();
+                if parts.len() != 3 {
+                    return Ok(false);
+                }
+                (parts[0], parts[1], parts[2])
+            }
+            _ => return Ok(false),
+        };
 
-        let piece_type = match parts[0] {
+        let piece_type = match piece_str {
             "车" | "Rook" | "rook" => PieceType::Rook,
             "马" | "Horse" | "horse" => PieceType::Horse,
             "象" | "相" | "Elephant" | "elephant" => PieceType::Elephant,
@@ -412,8 +421,8 @@ impl Rule for ChineseChessRules {
             _ => return Ok(false),
         };
 
-        let from = parse_position(parts[1]);
-        let to = parse_position(parts[2]);
+        let from = parse_position(from_str);
+        let to = parse_position(to_str);
 
         let (from, to) = match (from, to) {
             (Some(f), Some(t)) => (f, t),

@@ -1,6 +1,8 @@
 //! 预导入模块
 
-pub use crate::rules::core::{Rule, RuleCategory, RuleError, RuleMetadata, RuleResult, RuleSet};
+pub use crate::rules::core::{
+    Rule, RuleCategory, RuleError, RuleMetadata, RuleResult, RuleSet, ValidateContext,
+};
 
 // 游戏规则 (selective, avoids ambiguous all_rules)
 pub use crate::rules::games::{

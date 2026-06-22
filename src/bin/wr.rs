@@ -552,6 +552,7 @@ fn cmd_validate_doudizhu(cards_str: &str) {
 
 fn cmd_validate_chess(args: &[String]) {
     use world_rules::prelude::Rule;
+    use world_rules::rules::core::ValidateContext;
     use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
 
     if args.len() < 3 {
@@ -562,10 +563,10 @@ fn cmd_validate_chess(args: &[String]) {
         return;
     }
 
-    let move_str = format!("{} {} {}", args[0], args[1], args[2]);
+    let ctx = ValidateContext::chess_move(&args[0], &args[1], &args[2]);
     let rules = ChineseChessRules::new();
 
-    match rules.validate(&move_str) {
+    match rules.validate(&ctx) {
         Ok(true) => {
             println!("✅ 合法走法: {} {} → {}", args[0], args[1], args[2]);
         }

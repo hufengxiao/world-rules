@@ -1,7 +1,7 @@
 //! 21点规则
 
 use super::card_games::cards::{Card, Rank, Suit};
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 
 fn parse_blackjack_cards(s: &str) -> Result<Vec<Card>, String> {
     let mut cards = Vec::new();
@@ -153,9 +153,15 @@ impl Rule for BlackjackRules {
         RuleCategory::games("blackjack")
     }
 
-    fn validate(&self, context: &str) -> RuleResult<bool> {
+    fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
+        let cards_str = match context {
+            ValidateContext::PokerCards(s) => s.as_str(),
+            ValidateContext::Generic(s) => s.as_str(),
+            _ => return Ok(false),
+        };
+
         // 解析牌面并验证21点手牌
-        let cards = match parse_blackjack_cards(context) {
+        let cards = match parse_blackjack_cards(cards_str) {
             Ok(c) => c,
             Err(_) => return Ok(false),
         };
