@@ -1,0 +1,31 @@
+name: Rule Contribution
+description: 贡献新规则
+labels: ["rule-contribution"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 规则名称
+      placeholder: "飞盘高尔夫规则"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 分类
+      options:
+        - games
+        - sports
+        - social
+        - science
+        - law
+        - health
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: 规则内容
+      description: 请提供规则的详细内容
+    validations:
+      required: true

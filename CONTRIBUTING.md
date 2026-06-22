@@ -1,67 +1,75 @@
 # 贡献指南
 
-欢迎为世界规则库贡献规则！
+感谢你对 World Rules 项目的关注！
 
-## 快速开始
+## 如何贡献
+
+### 添加新规则
 
 1. Fork 本仓库
-2. 创建分支: `git checkout -b add-xxx-rules`
-3. 使用 `simple_rule!` 宏创建规则模块
-4. 添加测试
-5. 提交 PR
+2. 在对应分类目录下创建新的 `.rs` 文件
+3. 使用 `simple_rule!` 宏定义规则结构体
+4. 实现 `Rule` trait
+5. 添加测试
+6. 在 `mod.rs` 中注册新模块
+7. 提交 Pull Request
 
-## 使用 simple_rule! 宏
+### 规则文件模板
 
 ```rust
-use crate::rules::core::{simple_rule, RuleCategory};
+//! 我的规则
+
+use crate::rules::core::{format_rule_sections, Rule, RuleCategory, RuleMetadata, RuleResult};
+use crate::simple_rule;
 
 simple_rule! {
-    struct: MyGameRules,
-    name: "我的游戏规则",
-    desc: "游戏规则描述",
+    struct: MyRules,
+    name: "我的规则",
+    desc: "规则描述",
     origin: "中国",
-    tags: ["游戏", "我的游戏"],
-    category: RuleCategory::games("my_game"),
-    sections: [
-        ("基本规则", basic_rules),
-        ("得分规则", scoring_rules)
-    ]
+    tags: ["分类", "标签"]
 }
 
-impl MyGameRules {
-    fn basic_rules(&self) -> Vec<&'static str> {
-        vec!["规则1", "规则2"]
+impl MyRules {
+    pub fn section_0(&self) -> Vec<&'static str> {
+        vec!["条目1", "条目2"]
     }
+}
 
-    fn scoring_rules(&self) -> Vec<&'static str> {
-        vec!["得分1", "得分2"]
+impl Rule for MyRules {
+    fn metadata(&self) -> &RuleMetadata { &self.metadata }
+    fn category(&self) -> RuleCategory { RuleCategory::games("my_game") }
+    fn validate(&self, ctx: &ValidateContext) -> RuleResult<bool> { Ok(true) }
+    fn explain(&self) -> String {
+        format_rule_sections("我的规则", &[("分组", &self.section_0())])
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test() {
+        let r = MyRules::new();
+        assert!(!r.explain().is_empty());
     }
 }
 ```
 
-## 规则分类
+### 提交规范
 
-- `RuleCategory::games(name)` — 游戏规则
-- `RuleCategory::sports(name)` — 体育规则
-- `RuleCategory::social(name)` — 社交礼仪
-- `RuleCategory::science(name)` — 科学定律
-- `RuleCategory::law(name)` — 法律法规
-- `RuleCategory::health(name)` — 健康规则
+- `feat:` 新功能/新规则
+- `fix:` Bug 修复
+- `docs:` 文档更新
+- `test:` 测试相关
+- `refactor:` 代码重构
 
-## 代码规范
+### 代码质量
 
-- 运行 `cargo fmt` 格式化
-- 运行 `cargo clippy --all-features` 检查
-- 运行 `cargo test --all-features` 确保测试通过
-- 每个规则模块至少一个测试
+提交前请确保：
 
-## 提交规范
-
+```bash
+cargo fmt
+cargo clippy
+cargo test
 ```
-feat(scope): 描述
-
-- 改动1
-- 改动2
-```
-
-scope: games/sports/social/science/law/health/cli/core
