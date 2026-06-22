@@ -144,6 +144,7 @@ impl Rule for CriminalLawRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_criminal_law_rules() {
@@ -155,6 +156,7 @@ mod tests {
 #[cfg(test)]
 mod extra_tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_crime_elements() {
@@ -192,7 +194,9 @@ mod extra_tests {
     fn test_rule_trait() {
         let rules = CriminalLawRules::new();
         assert_eq!(rules.category(), RuleCategory::law("criminal"));
-        assert!(rules.validate("test").is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("test".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
     }
 }

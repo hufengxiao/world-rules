@@ -471,11 +471,17 @@ fn chess_validate_rook_straight() {
 
     let rules = ChineseChessRules::new();
     // 车纵向移动
-    assert!(rules.validate("车 0,0 0,5").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("车 0,0 0,5".to_string()))
+        .unwrap());
     // 车横向移动
-    assert!(rules.validate("车 0,0 5,0").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("车 0,0 5,0".to_string()))
+        .unwrap());
     // 车斜向不行
-    assert!(!rules.validate("车 0,0 1,1").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("车 0,0 1,1".to_string()))
+        .unwrap());
 }
 
 #[test]
@@ -485,10 +491,16 @@ fn chess_validate_horse_l_shape() {
 
     let rules = ChineseChessRules::new();
     // 马走日
-    assert!(rules.validate("马 1,0 2,2").unwrap());
-    assert!(rules.validate("马 1,0 0,2").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("马 1,0 2,2".to_string()))
+        .unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("马 1,0 0,2".to_string()))
+        .unwrap());
     // 马走直线不行
-    assert!(!rules.validate("马 1,0 1,2").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("马 1,0 1,2".to_string()))
+        .unwrap());
 }
 
 #[test]
@@ -498,9 +510,13 @@ fn chess_validate_king_palace() {
 
     let rules = ChineseChessRules::new();
     // 帅在九宫内移动
-    assert!(rules.validate("帅 4,7 4,8").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("帅 4,7 4,8".to_string()))
+        .unwrap());
     // 帅出九宫不行
-    assert!(!rules.validate("帅 4,7 4,6").unwrap()); // 6不在红方九宫(7-9)
+    assert!(!rules
+        .validate(&ValidateContext::Generic("帅 4,7 4,6".to_string()))
+        .unwrap()); // 6不在红方九宫(7-9)
 }
 
 #[test]
@@ -510,9 +526,13 @@ fn chess_validate_advisor_diagonal() {
 
     let rules = ChineseChessRules::new();
     // 士斜走
-    assert!(rules.validate("士 3,7 4,8").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("士 3,7 4,8".to_string()))
+        .unwrap());
     // 士直走不行
-    assert!(!rules.validate("士 3,7 3,8").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("士 3,7 3,8".to_string()))
+        .unwrap());
 }
 
 #[test]
@@ -522,9 +542,13 @@ fn chess_validate_elephant_field() {
 
     let rules = ChineseChessRules::new();
     // 象走田
-    assert!(rules.validate("象 0,5 2,7").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("象 0,5 2,7".to_string()))
+        .unwrap());
     // 象走直线不行
-    assert!(!rules.validate("象 0,5 0,7").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("象 0,5 0,7".to_string()))
+        .unwrap());
 }
 
 #[test]
@@ -534,9 +558,13 @@ fn chess_validate_cannon_straight() {
 
     let rules = ChineseChessRules::new();
     // 炮直线移动
-    assert!(rules.validate("炮 1,2 1,5").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("炮 1,2 1,5".to_string()))
+        .unwrap());
     // 炮斜向不行
-    assert!(!rules.validate("炮 1,2 2,3").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("炮 1,2 2,3".to_string()))
+        .unwrap());
 }
 
 #[test]
@@ -546,9 +574,13 @@ fn chess_validate_pawn_forward() {
 
     let rules = ChineseChessRules::new();
     // 兵前进
-    assert!(rules.validate("兵 0,3 0,2").unwrap());
+    assert!(rules
+        .validate(&ValidateContext::Generic("兵 0,3 0,2".to_string()))
+        .unwrap());
     // 兵后退不行
-    assert!(!rules.validate("兵 0,3 0,4").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("兵 0,3 0,4".to_string()))
+        .unwrap());
 }
 
 #[test]
@@ -558,9 +590,15 @@ fn chess_validate_invalid_input() {
 
     let rules = ChineseChessRules::new();
     // 无效棋子
-    assert!(!rules.validate("龙 0,0 0,1").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("龙 0,0 0,1".to_string()))
+        .unwrap());
     // 格式错误
-    assert!(!rules.validate("车 0,0").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("车 0,0".to_string()))
+        .unwrap());
     // 越界位置
-    assert!(!rules.validate("车 0,0 9,0").unwrap());
+    assert!(!rules
+        .validate(&ValidateContext::Generic("车 0,0 9,0".to_string()))
+        .unwrap());
 }

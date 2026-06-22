@@ -122,6 +122,7 @@ impl Rule for ContractRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_contract_rules_new() {
@@ -155,7 +156,9 @@ mod tests {
     fn test_contract_rule_trait() {
         let rules = ContractRules::new();
         assert_eq!(rules.category(), RuleCategory::law("contract"));
-        assert!(rules.validate("test").is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("test".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
     }
 }

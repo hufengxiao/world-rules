@@ -202,6 +202,7 @@ impl Rule for SwimmingRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_swimming_rules() {
@@ -213,6 +214,7 @@ mod tests {
 #[cfg(test)]
 mod extra_tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_standard_distances() {
@@ -241,7 +243,9 @@ mod extra_tests {
     #[test]
     fn test_rule_trait() {
         let rules = SwimmingRules::new();
-        assert!(rules.validate("race").is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("race".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
     }
 }

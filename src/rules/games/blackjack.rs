@@ -209,6 +209,7 @@ impl Rule for BlackjackRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
     use crate::rules::games::card_games::cards::Suit;
 
     #[test]
@@ -235,26 +236,36 @@ mod tests {
     fn test_validate_blackjack_hand() {
         let rules = BlackjackRules::new();
         // 21点
-        assert!(rules.validate("Kh As").unwrap());
+        assert!(rules
+            .validate(&ValidateContext::Generic("Kh As".to_string()))
+            .unwrap());
     }
 
     #[test]
     fn test_validate_under_21() {
         let rules = BlackjackRules::new();
-        assert!(rules.validate("5h 6d 7s").unwrap());
+        assert!(rules
+            .validate(&ValidateContext::Generic("5h 6d 7s".to_string()))
+            .unwrap());
     }
 
     #[test]
     fn test_validate_bust() {
         let rules = BlackjackRules::new();
         // K+Q+2 = 22, bust
-        assert!(rules.validate("Ks Qh 2d").unwrap()); // bust 也算有效状态
+        assert!(rules
+            .validate(&ValidateContext::Generic("Ks Qh 2d".to_string()))
+            .unwrap()); // bust 也算有效状态
     }
 
     #[test]
     fn test_validate_invalid() {
         let rules = BlackjackRules::new();
-        assert!(!rules.validate("Xx Yy").unwrap());
-        assert!(!rules.validate("").unwrap());
+        assert!(!rules
+            .validate(&ValidateContext::Generic("Xx Yy".to_string()))
+            .unwrap());
+        assert!(!rules
+            .validate(&ValidateContext::Generic("".to_string()))
+            .unwrap());
     }
 }

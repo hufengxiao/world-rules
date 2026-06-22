@@ -140,6 +140,7 @@ impl Rule for BasketballRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_basketball_rules() {
@@ -152,6 +153,7 @@ mod tests {
 #[cfg(test)]
 mod extra_tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_nba_defaults() {
@@ -172,7 +174,9 @@ mod extra_tests {
     #[test]
     fn test_rule_trait() {
         let rules = BasketballRules::new();
-        assert!(rules.validate("game").is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("game".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
     }
 }

@@ -129,6 +129,7 @@ impl Rule for FootballRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_football_rules() {
@@ -141,6 +142,7 @@ mod tests {
 #[cfg(test)]
 mod extra_tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_field_dimensions() {
@@ -190,7 +192,9 @@ mod extra_tests {
     #[test]
     fn test_rule_trait() {
         let rules = FootballRules::new();
-        assert!(rules.validate("match").is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("match".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
         assert_eq!(rules.category(), RuleCategory::sports("football"));
     }

@@ -585,6 +585,7 @@ impl Rule for DouDiZhuRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_doudizhu_rules() {
@@ -826,11 +827,17 @@ mod tests {
         use crate::rules::core::Rule as _;
         let rules = DouDiZhuRules::new();
         // 炸弹
-        assert!(rules.validate("3s 3h 3d 3c").unwrap());
+        assert!(rules
+            .validate(&ValidateContext::Generic("3s 3h 3d 3c".to_string()))
+            .unwrap());
         // 单张
-        assert!(rules.validate("5s").unwrap());
+        assert!(rules
+            .validate(&ValidateContext::Generic("5s".to_string()))
+            .unwrap());
         // 王炸
-        assert!(rules.validate("X D").unwrap());
+        assert!(rules
+            .validate(&ValidateContext::Generic("X D".to_string()))
+            .unwrap());
     }
 
     #[test]
@@ -838,11 +845,17 @@ mod tests {
         use crate::rules::core::Rule as _;
         let rules = DouDiZhuRules::new();
         // 两张不同牌
-        assert!(!rules.validate("3s 5h").unwrap());
+        assert!(!rules
+            .validate(&ValidateContext::Generic("3s 5h".to_string()))
+            .unwrap());
         // 空字符串
-        assert!(!rules.validate("").unwrap());
+        assert!(!rules
+            .validate(&ValidateContext::Generic("".to_string()))
+            .unwrap());
         // 无效输入
-        assert!(!rules.validate("abc").unwrap());
+        assert!(!rules
+            .validate(&ValidateContext::Generic("abc".to_string()))
+            .unwrap());
     }
 
     // ===== 更多边界测试 =====

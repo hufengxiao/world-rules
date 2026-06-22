@@ -557,6 +557,7 @@ impl Rule for RiichiMahjongRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
     use crate::rules::games::mahjong::GuangdongMahjongRules;
 
     #[test]
@@ -619,7 +620,9 @@ mod tests {
     fn test_validate_winning_hand() {
         let rules = SichuanMahjongRules::new();
         // 标准平胡: 1-9万 + 2条3条4条 + 4条对子
-        let result = rules.validate("1万 2万 3万 4万 5万 6万 7万 8万 9万 2条 3条 4条 4条 4条");
+        let result = rules.validate(&ValidateContext::Generic(
+            "1万 2万 3万 4万 5万 6万 7万 8万 9万 2条 3条 4条 4条 4条".to_string(),
+        ));
         assert!(result.unwrap());
     }
 
@@ -627,7 +630,9 @@ mod tests {
     fn test_validate_non_winning_hand() {
         let rules = SichuanMahjongRules::new();
         // 不能胡的14张
-        let result = rules.validate("1万 1万 1万 2条 2条 2条 3筒 3筒 3筒 4万 4万 5万 6万 7条");
+        let result = rules.validate(&ValidateContext::Generic(
+            "1万 1万 1万 2条 2条 2条 3筒 3筒 3筒 4万 4万 5万 6万 7条".to_string(),
+        ));
         assert!(!result.unwrap());
     }
 
@@ -635,14 +640,14 @@ mod tests {
     fn test_validate_invalid_input() {
         let rules = SichuanMahjongRules::new();
         // 无效输入
-        let result = rules.validate("abc def");
+        let result = rules.validate(&ValidateContext::Generic("abc def".to_string()));
         assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_empty_input() {
         let rules = SichuanMahjongRules::new();
-        let result = rules.validate("");
+        let result = rules.validate(&ValidateContext::Generic("".to_string()));
         assert!(!result.unwrap());
     }
 
@@ -650,7 +655,9 @@ mod tests {
     fn test_validate_seven_pairs() {
         let rules = GuobiaoMahjongRules::new();
         // 七对子
-        let result = rules.validate("1万 1万 2万 2万 3万 3万 4万 4万 5万 5万 6万 6万 7万 7万");
+        let result = rules.validate(&ValidateContext::Generic(
+            "1万 1万 2万 2万 3万 3万 4万 4万 5万 5万 6万 6万 7万 7万".to_string(),
+        ));
         assert!(result.unwrap());
     }
 
@@ -658,7 +665,9 @@ mod tests {
     fn test_variant_validate_delegates_to_base() {
         // 所有变体的 validate 都应该走同一个解析逻辑
         let guangdong = GuangdongMahjongRules::new();
-        let result = guangdong.validate("1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条");
+        let result = guangdong.validate(&ValidateContext::Generic(
+            "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条".to_string(),
+        ));
         assert!(result.unwrap());
     }
 }

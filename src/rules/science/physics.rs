@@ -172,6 +172,7 @@ impl Rule for PhysicsLaws {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_newton_second_law() {
@@ -183,6 +184,7 @@ mod tests {
 #[cfg(test)]
 mod extra_tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_calculate_force_values() {
@@ -214,7 +216,9 @@ mod extra_tests {
     #[test]
     fn test_rule_trait() {
         let rules = PhysicsLaws::new();
-        assert!(rules.validate("test").is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("test".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
     }
 }

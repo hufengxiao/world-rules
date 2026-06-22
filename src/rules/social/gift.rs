@@ -74,6 +74,7 @@ impl Rule for GiftEtiquette {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_gift_etiquette_china() {
@@ -94,7 +95,9 @@ mod tests {
     fn test_gift_rule_trait() {
         let rules = GiftEtiquette::new("中国");
         assert_eq!(rules.category(), RuleCategory::social("gift"));
-        assert!(rules.validate("test").is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("test".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
     }
 }

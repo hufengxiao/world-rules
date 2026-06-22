@@ -125,7 +125,8 @@ fn demonstrate_chess() {
 
     for (move_str, desc) in moves {
         let rules = ChineseChessRules::new();
-        let valid = rules.validate(move_str).unwrap_or(false);
+        let ctx = world_rules::rules::core::ValidateContext::chess_move("", "", "");
+        let valid = rules.validate(&ctx).unwrap_or(false);
         println!("{}: {} {}", desc, move_str, if valid { "✅" } else { "❌" });
     }
     println!();

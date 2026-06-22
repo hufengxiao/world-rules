@@ -535,6 +535,7 @@ impl Rule for TexasHoldemRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::ValidateContext;
 
     fn c(suit: Suit, rank: Rank) -> Card {
         Card::new(suit, rank)
@@ -941,42 +942,44 @@ mod tests {
     #[test]
     fn test_validate_royal_flush() {
         let rules = TexasHoldemRules::new();
-        let result = rules.validate("Ah Kh Qh Jh 10h");
+        let result = rules.validate(&ValidateContext::Generic("Ah Kh Qh Jh 10h".to_string()));
         assert!(result.unwrap());
     }
 
     #[test]
     fn test_validate_two_pair() {
         let rules = TexasHoldemRules::new();
-        let result = rules.validate("Ah Ad Ks Kc 5h");
+        let result = rules.validate(&ValidateContext::Generic("Ah Ad Ks Kc 5h".to_string()));
         assert!(result.unwrap());
     }
 
     #[test]
     fn test_validate_invalid_cards() {
         let rules = TexasHoldemRules::new();
-        let result = rules.validate("Xx Yy Zz");
+        let result = rules.validate(&ValidateContext::Generic("Xx Yy Zz".to_string()));
         assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_too_few_cards() {
         let rules = TexasHoldemRules::new();
-        let result = rules.validate("Ah Kd");
+        let result = rules.validate(&ValidateContext::Generic("Ah Kd".to_string()));
         assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_empty() {
         let rules = TexasHoldemRules::new();
-        let result = rules.validate("");
+        let result = rules.validate(&ValidateContext::Generic("".to_string()));
         assert!(!result.unwrap());
     }
 
     #[test]
     fn test_validate_seven_cards() {
         let rules = TexasHoldemRules::new();
-        let result = rules.validate("Ah Kh Qh Jh 10h 9d 8s");
+        let result = rules.validate(&ValidateContext::Generic(
+            "Ah Kh Qh Jh 10h 9d 8s".to_string(),
+        ));
         assert!(result.unwrap());
     }
 }
