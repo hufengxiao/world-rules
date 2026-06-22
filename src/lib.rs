@@ -57,6 +57,7 @@
 //! wr validate poker "Ah Kd Qs Jc 10h"
 //! ```
 
+pub mod plugins;
 pub mod prelude;
 pub mod rules;
 
