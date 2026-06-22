@@ -482,6 +482,47 @@ impl RuleSet {
     }
 }
 
+/// 规则验证器 - 统一校验规则完整性
+pub struct RuleValidator;
+
+impl RuleValidator {
+    /// 验证规则元数据完整性
+    pub fn validate_metadata(meta: &RuleMetadata) -> Vec<String> {
+        let mut issues = Vec::new();
+        if meta.name.is_empty() {
+            issues.push("规则名称为空".to_string());
+        }
+        if meta.description.is_empty() {
+            issues.push("规则描述为空".to_string());
+        }
+        if meta.version.is_empty() {
+            issues.push("规则版本为空".to_string());
+        }
+        issues
+    }
+
+    /// 验证规则完整性（元数据 + explain）
+    pub fn validate_rule(rule: &dyn Rule) -> Vec<String> {
+        let mut issues = Self::validate_metadata(rule.metadata());
+        let explain = rule.explain();
+        if explain.is_empty() {
+            issues.push("explain() 返回空".to_string());
+        }
+        issues
+    }
+
+    /// 批量验证规则集
+    pub fn validate_ruleset(rules: &[&dyn Rule]) -> Vec<(String, Vec<String>)> {
+        rules
+            .iter()
+            .map(|r| {
+                let issues = Self::validate_rule(*r);
+                (r.metadata().name.clone(), issues)
+            })
+            .filter(|(_, issues)| !issues.is_empty())
+            .collect()
+    }
+}
 /// 格式化规则说明的辅助函数
 ///
 /// 将多个 "区块名 + 条目列表" 格式化为统一的说明文本
@@ -765,5 +806,31 @@ mod tests {
         assert!(text.contains("标题"));
         assert!(text.contains("章节"));
         assert!(text.contains("条目1"));
+    }
+}
+
+#[cfg(test)]
+mod validator_tests {
+    use super::*;
+
+    #[test]
+    fn test_validate_metadata_ok() {
+        let meta = RuleMetadata::new("测试规则", "描述");
+        let issues = RuleValidator::validate_metadata(&meta);
+        assert!(issues.is_empty());
+    }
+
+    #[test]
+    fn test_validate_metadata_empty_name() {
+        let meta = RuleMetadata::new("", "描述");
+        let issues = RuleValidator::validate_metadata(&meta);
+        assert!(issues.iter().any(|i| i.contains("名称")));
+    }
+
+    #[test]
+    fn test_validate_metadata_empty_desc() {
+        let meta = RuleMetadata::new("名称", "");
+        let issues = RuleValidator::validate_metadata(&meta);
+        assert!(issues.iter().any(|i| i.contains("描述")));
     }
 }

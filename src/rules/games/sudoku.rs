@@ -277,7 +277,9 @@ mod validate_tests {
         // 合法的部分填充: 从完成的数独中挖掉一些数字
         let grid =
             "530070000600195000098000060800060003400803001700020006060000280000419005000080079";
-        assert!(rules.validate(&ValidateContext::Generic(grid.to_string())).unwrap());
+        assert!(rules
+            .validate(&ValidateContext::Generic(grid.to_string()))
+            .unwrap());
     }
 
     #[test]
@@ -286,7 +288,9 @@ mod validate_tests {
         // 第一行有两个5 → 非法
         let grid =
             "550000000000000000000000000000000000000000000000000000000000000000000000000000000";
-        assert!(!rules.validate(&ValidateContext::Generic(grid.to_string())).unwrap());
+        assert!(!rules
+            .validate(&ValidateContext::Generic(grid.to_string()))
+            .unwrap());
     }
 
     #[test]
@@ -306,6 +310,8 @@ mod validate_tests {
         // 一个完整的合法数独
         let grid =
             "534678912672195348198342567859761423426853791713924856961537284287419635345286179";
-        assert!(rules.validate(&ValidateContext::Generic(grid.to_string())).unwrap());
+        assert!(rules
+            .validate(&ValidateContext::Generic(grid.to_string()))
+            .unwrap());
     }
 }

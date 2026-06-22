@@ -87,6 +87,7 @@ fn main() {
         "list" => cmd_list(&args[2..]),
         "show" | "explain" | "info" => cmd_show(&args[2..]),
         "stats" => cmd_stats(),
+        "count" => cmd_count(),
         "validate" | "val" => cmd_validate(&args[2..]),
         "help" | "--help" | "-h" => print_usage(),
         "version" | "--version" | "-V" => println!("wr {}", env!("CARGO_PKG_VERSION")),
@@ -335,6 +336,23 @@ fn cmd_show(args: &[String]) {
     println!("└{}┘", "─".repeat(width));
 }
 
+fn cmd_count() {
+    let all = collect_all_rules();
+    let mut counts: std::collections::HashMap<&str, usize> = std::collections::HashMap::new();
+    for (cat, _, _, _) in &all {
+        *counts.entry(cat).or_insert(0) += 1;
+    }
+    let total: usize = counts.values().sum();
+    let q = '"';
+    println!("{{");
+    for cat in &["games", "sports", "social", "science", "law", "health"] {
+        let count = counts.get(cat).copied().unwrap_or(0);
+        println!("  {q}{cat}{q}: {count},");
+    }
+    println!("  {q}total{q}: {total}");
+    println!("}}");
+}
+
 fn cmd_stats() {
     let all = collect_all_rules();
     let mut counts: std::collections::HashMap<&str, usize> = std::collections::HashMap::new();
@@ -374,6 +392,7 @@ fn cmd_validate(args: &[String]) {
         "poker" | "德州" | "德州扑克" => cmd_validate_poker(&args[1]),
         "doudizhu" | "ddz" | "斗地主" => cmd_validate_doudizhu(&args[1]),
         "chess" | "象棋" | "中国象棋" => cmd_validate_chess(&args[1..]),
+        "sudoku" | "数独" => cmd_validate_sudoku(&args[1]),
         other => {
             eprintln!("不支持的游戏类型: {}", other);
             eprintln!("支持: mahjong, poker, doudizhu, chess");
@@ -547,6 +566,31 @@ fn cmd_validate_doudizhu(cards_str: &str) {
             println!("❌ 无法识别牌型");
             println!("   可能原因: 牌数不匹配、不连续、含非法组合");
         }
+    }
+}
+
+fn cmd_validate_sudoku(grid_str: &str) {
+    use world_rules::rules::core::ValidateContext;
+    use world_rules::rules::games::sudoku::SudokuRules;
+    use world_rules::rules::Rule;
+
+    let grid: String = grid_str
+        .chars()
+        .filter(|c| c.is_ascii_digit() || *c == '.')
+        .collect();
+    if grid.len() != 81 {
+        eprintln!(
+            "数独网格需要81个字符(数字1-9或.表示空格)，当前{}个",
+            grid.len()
+        );
+        return;
+    }
+    let rules = SudokuRules::new();
+    let ctx = ValidateContext::Generic(grid);
+    match rules.validate(&ctx) {
+        Ok(true) => println!("数独网格合法"),
+        Ok(false) => println!("数独网格不合法(存在冲突)"),
+        Err(e) => eprintln!("验证错误: {}", e),
     }
 }
 
