@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 食品安全法详解3
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: FoodSafetyDetailedLawRules, name: "食品安全法详解3", desc: "食品安全法详解3", origin: "中国", tags: ["法律", "食品"] }
+impl FoodSafetyDetailedLawRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["国标地标"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["许可抽检"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for FoodSafetyDetailedLawRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::law("food_safety_detailed_law")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "食品安全法详解3",
+            &[("标准", &self.section_0()), ("监管", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = FoodSafetyDetailedLawRules::new();
         assert!(!r.explain().is_empty());
     }
 }

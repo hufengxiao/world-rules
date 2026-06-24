@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 皮肤病学定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: DermatologyRules, name: "皮肤病学定律", desc: "皮肤病学定律", origin: "国际", tags: ["科学", "医学"] }
+impl DermatologyRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["湿疹银屑病"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["外用系统"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for DermatologyRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("dermatology")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "皮肤病学定律",
+            &[("常见", &self.section_0()), ("治疗", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = DermatologyRules::new();
         assert!(!r.explain().is_empty());
     }
 }

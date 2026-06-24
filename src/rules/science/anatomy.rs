@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 解剖学定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: AnatomyRules, name: "解剖学定律", desc: "解剖学定律", origin: "国际", tags: ["科学", "医学"] }
+impl AnatomyRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["骨骼肌肉神经"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["头颈胸腹"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for AnatomyRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("anatomy")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "解剖学定律",
+            &[("系统", &self.section_0()), ("局部", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = AnatomyRules::new();
         assert!(!r.explain().is_empty());
     }
 }

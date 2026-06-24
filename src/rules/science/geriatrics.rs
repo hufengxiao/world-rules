@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 老年医学定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: GeriatricsRules, name: "老年医学定律", desc: "老年医学定律", origin: "国际", tags: ["科学", "医学"] }
+impl GeriatricsRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["衰老机制"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["老年痴呆"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for GeriatricsRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("geriatrics")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "老年医学定律",
+            &[("衰老", &self.section_0()), ("疾病", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = GeriatricsRules::new();
         assert!(!r.explain().is_empty());
     }
 }

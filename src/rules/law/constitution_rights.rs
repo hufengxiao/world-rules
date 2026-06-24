@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 宪法权利详解
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: ConstitutionRightsRules, name: "宪法权利详解", desc: "宪法基本权利详解", origin: "中国", tags: ["法律", "宪法"] }
+impl ConstitutionRightsRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["平等自由社会权"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["纳税服兵役"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for ConstitutionRightsRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::law("constitution_rights")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "宪法权利详解",
+            &[("权利", &self.section_0()), ("义务", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = ConstitutionRightsRules::new();
         assert!(!r.explain().is_empty());
     }
 }

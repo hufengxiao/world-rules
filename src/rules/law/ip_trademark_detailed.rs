@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 商标法详解2
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: IpTrademarkDetailedRules, name: "商标法详解2", desc: "商标法详解2", origin: "中国", tags: ["法律", "知识产权"] }
+impl IpTrademarkDetailedRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["申请审查"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["侵权驰名"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for IpTrademarkDetailedRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::law("ip_trademark_detailed")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "商标法详解2",
+            &[("注册", &self.section_0()), ("保护", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = IpTrademarkDetailedRules::new();
         assert!(!r.explain().is_empty());
     }
 }

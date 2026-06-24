@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 电商法详解
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: EcommerceDetailedLawRules, name: "电商法详解", desc: "电商法详解", origin: "中国", tags: ["法律", "电商"] }
+impl EcommerceDetailedLawRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["平台责任"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["登记纳税"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for EcommerceDetailedLawRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::law("ecommerce_detailed_law")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "电商法详解",
+            &[("平台", &self.section_0()), ("经营", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = EcommerceDetailedLawRules::new();
         assert!(!r.explain().is_empty());
     }
 }

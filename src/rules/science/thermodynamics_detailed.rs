@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 热力学详细定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: ThermodynamicsDetailedRules, name: "热力学详细定律", desc: "热力学详细定律", origin: "国际", tags: ["科学", "物理"] }
+impl ThermodynamicsDetailedRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["零一二三定律"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["卡诺循环", "熵增原理"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for ThermodynamicsDetailedRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("thermodynamics_detailed")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "热力学详细定律",
+            &[("四大定律", &self.section_0()), ("应用", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = ThermodynamicsDetailedRules::new();
         assert!(!r.explain().is_empty());
     }
 }

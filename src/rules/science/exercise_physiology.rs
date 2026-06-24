@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 运动生理学定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: ExercisePhysiologyRules, name: "运动生理学定律", desc: "运动生理学定律", origin: "国际", tags: ["科学", "医学"] }
+impl ExercisePhysiologyRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["最大摄氧量"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["乳酸阈"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for ExercisePhysiologyRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("exercise_physiology")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "运动生理学定律",
+            &[("有氧", &self.section_0()), ("无氧", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = ExercisePhysiologyRules::new();
         assert!(!r.explain().is_empty());
     }
 }

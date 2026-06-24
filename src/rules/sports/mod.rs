@@ -507,7 +507,7 @@ pub use ice_hockey_detailed::IceHockeyDetailedRules;
 pub use ice_sailing::IceSailingRules;
 pub use indoor_archery::IndoorArcheryRules;
 pub use indoor_soccer::IndoorSoccerRules;
-pub use indyCar::IndycarRules;
+pub use indy_car::IndycarRules;
 pub use javelin::JavelinRules;
 pub use jet_ski::JetSkiRules;
 pub use jet_ski_ijsba::JetSkiIjsbaRules;

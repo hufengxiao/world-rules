@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 神经科学详细定律2
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: NeuroscienceDetailed2Rules, name: "神经科学详细定律2", desc: "神经科学定律2", origin: "国际", tags: ["科学", "生物"] }
+impl NeuroscienceDetailed2Rules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["动作电位突触"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["功能分区"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for NeuroscienceDetailed2Rules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("neuroscience_detailed2")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "神经科学详细定律2",
+            &[("神经元", &self.section_0()), ("脑区", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = NeuroscienceDetailed2Rules::new();
         assert!(!r.explain().is_empty());
     }
 }

@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 环境工程定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: EnvironmentalEngineeringRules, name: "环境工程定律", desc: "环境工程定律", origin: "国际", tags: ["科学", "工程"] }
+impl EnvironmentalEngineeringRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["净水技术"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["脱硫脱硝"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for EnvironmentalEngineeringRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("environmental_engineering")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "环境工程定律",
+            &[("水处理", &self.section_0()), ("废气", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = EnvironmentalEngineeringRules::new();
         assert!(!r.explain().is_empty());
     }
 }

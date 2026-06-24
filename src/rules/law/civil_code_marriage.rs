@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 民法典婚姻详解
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: CivilCodeMarriageRules, name: "民法典婚姻详解", desc: "民法典婚姻详解", origin: "中国", tags: ["法律", "民法"] }
+impl CivilCodeMarriageRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["结婚条件"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["协议诉讼"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for CivilCodeMarriageRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::law("civil_code_marriage")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "民法典婚姻详解",
+            &[("结婚", &self.section_0()), ("离婚", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = CivilCodeMarriageRules::new();
         assert!(!r.explain().is_empty());
     }
 }

@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 广义相对论定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: RelativityGeneralRules, name: "广义相对论定律", desc: "广义相对论定律", origin: "国际", tags: ["科学", "物理"] }
+impl RelativityGeneralRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["等效原理", "弯曲时空"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["引力红移", "引力波"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for RelativityGeneralRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("relativity_general")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "广义相对论定律",
+            &[("基本", &self.section_0()), ("效应", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = RelativityGeneralRules::new();
         assert!(!r.explain().is_empty());
     }
 }

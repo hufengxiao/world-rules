@@ -1,30 +1,30 @@
-//! 编译器理论定律
+//! 凝聚态物理详细
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: CondensedMatterDetailedRules, name: "凝聚态物理详细", desc: "凝聚态物理详细", origin: "国际", tags: ["科学", "物理"] }
+impl CondensedMatterDetailedRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["能带理论", "声子"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["BCS理论"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for CondensedMatterDetailedRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("condensed_matter_detailed")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "凝聚态物理详细",
+            &[("晶体", &self.section_0()), ("超导", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = CondensedMatterDetailedRules::new();
         assert!(!r.explain().is_empty());
     }
 }

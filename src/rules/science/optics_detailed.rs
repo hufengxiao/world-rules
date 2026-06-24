@@ -1,30 +1,33 @@
-//! 编译器理论定律
+//! 光学详细定律
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: CompilerTheoryRules, name: "编译器理论定律", desc: "编译器理论定律", origin: "国际", tags: ["科学", "计算机"] }
-impl CompilerTheoryRules {
+simple_rule! { struct: OpticsDetailedRules, name: "光学详细定律", desc: "光学详细定律", origin: "国际", tags: ["科学", "物理"] }
+impl OpticsDetailedRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["词法语法分析"]
+        vec!["反射折射", "全反射"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["优化代码生成"]
+        vec!["干涉衍射偏振"]
     }
 }
-impl Rule for CompilerTheoryRules {
+impl Rule for OpticsDetailedRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::science("compiler_theory")
+        RuleCategory::science("optics_detailed")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "编译器理论定律",
-            &[("前端", &self.section_0()), ("后端", &self.section_1())],
+            "光学详细定律",
+            &[
+                ("几何光学", &self.section_0()),
+                ("波动光学", &self.section_1()),
+            ],
         )
     }
 }
@@ -33,7 +36,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = CompilerTheoryRules::new();
+        let r = OpticsDetailedRules::new();
         assert!(!r.explain().is_empty());
     }
 }
