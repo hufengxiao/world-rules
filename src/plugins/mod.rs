@@ -24,8 +24,6 @@
 //! }
 //! ```
 
-#[cfg(feature = "serde_json")]
-use crate::rules::core::format_rule_sections;
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult};
 #[cfg(feature = "serde_json")]
 use std::path::Path;

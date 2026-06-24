@@ -88,6 +88,8 @@ fn main() {
         "show" | "explain" | "info" => cmd_show(&args[2..]),
         "stats" => cmd_stats(),
         "count" => cmd_count(),
+        "export" => cmd_export(&args[2..]),
+        "web" => cmd_web(),
         "validate" | "val" => cmd_validate(&args[2..]),
         "help" | "--help" | "-h" => print_usage(),
         "version" | "--version" | "-V" => println!("wr {}", env!("CARGO_PKG_VERSION")),
@@ -334,6 +336,211 @@ fn cmd_show(args: &[String]) {
         println!("│ {:<width$}", line, width = width - 2);
     }
     println!("└{}┘", "─".repeat(width));
+}
+
+fn cmd_export(args: &[String]) {
+    let format = if args.is_empty() { "json" } else { &args[0] };
+    let all = collect_all_rules();
+    match format {
+        "json" => {
+            let items: Vec<_> = all
+                .iter()
+                .map(|(_, meta, cat, _)| {
+                    serde_json::json!({
+                        "name": meta.name,
+                        "description": meta.description,
+                        "category": format!("{}", cat),
+                        "origin": meta.origin,
+                        "tags": meta.tags,
+                    })
+                })
+                .collect();
+            println!("{}", serde_json::to_string_pretty(&items).unwrap());
+        }
+        "html" | "web" => generate_web(&all),
+        "md" | "markdown" => generate_markdown(&all),
+        _ => {
+            eprintln!("不支持的格式: {}", format);
+            eprintln!("支持: json, html, md");
+        }
+    }
+}
+
+fn generate_web(all: &[(&str, RuleMetadata, RuleCategory, String)]) {
+    use std::io::Write;
+    let mut f = std::fs::File::create("world-rules.html").unwrap();
+    writeln!(
+        f,
+        r#"<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">"#
+    )
+    .unwrap();
+    writeln!(
+        f,
+        r#"<meta name="viewport" content="width=device-width, initial-scale=1.0">"#
+    )
+    .unwrap();
+    writeln!(f, r#"<title>World Rules</title><style>"#).unwrap();
+    writeln!(f, "*{{margin:0;padding:0;box-sizing:border-box}}").unwrap();
+    writeln!(
+        f,
+        "body{{font-family:system-ui;background:#f5f5f5;color:#333}}"
+    )
+    .unwrap();
+    writeln!(f, ".hdr{{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:2rem;text-align:center}}").unwrap();
+    writeln!(f, ".hdr h1{{font-size:2rem}}.stats{{display:flex;justify-content:center;gap:2rem;margin:1rem 0}}").unwrap();
+    writeln!(
+        f,
+        ".sn b{{font-size:1.5rem;display:block}}.sn span{{font-size:.85rem;opacity:.8}}"
+    )
+    .unwrap();
+    writeln!(
+        f,
+        ".box{{max-width:1200px;margin:2rem auto;padding:0 1rem}}"
+    )
+    .unwrap();
+    writeln!(f, ".sb{{width:100%;padding:.75rem;font-size:1rem;border:2px solid #ddd;border-radius:8px;margin-bottom:1.5rem}}").unwrap();
+    writeln!(f, ".sb:focus{{border-color:#667eea;outline:none}}").unwrap();
+    writeln!(f, ".cat{{margin-bottom:2rem}}.cat h2{{font-size:1.2rem;border-bottom:2px solid #667eea;display:inline-block;padding-bottom:.3rem}}").unwrap();
+    writeln!(
+        f,
+        ".g{{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}}"
+    )
+    .unwrap();
+    writeln!(
+        f,
+        ".c{{background:#fff;border-radius:8px;padding:1rem;box-shadow:0 2px 4px rgba(0,0,0,.1)}}"
+    )
+    .unwrap();
+    writeln!(
+        f,
+        ".c:hover{{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.15)}}"
+    )
+    .unwrap();
+    writeln!(
+        f,
+        ".c h3{{font-size:.95rem;margin-bottom:.4rem}}.c p{{font-size:.85rem;color:#666}}"
+    )
+    .unwrap();
+    writeln!(
+        f,
+        ".t{{display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.4rem}}"
+    )
+    .unwrap();
+    writeln!(f, ".tg{{background:#e8eaf6;color:#3949ab;padding:.1rem .4rem;border-radius:10px;font-size:.7rem}}").unwrap();
+    writeln!(f, ".o{{color:#999;font-size:.7rem}}").unwrap();
+    writeln!(f, "</style></head><body>").unwrap();
+
+    writeln!(
+        f,
+        r#"<div class="hdr"><h1>World Rules</h1><p>世界规则库</p><div class="stats">"#
+    )
+    .unwrap();
+    writeln!(
+        f,
+        r#"<div class="sn"><b>{}</b><span>规则总数</span></div>"#,
+        all.len()
+    )
+    .unwrap();
+    let mut counts: std::collections::HashMap<String, usize> = std::collections::HashMap::new();
+    for (_, _, cat, _) in all {
+        *counts.entry(format!("{}", cat)).or_insert(0) += 1;
+    }
+    for (cat, cnt) in &counts {
+        writeln!(
+            f,
+            r#"<div class="sn"><b>{}</b><span>{}</span></div>"#,
+            cnt, cat
+        )
+        .unwrap();
+    }
+    writeln!(f, "</div></div><div class=\"box\">").unwrap();
+    writeln!(f, r#"<input type="text" class="sb" id="q" placeholder="搜索规则..." oninput="document.querySelectorAll('.c').forEach(c=>{{c.style.display=c.dataset.n.includes(this.value.toLowerCase())?'':'none'}})">"#).unwrap();
+
+    let mut groups: std::collections::HashMap<
+        String,
+        Vec<&(&str, RuleMetadata, RuleCategory, String)>,
+    > = std::collections::HashMap::new();
+    for item in all {
+        groups.entry(format!("{}", item.2)).or_default().push(item);
+    }
+    for (cat, items) in &groups {
+        writeln!(
+            f,
+            r#"<div class="cat"><h2>{} ({})</h2><div class="g">"#,
+            cat,
+            items.len()
+        )
+        .unwrap();
+        for (_, meta, _, _) in items {
+            let tags: String = meta
+                .tags
+                .iter()
+                .map(|t| format!(r#"<span class="tg">{}</span>"#, t))
+                .collect();
+            let o = meta.origin.as_deref().unwrap_or("");
+            let ohtml = if o.is_empty() {
+                String::new()
+            } else {
+                format!(r#"<span class="o">{}</span>"#, o)
+            };
+            writeln!(
+                f,
+                r#"<div class="c" data-n="{}"><h3>{}</h3><p>{}</p><div class="t">{}{}</div></div>"#,
+                meta.name.to_lowercase(),
+                meta.name,
+                meta.description,
+                tags,
+                ohtml
+            )
+            .unwrap();
+        }
+        writeln!(f, "</div></div>").unwrap();
+    }
+    writeln!(f, "</div></body></html>").unwrap();
+    println!("已生成 world-rules.html ({} 条规则)", all.len());
+}
+
+fn generate_markdown(all: &[(&str, RuleMetadata, RuleCategory, String)]) {
+    use std::io::Write;
+    let mut f = std::fs::File::create("world-rules.md").unwrap();
+    writeln!(f, "# World Rules\n\n共 {} 条规则\n", all.len()).unwrap();
+    let mut groups: std::collections::HashMap<
+        String,
+        Vec<&(&str, RuleMetadata, RuleCategory, String)>,
+    > = std::collections::HashMap::new();
+    for item in all {
+        groups.entry(format!("{}", item.2)).or_default().push(item);
+    }
+    for (cat, items) in &groups {
+        writeln!(f, "## {} ({})\n", cat, items.len()).unwrap();
+        for (_, meta, _, _) in items {
+            let o = meta.origin.as_deref().unwrap_or("");
+            let tags = if meta.tags.is_empty() {
+                String::new()
+            } else {
+                format!(" [{}]", meta.tags.join(", "))
+            };
+            let ostr = if o.is_empty() {
+                String::new()
+            } else {
+                format!(" ({})", o)
+            };
+            writeln!(
+                f,
+                "- **{}**{}{}: {}",
+                meta.name, ostr, tags, meta.description
+            )
+            .unwrap();
+        }
+        writeln!(f).unwrap();
+    }
+    println!("已生成 world-rules.md ({} 条规则)", all.len());
+}
+
+fn cmd_web() {
+    let all = collect_all_rules();
+    generate_web(&all);
+    println!("用浏览器打开 world-rules.html 即可浏览");
 }
 
 fn cmd_count() {

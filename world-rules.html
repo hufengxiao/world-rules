@@ -1,0 +1,2507 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Rules</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui;background:#f5f5f5;color:#333}
+.hdr{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;padding:2rem;text-align:center}
+.hdr h1{font-size:2rem}.stats{display:flex;justify-content:center;gap:2rem;margin:1rem 0}
+.sn b{font-size:1.5rem;display:block}.sn span{font-size:.85rem;opacity:.8}
+.box{max-width:1200px;margin:2rem auto;padding:0 1rem}
+.sb{width:100%;padding:.75rem;font-size:1rem;border:2px solid #ddd;border-radius:8px;margin-bottom:1.5rem}
+.sb:focus{border-color:#667eea;outline:none}
+.cat{margin-bottom:2rem}.cat h2{font-size:1.2rem;border-bottom:2px solid #667eea;display:inline-block;padding-bottom:.3rem}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.c{background:#fff;border-radius:8px;padding:1rem;box-shadow:0 2px 4px rgba(0,0,0,.1)}
+.c:hover{transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,0,0,.15)}
+.c h3{font-size:.95rem;margin-bottom:.4rem}.c p{font-size:.85rem;color:#666}
+.t{display:flex;flex-wrap:wrap;gap:.2rem;margin-top:.4rem}
+.tg{background:#e8eaf6;color:#3949ab;padding:.1rem .4rem;border-radius:10px;font-size:.7rem}
+.o{color:#999;font-size:.7rem}
+</style></head><body>
+<div class="hdr"><h1>World Rules</h1><p>世界规则库</p><div class="stats">
+<div class="sn"><b>622</b><span>规则总数</span></div>
+<div class="sn"><b>1</b><span>Social/interview</span></div>
+<div class="sn"><b>1</b><span>Sports/drone_racing</span></div>
+<div class="sn"><b>1</b><span>Sports/kitesurfing</span></div>
+<div class="sn"><b>1</b><span>Law/marriage_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/table_tennis</span></div>
+<div class="sn"><b>1</b><span>Law/civil_procedure_detailed2</span></div>
+<div class="sn"><b>1</b><span>Sports/motorboat_racing</span></div>
+<div class="sn"><b>1</b><span>Science/immunology</span></div>
+<div class="sn"><b>1</b><span>Sports/karate_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/electrical_engineering</span></div>
+<div class="sn"><b>1</b><span>Law/criminal_procedure_detailed2</span></div>
+<div class="sn"><b>1</b><span>Social/online</span></div>
+<div class="sn"><b>1</b><span>Sports/baseball</span></div>
+<div class="sn"><b>1</b><span>Sports/esports</span></div>
+<div class="sn"><b>1</b><span>Science/history</span></div>
+<div class="sn"><b>1</b><span>Science/information_theory</span></div>
+<div class="sn"><b>1</b><span>Science/probability_theory</span></div>
+<div class="sn"><b>1</b><span>Law/property_management</span></div>
+<div class="sn"><b>1</b><span>Sports/javelin</span></div>
+<div class="sn"><b>1</b><span>Sports/silat</span></div>
+<div class="sn"><b>1</b><span>Social/business</span></div>
+<div class="sn"><b>1</b><span>Law/company</span></div>
+<div class="sn"><b>1</b><span>Games/catan</span></div>
+<div class="sn"><b>1</b><span>Law/consumer_extended</span></div>
+<div class="sn"><b>1</b><span>Sports/figure_skating_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/tax</span></div>
+<div class="sn"><b>1</b><span>Science/physics</span></div>
+<div class="sn"><b>1</b><span>Law/tcm_law</span></div>
+<div class="sn"><b>1</b><span>Social/elevator</span></div>
+<div class="sn"><b>1</b><span>Law/environmental_detailed2</span></div>
+<div class="sn"><b>1</b><span>Health/children_health</span></div>
+<div class="sn"><b>1</b><span>Law/contract_detailed</span></div>
+<div class="sn"><b>1</b><span>Health/eye_health</span></div>
+<div class="sn"><b>1</b><span>Health/sleep</span></div>
+<div class="sn"><b>1</b><span>Law/soil_pollution_law</span></div>
+<div class="sn"><b>1</b><span>Sports/handball</span></div>
+<div class="sn"><b>1</b><span>Law/criminal_procedure</span></div>
+<div class="sn"><b>1</b><span>Sports/fencing</span></div>
+<div class="sn"><b>1</b><span>Sports/triathlon</span></div>
+<div class="sn"><b>1</b><span>Science/number_theory</span></div>
+<div class="sn"><b>1</b><span>Law/data_protection_intl</span></div>
+<div class="sn"><b>1</b><span>Law/water_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/infectious_disease_law</span></div>
+<div class="sn"><b>1</b><span>Sports/disc_golf_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/chess</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_shanghai</span></div>
+<div class="sn"><b>1</b><span>Social/golf_etiquette</span></div>
+<div class="sn"><b>1</b><span>Sports/synchronized_swimming</span></div>
+<div class="sn"><b>1</b><span>Law/real_estate_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/tai_chi_push_hands</span></div>
+<div class="sn"><b>1</b><span>Social/neighbor</span></div>
+<div class="sn"><b>1</b><span>Law/drone_law</span></div>
+<div class="sn"><b>1</b><span>Law/autonomous_driving_law</span></div>
+<div class="sn"><b>1</b><span>Law/international_investment</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_wuhan</span></div>
+<div class="sn"><b>1</b><span>Sports/curling_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/boxing</span></div>
+<div class="sn"><b>1</b><span>Law/consumer</span></div>
+<div class="sn"><b>1</b><span>Sports/indoor_soccer</span></div>
+<div class="sn"><b>1</b><span>Law/criminal_detailed2</span></div>
+<div class="sn"><b>1</b><span>Law/mineral_resources</span></div>
+<div class="sn"><b>1</b><span>Science/oceanography</span></div>
+<div class="sn"><b>1</b><span>Law/vaccine_management</span></div>
+<div class="sn"><b>1</b><span>Sports/boxing_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/trampoline</span></div>
+<div class="sn"><b>1</b><span>Games/codenames</span></div>
+<div class="sn"><b>1</b><span>Games/reversi</span></div>
+<div class="sn"><b>1</b><span>Sports/bodybuilding</span></div>
+<div class="sn"><b>1</b><span>Law/securities_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/wheelchair_tennis</span></div>
+<div class="sn"><b>1</b><span>Sports/darts_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/political_science</span></div>
+<div class="sn"><b>1</b><span>Science/plasma_physics</span></div>
+<div class="sn"><b>1</b><span>Sports/paragliding</span></div>
+<div class="sn"><b>1</b><span>Science/quantum_computing</span></div>
+<div class="sn"><b>1</b><span>Science/signal_processing</span></div>
+<div class="sn"><b>1</b><span>Law/land_administration</span></div>
+<div class="sn"><b>1</b><span>Law/consumer_detailed2</span></div>
+<div class="sn"><b>1</b><span>Sports/hammer_throw</span></div>
+<div class="sn"><b>1</b><span>Sports/motogp</span></div>
+<div class="sn"><b>1</b><span>Law/charity</span></div>
+<div class="sn"><b>1</b><span>Science/sociology</span></div>
+<div class="sn"><b>1</b><span>Law/mental_health_law</span></div>
+<div class="sn"><b>1</b><span>Law/maritime_law_intl</span></div>
+<div class="sn"><b>1</b><span>Science/data_science_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/badminton</span></div>
+<div class="sn"><b>1</b><span>Sports/pair_skating</span></div>
+<div class="sn"><b>1</b><span>Sports/bowling_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/race_walking</span></div>
+<div class="sn"><b>1</b><span>Sports/drag_racing</span></div>
+<div class="sn"><b>1</b><span>Health/skin_health</span></div>
+<div class="sn"><b>1</b><span>Science/mechanical_engineering</span></div>
+<div class="sn"><b>1</b><span>Social/greeting</span></div>
+<div class="sn"><b>1</b><span>Science/proteomics</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_anhui</span></div>
+<div class="sn"><b>1</b><span>Social/email</span></div>
+<div class="sn"><b>1</b><span>Science/bioinformatics</span></div>
+<div class="sn"><b>1</b><span>Sports/golf_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/triple_jump</span></div>
+<div class="sn"><b>1</b><span>Games/pictionary</span></div>
+<div class="sn"><b>1</b><span>Law/drug_management</span></div>
+<div class="sn"><b>1</b><span>Law/customs</span></div>
+<div class="sn"><b>1</b><span>Law/safety_production</span></div>
+<div class="sn"><b>1</b><span>Social/live_streaming</span></div>
+<div class="sn"><b>1</b><span>Games/texas_holdem_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/tax_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/shooting_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/gene_editing_law</span></div>
+<div class="sn"><b>1</b><span>Sports/ice_hockey</span></div>
+<div class="sn"><b>1</b><span>Sports/sepak_takraw</span></div>
+<div class="sn"><b>1</b><span>Law/civil_detailed2</span></div>
+<div class="sn"><b>1</b><span>Science/control_engineering</span></div>
+<div class="sn"><b>1</b><span>Law/bankruptcy</span></div>
+<div class="sn"><b>1</b><span>Law/insurance</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_kunming</span></div>
+<div class="sn"><b>1</b><span>Law/foreign_trade</span></div>
+<div class="sn"><b>1</b><span>Social/tea</span></div>
+<div class="sn"><b>1</b><span>Science/epidemiology</span></div>
+<div class="sn"><b>1</b><span>Law/real_estate</span></div>
+<div class="sn"><b>1</b><span>Sports/parkour</span></div>
+<div class="sn"><b>1</b><span>Science/paleontology</span></div>
+<div class="sn"><b>1</b><span>Games/chinese_chess</span></div>
+<div class="sn"><b>1</b><span>Sports/base_jumping</span></div>
+<div class="sn"><b>1</b><span>Sports/wrestling</span></div>
+<div class="sn"><b>1</b><span>Social/workplace</span></div>
+<div class="sn"><b>1</b><span>Science/information_science</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_kejia</span></div>
+<div class="sn"><b>1</b><span>Science/communication</span></div>
+<div class="sn"><b>1</b><span>Games/chinese_checkers</span></div>
+<div class="sn"><b>1</b><span>Sports/model_airplane</span></div>
+<div class="sn"><b>1</b><span>Science/measure_theory</span></div>
+<div class="sn"><b>1</b><span>Law/marriage_detailed2</span></div>
+<div class="sn"><b>1</b><span>Law/women_protection</span></div>
+<div class="sn"><b>1</b><span>Sports/capoeira</span></div>
+<div class="sn"><b>1</b><span>Sports/mud_racing</span></div>
+<div class="sn"><b>1</b><span>Sports/skydiving</span></div>
+<div class="sn"><b>1</b><span>Law/insurance_law</span></div>
+<div class="sn"><b>1</b><span>Science/devops_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/kickboxing</span></div>
+<div class="sn"><b>1</b><span>Social/queue</span></div>
+<div class="sn"><b>1</b><span>Sports/freestyle_skiing</span></div>
+<div class="sn"><b>1</b><span>Games/who_is_spy</span></div>
+<div class="sn"><b>1</b><span>Science/marketing_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/athletics</span></div>
+<div class="sn"><b>1</b><span>Science/volcanology</span></div>
+<div class="sn"><b>1</b><span>Law/archives</span></div>
+<div class="sn"><b>1</b><span>Games/twenty_four_point</span></div>
+<div class="sn"><b>1</b><span>Law/food_safety_detailed2</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_zhengzhou</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_hangzhou</span></div>
+<div class="sn"><b>1</b><span>Social/social_media_etiquette</span></div>
+<div class="sn"><b>1</b><span>Sports/cricket_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/international_human_rights</span></div>
+<div class="sn"><b>1</b><span>Science/aesthetics</span></div>
+<div class="sn"><b>1</b><span>Science/deep_learning</span></div>
+<div class="sn"><b>1</b><span>Sports/volleyball</span></div>
+<div class="sn"><b>1</b><span>Law/administrative_detailed2</span></div>
+<div class="sn"><b>1</b><span>Law/noise_pollution_law</span></div>
+<div class="sn"><b>1</b><span>Sports/shot_put</span></div>
+<div class="sn"><b>1</b><span>Science/complexity_science</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_beijing</span></div>
+<div class="sn"><b>1</b><span>Science/materials_engineering</span></div>
+<div class="sn"><b>1</b><span>Sports/equestrian</span></div>
+<div class="sn"><b>1</b><span>Sports/shooting</span></div>
+<div class="sn"><b>1</b><span>Sports/windsurfing</span></div>
+<div class="sn"><b>1</b><span>Sports/paddleboarding</span></div>
+<div class="sn"><b>1</b><span>Law/electricity_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/ballroom_dancing</span></div>
+<div class="sn"><b>1</b><span>Science/math</span></div>
+<div class="sn"><b>1</b><span>Law/emergency_response</span></div>
+<div class="sn"><b>1</b><span>Sports/netball</span></div>
+<div class="sn"><b>1</b><span>Science/functional_analysis</span></div>
+<div class="sn"><b>1</b><span>Law/food_safety</span></div>
+<div class="sn"><b>1</b><span>Law/bidding</span></div>
+<div class="sn"><b>1</b><span>Sports/water_skiing_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/bjj</span></div>
+<div class="sn"><b>1</b><span>Sports/sailing</span></div>
+<div class="sn"><b>1</b><span>Games/uno</span></div>
+<div class="sn"><b>1</b><span>Sports/skateboarding</span></div>
+<div class="sn"><b>1</b><span>Law/personal_info_protection</span></div>
+<div class="sn"><b>1</b><span>Sports/kayaking</span></div>
+<div class="sn"><b>1</b><span>Games/domino</span></div>
+<div class="sn"><b>1</b><span>Sports/blind_football</span></div>
+<div class="sn"><b>1</b><span>Law/constitution</span></div>
+<div class="sn"><b>1</b><span>Sports/bmx</span></div>
+<div class="sn"><b>1</b><span>Sports/powerlifting_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/analytical_chemistry</span></div>
+<div class="sn"><b>1</b><span>Science/crystallography</span></div>
+<div class="sn"><b>1</b><span>Law/railway</span></div>
+<div class="sn"><b>1</b><span>Science/geoscience</span></div>
+<div class="sn"><b>1</b><span>Sports/diving</span></div>
+<div class="sn"><b>1</b><span>Science/exercise_science</span></div>
+<div class="sn"><b>1</b><span>Sports/beach_volleyball</span></div>
+<div class="sn"><b>1</b><span>Science/music_theory</span></div>
+<div class="sn"><b>1</b><span>Law/education_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/blackjack</span></div>
+<div class="sn"><b>1</b><span>Games/go</span></div>
+<div class="sn"><b>1</b><span>Sports/gateball</span></div>
+<div class="sn"><b>1</b><span>Law/administrative</span></div>
+<div class="sn"><b>1</b><span>Law/maritime</span></div>
+<div class="sn"><b>1</b><span>Sports/esports_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/softball_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/data_security_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/texas_holdem</span></div>
+<div class="sn"><b>1</b><span>Sports/cricket</span></div>
+<div class="sn"><b>1</b><span>Sports/lacrosse_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/hockey</span></div>
+<div class="sn"><b>1</b><span>Sports/rugby_sevens</span></div>
+<div class="sn"><b>1</b><span>Law/civil_procedure_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/cybersecurity</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_dongbei</span></div>
+<div class="sn"><b>1</b><span>Law/anti_money_laundering</span></div>
+<div class="sn"><b>1</b><span>Sports/lethwei</span></div>
+<div class="sn"><b>1</b><span>Science/general_relativity</span></div>
+<div class="sn"><b>1</b><span>Science/urban_geography</span></div>
+<div class="sn"><b>1</b><span>Games/risk</span></div>
+<div class="sn"><b>1</b><span>Science/financial_economics</span></div>
+<div class="sn"><b>1</b><span>Law/labor_detailed2</span></div>
+<div class="sn"><b>1</b><span>Sports/air_hockey</span></div>
+<div class="sn"><b>1</b><span>Sports/breakdancing</span></div>
+<div class="sn"><b>1</b><span>Science/management_science</span></div>
+<div class="sn"><b>1</b><span>Sports/sumo</span></div>
+<div class="sn"><b>1</b><span>Sports/orienteering</span></div>
+<div class="sn"><b>1</b><span>Science/civil_engineering</span></div>
+<div class="sn"><b>1</b><span>Sports/rowing</span></div>
+<div class="sn"><b>1</b><span>Law/constitution_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/krav_maga</span></div>
+<div class="sn"><b>1</b><span>Social/mahjong_etiquette</span></div>
+<div class="sn"><b>3</b><span>Games/mahjong</span></div>
+<div class="sn"><b>1</b><span>Sports/billiards_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/social_psychology</span></div>
+<div class="sn"><b>1</b><span>Games/chess960</span></div>
+<div class="sn"><b>1</b><span>Social/party</span></div>
+<div class="sn"><b>1</b><span>Law/marriage</span></div>
+<div class="sn"><b>1</b><span>Social/elevator_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/archery_detailed</span></div>
+<div class="sn"><b>1</b><span>Social/funeral</span></div>
+<div class="sn"><b>1</b><span>Social/pet_etiquette</span></div>
+<div class="sn"><b>1</b><span>Sports/pole_vault</span></div>
+<div class="sn"><b>1</b><span>Law/criminal</span></div>
+<div class="sn"><b>1</b><span>Law/environmental_impact_law</span></div>
+<div class="sn"><b>1</b><span>Sports/gymnastics</span></div>
+<div class="sn"><b>1</b><span>Sports/motogp_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/bungee_jumping</span></div>
+<div class="sn"><b>1</b><span>Sports/yoga_competition</span></div>
+<div class="sn"><b>1</b><span>Science/quantum_mechanics</span></div>
+<div class="sn"><b>1</b><span>Sports/softball</span></div>
+<div class="sn"><b>1</b><span>Science/synthetic_biology</span></div>
+<div class="sn"><b>1</b><span>Sports/short_track</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_nanjing</span></div>
+<div class="sn"><b>1</b><span>Law/trademark</span></div>
+<div class="sn"><b>1</b><span>Sports/savate</span></div>
+<div class="sn"><b>1</b><span>Sports/wheelchair_basketball</span></div>
+<div class="sn"><b>1</b><span>Social/train</span></div>
+<div class="sn"><b>1</b><span>Sports/hurdles</span></div>
+<div class="sn"><b>1</b><span>Law/space_law</span></div>
+<div class="sn"><b>1</b><span>Science/control_theory</span></div>
+<div class="sn"><b>1</b><span>Social/festival</span></div>
+<div class="sn"><b>1</b><span>Science/chemical_engineering</span></div>
+<div class="sn"><b>1</b><span>Science/linguistics</span></div>
+<div class="sn"><b>1</b><span>Law/arbitration</span></div>
+<div class="sn"><b>1</b><span>Sports/badminton_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/telecom_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_guangdong</span></div>
+<div class="sn"><b>1</b><span>Sports/golf</span></div>
+<div class="sn"><b>1</b><span>Law/criminal_procedure_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/public_interest_litigation</span></div>
+<div class="sn"><b>1</b><span>Law/education</span></div>
+<div class="sn"><b>1</b><span>Science/robotics_theory</span></div>
+<div class="sn"><b>1</b><span>Science/neuroscience</span></div>
+<div class="sn"><b>1</b><span>Sports/steeplechase</span></div>
+<div class="sn"><b>1</b><span>Law/elderly_protection</span></div>
+<div class="sn"><b>1</b><span>Games/military_chess</span></div>
+<div class="sn"><b>1</b><span>Social/dining</span></div>
+<div class="sn"><b>1</b><span>Sports/water_polo_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/data_security</span></div>
+<div class="sn"><b>1</b><span>Science/biostatistics</span></div>
+<div class="sn"><b>1</b><span>Sports/wushu</span></div>
+<div class="sn"><b>1</b><span>Science/physical_chemistry</span></div>
+<div class="sn"><b>1</b><span>Law/foreign_investment</span></div>
+<div class="sn"><b>1</b><span>Law/road_safety</span></div>
+<div class="sn"><b>1</b><span>Science/polymer_chemistry</span></div>
+<div class="sn"><b>1</b><span>Law/wildlife_protection_law</span></div>
+<div class="sn"><b>1</b><span>Sports/polo</span></div>
+<div class="sn"><b>1</b><span>Science/chaos_theory</span></div>
+<div class="sn"><b>1</b><span>Law/antimonopoly_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/traffic</span></div>
+<div class="sn"><b>1</b><span>Sports/nine_ball_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_riichi_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/field_archery</span></div>
+<div class="sn"><b>1</b><span>Sports/basketball_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/seven_aside_football</span></div>
+<div class="sn"><b>1</b><span>Science/cell_biology</span></div>
+<div class="sn"><b>1</b><span>Science/thermochemistry</span></div>
+<div class="sn"><b>1</b><span>Law/anti_unfair_competition</span></div>
+<div class="sn"><b>1</b><span>Law/banking_detailed2</span></div>
+<div class="sn"><b>1</b><span>Law/forest_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/electromagnetism</span></div>
+<div class="sn"><b>1</b><span>Sports/swimming</span></div>
+<div class="sn"><b>1</b><span>Science/aerospace_engineering</span></div>
+<div class="sn"><b>1</b><span>Science/anthropology</span></div>
+<div class="sn"><b>1</b><span>Law/disability_protection</span></div>
+<div class="sn"><b>1</b><span>Science/acoustics</span></div>
+<div class="sn"><b>1</b><span>Social/phone</span></div>
+<div class="sn"><b>1</b><span>Science/zoology</span></div>
+<div class="sn"><b>1</b><span>Law/humanitarian_law</span></div>
+<div class="sn"><b>1</b><span>Games/stud_poker</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_suzhou</span></div>
+<div class="sn"><b>1</b><span>Sports/powerlifting</span></div>
+<div class="sn"><b>1</b><span>Science/topology</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_fuzhou</span></div>
+<div class="sn"><b>1</b><span>Sports/ice_sailing</span></div>
+<div class="sn"><b>1</b><span>Law/civil</span></div>
+<div class="sn"><b>1</b><span>Law/children_protection</span></div>
+<div class="sn"><b>1</b><span>Games/two_player_mahjong</span></div>
+<div class="sn"><b>1</b><span>Games/backgammon</span></div>
+<div class="sn"><b>1</b><span>Sports/petanque</span></div>
+<div class="sn"><b>1</b><span>Science/condensed_matter</span></div>
+<div class="sn"><b>1</b><span>Law/administrative_procedure</span></div>
+<div class="sn"><b>1</b><span>Social/library</span></div>
+<div class="sn"><b>1</b><span>Games/sheng_ji</span></div>
+<div class="sn"><b>1</b><span>Science/education</span></div>
+<div class="sn"><b>1</b><span>Science/nanotechnology</span></div>
+<div class="sn"><b>1</b><span>Law/post</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_chaoshan</span></div>
+<div class="sn"><b>1</b><span>Games/werewolf</span></div>
+<div class="sn"><b>1</b><span>Sports/discus</span></div>
+<div class="sn"><b>1</b><span>Sports/speed_skating_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_guangxi</span></div>
+<div class="sn"><b>1</b><span>Law/fire_protection</span></div>
+<div class="sn"><b>1</b><span>Health/elderly_health</span></div>
+<div class="sn"><b>1</b><span>Sports/kalaripayattu</span></div>
+<div class="sn"><b>1</b><span>Science/photochemistry</span></div>
+<div class="sn"><b>1</b><span>Health/mental_health</span></div>
+<div class="sn"><b>1</b><span>Social/hospital_etiquette</span></div>
+<div class="sn"><b>1</b><span>Law/maritime_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/inheritance</span></div>
+<div class="sn"><b>1</b><span>Law/administrative_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/canoe_polo</span></div>
+<div class="sn"><b>1</b><span>Social/wedding</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_taiwan</span></div>
+<div class="sn"><b>1</b><span>Science/statistical_mechanics</span></div>
+<div class="sn"><b>1</b><span>Law/bankruptcy_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/price</span></div>
+<div class="sn"><b>1</b><span>Games/bridge</span></div>
+<div class="sn"><b>1</b><span>Science/cognitive_psychology</span></div>
+<div class="sn"><b>1</b><span>Sports/archery</span></div>
+<div class="sn"><b>1</b><span>Sports/fitness_competition</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_chongqing</span></div>
+<div class="sn"><b>1</b><span>Science/decision_science</span></div>
+<div class="sn"><b>1</b><span>Science/game_theory</span></div>
+<div class="sn"><b>1</b><span>Science/genomic_laws</span></div>
+<div class="sn"><b>1</b><span>Science/archaeology</span></div>
+<div class="sn"><b>1</b><span>Sports/volleyball_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/skiing</span></div>
+<div class="sn"><b>1</b><span>Science/organic_chemistry</span></div>
+<div class="sn"><b>1</b><span>Law/contract_detailed2</span></div>
+<div class="sn"><b>1</b><span>Social/flight</span></div>
+<div class="sn"><b>1</b><span>Science/material_science</span></div>
+<div class="sn"><b>1</b><span>Law/ai_regulation</span></div>
+<div class="sn"><b>1</b><span>Sports/beach_soccer</span></div>
+<div class="sn"><b>1</b><span>Sports/latin_dance</span></div>
+<div class="sn"><b>1</b><span>Sports/rhythmic_gymnastics</span></div>
+<div class="sn"><b>1</b><span>Sports/wakeboarding</span></div>
+<div class="sn"><b>1</b><span>Games/mafia</span></div>
+<div class="sn"><b>1</b><span>Law/intellectual_property</span></div>
+<div class="sn"><b>1</b><span>Games/scrabble</span></div>
+<div class="sn"><b>1</b><span>Sports/ice_hockey_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/labor_extended</span></div>
+<div class="sn"><b>1</b><span>Sports/bodybuilding_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/doudizhu</span></div>
+<div class="sn"><b>1</b><span>Sports/slalom_kayaking</span></div>
+<div class="sn"><b>1</b><span>Science/mineralogy</span></div>
+<div class="sn"><b>1</b><span>Law/aviation_law</span></div>
+<div class="sn"><b>1</b><span>Health/chronic_disease</span></div>
+<div class="sn"><b>1</b><span>Sports/cornhole</span></div>
+<div class="sn"><b>1</b><span>Sports/ice_dancing</span></div>
+<div class="sn"><b>1</b><span>Science/genetics</span></div>
+<div class="sn"><b>1</b><span>Sports/karate</span></div>
+<div class="sn"><b>1</b><span>Science/chemistry</span></div>
+<div class="sn"><b>1</b><span>Sports/judo_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/forest</span></div>
+<div class="sn"><b>1</b><span>Social/gift</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_guiyang</span></div>
+<div class="sn"><b>1</b><span>Games/rubiks_cube</span></div>
+<div class="sn"><b>1</b><span>Games/sudoku_variant</span></div>
+<div class="sn"><b>1</b><span>Sports/wheelchair_racing</span></div>
+<div class="sn"><b>1</b><span>Law/banking</span></div>
+<div class="sn"><b>1</b><span>Sports/american_football_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/literature</span></div>
+<div class="sn"><b>1</b><span>Science/ml_theory</span></div>
+<div class="sn"><b>1</b><span>Law/medical</span></div>
+<div class="sn"><b>1</b><span>Law/patent</span></div>
+<div class="sn"><b>1</b><span>Sports/judo</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_hainan</span></div>
+<div class="sn"><b>1</b><span>Sports/swimming_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/lawyer</span></div>
+<div class="sn"><b>1</b><span>Sports/disc_golf_detail</span></div>
+<div class="sn"><b>1</b><span>Sports/skeleton</span></div>
+<div class="sn"><b>1</b><span>Health/oral_health</span></div>
+<div class="sn"><b>1</b><span>Games/pao_de_kuai</span></div>
+<div class="sn"><b>1</b><span>Social/seating</span></div>
+<div class="sn"><b>1</b><span>Science/network_science</span></div>
+<div class="sn"><b>1</b><span>Sports/sambo</span></div>
+<div class="sn"><b>1</b><span>Social/dating_etiquette</span></div>
+<div class="sn"><b>1</b><span>Sports/australian_football</span></div>
+<div class="sn"><b>1</b><span>Health/nutrition</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_sichuan</span></div>
+<div class="sn"><b>1</b><span>Sports/sanda</span></div>
+<div class="sn"><b>1</b><span>Sports/weightlifting</span></div>
+<div class="sn"><b>1</b><span>Science/computer_science</span></div>
+<div class="sn"><b>1</b><span>Law/legal_aid</span></div>
+<div class="sn"><b>1</b><span>Sports/alpine_skiing</span></div>
+<div class="sn"><b>1</b><span>Sports/kabaddi</span></div>
+<div class="sn"><b>1</b><span>Sports/sitting_volleyball</span></div>
+<div class="sn"><b>1</b><span>Science/bioengineering</span></div>
+<div class="sn"><b>1</b><span>Games/aeroplane_chess</span></div>
+<div class="sn"><b>1</b><span>Sports/ultimate_frisbee</span></div>
+<div class="sn"><b>1</b><span>Law/antimonopoly</span></div>
+<div class="sn"><b>1</b><span>Sports/fencing_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/squash</span></div>
+<div class="sn"><b>1</b><span>Law/consumer_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/gymnastics_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/mineral_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/taekwondo_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/yahtzee</span></div>
+<div class="sn"><b>1</b><span>Science/relativity</span></div>
+<div class="sn"><b>1</b><span>Law/social_insurance</span></div>
+<div class="sn"><b>1</b><span>Sports/indoor_archery</span></div>
+<div class="sn"><b>1</b><span>Social/bar</span></div>
+<div class="sn"><b>1</b><span>Science/organizational_behavior</span></div>
+<div class="sn"><b>1</b><span>Sports/bobsleigh</span></div>
+<div class="sn"><b>1</b><span>Science/soil_science</span></div>
+<div class="sn"><b>1</b><span>Sports/weightlifting_detailed</span></div>
+<div class="sn"><b>1</b><span>Social/cinema</span></div>
+<div class="sn"><b>1</b><span>Sports/marathon</span></div>
+<div class="sn"><b>1</b><span>Sports/snowboarding</span></div>
+<div class="sn"><b>1</b><span>Science/computational_linguistics</span></div>
+<div class="sn"><b>1</b><span>Law/agriculture</span></div>
+<div class="sn"><b>1</b><span>Games/hearts</span></div>
+<div class="sn"><b>1</b><span>Sports/sand_motorcycle</span></div>
+<div class="sn"><b>1</b><span>Law/food_safety_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/ip_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/checkers</span></div>
+<div class="sn"><b>1</b><span>Law/notarization</span></div>
+<div class="sn"><b>1</b><span>Health/exercise</span></div>
+<div class="sn"><b>1</b><span>Health/occupational_health</span></div>
+<div class="sn"><b>1</b><span>Sports/taekwondo</span></div>
+<div class="sn"><b>1</b><span>Sports/basketball</span></div>
+<div class="sn"><b>1</b><span>Games/zhajinhua</span></div>
+<div class="sn"><b>1</b><span>Sports/orienteering_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/medical_science</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_xinjiang</span></div>
+<div class="sn"><b>1</b><span>Law/securities</span></div>
+<div class="sn"><b>1</b><span>Science/ecology_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/labor</span></div>
+<div class="sn"><b>1</b><span>Games/craps</span></div>
+<div class="sn"><b>1</b><span>Science/botany</span></div>
+<div class="sn"><b>1</b><span>Science/algebra_math</span></div>
+<div class="sn"><b>1</b><span>Sports/aikido</span></div>
+<div class="sn"><b>1</b><span>Law/civil_procedure</span></div>
+<div class="sn"><b>1</b><span>Sports/jiu_jitsu</span></div>
+<div class="sn"><b>1</b><span>Sports/mounted_archery</span></div>
+<div class="sn"><b>1</b><span>Sports/gaelic_football</span></div>
+<div class="sn"><b>1</b><span>Sports/beach_volleyball_detail</span></div>
+<div class="sn"><b>1</b><span>Sports/football</span></div>
+<div class="sn"><b>1</b><span>Science/thermodynamics</span></div>
+<div class="sn"><b>1</b><span>Law/contract</span></div>
+<div class="sn"><b>1</b><span>Law/ip_detailed2</span></div>
+<div class="sn"><b>1</b><span>Law/environmental_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/dragon_boat</span></div>
+<div class="sn"><b>1</b><span>Science/solid_mechanics</span></div>
+<div class="sn"><b>1</b><span>Sports/bocce</span></div>
+<div class="sn"><b>1</b><span>Science/climate_science</span></div>
+<div class="sn"><b>1</b><span>Sports/football_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/floorball</span></div>
+<div class="sn"><b>1</b><span>Sports/thai_boxing</span></div>
+<div class="sn"><b>1</b><span>Sports/cross_country_skiing</span></div>
+<div class="sn"><b>1</b><span>Games/monopoly</span></div>
+<div class="sn"><b>1</b><span>Science/biology</span></div>
+<div class="sn"><b>1</b><span>Sports/kendo</span></div>
+<div class="sn"><b>1</b><span>Science/biochemistry</span></div>
+<div class="sn"><b>1</b><span>Science/differential_geometry</span></div>
+<div class="sn"><b>1</b><span>Sports/jet_ski</span></div>
+<div class="sn"><b>1</b><span>Sports/luge</span></div>
+<div class="sn"><b>1</b><span>Science/electrochemistry</span></div>
+<div class="sn"><b>1</b><span>Health/mental_wellness</span></div>
+<div class="sn"><b>1</b><span>Sports/foosball</span></div>
+<div class="sn"><b>1</b><span>Science/astrophysics</span></div>
+<div class="sn"><b>1</b><span>Science/blockchain_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/speed_skating</span></div>
+<div class="sn"><b>1</b><span>Science/inorganic_chemistry</span></div>
+<div class="sn"><b>1</b><span>Sports/iaido</span></div>
+<div class="sn"><b>1</b><span>Science/neuroscience_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/construction</span></div>
+<div class="sn"><b>1</b><span>Law/tourism</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_tianjin</span></div>
+<div class="sn"><b>1</b><span>Games/niuniu</span></div>
+<div class="sn"><b>1</b><span>Science/animal_behavior</span></div>
+<div class="sn"><b>1</b><span>Sports/darts</span></div>
+<div class="sn"><b>1</b><span>Sports/ice_climbing</span></div>
+<div class="sn"><b>1</b><span>Science/optics</span></div>
+<div class="sn"><b>1</b><span>Sports/water_polo</span></div>
+<div class="sn"><b>1</b><span>Sports/nordic_combined</span></div>
+<div class="sn"><b>1</b><span>Law/ecommerce_law</span></div>
+<div class="sn"><b>1</b><span>Sports/baseball_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/geography</span></div>
+<div class="sn"><b>1</b><span>Sports/muay_thai</span></div>
+<div class="sn"><b>1</b><span>Sports/water_skiing</span></div>
+<div class="sn"><b>1</b><span>Science/nuclear_physics</span></div>
+<div class="sn"><b>1</b><span>Science/systems_science</span></div>
+<div class="sn"><b>1</b><span>Law/earthquake_prevention</span></div>
+<div class="sn"><b>1</b><span>Sports/three_x_three_basketball</span></div>
+<div class="sn"><b>1</b><span>Law/tax_detailed2</span></div>
+<div class="sn"><b>1</b><span>Sports/athletics_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/sand_volleyball</span></div>
+<div class="sn"><b>1</b><span>Science/economics</span></div>
+<div class="sn"><b>1</b><span>Law/labor_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/table_tennis_detailed</span></div>
+<div class="sn"><b>1</b><span>Science/architecture</span></div>
+<div class="sn"><b>1</b><span>Social/smoking</span></div>
+<div class="sn"><b>1</b><span>Law/securities_detailed2</span></div>
+<div class="sn"><b>1</b><span>Sports/shaolin_kung_fu</span></div>
+<div class="sn"><b>1</b><span>Science/environmental_science</span></div>
+<div class="sn"><b>1</b><span>Law/criminal_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/civil_aviation</span></div>
+<div class="sn"><b>1</b><span>Sports/triathlon_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/snooker_detailed</span></div>
+<div class="sn"><b>1</b><span>Social/airplane_etiquette</span></div>
+<div class="sn"><b>1</b><span>Law/international_public_law</span></div>
+<div class="sn"><b>1</b><span>Social/cafe</span></div>
+<div class="sn"><b>1</b><span>Law/land_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/family_violence</span></div>
+<div class="sn"><b>1</b><span>Sports/billiards</span></div>
+<div class="sn"><b>1</b><span>Sports/handball_detailed_rules</span></div>
+<div class="sn"><b>1</b><span>Science/statistics</span></div>
+<div class="sn"><b>1</b><span>Social/toasting</span></div>
+<div class="sn"><b>1</b><span>Sports/rally_racing</span></div>
+<div class="sn"><b>1</b><span>Law/inheritance_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/ski_jumping</span></div>
+<div class="sn"><b>1</b><span>Sports/modern_pentathlon</span></div>
+<div class="sn"><b>1</b><span>Games/connect_four</span></div>
+<div class="sn"><b>1</b><span>Games/four_player_mahjong</span></div>
+<div class="sn"><b>1</b><span>Sports/f1</span></div>
+<div class="sn"><b>1</b><span>Science/distributed_systems</span></div>
+<div class="sn"><b>1</b><span>Science/astronomy</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_changsha</span></div>
+<div class="sn"><b>1</b><span>Sports/five_aside_football</span></div>
+<div class="sn"><b>1</b><span>Sports/hot_air_balloon</span></div>
+<div class="sn"><b>1</b><span>Sports/hapkido</span></div>
+<div class="sn"><b>1</b><span>Science/nlp_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/tennis</span></div>
+<div class="sn"><b>1</b><span>Social/shopping_etiquette</span></div>
+<div class="sn"><b>1</b><span>Sports/long_jump</span></div>
+<div class="sn"><b>1</b><span>Sports/decathlon</span></div>
+<div class="sn"><b>1</b><span>Science/evolutionary_biology</span></div>
+<div class="sn"><b>1</b><span>Law/water</span></div>
+<div class="sn"><b>1</b><span>Games/guandan</span></div>
+<div class="sn"><b>1</b><span>Sports/biathlon</span></div>
+<div class="sn"><b>1</b><span>Science/behavioral_economics</span></div>
+<div class="sn"><b>1</b><span>Science/pharmacology</span></div>
+<div class="sn"><b>1</b><span>Sports/bowling</span></div>
+<div class="sn"><b>1</b><span>Law/international_trade_law</span></div>
+<div class="sn"><b>1</b><span>Sports/relay</span></div>
+<div class="sn"><b>1</b><span>Sports/lacrosse</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_xian</span></div>
+<div class="sn"><b>1</b><span>Sports/figure_skating</span></div>
+<div class="sn"><b>1</b><span>Science/musicology</span></div>
+<div class="sn"><b>1</b><span>Sports/hurling</span></div>
+<div class="sn"><b>1</b><span>Law/telecommunications</span></div>
+<div class="sn"><b>1</b><span>Law/corporate_governance</span></div>
+<div class="sn"><b>1</b><span>Sports/heptathlon</span></div>
+<div class="sn"><b>1</b><span>Sports/beach_handball</span></div>
+<div class="sn"><b>1</b><span>Science/particle_physics</span></div>
+<div class="sn"><b>1</b><span>Sports/white_water_rafting</span></div>
+<div class="sn"><b>1</b><span>Science/psychology</span></div>
+<div class="sn"><b>1</b><span>Science/plant_physiology</span></div>
+<div class="sn"><b>1</b><span>Sports/surfing</span></div>
+<div class="sn"><b>1</b><span>Sports/taiwanese_slingshot</span></div>
+<div class="sn"><b>1</b><span>Law/cybersecurity_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/disc_golf</span></div>
+<div class="sn"><b>1</b><span>Sports/curling</span></div>
+<div class="sn"><b>1</b><span>Science/compiler_theory</span></div>
+<div class="sn"><b>1</b><span>Science/fluid_mechanics</span></div>
+<div class="sn"><b>1</b><span>Sports/climbing</span></div>
+<div class="sn"><b>1</b><span>Science/category_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/airship_racing</span></div>
+<div class="sn"><b>1</b><span>Science/art_science</span></div>
+<div class="sn"><b>1</b><span>Law/electricity</span></div>
+<div class="sn"><b>1</b><span>Sports/free_diving</span></div>
+<div class="sn"><b>1</b><span>Science/ecology</span></div>
+<div class="sn"><b>1</b><span>Science/cv_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/handball_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/rugby_detailed</span></div>
+<div class="sn"><b>1</b><span>Games/gongzhu</span></div>
+<div class="sn"><b>1</b><span>Science/quantum_field_theory</span></div>
+<div class="sn"><b>1</b><span>Sports/cycling</span></div>
+<div class="sn"><b>1</b><span>Science/marine_biology</span></div>
+<div class="sn"><b>1</b><span>Sports/high_jump</span></div>
+<div class="sn"><b>1</b><span>Law/copyright</span></div>
+<div class="sn"><b>1</b><span>Law/environmental</span></div>
+<div class="sn"><b>1</b><span>Sports/tennis_detailed</span></div>
+<div class="sn"><b>1</b><span>Law/statistics</span></div>
+<div class="sn"><b>1</b><span>Science/microbiology</span></div>
+<div class="sn"><b>1</b><span>Sports/rugby</span></div>
+<div class="sn"><b>1</b><span>Sports/diving_sport</span></div>
+<div class="sn"><b>1</b><span>Sports/basketball_3x3_detail</span></div>
+<div class="sn"><b>1</b><span>Sports/horseshoes</span></div>
+<div class="sn"><b>1</b><span>Games/domino_detailed</span></div>
+<div class="sn"><b>1</b><span>Sports/roller_skating</span></div>
+<div class="sn"><b>1</b><span>Law/meteorology</span></div>
+<div class="sn"><b>1</b><span>Law/advertising</span></div>
+<div class="sn"><b>1</b><span>Science/cryptography</span></div>
+<div class="sn"><b>1</b><span>Games/gomoku</span></div>
+<div class="sn"><b>1</b><span>Games/sudoku</span></div>
+<div class="sn"><b>1</b><span>Games/mahjong_nanchang</span></div>
+<div class="sn"><b>1</b><span>Sports/water_slide_racing</span></div>
+<div class="sn"><b>1</b><span>Sports/nascar</span></div>
+<div class="sn"><b>1</b><span>Science/philosophy</span></div>
+<div class="sn"><b>1</b><span>Science/biogeography</span></div>
+</div></div><div class="box">
+<input type="text" class="sb" id="q" placeholder="搜索规则..." oninput="document.querySelectorAll('.c').forEach(c=>{c.style.display=c.dataset.n.includes(this.value.toLowerCase())?'':'none'})">
+<div class="cat"><h2>Science/mineralogy (1)</h2><div class="g">
+<div class="c" data-n="矿物学定律"><h3>矿物学定律</h3><p>矿物学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">地质</span><span class="tg">矿物</span><span class="o">地质学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/javelin (1)</h2><div class="g">
+<div class="c" data-n="标枪规则"><h3>标枪规则</h3><p>标枪比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">古代希腊</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/category_theory (1)</h2><div class="g">
+<div class="c" data-n="范畴论定律"><h3>范畴论定律</h3><p>范畴论定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/meteorology (1)</h2><div class="g">
+<div class="c" data-n="气象法规则"><h3>气象法规则</h3><p>中国气象法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">气象</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/connect_four (1)</h2><div class="g">
+<div class="c" data-n="四子棋规则"><h3>四子棋规则</h3><p>四子棋规则</p><div class="t"><span class="tg">游戏</span><span class="tg">棋类</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/esports_detailed (1)</h2><div class="g">
+<div class="c" data-n="电竞详细规则"><h3>电竞详细规则</h3><p>电子竞技详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">电子</span><span class="o">IESF</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/antimonopoly (1)</h2><div class="g">
+<div class="c" data-n="反垄断法规则"><h3>反垄断法规则</h3><p>中国反垄断法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">反垄断</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/humanitarian_law (1)</h2><div class="g">
+<div class="c" data-n="国际人道法"><h3>国际人道法</h3><p>国际人道法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">人道</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/administrative_detailed (1)</h2><div class="g">
+<div class="c" data-n="行政法详解"><h3>行政法详解</h3><p>行政法详解</p><div class="t"><span class="tg">法律</span><span class="tg">行政</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/education_detailed (1)</h2><div class="g">
+<div class="c" data-n="教育法详解"><h3>教育法详解</h3><p>教育法详解</p><div class="t"><span class="tg">法律</span><span class="tg">教育</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/texas_holdem_detailed (1)</h2><div class="g">
+<div class="c" data-n="德州扑克详细规则"><h3>德州扑克详细规则</h3><p>德州扑克详细比赛规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/water_polo (1)</h2><div class="g">
+<div class="c" data-n="水球规则"><h3>水球规则</h3><p>水球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ballroom_dancing (1)</h2><div class="g">
+<div class="c" data-n="交际舞规则"><h3>交际舞规则</h3><p>交际舞比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">舞蹈</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/musicology (1)</h2><div class="g">
+<div class="c" data-n="音乐学定律"><h3>音乐学定律</h3><p>音乐学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">音乐</span><span class="o">艺术科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/charity (1)</h2><div class="g">
+<div class="c" data-n="慈善法规则"><h3>慈善法规则</h3><p>中国慈善法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">慈善</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/geoscience (1)</h2><div class="g">
+<div class="c" data-n="地球科学定律"><h3>地球科学定律</h3><p>地球科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">地球</span><span class="o">地球科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/mental_health (1)</h2><div class="g">
+<div class="c" data-n="心理健康规则"><h3>心理健康规则</h3><p>心理健康基础知识</p><div class="t"><span class="tg">健康</span><span class="tg">心理</span><span class="o">心理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/oral_health (1)</h2><div class="g">
+<div class="c" data-n="口腔健康规则"><h3>口腔健康规则</h3><p>口腔健康护理规则</p><div class="t"><span class="tg">健康</span><span class="tg">口腔</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_kunming (1)</h2><div class="g">
+<div class="c" data-n="昆明麻将规则"><h3>昆明麻将规则</h3><p>昆明地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">昆明</span><span class="o">昆明</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_hainan (1)</h2><div class="g">
+<div class="c" data-n="海南麻将规则"><h3>海南麻将规则</h3><p>海南地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">海南</span><span class="o">海南</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/codenames (1)</h2><div class="g">
+<div class="c" data-n="机密代号规则"><h3>机密代号规则</h3><p>Codenames桌游规则</p><div class="t"><span class="tg">游戏</span><span class="tg">桌游</span><span class="o">捷克</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/beach_volleyball_detail (1)</h2><div class="g">
+<div class="c" data-n="沙排详细规则"><h3>沙排详细规则</h3><p>沙滩排球详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">沙滩</span><span class="o">FIVB</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/chemical_engineering (1)</h2><div class="g">
+<div class="c" data-n="化学工程定律"><h3>化学工程定律</h3><p>化学工程基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="tg">化学</span><span class="o">工程</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/physical_chemistry (1)</h2><div class="g">
+<div class="c" data-n="物理化学定律"><h3>物理化学定律</h3><p>物理化学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="tg">物理</span><span class="o">化学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/social_psychology (1)</h2><div class="g">
+<div class="c" data-n="社会心理学定律"><h3>社会心理学定律</h3><p>社会心理学定律</p><div class="t"><span class="tg">科学</span><span class="tg">心理学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/ip_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="知识产权详解2"><h3>知识产权详解2</h3><p>知识产权法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">知识产权</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/marathon (1)</h2><div class="g">
+<div class="c" data-n="马拉松规则"><h3>马拉松规则</h3><p>马拉松比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">希腊</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_hangzhou (1)</h2><div class="g">
+<div class="c" data-n="杭州麻将规则"><h3>杭州麻将规则</h3><p>杭州地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">杭州</span><span class="o">杭州</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/signal_processing (1)</h2><div class="g">
+<div class="c" data-n="信号处理定律"><h3>信号处理定律</h3><p>信号处理定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/social_insurance (1)</h2><div class="g">
+<div class="c" data-n="社会保险法规则"><h3>社会保险法规则</h3><p>中国社会保险法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">社会保险</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/motogp (1)</h2><div class="g">
+<div class="c" data-n="motogp赛车规则"><h3>MotoGP赛车规则</h3><p> MotoGP摩托车比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">赛车</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bungee_jumping (1)</h2><div class="g">
+<div class="c" data-n="蹦极规则"><h3>蹦极规则</h3><p>蹦极运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">极限</span><span class="o">新西兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/biology (1)</h2><div class="g">
+<div class="c" data-n="生物学定律"><h3>生物学定律</h3><p>生物学基本定律和理论</p><div class="t"><span class="tg">科学</span><span class="tg">生物学</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/topology (1)</h2><div class="g">
+<div class="c" data-n="拓扑学定律"><h3>拓扑学定律</h3><p>拓扑学定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/kalaripayattu (1)</h2><div class="g">
+<div class="c" data-n="卡拉里帕亚特规则"><h3>卡拉里帕亚特规则</h3><p>印度传统武术规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">印度</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/labor (1)</h2><div class="g">
+<div class="c" data-n="劳动法规则"><h3>劳动法规则</h3><p>中国劳动法基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">劳动</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/international_investment (1)</h2><div class="g">
+<div class="c" data-n="国际投资法"><h3>国际投资法</h3><p>国际投资法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">国际</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/archaeology (1)</h2><div class="g">
+<div class="c" data-n="考古学定律"><h3>考古学定律</h3><p>考古学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">考古</span><span class="o">社会科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/disc_golf (1)</h2><div class="g">
+<div class="c" data-n="地板高尔夫规则"><h3>地板高尔夫规则</h3><p>飞盘高尔夫比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sand_volleyball (1)</h2><div class="g">
+<div class="c" data-n="沙地排球规则"><h3>沙地排球规则</h3><p>沙地排球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/toasting (1)</h2><div class="g">
+<div class="c" data-n="敬酒礼仪"><h3>敬酒礼仪</h3><p>中国传统敬酒礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">餐饮</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/fluid_mechanics (1)</h2><div class="g">
+<div class="c" data-n="流体力学定律"><h3>流体力学定律</h3><p>流体力学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">流体</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/post (1)</h2><div class="g">
+<div class="c" data-n="邮政法规则"><h3>邮政法规则</h3><p>中国邮政法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">邮政</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/iaido (1)</h2><div class="g">
+<div class="c" data-n="居合道规则"><h3>居合道规则</h3><p>居合道比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sumo (1)</h2><div class="g">
+<div class="c" data-n="相扑规则"><h3>相扑规则</h3><p>相扑比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/arbitration (1)</h2><div class="g">
+<div class="c" data-n="仲裁法规则"><h3>仲裁法规则</h3><p>中国仲裁法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">仲裁</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/indoor_archery (1)</h2><div class="g">
+<div class="c" data-n="室内射箭规则"><h3>室内射箭规则</h3><p>室内射箭比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">射箭</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/criminal_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="刑法详解2"><h3>刑法详解2</h3><p>刑法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">刑法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/electrical_engineering (1)</h2><div class="g">
+<div class="c" data-n="电气工程定律"><h3>电气工程定律</h3><p>电气工程基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="tg">电气</span><span class="o">工程</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/civil (1)</h2><div class="g">
+<div class="c" data-n="民法规则"><h3>民法规则</h3><p>中国民法典基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">民法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/criminal_detailed (1)</h2><div class="g">
+<div class="c" data-n="刑法详解"><h3>刑法详解</h3><p>刑法罪名详解</p><div class="t"><span class="tg">法律</span><span class="tg">刑法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/earthquake_prevention (1)</h2><div class="g">
+<div class="c" data-n="防震减灾法规则"><h3>防震减灾法规则</h3><p>中国防震减灾法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">防震减灾</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/genomic_laws (1)</h2><div class="g">
+<div class="c" data-n="基因组学定律"><h3>基因组学定律</h3><p>基因组学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/aesthetics (1)</h2><div class="g">
+<div class="c" data-n="美学定律"><h3>美学定律</h3><p>美学定律</p><div class="t"><span class="tg">科学</span><span class="tg">艺术</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/traffic (1)</h2><div class="g">
+<div class="c" data-n="中国交通规则"><h3>中国交通规则</h3><p>道路交通法规</p><div class="t"><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/data_protection_intl (1)</h2><div class="g">
+<div class="c" data-n="国际数据保护法"><h3>国际数据保护法</h3><p>国际数据保护法</p><div class="t"><span class="tg">法律</span><span class="tg">数据</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/oceanography (1)</h2><div class="g">
+<div class="c" data-n="海洋学定律"><h3>海洋学定律</h3><p>海洋学定律</p><div class="t"><span class="tg">科学</span><span class="tg">地球</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/consumer_extended (1)</h2><div class="g">
+<div class="c" data-n="消费者权益保护法扩展规则"><h3>消费者权益保护法扩展规则</h3><p>中国消费者权益保护法详细知识</p><div class="t"><span class="tg">法律</span><span class="tg">消费者</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/network_science (1)</h2><div class="g">
+<div class="c" data-n="网络科学定律"><h3>网络科学定律</h3><p>网络科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">网络</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong (3)</h2><div class="g">
+<div class="c" data-n="国标麻将规则"><h3>国标麻将规则</h3><p>国标麻将的标准规则说明</p><div class="t"><span class="o">国标麻将</span></div></div>
+<div class="c" data-n="日本麻将规则"><h3>日本麻将规则</h3><p>日本麻将的标准规则说明</p><div class="t"><span class="o">日本麻将</span></div></div>
+<div class="c" data-n="四川麻将规则"><h3>四川麻将规则</h3><p>四川麻将的标准规则说明</p><div class="t"><span class="o">四川麻将</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/softball_detailed (1)</h2><div class="g">
+<div class="c" data-n="垒球详细规则"><h3>垒球详细规则</h3><p>垒球比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bobsleigh (1)</h2><div class="g">
+<div class="c" data-n="雪车规则"><h3>雪车规则</h3><p>雪车比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">瑞士</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/urban_geography (1)</h2><div class="g">
+<div class="c" data-n="城市地理学定律"><h3>城市地理学定律</h3><p>城市地理学定律</p><div class="t"><span class="tg">科学</span><span class="tg">地理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bowling (1)</h2><div class="g">
+<div class="c" data-n="保龄球规则"><h3>保龄球规则</h3><p>保龄球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">室内</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/aeroplane_chess (1)</h2><div class="g">
+<div class="c" data-n="飞行棋规则"><h3>飞行棋规则</h3><p>飞行棋游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">飞行棋</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/cricket (1)</h2><div class="g">
+<div class="c" data-n="板球规则"><h3>板球规则</h3><p>板球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/esports (1)</h2><div class="g">
+<div class="c" data-n="电子竞技规则"><h3>电子竞技规则</h3><p>电子竞技比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">电子</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/taiwanese_slingshot (1)</h2><div class="g">
+<div class="c" data-n="彈弓规则"><h3>彈弓规则</h3><p>台湾传统彈弓运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">传统</span><span class="o">台湾</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/psychology (1)</h2><div class="g">
+<div class="c" data-n="心理学定律"><h3>心理学定律</h3><p>心理学基本定律和效应</p><div class="t"><span class="tg">科学</span><span class="tg">心理学</span><span class="o">心理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/data_security (1)</h2><div class="g">
+<div class="c" data-n="数据安全法规则"><h3>数据安全法规则</h3><p>中国数据安全法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">数据安全</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/analytical_chemistry (1)</h2><div class="g">
+<div class="c" data-n="分析化学定律"><h3>分析化学定律</h3><p>分析化学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="tg">分析</span><span class="o">化学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/netball (1)</h2><div class="g">
+<div class="c" data-n="网篮球规则"><h3>网篮球规则</h3><p>女子网篮球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/international_trade_law (1)</h2><div class="g">
+<div class="c" data-n="国际贸易法"><h3>国际贸易法</h3><p>国际贸易法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">国际</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/differential_geometry (1)</h2><div class="g">
+<div class="c" data-n="微分几何定律"><h3>微分几何定律</h3><p>微分几何定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/rugby_detailed (1)</h2><div class="g">
+<div class="c" data-n="橄榄球详细规则"><h3>橄榄球详细规则</h3><p>橄榄球比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/short_track (1)</h2><div class="g">
+<div class="c" data-n="短道速滑规则"><h3>短道速滑规则</h3><p>短道速滑比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">加拿大</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/rugby (1)</h2><div class="g">
+<div class="c" data-n="橄榄球规则"><h3>橄榄球规则</h3><p>橄榄球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/compiler_theory (1)</h2><div class="g">
+<div class="c" data-n="编译器理论"><h3>编译器理论</h3><p>编译器设计理论</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/deep_learning (1)</h2><div class="g">
+<div class="c" data-n="深度学习理论"><h3>深度学习理论</h3><p>深度学习理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/pictionary (1)</h2><div class="g">
+<div class="c" data-n="你画我猜规则"><h3>你画我猜规则</h3><p>你画我猜派对游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">派对</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/economics (1)</h2><div class="g">
+<div class="c" data-n="经济学定律"><h3>经济学定律</h3><p>经济学基本定律和理论</p><div class="t"><span class="tg">科学</span><span class="tg">经济学</span><span class="o">经济学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/tourism (1)</h2><div class="g">
+<div class="c" data-n="旅游法规则"><h3>旅游法规则</h3><p>中国旅游法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">旅游</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/model_airplane (1)</h2><div class="g">
+<div class="c" data-n="模型飞机比赛规则"><h3>模型飞机比赛规则</h3><p>模型飞机比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">航空</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/bankruptcy_detailed (1)</h2><div class="g">
+<div class="c" data-n="破产法详解"><h3>破产法详解</h3><p>破产法详解</p><div class="t"><span class="tg">法律</span><span class="tg">商法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/stud_poker (1)</h2><div class="g">
+<div class="c" data-n="梭哈规则"><h3>梭哈规则</h3><p>梭哈扑克游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/football (1)</h2><div class="g">
+<div class="c" data-n="足球规则"><h3>足球规则</h3><p>国际足联 (FIFA) 标准足球规则</p><div class="t"><span class="tg">体育</span><span class="tg">足球</span><span class="o">FIFA</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/control_theory (1)</h2><div class="g">
+<div class="c" data-n="控制理论定律"><h3>控制理论定律</h3><p>控制理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/decision_science (1)</h2><div class="g">
+<div class="c" data-n="决策科学定律"><h3>决策科学定律</h3><p>决策科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">决策</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sepak_takraw (1)</h2><div class="g">
+<div class="c" data-n="藤球规则"><h3>藤球规则</h3><p>东南亚藤球运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">东南亚</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/math (1)</h2><div class="g">
+<div class="c" data-n="数学公式与定理"><h3>数学公式与定理</h3><p>基础数学公式和定理</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">数学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/organizational_behavior (1)</h2><div class="g">
+<div class="c" data-n="组织行为学定律"><h3>组织行为学定律</h3><p>组织行为学定律</p><div class="t"><span class="tg">科学</span><span class="tg">管理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/texas_holdem (1)</h2><div class="g">
+<div class="c" data-n="德州扑克规则"><h3>德州扑克规则</h3><p>Texas Hold'em扑克规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/civil_procedure (1)</h2><div class="g">
+<div class="c" data-n="民事诉讼法规则"><h3>民事诉讼法规则</h3><p>中国民事诉讼法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">民事诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/swimming (1)</h2><div class="g">
+<div class="c" data-n="游泳规则"><h3>游泳规则</h3><p>FINA 国际泳联标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">游泳</span><span class="o">FINA</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/management_science (1)</h2><div class="g">
+<div class="c" data-n="管理科学定律"><h3>管理科学定律</h3><p>管理科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">管理</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/game_theory (1)</h2><div class="g">
+<div class="c" data-n="博弈论定律"><h3>博弈论定律</h3><p>博弈论基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="tg">博弈</span><span class="o">数学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/statistics (1)</h2><div class="g">
+<div class="c" data-n="统计法规则"><h3>统计法规则</h3><p>中国统计法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">统计</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/political_science (1)</h2><div class="g">
+<div class="c" data-n="政治学定律"><h3>政治学定律</h3><p>政治学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">政治</span><span class="o">社会科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/real_estate_detailed (1)</h2><div class="g">
+<div class="c" data-n="房地产法详解"><h3>房地产法详解</h3><p>房地产法详解</p><div class="t"><span class="tg">法律</span><span class="tg">房产</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/electrochemistry (1)</h2><div class="g">
+<div class="c" data-n="电化学定律"><h3>电化学定律</h3><p>电化学定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/sociology (1)</h2><div class="g">
+<div class="c" data-n="社会学定律"><h3>社会学定律</h3><p>社会学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">社会</span><span class="o">社会科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/military_chess (1)</h2><div class="g">
+<div class="c" data-n="军棋规则"><h3>军棋规则</h3><p>军棋游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">军棋</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/roller_skating (1)</h2><div class="g">
+<div class="c" data-n="轮滑规则"><h3>轮滑规则</h3><p>轮滑比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">极限</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/computer_science (1)</h2><div class="g">
+<div class="c" data-n="计算机科学定律"><h3>计算机科学定律</h3><p>计算机科学基本定律和定理</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">计算机科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/organic_chemistry (1)</h2><div class="g">
+<div class="c" data-n="有机化学定律"><h3>有机化学定律</h3><p>有机化学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="tg">有机</span><span class="o">化学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/customs (1)</h2><div class="g">
+<div class="c" data-n="海关法规则"><h3>海关法规则</h3><p>中国海关法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">海关</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/checkers (1)</h2><div class="g">
+<div class="c" data-n="国际跳棋规则"><h3>国际跳棋规则</h3><p>国际跳棋规则</p><div class="t"><span class="tg">游戏</span><span class="tg">棋类</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/volleyball_detailed (1)</h2><div class="g">
+<div class="c" data-n="排球详细规则"><h3>排球详细规则</h3><p>排球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">FIVB</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/chaos_theory (1)</h2><div class="g">
+<div class="c" data-n="混沌理论定律"><h3>混沌理论定律</h3><p>混沌理论基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">混沌</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/philosophy (1)</h2><div class="g">
+<div class="c" data-n="哲学定律"><h3>哲学定律</h3><p>哲学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">哲学</span><span class="o">人文科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/capoeira (1)</h2><div class="g">
+<div class="c" data-n="卡波耶拉规则"><h3>卡波耶拉规则</h3><p>巴西武术舞蹈规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="tg">舞蹈</span><span class="o">巴西</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/speed_skating (1)</h2><div class="g">
+<div class="c" data-n="速度滑冰规则"><h3>速度滑冰规则</h3><p>速度滑冰比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">荷兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/food_safety_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="食品安全详解2"><h3>食品安全详解2</h3><p>食品安全法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">食品</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/airship_racing (1)</h2><div class="g">
+<div class="c" data-n="飞艇比赛规则"><h3>飞艇比赛规则</h3><p>飞艇比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">航空</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/werewolf (1)</h2><div class="g">
+<div class="c" data-n="狼人杀规则"><h3>狼人杀规则</h3><p>狼人杀派对游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">派对</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/dragon_boat (1)</h2><div class="g">
+<div class="c" data-n="龙舟比赛规则"><h3>龙舟比赛规则</h3><p>中国传统龙舟竞渡规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="tg">传统</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/motogp_detailed (1)</h2><div class="g">
+<div class="c" data-n="motogp详细"><h3>MotoGP详细</h3><p>MotoGP详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">赛车</span><span class="o">FIM</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/astronomy (1)</h2><div class="g">
+<div class="c" data-n="天文学定律"><h3>天文学定律</h3><p>天文学基本定律和理论</p><div class="t"><span class="tg">科学</span><span class="tg">天文学</span><span class="o">天文学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/marriage_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="婚姻法详解2"><h3>婚姻法详解2</h3><p>婚姻法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">家庭</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/photochemistry (1)</h2><div class="g">
+<div class="c" data-n="光化学定律"><h3>光化学定律</h3><p>光化学定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/paleontology (1)</h2><div class="g">
+<div class="c" data-n="古生物学定律"><h3>古生物学定律</h3><p>古生物学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">古生物</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/fencing_detailed (1)</h2><div class="g">
+<div class="c" data-n="击剑详细规则"><h3>击剑详细规则</h3><p>击剑详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">FIE</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/hospital_etiquette (1)</h2><div class="g">
+<div class="c" data-n="医院礼仪"><h3>医院礼仪</h3><p>医院就诊礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">医疗</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/relativity (1)</h2><div class="g">
+<div class="c" data-n="相对论定律"><h3>相对论定律</h3><p>相对论基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">相对论</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/disability_protection (1)</h2><div class="g">
+<div class="c" data-n="残疾人保障法规则"><h3>残疾人保障法规则</h3><p>中国残疾人保障法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">残疾人保障</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/materials_engineering (1)</h2><div class="g">
+<div class="c" data-n="材料工程定律"><h3>材料工程定律</h3><p>材料工程定律</p><div class="t"><span class="tg">科学</span><span class="tg">材料</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/insurance_law (1)</h2><div class="g">
+<div class="c" data-n="保险法详解"><h3>保险法详解</h3><p>保险法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">金融</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/mental_health_law (1)</h2><div class="g">
+<div class="c" data-n="精神卫生法"><h3>精神卫生法</h3><p>精神卫生法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">医疗</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/vaccine_management (1)</h2><div class="g">
+<div class="c" data-n="疫苗管理法规则"><h3>疫苗管理法规则</h3><p>中国疫苗管理法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">疫苗管理</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/yoga_competition (1)</h2><div class="g">
+<div class="c" data-n="瑜伽比赛规则"><h3>瑜伽比赛规则</h3><p>瑜伽比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">健身</span><span class="o">印度</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sanda (1)</h2><div class="g">
+<div class="c" data-n="散打规则"><h3>散打规则</h3><p>散打比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/gomoku (1)</h2><div class="g">
+<div class="c" data-n="五子棋规则"><h3>五子棋规则</h3><p>五子棋标准规则</p><div class="t"><span class="tg">游戏</span><span class="tg">五子棋</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/soil_pollution_law (1)</h2><div class="g">
+<div class="c" data-n="土壤污染防治法"><h3>土壤污染防治法</h3><p>土壤污染防治法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">环境</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/handball (1)</h2><div class="g">
+<div class="c" data-n="手球规则"><h3>手球规则</h3><p>手球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/volleyball (1)</h2><div class="g">
+<div class="c" data-n="排球规则"><h3>排球规则</h3><p>FIVB 国际排球联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">排球</span><span class="o">FIVB</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/shooting (1)</h2><div class="g">
+<div class="c" data-n="射击规则"><h3>射击规则</h3><p>ISSF 国际射击运动联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">射击</span><span class="o">ISSF</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/drug_management (1)</h2><div class="g">
+<div class="c" data-n="药品管理法规则"><h3>药品管理法规则</h3><p>中国药品管理法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">药品管理</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/soil_science (1)</h2><div class="g">
+<div class="c" data-n="土壤科学定律"><h3>土壤科学定律</h3><p>土壤科学定律</p><div class="t"><span class="tg">科学</span><span class="tg">地球</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/mineral_resources (1)</h2><div class="g">
+<div class="c" data-n="矿产资源法规则"><h3>矿产资源法规则</h3><p>中国矿产资源法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">矿产资源</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/legal_aid (1)</h2><div class="g">
+<div class="c" data-n="法律援助法"><h3>法律援助法</h3><p>法律援助法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">援助</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/greeting (1)</h2><div class="g">
+<div class="c" data-n="见面礼仪"><h3>见面礼仪</h3><p>日常见面问候礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">礼仪</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/consumer_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="消费者权益详解2"><h3>消费者权益详解2</h3><p>消费者权益法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">消费</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/twenty_four_point (1)</h2><div class="g">
+<div class="c" data-n="24点规则"><h3>24点规则</h3><p>24点数学卡牌游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">益智</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_zhengzhou (1)</h2><div class="g">
+<div class="c" data-n="郑州麻将规则"><h3>郑州麻将规则</h3><p>郑州地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">郑州</span><span class="o">郑州</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/nutrition (1)</h2><div class="g">
+<div class="c" data-n="营养规则"><h3>营养规则</h3><p>健康营养基础知识</p><div class="t"><span class="tg">健康</span><span class="tg">营养</span><span class="o">营养学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/gaelic_football (1)</h2><div class="g">
+<div class="c" data-n="爱尔兰足球规则"><h3>爱尔兰足球规则</h3><p>爱尔兰传统足球规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">爱尔兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/exercise (1)</h2><div class="g">
+<div class="c" data-n="运动规则"><h3>运动规则</h3><p>健康运动基础知识</p><div class="t"><span class="tg">健康</span><span class="tg">运动</span><span class="o">运动医学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/agriculture (1)</h2><div class="g">
+<div class="c" data-n="农业法规则"><h3>农业法规则</h3><p>中国农业法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">农业</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/copyright (1)</h2><div class="g">
+<div class="c" data-n="著作权法规则"><h3>著作权法规则</h3><p>中国著作权法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">著作权</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/golf (1)</h2><div class="g">
+<div class="c" data-n="高尔夫规则"><h3>高尔夫规则</h3><p>R&A/USGA 高尔夫标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">高尔夫</span><span class="o">苏格兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/jiu_jitsu (1)</h2><div class="g">
+<div class="c" data-n="柔术规则"><h3>柔术规则</h3><p>柔术比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/robotics_theory (1)</h2><div class="g">
+<div class="c" data-n="机器人学理论"><h3>机器人学理论</h3><p>机器人学理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bodybuilding (1)</h2><div class="g">
+<div class="c" data-n="健美比赛规则"><h3>健美比赛规则</h3><p>健美比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">健身</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/aikido (1)</h2><div class="g">
+<div class="c" data-n="合气道规则"><h3>合气道规则</h3><p>合气道比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/communication (1)</h2><div class="g">
+<div class="c" data-n="传播学定律"><h3>传播学定律</h3><p>传播学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">传播</span><span class="o">社会科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sailing (1)</h2><div class="g">
+<div class="c" data-n="帆船规则"><h3>帆船规则</h3><p>帆船比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/information_science (1)</h2><div class="g">
+<div class="c" data-n="信息科学定律"><h3>信息科学定律</h3><p>信息科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">信息</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/blockchain_theory (1)</h2><div class="g">
+<div class="c" data-n="区块链理论"><h3>区块链理论</h3><p>区块链技术理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/quantum_mechanics (1)</h2><div class="g">
+<div class="c" data-n="量子力学定律"><h3>量子力学定律</h3><p>量子物理学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">量子</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/anti_unfair_competition (1)</h2><div class="g">
+<div class="c" data-n="反不正当竞争法"><h3>反不正当竞争法</h3><p>反不正当竞争法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">商业</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/forest_detailed (1)</h2><div class="g">
+<div class="c" data-n="森林法详解"><h3>森林法详解</h3><p>森林法详解</p><div class="t"><span class="tg">法律</span><span class="tg">资源</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ice_sailing (1)</h2><div class="g">
+<div class="c" data-n="冰上帆船规则"><h3>冰上帆船规则</h3><p>冰上帆船比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">北欧</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_nanjing (1)</h2><div class="g">
+<div class="c" data-n="南京麻将规则"><h3>南京麻将规则</h3><p>南京地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">南京</span><span class="o">南京</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/triple_jump (1)</h2><div class="g">
+<div class="c" data-n="三级跳远规则"><h3>三级跳远规则</h3><p>三级跳远比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">爱尔兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ski_jumping (1)</h2><div class="g">
+<div class="c" data-n="跳台滑雪规则"><h3>跳台滑雪规则</h3><p>跳台滑雪比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">挪威</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_xinjiang (1)</h2><div class="g">
+<div class="c" data-n="新疆麻将规则"><h3>新疆麻将规则</h3><p>新疆地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">新疆</span><span class="o">新疆</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/behavioral_economics (1)</h2><div class="g">
+<div class="c" data-n="行为经济学定律"><h3>行为经济学定律</h3><p>行为经济学定律</p><div class="t"><span class="tg">科学</span><span class="tg">经济</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/gongzhu (1)</h2><div class="g">
+<div class="c" data-n="拱猪规则"><h3>拱猪规则</h3><p>拱猪卡牌游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">卡牌</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/live_streaming (1)</h2><div class="g">
+<div class="c" data-n="直播礼仪"><h3>直播礼仪</h3><p>直播社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">直播</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/land_administration (1)</h2><div class="g">
+<div class="c" data-n="土地管理法规则"><h3>土地管理法规则</h3><p>中国土地管理法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">土地管理</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/insurance (1)</h2><div class="g">
+<div class="c" data-n="保险法规则"><h3>保险法规则</h3><p>中国保险法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">保险法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/workplace (1)</h2><div class="g">
+<div class="c" data-n="职场礼仪"><h3>职场礼仪</h3><p>职场社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">职场</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/slalom_kayaking (1)</h2><div class="g">
+<div class="c" data-n="激流回旋皮划艇规则"><h3>激流回旋皮划艇规则</h3><p>激流回旋皮划艇比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/luge (1)</h2><div class="g">
+<div class="c" data-n="雪橇规则"><h3>雪橇规则</h3><p>雪橇竞速规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">瑞士</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/race_walking (1)</h2><div class="g">
+<div class="c" data-n="竞走规则"><h3>竞走规则</h3><p>竞走比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/triathlon (1)</h2><div class="g">
+<div class="c" data-n="铁人三项规则"><h3>铁人三项规则</h3><p>铁人三项比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">综合</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/boxing_detailed (1)</h2><div class="g">
+<div class="c" data-n="拳击详细规则"><h3>拳击详细规则</h3><p>拳击详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">WBA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/curling (1)</h2><div class="g">
+<div class="c" data-n="冰壶规则"><h3>冰壶规则</h3><p>冰壶比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">苏格兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/lacrosse (1)</h2><div class="g">
+<div class="c" data-n="长曲棍球规则"><h3>长曲棍球规则</h3><p>长曲棍球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">北美原住民</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/maritime_law_intl (1)</h2><div class="g">
+<div class="c" data-n="海洋法公约"><h3>海洋法公约</h3><p>联合国海洋法公约规则</p><div class="t"><span class="tg">法律</span><span class="tg">国际</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/steeplechase (1)</h2><div class="g">
+<div class="c" data-n="障碍跑规则"><h3>障碍跑规则</h3><p>田径障碍跑比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/quantum_field_theory (1)</h2><div class="g">
+<div class="c" data-n="量子场论定律"><h3>量子场论定律</h3><p>量子场论定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/horseshoes (1)</h2><div class="g">
+<div class="c" data-n="马蹄铁规则"><h3>马蹄铁规则</h3><p>马蹄铁投掷运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/geography (1)</h2><div class="g">
+<div class="c" data-n="地理学定律"><h3>地理学定律</h3><p>地理学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">地理</span><span class="o">自然科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/chinese_checkers (1)</h2><div class="g">
+<div class="c" data-n="跳棋规则"><h3>跳棋规则</h3><p>中国跳棋游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">跳棋</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/shot_put (1)</h2><div class="g">
+<div class="c" data-n="铅球规则"><h3>铅球规则</h3><p>铅球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/kabaddi (1)</h2><div class="g">
+<div class="c" data-n="卡巴迪规则"><h3>卡巴迪规则</h3><p>印度传统团队运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">印度</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ice_hockey_detailed (1)</h2><div class="g">
+<div class="c" data-n="冰球比赛规则"><h3>冰球比赛规则</h3><p>冰球比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">加拿大</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/bar (1)</h2><div class="g">
+<div class="c" data-n="酒吧礼仪"><h3>酒吧礼仪</h3><p>酒吧社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">酒吧</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/hearts (1)</h2><div class="g">
+<div class="c" data-n="红心大战规则"><h3>红心大战规则</h3><p>红心大战卡牌游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">卡牌</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/proteomics (1)</h2><div class="g">
+<div class="c" data-n="蛋白质组学定律"><h3>蛋白质组学定律</h3><p>蛋白质组学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/hurling (1)</h2><div class="g">
+<div class="c" data-n="爱尔兰曲棍球规则"><h3>爱尔兰曲棍球规则</h3><p>爱尔兰传统曲棍球规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">爱尔兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/condensed_matter (1)</h2><div class="g">
+<div class="c" data-n="凝聚态物理定律"><h3>凝聚态物理定律</h3><p>凝聚态物理定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/electromagnetism (1)</h2><div class="g">
+<div class="c" data-n="电磁学定律"><h3>电磁学定律</h3><p>电磁学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">电磁</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/public_interest_litigation (1)</h2><div class="g">
+<div class="c" data-n="公益诉讼法"><h3>公益诉讼法</h3><p>公益诉讼法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/trademark (1)</h2><div class="g">
+<div class="c" data-n="商标法规则"><h3>商标法规则</h3><p>中国商标法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">商标</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/surfing (1)</h2><div class="g">
+<div class="c" data-n="冲浪规则"><h3>冲浪规则</h3><p>冲浪比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">夏威夷</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/golf_etiquette (1)</h2><div class="g">
+<div class="c" data-n="高尔夫社交礼仪"><h3>高尔夫社交礼仪</h3><p>高尔夫球场社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">运动</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/plasma_physics (1)</h2><div class="g">
+<div class="c" data-n="等离子体物理定律"><h3>等离子体物理定律</h3><p>等离子体物理定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/dining (1)</h2><div class="g">
+<div class="c" data-n="中国餐桌礼仪"><h3>中国餐桌礼仪</h3><p>餐桌礼仪规范</p><div class="t"><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/environmental (1)</h2><div class="g">
+<div class="c" data-n="环境法规则"><h3>环境法规则</h3><p>中国环境法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">环境法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/figure_skating_detailed (1)</h2><div class="g">
+<div class="c" data-n="花样滑冰比赛规则"><h3>花样滑冰比赛规则</h3><p>花样滑冰比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/seven_aside_football (1)</h2><div class="g">
+<div class="c" data-n="七人制足球规则"><h3>七人制足球规则</h3><p>七人制足球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">足球</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/skeleton (1)</h2><div class="g">
+<div class="c" data-n="钢架雪车规则"><h3>钢架雪车规则</h3><p>钢架雪车比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">瑞士</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/exercise_science (1)</h2><div class="g">
+<div class="c" data-n="运动科学定律"><h3>运动科学定律</h3><p>运动科学定律</p><div class="t"><span class="tg">科学</span><span class="tg">医学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/sheng_ji (1)</h2><div class="g">
+<div class="c" data-n="升级规则"><h3>升级规则</h3><p>升级扑克游戏规则(拖拉机)</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="tg">升级</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/risk (1)</h2><div class="g">
+<div class="c" data-n="risk世界征服规则"><h3>Risk世界征服规则</h3><p>Risk桌游规则</p><div class="t"><span class="tg">游戏</span><span class="tg">桌游</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/company (1)</h2><div class="g">
+<div class="c" data-n="公司法规则"><h3>公司法规则</h3><p>中国公司法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">公司法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_chaoshan (1)</h2><div class="g">
+<div class="c" data-n="潮汕麻将规则"><h3>潮汕麻将规则</h3><p>潮汕地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">潮汕</span><span class="o">潮汕</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/powerlifting_detailed (1)</h2><div class="g">
+<div class="c" data-n="力量举详细"><h3>力量举详细</h3><p>力量举详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">力量</span><span class="o">IPF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/cross_country_skiing (1)</h2><div class="g">
+<div class="c" data-n="越野滑雪规则"><h3>越野滑雪规则</h3><p>越野滑雪比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">挪威</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/boxing (1)</h2><div class="g">
+<div class="c" data-n="拳击规则"><h3>拳击规则</h3><p>拳击比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">国际拳击协会</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/badminton (1)</h2><div class="g">
+<div class="c" data-n="羽毛球规则"><h3>羽毛球规则</h3><p>BWF 世界羽毛球联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">羽毛球</span><span class="o">BWF</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/botany (1)</h2><div class="g">
+<div class="c" data-n="植物学定律"><h3>植物学定律</h3><p>植物学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">植物</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/yahtzee (1)</h2><div class="g">
+<div class="c" data-n="快艇骰子规则"><h3>快艇骰子规则</h3><p>快艇骰子游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">骰子</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/physics (1)</h2><div class="g">
+<div class="c" data-n="物理定律"><h3>物理定律</h3><p>经典物理学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/labor_detailed (1)</h2><div class="g">
+<div class="c" data-n="劳动法详解"><h3>劳动法详解</h3><p>劳动法详解</p><div class="t"><span class="tg">法律</span><span class="tg">劳动</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/contract_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="合同法详解2"><h3>合同法详解2</h3><p>合同法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">民法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/tax_detailed (1)</h2><div class="g">
+<div class="c" data-n="税法详解"><h3>税法详解</h3><p>税法详解</p><div class="t"><span class="tg">法律</span><span class="tg">税法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/diving (1)</h2><div class="g">
+<div class="c" data-n="跳水规则"><h3>跳水规则</h3><p>FINA 国际泳联跳水标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">跳水</span><span class="o">FINA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/kickboxing (1)</h2><div class="g">
+<div class="c" data-n="踢拳规则"><h3>踢拳规则</h3><p>踢拳比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/queue (1)</h2><div class="g">
+<div class="c" data-n="排队礼仪"><h3>排队礼仪</h3><p>公共排队礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">公共</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sand_motorcycle (1)</h2><div class="g">
+<div class="c" data-n="沙地摩托车规则"><h3>沙地摩托车规则</h3><p>沙地摩托车比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">赛车</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/volcanology (1)</h2><div class="g">
+<div class="c" data-n="火山学定律"><h3>火山学定律</h3><p>火山学定律</p><div class="t"><span class="tg">科学</span><span class="tg">地球</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/table_tennis_detailed (1)</h2><div class="g">
+<div class="c" data-n="乒乓球详细规则"><h3>乒乓球详细规则</h3><p>乒乓球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">ITTF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/five_aside_football (1)</h2><div class="g">
+<div class="c" data-n="五人制足球规则"><h3>五人制足球规则</h3><p>五人制足球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">足球</span><span class="o">巴西</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/who_is_spy (1)</h2><div class="g">
+<div class="c" data-n="谁是卧底规则"><h3>谁是卧底规则</h3><p>谁是卧底派对游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">派对</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/skiing (1)</h2><div class="g">
+<div class="c" data-n="滑雪规则"><h3>滑雪规则</h3><p>FIS 国际滑雪联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">滑雪</span><span class="o">FIS</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/electricity (1)</h2><div class="g">
+<div class="c" data-n="电力法规则"><h3>电力法规则</h3><p>中国电力法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">电力</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/softball (1)</h2><div class="g">
+<div class="c" data-n="垒球规则"><h3>垒球规则</h3><p>垒球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/skin_health (1)</h2><div class="g">
+<div class="c" data-n="皮肤健康规则"><h3>皮肤健康规则</h3><p>皮肤健康护理规则</p><div class="t"><span class="tg">健康</span><span class="tg">护肤</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_guangdong (1)</h2><div class="g">
+<div class="c" data-n="广东麻将规则"><h3>广东麻将规则</h3><p>广东地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">广东</span><span class="o">广东</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/gateball (1)</h2><div class="g">
+<div class="c" data-n="门球规则"><h3>门球规则</h3><p>门球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/cafe (1)</h2><div class="g">
+<div class="c" data-n="咖啡礼仪"><h3>咖啡礼仪</h3><p>咖啡社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">咖啡</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/quantum_computing (1)</h2><div class="g">
+<div class="c" data-n="量子计算理论"><h3>量子计算理论</h3><p>量子计算理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/guandan (1)</h2><div class="g">
+<div class="c" data-n="掼蛋规则"><h3>掼蛋规则</h3><p>掼蛋扑克游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="tg">掼蛋</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/skydiving (1)</h2><div class="g">
+<div class="c" data-n="跳伞规则"><h3>跳伞规则</h3><p>跳伞运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">航空</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/train (1)</h2><div class="g">
+<div class="c" data-n="火车礼仪"><h3>火车礼仪</h3><p>乘坐火车礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">火车</span><span class="o">通用</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/telecom_detailed (1)</h2><div class="g">
+<div class="c" data-n="电信法详解"><h3>电信法详解</h3><p>电信法详解</p><div class="t"><span class="tg">法律</span><span class="tg">通信</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/orienteering_detailed (1)</h2><div class="g">
+<div class="c" data-n="定向越野详细"><h3>定向越野详细</h3><p>定向越野详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">户外</span><span class="o">IOF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bodybuilding_detailed (1)</h2><div class="g">
+<div class="c" data-n="健美详细规则"><h3>健美详细规则</h3><p>健美比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">健身</span><span class="o">IFBB</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/foosball (1)</h2><div class="g">
+<div class="c" data-n="桌上足球规则"><h3>桌上足球规则</h3><p>桌上足球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">德国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/banking (1)</h2><div class="g">
+<div class="c" data-n="银行法规则"><h3>银行法规则</h3><p>中国银行法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">银行法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/microbiology (1)</h2><div class="g">
+<div class="c" data-n="微生物学定律"><h3>微生物学定律</h3><p>微生物学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">微生物</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/emergency_response (1)</h2><div class="g">
+<div class="c" data-n="突发事件应对法规则"><h3>突发事件应对法规则</h3><p>中国突发事件应对法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">突发事件应对</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/probability_theory (1)</h2><div class="g">
+<div class="c" data-n="概率论定律"><h3>概率论定律</h3><p>概率论基础定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/data_science_theory (1)</h2><div class="g">
+<div class="c" data-n="数据科学理论"><h3>数据科学理论</h3><p>数据科学理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/cycling (1)</h2><div class="g">
+<div class="c" data-n="自行车比赛规则"><h3>自行车比赛规则</h3><p>UCI 国际自行车联盟标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">自行车</span><span class="o">UCI</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/discus (1)</h2><div class="g">
+<div class="c" data-n="铁饼规则"><h3>铁饼规则</h3><p>铁饼比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">古代希腊</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/archery_detailed (1)</h2><div class="g">
+<div class="c" data-n="射箭详细规则"><h3>射箭详细规则</h3><p>射箭详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">精准</span><span class="o">WA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/figure_skating (1)</h2><div class="g">
+<div class="c" data-n="花样滑冰规则"><h3>花样滑冰规则</h3><p>花样滑冰比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冰上</span><span class="o">国际滑冰联盟</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/mounted_archery (1)</h2><div class="g">
+<div class="c" data-n="定向射箭规则"><h3>定向射箭规则</h3><p>骑马射箭运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">马术</span><span class="o">蒙古</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/karate (1)</h2><div class="g">
+<div class="c" data-n="空手道规则"><h3>空手道规则</h3><p>空手道比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sitting_volleyball (1)</h2><div class="g">
+<div class="c" data-n="坐式排球规则"><h3>坐式排球规则</h3><p>坐式排球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">残奥</span><span class="o">荷兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/table_tennis (1)</h2><div class="g">
+<div class="c" data-n="乒乓球规则"><h3>乒乓球规则</h3><p>国际乒乓球联合会 (ITTF) 标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">乒乓球</span><span class="o">ITTF</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/online (1)</h2><div class="g">
+<div class="c" data-n="网络礼仪"><h3>网络礼仪</h3><p>网络社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">网络</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/paragliding (1)</h2><div class="g">
+<div class="c" data-n="滑翔伞规则"><h3>滑翔伞规则</h3><p>滑翔伞比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">航空</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/nuclear_physics (1)</h2><div class="g">
+<div class="c" data-n="核物理定律"><h3>核物理定律</h3><p>核物理基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">核物理</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/data_security_detailed (1)</h2><div class="g">
+<div class="c" data-n="数据安全法"><h3>数据安全法</h3><p>数据安全法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">数据</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/international_human_rights (1)</h2><div class="g">
+<div class="c" data-n="国际人权法"><h3>国际人权法</h3><p>国际人权法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">人权</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/taekwondo_detailed (1)</h2><div class="g">
+<div class="c" data-n="跆拳道详细规则"><h3>跆拳道详细规则</h3><p>跆拳道详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">WTF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/high_jump (1)</h2><div class="g">
+<div class="c" data-n="跳高规则"><h3>跳高规则</h3><p>跳高比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/synthetic_biology (1)</h2><div class="g">
+<div class="c" data-n="合成生物学定律"><h3>合成生物学定律</h3><p>合成生物学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/dating_etiquette (1)</h2><div class="g">
+<div class="c" data-n="约会礼仪"><h3>约会礼仪</h3><p>约会社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">约会</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/safety_production (1)</h2><div class="g">
+<div class="c" data-n="安全生产法规则"><h3>安全生产法规则</h3><p>中国安全生产法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">安全生产</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/architecture (1)</h2><div class="g">
+<div class="c" data-n="建筑学定律"><h3>建筑学定律</h3><p>建筑学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">建筑</span><span class="o">工程科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/constitution (1)</h2><div class="g">
+<div class="c" data-n="宪法规则"><h3>宪法规则</h3><p>中国宪法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">宪法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/civil_procedure_detailed (1)</h2><div class="g">
+<div class="c" data-n="民诉法详解"><h3>民诉法详解</h3><p>民事诉讼法详解</p><div class="t"><span class="tg">法律</span><span class="tg">诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/cinema (1)</h2><div class="g">
+<div class="c" data-n="电影院礼仪"><h3>电影院礼仪</h3><p>观影礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">电影</span><span class="o">通用</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/billiards_detailed (1)</h2><div class="g">
+<div class="c" data-n="台球详细规则"><h3>台球详细规则</h3><p>台球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">桌球</span><span class="o">WPBSA</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/animal_behavior (1)</h2><div class="g">
+<div class="c" data-n="动物行为学定律"><h3>动物行为学定律</h3><p>动物行为学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/neighbor (1)</h2><div class="g">
+<div class="c" data-n="邻里礼仪"><h3>邻里礼仪</h3><p>邻里相处礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">邻里</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/beach_soccer (1)</h2><div class="g">
+<div class="c" data-n="沙滩足球规则"><h3>沙滩足球规则</h3><p>沙滩足球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">足球</span><span class="o">巴西</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/cricket_detailed (1)</h2><div class="g">
+<div class="c" data-n="板球详细规则"><h3>板球详细规则</h3><p>板球比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/freestyle_skiing (1)</h2><div class="g">
+<div class="c" data-n="自由式滑雪规则"><h3>自由式滑雪规则</h3><p>自由式滑雪比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/decathlon (1)</h2><div class="g">
+<div class="c" data-n="十项全能规则"><h3>十项全能规则</h3><p>田径十项全能比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/long_jump (1)</h2><div class="g">
+<div class="c" data-n="跳远规则"><h3>跳远规则</h3><p>跳远比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">古代希腊</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/wrestling (1)</h2><div class="g">
+<div class="c" data-n="摔跤规则"><h3>摔跤规则</h3><p>摔跤比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">古代奥运会</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/plant_physiology (1)</h2><div class="g">
+<div class="c" data-n="植物生理学定律"><h3>植物生理学定律</h3><p>植物生理学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/backgammon (1)</h2><div class="g">
+<div class="c" data-n="西洋双陆棋规则"><h3>西洋双陆棋规则</h3><p>西洋双陆棋规则</p><div class="t"><span class="tg">游戏</span><span class="tg">棋类</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_suzhou (1)</h2><div class="g">
+<div class="c" data-n="苏州麻将规则"><h3>苏州麻将规则</h3><p>苏州地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">苏州</span><span class="o">苏州</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/contract_detailed (1)</h2><div class="g">
+<div class="c" data-n="合同法详解"><h3>合同法详解</h3><p>合同法详解</p><div class="t"><span class="tg">法律</span><span class="tg">民法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/hurdles (1)</h2><div class="g">
+<div class="c" data-n="跨栏规则"><h3>跨栏规则</h3><p>跨栏比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/inheritance_detailed (1)</h2><div class="g">
+<div class="c" data-n="继承法详解"><h3>继承法详解</h3><p>继承法详解</p><div class="t"><span class="tg">法律</span><span class="tg">家庭</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/price (1)</h2><div class="g">
+<div class="c" data-n="价格法规则"><h3>价格法规则</h3><p>中国价格法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">价格</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/medical_science (1)</h2><div class="g">
+<div class="c" data-n="医学定律"><h3>医学定律</h3><p>医学科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">医学</span><span class="o">医学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/paddleboarding (1)</h2><div class="g">
+<div class="c" data-n="站立式桨板规则"><h3>站立式桨板规则</h3><p>站立式桨板运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">夏威夷</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/cognitive_psychology (1)</h2><div class="g">
+<div class="c" data-n="认知心理学定律"><h3>认知心理学定律</h3><p>认知心理学定律</p><div class="t"><span class="tg">科学</span><span class="tg">心理学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/disc_golf_detail (1)</h2><div class="g">
+<div class="c" data-n="飞盘高尔夫详细"><h3>飞盘高尔夫详细</h3><p>飞盘高尔夫详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">PDGA</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/optics (1)</h2><div class="g">
+<div class="c" data-n="光学定律"><h3>光学定律</h3><p>光学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">光学</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/immunology (1)</h2><div class="g">
+<div class="c" data-n="免疫学定律"><h3>免疫学定律</h3><p>免疫学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">医学</span><span class="tg">免疫</span><span class="o">医学</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/email (1)</h2><div class="g">
+<div class="c" data-n="邮件礼仪"><h3>邮件礼仪</h3><p>电子邮件沟通礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">办公</span><span class="o">现代办公</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/shooting_detailed (1)</h2><div class="g">
+<div class="c" data-n="射击详细规则"><h3>射击详细规则</h3><p>射击详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">精准</span><span class="o">ISSF</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/interview (1)</h2><div class="g">
+<div class="c" data-n="面试礼仪"><h3>面试礼仪</h3><p>求职面试礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">面试</span><span class="tg">求职</span><span class="o">通用</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/zoology (1)</h2><div class="g">
+<div class="c" data-n="动物学定律"><h3>动物学定律</h3><p>动物学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">动物</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/niuniu (1)</h2><div class="g">
+<div class="c" data-n="牛牛规则"><h3>牛牛规则</h3><p>牛牛扑克游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/noise_pollution_law (1)</h2><div class="g">
+<div class="c" data-n="噪声污染防治法"><h3>噪声污染防治法</h3><p>噪声污染防治法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">环境</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/base_jumping (1)</h2><div class="g">
+<div class="c" data-n="base跳规则"><h3>BASE跳规则</h3><p>BASE跳运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">极限</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/beach_handball (1)</h2><div class="g">
+<div class="c" data-n="沙滩手球规则"><h3>沙滩手球规则</h3><p>沙滩手球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">手球</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/pair_skating (1)</h2><div class="g">
+<div class="c" data-n="花样滑冰双人滑规则"><h3>花样滑冰双人滑规则</h3><p>花样滑冰双人滑比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/environmental_science (1)</h2><div class="g">
+<div class="c" data-n="环境科学定律"><h3>环境科学定律</h3><p>环境科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">环境</span><span class="o">环境科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/drone_racing (1)</h2><div class="g">
+<div class="c" data-n="无人机竞速规则"><h3>无人机竞速规则</h3><p>无人机竞速比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">科技</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/bioengineering (1)</h2><div class="g">
+<div class="c" data-n="生物工程定律"><h3>生物工程定律</h3><p>生物工程基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="tg">生物</span><span class="o">工程</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/powerlifting (1)</h2><div class="g">
+<div class="c" data-n="力举规则"><h3>力举规则</h3><p>力举比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">力量</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/breakdancing (1)</h2><div class="g">
+<div class="c" data-n="街舞规则"><h3>街舞规则</h3><p>街舞比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">舞蹈</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/f1 (1)</h2><div class="g">
+<div class="c" data-n="一级方程式赛车规则"><h3>一级方程式赛车规则</h3><p>F1赛车比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">汽车</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/water_skiing (1)</h2><div class="g">
+<div class="c" data-n="滑水规则"><h3>滑水规则</h3><p>滑水比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/wheelchair_basketball (1)</h2><div class="g">
+<div class="c" data-n="轮椅篮球规则"><h3>轮椅篮球规则</h3><p>轮椅篮球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">残奥</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_shanghai (1)</h2><div class="g">
+<div class="c" data-n="上海麻将规则"><h3>上海麻将规则</h3><p>上海地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">上海</span><span class="o">上海</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/craps (1)</h2><div class="g">
+<div class="c" data-n="双骰规则"><h3>双骰规则</h3><p>双骰(Craps)游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">骰子</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/functional_analysis (1)</h2><div class="g">
+<div class="c" data-n="泛函分析定律"><h3>泛函分析定律</h3><p>泛函分析定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/marine_biology (1)</h2><div class="g">
+<div class="c" data-n="海洋生物学定律"><h3>海洋生物学定律</h3><p>海洋生物学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/bankruptcy (1)</h2><div class="g">
+<div class="c" data-n="破产法规则"><h3>破产法规则</h3><p>中国破产法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">破产法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/darts (1)</h2><div class="g">
+<div class="c" data-n="飞镖规则"><h3>飞镖规则</h3><p>飞镖比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">室内</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/water_detailed (1)</h2><div class="g">
+<div class="c" data-n="水法详解"><h3>水法详解</h3><p>水法详解</p><div class="t"><span class="tg">法律</span><span class="tg">资源</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/hockey (1)</h2><div class="g">
+<div class="c" data-n="曲棍球规则"><h3>曲棍球规则</h3><p>曲棍球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/field_archery (1)</h2><div class="g">
+<div class="c" data-n="野外射箭规则"><h3>野外射箭规则</h3><p>野外射箭比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">射箭</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/elderly_protection (1)</h2><div class="g">
+<div class="c" data-n="老年人权益保障法规则"><h3>老年人权益保障法规则</h3><p>中国老年人权益保障法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">老年人权益</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/gymnastics (1)</h2><div class="g">
+<div class="c" data-n="体操规则"><h3>体操规则</h3><p>FIG 国际体操联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">体操</span><span class="o">FIG</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_guangxi (1)</h2><div class="g">
+<div class="c" data-n="广西麻将规则"><h3>广西麻将规则</h3><p>广西地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">广西</span><span class="o">广西</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/inheritance (1)</h2><div class="g">
+<div class="c" data-n="继承法规则"><h3>继承法规则</h3><p>中国继承法基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">继承</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_fuzhou (1)</h2><div class="g">
+<div class="c" data-n="福州麻将规则"><h3>福州麻将规则</h3><p>福州地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">福州</span><span class="o">福州</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/swimming_detailed (1)</h2><div class="g">
+<div class="c" data-n="游泳详细规则"><h3>游泳详细规则</h3><p>游泳详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">FINA</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/general_relativity (1)</h2><div class="g">
+<div class="c" data-n="广义相对论定律"><h3>广义相对论定律</h3><p>广义相对论定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/administrative_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="行政法详解2"><h3>行政法详解2</h3><p>行政法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">行政</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/lethwei (1)</h2><div class="g">
+<div class="c" data-n="缅甸拳击规则"><h3>缅甸拳击规则</h3><p>缅甸传统徒手拳击规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">缅甸</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/ip_detailed (1)</h2><div class="g">
+<div class="c" data-n="知识产权详解"><h3>知识产权详解</h3><p>知识产权法详解</p><div class="t"><span class="tg">法律</span><span class="tg">知识产权</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ice_dancing (1)</h2><div class="g">
+<div class="c" data-n="花样滑冰冰舞规则"><h3>花样滑冰冰舞规则</h3><p>花样滑冰冰舞比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/hot_air_balloon (1)</h2><div class="g">
+<div class="c" data-n="热气球比赛规则"><h3>热气球比赛规则</h3><p>热气球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">航空</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/contract (1)</h2><div class="g">
+<div class="c" data-n="合同法规则"><h3>合同法规则</h3><p>合同订立与履行基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">合同</span><span class="o">中国合同法</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/particle_physics (1)</h2><div class="g">
+<div class="c" data-n="粒子物理定律"><h3>粒子物理定律</h3><p>粒子物理定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_guiyang (1)</h2><div class="g">
+<div class="c" data-n="贵阳麻将规则"><h3>贵阳麻将规则</h3><p>贵阳地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">贵阳</span><span class="o">贵阳</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_taiwan (1)</h2><div class="g">
+<div class="c" data-n="台湾麻将规则"><h3>台湾麻将规则</h3><p>台湾16张麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">台湾</span><span class="o">台湾</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/gymnastics_detailed (1)</h2><div class="g">
+<div class="c" data-n="体操详细规则"><h3>体操详细规则</h3><p>体操详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">体操</span><span class="o">FIG</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/cryptography (1)</h2><div class="g">
+<div class="c" data-n="密码学定律"><h3>密码学定律</h3><p>密码学定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/civil_procedure_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="民诉法详解2"><h3>民诉法详解2</h3><p>民诉法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/civil_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="民法详解2"><h3>民法详解2</h3><p>民法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">民法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/autonomous_driving_law (1)</h2><div class="g">
+<div class="c" data-n="自动驾驶法规"><h3>自动驾驶法规</h3><p>自动驾驶法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">交通</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/wakeboarding (1)</h2><div class="g">
+<div class="c" data-n="尾波滑水规则"><h3>尾波滑水规则</h3><p>尾波滑水运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/airplane_etiquette (1)</h2><div class="g">
+<div class="c" data-n="飞机礼仪"><h3>飞机礼仪</h3><p>飞机乘坐礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">旅行</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/cell_biology (1)</h2><div class="g">
+<div class="c" data-n="细胞生物学定律"><h3>细胞生物学定律</h3><p>细胞生物学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">细胞</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ultimate_frisbee (1)</h2><div class="g">
+<div class="c" data-n="极限飞盘规则"><h3>极限飞盘规则</h3><p>极限飞盘比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/biostatistics (1)</h2><div class="g">
+<div class="c" data-n="生物统计学定律"><h3>生物统计学定律</h3><p>生物统计学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/epidemiology (1)</h2><div class="g">
+<div class="c" data-n="流行病学定律"><h3>流行病学定律</h3><p>流行病学定律</p><div class="t"><span class="tg">科学</span><span class="tg">医学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/information_theory (1)</h2><div class="g">
+<div class="c" data-n="信息论定律"><h3>信息论定律</h3><p>香农信息论定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/neuroscience (1)</h2><div class="g">
+<div class="c" data-n="神经科学定律"><h3>神经科学定律</h3><p>神经科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">神经</span><span class="o">神经科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/lawyer (1)</h2><div class="g">
+<div class="c" data-n="律师法规则"><h3>律师法规则</h3><p>中国律师法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">律师</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/mahjong_etiquette (1)</h2><div class="g">
+<div class="c" data-n="麻将礼仪"><h3>麻将礼仪</h3><p>麻将桌上社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">游戏</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/water_polo_detailed (1)</h2><div class="g">
+<div class="c" data-n="水球详细规则"><h3>水球详细规则</h3><p>水球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">FINA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/orienteering (1)</h2><div class="g">
+<div class="c" data-n="定向越野规则"><h3>定向越野规则</h3><p>定向越野比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">越野</span><span class="o">瑞典</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/shopping_etiquette (1)</h2><div class="g">
+<div class="c" data-n="购物礼仪"><h3>购物礼仪</h3><p>购物社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">消费</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/white_water_rafting (1)</h2><div class="g">
+<div class="c" data-n="白水漂流规则"><h3>白水漂流规则</h3><p>白水漂流运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/aerospace_engineering (1)</h2><div class="g">
+<div class="c" data-n="航空航天工程定律"><h3>航空航天工程定律</h3><p>航空航天工程基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="tg">航空</span><span class="o">工程</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/two_player_mahjong (1)</h2><div class="g">
+<div class="c" data-n="二人麻将规则"><h3>二人麻将规则</h3><p>二人麻将游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/handball_detailed_rules (1)</h2><div class="g">
+<div class="c" data-n="手球比赛规则"><h3>手球比赛规则</h3><p>手球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">IHF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/weightlifting (1)</h2><div class="g">
+<div class="c" data-n="举重规则"><h3>举重规则</h3><p>IWF 国际举重联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">举重</span><span class="o">IWF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/squash (1)</h2><div class="g">
+<div class="c" data-n="壁球规则"><h3>壁球规则</h3><p>壁球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/intellectual_property (1)</h2><div class="g">
+<div class="c" data-n="知识产权法"><h3>知识产权法</h3><p>中国知识产权基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">知识产权</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/drag_racing (1)</h2><div class="g">
+<div class="c" data-n="直线加速赛规则"><h3>直线加速赛规则</h3><p>直线加速赛比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">赛车</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/cv_theory (1)</h2><div class="g">
+<div class="c" data-n="计算机视觉理论"><h3>计算机视觉理论</h3><p>计算机视觉理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/pharmacology (1)</h2><div class="g">
+<div class="c" data-n="药理学定律"><h3>药理学定律</h3><p>药理学定律</p><div class="t"><span class="tg">科学</span><span class="tg">医学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/business (1)</h2><div class="g">
+<div class="c" data-n="中国商务礼仪"><h3>中国商务礼仪</h3><p>商务场合礼仪规范</p><div class="t"><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/international_public_law (1)</h2><div class="g">
+<div class="c" data-n="国际公法"><h3>国际公法</h3><p>国际公法基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">国际</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/baseball (1)</h2><div class="g">
+<div class="c" data-n="棒球规则"><h3>棒球规则</h3><p>棒球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/phone (1)</h2><div class="g">
+<div class="c" data-n="电话礼仪"><h3>电话礼仪</h3><p>电话沟通礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">沟通</span><span class="o">现代社交</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/bioinformatics (1)</h2><div class="g">
+<div class="c" data-n="生物信息学定律"><h3>生物信息学定律</h3><p>生物信息学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/civil_engineering (1)</h2><div class="g">
+<div class="c" data-n="土木工程定律"><h3>土木工程定律</h3><p>土木工程基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="tg">土木</span><span class="o">工程</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/education (1)</h2><div class="g">
+<div class="c" data-n="教育学定律"><h3>教育学定律</h3><p>教育学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">教育</span><span class="o">社会科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/karate_detailed (1)</h2><div class="g">
+<div class="c" data-n="空手道详细规则"><h3>空手道详细规则</h3><p>空手道详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">WKF</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/railway (1)</h2><div class="g">
+<div class="c" data-n="铁路法规则"><h3>铁路法规则</h3><p>中国铁路法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">铁路</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/banking_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="银行法详解2"><h3>银行法详解2</h3><p>银行法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">金融</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/chess960 (1)</h2><div class="g">
+<div class="c" data-n="费舍尔随机棋规则"><h3>费舍尔随机棋规则</h3><p>Chess960规则</p><div class="t"><span class="tg">游戏</span><span class="tg">棋类</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/advertising (1)</h2><div class="g">
+<div class="c" data-n="广告法规则"><h3>广告法规则</h3><p>中国广告法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">广告</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/control_engineering (1)</h2><div class="g">
+<div class="c" data-n="控制工程定律"><h3>控制工程定律</h3><p>控制工程基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="tg">控制</span><span class="o">工程</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/acoustics (1)</h2><div class="g">
+<div class="c" data-n="声学定律"><h3>声学定律</h3><p>声学物理定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/elevator (1)</h2><div class="g">
+<div class="c" data-n="电梯礼仪"><h3>电梯礼仪</h3><p>乘坐电梯礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">电梯</span><span class="o">通用</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/gift (1)</h2><div class="g">
+<div class="c" data-n="中国送礼礼仪"><h3>中国送礼礼仪</h3><p>送礼习俗与禁忌</p><div class="t"><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/crystallography (1)</h2><div class="g">
+<div class="c" data-n="晶体学定律"><h3>晶体学定律</h3><p>晶体学定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/parkour (1)</h2><div class="g">
+<div class="c" data-n="跑酷规则"><h3>跑酷规则</h3><p>跑酷比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">极限</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/snowboarding (1)</h2><div class="g">
+<div class="c" data-n="单板滑雪规则"><h3>单板滑雪规则</h3><p>单板滑雪比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/rowing (1)</h2><div class="g">
+<div class="c" data-n="赛艇规则"><h3>赛艇规则</h3><p>赛艇比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/gene_editing_law (1)</h2><div class="g">
+<div class="c" data-n="基因编辑法规"><h3>基因编辑法规</h3><p>基因编辑技术法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/road_safety (1)</h2><div class="g">
+<div class="c" data-n="道路交通安全法"><h3>道路交通安全法</h3><p>中国道路交通安全基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">交通</span><span class="tg">安全</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/rhythmic_gymnastics (1)</h2><div class="g">
+<div class="c" data-n="艺术体操规则"><h3>艺术体操规则</h3><p>艺术体操比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">体操</span><span class="o">苏联</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/tax_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="税法详解2"><h3>税法详解2</h3><p>税法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">税法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/wildlife_protection_law (1)</h2><div class="g">
+<div class="c" data-n="野生动物保护法"><h3>野生动物保护法</h3><p>野生动物保护法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">环境</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/mental_wellness (1)</h2><div class="g">
+<div class="c" data-n="心理健康维护规则"><h3>心理健康维护规则</h3><p>心理健康维护规则</p><div class="t"><span class="tg">健康</span><span class="tg">心理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/bridge (1)</h2><div class="g">
+<div class="c" data-n="桥牌规则"><h3>桥牌规则</h3><p>世界桥牌联合会标准规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="tg">桥牌</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/golf_detailed (1)</h2><div class="g">
+<div class="c" data-n="高尔夫详细规则"><h3>高尔夫详细规则</h3><p>高尔夫详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">R&A</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/sudoku (1)</h2><div class="g">
+<div class="c" data-n="数独规则"><h3>数独规则</h3><p>标准数独游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">益智</span><span class="tg">数独</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/free_diving (1)</h2><div class="g">
+<div class="c" data-n="自由潜水规则"><h3>自由潜水规则</h3><p>自由潜水比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ice_hockey (1)</h2><div class="g">
+<div class="c" data-n="冰球规则"><h3>冰球规则</h3><p>冰球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冰上</span><span class="o">加拿大</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/krav_maga (1)</h2><div class="g">
+<div class="c" data-n="克拉夫马伽规则"><h3>克拉夫马伽规则</h3><p>以色列自卫格斗体系规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="tg">自卫</span><span class="o">以色列</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_xian (1)</h2><div class="g">
+<div class="c" data-n="西安麻将规则"><h3>西安麻将规则</h3><p>西安地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">西安</span><span class="o">西安</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/billiards (1)</h2><div class="g">
+<div class="c" data-n="中式八球规则"><h3>中式八球规则</h3><p>台球运动规则</p><div class="t"><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/polo (1)</h2><div class="g">
+<div class="c" data-n="马球规则"><h3>马球规则</h3><p>马球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">马术</span><span class="o">波斯</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/australian_football (1)</h2><div class="g">
+<div class="c" data-n="澳式足球规则"><h3>澳式足球规则</h3><p>澳式足球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">澳大利亚</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/climate_science (1)</h2><div class="g">
+<div class="c" data-n="气候科学定律"><h3>气候科学定律</h3><p>气候科学定律</p><div class="t"><span class="tg">科学</span><span class="tg">环境</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/measure_theory (1)</h2><div class="g">
+<div class="c" data-n="测度论定律"><h3>测度论定律</h3><p>测度论定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/drone_law (1)</h2><div class="g">
+<div class="c" data-n="无人机法规"><h3>无人机法规</h3><p>无人机飞行法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">航空</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/corporate_governance (1)</h2><div class="g">
+<div class="c" data-n="公司治理法规"><h3>公司治理法规</h3><p>公司治理法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">公司</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_kejia (1)</h2><div class="g">
+<div class="c" data-n="客家麻将规则"><h3>客家麻将规则</h3><p>客家地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">客家</span><span class="o">客家</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/diving_sport (1)</h2><div class="g">
+<div class="c" data-n="潜水规则"><h3>潜水规则</h3><p>潜水运动基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/education (1)</h2><div class="g">
+<div class="c" data-n="教育法规则"><h3>教育法规则</h3><p>中国教育法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">教育</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/marriage_detailed (1)</h2><div class="g">
+<div class="c" data-n="婚姻法详解"><h3>婚姻法详解</h3><p>婚姻法详解</p><div class="t"><span class="tg">法律</span><span class="tg">家庭</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_changsha (1)</h2><div class="g">
+<div class="c" data-n="长沙麻将规则"><h3>长沙麻将规则</h3><p>长沙地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">长沙</span><span class="o">长沙</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/monopoly (1)</h2><div class="g">
+<div class="c" data-n="大富翁规则"><h3>大富翁规则</h3><p>大富翁棋盘游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">桌游</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/wushu (1)</h2><div class="g">
+<div class="c" data-n="武术规则"><h3>武术规则</h3><p>武术比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">传统</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/chess (1)</h2><div class="g">
+<div class="c" data-n="国际象棋规则"><h3>国际象棋规则</h3><p>FIDE 国际象棋标准规则</p><div class="t"><span class="tg">游戏</span><span class="tg">国际象棋</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/telecommunications (1)</h2><div class="g">
+<div class="c" data-n="电信条例规则"><h3>电信条例规则</h3><p>中国电信条例基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">电信</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/bidding (1)</h2><div class="g">
+<div class="c" data-n="招投标法规则"><h3>招投标法规则</h3><p>中国招投标法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">招投标</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/blind_football (1)</h2><div class="g">
+<div class="c" data-n="盲人足球规则"><h3>盲人足球规则</h3><p>盲人足球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">残奥</span><span class="o">西班牙</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/polymer_chemistry (1)</h2><div class="g">
+<div class="c" data-n="高分子化学定律"><h3>高分子化学定律</h3><p>高分子化学定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/securities_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="证券法详解2"><h3>证券法详解2</h3><p>证券法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">金融</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/securities (1)</h2><div class="g">
+<div class="c" data-n="证券法规则"><h3>证券法规则</h3><p>中国证券法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">证券法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/biogeography (1)</h2><div class="g">
+<div class="c" data-n="生物地理学定律"><h3>生物地理学定律</h3><p>生物地理学定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/music_theory (1)</h2><div class="g">
+<div class="c" data-n="音乐理论定律"><h3>音乐理论定律</h3><p>音乐理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">艺术</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/chemistry (1)</h2><div class="g">
+<div class="c" data-n="化学元素周期表"><h3>化学元素周期表</h3><p>元素周期表基础规则</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/doudizhu (1)</h2><div class="g">
+<div class="c" data-n="斗地主规则"><h3>斗地主规则</h3><p>斗地主标准规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="tg">斗地主</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/triathlon_detailed (1)</h2><div class="g">
+<div class="c" data-n="铁人三项详细规则"><h3>铁人三项详细规则</h3><p>铁人三项比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">综合</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/archives (1)</h2><div class="g">
+<div class="c" data-n="档案法规则"><h3>档案法规则</h3><p>中国档案法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">档案</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mafia (1)</h2><div class="g">
+<div class="c" data-n="阿瓦隆规则"><h3>阿瓦隆规则</h3><p>阿瓦隆桌游规则</p><div class="t"><span class="tg">游戏</span><span class="tg">桌游</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/tax (1)</h2><div class="g">
+<div class="c" data-n="税法规则"><h3>税法规则</h3><p>中国税法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">税法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/zhajinhua (1)</h2><div class="g">
+<div class="c" data-n="炸金花规则"><h3>炸金花规则</h3><p>炸金花扑克游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/three_x_three_basketball (1)</h2><div class="g">
+<div class="c" data-n="3×3篮球规则"><h3>3×3篮球规则</h3><p>3×3篮球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">篮球</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/nine_ball_detailed (1)</h2><div class="g">
+<div class="c" data-n="九球详细规则"><h3>九球详细规则</h3><p>九球台球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">台球</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/kayaking (1)</h2><div class="g">
+<div class="c" data-n="皮划艇规则"><h3>皮划艇规则</h3><p>皮划艇比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/archery (1)</h2><div class="g">
+<div class="c" data-n="射箭规则"><h3>射箭规则</h3><p>WA 世界射箭联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">射箭</span><span class="o">WA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/relay (1)</h2><div class="g">
+<div class="c" data-n="接力跑规则"><h3>接力跑规则</h3><p>接力跑比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/ml_theory (1)</h2><div class="g">
+<div class="c" data-n="机器学习理论"><h3>机器学习理论</h3><p>机器学习理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_anhui (1)</h2><div class="g">
+<div class="c" data-n="安徽麻将规则"><h3>安徽麻将规则</h3><p>安徽地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">安徽</span><span class="o">安徽</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_sichuan (1)</h2><div class="g">
+<div class="c" data-n="四川麻将详细规则"><h3>四川麻将详细规则</h3><p>四川血战到底详细规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">四川</span><span class="o">四川</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/thai_boxing (1)</h2><div class="g">
+<div class="c" data-n="泰拳拳击规则"><h3>泰拳拳击规则</h3><p>泰拳拳击比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">泰国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/flight (1)</h2><div class="g">
+<div class="c" data-n="乘机礼仪"><h3>乘机礼仪</h3><p>乘坐飞机礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">飞行</span><span class="o">通用</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/consumer_detailed (1)</h2><div class="g">
+<div class="c" data-n="消费者权益详解"><h3>消费者权益详解</h3><p>消费者权益法详解</p><div class="t"><span class="tg">法律</span><span class="tg">消费</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/alpine_skiing (1)</h2><div class="g">
+<div class="c" data-n="高山滑雪规则"><h3>高山滑雪规则</h3><p>高山滑雪比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">奥地利</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/pao_de_kuai (1)</h2><div class="g">
+<div class="c" data-n="跑得快规则"><h3>跑得快规则</h3><p>跑得快扑克游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/scrabble (1)</h2><div class="g">
+<div class="c" data-n="拼字游戏规则"><h3>拼字游戏规则</h3><p>Scrabble拼字游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">桌游</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/go (1)</h2><div class="g">
+<div class="c" data-n="围棋规则"><h3>围棋规则</h3><p>围棋标准规则说明</p><div class="t"><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/canoe_polo (1)</h2><div class="g">
+<div class="c" data-n="独木舟 polo规则"><h3>独木舟 Polo规则</h3><p>独木舟 Polo比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/cybersecurity_detailed (1)</h2><div class="g">
+<div class="c" data-n="网络安全法详解"><h3>网络安全法详解</h3><p>网络安全法律规则详解</p><div class="t"><span class="tg">法律</span><span class="tg">网络</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/cybersecurity (1)</h2><div class="g">
+<div class="c" data-n="网络安全法规则"><h3>网络安全法规则</h3><p>中国网络安全法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">网络安全</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/baseball_detailed (1)</h2><div class="g">
+<div class="c" data-n="棒球详细规则"><h3>棒球详细规则</h3><p>棒球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">MLB</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/financial_economics (1)</h2><div class="g">
+<div class="c" data-n="金融经济学定律"><h3>金融经济学定律</h3><p>金融经济学定律</p><div class="t"><span class="tg">科学</span><span class="tg">经济</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/complexity_science (1)</h2><div class="g">
+<div class="c" data-n="复杂性科学定律"><h3>复杂性科学定律</h3><p>复杂性科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">复杂</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/administrative (1)</h2><div class="g">
+<div class="c" data-n="行政法规则"><h3>行政法规则</h3><p>中国行政法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">行政法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/criminal_procedure_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="刑诉法详解2"><h3>刑诉法详解2</h3><p>刑诉法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/water_slide_racing (1)</h2><div class="g">
+<div class="c" data-n="水上滑梯规则"><h3>水上滑梯规则</h3><p>水上滑梯比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/mineral_detailed (1)</h2><div class="g">
+<div class="c" data-n="矿产法详解"><h3>矿产法详解</h3><p>矿产资源法详解</p><div class="t"><span class="tg">法律</span><span class="tg">资源</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/real_estate (1)</h2><div class="g">
+<div class="c" data-n="房地产法规则"><h3>房地产法规则</h3><p>中国房地产法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">房地产</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/basketball_detailed (1)</h2><div class="g">
+<div class="c" data-n="篮球详细规则"><h3>篮球详细规则</h3><p>篮球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">NBA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/fitness_competition (1)</h2><div class="g">
+<div class="c" data-n="健身比赛规则"><h3>健身比赛规则</h3><p>健身比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">健身</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/solid_mechanics (1)</h2><div class="g">
+<div class="c" data-n="固体力学定律"><h3>固体力学定律</h3><p>固体力学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">力学</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/indoor_soccer (1)</h2><div class="g">
+<div class="c" data-n="室内足球详细规则"><h3>室内足球详细规则</h3><p>室内足球比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/sleep (1)</h2><div class="g">
+<div class="c" data-n="睡眠规则"><h3>睡眠规则</h3><p>健康睡眠基础知识</p><div class="t"><span class="tg">健康</span><span class="tg">睡眠</span><span class="o">睡眠医学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/anthropology (1)</h2><div class="g">
+<div class="c" data-n="人类学定律"><h3>人类学定律</h3><p>人类学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">人类</span><span class="o">社会科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/ecommerce_law (1)</h2><div class="g">
+<div class="c" data-n="电子商务法"><h3>电子商务法</h3><p>电子商务法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">电商</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/skateboarding (1)</h2><div class="g">
+<div class="c" data-n="滑板规则"><h3>滑板规则</h3><p>滑板比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">极限</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/basketball (1)</h2><div class="g">
+<div class="c" data-n="篮球规则"><h3>篮球规则</h3><p>标准篮球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">篮球</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/foreign_investment (1)</h2><div class="g">
+<div class="c" data-n="外商投资法规则"><h3>外商投资法规则</h3><p>中国外商投资法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">外商投资</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/administrative_procedure (1)</h2><div class="g">
+<div class="c" data-n="行政诉讼法规则"><h3>行政诉讼法规则</h3><p>中国行政诉讼法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">行政诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/wheelchair_racing (1)</h2><div class="g">
+<div class="c" data-n="轮椅竞速规则"><h3>轮椅竞速规则</h3><p>轮椅竞速比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">残奥</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_riichi_detailed (1)</h2><div class="g">
+<div class="c" data-n="立直麻将详细规则"><h3>立直麻将详细规则</h3><p>日本立直麻将详细规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_beijing (1)</h2><div class="g">
+<div class="c" data-n="北京麻将规则"><h3>北京麻将规则</h3><p>北京地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">北京</span><span class="o">北京</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bocce (1)</h2><div class="g">
+<div class="c" data-n="滚球规则"><h3>滚球规则</h3><p>意大利滚球运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">意大利</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/jet_ski (1)</h2><div class="g">
+<div class="c" data-n="水上摩托规则"><h3>水上摩托规则</h3><p>水上摩托竞速规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/elderly_health (1)</h2><div class="g">
+<div class="c" data-n="老年健康规则"><h3>老年健康规则</h3><p>老年健康管理规则</p><div class="t"><span class="tg">健康</span><span class="tg">老年</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/lacrosse_detailed (1)</h2><div class="g">
+<div class="c" data-n="长曲棍球详细规则"><h3>长曲棍球详细规则</h3><p>长曲棍球详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">FIL</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/material_science (1)</h2><div class="g">
+<div class="c" data-n="材料科学定律"><h3>材料科学定律</h3><p>材料科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">材料</span><span class="o">材料科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/statistics (1)</h2><div class="g">
+<div class="c" data-n="统计学定律"><h3>统计学定律</h3><p>统计学基本定律和方法</p><div class="t"><span class="tg">科学</span><span class="tg">统计学</span><span class="o">统计学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/medical (1)</h2><div class="g">
+<div class="c" data-n="医疗法规则"><h3>医疗法规则</h3><p>中国医疗法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">医疗</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/mechanical_engineering (1)</h2><div class="g">
+<div class="c" data-n="机械工程定律"><h3>机械工程定律</h3><p>机械工程基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">工程</span><span class="tg">机械</span><span class="o">工程</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/athletics_detailed (1)</h2><div class="g">
+<div class="c" data-n="田径详细规则"><h3>田径详细规则</h3><p>田径详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">IAAF</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/computational_linguistics (1)</h2><div class="g">
+<div class="c" data-n="计算语言学定律"><h3>计算语言学定律</h3><p>计算语言学定律</p><div class="t"><span class="tg">科学</span><span class="tg">语言</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/forest (1)</h2><div class="g">
+<div class="c" data-n="森林法规则"><h3>森林法规则</h3><p>中国森林法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">森林</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_dongbei (1)</h2><div class="g">
+<div class="c" data-n="东北麻将规则"><h3>东北麻将规则</h3><p>东北地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">东北</span><span class="o">东北</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/devops_theory (1)</h2><div class="g">
+<div class="c" data-n="devops理论"><h3>DevOps理论</h3><p>DevOps工程理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/inorganic_chemistry (1)</h2><div class="g">
+<div class="c" data-n="无机化学定律"><h3>无机化学定律</h3><p>无机化学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="tg">无机</span><span class="o">化学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/marriage (1)</h2><div class="g">
+<div class="c" data-n="婚姻法规则"><h3>婚姻法规则</h3><p>中国婚姻法基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">婚姻</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/tennis (1)</h2><div class="g">
+<div class="c" data-n="网球规则"><h3>网球规则</h3><p>ITF 国际网球联合会标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">网球</span><span class="o">ITF</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_tianjin (1)</h2><div class="g">
+<div class="c" data-n="天津麻将规则"><h3>天津麻将规则</h3><p>天津地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">天津</span><span class="o">天津</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/linguistics (1)</h2><div class="g">
+<div class="c" data-n="语言学定律"><h3>语言学定律</h3><p>语言学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">语言</span><span class="o">人文科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/aviation_law (1)</h2><div class="g">
+<div class="c" data-n="航空法详解"><h3>航空法详解</h3><p>民用航空法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">航空</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/hapkido (1)</h2><div class="g">
+<div class="c" data-n="韩国合气道规则"><h3>韩国合气道规则</h3><p>韩国武术合气道规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">韩国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/rubiks_cube (1)</h2><div class="g">
+<div class="c" data-n="三阶魔方"><h3>三阶魔方</h3><p>魔方还原规则</p><div class="t"><span class="tg">游戏</span><span class="tg">益智</span><span class="tg">魔方</span><span class="o">匈牙利</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/number_theory (1)</h2><div class="g">
+<div class="c" data-n="数论定律"><h3>数论定律</h3><p>数论定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/criminal_procedure (1)</h2><div class="g">
+<div class="c" data-n="刑事诉讼法规则"><h3>刑事诉讼法规则</h3><p>中国刑事诉讼法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">刑事诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/electricity_detailed (1)</h2><div class="g">
+<div class="c" data-n="电力法详解"><h3>电力法详解</h3><p>电力法详解</p><div class="t"><span class="tg">法律</span><span class="tg">能源</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/personal_info_protection (1)</h2><div class="g">
+<div class="c" data-n="个人信息保护法"><h3>个人信息保护法</h3><p>个人信息保护法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">数据</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_chongqing (1)</h2><div class="g">
+<div class="c" data-n="重庆麻将规则"><h3>重庆麻将规则</h3><p>重庆地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">重庆</span><span class="o">重庆</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/genetics (1)</h2><div class="g">
+<div class="c" data-n="遗传学定律"><h3>遗传学定律</h3><p>遗传学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">遗传</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/women_protection (1)</h2><div class="g">
+<div class="c" data-n="妇女权益保障法规则"><h3>妇女权益保障法规则</h3><p>中国妇女权益保障法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">妇女权益</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/judo (1)</h2><div class="g">
+<div class="c" data-n="柔道规则"><h3>柔道规则</h3><p>柔道比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/tea (1)</h2><div class="g">
+<div class="c" data-n="中国茶道礼仪"><h3>中国茶道礼仪</h3><p>茶道礼仪规范</p><div class="t"><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/catan (1)</h2><div class="g">
+<div class="c" data-n="卡坦岛规则"><h3>卡坦岛规则</h3><p>卡坦岛桌游规则</p><div class="t"><span class="tg">游戏</span><span class="tg">桌游</span><span class="o">德国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/ecology (1)</h2><div class="g">
+<div class="c" data-n="生态学定律"><h3>生态学定律</h3><p>生态学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">生态</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/petanque (1)</h2><div class="g">
+<div class="c" data-n="法式滚球规则"><h3>法式滚球规则</h3><p>法国滚球运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/badminton_detailed (1)</h2><div class="g">
+<div class="c" data-n="羽毛球详细规则"><h3>羽毛球详细规则</h3><p>羽毛球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">BWF</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/neuroscience_detailed (1)</h2><div class="g">
+<div class="c" data-n="神经科学详细定律"><h3>神经科学详细定律</h3><p>神经科学详细定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/judo_detailed (1)</h2><div class="g">
+<div class="c" data-n="柔道详细规则"><h3>柔道详细规则</h3><p>柔道详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">IJF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/climbing (1)</h2><div class="g">
+<div class="c" data-n="攀岩规则"><h3>攀岩规则</h3><p>攀岩比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">极限</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/rally_racing (1)</h2><div class="g">
+<div class="c" data-n="拉力赛规则"><h3>拉力赛规则</h3><p>汽车拉力赛比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">赛车</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/patent (1)</h2><div class="g">
+<div class="c" data-n="专利法规则"><h3>专利法规则</h3><p>中国专利法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">专利</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/basketball_3x3_detail (1)</h2><div class="g">
+<div class="c" data-n="三人篮球详细"><h3>三人篮球详细</h3><p>三人篮球详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">FIBA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/rugby_sevens (1)</h2><div class="g">
+<div class="c" data-n="七人制橄榄球"><h3>七人制橄榄球</h3><p>七人制橄榄球规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">WR</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/party (1)</h2><div class="g">
+<div class="c" data-n="派对礼仪"><h3>派对礼仪</h3><p>派对社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">礼仪</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/floorball (1)</h2><div class="g">
+<div class="c" data-n="旱地冰球规则"><h3>旱地冰球规则</h3><p>室内旱地冰球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">瑞典</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/ice_climbing (1)</h2><div class="g">
+<div class="c" data-n="攀冰规则"><h3>攀冰规则</h3><p>攀冰运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="tg">极限</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/notarization (1)</h2><div class="g">
+<div class="c" data-n="公证法规则"><h3>公证法规则</h3><p>中国公证法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">公证</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/antimonopoly_detailed (1)</h2><div class="g">
+<div class="c" data-n="反垄断法详解"><h3>反垄断法详解</h3><p>反垄断法详解</p><div class="t"><span class="tg">法律</span><span class="tg">竞争</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/children_health (1)</h2><div class="g">
+<div class="c" data-n="儿童健康规则"><h3>儿童健康规则</h3><p>儿童健康护理规则</p><div class="t"><span class="tg">健康</span><span class="tg">儿童</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/kendo (1)</h2><div class="g">
+<div class="c" data-n="剑道规则"><h3>剑道规则</h3><p>剑道比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">日本</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/shaolin_kung_fu (1)</h2><div class="g">
+<div class="c" data-n="少林功夫规则"><h3>少林功夫规则</h3><p>少林功夫比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/ecology_detailed (1)</h2><div class="g">
+<div class="c" data-n="生态学详细定律"><h3>生态学详细定律</h3><p>生态学详细定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/algebra_math (1)</h2><div class="g">
+<div class="c" data-n="代数学定律"><h3>代数学定律</h3><p>代数学定律</p><div class="t"><span class="tg">科学</span><span class="tg">数学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/sambo (1)</h2><div class="g">
+<div class="c" data-n="桑搏规则"><h3>桑搏规则</h3><p>俄罗斯武术摔跤规则</p><div class="t"><span class="tg">体育</span><span class="tg">摔跤</span><span class="o">俄罗斯</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/air_hockey (1)</h2><div class="g">
+<div class="c" data-n="空气曲棍球规则"><h3>空气曲棍球规则</h3><p>空气曲棍球比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/smoking (1)</h2><div class="g">
+<div class="c" data-n="吸烟礼仪"><h3>吸烟礼仪</h3><p>吸烟社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">公共</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/securities_detailed (1)</h2><div class="g">
+<div class="c" data-n="证券法详解"><h3>证券法详解</h3><p>证券法详解</p><div class="t"><span class="tg">法律</span><span class="tg">金融</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/mud_racing (1)</h2><div class="g">
+<div class="c" data-n="泥地摩托车规则"><h3>泥地摩托车规则</h3><p>泥地摩托车比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">赛车</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/chronic_disease (1)</h2><div class="g">
+<div class="c" data-n="慢性病管理规则"><h3>慢性病管理规则</h3><p>慢性病预防与管理规则</p><div class="t"><span class="tg">健康</span><span class="tg">医疗</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/systems_science (1)</h2><div class="g">
+<div class="c" data-n="系统科学定律"><h3>系统科学定律</h3><p>系统科学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">系统</span><span class="o">科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/speed_skating_detailed (1)</h2><div class="g">
+<div class="c" data-n="速滑详细规则"><h3>速滑详细规则</h3><p>速度滑冰详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">ISU</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/silat (1)</h2><div class="g">
+<div class="c" data-n="班卡西拉特规则"><h3>班卡西拉特规则</h3><p>印尼传统武术规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">印尼</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/foreign_trade (1)</h2><div class="g">
+<div class="c" data-n="对外贸易法规则"><h3>对外贸易法规则</h3><p>中国对外贸易法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">对外贸易</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/environmental_detailed (1)</h2><div class="g">
+<div class="c" data-n="环保法详解"><h3>环保法详解</h3><p>环保法详解</p><div class="t"><span class="tg">法律</span><span class="tg">环境</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bjj (1)</h2><div class="g">
+<div class="c" data-n="巴西柔术规则"><h3>巴西柔术规则</h3><p>巴西柔术比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">巴西</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/american_football_detailed (1)</h2><div class="g">
+<div class="c" data-n="美式足球详细规则"><h3>美式足球详细规则</h3><p>美式足球比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/equestrian (1)</h2><div class="g">
+<div class="c" data-n="马术规则"><h3>马术规则</h3><p>马术比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">动物</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/labor_extended (1)</h2><div class="g">
+<div class="c" data-n="劳动法扩展规则"><h3>劳动法扩展规则</h3><p>中国劳动法详细知识</p><div class="t"><span class="tg">法律</span><span class="tg">劳动法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/evolutionary_biology (1)</h2><div class="g">
+<div class="c" data-n="进化生物学定律"><h3>进化生物学定律</h3><p>进化生物学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">生物</span><span class="tg">进化</span><span class="o">生物学</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/pet_etiquette (1)</h2><div class="g">
+<div class="c" data-n="宠物礼仪"><h3>宠物礼仪</h3><p>养宠社交礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">宠物</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/wedding (1)</h2><div class="g">
+<div class="c" data-n="中式婚礼礼仪"><h3>中式婚礼礼仪</h3><p>婚礼礼仪规范</p><div class="t"><span class="o">中式</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/athletics (1)</h2><div class="g">
+<div class="c" data-n="田径规则"><h3>田径规则</h3><p>WA 世界田联标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">WA</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/muay_thai (1)</h2><div class="g">
+<div class="c" data-n="泰拳规则"><h3>泰拳规则</h3><p>泰拳比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">泰国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/elevator_detailed (1)</h2><div class="g">
+<div class="c" data-n="电梯详细礼仪"><h3>电梯详细礼仪</h3><p>电梯乘坐详细礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">公共</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bmx (1)</h2><div class="g">
+<div class="c" data-n="bmx规则"><h3>BMX规则</h3><p>BMX比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">极限</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/nordic_combined (1)</h2><div class="g">
+<div class="c" data-n="北欧两项规则"><h3>北欧两项规则</h3><p>北欧两项比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">挪威</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/thermodynamics (1)</h2><div class="g">
+<div class="c" data-n="热力学定律"><h3>热力学定律</h3><p>热力学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="tg">热力学</span><span class="o">物理学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/modern_pentathlon (1)</h2><div class="g">
+<div class="c" data-n="现代五项规则"><h3>现代五项规则</h3><p>现代五项比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">综合</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/thermochemistry (1)</h2><div class="g">
+<div class="c" data-n="热化学定律"><h3>热化学定律</h3><p>热化学定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/distributed_systems (1)</h2><div class="g">
+<div class="c" data-n="分布式系统理论"><h3>分布式系统理论</h3><p>分布式系统理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/hammer_throw (1)</h2><div class="g">
+<div class="c" data-n="链球规则"><h3>链球规则</h3><p>田径链球投掷规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/anti_money_laundering (1)</h2><div class="g">
+<div class="c" data-n="反洗钱法"><h3>反洗钱法</h3><p>反洗钱法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">金融</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/sudoku_variant (1)</h2><div class="g">
+<div class="c" data-n="数独变体规则"><h3>数独变体规则</h3><p>数独变体游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">益智</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_nanchang (1)</h2><div class="g">
+<div class="c" data-n="南昌麻将规则"><h3>南昌麻将规则</h3><p>南昌地区流行麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">南昌</span><span class="o">南昌</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/handball_detailed (1)</h2><div class="g">
+<div class="c" data-n="手球详细规则"><h3>手球详细规则</h3><p>手球比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">团队</span><span class="o">德国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/social_media_etiquette (1)</h2><div class="g">
+<div class="c" data-n="社交媒体礼仪"><h3>社交媒体礼仪</h3><p>社交媒体使用礼仪</p><div class="t"><span class="tg">社交</span><span class="tg">网络</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/marketing_theory (1)</h2><div class="g">
+<div class="c" data-n="市场营销定律"><h3>市场营销定律</h3><p>市场营销定律</p><div class="t"><span class="tg">科学</span><span class="tg">管理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/curling_detailed (1)</h2><div class="g">
+<div class="c" data-n="冰壶详细规则"><h3>冰壶详细规则</h3><p>冰壶比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">苏格兰</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/blackjack (1)</h2><div class="g">
+<div class="c" data-n="21点规则"><h3>21点规则</h3><p>Blackjack 标准规则</p><div class="t"><span class="tg">游戏</span><span class="tg">扑克</span><span class="tg">21点</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/motorboat_racing (1)</h2><div class="g">
+<div class="c" data-n="摩托艇规则"><h3>摩托艇规则</h3><p>摩托艇比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/festival (1)</h2><div class="g">
+<div class="c" data-n="春节礼仪"><h3>春节礼仪</h3><p>传统节日礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">节日</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/art_science (1)</h2><div class="g">
+<div class="c" data-n="艺术学定律"><h3>艺术学定律</h3><p>艺术学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">艺术</span><span class="o">人文科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/nanotechnology (1)</h2><div class="g">
+<div class="c" data-n="纳米技术定律"><h3>纳米技术定律</h3><p>纳米技术定律</p><div class="t"><span class="tg">科学</span><span class="tg">材料</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/construction (1)</h2><div class="g">
+<div class="c" data-n="建设工程法规则"><h3>建设工程法规则</h3><p>中国建设工程法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">建设</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/environmental_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="环保法详解2"><h3>环保法详解2</h3><p>环保法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">环境</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/astrophysics (1)</h2><div class="g">
+<div class="c" data-n="天体物理定律"><h3>天体物理定律</h3><p>天体物理定律</p><div class="t"><span class="tg">科学</span><span class="tg">天文</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/environmental_impact_law (1)</h2><div class="g">
+<div class="c" data-n="环境影响评价法"><h3>环境影响评价法</h3><p>环境影响评价法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">环境</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/fire_protection (1)</h2><div class="g">
+<div class="c" data-n="消防法规则"><h3>消防法规则</h3><p>中国消防法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">消防</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/space_law (1)</h2><div class="g">
+<div class="c" data-n="太空法"><h3>太空法</h3><p>外层空间法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">航空</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/disc_golf_detailed (1)</h2><div class="g">
+<div class="c" data-n="飞盘高尔夫详细规则"><h3>飞盘高尔夫详细规则</h3><p>飞盘高尔夫比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/football_detailed (1)</h2><div class="g">
+<div class="c" data-n="足球详细规则"><h3>足球详细规则</h3><p>足球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">FIFA</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/land_detailed (1)</h2><div class="g">
+<div class="c" data-n="土地管理详解"><h3>土地管理详解</h3><p>土地管理法详解</p><div class="t"><span class="tg">法律</span><span class="tg">土地</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/savate (1)</h2><div class="g">
+<div class="c" data-n="法式踢拳规则"><h3>法式踢拳规则</h3><p>法国传统踢拳规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">法国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/children_protection (1)</h2><div class="g">
+<div class="c" data-n="未成年人保护法规则"><h3>未成年人保护法规则</h3><p>中国未成年人保护法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">未成年人保护</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/windsurfing (1)</h2><div class="g">
+<div class="c" data-n="帆板运动规则"><h3>帆板运动规则</h3><p>帆板冲浪运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/tcm_law (1)</h2><div class="g">
+<div class="c" data-n="中医药法"><h3>中医药法</h3><p>中医药法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">医疗</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/four_player_mahjong (1)</h2><div class="g">
+<div class="c" data-n="四人麻将规则"><h3>四人麻将规则</h3><p>四人麻将通用规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/kitesurfing (1)</h2><div class="g">
+<div class="c" data-n="风筝冲浪规则"><h3>风筝冲浪规则</h3><p>风筝冲浪运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/tennis_detailed (1)</h2><div class="g">
+<div class="c" data-n="网球详细规则"><h3>网球详细规则</h3><p>网球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">球类</span><span class="o">ITF</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/snooker_detailed (1)</h2><div class="g">
+<div class="c" data-n="斯诺克详细规则"><h3>斯诺克详细规则</h3><p>斯诺克台球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">台球</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/funeral (1)</h2><div class="g">
+<div class="c" data-n="中式葬礼礼仪"><h3>中式葬礼礼仪</h3><p>葬礼礼仪规范</p><div class="t"><span class="o">中式</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/water (1)</h2><div class="g">
+<div class="c" data-n="水法规则"><h3>水法规则</h3><p>中国水法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">水资源</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/nlp_theory (1)</h2><div class="g">
+<div class="c" data-n="自然语言处理理论"><h3>自然语言处理理论</h3><p>NLP理论定律</p><div class="t"><span class="tg">科学</span><span class="tg">计算机</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/tai_chi_push_hands (1)</h2><div class="g">
+<div class="c" data-n="太极推手规则"><h3>太极推手规则</h3><p>太极推手比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">武术</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/family_violence (1)</h2><div class="g">
+<div class="c" data-n="反家暴法"><h3>反家暴法</h3><p>反家庭暴力法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">家庭</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/beach_volleyball (1)</h2><div class="g">
+<div class="c" data-n="沙滩排球规则"><h3>沙滩排球规则</h3><p>沙滩排球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">排球</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/property_management (1)</h2><div class="g">
+<div class="c" data-n="物业管理条例规则"><h3>物业管理条例规则</h3><p>中国物业管理条例基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">物业管理</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/heptathlon (1)</h2><div class="g">
+<div class="c" data-n="七项全能规则"><h3>七项全能规则</h3><p>田径七项全能比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/mahjong_wuhan (1)</h2><div class="g">
+<div class="c" data-n="武汉麻将规则"><h3>武汉麻将规则</h3><p>武汉红中赖子杠麻将规则</p><div class="t"><span class="tg">游戏</span><span class="tg">麻将</span><span class="tg">武汉</span><span class="o">武汉</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/cornhole (1)</h2><div class="g">
+<div class="c" data-n="袋球规则"><h3>袋球规则</h3><p>美国袋球运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/synchronized_swimming (1)</h2><div class="g">
+<div class="c" data-n="花样游泳规则"><h3>花样游泳规则</h3><p>FINA 花样游泳标准规则</p><div class="t"><span class="tg">体育</span><span class="tg">花样游泳</span><span class="o">FINA</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/statistical_mechanics (1)</h2><div class="g">
+<div class="c" data-n="统计力学定律"><h3>统计力学定律</h3><p>统计力学定律</p><div class="t"><span class="tg">科学</span><span class="tg">物理</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/food_safety (1)</h2><div class="g">
+<div class="c" data-n="食品安全法规则"><h3>食品安全法规则</h3><p>中国食品安全法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">食品安全</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/history (1)</h2><div class="g">
+<div class="c" data-n="历史学定律"><h3>历史学定律</h3><p>历史学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">历史</span><span class="o">社会科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/water_skiing_detailed (1)</h2><div class="g">
+<div class="c" data-n="花样滑水规则"><h3>花样滑水规则</h3><p>花样滑水比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">水上</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/latin_dance (1)</h2><div class="g">
+<div class="c" data-n="拉丁舞规则"><h3>拉丁舞规则</h3><p>拉丁舞比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">舞蹈</span><span class="o">拉丁美洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/weightlifting_detailed (1)</h2><div class="g">
+<div class="c" data-n="举重详细规则"><h3>举重详细规则</h3><p>举重详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">力量</span><span class="o">IWF</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/library (1)</h2><div class="g">
+<div class="c" data-n="图书馆礼仪"><h3>图书馆礼仪</h3><p>图书馆使用礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">图书馆</span><span class="o">通用</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/ai_regulation (1)</h2><div class="g">
+<div class="c" data-n="人工智能法规"><h3>人工智能法规</h3><p>人工智能法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">科技</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/criminal_procedure_detailed (1)</h2><div class="g">
+<div class="c" data-n="刑诉法详解"><h3>刑诉法详解</h3><p>刑事诉讼法详解</p><div class="t"><span class="tg">法律</span><span class="tg">诉讼</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/criminal (1)</h2><div class="g">
+<div class="c" data-n="刑法规则"><h3>刑法规则</h3><p>中国刑法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">刑法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/biathlon (1)</h2><div class="g">
+<div class="c" data-n="冬季两项规则"><h3>冬季两项规则</h3><p>滑雪射击组合运动规则</p><div class="t"><span class="tg">体育</span><span class="tg">冬季</span><span class="o">挪威</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/pole_vault (1)</h2><div class="g">
+<div class="c" data-n="撑杆跳规则"><h3>撑杆跳规则</h3><p>撑杆跳比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">田径</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/nascar (1)</h2><div class="g">
+<div class="c" data-n="nascar赛车规则"><h3>NASCAR赛车规则</h3><p>美国 NASCAR赛车比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">赛车</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/biochemistry (1)</h2><div class="g">
+<div class="c" data-n="生物化学定律"><h3>生物化学定律</h3><p>生物化学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">化学</span><span class="tg">生物</span><span class="o">化学</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/eye_health (1)</h2><div class="g">
+<div class="c" data-n="眼睛健康规则"><h3>眼睛健康规则</h3><p>眼睛健康保护规则</p><div class="t"><span class="tg">健康</span><span class="tg">视力</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/trampoline (1)</h2><div class="g">
+<div class="c" data-n="蹦床规则"><h3>蹦床规则</h3><p>蹦床比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">体操</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/maritime_detailed (1)</h2><div class="g">
+<div class="c" data-n="海商法详解"><h3>海商法详解</h3><p>海商法详解</p><div class="t"><span class="tg">法律</span><span class="tg">商法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/domino_detailed (1)</h2><div class="g">
+<div class="c" data-n="多米诺详细规则"><h3>多米诺详细规则</h3><p>多米诺骨牌详细规则</p><div class="t"><span class="tg">游戏</span><span class="tg">骨牌</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/taekwondo (1)</h2><div class="g">
+<div class="c" data-n="跆拳道规则"><h3>跆拳道规则</h3><p>跆拳道比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">韩国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/chinese_chess (1)</h2><div class="g">
+<div class="c" data-n="中国象棋规则"><h3>中国象棋规则</h3><p>中国象棋标准规则</p><div class="t"><span class="tg">游戏</span><span class="tg">象棋</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/fencing (1)</h2><div class="g">
+<div class="c" data-n="击剑规则"><h3>击剑规则</h3><p>击剑比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">格斗</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/uno (1)</h2><div class="g">
+<div class="c" data-n="uno规则"><h3>UNO规则</h3><p>UNO卡牌游戏规则</p><div class="t"><span class="tg">游戏</span><span class="tg">卡牌</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Health/occupational_health (1)</h2><div class="g">
+<div class="c" data-n="职业健康规则"><h3>职业健康规则</h3><p>职业健康与安全规则</p><div class="t"><span class="tg">健康</span><span class="tg">职业</span><span class="o">国际</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/constitution_detailed (1)</h2><div class="g">
+<div class="c" data-n="宪法详解"><h3>宪法详解</h3><p>宪法基本权利详解</p><div class="t"><span class="tg">法律</span><span class="tg">宪法</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/civil_aviation (1)</h2><div class="g">
+<div class="c" data-n="民用航空法规则"><h3>民用航空法规则</h3><p>中国民用航空法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">民用航空</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/darts_detailed (1)</h2><div class="g">
+<div class="c" data-n="飞镖详细规则"><h3>飞镖详细规则</h3><p>飞镖比赛详细规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/maritime (1)</h2><div class="g">
+<div class="c" data-n="海商法规则"><h3>海商法规则</h3><p>中国海商法基础知识</p><div class="t"><span class="tg">法律</span><span class="tg">海商</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/food_safety_detailed (1)</h2><div class="g">
+<div class="c" data-n="食品安全详解"><h3>食品安全详解</h3><p>食品安全法详解</p><div class="t"><span class="tg">法律</span><span class="tg">食品</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/domino (1)</h2><div class="g">
+<div class="c" data-n="多米诺骨牌规则"><h3>多米诺骨牌规则</h3><p>多米诺骨牌基本玩法</p><div class="t"><span class="tg">游戏</span><span class="tg">骨牌</span><span class="o">欧洲</span></div></div>
+</div></div>
+<div class="cat"><h2>Games/reversi (1)</h2><div class="g">
+<div class="c" data-n="黑白棋规则"><h3>黑白棋规则</h3><p>黑白棋(奥赛罗)规则</p><div class="t"><span class="tg">游戏</span><span class="tg">棋类</span><span class="o">英国</span></div></div>
+</div></div>
+<div class="cat"><h2>Social/seating (1)</h2><div class="g">
+<div class="c" data-n="座次礼仪"><h3>座次礼仪</h3><p>中国传统座次礼仪规范</p><div class="t"><span class="tg">社交</span><span class="tg">餐饮</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/wheelchair_tennis (1)</h2><div class="g">
+<div class="c" data-n="轮椅网球规则"><h3>轮椅网球规则</h3><p>轮椅网球比赛基本规则</p><div class="t"><span class="tg">体育</span><span class="tg">残奥</span><span class="o">美国</span></div></div>
+</div></div>
+<div class="cat"><h2>Sports/bowling_detailed (1)</h2><div class="g">
+<div class="c" data-n="保龄球详细规则"><h3>保龄球详细规则</h3><p>保龄球详细比赛规则</p><div class="t"><span class="tg">体育</span><span class="tg">休闲</span><span class="o">WBSC</span></div></div>
+</div></div>
+<div class="cat"><h2>Science/literature (1)</h2><div class="g">
+<div class="c" data-n="文学定律"><h3>文学定律</h3><p>文学基本定律</p><div class="t"><span class="tg">科学</span><span class="tg">文学</span><span class="o">人文科学</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/labor_detailed2 (1)</h2><div class="g">
+<div class="c" data-n="劳动法详解2"><h3>劳动法详解2</h3><p>劳动法详解2</p><div class="t"><span class="tg">法律</span><span class="tg">劳动</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/consumer (1)</h2><div class="g">
+<div class="c" data-n="消费者权益保护法"><h3>消费者权益保护法</h3><p>中国消费者权益保护基本规则</p><div class="t"><span class="tg">法律</span><span class="tg">消费者</span><span class="o">中国</span></div></div>
+</div></div>
+<div class="cat"><h2>Law/infectious_disease_law (1)</h2><div class="g">
+<div class="c" data-n="传染病防治法"><h3>传染病防治法</h3><p>传染病防治法律规则</p><div class="t"><span class="tg">法律</span><span class="tg">医疗</span><span class="o">中国</span></div></div>
+</div></div>
+</div></body></html>
