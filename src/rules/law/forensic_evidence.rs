@@ -1,30 +1,30 @@
-//! 国际人权法详细
+//! 司法鉴定法
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: InternationalHumanRightsRules, name: "国际人权法详细", desc: "国际人权法律规则", origin: "国际", tags: ["法律", "人权"] }
-impl InternationalHumanRightsRules {
+simple_rule! { struct: ForensicEvidenceRules, name: "司法鉴定法", desc: "司法鉴定法律规则", origin: "中国", tags: ["法律", "证据"] }
+impl ForensicEvidenceRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["公民政治经济社会"]
+        vec!["DNA指纹"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["条约机构"]
+        vec!["鉴定程序"]
     }
 }
-impl Rule for InternationalHumanRightsRules {
+impl Rule for ForensicEvidenceRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::law("international_human_rights")
+        RuleCategory::law("forensic_evidence")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "国际人权法详细",
-            &[("公约", &self.section_0()), ("机制", &self.section_1())],
+            "司法鉴定法",
+            &[("类型", &self.section_0()), ("程序", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = InternationalHumanRightsRules::new();
+        let r = ForensicEvidenceRules::new();
         assert!(!r.explain().is_empty());
     }
 }

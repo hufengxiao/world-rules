@@ -1,30 +1,30 @@
-//! 国际人权法详细
+//! 缓刑法
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: InternationalHumanRightsRules, name: "国际人权法详细", desc: "国际人权法律规则", origin: "国际", tags: ["法律", "人权"] }
-impl InternationalHumanRightsRules {
+simple_rule! { struct: ProbationLawRules, name: "缓刑法", desc: "缓刑法律规则", origin: "国际", tags: ["法律", "刑事"] }
+impl ProbationLawRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["公民政治经济社会"]
+        vec!["缓刑条件"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["条约机构"]
+        vec!["社区监管"]
     }
 }
-impl Rule for InternationalHumanRightsRules {
+impl Rule for ProbationLawRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::law("international_human_rights")
+        RuleCategory::law("probation_law")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "国际人权法详细",
-            &[("公约", &self.section_0()), ("机制", &self.section_1())],
+            "缓刑法",
+            &[("条件", &self.section_0()), ("监管", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = InternationalHumanRightsRules::new();
+        let r = ProbationLawRules::new();
         assert!(!r.explain().is_empty());
     }
 }

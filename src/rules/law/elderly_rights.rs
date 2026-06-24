@@ -1,30 +1,30 @@
-//! 国际人权法详细
+//! 老年人权利法
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: InternationalHumanRightsRules, name: "国际人权法详细", desc: "国际人权法律规则", origin: "国际", tags: ["法律", "人权"] }
-impl InternationalHumanRightsRules {
+simple_rule! { struct: ElderlyRightsRules, name: "老年人权利法", desc: "老年人权利保障法", origin: "国际", tags: ["法律", "老年"] }
+impl ElderlyRightsRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["公民政治经济社会"]
+        vec!["尊严照料"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["条约机构"]
+        vec!["社会保障"]
     }
 }
-impl Rule for InternationalHumanRightsRules {
+impl Rule for ElderlyRightsRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::law("international_human_rights")
+        RuleCategory::law("elderly_rights")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "国际人权法详细",
-            &[("公约", &self.section_0()), ("机制", &self.section_1())],
+            "老年人权利法",
+            &[("权利", &self.section_0()), ("保障", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = InternationalHumanRightsRules::new();
+        let r = ElderlyRightsRules::new();
         assert!(!r.explain().is_empty());
     }
 }

@@ -1,30 +1,30 @@
-//! 国际人权法详细
+//! 纽约公约规则
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: InternationalHumanRightsRules, name: "国际人权法详细", desc: "国际人权法律规则", origin: "国际", tags: ["法律", "人权"] }
-impl InternationalHumanRightsRules {
+simple_rule! { struct: NewYorkConventionRules, name: "纽约公约规则", desc: "纽约公约仲裁裁决", origin: "国际", tags: ["法律", "国际"] }
+impl NewYorkConventionRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["公民政治经济社会"]
+        vec!["仲裁裁决承认"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["条约机构"]
+        vec!["裁决执行"]
     }
 }
-impl Rule for InternationalHumanRightsRules {
+impl Rule for NewYorkConventionRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::law("international_human_rights")
+        RuleCategory::law("new_york_convention")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "国际人权法详细",
-            &[("公约", &self.section_0()), ("机制", &self.section_1())],
+            "纽约公约规则",
+            &[("承认", &self.section_0()), ("执行", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = InternationalHumanRightsRules::new();
+        let r = NewYorkConventionRules::new();
         assert!(!r.explain().is_empty());
     }
 }

@@ -8,7 +8,7 @@
 | # | 名称 | 目标 | 状态 |
 |---|------|------|------|
 | M1 | 质量基线 | 0 clippy 警告 + 800+ 测试 | ✅ 已完成 |
-| M2 | CI/CD 流水线 | GitHub Actions 自动测试+发布 | ⬜ |
+| M2 | CI/CD 流水线 | GitHub Actions 自动测试+发布 | ✅ 已完成 |
 | M3 | API 文档 | 完整 rustdoc + 使用示例 | ⬜ |
 | M4 | 基准测试 | criterion 性能基准 + 回归检测 | ⬜ |
 | M5 | 属性测试 | proptest 覆盖核心游戏逻辑 | ⬜ |
@@ -28,12 +28,12 @@
 - [x] cargo fmt 统一格式
 - [x] CHANGELOG 维护
 
-### M2: CI/CD 流水线
-- [ ] GitHub Actions workflow: test on push/PR
-- [ ] 多平台测试: Windows/Linux/macOS
-- [ ] clippy + fmt 检查作为 gate
-- [ ] 自动发布: tag → GitHub Release
-- [ ] 依赖审计: cargo-audit
+### M2: CI/CD 流水线 ✅
+- [x] GitHub Actions workflow: test on push/PR
+- [x] 多平台测试: Windows/Linux/macOS
+- [x] clippy + fmt 检查作为 gate
+- [x] 自动发布: tag → GitHub Release
+- [x] 依赖审计: cargo-audit
 
 ### M3: API 文档
 - [ ] 所有 pub 类型添加 rustdoc 注释

@@ -1,30 +1,30 @@
-//! 国际人权法详细
+//! 眼疲劳防护规则
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: InternationalHumanRightsRules, name: "国际人权法详细", desc: "国际人权法律规则", origin: "国际", tags: ["法律", "人权"] }
-impl InternationalHumanRightsRules {
+simple_rule! { struct: EyeStrainRulesRules, name: "眼疲劳防护规则", desc: "眼疲劳防护规则", origin: "国际", tags: ["健康", "视力"] }
+impl EyeStrainRulesRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["公民政治经济社会"]
+        vec!["20-20-20法则"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
-        vec!["条约机构"]
+        vec!["光线调节"]
     }
 }
-impl Rule for InternationalHumanRightsRules {
+impl Rule for EyeStrainRulesRules {
     fn metadata(&self) -> &RuleMetadata {
         &self.metadata
     }
     fn category(&self) -> RuleCategory {
-        RuleCategory::law("international_human_rights")
+        RuleCategory::health("eye_strain_rules")
     }
     fn validate(&self, _ctx: &ValidateContext) -> RuleResult<bool> {
         Ok(true)
     }
     fn explain(&self) -> String {
         crate::rules::core::format_rule_sections(
-            "国际人权法详细",
-            &[("公约", &self.section_0()), ("机制", &self.section_1())],
+            "眼疲劳防护规则",
+            &[("屏幕", &self.section_0()), ("环境", &self.section_1())],
         )
     }
 }
@@ -33,7 +33,7 @@ mod tests {
     use super::*;
     #[test]
     fn test() {
-        let r = InternationalHumanRightsRules::new();
+        let r = EyeStrainRulesRules::new();
         assert!(!r.explain().is_empty());
     }
 }
