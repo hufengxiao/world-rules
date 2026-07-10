@@ -1,8 +1,8 @@
 // 数独验证性能基准测试
 // 测试数独规则验证和求解算法的性能
 
-use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
-use world_rules::rules::core::Rule;
+use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use world_rules::rules::core::{Rule, ValidateContext};
 use world_rules::rules::games::{SudokuRules, SudokuVariantRules};
 
 /// 基准测试：标准数独验证性能
@@ -12,28 +12,32 @@ fn bench_sudoku_validate(c: &mut Criterion) {
 
     let rules = SudokuRules::new();
 
+    // 使用正确的 ValidateContext API
     // 一个有效的数独布局（字符串表示）
-    let valid_sudoku =
-        "530070000600195000098000060800060003400803001700020006060000280000419005000080079";
+    let valid_sudoku = ValidateContext::generic(
+        "530070000600195000098000060800060003400803001700020006060000280000419005000080079"
+    );
 
     group.bench_function("validate_standard", |b| {
-        b.iter(|| black_box(rules.validate(valid_sudoku)))
+        b.iter(|| black_box(rules.validate(&valid_sudoku)))
     });
 
     // 一个已完成的数独
-    let completed_sudoku =
-        "534678912672195348198342567859761423426853791713924856961537284287419635345286179";
+    let completed_sudoku = ValidateContext::generic(
+        "534678912672195348198342567859761423426853791713924856961537284287419635345286179"
+    );
 
     group.bench_function("validate_completed", |b| {
-        b.iter(|| black_box(rules.validate(completed_sudoku)))
+        b.iter(|| black_box(rules.validate(&completed_sudoku)))
     });
 
     // 一个部分填充的数独
-    let partial_sudoku =
-        "530070000600195000000000000000000000000000000000000000000000280000419005000080079";
+    let partial_sudoku = ValidateContext::generic(
+        "530070000600195000000000000000000000000000000000000000000000280000419005000080079"
+    );
 
     group.bench_function("validate_partial", |b| {
-        b.iter(|| black_box(rules.validate(partial_sudoku)))
+        b.iter(|| black_box(rules.validate(&partial_sudoku)))
     });
 
     group.finish();
@@ -47,15 +51,16 @@ fn bench_sudoku_variants(c: &mut Criterion) {
     let standard_rules = SudokuRules::new();
     let variant_rules = SudokuVariantRules::new();
 
-    let test_puzzle =
-        "530070000600195000098000060800060003400803001700020006060000280000419005000080079";
+    let test_puzzle = ValidateContext::generic(
+        "530070000600195000098000060800060003400803001700020006060000280000419005000080079"
+    );
 
     group.bench_function("standard_9x9", |b| {
-        b.iter(|| black_box(standard_rules.validate(test_puzzle)))
+        b.iter(|| black_box(standard_rules.validate(&test_puzzle)))
     });
 
     group.bench_function("variant_rules", |b| {
-        b.iter(|| black_box(variant_rules.validate(test_puzzle)))
+        b.iter(|| black_box(variant_rules.validate(&test_puzzle)))
     });
 
     group.finish();

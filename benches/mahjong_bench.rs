@@ -1,8 +1,8 @@
 // 麻将规则性能基准测试
 // 测试核心麻将算法的性能表现
 
-use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criterion};
-use world_rules::rules::core::Rule;
+use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use world_rules::rules::core::{Rule, ValidateContext};
 use world_rules::rules::games::mahjong::{Hand, Tile};
 use world_rules::rules::games::{RiichiMahjongRules, SichuanMahjongRules};
 
@@ -95,14 +95,15 @@ fn bench_mahjong_validate(c: &mut Criterion) {
     let sichuan_rules = SichuanMahjongRules::new();
     let riichi_rules = RiichiMahjongRules::new();
 
-    let test_hand = "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条";
+    // 使用正确的 ValidateContext API
+    let test_hand = ValidateContext::mahjong_tiles("1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条");
 
     group.bench_function("sichuan_validate", |b| {
-        b.iter(|| black_box(sichuan_rules.validate(test_hand)))
+        b.iter(|| black_box(sichuan_rules.validate(&test_hand)))
     });
 
     group.bench_function("riichi_validate", |b| {
-        b.iter(|| black_box(riichi_rules.validate(test_hand)))
+        b.iter(|| black_box(riichi_rules.validate(&test_hand)))
     });
 
     group.finish();
@@ -124,16 +125,16 @@ fn bench_mahjong_hand_operations(c: &mut Criterion) {
         })
     });
 
-    // 测试清空手牌
-    let mut hand = Hand::new();
-    for i in 1..=14 {
-        hand.add_tile(Tile::wan((i % 9) + 1));
-    }
+    // 测试创建新手牌（替代 clear）
+    let hand_template = Hand::from_tiles(vec![
+        Tile::wan(1), Tile::wan(2), Tile::wan(3), Tile::wan(4), Tile::wan(5),
+        Tile::wan(6), Tile::wan(7), Tile::wan(8), Tile::wan(9), Tile::tiao(1),
+        Tile::tiao(2), Tile::tiao(3), Tile::tong(5), Tile::tong(5),
+    ]);
 
-    group.bench_function("clear_hand", |b| {
+    group.bench_function("recreate_hand", |b| {
         b.iter(|| {
-            let mut h = hand.clone();
-            h.clear();
+            let h = hand_template.clone();
             black_box(h)
         })
     });
