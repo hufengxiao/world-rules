@@ -2,11 +2,11 @@
 gsd_state_version: '1.0'
 status: planning
 progress:
-  total_phases: 15
+  total_phases: 55
   completed_phases: 12
-  total_plans: 0
+  total_plans: 117
   completed_plans: 0
-  percent: 80
+  percent: 22
 ---
 
 # Project State
@@ -16,34 +16,32 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
-**Current focus:** Phase 13 - API 文档
+**Current focus:** Phase 13 - API 文档 - Core
 
 ## Current Position
 
-Phase: 13 of 15 (M3: API 文档)
-Plan: 0 of 0 in current phase
+Phase: 13 of 55 (API 文档 - Core)
+Plan: 0 of 117 in current phase
 Status: Ready to plan
-Last activity: 2026-07-10 — GSD Core installed, planning structure created
+Last activity: 2026-07-10 — ROADMAP 扩展完成，117 个任务待执行
 
-Progress: [████████░░] 80%
+Progress: [██░░░░░░░░] 22%
 
 ## Performance Metrics
 
 **Velocity:**
 - Total milestones completed: 12 (M1-M12)
-- Current milestone: v2.0.0 shipped
-- Next milestone: v2.1 API 文档 + 基准测试 + 属性测试
+- Current milestone: v2.1 质量提升
+- Remaining plans: 117 tasks
 
 **By Phase:**
 
-| Phase | Milestone | Status |
-|-------|-----------|--------|
-| M1 | 质量基线 | Complete |
-| M2 | CI/CD | Complete |
-| M3 | API 文档 | Not started |
-| M4 | 基准测试 | Not started |
-| M5 | 属性测试 | Not started |
-| M6-M12 | 功能特性 | Complete |
+| Phase | Status | Plans |
+|-------|--------|-------|
+| 13-17 | v2.1 质量提升 | 22 tasks |
+| 18-35 | v2.2 规则扩充 | 70 tasks |
+| 36-45 | v2.3 生态建设 | 15 tasks |
+| 46-55 | v3.0 平台化 | 10 tasks |
 
 ## Accumulated Context
 
@@ -53,13 +51,15 @@ Recent decisions affecting current work:
 
 - GSD Core v1.4.3 installed for Loop Engineering
 - Hermes cron job pattern validated via quick-translate
+- ROADMAP 扩展至 55 phases，117 tasks
 
 ### Pending Todos
 
-M3-M5 待完成:
-- M3: rustdoc 注释 + 模块文档 + doc test
-- M4: criterion 基准 + 回归检测 CI
-- M5: proptest 属性测试
+v2.1 待完成（22 tasks）:
+- Phase 13-17: API 文档 + 基准测试 + 属性测试
+
+v2.2 待完成（70 tasks）:
+- Phase 18-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
 
@@ -67,12 +67,10 @@ None.
 
 ## Deferred Items
 
-| Category | Item | Status | Deferred At |
-|----------|------|--------|-------------|
-| 规则扩充 | E1-E19 (1098→2000+) | Planned | v2.0.0 |
+None.
 
 ## Session Continuity
 
-Last session: 2026-07-10 17:33
-Stopped at: GSD Core installation complete, planning files created
+Last session: 2026-07-10 17:35
+Stopped at: ROADMAP 扩展完成，等待 cron 执行
 Resume file: None
