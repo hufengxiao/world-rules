@@ -7,8 +7,8 @@
 ## Milestones
 
 - ✅ **v2.0.0 基础功能** - Phases 1-12 (shipped 2026-06-24)
-- 🚧 **v2.1 质量提升** - Phases 13-15 (in progress)
-- 📋 **v2.2 规则扩充** - Phases 16-35 (planned)
+- ✅ **v2.1 质量提升** - Phases 13-17 (shipped 2026-07-10)
+- 🚧 **v2.2 规则扩充** - Phases 18-35 (in progress)
 - 📋 **v2.3 生态建设** - Phases 36-45 (planned)
 - 📋 **v3.0 平台化** - Phases 46-55 (planned)
 
@@ -107,7 +107,7 @@ Plans:
 - [x] 16-02: 添加基准结果存储
 - [x] 16-03: 添加性能对比脚本
 
-#### Phase 17: 属性测试框架
+#### Phase 17: 属性测试框架 ✅
 **Goal**: proptest 覆盖核心逻辑
 **Depends on**: Phase 16
 **Success Criteria**:
@@ -115,10 +115,10 @@ Plans:
   2. 核心算法无 panic
 
 Plans:
-- [ ] 17-01: 添加 proptest 依赖
-- [ ] 17-02: 创建 tests/proptest_mahjong.rs
-- [ ] 17-03: 创建 tests/proptest_poker.rs
-- [ ] 17-04: 创建 tests/proptest_sudoku.rs
+- [x] 17-01: 添加 proptest 依赖
+- [x] 17-02: 创建 tests/proptest_mahjong.rs
+- [x] 17-03: 创建 tests/proptest_poker.rs
+- [x] 17-04: 创建 tests/proptest_sudoku.rs
 
 ---
 
@@ -379,7 +379,7 @@ Plans:
 | 14 | v2.1 | 6/6 | Complete | 2026-07-10 |
 | 15 | v2.1 | 5/5 | Complete | 2026-07-10 |
 | 16 | v2.1 | 3/3 | Complete | 2026-07-10 |
-| 17 | v2.1 | 0/4 | Not started | - |
+| 17 | v2.1 | 4/4 | Complete | 2026-07-10 |
 | 18-35 | v2.2 | 0/70 | Planned | - |
 | 36-45 | v2.3 | 0/15 | Planned | - |
 | 46-55 | v3.0 | 0/10 | Planned | - |
