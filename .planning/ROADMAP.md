@@ -95,7 +95,7 @@ Plans:
 - [x] 15-04: 创建 sudoku_bench.rs
 - [x] 15-05: 验证 cargo bench 运行
 
-#### Phase 16: CI 基准回归
+#### Phase 16: CI 基准回归 ✅
 **Goal**: 集成基准回归检测
 **Depends on**: Phase 15
 **Success Criteria**:
@@ -103,9 +103,9 @@ Plans:
   2. 性能退化报警
 
 Plans:
-- [ ] 16-01: 创建 .github/workflows/bench.yml
-- [ ] 16-02: 添加基准结果存储
-- [ ] 16-03: 添加性能对比脚本
+- [x] 16-01: 创建 .github/workflows/bench.yml
+- [x] 16-02: 添加基准结果存储
+- [x] 16-03: 添加性能对比脚本
 
 #### Phase 17: 属性测试框架
 **Goal**: proptest 覆盖核心逻辑
@@ -378,7 +378,7 @@ Plans:
 | 13 | v2.1 | 4/4 | Complete | 2026-07-10 |
 | 14 | v2.1 | 6/6 | Complete | 2026-07-10 |
 | 15 | v2.1 | 5/5 | Complete | 2026-07-10 |
-| 16 | v2.1 | 0/3 | Not started | - |
+| 16 | v2.1 | 3/3 | Complete | 2026-07-10 |
 | 17 | v2.1 | 0/4 | Not started | - |
 | 18-35 | v2.2 | 0/70 | Planned | - |
 | 36-45 | v2.3 | 0/15 | Planned | - |
