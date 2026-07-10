@@ -5,7 +5,7 @@ progress:
   total_phases: 55
   completed_phases: 18
   total_plans: 117
-  completed_plans: 25
+  completed_plans: 26
   percent: 41
 ---
 
@@ -21,9 +21,9 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 ## Current Position
 
 Phase: 19 of 55 (E2 棋类与桌游扩充)
-Plan: 3 of 5 in current phase
-Status: Ready for task 19-03
-Last activity: 2026-07-11 — 完成 Phase 19-02（围棋变体规则）
+Plan: 4 of 5 in current phase
+Status: Ready for task 19-04
+Last activity: 2026-07-11 — 完成 Phase 19-03（其他棋类规则）
 
 Progress: [████░░░░] 41%
 
@@ -67,7 +67,10 @@ Progress: [████░░░░] 41%
   - 18-05: 测试和文档（tests/phase_18_rules.rs, docs/phase_18.md）
 
 进行中:
-- Phase 19: E2 棋类与桌游扩充 (+20 规则待添加)
+- Phase 19: E2 棋类与桌游扩充 (+20 规则，已完成15个)
+  - 19-01: 5种象棋变体（迷你象棋、四国象棋、暗棋、查图兰加、盲棋）✅
+  - 19-02: 5种围棋变体（9路盘、13路盘、盲围棋、一色围棋、联棋）✅
+  - 19-03: 5种其他棋类（朝鲜将棋、泰国象棋、斗兽棋、播棋、迷你将棋）✅
 
 ## Accumulated Context
 
@@ -82,6 +85,7 @@ Recent decisions affecting current work:
 - CI 基准回归 workflow 已创建
 - proptest 属性测试框架已集成
 - Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
+- Phase 19-03 完成，新增 5 种其他棋类规则（Janggi, Makruk, Jungle, Mancala, Mini Shogi）
 
 ### Pending Todos
 

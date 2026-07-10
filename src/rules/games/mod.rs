@@ -110,8 +110,12 @@ pub mod guandan;
 pub mod hearts;
 pub mod hearts_detailed;
 pub mod hive;
+pub mod janggi;
+pub mod jungle;
 pub mod klondike_solitaire;
 pub mod mafia;
+pub mod makruk;
+pub mod mancala;
 pub mod mahjong;
 pub mod mahjong_blood_battle;
 pub mod mahjong_cantonese_detailed;
@@ -131,6 +135,7 @@ pub mod mahjong_vietnamese;
 pub mod mahjong_wuhan_detailed;
 pub mod military_chess;
 pub mod mini_chess;
+pub mod mini_shogi;
 pub mod monopoly;
 pub mod mystery_card;
 pub mod niuniu;
@@ -239,8 +244,12 @@ pub use guandan::GuanDanRules;
 pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
 pub use hive::HiveRules;
+pub use janggi::JanggiRules;
+pub use jungle::JungleRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use mafia::MafiaRules;
+pub use makruk::MakrukRules;
+pub use mancala::MancalaRules;
 pub use mahjong::*;
 pub use mahjong_blood_battle::MahjongBloodBattleRules;
 pub use mahjong_cantonese_detailed::MahjongCantoneseDetailedRules;
@@ -260,6 +269,7 @@ pub use mahjong_vietnamese::MahjongVietnameseRules;
 pub use mahjong_wuhan_detailed::MahjongWuhanDetailedRules;
 pub use military_chess::MilitaryChessRules;
 pub use mini_chess::MiniChessRules;
+pub use mini_shogi::MiniShogiRules;
 pub use monopoly::MonopolyRules;
 pub use mystery_card::MysteryCardRules;
 pub use niuniu::NiuniuRules;
@@ -672,6 +682,26 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = ZhengzhouMahjongRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JanggiRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JungleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MakrukRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MancalaRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MiniShogiRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     rules
