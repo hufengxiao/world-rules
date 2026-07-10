@@ -5,8 +5,8 @@ progress:
   total_phases: 55
   completed_phases: 19
   total_plans: 116
-  completed_plans: 28
-  percent: 43
+  completed_plans: 29
+  percent: 45
 ---
 
 # Project State
@@ -21,28 +21,22 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 ## Current Position
 
 Phase: 20 of 55 (E3 麻将变体扩充)
-Plan: 1 of 4 complete in current phase
-Status: Ready for task 20-02
-Last activity: 2026-07-11 — 完成 Phase 20-01（5种中国麻将变体）
+Plan: 2 of 4 complete in current phase
+Status: Ready for task 20-03
+Last activity: 2026-07-11 — 完成 Phase 20-02（5种日本麻将变体）
 
-Progress: [████▌░░] 43%
+Progress: [████▌░░] 45%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 18 (M1-M18, Phase 20-01 完成)
+- Total milestones completed: 18 (M1-M18, Phase 20-02 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 88 tasks
+- Remaining plans: 87 tasks
 
 **By Phase:**
 
-|| Phase | Status | Plans ||
-||-------|--------|-------|
-|| 13-19 | v2.2 Phase 19 | COMPLETE ✅ ||
-|| 20 | v2.2 规则扩充 | 1/4 tasks ||
-|| 21-35 | v2.2 规则扩充 | 62 tasks ||
-|| 36-45 | v2.3 生态建设 | 15 tasks ||
-|| 46-55 | v3.0 平台化 | 10 tasks ||
+||| Phase | Status | Plans ||||---|--------|-------||| 13-19 | v2.2 Phase 19 | COMPLETE ✅ ||| 20 | v2.2 规则扩充 | 2/4 tasks ||| 21-35 | v2.2 规则扩充 | 62 tasks ||| 36-45 | v2.3 生态建设 | 15 tasks ||| 46-55 | v3.0 平台化 | 10 tasks ||
 
 ## Milestone Summary
 
@@ -76,13 +70,13 @@ Progress: [████▌░░] 43%
 
 - Phase 20: E3 麻将变体扩充 (进行中)
   - 20-01: 5种中国麻将变体（湖南、河北、山西、宁夏、内蒙古）✅
-  - 20-02: 5种日本麻将变体
+  - 20-02: 5种日本麻将变体（竞技立直、和志、三人、关西、开放立直）✅
   - 20-03: 5种其他麻将变体
   - 20-04: 测试和文档
 
 进行中:
 - Phase 20: E3 麻将变体扩充 (+15 规则)
-  - 下一步: 20-02 添加 5 种日本麻将变体
+  - 下一步: 20-03 添加 5 种其他麻将变体
 
 ## Accumulated Context
 
@@ -99,11 +93,12 @@ Recent decisions affecting current work:
 - Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
 - Phase 19 完成，新增 20 种棋类/桌游规则 + 53 测试用例
 - Phase 20-01 完成，新增 5 种中国麻将变体 + 24 测试用例
+- Phase 20-02 完成，新增 5 种日本麻将变体 + 30 测试用例
 
 ### Pending Todos
 
-v2.2 待完成（88 tasks）:
-- Phase 20: E3 麻将变体扩充 (剩余 3 tasks)
+v2.2 待完成（87 tasks）:
+- Phase 20: E3 麻将变体扩充 (剩余 2 tasks)
 - Phase 21-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
@@ -116,6 +111,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-07-11 04:15
-Stopped at: v2.2 Phase 20-01 完成
+Last session: 2026-07-11 05:15
+Stopped at: v2.2 Phase 20-02 完成
 Resume file: None
