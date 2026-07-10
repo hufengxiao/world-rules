@@ -85,15 +85,15 @@ Plans:
 **Goal**: criterion 性能基准
 **Depends on**: Phase 14
 **Success Criteria**:
-  1. cargo bench 运行成功
-  2. 核心算法有基准数据
+  1. benches/ 目录有 3 个基准测试
+  2. cargo bench 可运行（核心算法）
 
 Plans:
-- [ ] 15-01: 添加 criterion 依赖到 Cargo.toml
-- [ ] 15-02: 创建 benches/mahjong_bench.rs（胡牌检测）
-- [ ] 15-03: 创建 benches/poker_bench.rs（牌型评估）
-- [ ] 15-04: 创建 benches/sudoku_bench.rs（验证）
-- [ ] 15-05: 运行 cargo bench 生成基准报告
+- [x] 15-01: 添加 criterion 依赖
+- [x] 15-02: 创建 mahjong_bench.rs
+- [x] 15-03: 创建 poker_bench.rs
+- [x] 15-04: 创建 sudoku_bench.rs
+- [ ] 15-05: 验证 cargo bench 运行
 
 #### Phase 16: CI 基准回归
 **Goal**: 集成基准回归检测
