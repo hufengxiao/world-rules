@@ -16,8 +16,9 @@ pub use variants::{
     AnhuiMahjongRules, BeijingMahjongRules, ChangshaMahjongRules, ChaoshanMahjongRules,
     ChongqingMahjongRules, DongbeiMahjongRules, FuzhouMahjongRules, GuangdongMahjongRules,
     GuangxiMahjongRules, GuiyangMahjongRules, HainanMahjongRules, HangzhouMahjongRules,
-    KejiaMahjongRules, KunmingMahjongRules, NanchangMahjongRules, NanjingMahjongRules,
-    ShanghaiMahjongRules, SichuanDetailedMahjongRules, SuzhouMahjongRules, TaiwanMahjongRules,
-    TianjinMahjongRules, WuhanMahjongRules, XianMahjongRules, XinjiangMahjongRules,
-    ZhengzhouMahjongRules,
+    HebeiMahjongRules, HunanMahjongRules, InnerMongoliaMahjongRules, KejiaMahjongRules,
+    KunmingMahjongRules, NanchangMahjongRules, NanjingMahjongRules, NingxiaMahjongRules,
+    ShanghaiMahjongRules, ShanxiMahjongRules, SichuanDetailedMahjongRules, SuzhouMahjongRules,
+    TaiwanMahjongRules, TianjinMahjongRules, WuhanMahjongRules, XianMahjongRules,
+    XinjiangMahjongRules, ZhengzhouMahjongRules,
 };
