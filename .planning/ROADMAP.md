@@ -64,7 +64,7 @@ Plans:
 - [x] 13-01: 为 src/rules/core.rs 添加 rustdoc（Rule trait, simple_rule! 宏）
 - [x] 13-02: 为 src/bin/wr.rs 添加 rustdoc（CLI 命令）
 - [x] 13-03: 为 src/plugins/mod.rs 添加 rustdoc（插件系统）
-- [ ] 13-04: 运行 cargo doc 验证无警告
+- [x] 13-04: 运行 cargo doc 验证无警告
 
 #### Phase 14: API 文档 - 分类模块
 **Goal**: 为各分类添加模块级文档
@@ -375,7 +375,7 @@ Plans:
 | Phase | Milestone | Plans Complete | Status | Completed |
 |-------|-----------|----------------|--------|-----------|
 | 1-12 | v2.0 | - | Complete | 2026-06-24 |
-| 13 | v2.1 | 0/4 | Not started | - |
+| 13 | v2.1 | 4/4 | Complete | 2026-07-10 |
 | 14 | v2.1 | 0/6 | Not started | - |
 | 15 | v2.1 | 0/5 | Not started | - |
 | 16 | v2.1 | 0/3 | Not started | - |
