@@ -70,9 +70,11 @@ pub mod bridge_imp;
 pub mod bridge_minibridge;
 pub mod bridge_rubber;
 pub mod canasta;
+pub mod canfield;
 pub mod caribbean_stud;
 pub mod card_game_generic;
 pub mod card_games;
+pub mod cassino;
 pub mod catan;
 pub mod checkers;
 pub mod chess960;
@@ -92,6 +94,7 @@ pub mod doudizhu;
 pub mod euchre;
 pub mod euchre_detailed;
 pub mod four_player_mahjong;
+pub mod gin_rummy;
 pub mod go_detailed;
 pub mod go_fish;
 pub mod gomoku_detailed;
@@ -100,6 +103,7 @@ pub mod guandan;
 pub mod hearts;
 pub mod hearts_detailed;
 pub mod hive;
+pub mod klondike_solitaire;
 pub mod mafia;
 pub mod mahjong;
 pub mod mahjong_blood_battle;
@@ -129,6 +133,7 @@ pub mod pandemic;
 pub mod pao_de_kuai;
 pub mod party_game;
 pub mod pinochle;
+pub mod pyramid_solitaire;
 pub mod poker_chinese;
 pub mod poker_five_card;
 pub mod poker_omaha;
@@ -185,8 +190,10 @@ pub use bridge_imp::BridgeImpRules;
 pub use bridge_minibridge::BridgeMinibridgeRules;
 pub use bridge_rubber::BridgeRubberRules;
 pub use canasta::CanastaRules;
+pub use canfield::CanfieldRules;
 pub use caribbean_stud::CaribbeanStudRules;
 pub use card_game_generic::CardGameGenericRules;
+pub use cassino::CassinoRules;
 pub use catan::CatanRules;
 pub use checkers::CheckersRules;
 pub use chess960::Chess960Rules;
@@ -206,6 +213,7 @@ pub use doudizhu::DouDiZhuRules;
 pub use euchre::EuchreRules;
 pub use euchre_detailed::EuchreDetailedRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
+pub use gin_rummy::GinRummyRules;
 pub use go_detailed::GoDetailedRules;
 pub use go_fish::GoFishRules;
 pub use gomoku_detailed::GomokuDetailedRules;
@@ -214,6 +222,7 @@ pub use guandan::GuanDanRules;
 pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
 pub use hive::HiveRules;
+pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use mafia::MafiaRules;
 pub use mahjong::*;
 pub use mahjong_blood_battle::MahjongBloodBattleRules;
@@ -244,6 +253,7 @@ pub use pao_de_kuai::PaoDeKuaiRules;
 pub use party_game::PartyGameRules;
 pub use pictionary::PictionaryRules;
 pub use pinochle::PinochleRules;
+pub use pyramid_solitaire::PyramidSolitaireRules;
 pub use poker_chinese::PokerChineseRules;
 pub use poker_five_card::PokerFiveCardRules;
 pub use poker_omaha::PokerOmahaRules;
@@ -345,6 +355,14 @@ pub fn all_rules() -> Vec<(
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
+        let r = CanfieldRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CassinoRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
         let r = CatanRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
@@ -433,6 +451,10 @@ pub fn all_rules() -> Vec<(
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
+        let r = GinRummyRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
         let r = GuangdongMahjongRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
@@ -477,6 +499,10 @@ pub fn all_rules() -> Vec<(
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
+        let r = KlondikeSolitaireRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
         let r = MonopolyRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
@@ -506,6 +532,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = PictionaryRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PyramidSolitaireRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
