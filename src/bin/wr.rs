@@ -1,17 +1,93 @@
 //! World Rules CLI - 世界规则库命令行工具
 //!
-//! 用法:
-//!   wr list [--category <cat>] [--search <query>]
-//!   wr show <name>
-//!   wr stats
-//!   wr validate mahjong <tiles>
-//!   wr validate poker <cards>
+//! 提供规则查询、验证和导出功能的命令行接口。
+//!
+//! # 命令概览
+//!
+//! - `list`: 列出所有规则或按条件过滤
+//! - `show`: 显示规则详情
+//! - `stats`: 显示统计信息
+//! - `validate`: 验证游戏状态（麻将、扑克、斗地主、象棋、数独）
+//! - `export`: 导出规则到 JSON/HTML/Markdown
+//! - `web`: 生成交互式 HTML 页面
+//!
+//! # 使用示例
+//!
+//! ```bash
+//! # 列出所有规则
+//! wr list
+//!
+//! # 按分类过滤
+//! wr list --category games
+//!
+//! # 搜索规则
+//! wr list --search 麻将
+//!
+//! # 显示规则详情
+//! wr show 围棋
+//!
+//! # 验证麻将胡牌
+//! wr validate mahjong "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条"
+//!
+//! # 验证扑克牌型
+//! wr validate poker "Ah Kd Qs Jc 10h"
+//!
+//! # 验证斗地主牌型
+//! wr validate doudizhu "3s 3s 3s 4h 4h 4h"
+//!
+//! # 导出为 JSON
+//! wr export json > rules.json
+//! ```
+//!
+//! # 支持的游戏验证
+//!
+//! ## 麻将
+//! - 牌面格式: `1万 2万 3万 ... 东 南 西 北 中 发 白`
+//! - 支持胡牌检测和听牌分析
+//!
+//! ## 扑克
+//! - 牌面格式: `Ah Kd Qs Jc 10h`（花色: h红心 d方块 s黑桃 c梅花）
+//! - 支持德州扑克牌型评估
+//!
+//! ## 斗地主
+//! - 牌面格式: `3s 4h 10d Jc 2s X D`（X小王 D大王）
+//! - 支持牌型识别
+//!
+//! ## 象棋
+//! - 命令: `wr validate chess <棋子> <起点> <终点>`
+//! - 支持走法合法性验证
+//!
+//! ## 数独
+//! - 命令: `wr validate sudoku <81位数字或.>`
+//! - 支持网格合法性验证
 
 use std::env;
 use world_rules::rules::core::{RuleCategory, RuleMetadata};
 use world_rules::rules::games::mahjong::Hand;
 
 /// JSON 输出结构
+///
+/// 用于将规则信息序列化为 JSON 格式输出。
+///
+/// # Fields
+///
+/// - `name`: 规则名称
+/// - `category`: 规则分类（如 "games/mahjong"）
+/// - `origin`: 规则来源/地区
+/// - `type_name`: 分类显示名称（如 "🎮 游戏规则"）
+/// - `version`: 规则版本
+/// - `tags`: 规则标签列表
+/// - `description`: 规则简短描述
+/// - `explain`: 规则详细说明
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// use world_rules::rules::core::RuleMetadata;
+///
+/// let meta = RuleMetadata::new("四川麻将", "血战到底规则");
+/// // 创建 RuleJson 实例用于 JSON 输出
+/// ```
 #[derive(serde::Serialize)]
 struct RuleJson {
     name: String,
@@ -25,6 +101,22 @@ struct RuleJson {
     explain: String,
 }
 
+/// 将规则元数据转换为简化 JSON 结构
+///
+/// # Parameters
+///
+/// - `cat`: 分类字符串（如 "games"）
+/// - `meta`: 规则元数据
+/// - `explain`: 规则详细说明
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// use world_rules::rules::core::RuleMetadata;
+///
+/// let meta = RuleMetadata::new("围棋", "围棋游戏规则");
+/// // let json = to_rule_json("games", &meta, "详细说明...");
+/// ```
 fn to_rule_json(cat: &str, meta: &RuleMetadata, explain: &str) -> RuleJson {
     RuleJson {
         name: meta.name.clone(),
@@ -38,6 +130,24 @@ fn to_rule_json(cat: &str, meta: &RuleMetadata, explain: &str) -> RuleJson {
     }
 }
 
+/// 将 RuleCategory 枚举转换为路径字符串
+///
+/// # Parameters
+///
+/// - `cat`: 规则分类枚举
+///
+/// # Returns
+///
+/// 返回分类路径字符串，如 "games/mahjong"、"sports/football"。
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// use world_rules::rules::core::RuleCategory;
+///
+/// let cat = RuleCategory::Games("mahjong".to_string());
+/// // let path = rule_cat_str(&cat); // "games/mahjong"
+/// ```
 fn rule_cat_str(cat: &RuleCategory) -> String {
     match cat {
         RuleCategory::Games(n) => format!("games/{}", n),
@@ -50,6 +160,24 @@ fn rule_cat_str(cat: &RuleCategory) -> String {
     }
 }
 
+/// 获取规则分类的显示类型名称
+///
+/// # Parameters
+///
+/// - `cat`: 规则分类枚举
+///
+/// # Returns
+///
+/// 返回带 emoji 的分类显示名称，如 "🎮 游戏规则"、"🏃 体育规则"。
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// use world_rules::rules::core::RuleCategory;
+///
+/// let cat = RuleCategory::Games("mahjong".to_string());
+/// // let name = rule_cat_type(&cat); // "🎮 游戏规则"
+/// ```
 fn rule_cat_type(cat: &RuleCategory) -> &'static str {
     match cat {
         RuleCategory::Games(_) => "🎮 游戏规则",
@@ -62,6 +190,27 @@ fn rule_cat_type(cat: &RuleCategory) -> &'static str {
     }
 }
 
+/// 将规则转换为完整 JSON 结构（包含分类路径）
+///
+/// # Parameters
+///
+/// - `cat`: 规则分类枚举
+/// - `meta`: 规则元数据
+/// - `explain`: 规则详细说明
+///
+/// # Returns
+///
+/// 返回包含完整分类信息的 JSON 结构。
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// use world_rules::rules::core::{RuleCategory, RuleMetadata};
+///
+/// let cat = RuleCategory::Games("mahjong".to_string());
+/// let meta = RuleMetadata::new("四川麻将", "血战到底");
+/// // let json = rule_to_json(&cat, &meta, "详细说明...");
+/// ```
 fn rule_to_json(cat: &RuleCategory, meta: &RuleMetadata, explain: &str) -> RuleJson {
     RuleJson {
         name: meta.name.clone(),
@@ -133,6 +282,27 @@ fn print_usage() {
     );
 }
 
+/// 解析命令行参数中的 flag 值
+///
+/// # Parameters
+///
+/// - `args`: 命令行参数切片
+/// - `flag`: 要查找的 flag 名称（如 "--category"）
+///
+/// # Returns
+///
+/// 如果找到 flag 且其后有参数，返回该参数值；否则返回 `None`。
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// let args = vec![
+///     String::from("--category"),
+///     String::from("games"),
+/// ];
+/// let category = parse_flag(&args, "--category"); // Some("games")
+/// let missing = parse_flag(&args, "--search"); // None
+/// ```
 fn parse_flag(args: &[String], flag: &str) -> Option<String> {
     for i in 0..args.len() {
         if args[i] == flag && i + 1 < args.len() {
@@ -142,6 +312,24 @@ fn parse_flag(args: &[String], flag: &str) -> Option<String> {
     None
 }
 
+/// 收集所有规则到统一列表
+///
+/// 从各个分类模块收集所有规则，返回包含元数据、分类和说明的元组列表。
+///
+/// # Returns
+///
+/// 返回 `Vec<(&str, RuleMetadata, RuleCategory, String)>`，其中：
+/// - 第一个元素是分类字符串（如 "games"）
+/// - 第二个元素是规则元数据
+/// - 第三个元素是规则分类枚举
+/// - 第四个元素是规则详细说明
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// let all_rules = collect_all_rules();
+/// println!("共有 {} 条规则", all_rules.len());
+/// ```
 fn collect_all_rules() -> Vec<(&'static str, RuleMetadata, RuleCategory, String)> {
     let mut rules = Vec::new();
     rules.extend(world_rules::rules::games::all_rules());
@@ -153,6 +341,22 @@ fn collect_all_rules() -> Vec<(&'static str, RuleMetadata, RuleCategory, String)
     rules
 }
 
+/// 获取分类的中文显示名称
+///
+/// # Parameters
+///
+/// - `cat`: 分类字符串（如 "games"）
+///
+/// # Returns
+///
+/// 返回带 emoji 的分类显示名称。
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// let name = cat_name("games"); // "🎮 游戏规则"
+/// let name = cat_name("sports"); // "🏃 体育规则"
+/// ```
 fn cat_name(cat: &str) -> &'static str {
     match cat {
         "games" => "🎮 游戏规则",
@@ -165,6 +369,36 @@ fn cat_name(cat: &str) -> &'static str {
     }
 }
 
+/// 执行 list 命令 - 列出所有规则
+///
+/// 支持按分类、关键词和标签过滤规则列表。
+///
+/// # Parameters
+///
+/// - `args`: 命令行参数，支持以下 flags：
+///   - `--category <分类>`: 按分类过滤（如 games、sports）
+///   - `--search <关键词>`: 搜索名称或描述
+///   - `--tag <标签>`: 按标签过滤
+///   - `--json`: 输出 JSON 格式
+///
+/// # Examples
+///
+/// ```bash
+/// # 列出所有规则
+/// wr list
+///
+/// # 按分类过滤
+/// wr list --category games
+///
+/// # 搜索关键词
+/// wr list --search 麻将
+///
+/// # 按标签过滤
+/// wr list --tag 扑克
+///
+/// # JSON 输出
+/// wr list --json
+/// ```
 fn cmd_list(args: &[String]) {
     let category = parse_flag(args, "--category");
     let search = parse_flag(args, "--search");
@@ -232,6 +466,34 @@ fn cmd_list(args: &[String]) {
     println!("\n共 {} 条规则", filtered.len());
 }
 
+/// 执行 show 命令 - 显示规则详情
+///
+/// 显示指定规则的完整信息，包括名称、分类、版本、来源、标签和详细说明。
+///
+/// # Parameters
+///
+/// - `args`: 命令行参数
+///   - 第一个参数: 规则名称（支持模糊匹配）
+///   - `--json`: 输出 JSON 格式
+///
+/// # Matching Strategy
+///
+/// 1. 精确匹配（忽略后缀"规则"）
+/// 2. 前缀匹配
+/// 3. 模糊匹配（名称或描述包含关键词）
+///
+/// # Examples
+///
+/// ```bash
+/// # 精确查询
+/// wr show 围棋
+///
+/// # 别名查询
+/// wr explain 德州扑克
+///
+/// # JSON 输出
+/// wr show 麻将 --json
+/// ```
 fn cmd_show(args: &[String]) {
     let json = args.iter().any(|a| a == "--json");
     let args: Vec<&String> = args.iter().filter(|a| a.as_str() != "--json").collect();
@@ -338,6 +600,29 @@ fn cmd_show(args: &[String]) {
     println!("└{}┘", "─".repeat(width));
 }
 
+/// 执行 export 命令 - 导出规则数据
+///
+/// 将所有规则导出到指定格式文件。
+///
+/// # Parameters
+///
+/// - `args`: 导出格式参数
+///   - `json`: 导出为 JSON 格式
+///   - `html` / `web`: 导出为交互式 HTML
+///   - `md` / `markdown`: 导出为 Markdown 文档
+///
+/// # Examples
+///
+/// ```bash
+/// # 导出 JSON
+/// wr export json > rules.json
+///
+/// # 导出 HTML
+/// wr export html
+///
+/// # 导出 Markdown
+/// wr export md > rules.md
+/// ```
 fn cmd_export(args: &[String]) {
     let format = if args.is_empty() { "json" } else { &args[0] };
     let all = collect_all_rules();
@@ -560,6 +845,26 @@ fn cmd_count() {
     println!("}}");
 }
 
+/// 执行 stats 命令 - 显示统计信息
+///
+/// 显示规则库的总体统计，包括各分类规则数量和版本信息。
+///
+/// # Examples
+///
+/// ```bash
+/// wr stats
+/// ```
+///
+/// 输出示例：
+/// ```
+/// ╔═══════════════════════════════════════╗
+/// ║        世界规则库 - 统计信息          ║
+/// ╠═══════════════════════════════════════╣
+/// ║ 🎮 游戏规则  120 ████████████
+/// ║ 🏃 体育规则   80 ████████
+/// ║ ...
+/// ╚═══════════════════════════════════════╝
+/// ```
 fn cmd_stats() {
     let all = collect_all_rules();
     let mut counts: std::collections::HashMap<&str, usize> = std::collections::HashMap::new();
@@ -588,6 +893,36 @@ fn cmd_stats() {
     println!("╚═══════════════════════════════════════╝");
 }
 
+/// 执行 validate 命令 - 验证游戏状态
+///
+/// 根据游戏类型验证牌面或走法的合法性。
+///
+/// # Supported Games
+///
+/// - `mahjong` / `mj` / `麻将`: 麻将胡牌验证
+/// - `poker` / `德州`: 德州扑克牌型评估
+/// - `doudizhu` / `ddz` / `斗地主`: 斗地主牌型识别
+/// - `chess` / `象棋`: 中国象棋走法验证
+/// - `sudoku` / `数独`: 数独网格验证
+///
+/// # Examples
+///
+/// ```bash
+/// # 验证麻将胡牌
+/// wr validate mahjong "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条"
+///
+/// # 验证扑克牌型
+/// wr validate poker "Ah Kd Qs Jc 10h"
+///
+/// # 验证斗地主
+/// wr validate doudizhu "3s 3s 3s 4h 4h 4h"
+///
+/// # 验证象棋走法
+/// wr validate chess 车 0,0 0,5
+///
+/// # 验证数独
+/// wr validate sudoku "53..7....6..195....98....6.8...6..."
+/// ```
 fn cmd_validate(args: &[String]) {
     if args.len() < 2 {
         eprintln!("用法: wr validate <游戏类型> <牌面>");
@@ -607,6 +942,28 @@ fn cmd_validate(args: &[String]) {
     }
 }
 
+/// 验证麻将胡牌
+///
+/// 解析麻将牌面并判断是否可以胡牌，同时显示听牌信息。
+///
+/// # Parameters
+///
+/// - `tiles_str`: 麻将牌面字符串，用空格分隔
+///   - 万子: 1万 2万 ... 9万
+///   - 条子: 1条 2条 ... 9条
+///   - 筒子: 1筒 2筒 ... 9筒（或 1饼 2饼）
+///   - 风牌: 东 南 西 北
+///   - 番牌: 中 发 白
+///
+/// # Examples
+///
+/// ```bash
+/// # 胡牌验证（14张）
+/// wr validate mahjong "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条"
+///
+/// # 听牌查询（13张）
+/// wr validate mahjong "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条"
+/// ```
 fn cmd_validate_mahjong(tiles_str: &str) {
     let tiles = match parse_mahjong_tiles(tiles_str) {
         Ok(t) => t,
@@ -672,6 +1029,27 @@ fn cmd_validate_mahjong(tiles_str: &str) {
     }
 }
 
+/// 解析麻将牌面字符串
+///
+/// # Parameters
+///
+/// - `s`: 麻将牌面字符串，用空格分隔每张牌
+///
+/// # Returns
+///
+/// 成功返回 `Vec<Tile>`，失败返回错误信息。
+///
+/// # Supported Formats
+///
+/// - 数字+花色: `1万`、`2条`、`3筒`（或 `3饼`）
+/// - 风牌: `东`、`南`、`西`、`北`
+/// - 番牌: `中`、`发`、`白`
+///
+/// # Errors
+///
+/// - 无效数字
+/// - 无效花色
+/// - 格式错误
 fn parse_mahjong_tiles(s: &str) -> Result<Vec<world_rules::rules::games::mahjong::Tile>, String> {
     let mut tiles = Vec::new();
     for part in s.split_whitespace() {
@@ -681,6 +1059,22 @@ fn parse_mahjong_tiles(s: &str) -> Result<Vec<world_rules::rules::games::mahjong
     Ok(tiles)
 }
 
+/// 解析单张麻将牌
+///
+/// # Parameters
+///
+/// - `s`: 单张牌的字符串表示
+///
+/// # Returns
+///
+/// 成功返回 `Tile`，失败返回错误信息。
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// // let tile = parse_single_tile("1万"); // Tile::Wan(1)
+/// // let tile = parse_single_tile("东"); // Tile::Feng(Wind::Dong)
+/// ```
 fn parse_single_tile(s: &str) -> Result<world_rules::rules::games::mahjong::Tile, String> {
     use world_rules::rules::games::mahjong::{Dragon, Tile, Wind};
 
@@ -711,6 +1105,28 @@ fn parse_single_tile(s: &str) -> Result<world_rules::rules::games::mahjong::Tile
     }
 }
 
+/// 验证扑克牌型
+///
+/// 解析扑克牌面并评估牌型等级。
+///
+/// # Parameters
+///
+/// - `cards_str`: 扑克牌面字符串，用空格分隔
+///   - 点数: A、K、Q、J、10、9、8、7、6、5、4、3、2
+///   - 花色: h（红心♥）、d（方块♦）、s（黑桃♠）、c（梅花♣）
+///
+/// # Examples
+///
+/// ```bash
+/// # 同花顺
+/// wr validate poker "Ah Kh Qh Jh 10h"
+///
+/// # 皇家同花顺
+/// wr validate poker "As Ks Qs Js 10s"
+///
+/// # 两对
+/// wr validate poker "Ah Ad Ks Kh 2c"
+/// ```
 fn cmd_validate_poker(cards_str: &str) {
     use world_rules::rules::games::card_games::poker::TexasHoldemRules;
 
@@ -742,6 +1158,29 @@ fn cmd_validate_poker(cards_str: &str) {
     }
 }
 
+/// 验证斗地主牌型
+///
+/// 解析斗地主牌面并识别牌型。
+///
+/// # Parameters
+///
+/// - `cards_str`: 斗地主牌面字符串，用空格分隔
+///   - 点数: 3、4、5、6、7、8、9、10、J、Q、K、A、2
+///   - 花色: s（黑桃）、h（红心）、d（方块）、c（梅花）
+///   - 王牌: X（小王）、D（大王）
+///
+/// # Examples
+///
+/// ```bash
+/// # 三张带一对（炸弹）
+/// wr validate doudizhu "3s 3s 3s 4h 4h 4h"
+///
+/// # 火箭（双王）
+/// wr validate doudizhu "X D"
+///
+/// # 顺子
+/// wr validate doudizhu "3s 4h 5d 6c 7s"
+/// ```
 fn cmd_validate_doudizhu(cards_str: &str) {
     use world_rules::rules::games::doudizhu::{recognize_pattern, DdzCard};
 
@@ -776,6 +1215,22 @@ fn cmd_validate_doudizhu(cards_str: &str) {
     }
 }
 
+/// 验证数独网格
+///
+/// 验证数独网格是否符合规则（无冲突）。
+///
+/// # Parameters
+///
+/// - `grid_str`: 数独网格字符串（81个字符）
+///   - 数字 1-9 表示已填
+///   - `.` 表示空格
+///
+/// # Examples
+///
+/// ```bash
+/// # 验证部分填写的数独
+/// wr validate sudoku "53..7....6..195....98....6.8...6...34..8.3..17...2...6.6....28."
+/// ```
 fn cmd_validate_sudoku(grid_str: &str) {
     use world_rules::rules::core::ValidateContext;
     use world_rules::rules::games::sudoku::SudokuRules;
@@ -801,6 +1256,28 @@ fn cmd_validate_sudoku(grid_str: &str) {
     }
 }
 
+/// 验证象棋走法
+///
+/// 验证中国象棋走法的合法性。
+///
+/// # Parameters
+///
+/// - `args`: 包含棋子、起点和终点的参数数组
+///   - 棋子: 车、马、象（相）、士（仕）、将（帅）、炮、兵（卒）
+///   - 起点/终点: 坐标格式（如 0,0）
+///
+/// # Examples
+///
+/// ```bash
+/// # 验证车从 (0,0) 走到 (0,5)
+/// wr validate chess 车 0,0 0,5
+///
+/// # 验证马从 (2,1) 走到 (4,2)
+/// wr validate chess 马 2,1 4,2
+///
+/// # 使用英文名称
+/// wr validate chess Rook 0,0 0,5
+/// ```
 fn cmd_validate_chess(args: &[String]) {
     use world_rules::prelude::Rule;
     use world_rules::rules::core::ValidateContext;
@@ -830,6 +1307,26 @@ fn cmd_validate_chess(args: &[String]) {
     }
 }
 
+/// 解析扑克牌面字符串
+///
+/// # Parameters
+///
+/// - `s`: 扑克牌面字符串，用空格分隔每张牌
+///
+/// # Returns
+///
+/// 成功返回 `Vec<Card>`，失败返回错误信息。
+///
+/// # Supported Formats
+///
+/// - 点数+花色: `Ah`、`Kd`、`Qs`、`Jc`、`10h`
+/// - 支持 Unicode 花色符号: `A♥`、`K♦`
+///
+/// # Errors
+///
+/// - 无效点数
+/// - 无效花色
+/// - 格式错误
 fn parse_poker_cards(s: &str) -> Result<Vec<world_rules::rules::games::card_games::Card>, String> {
     let mut cards = Vec::new();
     for part in s.split_whitespace() {
@@ -839,6 +1336,22 @@ fn parse_poker_cards(s: &str) -> Result<Vec<world_rules::rules::games::card_game
     Ok(cards)
 }
 
+/// 解析单张扑克牌
+///
+/// # Parameters
+///
+/// - `s`: 单张牌的字符串表示（如 `Ah`、`10h`）
+///
+/// # Returns
+///
+/// 成功返回 `Card`，失败返回错误信息。
+///
+/// # Examples
+///
+/// ```rust,no_run
+/// // let card = parse_single_card("Ah"); // Card { suit: Heart, rank: Ace }
+/// // let card = parse_single_card("10s"); // Card { suit: Spade, rank: Ten }
+/// ```
 fn parse_single_card(s: &str) -> Result<world_rules::rules::games::card_games::Card, String> {
     use world_rules::rules::games::card_games::{Card, Rank, Suit};
 
