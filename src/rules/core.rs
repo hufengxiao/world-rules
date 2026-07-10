@@ -36,30 +36,94 @@ pub enum RuleCategory {
 }
 
 impl RuleCategory {
+    /// 创建游戏分类
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleCategory;
+    ///
+    /// let cat = RuleCategory::games("mahjong");
+    /// assert!(matches!(cat, RuleCategory::Games(_)));
+    /// ```
     pub fn games(name: impl Into<String>) -> Self {
         Self::Games(name.into())
     }
 
+    /// 创建体育分类
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleCategory;
+    ///
+    /// let cat = RuleCategory::sports("football");
+    /// assert!(matches!(cat, RuleCategory::Sports(_)));
+    /// ```
     pub fn sports(name: impl Into<String>) -> Self {
         Self::Sports(name.into())
     }
 
+    /// 创建社交礼仪分类
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleCategory;
+    ///
+    /// let cat = RuleCategory::social("dining");
+    /// assert!(matches!(cat, RuleCategory::Social(_)));
+    /// ```
     pub fn social(name: impl Into<String>) -> Self {
         Self::Social(name.into())
     }
 
+    /// 创建科学分类
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleCategory;
+    ///
+    /// let cat = RuleCategory::science("physics");
+    /// assert!(matches!(cat, RuleCategory::Science(_)));
+    /// ```
     pub fn science(name: impl Into<String>) -> Self {
         Self::Science(name.into())
     }
 
+    /// 创建法律分类
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleCategory;
+    ///
+    /// let cat = RuleCategory::law("contract");
+    /// assert!(matches!(cat, RuleCategory::Law(_)));
+    /// ```
     pub fn law(name: impl Into<String>) -> Self {
         Self::Law(name.into())
     }
 
+    /// 创建健康分类
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleCategory;
+    ///
+    /// let cat = RuleCategory::health("nutrition");
+    /// assert!(matches!(cat, RuleCategory::Health(_)));
+    /// ```
     pub fn health(name: impl Into<String>) -> Self {
         Self::Health(name.into())
     }
 
+    /// 创建自定义分类
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleCategory;
+    ///
+    /// let cat = RuleCategory::custom("custom", "my_rule");
+    /// assert!(matches!(cat, RuleCategory::Custom(_)));
+    /// assert_eq!(cat.to_string(), "Custom/custom/my_rule");
+    /// ```
     pub fn custom(category: impl Into<String>, name: impl Into<String>) -> Self {
         Self::Custom(format!("{}/{}", category.into(), name.into()))
     }
@@ -108,6 +172,16 @@ pub struct RuleMetadata {
 }
 
 impl RuleMetadata {
+    /// 创建规则元数据
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleMetadata;
+    ///
+    /// let meta = RuleMetadata::new("四川麻将", "血战到底规则");
+    /// assert_eq!(meta.name, "四川麻将");
+    /// assert_eq!(meta.description, "血战到底规则");
+    /// ```
     pub fn new(name: impl Into<String>, description: impl Into<String>) -> Self {
         Self {
             name: name.into(),
@@ -118,16 +192,44 @@ impl RuleMetadata {
         }
     }
 
+    /// 设置规则版本
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleMetadata;
+    ///
+    /// let meta = RuleMetadata::new("规则", "描述").with_version("2.0.0");
+    /// assert_eq!(meta.version, "2.0.0");
+    /// ```
     pub fn with_version(mut self, version: impl Into<String>) -> Self {
         self.version = version.into();
         self
     }
 
+    /// 设置规则来源/地区
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleMetadata;
+    ///
+    /// let meta = RuleMetadata::new("规则", "描述").with_origin("中国");
+    /// assert_eq!(meta.origin, Some("中国".to_string()));
+    /// ```
     pub fn with_origin(mut self, origin: impl Into<String>) -> Self {
         self.origin = Some(origin.into());
         self
     }
 
+    /// 设置规则标签
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::RuleMetadata;
+    ///
+    /// let meta = RuleMetadata::new("规则", "描述")
+    ///     .with_tags(vec!["体育".into(), "球类".into()]);
+    /// assert_eq!(meta.tags.len(), 2);
+    /// ```
     pub fn with_tags(mut self, tags: Vec<String>) -> Self {
         self.tags = tags;
         self
@@ -207,21 +309,53 @@ pub enum ValidateContext {
 
 impl ValidateContext {
     /// 创建斗地主牌面上下文
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let ctx = ValidateContext::doudizhu_cards("3s 4h 5d");
+    /// assert!(matches!(ctx, ValidateContext::DouDiZhuCards(_)));
+    /// ```
     pub fn doudizhu_cards(cards: impl Into<String>) -> Self {
         Self::DouDiZhuCards(cards.into())
     }
 
     /// 创建麻将牌面上下文
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let ctx = ValidateContext::mahjong_tiles("1m 2m 3m");
+    /// assert!(matches!(ctx, ValidateContext::MahjongTiles(_)));
+    /// ```
     pub fn mahjong_tiles(tiles: impl Into<String>) -> Self {
         Self::MahjongTiles(tiles.into())
     }
 
     /// 创建扑克牌面上下文
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let ctx = ValidateContext::poker_cards("As Kh Qd");
+    /// assert!(matches!(ctx, ValidateContext::PokerCards(_)));
+    /// ```
     pub fn poker_cards(cards: impl Into<String>) -> Self {
         Self::PokerCards(cards.into())
     }
 
     /// 创建象棋走法上下文
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let ctx = ValidateContext::chess_move("车", "0,0", "0,5");
+    /// assert!(matches!(ctx, ValidateContext::ChessMove { .. }));
+    /// ```
     pub fn chess_move(
         piece: impl Into<String>,
         from: impl Into<String>,
@@ -235,16 +369,41 @@ impl ValidateContext {
     }
 
     /// 创建五子棋棋盘上下文
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let moves = vec![(0, 0, true), (1, 1, false)];
+    /// let ctx = ValidateContext::gomoku_board(moves);
+    /// assert!(matches!(ctx, ValidateContext::GomokuBoard(_)));
+    /// ```
     pub fn gomoku_board(moves: Vec<(usize, usize, bool)>) -> Self {
         Self::GomokuBoard(moves)
     }
 
     /// 创建通用上下文
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let ctx = ValidateContext::generic("任意上下文");
+    /// assert!(matches!(ctx, ValidateContext::Generic(_)));
+    /// ```
     pub fn generic(context: impl Into<String>) -> Self {
         Self::Generic(context.into())
     }
 
     /// 获取上下文类型名称
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let ctx = ValidateContext::doudizhu_cards("3s 4h");
+    /// assert_eq!(ctx.type_name(), "斗地主牌面");
+    /// ```
     pub fn type_name(&self) -> &'static str {
         match self {
             Self::DouDiZhuCards(_) => "斗地主牌面",
@@ -257,6 +416,17 @@ impl ValidateContext {
     }
 
     /// 尝试获取通用上下文字符串
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::ValidateContext;
+    ///
+    /// let ctx = ValidateContext::generic("内容");
+    /// assert_eq!(ctx.as_generic_str(), Some("内容"));
+    ///
+    /// let ctx2 = ValidateContext::doudizhu_cards("3s");
+    /// assert_eq!(ctx2.as_generic_str(), None);
+    /// ```
     pub fn as_generic_str(&self) -> Option<&str> {
         match self {
             Self::Generic(s) => Some(s),
@@ -358,6 +528,15 @@ impl std::fmt::Display for RuleSet {
 }
 
 impl RuleSet {
+    /// 创建新的规则集
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试规则集".to_string(), RuleCategory::games("test"));
+    /// assert_eq!(rs.metadata.name, "测试规则集");
+    /// ```
     pub fn new(name: String, category: RuleCategory) -> Self {
         Self {
             metadata: RuleMetadata::new(&name, format!("{} 规则集", name)),
@@ -366,39 +545,109 @@ impl RuleSet {
         }
     }
 
+    /// 设置规则集描述
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("规则集".to_string(), RuleCategory::games("test"))
+    ///     .with_description("自定义描述");
+    /// assert_eq!(rs.metadata.description, "自定义描述");
+    /// ```
     pub fn with_description(mut self, description: impl Into<String>) -> Self {
         self.metadata.description = description.into();
         self
     }
 
+    /// 添加规则到规则集
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory, Rule, RuleMetadata};
+    ///
+    /// struct MyRule { meta: RuleMetadata }
+    /// impl Rule for MyRule {
+    ///     fn metadata(&self) -> &RuleMetadata { &self.meta }
+    ///     fn category(&self) -> RuleCategory { RuleCategory::games("test") }
+    /// }
+    ///
+    /// let mut rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// rs.add_rule(MyRule { meta: RuleMetadata::new("规则", "描述") });
+    /// assert_eq!(rs.len(), 1);
+    /// ```
     pub fn add_rule<R: Rule + 'static>(&mut self, rule: R) {
         let name = rule.metadata().name.clone();
         self.rules.insert(name, Box::new(rule));
     }
 
     /// 获取规则数量
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// assert_eq!(rs.len(), 0);
+    /// ```
     #[must_use]
     pub fn len(&self) -> usize {
         self.rules.len()
     }
 
     /// 是否为空
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// assert!(rs.is_empty());
+    /// ```
     #[must_use]
     pub fn is_empty(&self) -> bool {
         self.rules.is_empty()
     }
 
+    /// 按名称获取规则
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// assert!(rs.get_rule("不存在").is_none());
+    /// ```
     #[must_use]
     pub fn get_rule(&self, name: &str) -> Option<&dyn Rule> {
         self.rules.get(name).map(|b| b.as_ref())
     }
 
+    /// 列出所有规则名称
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let names = rs.list_rules();
+    /// assert!(names.is_empty());
+    /// ```
     #[must_use]
     pub fn list_rules(&self) -> Vec<&str> {
         self.rules.keys().map(|s| s.as_str()).collect()
     }
 
     /// 导出为 Markdown 格式
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let md = rs.to_markdown();
+    /// assert!(md.contains("测试"));
+    /// ```
     pub fn to_markdown(&self) -> String {
         let mut md = format!(
             "# {}\n\n{}\n\n",
@@ -413,6 +662,15 @@ impl RuleSet {
     }
 
     /// 按分类过滤规则
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let filtered = rs.filter_by_category(&RuleCategory::games("test"));
+    /// assert!(filtered.is_empty());
+    /// ```
     pub fn filter_by_category(&self, category: &RuleCategory) -> Vec<&str> {
         self.rules
             .iter()
@@ -422,6 +680,15 @@ impl RuleSet {
     }
 
     /// 按标签过滤规则
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let filtered = rs.filter_by_tag("体育");
+    /// assert!(filtered.is_empty());
+    /// ```
     pub fn filter_by_tag(&self, tag: &str) -> Vec<&str> {
         self.rules
             .iter()
@@ -431,6 +698,15 @@ impl RuleSet {
     }
 
     /// 按名称模糊搜索
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let results = rs.search("关键词");
+    /// assert!(results.is_empty());
+    /// ```
     pub fn search(&self, query: &str) -> Vec<&str> {
         let query_lower = query.to_lowercase();
         self.rules
@@ -449,6 +725,15 @@ impl RuleSet {
     }
 
     /// 按来源/地区过滤
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let filtered = rs.filter_by_origin("中国");
+    /// assert!(filtered.is_empty());
+    /// ```
     pub fn filter_by_origin(&self, origin: &str) -> Vec<&str> {
         self.rules
             .iter()
@@ -464,6 +749,15 @@ impl RuleSet {
     }
 
     /// 获取所有规则的元数据快照（可序列化）
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let snapshot = rs.metadata_snapshot();
+    /// assert!(snapshot.is_empty());
+    /// ```
     pub fn metadata_snapshot(&self) -> Vec<(&str, &RuleMetadata)> {
         self.rules
             .iter()
@@ -472,6 +766,15 @@ impl RuleSet {
     }
 
     /// 统计各分类的规则数量
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleSet, RuleCategory};
+    ///
+    /// let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+    /// let counts = rs.count_by_category();
+    /// assert!(counts.is_empty());
+    /// ```
     pub fn count_by_category(&self) -> std::collections::HashMap<String, usize> {
         let mut counts = std::collections::HashMap::new();
         for rule in self.rules.values() {
