@@ -81,7 +81,7 @@ Plans:
 - [x] 14-05: 为 law 分类添加模块文档和示例
 - [x] 14-06: 为 health 分类添加模块文档和示例
 
-#### Phase 15: 基准测试框架
+#### Phase 15: 基准测试框架 ✅
 **Goal**: criterion 性能基准
 **Depends on**: Phase 14
 **Success Criteria**:
@@ -93,7 +93,7 @@ Plans:
 - [x] 15-02: 创建 mahjong_bench.rs
 - [x] 15-03: 创建 poker_bench.rs
 - [x] 15-04: 创建 sudoku_bench.rs
-- [ ] 15-05: 验证 cargo bench 运行
+- [x] 15-05: 验证 cargo bench 运行
 
 #### Phase 16: CI 基准回归
 **Goal**: 集成基准回归检测
@@ -377,7 +377,7 @@ Plans:
 | 1-12 | v2.0 | - | Complete | 2026-06-24 |
 | 13 | v2.1 | 4/4 | Complete | 2026-07-10 |
 | 14 | v2.1 | 6/6 | Complete | 2026-07-10 |
-| 15 | v2.1 | 0/5 | Not started | - |
+| 15 | v2.1 | 5/5 | Complete | 2026-07-10 |
 | 16 | v2.1 | 0/3 | Not started | - |
 | 17 | v2.1 | 0/4 | Not started | - |
 | 18-35 | v2.2 | 0/70 | Planned | - |
