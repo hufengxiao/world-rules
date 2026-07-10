@@ -2,3 +2,7 @@
 __pycache__/
 world-rules.html
 world-rules.md
+
+# Benchmark results (keep directory but ignore contents)
+.bench-results/*
+!.bench-results/.gitkeep

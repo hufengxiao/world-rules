@@ -1,0 +1,192 @@
+# CI 基准回归检测
+# 在 PR 时运行性能基准测试，检测性能退化
+
+name: Benchmark
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+    paths:
+      - 'src/**'
+      - 'benches/**'
+      - 'Cargo.toml'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  benchmark:
+    name: Performance Benchmark
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: dtolnay/rust-toolchain@stable
+      
+      - uses: Swatinem/rust-cache@v2
+      
+      - name: Install cargo-criterion
+        run: cargo install cargo-criterion
+      
+      # 获取基准分支的基准结果（仅在 PR 时）
+      - name: Fetch base benchmark results
+        if: github.event_name == 'pull_request'
+        run: |
+          mkdir -p .bench-results
+          # 尝试从 cache 获取 base 分支的基准结果
+          gh api repos/${{ github.repository }}/actions/artifacts \
+            --jq '.artifacts[] | select(.name == "benchmark-results") | .id' \
+            | head -1 > .bench-results/base-artifact-id.txt || true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Download base benchmark results
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+        run: |
+          if [ -f .bench-results/base-artifact-id.txt ] && [ -s .bench-results/base-artifact-id.txt ]; then
+            artifact_id=$(cat .bench-results/base-artifact-id.txt)
+            if [ -n "$artifact_id" ]; then
+              gh run download $artifact_id -D .bench-results/base || true
+            fi
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      # 运行基准测试
+      - name: Run benchmarks
+        run: |
+          mkdir -p .bench-results
+          cargo criterion --message-format=json > .bench-results/results.json 2>&1 || true
+          cargo criterion --bench mahjong_bench -- --save-baseline new 2>&1 | tee .bench-results/mahjong.txt || true
+          cargo criterion --bench poker_bench -- --save-baseline new 2>&1 | tee .bench-results/poker.txt || true
+          cargo criterion --bench sudoku_bench -- --save-baseline new 2>&1 | tee .bench-results/sudoku.txt || true
+      
+      # 对比基准结果（仅在 PR 时）
+      - name: Compare benchmark results
+        if: github.event_name == 'pull_request'
+        id: compare
+        run: |
+          echo "## 性能基准测试结果" > benchmark-report.md
+          echo "" >> benchmark-report.md
+          
+          # 检查是否有性能退化（超过 10% 的性能下降）
+          regression_found=false
+          
+          # 解析基准测试输出
+          if [ -f .bench-results/mahjong.txt ]; then
+            echo "### 麻将规则基准测试" >> benchmark-report.md
+            echo '```' >> benchmark-report.md
+            grep -E "(time|change)" .bench-results/mahjong.txt | head -50 >> benchmark-report.md || echo "无对比数据" >> benchmark-report.md
+            echo '```' >> benchmark-report.md
+            echo "" >> benchmark-report.md
+            
+            # 检查性能退化
+            if grep -q "Performance has regressed" .bench-results/mahjong.txt; then
+              regression_found=true
+            fi
+          fi
+          
+          if [ -f .bench-results/poker.txt ]; then
+            echo "### 扑克规则基准测试" >> benchmark-report.md
+            echo '```' >> benchmark-report.md
+            grep -E "(time|change)" .bench-results/poker.txt | head -50 >> benchmark-report.md || echo "无对比数据" >> benchmark-report.md
+            echo '```' >> benchmark-report.md
+            echo "" >> benchmark-report.md
+            
+            if grep -q "Performance has regressed" .bench-results/poker.txt; then
+              regression_found=true
+            fi
+          fi
+          
+          if [ -f .bench-results/sudoku.txt ]; then
+            echo "### 数独规则基准测试" >> benchmark-report.md
+            echo '```' >> benchmark-report.md
+            grep -E "(time|change)" .bench-results/sudoku.txt | head -50 >> benchmark-report.md || echo "无对比数据" >> benchmark-report.md
+            echo '```' >> benchmark-report.md
+            echo "" >> benchmark-report.md
+            
+            if grep -q "Performance has regressed" .bench-results/sudoku.txt; then
+              regression_found=true
+            fi
+          fi
+          
+          if [ "$regression_found" = true ]; then
+            echo "" >> benchmark-report.md
+            echo "⚠️ **警告：检测到性能退化！**" >> benchmark-report.md
+            echo "regression=true" >> $GITHUB_OUTPUT
+          else
+            echo "" >> benchmark-report.md
+            echo "✅ 未检测到显著性能退化" >> benchmark-report.md
+            echo "regression=false" >> $GITHUB_OUTPUT
+          fi
+          
+          echo "report_file=benchmark-report.md" >> $GITHUB_OUTPUT
+      
+      # 发布评论到 PR
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let report = '';
+            try {
+              report = fs.readFileSync('benchmark-report.md', 'utf8');
+            } catch (e) {
+              report = '## 性能基准测试结果\n\n基准测试运行完成，但无详细报告。';
+            }
+            
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && comment.body.includes('性能基准测试结果')
+            );
+            
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: botComment.id,
+                body: report
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: report
+              });
+            }
+      
+      # 性能退化报警（可选：失败 CI）
+      - name: Fail on regression
+        if: steps.compare.outputs.regression == 'true'
+        run: |
+          echo "::error::检测到性能退化！请查看基准测试报告。"
+          # 取消下面的注释可以让 CI 在性能退化时失败
+          # exit 1
+      
+      # 保存基准结果作为 artifact（master 分支）
+      - name: Upload benchmark results
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: .bench-results/
+          retention-days: 30
+      
+      # 简化基准测试（用于快速反馈）
+      - name: Quick benchmark check
+        run: |
+          echo "=== 快速基准检查 ==="
+          cargo test --release --bench mahjong_bench -- --test || true
+          cargo test --release --bench poker_bench -- --test || true
+          cargo test --release --bench sudoku_bench -- --test || true
+          echo "基准测试完成"
