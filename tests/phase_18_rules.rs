@@ -13,7 +13,7 @@ use world_rules::prelude::*;
 #[test]
 fn poker_omaha_rules_basic() {
     use world_rules::rules::games::poker_omaha::PokerOmahaRules;
-    
+
     let rules = PokerOmahaRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -23,10 +23,10 @@ fn poker_omaha_rules_basic() {
 #[test]
 fn poker_omaha_hand_structure() {
     use world_rules::rules::games::poker_omaha::PokerOmahaRules;
-    
+
     let rules = PokerOmahaRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("4张私有牌"), "应说明私有牌数量");
     assert!(explanation.contains("2张"), "应说明必须使用2张私有牌");
@@ -36,7 +36,7 @@ fn poker_omaha_hand_structure() {
 #[test]
 fn stud_poker_rules_basic() {
     use world_rules::rules::games::stud_poker::StudPokerRules;
-    
+
     let rules = StudPokerRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -46,10 +46,10 @@ fn stud_poker_rules_basic() {
 #[test]
 fn stud_poker_seven_card_variant() {
     use world_rules::rules::games::stud_poker::StudPokerRules;
-    
+
     let rules = StudPokerRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("7张牌"), "应说明牌数");
     assert!(explanation.contains("3张朝下"), "应说明朝下牌数");
@@ -59,7 +59,7 @@ fn stud_poker_seven_card_variant() {
 #[test]
 fn poker_five_card_draw_basic() {
     use world_rules::rules::games::poker_five_card::PokerFiveCardRules;
-    
+
     let rules = PokerFiveCardRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -68,10 +68,10 @@ fn poker_five_card_draw_basic() {
 #[test]
 fn poker_five_card_draw_rules() {
     use world_rules::rules::games::poker_five_card::PokerFiveCardRules;
-    
+
     let rules = PokerFiveCardRules::new();
     let explanation = rules.explain();
-    
+
     assert!(explanation.contains("换牌"), "应说明换牌规则");
     assert!(explanation.contains("5张"), "应说明牌数");
 }
@@ -79,7 +79,7 @@ fn poker_five_card_draw_rules() {
 #[test]
 fn poker_chinese_basic() {
     use world_rules::rules::games::poker_chinese::PokerChineseRules;
-    
+
     let rules = PokerChineseRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -88,10 +88,10 @@ fn poker_chinese_basic() {
 #[test]
 fn poker_chinese_hand_division() {
     use world_rules::rules::games::poker_chinese::PokerChineseRules;
-    
+
     let rules = PokerChineseRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("13张"), "应说明总牌数");
     assert!(explanation.contains("3手"), "应说明分成3手牌");
@@ -103,7 +103,7 @@ fn poker_chinese_hand_division() {
 #[test]
 fn poker_short_deck_basic() {
     use world_rules::rules::games::card_games::short_deck::ShortDeckPokerRules;
-    
+
     let rules = ShortDeckPokerRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -112,10 +112,10 @@ fn poker_short_deck_basic() {
 #[test]
 fn poker_short_deck_card_range() {
     use world_rules::rules::games::card_games::short_deck::ShortDeckPokerRules;
-    
+
     let rules = ShortDeckPokerRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("36张"), "应说明牌总数");
     assert!(explanation.contains("6"), "应说明牌范围从6开始");
@@ -127,7 +127,7 @@ fn poker_short_deck_card_range() {
 #[test]
 fn bridge_rubber_basic() {
     use world_rules::rules::games::bridge_rubber::BridgeRubberRules;
-    
+
     let rules = BridgeRubberRules::new();
     assert_eq!(rules.metadata().name, "盘式桥牌规则");
     assert!(!rules.explain().is_empty());
@@ -136,10 +136,10 @@ fn bridge_rubber_basic() {
 #[test]
 fn bridge_rubber_scoring() {
     use world_rules::rules::games::bridge_rubber::BridgeRubberRules;
-    
+
     let rules = BridgeRubberRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("盘"), "应说明盘的概念");
     assert!(explanation.contains("100分"), "应说明成局分数");
@@ -149,7 +149,7 @@ fn bridge_rubber_scoring() {
 #[test]
 fn bridge_duplicate_basic() {
     use world_rules::rules::games::bridge_duplicate::BridgeDuplicateRules;
-    
+
     let rules = BridgeDuplicateRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -158,10 +158,10 @@ fn bridge_duplicate_basic() {
 #[test]
 fn bridge_duplicate_comparison() {
     use world_rules::rules::games::bridge_duplicate::BridgeDuplicateRules;
-    
+
     let rules = BridgeDuplicateRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("IMP"), "应说明IMP计分");
     assert!(explanation.contains("相同牌"), "应说明同牌组比较");
@@ -170,7 +170,7 @@ fn bridge_duplicate_comparison() {
 #[test]
 fn bridge_chicago_basic() {
     use world_rules::rules::games::bridge_chicago::BridgeChicagoRules;
-    
+
     let rules = BridgeChicagoRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -179,10 +179,10 @@ fn bridge_chicago_basic() {
 #[test]
 fn bridge_chicago_four_deal() {
     use world_rules::rules::games::bridge_chicago::BridgeChicagoRules;
-    
+
     let rules = BridgeChicagoRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("4副"), "应说明固定4副牌");
     assert!(explanation.contains("局况"), "应说明局况轮转");
@@ -191,7 +191,7 @@ fn bridge_chicago_four_deal() {
 #[test]
 fn bridge_minibridge_basic() {
     use world_rules::rules::games::bridge_minibridge::BridgeMinibridgeRules;
-    
+
     let rules = BridgeMinibridgeRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -200,10 +200,10 @@ fn bridge_minibridge_basic() {
 #[test]
 fn bridge_minibridge_features() {
     use world_rules::rules::games::bridge_minibridge::BridgeMinibridgeRules;
-    
+
     let rules = BridgeMinibridgeRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("简化"), "应说明简化特点");
     assert!(explanation.contains("叫牌"), "应说明叫牌流程");
@@ -212,7 +212,7 @@ fn bridge_minibridge_features() {
 #[test]
 fn bridge_imp_basic() {
     use world_rules::rules::games::bridge_imp::BridgeImpRules;
-    
+
     let rules = BridgeImpRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -221,10 +221,10 @@ fn bridge_imp_basic() {
 #[test]
 fn bridge_imp_conversion() {
     use world_rules::rules::games::bridge_imp::BridgeImpRules;
-    
+
     let rules = BridgeImpRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("IMP"), "应说明IMP系统");
     assert!(explanation.contains("分差"), "应说明分差转换");
@@ -235,7 +235,7 @@ fn bridge_imp_conversion() {
 #[test]
 fn big_two_basic() {
     use world_rules::rules::games::big_two::BigTwoRules;
-    
+
     let rules = BigTwoRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -244,10 +244,10 @@ fn big_two_basic() {
 #[test]
 fn big_two_card_ranking() {
     use world_rules::rules::games::big_two::BigTwoRules;
-    
+
     let rules = BigTwoRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("2最大"), "应说明2是最大牌");
     assert!(explanation.contains("13张"), "应说明每人13张牌");
@@ -257,7 +257,7 @@ fn big_two_card_ranking() {
 #[test]
 fn pai_gow_poker_basic() {
     use world_rules::rules::games::pai_gow_poker::PaiGowPokerRules;
-    
+
     let rules = PaiGowPokerRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -266,10 +266,10 @@ fn pai_gow_poker_basic() {
 #[test]
 fn pai_gow_poker_hand_setting() {
     use world_rules::rules::games::pai_gow_poker::PaiGowPokerRules;
-    
+
     let rules = PaiGowPokerRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("7张"), "应说明牌数");
     assert!(explanation.contains("两手"), "应说明分成两手");
@@ -280,7 +280,7 @@ fn pai_gow_poker_hand_setting() {
 #[test]
 fn baccarat_basic() {
     use world_rules::rules::games::baccarat::BaccaratRules;
-    
+
     let rules = BaccaratRules::new();
     assert_eq!(rules.metadata().name, "百家乐规则");
     assert!(!rules.explain().is_empty());
@@ -289,10 +289,10 @@ fn baccarat_basic() {
 #[test]
 fn baccarat_scoring() {
     use world_rules::rules::games::baccarat::BaccaratRules;
-    
+
     let rules = BaccaratRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("9点"), "应说明最大点数");
     assert!(explanation.contains("庄家"), "应说明庄家押注");
@@ -303,7 +303,7 @@ fn baccarat_scoring() {
 #[test]
 fn three_card_poker_basic() {
     use world_rules::rules::games::three_card_poker::ThreeCardPokerRules;
-    
+
     let rules = ThreeCardPokerRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -312,10 +312,10 @@ fn three_card_poker_basic() {
 #[test]
 fn three_card_poker_hand_types() {
     use world_rules::rules::games::three_card_poker::ThreeCardPokerRules;
-    
+
     let rules = ThreeCardPokerRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("3张"), "应说明牌数");
     assert!(explanation.contains("顺子"), "应说明顺子牌型");
@@ -324,7 +324,7 @@ fn three_card_poker_hand_types() {
 #[test]
 fn caribbean_stud_basic() {
     use world_rules::rules::games::caribbean_stud::CaribbeanStudRules;
-    
+
     let rules = CaribbeanStudRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -333,13 +333,16 @@ fn caribbean_stud_basic() {
 #[test]
 fn caribbean_stud_progressive() {
     use world_rules::rules::games::caribbean_stud::CaribbeanStudRules;
-    
+
     let rules = CaribbeanStudRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("5张"), "应说明牌数");
-    assert!(explanation.contains(" Progressive") || explanation.contains("累计奖"), "应说明累计奖");
+    assert!(
+        explanation.contains(" Progressive") || explanation.contains("累计奖"),
+        "应说明累计奖"
+    );
 }
 
 // ===== Phase 18-04: 桌面卡牌规则测试 =====
@@ -347,7 +350,7 @@ fn caribbean_stud_progressive() {
 #[test]
 fn gin_rummy_basic() {
     use world_rules::rules::games::gin_rummy::GinRummyRules;
-    
+
     let rules = GinRummyRules::new();
     assert_eq!(rules.metadata().name, "金拉米规则");
     assert!(!rules.explain().is_empty());
@@ -356,10 +359,10 @@ fn gin_rummy_basic() {
 #[test]
 fn gin_rummy_melds() {
     use world_rules::rules::games::gin_rummy::GinRummyRules;
-    
+
     let rules = GinRummyRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("组"), "应说明组的概念");
     assert!(explanation.contains("顺子"), "应说明顺子概念");
@@ -370,7 +373,7 @@ fn gin_rummy_melds() {
 #[test]
 fn klondike_solitaire_basic() {
     use world_rules::rules::games::klondike_solitaire::KlondikeSolitaireRules;
-    
+
     let rules = KlondikeSolitaireRules::new();
     assert_eq!(rules.metadata().name, "经典接龙规则");
     assert!(!rules.explain().is_empty());
@@ -379,10 +382,10 @@ fn klondike_solitaire_basic() {
 #[test]
 fn klondike_solitaire_structure() {
     use world_rules::rules::games::klondike_solitaire::KlondikeSolitaireRules;
-    
+
     let rules = KlondikeSolitaireRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("工作牌堆"), "应说明工作牌堆");
     assert!(explanation.contains("基础牌堆"), "应说明基础牌堆");
@@ -393,7 +396,7 @@ fn klondike_solitaire_structure() {
 #[test]
 fn cassino_basic() {
     use world_rules::rules::games::cassino::CassinoRules;
-    
+
     let rules = CassinoRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -402,10 +405,10 @@ fn cassino_basic() {
 #[test]
 fn cassino_capturing() {
     use world_rules::rules::games::cassino::CassinoRules;
-    
+
     let rules = CassinoRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("捕获"), "应说明捕获规则");
     assert!(explanation.contains("匹配"), "应说明匹配规则");
@@ -414,7 +417,7 @@ fn cassino_capturing() {
 #[test]
 fn canfield_basic() {
     use world_rules::rules::games::canfield::CanfieldRules;
-    
+
     let rules = CanfieldRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -423,10 +426,10 @@ fn canfield_basic() {
 #[test]
 fn canfield_layout() {
     use world_rules::rules::games::canfield::CanfieldRules;
-    
+
     let rules = CanfieldRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("基础牌"), "应说明基础牌");
     assert!(explanation.contains("储备"), "应说明储备牌堆");
@@ -435,7 +438,7 @@ fn canfield_layout() {
 #[test]
 fn pyramid_solitaire_basic() {
     use world_rules::rules::games::pyramid_solitaire::PyramidSolitaireRules;
-    
+
     let rules = PyramidSolitaireRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
@@ -444,10 +447,10 @@ fn pyramid_solitaire_basic() {
 #[test]
 fn pyramid_solitaire_matching() {
     use world_rules::rules::games::pyramid_solitaire::PyramidSolitaireRules;
-    
+
     let rules = PyramidSolitaireRules::new();
     let explanation = rules.explain();
-    
+
     // 验证关键规则被说明
     assert!(explanation.contains("金字塔"), "应说明金字塔结构");
     assert!(explanation.contains("13"), "应说明配对和为13");
@@ -457,15 +460,15 @@ fn pyramid_solitaire_matching() {
 
 #[test]
 fn phase_18_rules_registered_in_module() {
-    use world_rules::rules::games::{
-        PokerOmahaRules, StudPokerRules, PokerFiveCardRules, PokerChineseRules,
-        BridgeRubberRules, BridgeDuplicateRules, BridgeChicagoRules,
-        BridgeMinibridgeRules, BridgeImpRules,
-        BigTwoRules, PaiGowPokerRules, BaccaratRules, ThreeCardPokerRules, CaribbeanStudRules,
-        GinRummyRules, KlondikeSolitaireRules, CassinoRules, CanfieldRules, PyramidSolitaireRules,
-    };
     use world_rules::rules::games::card_games::short_deck::ShortDeckPokerRules;
-    
+    use world_rules::rules::games::{
+        BaccaratRules, BigTwoRules, BridgeChicagoRules, BridgeDuplicateRules, BridgeImpRules,
+        BridgeMinibridgeRules, BridgeRubberRules, CanfieldRules, CaribbeanStudRules, CassinoRules,
+        GinRummyRules, KlondikeSolitaireRules, PaiGowPokerRules, PokerChineseRules,
+        PokerFiveCardRules, PokerOmahaRules, PyramidSolitaireRules, StudPokerRules,
+        ThreeCardPokerRules,
+    };
+
     // 验证所有规则类型存在并可实例化
     let rules: Vec<Box<dyn Rule>> = vec![
         Box::new(PokerOmahaRules::new()),
@@ -489,7 +492,7 @@ fn phase_18_rules_registered_in_module() {
         Box::new(CanfieldRules::new()),
         Box::new(PyramidSolitaireRules::new()),
     ];
-    
+
     for rule in &rules {
         assert!(!rule.metadata().name.is_empty());
         assert!(!rule.explain().is_empty());
@@ -500,12 +503,11 @@ fn phase_18_rules_registered_in_module() {
 #[test]
 fn phase_18_rules_metadata_consistency() {
     use world_rules::rules::games::{
-        PokerOmahaRules, StudPokerRules, PokerChineseRules,
-        BridgeRubberRules, BridgeDuplicateRules, BridgeChicagoRules,
-        BigTwoRules, BaccaratRules, ThreeCardPokerRules, CaribbeanStudRules,
-        GinRummyRules, KlondikeSolitaireRules, PyramidSolitaireRules,
+        BaccaratRules, BigTwoRules, BridgeChicagoRules, BridgeDuplicateRules, BridgeRubberRules,
+        CaribbeanStudRules, GinRummyRules, KlondikeSolitaireRules, PokerChineseRules,
+        PokerOmahaRules, PyramidSolitaireRules, StudPokerRules, ThreeCardPokerRules,
     };
-    
+
     // 验证规则元数据的完整性和一致性
     let test_cases = vec![
         ("Omaha", PokerOmahaRules::new()),
@@ -522,7 +524,7 @@ fn phase_18_rules_metadata_consistency() {
         ("Klondike Solitaire", KlondikeSolitaireRules::new()),
         ("Pyramid Solitaire", PyramidSolitaireRules::new()),
     ];
-    
+
     for (expected_type, rule) in test_cases {
         assert!(
             rule.metadata().description.len() > 10,

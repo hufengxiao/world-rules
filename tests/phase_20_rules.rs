@@ -229,7 +229,271 @@ fn inner_mongolia_mahjong_basic_settings() {
     assert!(settings.iter().any(|s| s.contains("大胡")));
 }
 
-// ===== Phase 20-01 总体测试 =====
+// ===== Phase 20-02: 日本麻将变体规则测试 =====
+
+#[test]
+fn riichi_competitive_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::riichi_competitive::RiichiCompetitiveRules;
+
+    let rules = RiichiCompetitiveRules::new();
+    assert_eq!(rules.metadata().name, "日本立直麻将竞技规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn riichi_competitive_yakuman_rules() {
+    use world_rules::rules::games::mahjong::variants::riichi_competitive::RiichiCompetitiveRules;
+
+    let rules = RiichiCompetitiveRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("天和"), "应说明天和役满");
+    assert!(explanation.contains("大三元"), "应说明大三元役满");
+    assert!(explanation.contains("四暗刻"), "应说明四暗刻役满");
+}
+
+#[test]
+fn riichi_competitive_yaku_types() {
+    use world_rules::rules::games::mahjong::variants::riichi_competitive::RiichiCompetitiveRules;
+
+    let rules = RiichiCompetitiveRules::new();
+    let yaku = rules.competitive_yaku();
+
+    assert!(!yaku.is_empty());
+    assert!(yaku.iter().any(|(name, _)| name == "立直"));
+    assert!(yaku.iter().any(|(name, _)| name == "断幺九"));
+}
+
+#[test]
+fn washizu_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::washizu::WashizuMahjongRules;
+
+    let rules = WashizuMahjongRules::new();
+    assert_eq!(rules.metadata().name, "和志麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn washizu_transparent_rules() {
+    use world_rules::rules::games::mahjong::variants::washizu::WashizuMahjongRules;
+
+    let rules = WashizuMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("透明牌"), "应说明透明牌规则");
+}
+
+#[test]
+fn washizu_special_yaku() {
+    use world_rules::rules::games::mahjong::variants::washizu::WashizuMahjongRules;
+
+    let rules = WashizuMahjongRules::new();
+    let yaku = rules.special_yaku();
+
+    assert!(!yaku.is_empty());
+    assert!(yaku.iter().any(|(name, _)| name.contains("透明")));
+}
+
+#[test]
+fn sanma_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::sanma::SanmaMahjongRules;
+
+    let rules = SanmaMahjongRules::new();
+    assert_eq!(rules.metadata().name, "三人麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn sanma_tile_adjustments() {
+    use world_rules::rules::games::mahjong::variants::sanma::SanmaMahjongRules;
+
+    let rules = SanmaMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("108张"), "应说明108张牌");
+    assert!(explanation.contains("2-8万"), "应说明去除2-8万");
+}
+
+#[test]
+fn sanma_special_yaku() {
+    use world_rules::rules::games::mahjong::variants::sanma::SanmaMahjongRules;
+
+    let rules = SanmaMahjongRules::new();
+    let yaku = rules.special_yaku();
+
+    assert!(!yaku.is_empty());
+    assert!(yaku.iter().any(|(name, _)| name.contains("三色")));
+}
+
+#[test]
+fn kansai_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::kansai::KansaiMahjongRules;
+
+    let rules = KansaiMahjongRules::new();
+    assert_eq!(rules.metadata().name, "关西麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn kansai_local_yaku() {
+    use world_rules::rules::games::mahjong::variants::kansai::KansaiMahjongRules;
+
+    let rules = KansaiMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("关西"), "应说明关西特色");
+}
+
+#[test]
+fn kansai_yaku_types() {
+    use world_rules::rules::games::mahjong::variants::kansai::KansaiMahjongRules;
+
+    let rules = KansaiMahjongRules::new();
+    let yaku = rules.kansai_yaku();
+
+    assert!(!yaku.is_empty());
+    assert!(yaku.iter().any(|(name, _)| name.contains("关西")));
+}
+
+#[test]
+fn open_riichi_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::open_riichi::OpenRiichiMahjongRules;
+
+    let rules = OpenRiichiMahjongRules::new();
+    assert_eq!(rules.metadata().name, "开放立直麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn open_riichi_open_rules() {
+    use world_rules::rules::games::mahjong::variants::open_riichi::OpenRiichiMahjongRules;
+
+    let rules = OpenRiichiMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("明牌"), "应说明明牌规则");
+    assert!(explanation.contains("立直"), "应说明立直规则");
+}
+
+#[test]
+fn open_riichi_yaku_adjustments() {
+    use world_rules::rules::games::mahjong::variants::open_riichi::OpenRiichiMahjongRules;
+
+    let rules = OpenRiichiMahjongRules::new();
+    let yaku = rules.yaku_adjustments();
+
+    assert!(!yaku.is_empty());
+    assert!(yaku
+        .iter()
+        .any(|(name, _)| name.contains("明") || name.contains("开放")));
+}
+
+// ===== Phase 20-02 总体测试 =====
+
+#[test]
+fn phase_20_02_all_japanese_variants_exist() {
+    // 验证所有 5 种日本麻将变体都能正确导入和创建
+    use world_rules::rules::games::mahjong::variants::{
+        KansaiMahjongRules, OpenRiichiMahjongRules, RiichiCompetitiveRules, SanmaMahjongRules,
+        WashizuMahjongRules,
+    };
+
+    let riichi_competitive = RiichiCompetitiveRules::new();
+    let washizu = WashizuMahjongRules::new();
+    let sanma = SanmaMahjongRules::new();
+    let kansai = KansaiMahjongRules::new();
+    let open_riichi = OpenRiichiMahjongRules::new();
+
+    // 所有规则都有有效的元数据
+    assert!(!riichi_competitive.metadata().name.is_empty());
+    assert!(!washizu.metadata().name.is_empty());
+    assert!(!sanma.metadata().name.is_empty());
+    assert!(!kansai.metadata().name.is_empty());
+    assert!(!open_riichi.metadata().name.is_empty());
+}
+
+#[test]
+fn phase_20_02_unique_categories() {
+    // 验证所有日本麻将变体有唯一的分类标识
+    use world_rules::rules::games::mahjong::variants::{
+        KansaiMahjongRules, OpenRiichiMahjongRules, RiichiCompetitiveRules, SanmaMahjongRules,
+        WashizuMahjongRules,
+    };
+
+    let riichi_competitive = RiichiCompetitiveRules::new();
+    let washizu = WashizuMahjongRules::new();
+    let sanma = SanmaMahjongRules::new();
+    let kansai = KansaiMahjongRules::new();
+    let open_riichi = OpenRiichiMahjongRules::new();
+
+    assert_eq!(
+        riichi_competitive.category().to_string(),
+        "Games/mahjong_riichi_competitive"
+    );
+    assert_eq!(washizu.category().to_string(), "Games/mahjong_washizu");
+    assert_eq!(sanma.category().to_string(), "Games/mahjong_sanma");
+    assert_eq!(kansai.category().to_string(), "Games/mahjong_kansai");
+    assert_eq!(
+        open_riichi.category().to_string(),
+        "Games/mahjong_open_riichi"
+    );
+}
+
+#[test]
+fn phase_20_02_all_explain_works() {
+    // 验证所有日本麻将变体的 explain 方法都能生成有效说明
+    use world_rules::rules::games::mahjong::variants::{
+        KansaiMahjongRules, OpenRiichiMahjongRules, RiichiCompetitiveRules, SanmaMahjongRules,
+        WashizuMahjongRules,
+    };
+
+    let rules_list: Vec<Box<dyn world_rules::rules::core::Rule>> = vec![
+        Box::new(RiichiCompetitiveRules::new()),
+        Box::new(WashizuMahjongRules::new()),
+        Box::new(SanmaMahjongRules::new()),
+        Box::new(KansaiMahjongRules::new()),
+        Box::new(OpenRiichiMahjongRules::new()),
+    ];
+
+    for rules in rules_list {
+        let explanation = rules.explain();
+        assert!(explanation.contains("基本设置"));
+    }
+}
+
+#[test]
+fn phase_20_02_origin_tags() {
+    // 验证所有日本麻将变体的来源标签
+    use world_rules::rules::games::mahjong::variants::{
+        KansaiMahjongRules, OpenRiichiMahjongRules, RiichiCompetitiveRules, SanmaMahjongRules,
+        WashizuMahjongRules,
+    };
+
+    assert_eq!(
+        RiichiCompetitiveRules::new().metadata().origin,
+        Some("日本")
+    );
+    assert_eq!(WashizuMahjongRules::new().metadata().origin, Some("日本"));
+    assert_eq!(SanmaMahjongRules::new().metadata().origin, Some("日本"));
+    assert_eq!(
+        KansaiMahjongRules::new().metadata().origin,
+        Some("日本关西")
+    );
+    assert_eq!(
+        OpenRiichiMahjongRules::new().metadata().origin,
+        Some("日本")
+    );
+}
 
 #[test]
 fn phase_20_01_all_variants_exist() {
