@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: planning
 progress:
   total_phases: 55
-  completed_phases: 19
+  completed_phases: 20
   total_plans: 116
-  completed_plans: 30
-  percent: 47
+  completed_plans: 31
+  percent: 49
 ---
 
 # Project State
@@ -16,27 +16,27 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
-**Current focus:** Phase 20 - E3 麻将变体扩充 (v2.2 继续)
+**Current focus:** Phase 21 - E4 球类运动扩充 (v2.2 继续)
 
 ## Current Position
 
-Phase: 20 of 55 (E3 麻将变体扩充)
-Plan: 3 of 4 complete in current phase
-Status: Ready for task 20-04
-Last activity: 2026-07-11 — 完成 Phase 20-03（5种其他麻将变体）
+Phase: 21 of 55 (E4 球类运动扩充)
+Plan: 0 of 4 complete in current phase
+Status: Ready for task 21-01
+Last activity: 2026-07-11 — 完成 Phase 20-04（测试和文档更新）
 
-Progress: [████▊░░] 47%
+Progress: [███████░] 49%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 18 (M1-M18, Phase 20-02 完成)
+- Total milestones completed: 19 (M1-M19, Phase 20 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 87 tasks
+- Remaining plans: 85 tasks
 
 **By Phase:**
 
-||| Phase | Status | Plans ||||---|--------|-------||| 13-19 | v2.2 Phase 19 | COMPLETE ✅ ||| 20 | v2.2 规则扩充 | 2/4 tasks ||| 21-35 | v2.2 规则扩充 | 62 tasks ||| 36-45 | v2.3 生态建设 | 15 tasks ||| 46-55 | v3.0 平台化 | 10 tasks ||
+|| Phase | Status | Plans ||||---|--------|-------||| 13-20 | v2.2 Phase 20 | COMPLETE ✅ ||| 21-35 | v2.2 规则扩充 | 62 tasks ||| 36-45 | v2.3 生态建设 | 15 tasks ||| 46-55 | v3.0 平台化 | 10 tasks ||
 
 ## Milestone Summary
 
@@ -68,15 +68,15 @@ Progress: [████▊░░] 47%
   - 19-04: 5种桌游（Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）
   - 19-05: 测试和文档（tests/phase_19_rules.rs 更新，docs/phase_19.md 更新，53个测试用例）
 
-- Phase 20: E3 麻将变体扩充 (进行中)
+- Phase 20: E3 麻将变体扩充 (+15 规则，完整测试覆盖)
   - 20-01: 5种中国麻将变体（湖南、河北、山西、宁夏、内蒙古）✅
   - 20-02: 5种日本麻将变体（竞技立直、和志、三人、关西、开放立直）✅
   - 20-03: 5种其他麻将变体（美国、越南、菲律宾、新加坡、马来西亚）✅
-  - 20-04: 测试和文档
+  - 20-04: 测试和文档（tests/phase_20_rules.rs, docs/phase_20.md, 80个测试用例）✅
 
 进行中:
-- Phase 20: E3 麻将变体扩充 (+15 规则)
-  - 下一步: 20-04 更新测试和文档
+- Phase 21: E4 球类运动扩充 (+30 规则)
+  - 下一步: 21-01 添加10种足球相关规则
 
 ## Accumulated Context
 
@@ -92,14 +92,11 @@ Recent decisions affecting current work:
 - proptest 属性测试框架已集成
 - Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
 - Phase 19 完成，新增 20 种棋类/桌游规则 + 53 测试用例
-- Phase 20-01 完成，新增 5 种中国麻将变体 + 24 测试用例
-- Phase 20-02 完成，新增 5 种日本麻将变体 + 30 测试用例
-- Phase 20-03 完成，新增 5 种其他麻将变体 + 26 测试用例
+- Phase 20 完成，新增 15 种麻将变体规则 + 80 测试用例
 
 ### Pending Todos
 
-v2.2 待完成（87 tasks）:
-- Phase 20: E3 麻将变体扩充 (剩余 2 tasks)
+v2.2 待完成（85 tasks）:
 - Phase 21-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
@@ -112,6 +109,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-07-11 05:15
-Stopped at: v2.2 Phase 20-02 完成
+Last session: 2026-07-11 06:13
+Stopped at: v2.2 Phase 20 完成
 Resume file: None
