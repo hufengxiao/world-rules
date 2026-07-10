@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: planning
 progress:
   total_phases: 55
-  completed_phases: 18
+  completed_phases: 19
   total_plans: 117
-  completed_plans: 26
-  percent: 41
+  completed_plans: 27
+  percent: 42
 ---
 
 # Project State
@@ -16,32 +16,32 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
-**Current focus:** Phase 19 - E2 棋类与桌游扩充 (v2.2 继续)
+**Current focus:** Phase 20 - E3 麻将变体扩充 (v2.2 继续)
 
 ## Current Position
 
-Phase: 19 of 55 (E2 棋类与桌游扩充)
-Plan: 4 of 5 complete in current phase
-Status: Ready for task 19-05
-Last activity: 2026-07-11 — 完成 Phase 19-04（桌游规则：Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）
+Phase: 20 of 55 (E3 麻将变体扩充)
+Plan: 0 of 4 complete in current phase
+Status: Ready for task 20-01
+Last activity: 2026-07-11 — 完成 Phase 19（棋类与桌游扩充，+20 规则，完整测试覆盖）
 
-Progress: [████░░░░] 41%
+Progress: [████░░░░] 42%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 16 (M1-M16, Phase 18 完成)
+- Total milestones completed: 17 (M1-M17, Phase 19 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 95 tasks
+- Remaining plans: 90 tasks
 
 **By Phase:**
 
-||| Phase | Status | Plans |
-|||-------|--------|-------|
-||| 13-18 | v2.2 Phase 18 | COMPLETE ✅ |
-||| 19-35 | v2.2 规则扩充 | 68 tasks |
-||| 36-45 | v2.3 生态建设 | 15 tasks |
-||| 46-55 | v3.0 平台化 | 10 tasks |
+|| Phase | Status | Plans |
+||-------|--------|-------|
+|| 13-19 | v2.2 Phase 19 | COMPLETE ✅ |
+|| 20-35 | v2.2 规则扩充 | 63 tasks |
+|| 36-45 | v2.3 生态建设 | 15 tasks |
+|| 46-55 | v3.0 平台化 | 10 tasks |
 
 ## Milestone Summary
 
@@ -66,12 +66,19 @@ Progress: [████░░░░] 41%
   - 18-04: 5种桌面卡牌（Gin Rummy, Klondike Solitaire, Cassino, Canfield, Pyramid Solitaire）
   - 18-05: 测试和文档（tests/phase_18_rules.rs, docs/phase_18.md）
 
+- Phase 19: E2 棋类与桌游扩充 (+20 规则，完整测试覆盖)
+  - 19-01: 5种象棋变体（迷你象棋、四国象棋、暗棋、查图兰加、盲棋）
+  - 19-02: 5种围棋变体（9路盘、13路盘、盲围棋、一色围棋、联棋）
+  - 19-03: 5种其他棋类（朝鲜将棋、泰国象棋、斗兽棋、播棋、迷你将棋）
+  - 19-04: 5种桌游（Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）
+  - 19-05: 测试和文档（tests/phase_19_rules.rs 更新，docs/phase_19.md 更新，53个测试用例）
+
 进行中:
-- Phase 19: E2 棋类与桌游扩充 (+20 规则，已完成20个)
-  - 19-01: 5种象棋变体（迷你象棋、四国象棋、暗棋、查图兰加、盲棋）✅
-  - 19-02: 5种围棋变体（9路盘、13路盘、盲围棋、一色围棋、联棋）✅
-  - 19-03: 5种其他棋类（朝鲜将棋、泰国象棋、斗兽棋、播棋、迷你将棋）✅
-  - 19-04: 5种桌游（Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）✅
+- Phase 20: E3 麻将变体扩充 (+15 规则)
+  - 20-01: 添加 5 种中国麻将变体
+  - 20-02: 添加 5 种日本麻将变体
+  - 20-03: 添加 5 种其他麻将变体
+  - 20-04: 更新测试和文档
 
 ## Accumulated Context
 
@@ -85,14 +92,14 @@ Recent decisions affecting current work:
 - 基准测试框架修复完成，通过 cargo check --benches
 - CI 基准回归 workflow 已创建
 - proptest 属性测试框架已集成
-|- Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
-|- Phase 19-04 完成，新增 5 种桌游规则（Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）
+- Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
+- Phase 19 完成，新增 20 种棋类/桌游规则 + 53 测试用例
 
 ### Pending Todos
 
-v2.2 待完成（68 tasks）:
-- Phase 19: E2 棋类与桌游扩充 (+20 规则)
-- Phase 20-35: 规则扩充 1098 → 2000+
+v2.2 待完成（63 tasks）:
+- Phase 20: E3 麻将变体扩充 (+15 规则)
+- Phase 21-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
 
@@ -104,6 +111,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-07-11 01:00
-Stopped at: v2.2 Phase 19-04 完成
+Last session: 2026-07-11 03:17
+Stopped at: v2.2 Phase 19 完成
 Resume file: None
