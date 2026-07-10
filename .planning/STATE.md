@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: planning
 progress:
   total_phases: 55
-  completed_phases: 17
+  completed_phases: 18
   total_plans: 117
-  completed_plans: 22
-  percent: 36
+  completed_plans: 23
+  percent: 39
 ---
 
 # Project State
@@ -16,32 +16,32 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
-**Current focus:** Phase 18 - E1 卡牌游戏扩充 (v2.2 开始)
+**Current focus:** Phase 19 - E2 棋类与桌游扩充 (v2.2 继续)
 
 ## Current Position
 
-Phase: 18 of 55 (E1 卡牌游戏扩充)
-Plan: 5 of 5 in current phase
-Status: Ready for task 18-05
-Last activity: 2026-07-11 — 完成 18-04（5种桌面卡牌规则：Gin Rummy, Klondike Solitaire, Cassino, Canfield, Pyramid Solitaire）
+Phase: 19 of 55 (E2 棋类与桌游扩充)
+Plan: 1 of 5 in current phase
+Status: Ready for task 19-01
+Last activity: 2026-07-11 — 完成 Phase 18-05（测试和文档）
 
-Progress: [███░░░░░░] 35%
+Progress: [███░░░░░░] 39%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 15 (M1-M15, v2.1 shipped)
+- Total milestones completed: 16 (M1-M16, Phase 18 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 98 tasks
+- Remaining plans: 95 tasks
 
 **By Phase:**
 
-|| Phase | Status | Plans |
-||-------|--------|-------|
-|| 13-17 | v2.1 质量提升 | COMPLETE ✅ |
-|| 18-35 | v2.2 规则扩充 | 70 tasks |
-|| 36-45 | v2.3 生态建设 | 15 tasks |
-|| 46-55 | v3.0 平台化 | 10 tasks |
+||| Phase | Status | Plans |
+|||-------|--------|-------|
+||| 13-18 | v2.2 Phase 18 | COMPLETE ✅ |
+||| 19-35 | v2.2 规则扩充 | 68 tasks |
+||| 36-45 | v2.3 生态建设 | 15 tasks |
+||| 46-55 | v3.0 平台化 | 10 tasks |
 
 ## Milestone Summary
 
@@ -59,9 +59,15 @@ Progress: [███░░░░░░] 35%
 ### v2.2 规则扩充 (IN PROGRESS)
 
 已完成:
-- Phase 18-01: 5种扑克变体（Omaha, Stud, Draw, Chinese Poker, Short Deck）
-- Phase 18-02: 5种桥牌变体（Rubber, Duplicate, Chicago, Minibridge, IMP）
-- Phase 18-03: 5种其他卡牌（Big Two, Pai Gow Poker, Baccarat, Three Card Poker, Caribbean Stud）
+- Phase 18: E1 卡牌游戏扩充 (+20 规则，完整测试覆盖)
+  - 18-01: 5种扑克变体（Omaha, Stud, Draw, Chinese Poker, Short Deck）
+  - 18-02: 5种桥牌变体（Rubber, Duplicate, Chicago, Minibridge, IMP）
+  - 18-03: 5种其他卡牌（Big Two, Pai Gow Poker, Baccarat, Three Card Poker, Caribbean Stud）
+  - 18-04: 5种桌面卡牌（Gin Rummy, Klondike Solitaire, Cassino, Canfield, Pyramid Solitaire）
+  - 18-05: 测试和文档（tests/phase_18_rules.rs, docs/phase_18.md）
+
+进行中:
+- Phase 19: E2 棋类与桌游扩充 (+20 规则待添加)
 
 ## Accumulated Context
 
@@ -75,12 +81,13 @@ Recent decisions affecting current work:
 - 基准测试框架修复完成，通过 cargo check --benches
 - CI 基准回归 workflow 已创建
 - proptest 属性测试框架已集成
+- Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
 
 ### Pending Todos
 
 v2.2 待完成（68 tasks）:
-- Phase 18: E1 卡牌游戏扩充 (+10 规则已完成，+10 待完成)
-- Phase 19-35: 规则扩充 1098 → 2000+
+- Phase 19: E2 棋类与桌游扩充 (+20 规则)
+- Phase 20-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
 
@@ -92,6 +99,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-07-10 22:00
-Stopped at: v2.2 Phase 18-02 完成
+Last session: 2026-07-11 00:30
+Stopped at: v2.2 Phase 18 完成
 Resume file: None

@@ -126,15 +126,16 @@ Plans:
 
 **Milestone Goal**: 规则数量从 1098 扩充至 2000+
 
-#### Phase 18: E1 卡牌游戏扩充
+#### Phase 18: E1 卡牌游戏扩充 ✅
 **Goal**: +20 卡牌规则
 **Depends on**: Phase 17
+**Status**: Complete (2026-07-11)
 Plans:
 - [x] 18-01: 添加 5 种扑克变体规则（Omaha, Stud, Draw, Chinese Poker, Short Deck）
 - [x] 18-02: 添加 5 种桥牌变体规则（Rubber, Duplicate, Chicago, Minibridge, IMP）
 - [x] 18-03: 添加 5 种其他卡牌规则（Big Two, Pai Gow Poker, Baccarat, Three Card Poker, Caribbean Stud）
 - [x] 18-04: 添加 5 种桌面卡牌规则（Gin Rummy, Klondike Solitaire, Cassino, Canfield, Pyramid Solitaire）
-- [ ] 18-05: 更新测试和文档
+- [x] 18-05: 更新测试和文档（新增 tests/phase_18_rules.rs, docs/phase_18.md）
 
 #### Phase 19: E2 棋类与桌游扩充
 **Goal**: +20 棋类规则
