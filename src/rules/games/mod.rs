@@ -61,7 +61,12 @@ pub mod backgammon;
 pub mod blackjack;
 pub mod board_games;
 pub mod bridge;
+pub mod bridge_chicago;
 pub mod bridge_detailed;
+pub mod bridge_duplicate;
+pub mod bridge_imp;
+pub mod bridge_minibridge;
+pub mod bridge_rubber;
 pub mod canasta;
 pub mod card_game_generic;
 pub mod card_games;
@@ -167,7 +172,12 @@ pub use backgammon::BackgammonRules;
 pub use blackjack::BlackjackRules;
 pub use board_games::{ChessRules, ChineseChessRules, GoRules, GomokuRules};
 pub use bridge::BridgeRules;
+pub use bridge_chicago::BridgeChicagoRules;
 pub use bridge_detailed::BridgeDetailedRules;
+pub use bridge_duplicate::BridgeDuplicateRules;
+pub use bridge_imp::BridgeImpRules;
+pub use bridge_minibridge::BridgeMinibridgeRules;
+pub use bridge_rubber::BridgeRubberRules;
 pub use canasta::CanastaRules;
 pub use card_game_generic::CardGameGenericRules;
 pub use catan::CatanRules;
@@ -295,6 +305,26 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = BridgeRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BridgeChicagoRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BridgeDuplicateRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BridgeImpRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BridgeMinibridgeRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BridgeRubberRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
