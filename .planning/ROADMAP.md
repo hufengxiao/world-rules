@@ -142,17 +142,18 @@ Plans:
 **Depends on**: Phase 18
 **Status**: Complete (2026-07-11)
 Plans:
-|- [x] 19-01: 添加 5 种象棋变体规则（迷你象棋、四国象棋、暗棋、查图兰加、盲棋）
-||- [x] 19-02: 添加 5 种围棋变体规则（9路盘、13路盘、盲围棋、一色围棋、联棋）
-||- [x] 19-03: 添加 5 种其他棋类规则（朝鲜将棋、泰国象棋、斗兽棋、播棋、迷你将棋）
-||- [x] 19-04: 添加 5 种桌游规则（Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）
-||- [x] 19-05: 更新测试和文档
+- [x] 19-01: 添加 5 种象棋变体规则（迷你象棋、四国象棋、暗棋、查图兰加、盲棋）
+- [x] 19-02: 添加 5 种围棋变体规则（9路盘、13路盘、盲围棋、一色围棋、联棋）
+- [x] 19-03: 添加 5 种其他棋类规则（朝鲜将棋、泰国象棋、斗兽棋、播棋、迷你将棋）
+- [x] 19-04: 添加 5 种桌游规则（Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）
+- [x] 19-05: 更新测试和文档
 
 #### Phase 20: E3 麻将变体扩充
 **Goal**: +15 麻将规则
 **Depends on**: Phase 19
+**Status**: In Progress (2026-07-11)
 Plans:
-- [ ] 20-01: 添加 5 种中国麻将变体
+- [x] 20-01: 添加 5 种中国麻将变体（湖南、河北、山西、宁夏、内蒙古）
 - [ ] 20-02: 添加 5 种日本麻将变体
 - [ ] 20-03: 添加 5 种其他麻将变体
 - [ ] 20-04: 更新测试和文档
@@ -382,7 +383,10 @@ Plans:
 | 15 | v2.1 | 5/5 | Complete | 2026-07-10 |
 | 16 | v2.1 | 3/3 | Complete | 2026-07-10 |
 | 17 | v2.1 | 4/4 | Complete | 2026-07-10 |
-| 18-35 | v2.2 | 0/70 | Planned | - |
+| 18 | v2.2 | 5/5 | Complete | 2026-07-11 |
+| 19 | v2.2 | 5/5 | Complete | 2026-07-11 |
+| 20 | v2.2 | 1/4 | In Progress | - |
+| 21-35 | v2.2 | 0/62 | Planned | - |
 | 36-45 | v2.3 | 0/15 | Planned | - |
 | 46-55 | v3.0 | 0/10 | Planned | - |
 
@@ -393,8 +397,8 @@ Plans:
 **Enabled Toolsets**: file, terminal
 **Verification**: cargo test && cargo clippy
 **Deliver**: local (save only, no push)
-**Total Plans**: 117 tasks remaining
+**Total Plans**: 116 tasks remaining
 **Estimated Duration**: ~60 hours of autonomous work
 
 ---
-*Last updated: 2026-07-10 - Expanded for continuous development*
+*Last updated: 2026-07-11 - Phase 20-01 完成*

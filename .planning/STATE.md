@@ -4,9 +4,9 @@ status: planning
 progress:
   total_phases: 55
   completed_phases: 19
-  total_plans: 117
-  completed_plans: 27
-  percent: 42
+  total_plans: 116
+  completed_plans: 28
+  percent: 43
 ---
 
 # Project State
@@ -21,27 +21,28 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 ## Current Position
 
 Phase: 20 of 55 (E3 麻将变体扩充)
-Plan: 0 of 4 complete in current phase
-Status: Ready for task 20-01
-Last activity: 2026-07-11 — 完成 Phase 19（棋类与桌游扩充，+20 规则，完整测试覆盖）
+Plan: 1 of 4 complete in current phase
+Status: Ready for task 20-02
+Last activity: 2026-07-11 — 完成 Phase 20-01（5种中国麻将变体）
 
-Progress: [████░░░░] 42%
+Progress: [████▌░░] 43%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 17 (M1-M17, Phase 19 完成)
+- Total milestones completed: 18 (M1-M18, Phase 20-01 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 90 tasks
+- Remaining plans: 88 tasks
 
 **By Phase:**
 
-|| Phase | Status | Plans |
+|| Phase | Status | Plans ||
 ||-------|--------|-------|
-|| 13-19 | v2.2 Phase 19 | COMPLETE ✅ |
-|| 20-35 | v2.2 规则扩充 | 63 tasks |
-|| 36-45 | v2.3 生态建设 | 15 tasks |
-|| 46-55 | v3.0 平台化 | 10 tasks |
+|| 13-19 | v2.2 Phase 19 | COMPLETE ✅ ||
+|| 20 | v2.2 规则扩充 | 1/4 tasks ||
+|| 21-35 | v2.2 规则扩充 | 62 tasks ||
+|| 36-45 | v2.3 生态建设 | 15 tasks ||
+|| 46-55 | v3.0 平台化 | 10 tasks ||
 
 ## Milestone Summary
 
@@ -73,12 +74,15 @@ Progress: [████░░░░] 42%
   - 19-04: 5种桌游（Agricola, Carcassonne, Dominion, Power Grid, Puerto Rico）
   - 19-05: 测试和文档（tests/phase_19_rules.rs 更新，docs/phase_19.md 更新，53个测试用例）
 
+- Phase 20: E3 麻将变体扩充 (进行中)
+  - 20-01: 5种中国麻将变体（湖南、河北、山西、宁夏、内蒙古）✅
+  - 20-02: 5种日本麻将变体
+  - 20-03: 5种其他麻将变体
+  - 20-04: 测试和文档
+
 进行中:
 - Phase 20: E3 麻将变体扩充 (+15 规则)
-  - 20-01: 添加 5 种中国麻将变体
-  - 20-02: 添加 5 种日本麻将变体
-  - 20-03: 添加 5 种其他麻将变体
-  - 20-04: 更新测试和文档
+  - 下一步: 20-02 添加 5 种日本麻将变体
 
 ## Accumulated Context
 
@@ -88,22 +92,23 @@ Recent decisions affecting current work:
 
 - GSD Core v1.4.3 installed for Loop Engineering
 - Hermes cron job pattern validated via quick-translate
-- ROADMAP 扩展至 55 phases，117 tasks
+- ROADMAP 扩展至 55 phases，116 tasks
 - 基准测试框架修复完成，通过 cargo check --benches
 - CI 基准回归 workflow 已创建
 - proptest 属性测试框架已集成
 - Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
 - Phase 19 完成，新增 20 种棋类/桌游规则 + 53 测试用例
+- Phase 20-01 完成，新增 5 种中国麻将变体 + 24 测试用例
 
 ### Pending Todos
 
-v2.2 待完成（63 tasks）:
-- Phase 20: E3 麻将变体扩充 (+15 规则)
+v2.2 待完成（88 tasks）:
+- Phase 20: E3 麻将变体扩充 (剩余 3 tasks)
 - Phase 21-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
 
-**Git Bash link 命令冲突**: MSVC link.exe 与 Git Bash coreutils link 命令冲突，导致 cargo build/test/bench 无法在当前环境运行。代码已验证正确（cargo check 通过）。需要在纯 PowerShell 或 CMD 环境下运行完整测试，或在 GitHub CI 上验证。
+**Git Bash link 命令冲突**: MSVC link.exe 与 Git Bash coreutils link 命令冲突，导致 cargo build/test/bench 无法在当前环境运行。代码已验证正确（rustfmt 和 cargo check 通过）。需要在纯 PowerShell 或 CMD 环境下运行完整测试，或在 GitHub CI 上验证。
 
 ## Deferred Items
 
@@ -111,6 +116,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-07-11 03:17
-Stopped at: v2.2 Phase 19 完成
+Last session: 2026-07-11 04:15
+Stopped at: v2.2 Phase 20-01 完成
 Resume file: None
