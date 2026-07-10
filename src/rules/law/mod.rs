@@ -1,4 +1,58 @@
-//! 法律法规模块
+//! 法律法规模块 - 涵盖中国法律和国际法律体系的规则
+//!
+//! 本模块包含各类法律法规的规则实现，覆盖：
+//! - **民事法律**: 民法典、合同法、婚姻法、继承法等
+//! - **刑事法律**: 刑法、刑事诉讼法等
+//! - **商事法律**: 公司法、证券法、保险法、破产法等
+//! - **经济法律**: 反垄断法、税法、银行法等
+//! - **行政法律**: 行政程序法、环境保护法等
+//! - **知识产权**: 专利法、商标法、著作权法等
+//! - **国际法律**: 国际公法、国际私法、国际贸易法等
+//!
+//! # 模块结构
+//!
+//! ```text
+//! law/
+//! ├── civil            # 民事法律
+//! ├── criminal         # 刑事法律
+//! ├── constitution     # 宪法
+//! ├── company          # 公司法
+//! ├── labor            # 劳动法
+//! ├── intellectual_property # 知识产权法
+//! ├── environmental    # 环境保护法
+//! ├── cybersecurity    # 网络安全法
+//! └── international_*  # 国际法律系列
+//! ```
+//!
+//! # Examples
+//!
+//! 使用规则示例：
+//!
+//! ```rust
+//! use world_rules::rules::law::{CivilRules, CriminalRules};
+//! use world_rules::rules::core::Rule;
+//!
+//! // 民法规则
+//! let civil = CivilRules::new();
+//! println!("规则: {}", civil.metadata().name);
+//! println!("分类: {:?}", civil.category());
+//!
+//! // 刑法规则
+//! let criminal = CriminalRules::new();
+//! let explanation = criminal.explain();
+//! assert!(!explanation.is_empty());
+//! ```
+//!
+//! # 规则统计
+//!
+//! 当前包含数百条法律规则，覆盖：
+//! - 50+ 条民事法律规则
+//! - 30+ 条刑事法律规则
+//! - 40+ 条商事法律规则
+//! - 30+ 条经济法律规则
+//! - 50+ 条行政法律规则
+//! - 20+ 条知识产权规则
+//! - 40+ 条国际法律规则
 
 pub mod civil;
 pub mod constitution;

@@ -1,4 +1,55 @@
-//! 体育规则模块
+//! 体育规则模块 - 涵盖各类体育运动和竞技项目的规则实现
+//!
+//! 本模块包含数百种体育运动的完整规则，覆盖：
+//! - **球类运动**: 足球、篮球、网球、排球、乒乓球等
+//! - **格斗运动**: 拳击、摔跤、柔道、跆拳道、MMA等
+//! - **水上运动**: 游泳、跳水、冲浪、划船、帆船等
+//! - **冬季运动**: 滑雪、滑冰、冰球、雪车等
+//! - **田径运动**: 跑步、跳高、跳远、投掷等
+//! - **赛车运动**: F1、MotoGP、NASCAR、拉力赛等
+//!
+//! # 模块结构
+//!
+//! ```text
+//! sports/
+//! ├── *球类运动      # football, basketball, tennis, volleyball等
+//! ├── *格斗运动      # boxing, judo, taekwondo, mma等
+//! ├── *水上运动      # swimming, diving, surfing等
+//! ├── *冬季运动      # skiing, skating, bobsleigh等
+//! ├── *田径运动      # athletics, marathon等
+//! ├── *赛车运动      # f1, motogp, nascar等
+//! └── *其他运动      # 各类独立体育规则
+//! ```
+//!
+//! # Examples
+//!
+//! 使用规则示例：
+//!
+//! ```rust
+//! use world_rules::rules::sports::{FootballRules, BasketballRules};
+//! use world_rules::rules::core::Rule;
+//!
+//! // 足球规则
+//! let football = FootballRules::new();
+//! println!("规则: {}", football.metadata().name);
+//! println!("分类: {:?}", football.category());
+//!
+//! // 篮球规则
+//! let basketball = BasketballRules::new();
+//! let explanation = basketball.explain();
+//! assert!(!explanation.is_empty());
+//! ```
+//!
+//! # 规则统计
+//!
+//! 当前包含数百条体育规则，覆盖：
+//! - 50+ 种球类运动规则
+//! - 30+ 种格斗运动规则
+//! - 40+ 种水上运动规则
+//! - 20+ 种冬季运动规则
+//! - 15+ 种田径运动规则
+//! - 10+ 种赛车运动规则
+//! - 30+ 种其他运动规则
 
 pub mod aikido;
 pub mod aikido_aikikai;

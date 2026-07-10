@@ -1,4 +1,56 @@
-//! 健康规则模块
+//! 健康规则模块 - 涵盖健康管理、疾病预防和生活方式的规则
+//!
+//! 本模块包含健康和医疗相关的规则，覆盖：
+//! - **营养健康**: 饮食规则、营养搭配、膳食指南
+//! - **运动健康**: 运动规则、体能训练、康复指导
+//! - **睡眠健康**: 睡眠规则、作息调整、失眠预防
+//! - **心理健康**: 心理调适、压力管理、情绪控制
+//! - **疾病预防**: 常见疾病预防规则、慢性病管理
+//! - **特殊人群**: 儿童、老年人、孕妇健康规则
+//!
+//! # 模块结构
+//!
+//! ```text
+//! health/
+//! ├── nutrition         # 营养健康
+//! ├── exercise          # 运动健康
+//! ├── sleep             # 睡眠健康
+//! ├── mental_health     # 心理健康
+//! ├── first_aid         # 急救规则
+//! ├── children_health   # 儿童健康
+//! ├── elderly_health    # 老年人健康
+//! ├── chronic_disease   # 慢性病管理
+//! └── weight_management # 体重管理
+//! ```
+//!
+//! # Examples
+//!
+//! 使用规则示例：
+//!
+//! ```rust
+//! use world_rules::rules::health::{NutritionRules, ExerciseRules};
+//! use world_rules::rules::core::Rule;
+//!
+//! // 营养规则
+//! let nutrition = NutritionRules::new();
+//! println!("规则: {}", nutrition.metadata().name);
+//! println!("分类: {:?}", nutrition.category());
+//!
+//! // 运动规则
+//! let exercise = ExerciseRules::new();
+//! let explanation = exercise.explain();
+//! assert!(!explanation.is_empty());
+//! ```
+//!
+//! # 规则统计
+//!
+//! 当前包含数十条健康规则，覆盖：
+//! - 10+ 条营养健康规则
+//! - 10+ 条运动健康规则
+//! - 10+ 条睡眠健康规则
+//! - 10+ 条心理健康规则
+//! - 15+ 条疾病预防规则
+//! - 10+ 条特殊人群健康规则
 
 pub mod addiction_recovery;
 pub mod anxiety_management;

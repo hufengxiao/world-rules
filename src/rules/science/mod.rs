@@ -1,4 +1,57 @@
-//! 科学规则模块
+//! 科学规则模块 - 涵盖自然科学、社会科学和工程科学的基础规则
+//!
+//! 本模块包含科学领域的基础规则和定律，覆盖：
+//! - **自然科学**: 物理定律、化学定律、生物定律等
+//! - **数学规则**: 代数规则、几何规则、概率规则等
+//! - **工程科学**: 机械工程、电气工程、土木工程等
+//! - **计算机科学**: 算法规则、数据结构规则、网络规则等
+//! - **社会科学**: 经济学规则、心理学规则、社会学规则等
+//! - **医学科学**: 生理学规则、病理学规则、药理学规则等
+//!
+//! # 模块结构
+//!
+//! ```text
+//! science/
+//! ├── physics          # 物理学
+//! ├── chemistry        # 化学
+//! ├── biology          # 生物科学
+//! ├── math             # 数学
+//! ├── computer_science # 计算机科学
+//! ├── engineering      # 各类工程科学
+//! ├── medical_science  # 医学科学
+//! └── social_science   # 社会科学
+//! ```
+//!
+//! # Examples
+//!
+//! 使用规则示例：
+//!
+//! ```rust
+//! use world_rules::rules::science::{PhysicsRules, ChemistryRules};
+//! use world_rules::rules::core::Rule;
+//!
+//! // 物理规则
+//! let physics = PhysicsRules::new();
+//! println!("规则: {}", physics.metadata().name);
+//! println!("分类: {:?}", physics.category());
+//!
+//! // 化学规则
+//! let chemistry = ChemistryRules::new();
+//! let explanation = chemistry.explain();
+//! assert!(!explanation.is_empty());
+//! ```
+//!
+//! # 规则统计
+//!
+//! 当前包含数百条科学规则，覆盖：
+//! - 100+ 条物理定律和规则
+//! - 80+ 条化学定律和规则
+//! - 60+ 条生物定律和规则
+//! - 50+ 条数学规则
+//! - 40+ 条计算机科学规则
+//! - 30+ 条工程科学规则
+//! - 20+ 条医学科学规则
+//! - 20+ 条社会科学规则
 
 pub mod acoustics;
 pub mod acoustics_detailed;

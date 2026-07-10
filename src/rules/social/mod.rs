@@ -1,4 +1,54 @@
-//! 社交礼仪规则模块
+//! 社交礼仪规则模块 - 涵盖各类社交礼仪和人际交往规则
+//!
+//! 本模块包含丰富的社交礼仪规则，覆盖：
+//! - **中华文化礼仪**: 传统礼仪、节日礼仪、餐饮礼仪等
+//! - **国际礼仪**: 商务礼仪、西餐礼仪、各国文化礼仪
+//! - **社交场合礼仪**: 婚礼、葬礼、宴会、会议等
+//! - **职场礼仪**: 面试、办公、邮件、电话礼仪
+//! - **现代礼仪**: 网络礼仪、社交媒体礼仪、远程办公礼仪
+//!
+//! # 模块结构
+//!
+//! ```text
+//! social/
+//! ├── chinese_*       # 中华文化礼仪系列
+//! ├── business        # 商务礼仪
+//! ├── dining          # 餐饮礼仪
+//! ├── wedding         # 婚礼礼仪
+//! ├── funeral         # 葬礼礼仪
+//! ├── interview       # 面试礼仪
+//! ├── email           # 邮件礼仪
+//! ├── phone           # 电话礼仪
+//! └── online          # 网络礼仪
+//! ```
+//!
+//! # Examples
+//!
+//! 使用规则示例：
+//!
+//! ```rust
+//! use world_rules::rules::social::{BusinessRules, DiningRules};
+//! use world_rules::rules::core::Rule;
+//!
+//! // 商务礼仪规则
+//! let business = BusinessRules::new();
+//! println!("规则: {}", business.metadata().name);
+//! println!("分类: {:?}", business.category());
+//!
+//! // 餐饮礼仪规则
+//! let dining = DiningRules::new();
+//! let explanation = dining.explain();
+//! assert!(!explanation.is_empty());
+//! ```
+//!
+//! # 规则统计
+//!
+//! 当前包含数十条社交礼仪规则，覆盖：
+//! - 20+ 种中华文化礼仪
+//! - 15+ 种国际礼仪
+//! - 20+ 种社交场合礼仪
+//! - 10+ 种职场礼仪
+//! - 10+ 种现代礼仪
 
 pub mod african_etiquette;
 pub mod airplane_etiquette;
