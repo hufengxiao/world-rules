@@ -132,7 +132,7 @@ Plans:
 Plans:
 - [x] 18-01: 添加 5 种扑克变体规则（Omaha, Stud, Draw, Chinese Poker, Short Deck）
 - [x] 18-02: 添加 5 种桥牌变体规则（Rubber, Duplicate, Chicago, Minibridge, IMP）
-- [ ] 18-03: 添加 5 种其他卡牌规则
+- [x] 18-03: 添加 5 种其他卡牌规则（Big Two, Pai Gow Poker, Baccarat, Three Card Poker, Caribbean Stud）
 - [ ] 18-04: 添加 5 种桌面卡牌规则
 - [ ] 18-05: 更新测试和文档
 

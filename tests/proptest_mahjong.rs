@@ -1,10 +1,10 @@
 //! 麻将规则属性测试
-//! 
+//!
 //! 使用 proptest 对麻将核心算法进行属性测试，
 //! 确保在各种输入条件下不会 panic 并保持正确性。
 
 use proptest::prelude::*;
-use world_rules::rules::games::mahjong::{Tile, TileType, Wind, Dragon, Hand};
+use world_rules::rules::games::mahjong::{Dragon, Hand, Tile, TileType, Wind};
 
 /// 生成有效的万子数字 (1-9)
 prop_compose! {
@@ -106,7 +106,7 @@ proptest! {
         prop_assert!(tile.tile_type.is_number_tile());
         prop_assert!(!tile.tile_type.is_honor());
     }
-    
+
     /// 测试条子牌创建
     #[test]
     fn test_tiao_tile_creation(n in 0u8..=20) {
@@ -115,7 +115,7 @@ proptest! {
         prop_assert!(tile.tile_type.number().unwrap_or(0) <= 9);
         prop_assert!(tile.tile_type.is_number_tile());
     }
-    
+
     /// 测试筒子牌创建
     #[test]
     fn test_tong_tile_creation(n in 0u8..=20) {
@@ -124,7 +124,7 @@ proptest! {
         prop_assert!(tile.tile_type.number().unwrap_or(0) <= 9);
         prop_assert!(tile.tile_type.is_number_tile());
     }
-    
+
     /// 测试风牌创建
     #[test]
     fn test_wind_tile_creation(wind in any_wind()) {
@@ -132,7 +132,7 @@ proptest! {
         prop_assert!(!tile.tile_type.is_number_tile());
         prop_assert!(tile.tile_type.is_honor());
     }
-    
+
     /// 测试箭牌创建
     #[test]
     fn test_dragon_tile_creation(dragon in any_dragon()) {
@@ -154,7 +154,7 @@ proptest! {
             prop_assert!(num >= 1 && num <= 9);
         }
     }
-    
+
     /// 测试风牌和箭牌没有数字
     #[test]
     fn test_honor_tile_no_number(wind in any_wind(), dragon in any_dragon()) {
@@ -165,7 +165,7 @@ proptest! {
         prop_assert!(feng.number().is_none());
         prop_assert!(jian.number().is_none());
     }
-    
+
     /// 测试 suit() 方法只对数字牌有效
     #[test]
     fn test_suit_only_for_number_tiles(tile_type in any_tile_type()) {
@@ -187,7 +187,7 @@ proptest! {
         // 创建成功即可
         prop_assert!(true);
     }
-    
+
     /// 测试添加牌不会 panic
     #[test]
     fn test_add_tile_no_panic(tile in any_tile()) {
@@ -195,7 +195,7 @@ proptest! {
         hand.add_tile(tile);
         prop_assert!(true);
     }
-    
+
     /// 测试连续添加多张牌
     #[test]
     fn test_add_multiple_tiles(tiles in prop::collection::vec(any_tile(), 1..14)) {
@@ -219,7 +219,7 @@ proptest! {
         });
         prop_assert!(result.is_ok());
     }
-    
+
     /// 测试标准胡牌手牌能被正确识别
     #[test]
     fn test_standard_winning_hand(
@@ -240,7 +240,7 @@ proptest! {
         let s1_a_clamped = s1_a.clamp(1, 7); // 确保能形成顺子
         let s2_a_clamped = s2_a.clamp(1, 7);
         let s3_a_clamped = s3_a.clamp(1, 7);
-        
+
         let mut hand = Hand::new();
         // 第一个顺子 (万)
         for tile in [Tile::wan(s1_a_clamped), Tile::wan(s1_a_clamped+1), Tile::wan(s1_a_clamped+2)] {
@@ -261,7 +261,7 @@ proptest! {
         // 对子
         hand.add_tile(Tile::tiao(p_num));
         hand.add_tile(Tile::tiao(p_num));
-        
+
         // 这应该是一个有效的胡牌
         let can_win = hand.can_win();
         // 如果牌都在有效范围，应该能胡
@@ -278,7 +278,7 @@ proptest! {
         let display = format!("{}", tile);
         prop_assert!(!display.is_empty());
     }
-    
+
     /// 测试牌的 Debug 不会 panic
     #[test]
     fn test_tile_debug_no_panic(tile in any_tile()) {
@@ -290,7 +290,7 @@ proptest! {
 #[cfg(test)]
 mod additional_tests {
     use super::*;
-    
+
     #[test]
     fn test_proptest_config() {
         // 运行少量测试验证基本功能

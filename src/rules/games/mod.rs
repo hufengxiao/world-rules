@@ -58,6 +58,8 @@ pub mod abalone;
 pub mod aeroplane_chess;
 pub mod azul;
 pub mod backgammon;
+pub mod baccarat;
+pub mod big_two;
 pub mod blackjack;
 pub mod board_games;
 pub mod bridge;
@@ -68,6 +70,7 @@ pub mod bridge_imp;
 pub mod bridge_minibridge;
 pub mod bridge_rubber;
 pub mod canasta;
+pub mod caribbean_stud;
 pub mod card_game_generic;
 pub mod card_games;
 pub mod catan;
@@ -121,10 +124,10 @@ pub mod mystery_card;
 pub mod niuniu;
 pub mod old_maid;
 pub mod othello_detailed2;
+pub mod pai_gow_poker;
 pub mod pandemic;
 pub mod pao_de_kuai;
 pub mod party_game;
-pub mod pictionary;
 pub mod pinochle;
 pub mod poker_chinese;
 pub mod poker_five_card;
@@ -150,6 +153,7 @@ pub mod tak;
 pub mod tarot_cards;
 pub mod texas_holdem;
 pub mod texas_holdem_detailed;
+pub mod three_card_poker;
 pub mod tic_tac_toe;
 pub mod ticket_to_ride;
 pub mod trivia_game;
@@ -169,6 +173,8 @@ pub use abalone::AbaloneRules;
 pub use aeroplane_chess::AeroplaneChessRules;
 pub use azul::AzulRules;
 pub use backgammon::BackgammonRules;
+pub use baccarat::BaccaratRules;
+pub use big_two::BigTwoRules;
 pub use blackjack::BlackjackRules;
 pub use board_games::{ChessRules, ChineseChessRules, GoRules, GomokuRules};
 pub use bridge::BridgeRules;
@@ -179,6 +185,7 @@ pub use bridge_imp::BridgeImpRules;
 pub use bridge_minibridge::BridgeMinibridgeRules;
 pub use bridge_rubber::BridgeRubberRules;
 pub use canasta::CanastaRules;
+pub use caribbean_stud::CaribbeanStudRules;
 pub use card_game_generic::CardGameGenericRules;
 pub use catan::CatanRules;
 pub use checkers::CheckersRules;
@@ -231,6 +238,7 @@ pub use mystery_card::MysteryCardRules;
 pub use niuniu::NiuniuRules;
 pub use old_maid::OldMaidRules;
 pub use othello_detailed2::OthelloDetailed2Rules;
+pub use pai_gow_poker::PaiGowPokerRules;
 pub use pandemic::PandemicRules;
 pub use pao_de_kuai::PaoDeKuaiRules;
 pub use party_game::PartyGameRules;
@@ -260,6 +268,7 @@ pub use tak::TakRules;
 pub use tarot_cards::TarotCardsRules;
 pub use texas_holdem::TexasHoldemRules;
 pub use texas_holdem_detailed::TexasHoldemDetailedRules;
+pub use three_card_poker::ThreeCardPokerRules;
 pub use tic_tac_toe::TicTacToeRules;
 pub use ticket_to_ride::TicketToRideRules;
 pub use trivia_game::TriviaGameRules;
@@ -293,6 +302,14 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = BackgammonRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BaccaratRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BigTwoRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
@@ -480,6 +497,10 @@ pub fn all_rules() -> Vec<(
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
+        let r = PaiGowPokerRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
         let r = PaoDeKuaiRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
@@ -549,6 +570,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = TexasHoldemRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ThreeCardPokerRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {

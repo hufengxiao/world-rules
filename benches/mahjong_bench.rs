@@ -96,7 +96,8 @@ fn bench_mahjong_validate(c: &mut Criterion) {
     let riichi_rules = RiichiMahjongRules::new();
 
     // 使用正确的 ValidateContext API
-    let test_hand = ValidateContext::mahjong_tiles("1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条");
+    let test_hand =
+        ValidateContext::mahjong_tiles("1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 2条 3条 4条 4条");
 
     group.bench_function("sichuan_validate", |b| {
         b.iter(|| black_box(sichuan_rules.validate(&test_hand)))
@@ -127,9 +128,20 @@ fn bench_mahjong_hand_operations(c: &mut Criterion) {
 
     // 测试创建新手牌（替代 clear）
     let hand_template = Hand::from_tiles(vec![
-        Tile::wan(1), Tile::wan(2), Tile::wan(3), Tile::wan(4), Tile::wan(5),
-        Tile::wan(6), Tile::wan(7), Tile::wan(8), Tile::wan(9), Tile::tiao(1),
-        Tile::tiao(2), Tile::tiao(3), Tile::tong(5), Tile::tong(5),
+        Tile::wan(1),
+        Tile::wan(2),
+        Tile::wan(3),
+        Tile::wan(4),
+        Tile::wan(5),
+        Tile::wan(6),
+        Tile::wan(7),
+        Tile::wan(8),
+        Tile::wan(9),
+        Tile::tiao(1),
+        Tile::tiao(2),
+        Tile::tiao(3),
+        Tile::tong(5),
+        Tile::tong(5),
     ]);
 
     group.bench_function("recreate_hand", |b| {

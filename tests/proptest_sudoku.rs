@@ -223,8 +223,15 @@ mod additional_tests {
     fn test_valid_complete_row() {
         // 测试一行包含所有数字 1-9（无重复）
         let row: Vec<Option<u8>> = vec![
-            Some(1), Some(2), Some(3), Some(4), Some(5),
-            Some(6), Some(7), Some(8), Some(9),
+            Some(1),
+            Some(2),
+            Some(3),
+            Some(4),
+            Some(5),
+            Some(6),
+            Some(7),
+            Some(8),
+            Some(9),
         ];
         let non_none: Vec<u8> = row.iter().filter_map(|&v| v).collect();
         assert_eq!(non_none.len(), 9);

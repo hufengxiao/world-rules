@@ -15,7 +15,7 @@ fn bench_sudoku_validate(c: &mut Criterion) {
     // 使用正确的 ValidateContext API
     // 一个有效的数独布局（字符串表示）
     let valid_sudoku = ValidateContext::generic(
-        "530070000600195000098000060800060003400803001700020006060000280000419005000080079"
+        "530070000600195000098000060800060003400803001700020006060000280000419005000080079",
     );
 
     group.bench_function("validate_standard", |b| {
@@ -24,7 +24,7 @@ fn bench_sudoku_validate(c: &mut Criterion) {
 
     // 一个已完成的数独
     let completed_sudoku = ValidateContext::generic(
-        "534678912672195348198342567859761423426853791713924856961537284287419635345286179"
+        "534678912672195348198342567859761423426853791713924856961537284287419635345286179",
     );
 
     group.bench_function("validate_completed", |b| {
@@ -33,7 +33,7 @@ fn bench_sudoku_validate(c: &mut Criterion) {
 
     // 一个部分填充的数独
     let partial_sudoku = ValidateContext::generic(
-        "530070000600195000000000000000000000000000000000000000000000280000419005000080079"
+        "530070000600195000000000000000000000000000000000000000000000280000419005000080079",
     );
 
     group.bench_function("validate_partial", |b| {
@@ -52,7 +52,7 @@ fn bench_sudoku_variants(c: &mut Criterion) {
     let variant_rules = SudokuVariantRules::new();
 
     let test_puzzle = ValidateContext::generic(
-        "530070000600195000098000060800060003400803001700020006060000280000419005000080079"
+        "530070000600195000098000060800060003400803001700020006060000280000419005000080079",
     );
 
     group.bench_function("standard_9x9", |b| {
