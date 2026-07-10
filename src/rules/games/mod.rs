@@ -1,4 +1,55 @@
-//! 游戏规则模块
+//! 游戏规则模块 - 涵盖各类游戏的规则实现
+//!
+//! 本模块包含 100+ 种游戏的完整规则，包括：
+//! - **棋类游戏**: 国际象棋、中国象棋、围棋、五子棋等
+//! - **卡牌游戏**: 扑克、斗地主、麻将、德州扑克等
+//! - **桌游**: 大富翁、卡坦岛、风险等
+//! - **益智游戏**: 数独、魔方、24 点等
+//!
+//! # 模块结构
+//!
+//! ```text
+//! games/
+//! ├── board_games/    # 棋类游戏（象棋、围棋等）
+//! ├── card_games/     # 卡牌游戏（扑克牌型评估）
+//! ├── mahjong/        # 麻将核心逻辑和各地变体
+//! ├── *其他游戏       # 各类独立游戏规则
+//! ```
+//!
+//! # Examples
+//!
+//! 使用规则示例：
+//!
+//! ```rust
+//! use world_rules::rules::games::{ChessRules, DouDiZhuRules};
+//! use world_rules::rules::core::Rule;
+//!
+//! // 国际象棋规则
+//! let chess = ChessRules::new();
+//! println!("规则: {}", chess.metadata().name);
+//! println!("分类: {:?}", chess.category());
+//!
+//! // 斗地主规则
+//! let ddz = DouDiZhuRules::new();
+//! let explanation = ddz.explain();
+//! assert!(!explanation.is_empty());
+//! ```
+//!
+//! # 子模块
+//!
+//! - [`board_games`] - 棋类和棋盘游戏
+//! - [`card_games`] - 卡牌游戏和扑克牌型评估
+//! - [`mahjong`] - 麻将游戏及各地变体（四川、日本、台湾等）
+//! - [`poker`] - 各类扑克变体（德州扑克、奥马哈等）
+//!
+//! # 规则统计
+//!
+//! 当前包含 1098 条游戏规则，覆盖：
+//! - 40+ 种麻将变体
+//! - 20+ 种扑克变体
+//! - 15+ 种棋类游戏
+//! - 30+ 种桌游
+//! - 20+ 种其他游戏
 
 pub mod abalone;
 pub mod aeroplane_chess;
