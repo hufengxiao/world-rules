@@ -2,8 +2,8 @@
 //!
 //! 测试 Phase 20 添加的麻将变体规则：
 //! - 20-01: 5种中国麻将变体（湖南、河北、山西、宁夏、内蒙古）
-//! - 20-02: 5种日本麻将变体（待添加）
-//! - 20-03: 5种其他麻将变体（待添加）
+//! - 20-02: 5种日本麻将变体（竞技立直、和志、三人、关西、开放立直）
+//! - 20-03: 5种其他麻将变体（美国、越南、菲律宾、新加坡、马来西亚）
 
 use world_rules::prelude::*;
 
@@ -580,5 +580,298 @@ fn phase_20_01_origin_tags() {
     assert_eq!(
         InnerMongoliaMahjongRules::new().metadata().origin,
         Some("内蒙古")
+    );
+}
+
+// ===== Phase 20-03: 其他麻将变体规则测试 =====
+
+#[test]
+fn american_mahjong_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::american::AmericanMahjongRules;
+
+    let rules = AmericanMahjongRules::new();
+    assert_eq!(rules.metadata().name, "美国麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn american_mahjong_joker_rules() {
+    use world_rules::rules::games::mahjong::variants::american::AmericanMahjongRules;
+
+    let rules = AmericanMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("Joker"), "应说明Joker牌规则");
+    assert!(explanation.contains("152张"), "应说明152张牌");
+    assert!(explanation.contains("Charleston"), "应说明Charleston规则");
+}
+
+#[test]
+fn american_mahjong_scoring_rules() {
+    use world_rules::rules::games::mahjong::variants::american::AmericanMahjongRules;
+
+    let rules = AmericanMahjongRules::new();
+    let scoring = rules.scoring_rules();
+
+    assert!(!scoring.is_empty());
+    assert!(scoring.iter().any(|(name, _)| name == "清一色"));
+    assert!(scoring.iter().any(|(name, _)| name.contains("Joker")));
+}
+
+#[test]
+fn american_mahjong_basic_settings() {
+    use world_rules::rules::games::mahjong::variants::american::AmericanMahjongRules;
+
+    let rules = AmericanMahjongRules::new();
+    let settings = rules.basic_settings();
+
+    assert!(settings.iter().any(|s| s.contains("152张")));
+    assert!(settings.iter().any(|s| s.contains("Joker")));
+}
+
+#[test]
+fn vietnamese_mahjong_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::vietnamese::VietnameseMahjongRules;
+
+    let rules = VietnameseMahjongRules::new();
+    assert_eq!(rules.metadata().name, "越南麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn vietnamese_mahjong_16_cards() {
+    use world_rules::rules::games::mahjong::variants::vietnamese::VietnameseMahjongRules;
+
+    let rules = VietnameseMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("16张"), "应说明16张牌");
+    assert!(explanation.contains("17张"), "应说明17张胡牌");
+}
+
+#[test]
+fn vietnamese_mahjong_scoring() {
+    use world_rules::rules::games::mahjong::variants::vietnamese::VietnameseMahjongRules;
+
+    let rules = VietnameseMahjongRules::new();
+    let scoring = rules.scoring_rules();
+
+    assert!(!scoring.is_empty());
+    assert!(scoring.iter().any(|(name, _)| name == "清一色"));
+    assert!(scoring.iter().any(|(name, _)| name == "十三幺"));
+}
+
+#[test]
+fn filipino_mahjong_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::filipino::FilipinoMahjongRules;
+
+    let rules = FilipinoMahjongRules::new();
+    assert_eq!(rules.metadata().name, "菲律宾麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn filipino_mahjong_simplified_scoring() {
+    use world_rules::rules::games::mahjong::variants::filipino::FilipinoMahjongRules;
+
+    let rules = FilipinoMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("简化"), "应说明简化计分");
+    assert!(explanation.contains("144张"), "应说明144张牌");
+}
+
+#[test]
+fn filipino_mahjong_scoring_rules() {
+    use world_rules::rules::games::mahjong::variants::filipino::FilipinoMahjongRules;
+
+    let rules = FilipinoMahjongRules::new();
+    let scoring = rules.simplified_scoring();
+
+    assert!(!scoring.is_empty());
+    assert!(scoring.iter().any(|(name, _)| name == "平胡"));
+    assert!(scoring.iter().any(|(name, _)| name == "清一色"));
+}
+
+#[test]
+fn singapore_mahjong_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::singapore::SingaporeMahjongRules;
+
+    let rules = SingaporeMahjongRules::new();
+    assert_eq!(rules.metadata().name, "新加坡麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn singapore_mahjong_animal_cards() {
+    use world_rules::rules::games::mahjong::variants::singapore::SingaporeMahjongRules;
+
+    let rules = SingaporeMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("动物牌"), "应说明动物牌规则");
+    assert!(explanation.contains("148张"), "应说明148张牌");
+}
+
+#[test]
+fn singapore_mahjong_animal_scoring() {
+    use world_rules::rules::games::mahjong::variants::singapore::SingaporeMahjongRules;
+
+    let rules = SingaporeMahjongRules::new();
+    let scoring = rules.scoring_rules();
+
+    assert!(!scoring.is_empty());
+    assert!(scoring.iter().any(|(name, _)| name.contains("动物")));
+}
+
+#[test]
+fn malaysian_mahjong_rules_basic() {
+    use world_rules::rules::games::mahjong::variants::malaysian::MalaysianMahjongRules;
+
+    let rules = MalaysianMahjongRules::new();
+    assert_eq!(rules.metadata().name, "马来西亚麻将规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Games(_)));
+}
+
+#[test]
+fn malaysian_mahjong_animal_cards() {
+    use world_rules::rules::games::mahjong::variants::malaysian::MalaysianMahjongRules;
+
+    let rules = MalaysianMahjongRules::new();
+    let explanation = rules.explain();
+
+    // 验证关键规则被说明
+    assert!(explanation.contains("动物牌"), "应说明动物牌规则");
+    assert!(explanation.contains("148张"), "应说明148张牌");
+}
+
+#[test]
+fn malaysian_mahjong_special_fans() {
+    use world_rules::rules::games::mahjong::variants::malaysian::MalaysianMahjongRules;
+
+    let rules = MalaysianMahjongRules::new();
+    let fans = rules.special_fan_types();
+
+    assert!(!fans.is_empty());
+    assert!(fans.iter().any(|(name, _)| name.contains("动物")));
+    assert!(fans.iter().any(|(name, _)| name == "清一色"));
+}
+
+#[test]
+fn malaysian_mahjong_animal_scoring() {
+    use world_rules::rules::games::mahjong::variants::malaysian::MalaysianMahjongRules;
+
+    let rules = MalaysianMahjongRules::new();
+    let fans = rules.special_fan_types();
+
+    // 验证动物牌番种计分
+    let full_animal = fans.iter().find(|(name, _)| name == "全动物");
+    assert!(full_animal.is_some());
+    assert_eq!(full_animal.unwrap().1, 8);
+}
+
+// ===== Phase 20-03 总体测试 =====
+
+#[test]
+fn phase_20_03_all_other_variants_exist() {
+    // 验证所有 5 种其他麻将变体都能正确导入和创建
+    use world_rules::rules::games::mahjong::variants::{
+        AmericanMahjongRules, FilipinoMahjongRules, MalaysianMahjongRules, SingaporeMahjongRules,
+        VietnameseMahjongRules,
+    };
+
+    let american = AmericanMahjongRules::new();
+    let vietnamese = VietnameseMahjongRules::new();
+    let filipino = FilipinoMahjongRules::new();
+    let singapore = SingaporeMahjongRules::new();
+    let malaysian = MalaysianMahjongRules::new();
+
+    // 所有规则都有有效的元数据
+    assert!(!american.metadata().name.is_empty());
+    assert!(!vietnamese.metadata().name.is_empty());
+    assert!(!filipino.metadata().name.is_empty());
+    assert!(!singapore.metadata().name.is_empty());
+    assert!(!malaysian.metadata().name.is_empty());
+}
+
+#[test]
+fn phase_20_03_unique_categories() {
+    // 验证所有其他麻将变体有唯一的分类标识
+    use world_rules::rules::games::mahjong::variants::{
+        AmericanMahjongRules, FilipinoMahjongRules, MalaysianMahjongRules, SingaporeMahjongRules,
+        VietnameseMahjongRules,
+    };
+
+    let american = AmericanMahjongRules::new();
+    let vietnamese = VietnameseMahjongRules::new();
+    let filipino = FilipinoMahjongRules::new();
+    let singapore = SingaporeMahjongRules::new();
+    let malaysian = MalaysianMahjongRules::new();
+
+    assert_eq!(american.category().to_string(), "Games/mahjong_american");
+    assert_eq!(
+        vietnamese.category().to_string(),
+        "Games/mahjong_vietnamese"
+    );
+    assert_eq!(filipino.category().to_string(), "Games/mahjong_filipino");
+    assert_eq!(singapore.category().to_string(), "Games/mahjong_singapore");
+    assert_eq!(malaysian.category().to_string(), "Games/mahjong_malaysian");
+}
+
+#[test]
+fn phase_20_03_all_explain_works() {
+    // 验证所有其他麻将变体的 explain 方法都能生成有效说明
+    use world_rules::rules::games::mahjong::variants::{
+        AmericanMahjongRules, FilipinoMahjongRules, MalaysianMahjongRules, SingaporeMahjongRules,
+        VietnameseMahjongRules,
+    };
+
+    let rules_list: Vec<Box<dyn world_rules::rules::core::Rule>> = vec![
+        Box::new(AmericanMahjongRules::new()),
+        Box::new(VietnameseMahjongRules::new()),
+        Box::new(FilipinoMahjongRules::new()),
+        Box::new(SingaporeMahjongRules::new()),
+        Box::new(MalaysianMahjongRules::new()),
+    ];
+
+    for rules in rules_list {
+        let explanation = rules.explain();
+        assert!(explanation.contains("基本设置"));
+    }
+}
+
+#[test]
+fn phase_20_03_origin_tags() {
+    // 验证所有其他麻将变体的来源标签
+    use world_rules::rules::games::mahjong::variants::{
+        AmericanMahjongRules, FilipinoMahjongRules, MalaysianMahjongRules, SingaporeMahjongRules,
+        VietnameseMahjongRules,
+    };
+
+    assert_eq!(AmericanMahjongRules::new().metadata().origin, Some("美国"));
+    assert_eq!(
+        VietnameseMahjongRules::new().metadata().origin,
+        Some("越南")
+    );
+    assert_eq!(
+        FilipinoMahjongRules::new().metadata().origin,
+        Some("菲律宾")
+    );
+    assert_eq!(
+        SingaporeMahjongRules::new().metadata().origin,
+        Some("新加坡")
+    );
+    assert_eq!(
+        MalaysianMahjongRules::new().metadata().origin,
+        Some("马来西亚")
     );
 }
