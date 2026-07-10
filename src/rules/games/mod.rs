@@ -55,6 +55,7 @@
 //! - 20+ 种其他游戏
 
 pub mod abalone;
+pub mod agricola;
 pub mod aeroplane_chess;
 pub mod azul;
 pub mod backgammon;
@@ -72,6 +73,7 @@ pub mod bridge_imp;
 pub mod bridge_minibridge;
 pub mod bridge_rubber;
 pub mod canasta;
+pub mod carcassonne;
 pub mod canfield;
 pub mod caribbean_stud;
 pub mod card_game_generic;
@@ -91,6 +93,7 @@ pub mod crazy_eights;
 pub mod cribbage;
 pub mod dark_chess;
 pub mod dice_game;
+pub mod dominion;
 pub mod domino;
 pub mod domino_detailed;
 pub mod dots_and_boxes;
@@ -145,10 +148,12 @@ pub mod othello_detailed2;
 pub mod pai_gow_poker;
 pub mod pair_go;
 pub mod pandemic;
+pub mod power_grid;
 pub mod pao_de_kuai;
 pub mod party_game;
 pub mod pinochle;
 pub mod pyramid_solitaire;
+pub mod puerto_rico;
 pub mod poker_chinese;
 pub mod poker_five_card;
 pub mod poker_omaha;
@@ -190,6 +195,7 @@ pub mod yahtzee;
 pub mod zhajinhua;
 
 pub use abalone::AbaloneRules;
+pub use agricola::AgricolaRules;
 pub use aeroplane_chess::AeroplaneChessRules;
 pub use azul::AzulRules;
 pub use backgammon::BackgammonRules;
@@ -207,6 +213,7 @@ pub use bridge_imp::BridgeImpRules;
 pub use bridge_minibridge::BridgeMinibridgeRules;
 pub use bridge_rubber::BridgeRubberRules;
 pub use canasta::CanastaRules;
+pub use carcassonne::CarcassonneRules;
 pub use canfield::CanfieldRules;
 pub use caribbean_stud::CaribbeanStudRules;
 pub use card_game_generic::CardGameGenericRules;
@@ -225,6 +232,7 @@ pub use crazy_eights::CrazyEightsRules;
 pub use cribbage::CribbageRules;
 pub use dark_chess::DarkChessRules;
 pub use dice_game::DiceGameRules;
+pub use dominion::DominionRules;
 pub use domino::DominoRules;
 pub use domino_detailed::DominoDetailedRules;
 pub use dots_and_boxes::DotsAndBoxesRules;
@@ -284,6 +292,8 @@ pub use party_game::PartyGameRules;
 pub use pictionary::PictionaryRules;
 pub use pinochle::PinochleRules;
 pub use pyramid_solitaire::PyramidSolitaireRules;
+pub use power_grid::PowerGridRules;
+pub use puerto_rico::PuertoRicoRules;
 pub use poker_chinese::PokerChineseRules;
 pub use poker_five_card::PokerFiveCardRules;
 pub use poker_omaha::PokerOmahaRules;
@@ -337,6 +347,10 @@ pub fn all_rules() -> Vec<(
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
+        let r = AgricolaRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
         let r = AnhuiMahjongRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
@@ -386,6 +400,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = CanfieldRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CarcassonneRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
@@ -446,6 +464,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = DominoRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DominionRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
@@ -562,6 +584,14 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = PictionaryRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PowerGridRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PuertoRicoRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
