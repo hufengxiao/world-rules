@@ -62,7 +62,7 @@ Plans: 已完成
 
 Plans:
 - [x] 13-01: 为 src/rules/core.rs 添加 rustdoc（Rule trait, simple_rule! 宏）
-- [ ] 13-02: 为 src/bin/wr.rs 添加 rustdoc（CLI 命令）
+- [x] 13-02: 为 src/bin/wr.rs 添加 rustdoc（CLI 命令）
 - [ ] 13-03: 为 src/plugins/mod.rs 添加 rustdoc（插件系统）
 - [ ] 13-04: 运行 cargo doc 验证无警告
 

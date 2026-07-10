@@ -21,9 +21,9 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 ## Current Position
 
 Phase: 13 of 55 (API 文档 - Core)
-Plan: 1 of 117 in current phase
-Status: Executing task 13-02
-Last activity: 2026-07-10 — 完成 13-01: core.rs rustdoc 添加
+Plan: 2 of 4 in current phase
+Status: Executing task 13-03
+Last activity: 2026-07-10 — 完成 13-02: wr.rs rustdoc 添加
 
 Progress: [██░░░░░░░░] 22%
 
