@@ -22,6 +22,19 @@ full = ["serde_json"]
 
 [dev-dependencies]
 serde_json = "1"
+criterion = "0.5"
+
+[[bench]]
+name = "mahjong_bench"
+harness = false
+
+[[bench]]
+name = "poker_bench"
+harness = false
+
+[[bench]]
+name = "sudoku_bench"
+harness = false
 
 [[bin]]
 name = "wr"
