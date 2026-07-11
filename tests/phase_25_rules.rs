@@ -984,3 +984,262 @@ fn test_para_sailing_equipment() {
     assert!(equipment.iter().any(|e| e.contains("救生衣")));
     assert!(equipment.len() >= 4);
 }
+
+// ============================================================================
+// 25-03: 适应性规则测试 (5种)
+// ============================================================================
+
+// ----- 适应性游泳规则测试 -----
+
+#[test]
+fn test_adaptive_swimming_rules_basic() {
+    use world_rules::rules::sports::AdaptiveSwimmingRules;
+    let rules = AdaptiveSwimmingRules::new();
+    assert_eq!(rules.metadata().name, "适应性游泳规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_adaptive_swimming_classification() {
+    use world_rules::rules::sports::AdaptiveSwimmingRules;
+    let rules = AdaptiveSwimmingRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("S级")));
+    assert!(classification.iter().any(|c| c.contains("视力残疾")));
+    assert!(classification.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_swimming_starting() {
+    use world_rules::rules::sports::AdaptiveSwimmingRules;
+    let rules = AdaptiveSwimmingRules::new();
+    let starting = rules.starting_adaptations();
+    assert!(starting.iter().any(|s| s.contains("水中出发")));
+    assert!(starting.iter().any(|s| s.contains("视力残疾")));
+    assert!(starting.len() >= 4);
+}
+
+#[test]
+fn test_adaptive_swimming_equipment() {
+    use world_rules::rules::sports::AdaptiveSwimmingRules;
+    let rules = AdaptiveSwimmingRules::new();
+    let equipment = rules.equipment_adaptations();
+    assert!(equipment.iter().any(|e| e.contains("假肢")));
+    assert!(equipment.iter().any(|e| e.contains("禁止")));
+    assert!(equipment.len() >= 5);
+}
+
+#[test]
+fn test_adaptive_swimming_turn() {
+    use world_rules::rules::sports::AdaptiveSwimmingRules;
+    let rules = AdaptiveSwimmingRules::new();
+    let turn = rules.turn_rules();
+    assert!(turn.iter().any(|t| t.contains("转身")));
+    assert!(turn.len() >= 4);
+}
+
+// ----- 适应性田径规则测试 -----
+
+#[test]
+fn test_adaptive_athletics_rules_basic() {
+    use world_rules::rules::sports::AdaptiveAthleticsRules;
+    let rules = AdaptiveAthleticsRules::new();
+    assert_eq!(rules.metadata().name, "适应性田径规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_adaptive_athletics_classification() {
+    use world_rules::rules::sports::AdaptiveAthleticsRules;
+    let rules = AdaptiveAthleticsRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("T级")));
+    assert!(classification.iter().any(|c| c.contains("F级")));
+    assert!(classification.iter().any(|c| c.contains("视力残疾")));
+    assert!(classification.len() >= 8);
+}
+
+#[test]
+fn test_adaptive_athletics_wheelchair() {
+    use world_rules::rules::sports::AdaptiveAthleticsRules;
+    let rules = AdaptiveAthleticsRules::new();
+    let wheelchair = rules.wheelchair_racing_rules();
+    assert!(wheelchair.iter().any(|w| w.contains("轮椅规格")));
+    assert!(wheelchair.iter().any(|w| w.contains("禁止")));
+    assert!(wheelchair.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_athletics_prosthetic() {
+    use world_rules::rules::sports::AdaptiveAthleticsRules;
+    let rules = AdaptiveAthleticsRules::new();
+    let prosthetic = rules.prosthetic_running_rules();
+    assert!(prosthetic.iter().any(|p| p.contains("义肢")));
+    assert!(prosthetic.iter().any(|p| p.contains("长度")));
+    assert!(prosthetic.len() >= 5);
+}
+
+#[test]
+fn test_adaptive_athletics_throwing() {
+    use world_rules::rules::sports::AdaptiveAthleticsRules;
+    let rules = AdaptiveAthleticsRules::new();
+    let throwing = rules.throwing_adaptations();
+    assert!(throwing.iter().any(|t| t.contains("投掷")));
+    assert!(throwing.len() >= 4);
+}
+
+// ----- 适应性划船规则测试 -----
+
+#[test]
+fn test_adaptive_rowing_rules_basic() {
+    use world_rules::rules::sports::AdaptiveRowingRules;
+    let rules = AdaptiveRowingRules::new();
+    assert_eq!(rules.metadata().name, "适应性划船规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_adaptive_rowing_classification() {
+    use world_rules::rules::sports::AdaptiveRowingRules;
+    let rules = AdaptiveRowingRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("PR1")));
+    assert!(classification.iter().any(|c| c.contains("PR2")));
+    assert!(classification.iter().any(|c| c.contains("PR3")));
+    assert!(classification.len() >= 8);
+}
+
+#[test]
+fn test_adaptive_rowing_boat() {
+    use world_rules::rules::sports::AdaptiveRowingRules;
+    let rules = AdaptiveRowingRules::new();
+    let boat = rules.boat_adaptations();
+    assert!(boat.iter().any(|b| b.contains("座椅")));
+    assert!(boat.iter().any(|b| b.contains("禁止")));
+    assert!(boat.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_rowing_events() {
+    use world_rules::rules::sports::AdaptiveRowingRules;
+    let rules = AdaptiveRowingRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("PR1")));
+    assert!(events.iter().any(|e| e.contains("Mix")));
+    assert!(events.len() >= 5);
+}
+
+#[test]
+fn test_adaptive_rowing_safety() {
+    use world_rules::rules::sports::AdaptiveRowingRules;
+    let rules = AdaptiveRowingRules::new();
+    let safety = rules.safety_rules();
+    assert!(safety.iter().any(|s| s.contains("救生衣")));
+    assert!(safety.len() >= 4);
+}
+
+// ----- 适应性雪橇规则测试 -----
+
+#[test]
+fn test_adaptive_sled_rules_basic() {
+    use world_rules::rules::sports::AdaptiveSledRules;
+    let rules = AdaptiveSledRules::new();
+    assert_eq!(rules.metadata().name, "适应性雪橇规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_adaptive_sled_classification() {
+    use world_rules::rules::sports::AdaptiveSledRules;
+    let rules = AdaptiveSledRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("雪橇冰球")));
+    assert!(classification.iter().any(|c| c.contains("LW")));
+    assert!(classification.iter().any(|c| c.contains("视力残疾")));
+    assert!(classification.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_sled_hockey() {
+    use world_rules::rules::sports::AdaptiveSledRules;
+    let rules = AdaptiveSledRules::new();
+    let hockey = rules.sledge_hockey_rules();
+    assert!(hockey.iter().any(|h| h.contains("雪橇")));
+    assert!(hockey.iter().any(|h| h.contains("球杆")));
+    assert!(hockey.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_sled_sit_skiing() {
+    use world_rules::rules::sports::AdaptiveSledRules;
+    let rules = AdaptiveSledRules::new();
+    let sit_skiing = rules.sit_skiing_rules();
+    assert!(sit_skiing.iter().any(|s| s.contains("坐式")));
+    assert!(sit_skiing.len() >= 4);
+}
+
+#[test]
+fn test_adaptive_sled_equipment() {
+    use world_rules::rules::sports::AdaptiveSledRules;
+    let rules = AdaptiveSledRules::new();
+    let equipment = rules.equipment_requirements();
+    assert!(equipment.iter().any(|e| e.contains("头盔")));
+    assert!(equipment.iter().any(|e| e.contains("雪橇")));
+    assert!(equipment.len() >= 6);
+}
+
+// ----- 适应性球类规则测试 -----
+
+#[test]
+fn test_adaptive_ball_games_rules_basic() {
+    use world_rules::rules::sports::AdaptiveBallGamesRules;
+    let rules = AdaptiveBallGamesRules::new();
+    assert_eq!(rules.metadata().name, "适应性球类规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_adaptive_ball_games_classification() {
+    use world_rules::rules::sports::AdaptiveBallGamesRules;
+    let rules = AdaptiveBallGamesRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("轮椅网球")));
+    assert!(classification.iter().any(|c| c.contains("盲人足球")));
+    assert!(classification.iter().any(|c| c.contains("坐式排球")));
+    assert!(classification.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_ball_games_wheelchair_tennis() {
+    use world_rules::rules::sports::AdaptiveBallGamesRules;
+    let rules = AdaptiveBallGamesRules::new();
+    let tennis = rules.wheelchair_tennis_rules();
+    assert!(tennis.iter().any(|t| t.contains("两跳")));
+    assert!(tennis.iter().any(|t| t.contains("轮椅")));
+    assert!(tennis.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_ball_games_blind_football() {
+    use world_rules::rules::sports::AdaptiveBallGamesRules;
+    let rules = AdaptiveBallGamesRules::new();
+    let football = rules.blind_football_rules();
+    assert!(football.iter().any(|f| f.contains("发声")));
+    assert!(football.iter().any(|f| f.contains("眼罩")));
+    assert!(football.len() >= 6);
+}
+
+#[test]
+fn test_adaptive_ball_games_equipment() {
+    use world_rules::rules::sports::AdaptiveBallGamesRules;
+    let rules = AdaptiveBallGamesRules::new();
+    let equipment = rules.equipment_adaptations();
+    assert!(equipment.iter().any(|e| e.contains("轮椅")));
+    assert!(equipment.iter().any(|e| e.contains("眼罩")));
+    assert!(equipment.len() >= 6);
+}
