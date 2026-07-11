@@ -5,8 +5,8 @@ progress:
   total_phases: 55
   completed_phases: 24
   total_plans: 116
-  completed_plans: 56
-  percent: 75
+  completed_plans: 57
+  percent: 76
 ---
 
 # Project State
@@ -21,11 +21,11 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 ## Current Position
 
 Phase: 25 of 55 (E8 残疾人运动扩充)
-Plan: 1 of 4 complete in current phase
-Status: In Progress - Phase 25-01 完成（10种残奥规则）
-Last activity: 2026-07-11 — 完成 Phase 25-01（残疾人自行车、射箭、射击、赛艇、马术、乒乓球、力量举、轮椅橄榄球、轮椅击剑、残疾人冰球）
+Plan: 2 of 4 complete in current phase
+Status: In Progress - Phase 25-02 完成（10种特殊运动规则）
+Last activity: 2026-07-11 — 完成 Phase 25-02（高山滑雪、越野滑雪、盲人柔道、坐式排球、冬季两项、跆拳道、皮划艇、舞蹈运动、羽毛球、帆船）
 
-Progress: [████████████░] 75%
+Progress: [████████████░] 76%
 
 ## Performance Metrics
 
@@ -104,10 +104,11 @@ Progress: [████████████░] 75%
 ||  - 24-03: 5种其他冬季规则（冰壶、冰壶详细、雪车、雪橇、骨架雪车）✅
 ||  - 24-04: 测试和文档（tests/phase_24_rules.rs，docs/phase_24.md，100+测试用例）✅
 
-||进行中:
-|||- Phase 25: E8 残疾人运动扩充 (+25 规则)
-|||  - 25-01: 10种残奥规则（残疾人自行车、射箭、射击、赛艇、马术、乒乓球、力量举、轮椅橄榄球、轮椅击剑、残疾人冰球）✅
-|||  - 下一步: 25-02 添加10种特殊运动规则
+进行中:
+||- Phase 25: E8 残疾人运动扩充 (+25 规则)
+||  - 25-01: 10种残奥规则（残疾人自行车、射箭、射击、赛艇、马术、乒乓球、力量举、轮椅橄榄球、轮椅击剑、残疾人冰球）✅
+||  - 25-02: 10种特殊运动规则（高山滑雪、越野滑雪、盲人柔道、坐式排球、冬季两项、跆拳道、皮划艇、舞蹈运动、羽毛球、帆船）✅
+||  - 下一步: 25-03 添加5种适应性规则
 
 ## Accumulated Context
 
