@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: planning
 progress:
   total_phases: 55
-  completed_phases: 20
+  completed_phases: 21
   total_plans: 116
-  completed_plans: 34
-  percent: 52
+  completed_plans: 38
+  percent: 55
 ---
 
 # Project State
@@ -16,30 +16,30 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
-**Current focus:** Phase 21 - E4 球类运动扩充 (v2.2 继续)
+**Current focus:** Phase 22 - E5 格斗与武术扩充 (v2.2 继续)
 
 ## Current Position
 
-Phase: 21 of 55 (E4 球类运动扩充)
-Plan: 3 of 4 complete in current phase
-Status: Completed 21-03, Ready for task 21-04
-Last activity: 2026-07-11 — 完成 Phase 21-03（添加10种其他球类规则）
+Phase: 22 of 55 (E5 格斗与武术扩充)
+Plan: 0 of 4 complete in current phase
+Status: Ready for task 22-01
+Last activity: 2026-07-11 — 完成 Phase 21-04（更新测试和文档）
 
-Progress: [███████░] 50%
+Progress: [███████░] 55%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 19 (M1-M19, Phase 20 完成)
+- Total milestones completed: 21 (Phase 21 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 84 tasks
+- Remaining plans: 78 tasks
 
 **By Phase:**
 
 || Phase | Status | Plans |
 |---|--------|-------|
-| 13-20 | v2.2 Phase 20 | COMPLETE ✅ |
-| 21-35 | v2.2 规则扩充 | 61 tasks |
+| 13-21 | v2.2 Phase 21 | COMPLETE ✅ |
+| 22-35 | v2.2 规则扩充 | 58 tasks |
 | 36-45 | v2.3 生态建设 | 15 tasks |
 | 46-55 | v3.0 平台化 | 10 tasks |
 
@@ -79,12 +79,15 @@ Progress: [███████░] 50%
   - 20-03: 5种其他麻将变体（美国、越南、菲律宾、新加坡、马来西亚）✅
   - 20-04: 测试和文档（tests/phase_20_rules.rs, docs/phase_20.md, 80个测试用例）✅
 
+- Phase 21: E4 球类运动扩充 (+30 规则，完整测试覆盖) ✅
+  - 21-01: 10种足球相关规则（英超、女足世界杯、女子欧洲杯、金杯赛、大洋洲杯、女子俱乐部世界杯、南美解放者杯、亚冠、非洲冠军联赛、欧洲超级杯）✅
+  - 21-02: 10种篮球相关规则（WNBA、NCAA、CBA详细、FIBA世界杯、奥运会、NBA全明星、NBA季后赛、G联盟、3x3奥运、FIBA亚洲杯）✅
+  - 21-03: 10种其他球类规则（排球世锦赛、排球奥运会、网球ATP总决赛、网球戴维斯杯、羽毛球世锦赛、乒乓球世界杯、日本职业棒球、世界棒球经典赛、手球欧冠、橄榄球六国赛）✅
+  - 21-04: 测试和文档（tests/phase_21_rules.rs 更新，docs/phase_21.md 创建）✅
+
 进行中:
-- Phase 21: E4 球类运动扩充 (+30 规则)
-  - 21-01 完成: 10种足球相关规则（英超、女足世界杯、女子欧洲杯、金杯赛、大洋洲杯、女子俱乐部世界杯、南美解放者杯、亚冠、非洲冠军联赛、欧洲超级杯）
-  - 21-02 完成: 10种篮球相关规则（WNBA、NCAA、CBA详细、FIBA世界杯、奥运会、NBA全明星、NBA季后赛、G联盟、3x3奥运、FIBA亚洲杯）
-  - 21-03 完成: 10种其他球类规则（排球世锦赛、排球奥运会、网球ATP总决赛、网球戴维斯杯、羽毛球世锦赛、乒乓球世界杯、日本职业棒球、世界棒球经典赛、手球欧冠、橄榄球六国赛）
-  - 下一步: 21-04 更新测试和文档
+- Phase 22: E5 格斗与武术扩充 (+25 规则)
+  - 下一步: 22-01 添加10种武术规则
 
 ## Accumulated Context
 
@@ -101,11 +104,12 @@ Recent decisions affecting current work:
 - Phase 18 完成，新增 20 种卡牌规则 + 50+ 测试用例
 - Phase 19 完成，新增 20 种棋类/桌游规则 + 53 测试用例
 - Phase 20 完成，新增 15 种麻将变体规则 + 80 测试用例
+- Phase 21 完成，新增 30 种球类规则 + 100+ 测试用例
 
 ### Pending Todos
 
-v2.2 待完成（84 tasks）:
-- Phase 21-35: 规则扩充 1098 → 2000+
+v2.2 待完成（78 tasks）:
+- Phase 22-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
 
@@ -117,6 +121,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-07-11 09:30
-Stopped at: v2.2 Phase 21-03 完成
+Last session: 2026-07-11 10:00
+Stopped at: v2.2 Phase 21-04 完成
 Resume file: None

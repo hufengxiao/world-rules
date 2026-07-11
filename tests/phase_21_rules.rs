@@ -279,6 +279,165 @@ fn uefa_super_cup_match_format() {
     assert!(rules.match_format().contains("单场"));
 }
 
+// ===== Phase 21-02: 篮球相关规则测试 =====
+
+#[test]
+fn wnba_rules_basic() {
+    use world_rules::rules::sports::BasketballWnbaRules;
+
+    let rules = BasketballWnbaRules::new();
+    assert_eq!(rules.metadata().name, "WNBA女子篮球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn wnba_game_settings() {
+    use world_rules::rules::sports::BasketballWnbaRules;
+
+    let rules = BasketballWnbaRules::new();
+    let basic = rules.section_0();
+    assert!(basic.iter().any(|s| s.contains("5名球员")));
+    assert!(basic.iter().any(|s| s.contains("10分钟")));
+}
+
+#[test]
+fn wnba_playoff_format() {
+    use world_rules::rules::sports::BasketballWnbaRules;
+
+    let rules = BasketballWnbaRules::new();
+    let playoff = rules.section_1();
+    assert!(playoff.iter().any(|s| s.contains("季后赛")));
+    assert!(playoff.iter().any(|s| s.contains("总决赛")));
+}
+
+#[test]
+fn ncaa_rules_basic() {
+    use world_rules::rules::sports::BasketballNcaaRules;
+
+    let rules = BasketballNcaaRules::new();
+    assert_eq!(rules.metadata().name, "NCAA大学篮球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn ncaa_game_settings() {
+    use world_rules::rules::sports::BasketballNcaaRules;
+
+    let rules = BasketballNcaaRules::new();
+    let basic = rules.section_0();
+    assert!(basic.iter().any(|s| s.contains("20分钟")));
+    assert!(basic.iter().any(|s| s.contains("30秒")));
+}
+
+#[test]
+fn ncaa_amateur_rules() {
+    use world_rules::rules::sports::BasketballNcaaRules;
+
+    let rules = BasketballNcaaRules::new();
+    let amateur = rules.section_2();
+    assert!(amateur.iter().any(|s| s.contains("业余")));
+}
+
+#[test]
+fn cba_detailed_rules_basic() {
+    use world_rules::rules::sports::BasketballCbaDetailedRules;
+
+    let rules = BasketballCbaDetailedRules::new();
+    assert_eq!(rules.metadata().name, "CBA详细规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn fiba_world_cup_rules_basic() {
+    use world_rules::rules::sports::BasketballFibaWorldCupRules;
+
+    let rules = BasketballFibaWorldCupRules::new();
+    assert_eq!(rules.metadata().name, "FIBA世界杯篮球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn fiba_world_cup_format() {
+    use world_rules::rules::sports::BasketballFibaWorldCupRules;
+
+    let rules = BasketballFibaWorldCupRules::new();
+    let format = rules.section_1();
+    assert!(format.iter().any(|s| s.contains("32支")));
+}
+
+#[test]
+fn basketball_olympic_rules_basic() {
+    use world_rules::rules::sports::BasketballOlympicRules;
+
+    let rules = BasketballOlympicRules::new();
+    assert_eq!(rules.metadata().name, "奥运会篮球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn basketball_olympic_teams() {
+    use world_rules::rules::sports::BasketballOlympicRules;
+
+    let rules = BasketballOlympicRules::new();
+    let teams = rules.section_1();
+    assert!(teams.iter().any(|s| s.contains("12支")));
+}
+
+#[test]
+fn basketball_all_star_rules_basic() {
+    use world_rules::rules::sports::BasketballAllStarRules;
+
+    let rules = BasketballAllStarRules::new();
+    assert_eq!(rules.metadata().name, "NBA全明星规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn basketball_playoff_rules_basic() {
+    use world_rules::rules::sports::BasketballPlayoffRules;
+
+    let rules = BasketballPlayoffRules::new();
+    assert_eq!(rules.metadata().name, "NBA季后赛规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn g_league_rules_basic() {
+    use world_rules::rules::sports::BasketballGLeagueRules;
+
+    let rules = BasketballGLeagueRules::new();
+    assert_eq!(rules.metadata().name, "G联盟规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn basketball_3x3_olympic_rules_basic() {
+    use world_rules::rules::sports::Basketball3x3OlympicRules;
+
+    let rules = Basketball3x3OlympicRules::new();
+    assert_eq!(rules.metadata().name, "3x3奥运篮球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn fiba_asia_cup_rules_basic() {
+    use world_rules::rules::sports::BasketballFibaAsiaCupRules;
+
+    let rules = BasketballFibaAsiaCupRules::new();
+    assert_eq!(rules.metadata().name, "FIBA亚洲杯篮球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
 // ===== Phase 21-03: 其他球类规则测试 =====
 
 #[test]
