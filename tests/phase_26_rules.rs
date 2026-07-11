@@ -1115,13 +1115,13 @@ fn test_phase_26_total_rules_count() {
     // 总计 25 种礼仪规则
     use world_rules::rules::social::{
         ArborDayRules, ArmyDayRules, ChildrensDayRules, ChineseAntiqueEtiquetteRules,
-        ChineseArchitectureEtiquetteRules, ChineseBirthdayEtiquetteRules, ChineseBookCollectionRules,
-        ChineseCalligraphyRules, ChineseClanEtiquetteRules, ChineseChessEtiquetteRules,
-        ChineseComingOfAgeRules, ChineseCorrespondenceRules, ChineseEtiquetteBasicsRules,
-        ChineseInterpersonalEtiquetteRules, ChineseOfficialEtiquetteRules,
-        ChineseRitualSacrificeRules, ChineseTabooRules, ChineseTraditionalDressRules,
-        LaborDayRules, NationalDayRules, NewYearDayRules, PartyFoundingDayRules,
-        QixiFestivalRules, TeachersDayRules, WomensDayRules,
+        ChineseArchitectureEtiquetteRules, ChineseBirthdayEtiquetteRules,
+        ChineseBookCollectionRules, ChineseCalligraphyRules, ChineseChessEtiquetteRules,
+        ChineseClanEtiquetteRules, ChineseComingOfAgeRules, ChineseCorrespondenceRules,
+        ChineseEtiquetteBasicsRules, ChineseInterpersonalEtiquetteRules,
+        ChineseOfficialEtiquetteRules, ChineseRitualSacrificeRules, ChineseTabooRules,
+        ChineseTraditionalDressRules, LaborDayRules, NationalDayRules, NewYearDayRules,
+        PartyFoundingDayRules, QixiFestivalRules, TeachersDayRules, WomensDayRules,
     };
 
     let rules_count = 25;
