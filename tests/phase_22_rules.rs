@@ -2,6 +2,7 @@
 //!
 //! 测试 Phase 22 添加的武术规则：
 //! - 22-01: 10种武术规则
+//! - 22-02: 10种拳击规则
 
 use world_rules::prelude::*;
 
@@ -307,4 +308,206 @@ fn silat_melayu_animal_forms() {
     let forms = rules.animal_forms();
     assert!(!forms.is_empty());
     assert!(forms.contains(&"虎形: 猛虎扑击动作"));
+}
+
+// ===== Phase 22-02: 拳击规则测试 =====
+
+#[test]
+fn boxing_olympic_rules_basic() {
+    use world_rules::rules::sports::BoxingOlympicRules;
+
+    let rules = BoxingOlympicRules::new();
+    assert_eq!(rules.metadata().name, "奥运会拳击规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn boxing_olympic_weight_classes() {
+    use world_rules::rules::sports::BoxingOlympicRules;
+
+    let rules = BoxingOlympicRules::new();
+    assert!(!rules.weight_classes().is_empty());
+    assert!(rules.weight_classes().iter().any(|w| w.contains("重量级")));
+}
+
+#[test]
+fn boxing_wbo_rules_basic() {
+    use world_rules::rules::sports::BoxingWboRules;
+
+    let rules = BoxingWboRules::new();
+    assert_eq!(rules.metadata().name, "世界拳击组织规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn boxing_wbo_championship() {
+    use world_rules::rules::sports::BoxingWboRules;
+
+    let rules = BoxingWboRules::new();
+    assert!(!rules.championship_rules().is_empty());
+    assert!(rules.championship_rules().contains(&"12回合世界冠军赛"));
+}
+
+#[test]
+fn boxing_amateur_rules_basic() {
+    use world_rules::rules::sports::BoxingAmateurRules;
+
+    let rules = BoxingAmateurRules::new();
+    assert_eq!(rules.metadata().name, "业余拳击规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn boxing_amateur_equipment() {
+    use world_rules::rules::sports::BoxingAmateurRules;
+
+    let rules = BoxingAmateurRules::new();
+    let equip = rules.equipment();
+    assert!(!equip.is_empty());
+    assert!(equip.iter().any(|e| e.contains("头盔")));
+}
+
+#[test]
+fn boxing_queensberry_rules_basic() {
+    use world_rules::rules::sports::BoxingQueensberryRules;
+
+    let rules = BoxingQueensberryRules::new();
+    assert_eq!(rules.metadata().name, "昆斯伯里拳击规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn boxing_queensberry_core() {
+    use world_rules::rules::sports::BoxingQueensberryRules;
+
+    let rules = BoxingQueensberryRules::new();
+    let core = rules.core_rules();
+    assert!(!core.is_empty());
+    assert!(core.contains(&"禁止摔跤或搂抱"));
+}
+
+#[test]
+fn boxing_british_rules_basic() {
+    use world_rules::rules::sports::BoxingBritishRules;
+
+    let rules = BoxingBritishRules::new();
+    assert_eq!(rules.metadata().name, "英国拳击规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn boxing_british_licensing() {
+    use world_rules::rules::sports::BoxingBritishRules;
+
+    let rules = BoxingBritishRules::new();
+    assert!(!rules.licensing().is_empty());
+    assert!(rules.licensing().iter().any(|l| l.contains("BBBoC")));
+}
+
+#[test]
+fn sanda_rules_basic() {
+    use world_rules::rules::sports::SandaRules;
+
+    let rules = SandaRules::new();
+    assert_eq!(rules.metadata().name, "散打规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn sanda_techniques() {
+    use world_rules::rules::sports::SandaRules;
+
+    let rules = SandaRules::new();
+    let techniques = rules.permitted_techniques();
+    assert!(!techniques.is_empty());
+    assert!(techniques.iter().any(|t| t.contains("拳法")));
+    assert!(techniques.iter().any(|t| t.contains("摔法")));
+}
+
+#[test]
+fn savate_rules_basic() {
+    use world_rules::rules::sports::SavateRules;
+
+    let rules = SavateRules::new();
+    assert_eq!(rules.metadata().name, "法国踢腿术规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn savate_levels() {
+    use world_rules::rules::sports::SavateRules;
+
+    let rules = SavateRules::new();
+    let levels = rules.competition_levels();
+    assert!(!levels.is_empty());
+    assert!(levels.contains(&"大师级: 最高级别"));
+}
+
+#[test]
+fn lethwei_rules_basic() {
+    use world_rules::rules::sports::LethweiRules;
+
+    let rules = LethweiRules::new();
+    assert_eq!(rules.metadata().name, "缅甸拳击规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn lethwei_headbutt() {
+    use world_rules::rules::sports::LethweiRules;
+
+    let rules = LethweiRules::new();
+    let chars = rules.unique_characteristics();
+    assert!(!chars.is_empty());
+    assert!(chars.iter().any(|c| c.contains("头击")));
+}
+
+#[test]
+fn bokator_rules_basic() {
+    use world_rules::rules::sports::BokatorRules;
+
+    let rules = BokatorRules::new();
+    assert_eq!(rules.metadata().name, "高棉拳击规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn bokator_animal_forms() {
+    use world_rules::rules::sports::BokatorRules;
+
+    let rules = BokatorRules::new();
+    let forms = rules.animal_forms();
+    assert_eq!(forms.len(), 8);
+    assert!(forms.contains(&"鹰形: 飞翔攻击和爪法"));
+    assert!(forms.contains(&"狮形: 猛烈攻击组合"));
+}
+
+#[test]
+fn voivovam_rules_basic() {
+    use world_rules::rules::sports::VoivovamRules;
+
+    let rules = VoivovamRules::new();
+    assert_eq!(rules.metadata().name, "白拳规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn voivovam_weapons() {
+    use world_rules::rules::sports::VoivovamRules;
+
+    let rules = VoivovamRules::new();
+    let weapons = rules.traditional_weapons();
+    assert!(!weapons.is_empty());
+    assert!(weapons.iter().any(|w| w.contains("刀")));
+    assert!(weapons.iter().any(|w| w.contains("剑")));
 }
