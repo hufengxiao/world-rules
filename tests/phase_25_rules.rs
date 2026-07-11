@@ -523,3 +523,464 @@ fn test_para_ice_hockey_special_rules() {
     assert!(special.iter().any(|s| s.contains("雪橇")));
     assert!(special.len() >= 4);
 }
+
+// ============================================================================
+// 25-02: 特殊运动规则测试 (10种)
+// ============================================================================
+
+// ----- 残疾人高山滑雪规则测试 -----
+
+#[test]
+fn test_para_alpine_skiing_rules_basic() {
+    use world_rules::rules::sports::ParaAlpineSkiingRules;
+    let rules = ParaAlpineSkiingRules::new();
+    assert_eq!(rules.metadata().name, "残疾人高山滑雪规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_alpine_skiing_classification() {
+    use world_rules::rules::sports::ParaAlpineSkiingRules;
+    let rules = ParaAlpineSkiingRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("视力")));
+    assert!(classification.iter().any(|c| c.contains("站姿")));
+    assert!(classification.iter().any(|c| c.contains("坐姿")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_alpine_skiing_events() {
+    use world_rules::rules::sports::ParaAlpineSkiingRules;
+    let rules = ParaAlpineSkiingRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("滑降")));
+    assert!(events.iter().any(|e| e.contains("回转")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_alpine_skiing_equipment() {
+    use world_rules::rules::sports::ParaAlpineSkiingRules;
+    let rules = ParaAlpineSkiingRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("滑雪板")));
+    assert!(equipment.iter().any(|e| e.contains("头盔")));
+    assert!(equipment.len() >= 4);
+}
+
+// ----- 残疾人越野滑雪规则测试 -----
+
+#[test]
+fn test_para_cross_country_skiing_rules_basic() {
+    use world_rules::rules::sports::ParaCrossCountrySkiingRules;
+    let rules = ParaCrossCountrySkiingRules::new();
+    assert_eq!(rules.metadata().name, "残疾人越野滑雪规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_cross_country_skiing_classification() {
+    use world_rules::rules::sports::ParaCrossCountrySkiingRules;
+    let rules = ParaCrossCountrySkiingRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("视力")));
+    assert!(classification.iter().any(|c| c.contains("站姿")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_cross_country_skiing_events() {
+    use world_rules::rules::sports::ParaCrossCountrySkiingRules;
+    let rules = ParaCrossCountrySkiingRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("短距离")));
+    assert!(events.iter().any(|e| e.contains("接力")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_cross_country_skiing_technique() {
+    use world_rules::rules::sports::ParaCrossCountrySkiingRules;
+    let rules = ParaCrossCountrySkiingRules::new();
+    let technique = rules.technique();
+    assert!(technique
+        .iter()
+        .any(|t| t.contains("传统式") || t.contains("自由式")));
+    assert!(technique.iter().any(|t| t.contains("计时")));
+    assert!(technique.len() >= 4);
+}
+
+// ----- 残疾人盲人柔道规则测试 -----
+
+#[test]
+fn test_para_judo_rules_basic() {
+    use world_rules::rules::sports::ParaJudoRules;
+    let rules = ParaJudoRules::new();
+    assert_eq!(rules.metadata().name, "残疾人盲人柔道规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_judo_classification() {
+    use world_rules::rules::sports::ParaJudoRules;
+    let rules = ParaJudoRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("J1")));
+    assert!(classification.iter().any(|c| c.contains("J2")));
+    assert!(classification.iter().any(|c| c.contains("视力")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_judo_events() {
+    use world_rules::rules::sports::ParaJudoRules;
+    let rules = ParaJudoRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("残奥会")));
+    assert!(events.iter().any(|e| e.contains("世界锦标赛")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_judo_technique() {
+    use world_rules::rules::sports::ParaJudoRules;
+    let rules = ParaJudoRules::new();
+    let technique = rules.technique();
+    assert!(technique.iter().any(|t| t.contains("一本")));
+    assert!(technique.iter().any(|t| t.contains("握把")));
+    assert!(technique.len() >= 4);
+}
+
+// ----- 坐式排球规则测试 -----
+
+#[test]
+fn test_sitting_volleyball_rules_basic() {
+    use world_rules::rules::sports::SittingVolleyballRules;
+    let rules = SittingVolleyballRules::new();
+    assert_eq!(rules.metadata().name, "坐式排球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_sitting_volleyball_classification() {
+    use world_rules::rules::sports::SittingVolleyballRules;
+    let rules = SittingVolleyballRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("VS1")));
+    assert!(classification.iter().any(|c| c.contains("VS2")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_sitting_volleyball_court() {
+    use world_rules::rules::sports::SittingVolleyballRules;
+    let rules = SittingVolleyballRules::new();
+    let court = rules.court();
+    assert!(court.iter().any(|c| c.contains("10×6")));
+    assert!(court.iter().any(|c| c.contains("网高")));
+    assert!(court.len() >= 4);
+}
+
+#[test]
+fn test_sitting_volleyball_technique() {
+    use world_rules::rules::sports::SittingVolleyballRules;
+    let rules = SittingVolleyballRules::new();
+    let technique = rules.technique();
+    assert!(technique.iter().any(|t| t.contains("臀部")));
+    assert!(technique.iter().any(|t| t.contains("3次")));
+    assert!(technique.len() >= 4);
+}
+
+// ----- 残疾人冬季两项规则测试 -----
+
+#[test]
+fn test_para_biathlon_rules_basic() {
+    use world_rules::rules::sports::ParaBiathlonRules;
+    let rules = ParaBiathlonRules::new();
+    assert_eq!(rules.metadata().name, "残疾人冬季两项规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_biathlon_classification() {
+    use world_rules::rules::sports::ParaBiathlonRules;
+    let rules = ParaBiathlonRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("视力")));
+    assert!(classification.iter().any(|c| c.contains("站姿")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_biathlon_events() {
+    use world_rules::rules::sports::ParaBiathlonRules;
+    let rules = ParaBiathlonRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("短距离")));
+    assert!(events.iter().any(|e| e.contains("接力")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_biathlon_shooting() {
+    use world_rules::rules::sports::ParaBiathlonRules;
+    let rules = ParaBiathlonRules::new();
+    let shooting = rules.shooting();
+    assert!(shooting.iter().any(|s| s.contains("靶标")));
+    assert!(shooting.iter().any(|s| s.contains("罚")));
+    assert!(shooting.len() >= 4);
+}
+
+// ----- 残疾人跆拳道规则测试 -----
+
+#[test]
+fn test_para_taekwondo_rules_basic() {
+    use world_rules::rules::sports::ParaTaekwondoRules;
+    let rules = ParaTaekwondoRules::new();
+    assert_eq!(rules.metadata().name, "残疾人跆拳道规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_taekwondo_classification() {
+    use world_rules::rules::sports::ParaTaekwondoRules;
+    let rules = ParaTaekwondoRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("K41")));
+    assert!(classification.iter().any(|c| c.contains("K44")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_taekwondo_events() {
+    use world_rules::rules::sports::ParaTaekwondoRules;
+    let rules = ParaTaekwondoRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("残奥会")));
+    assert!(events.iter().any(|e| e.contains("世界锦标赛")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_taekwondo_technique() {
+    use world_rules::rules::sports::ParaTaekwondoRules;
+    let rules = ParaTaekwondoRules::new();
+    let technique = rules.technique();
+    assert!(technique.iter().any(|t| t.contains("踢击")));
+    assert!(technique.iter().any(|t| t.contains("得分")));
+    assert!(technique.len() >= 4);
+}
+
+// ----- 残疾人皮划艇规则测试 -----
+
+#[test]
+fn test_para_canoe_rules_basic() {
+    use world_rules::rules::sports::ParaCanoeRules;
+    let rules = ParaCanoeRules::new();
+    assert_eq!(rules.metadata().name, "残疾人皮划艇规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_canoe_classification() {
+    use world_rules::rules::sports::ParaCanoeRules;
+    let rules = ParaCanoeRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("KL1")));
+    assert!(classification.iter().any(|c| c.contains("KL3")));
+    assert!(classification.iter().any(|c| c.contains("VL")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_canoe_events() {
+    use world_rules::rules::sports::ParaCanoeRules;
+    let rules = ParaCanoeRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("200米")));
+    assert!(events.iter().any(|e| e.contains("残奥会")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_canoe_equipment() {
+    use world_rules::rules::sports::ParaCanoeRules;
+    let rules = ParaCanoeRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("皮艇")));
+    assert!(equipment.iter().any(|e| e.contains("救生衣")));
+    assert!(equipment.len() >= 4);
+}
+
+// ----- 残疾人舞蹈运动规则测试 -----
+
+#[test]
+fn test_para_dance_sport_rules_basic() {
+    use world_rules::rules::sports::ParaDanceSportRules;
+    let rules = ParaDanceSportRules::new();
+    assert_eq!(rules.metadata().name, "残疾人舞蹈运动规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_dance_sport_classification() {
+    use world_rules::rules::sports::ParaDanceSportRules;
+    let rules = ParaDanceSportRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("轮椅")));
+    assert!(classification.iter().any(|c| c.contains("站立")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_dance_sport_events() {
+    use world_rules::rules::sports::ParaDanceSportRules;
+    let rules = ParaDanceSportRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("标准舞")));
+    assert!(events.iter().any(|e| e.contains("拉丁舞")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_dance_sport_scoring() {
+    use world_rules::rules::sports::ParaDanceSportRules;
+    let rules = ParaDanceSportRules::new();
+    let scoring = rules.scoring();
+    assert!(scoring.iter().any(|s| s.contains("技术")));
+    assert!(scoring.iter().any(|s| s.contains("音乐")));
+    assert!(scoring.len() >= 4);
+}
+
+// ----- 残疾人羽毛球规则测试 -----
+
+#[test]
+fn test_para_badminton_rules_basic() {
+    use world_rules::rules::sports::ParaBadmintonRules;
+    let rules = ParaBadmintonRules::new();
+    assert_eq!(rules.metadata().name, "残疾人羽毛球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_badminton_classification() {
+    use world_rules::rules::sports::ParaBadmintonRules;
+    let rules = ParaBadmintonRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("WH1")));
+    assert!(classification.iter().any(|c| c.contains("WH2")));
+    assert!(classification.iter().any(|c| c.contains("站立")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_badminton_court() {
+    use world_rules::rules::sports::ParaBadmintonRules;
+    let rules = ParaBadmintonRules::new();
+    let court = rules.court();
+    assert!(court.iter().any(|c| c.contains("轮椅")));
+    assert!(court.iter().any(|c| c.contains("网高")));
+    assert!(court.len() >= 4);
+}
+
+#[test]
+fn test_para_badminton_technique() {
+    use world_rules::rules::sports::ParaBadmintonRules;
+    let rules = ParaBadmintonRules::new();
+    let technique = rules.technique();
+    assert!(technique.iter().any(|t| t.contains("21分")));
+    assert!(technique.iter().any(|t| t.contains("发球")));
+    assert!(technique.len() >= 4);
+}
+
+// ----- 残疾人雪橇冰球规则测试 -----
+
+#[test]
+fn test_para_sledge_hockey_rules_basic() {
+    use world_rules::rules::sports::ParaSledgeHockeyRules;
+    let rules = ParaSledgeHockeyRules::new();
+    assert_eq!(rules.metadata().name, "残疾人雪橇冰球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_sledge_hockey_classification() {
+    use world_rules::rules::sports::ParaSledgeHockeyRules;
+    let rules = ParaSledgeHockeyRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("下肢")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_sledge_hockey_events() {
+    use world_rules::rules::sports::ParaSledgeHockeyRules;
+    let rules = ParaSledgeHockeyRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("残奥会")));
+    assert!(events.iter().any(|e| e.contains("世界锦标赛")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_sledge_hockey_equipment() {
+    use world_rules::rules::sports::ParaSledgeHockeyRules;
+    let rules = ParaSledgeHockeyRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("雪橇")));
+    assert!(equipment.iter().any(|e| e.contains("球杆")));
+    assert!(equipment.len() >= 4);
+}
+
+// ----- 残疾人帆船规则测试 -----
+
+#[test]
+fn test_para_sailing_rules_basic() {
+    use world_rules::rules::sports::ParaSailingRules;
+    let rules = ParaSailingRules::new();
+    assert_eq!(rules.metadata().name, "残疾人帆船规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_para_sailing_classification() {
+    use world_rules::rules::sports::ParaSailingRules;
+    let rules = ParaSailingRules::new();
+    let classification = rules.classification();
+    assert!(classification.iter().any(|c| c.contains("1级")));
+    assert!(classification.iter().any(|c| c.contains("3级")));
+    assert!(classification.iter().any(|c| c.contains("残疾")));
+    assert!(classification.len() >= 4);
+}
+
+#[test]
+fn test_para_sailing_events() {
+    use world_rules::rules::sports::ParaSailingRules;
+    let rules = ParaSailingRules::new();
+    let events = rules.events();
+    assert!(events.iter().any(|e| e.contains("单人")));
+    assert!(events.iter().any(|e| e.contains("残奥会")));
+    assert!(events.len() >= 4);
+}
+
+#[test]
+fn test_para_sailing_equipment() {
+    use world_rules::rules::sports::ParaSailingRules;
+    let rules = ParaSailingRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("帆船")));
+    assert!(equipment.iter().any(|e| e.contains("救生衣")));
+    assert!(equipment.len() >= 4);
+}

@@ -250,6 +250,8 @@ impl Rule for FiveCardDrawRules {
 mod tests {
     use super::*;
     use crate::rules::core::ValidateContext;
+    use crate::rules::games::card_games::poker::HandRank;
+    use crate::rules::games::card_games::Suit;
 
     fn card(suit: Suit, rank: Rank) -> Card {
         Card::new(suit, rank)
@@ -274,7 +276,7 @@ mod tests {
         let eval = FiveCardDrawRules::evaluate_draw_hand(&cards);
         assert!(eval.is_some());
         let result = eval.unwrap();
-        assert_eq!(result.rank, super::poker::HandRank::RoyalFlush);
+        assert_eq!(result.rank, HandRank::RoyalFlush);
         assert_eq!(result.keep_indices.len(), 5); // 全部保留
         assert_eq!(result.discard_indices.len(), 0);
     }
@@ -292,7 +294,7 @@ mod tests {
         let eval = FiveCardDrawRules::evaluate_draw_hand(&cards);
         assert!(eval.is_some());
         let result = eval.unwrap();
-        assert_eq!(result.rank, super::poker::HandRank::ThreeOfAKind);
+        assert_eq!(result.rank, HandRank::ThreeOfAKind);
         assert_eq!(result.keep_indices.len(), 3);
         assert_eq!(result.discard_indices.len(), 2);
     }
@@ -310,7 +312,7 @@ mod tests {
         let eval = FiveCardDrawRules::evaluate_draw_hand(&cards);
         assert!(eval.is_some());
         let result = eval.unwrap();
-        assert_eq!(result.rank, super::poker::HandRank::TwoPair);
+        assert_eq!(result.rank, HandRank::TwoPair);
         assert_eq!(result.keep_indices.len(), 4);
         assert_eq!(result.discard_indices.len(), 1);
     }
@@ -328,7 +330,7 @@ mod tests {
         let eval = FiveCardDrawRules::evaluate_draw_hand(&cards);
         assert!(eval.is_some());
         let result = eval.unwrap();
-        assert_eq!(result.rank, super::poker::HandRank::OnePair);
+        assert_eq!(result.rank, HandRank::OnePair);
         assert_eq!(result.keep_indices.len(), 2); // 只保留对子
     }
 
@@ -345,7 +347,7 @@ mod tests {
         let eval = FiveCardDrawRules::evaluate_draw_hand(&cards);
         assert!(eval.is_some());
         let result = eval.unwrap();
-        assert_eq!(result.rank, super::poker::HandRank::OnePair);
+        assert_eq!(result.rank, HandRank::OnePair);
         assert_eq!(result.keep_indices.len(), 3); // 对子 + Ace
     }
 
