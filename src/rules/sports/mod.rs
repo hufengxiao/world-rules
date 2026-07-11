@@ -528,6 +528,11 @@ pub mod wushu_iwuf;
 pub mod xingyi;
 pub mod yoga_competition;
 
+pub use adaptive_athletics::AdaptiveAthleticsRules;
+pub use adaptive_ball_games::AdaptiveBallGamesRules;
+pub use adaptive_rowing::AdaptiveRowingRules;
+pub use adaptive_sled::AdaptiveSledRules;
+pub use adaptive_swimming::AdaptiveSwimmingRules;
 pub use aikido::AikidoRules;
 pub use aikido_aikikai::AikidoAikikaiRules;
 pub use air_hockey::AirHockeyRules;
