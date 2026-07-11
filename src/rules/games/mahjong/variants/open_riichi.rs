@@ -40,6 +40,25 @@ impl OpenRiichiMahjongRules {
         ]
     }
 
+    /// 役种调整(格式化)
+    pub fn yaku_adjustments_formatted(&self) -> Vec<&'static str> {
+        vec![
+            "立直: 1番",
+            "一发: 1番",
+            "门前清自摸和: 1番",
+            "平和: 1番",
+            "断幺九: 1番",
+            "役牌: 1番",
+            "开放立直: 特殊役种",
+            "三色同刻: 2番",
+            "一气通贯: 2番",
+            "对对和: 2番",
+            "三暗刻: 2番",
+            "混全带幺九: 2番",
+            "七对子: 2番",
+        ]
+    }
+
     /// 役种调整
     pub fn yaku_adjustments(&self) -> Vec<(&'static str, u8)> {
         vec![
@@ -131,14 +150,7 @@ impl Rule for OpenRiichiMahjongRules {
             &[
                 ("基本设置", &self.basic_settings()),
                 ("开放立直规则", &self.open_riichi_rules()),
-                (
-                    "役种调整",
-                    &self
-                        .yaku_adjustments()
-                        .iter()
-                        .map(|(name, fan)| format!("{}: {}番", name, fan))
-                        .collect::<Vec<_>>(),
-                ),
+                ("役种调整", &self.yaku_adjustments_formatted()),
                 ("计分规则", &self.scoring_rules()),
                 ("策略变化", &self.strategy_changes()),
                 ("明牌时机", &self.timing_rules()),

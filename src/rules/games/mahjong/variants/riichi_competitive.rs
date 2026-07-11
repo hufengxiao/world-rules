@@ -41,6 +41,29 @@ impl RiichiCompetitiveRules {
         ]
     }
 
+    /// 竞技役种(格式化)
+    pub fn competitive_yaku_formatted(&self) -> Vec<&'static str> {
+        vec![
+            "立直: 1番",
+            "一发: 1番",
+            "门前清自摸和: 1番",
+            "平和: 1番",
+            "断幺九: 1番",
+            "役牌: 1番",
+            "立直双倍: 2番",
+            "三色同刻: 2番",
+            "一气通贯: 2番",
+            "对对和: 2番",
+            "三暗刻: 2番",
+            "混全带幺九: 2番",
+            "七对子: 2番",
+            "清全带幺九: 3番",
+            "混一色: 3番",
+            "纯全带幺九: 3番",
+            "清一色: 6番",
+        ]
+    }
+
     /// 竞技役种
     pub fn competitive_yaku(&self) -> Vec<(&'static str, u8)> {
         vec![
@@ -150,14 +173,7 @@ impl Rule for RiichiCompetitiveRules {
             &[
                 ("基本设置", &self.basic_settings()),
                 ("立直规则", &self.riichi_rules()),
-                (
-                    "竞技役种",
-                    &self
-                        .competitive_yaku()
-                        .iter()
-                        .map(|(name, fan)| format!("{}: {}番", name, fan))
-                        .collect::<Vec<_>>(),
-                ),
+                ("竞技役种", &self.competitive_yaku_formatted()),
                 ("役满规则", &self.yakuman_rules()),
                 ("计分规则", &self.scoring_rules()),
                 ("流局规则", &self.draw_rules()),

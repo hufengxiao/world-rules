@@ -826,22 +826,25 @@ impl RuleValidator {
             .collect()
     }
 }
-/// 格式化规则说明的辅助函数
+
+/// 格式化规则说明
 ///
-/// 将多个 "区块名 + 条目列表" 格式化为统一的说明文本
-/// 用法:
-/// ```ignore
+/// 将多个规则章节格式化为统一的字符串格式
+///
+/// # Examples
+///
+/// ```rust,ignore
 /// let text = format_rule_sections("我的规则", &[
 ///     ("场地规格", &self.court_specifications()),
 ///     ("技术动作", &self.techniques()),
 /// ]);
 /// ```
-pub fn format_rule_sections(title: &str, sections: &[(&str, &Vec<&'static str>)]) -> String {
+pub fn format_rule_sections<T: AsRef<str>>(title: &str, sections: &[(&str, &Vec<T>)]) -> String {
     let mut result = format!("【{}】", title);
     for (section_name, items) in sections {
         result.push_str(&format!("\n\n{}:\n", section_name));
         for item in *items {
-            result.push_str(&format!("  • {}\n", item));
+            result.push_str(&format!("  • {}\n", item.as_ref()));
         }
     }
     result

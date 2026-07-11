@@ -150,6 +150,7 @@ pub mod pair_go;
 pub mod pandemic;
 pub mod pao_de_kuai;
 pub mod party_game;
+pub mod pictionary;
 pub mod pinochle;
 pub mod poker_chinese;
 pub mod poker_five_card;

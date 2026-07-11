@@ -93,7 +93,7 @@ impl OmahaRules {
                                 best_eval = Some(OmahaHandEvaluation {
                                     rank: eval.rank,
                                     cards: combined,
-                                    hole_cards_used: hole_indices,
+                                    hole_cards_used: hole_indices.clone(),
                                     community_cards_used: community_indices,
                                 });
                             }

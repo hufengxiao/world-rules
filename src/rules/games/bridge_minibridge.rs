@@ -23,7 +23,6 @@ simple_rule! {
     desc: "迷你桥牌（Minibridge）简化规则，适合初学者",
     origin: "国际",
     tags: ["游戏", "卡牌", "桥牌", "入门"],
-    category: RuleCategory::games("bridge_minibridge")
 }
 
 impl BridgeMinibridgeRules {

@@ -23,7 +23,6 @@ simple_rule! {
     desc: "IMP桥牌（IMP Bridge）国际比赛分计分规则",
     origin: "国际",
     tags: ["游戏", "卡牌", "桥牌", "竞技"],
-    category: RuleCategory::games("bridge_imp")
 }
 
 impl BridgeImpRules {

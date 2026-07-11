@@ -23,7 +23,6 @@ simple_rule! {
     desc: "芝加哥桥牌（Chicago Bridge）四副牌规则",
     origin: "美国",
     tags: ["游戏", "卡牌", "桥牌"],
-    category: RuleCategory::games("bridge_chicago")
 }
 
 impl BridgeChicagoRules {

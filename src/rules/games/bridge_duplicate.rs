@@ -23,7 +23,6 @@ simple_rule! {
     desc: "复式桥牌（Duplicate Bridge）竞赛规则",
     origin: "国际",
     tags: ["游戏", "卡牌", "桥牌", "竞技"],
-    category: RuleCategory::games("bridge_duplicate")
 }
 
 impl BridgeDuplicateRules {

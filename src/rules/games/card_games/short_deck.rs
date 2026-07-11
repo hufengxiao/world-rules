@@ -174,7 +174,7 @@ impl ShortDeckRules {
                 if let Some(straight) = Self::find_straight_short_deck(&suit_cards) {
                     return Some(ShortDeckEvaluation {
                         rank: ShortDeckHandRank::StraightFlush,
-                        cards: straight,
+                        cards: straight.clone(),
                         tiebreaker: vec![Self::short_deck_value(&straight[0])],
                     });
                 }
@@ -223,7 +223,7 @@ impl ShortDeckRules {
 
                 return Some(ShortDeckEvaluation {
                     rank: ShortDeckHandRank::Flush,
-                    cards: sorted,
+                    cards: sorted.clone(),
                     tiebreaker: sorted.iter().map(Self::short_deck_value).collect(),
                 });
             }

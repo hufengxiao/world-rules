@@ -29,6 +29,23 @@ impl KansaiMahjongRules {
         ]
     }
 
+    /// 关西特色役种(格式化)
+    pub fn kansai_yaku_formatted(&self) -> Vec<&'static str> {
+        vec![
+            "立直: 1番",
+            "一发: 1番",
+            "门前清自摸和: 1番",
+            "平和: 1番",
+            "断幺九: 1番",
+            "役牌: 1番",
+            "关西特色役种: 2番",
+            "三色同刻: 2番",
+            "一气通贯: 2番",
+            "对对和: 2番",
+            "三暗刻: 2番",
+        ]
+    }
+
     /// 关西特色役种
     pub fn kansai_yaku(&self) -> Vec<(&'static str, u8)> {
         vec![
@@ -118,14 +135,7 @@ impl Rule for KansaiMahjongRules {
             "关西麻将规则",
             &[
                 ("基本设置", &self.basic_settings()),
-                (
-                    "关西特色役种",
-                    &self
-                        .kansai_yaku()
-                        .iter()
-                        .map(|(name, fan)| format!("{}: {}番", name, fan))
-                        .collect::<Vec<_>>(),
-                ),
+                ("关西特色役种", &self.kansai_yaku_formatted()),
                 ("地方规则", &self.local_rules()),
                 ("计分规则", &self.scoring_rules()),
                 ("庄家规则", &self.banker_rules()),

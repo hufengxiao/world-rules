@@ -23,7 +23,6 @@ simple_rule! {
     desc: "传统盘式桥牌（Rubber Bridge）完整规则",
     origin: "英国",
     tags: ["游戏", "卡牌", "桥牌"],
-    category: RuleCategory::games("bridge_rubber")
 }
 
 impl BridgeRubberRules {

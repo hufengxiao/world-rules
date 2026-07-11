@@ -40,6 +40,25 @@ impl SanmaMahjongRules {
         ]
     }
 
+    /// 特殊役种(格式化)
+    pub fn special_yaku_formatted(&self) -> Vec<&'static str> {
+        vec![
+            "立直: 1番",
+            "一发: 1番",
+            "门前清自摸和: 1番",
+            "平和: 1番",
+            "断幺九: 1番",
+            "役牌: 1番",
+            "三色同刻: 2番",
+            "一气通贯: 2番",
+            "对对和: 2番",
+            "三暗刻: 2番",
+            "混全带幺九: 2番",
+            "七对子: 2番",
+            "北风处理: 特殊",
+        ]
+    }
+
     /// 特殊役种
     pub fn special_yaku(&self) -> Vec<(&'static str, u8)> {
         vec![
@@ -129,14 +148,7 @@ impl Rule for SanmaMahjongRules {
             &[
                 ("基本设置", &self.basic_settings()),
                 ("牌型调整", &self.tile_adjustments()),
-                (
-                    "特殊役种",
-                    &self
-                        .special_yaku()
-                        .iter()
-                        .map(|(name, fan)| format!("{}: {}番", name, fan))
-                        .collect::<Vec<_>>(),
-                ),
+                ("特殊役种", &self.special_yaku_formatted()),
                 ("北风处理", &self.north_wind_rules()),
                 ("计分规则", &self.scoring_rules()),
                 ("游戏节奏", &self.game_pace()),
