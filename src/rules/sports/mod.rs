@@ -417,7 +417,17 @@ pub mod surf_kayak;
 pub mod surfing;
 pub mod surfing_wsl;
 pub mod swimming;
+pub mod swimming_backstroke;
+pub mod swimming_breaststroke;
+pub mod swimming_butterfly;
 pub mod swimming_detailed;
+pub mod swimming_freestyle;
+pub mod swimming_masters;
+pub mod swimming_olympic;
+pub mod swimming_open_water;
+pub mod swimming_paralympic;
+pub mod swimming_short_course;
+pub mod swimming_world_championship;
 pub mod synchronized_swimming;
 pub mod table_tennis;
 pub mod table_tennis_detailed;
@@ -848,7 +858,17 @@ pub use surf_kayak::SurfKayakRules;
 pub use surfing::SurfingRules;
 pub use surfing_wsl::SurfingWslRules;
 pub use swimming::{SwimmingRules, SwimmingStyle};
+pub use swimming_backstroke::SwimmingBackstrokeRules;
+pub use swimming_breaststroke::SwimmingBreaststrokeRules;
+pub use swimming_butterfly::SwimmingButterflyRules;
 pub use swimming_detailed::SwimmingDetailedRules;
+pub use swimming_freestyle::SwimmingFreestyleRules;
+pub use swimming_masters::SwimmingMastersRules;
+pub use swimming_olympic::SwimmingOlympicRules;
+pub use swimming_open_water::SwimmingOpenWaterRules;
+pub use swimming_paralympic::SwimmingParalympicRules;
+pub use swimming_short_course::SwimmingShortCourseRules;
+pub use swimming_world_championship::SwimmingWorldChampionshipRules;
 pub use synchronized_swimming::SynchronizedSwimmingRules;
 pub use table_tennis::TableTennisRules;
 pub use table_tennis_detailed::TableTennisDetailedRules;
@@ -1725,6 +1745,46 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = SwimmingRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingBackstrokeRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingBreaststrokeRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingButterflyRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingFreestyleRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingMastersRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingOlympicRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingOpenWaterRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingParalympicRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingShortCourseRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SwimmingWorldChampionshipRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     {
