@@ -90,7 +90,9 @@ fn women_world_cup_knockout_pairing() {
     use world_rules::rules::sports::{FootballWomenWorldCupRules, WomenWorldCupStage};
 
     let rules = FootballWomenWorldCupRules::new();
-    assert!(rules.knockout_pairing(WomenWorldCupStage::Final).contains("决赛"));
+    assert!(rules
+        .knockout_pairing(WomenWorldCupStage::Final)
+        .contains("决赛"));
 }
 
 #[test]

@@ -72,7 +72,11 @@ impl FootballUefaSuperCupRules {
     }
 
     /// 检查参赛资格
-    pub fn check_qualification(&self, is_champions_league_winner: bool, is_europa_league_winner: bool) -> bool {
+    pub fn check_qualification(
+        &self,
+        is_champions_league_winner: bool,
+        is_europa_league_winner: bool,
+    ) -> bool {
         is_champions_league_winner || is_europa_league_winner
     }
 

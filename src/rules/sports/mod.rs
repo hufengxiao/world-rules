@@ -76,9 +76,19 @@ pub mod baseball_detailed;
 pub mod baseball_mlb_detailed;
 pub mod basketball;
 pub mod basketball_3x3_detail;
+pub mod basketball_3x3_olympic;
+pub mod basketball_all_star;
+pub mod basketball_cba_detailed;
 pub mod basketball_detailed;
 pub mod basketball_euroleague;
+pub mod basketball_fiba_asia_cup;
+pub mod basketball_fiba_world_cup;
+pub mod basketball_g_league;
 pub mod basketball_nba_detailed;
+pub mod basketball_ncaa;
+pub mod basketball_olympic;
+pub mod basketball_playoff;
+pub mod basketball_wnba;
 pub mod beach_handball;
 pub mod beach_soccer;
 pub mod beach_volleyball;
@@ -180,8 +190,8 @@ pub mod football_euro_cup;
 pub mod football_field_rules;
 pub mod football_foul_rules;
 pub mod football_free_kick;
-pub mod football_gold_cup;
 pub mod football_goalkeeper_rules;
+pub mod football_gold_cup;
 pub mod football_laliga;
 pub mod football_league;
 pub mod football_ligue1;
@@ -462,9 +472,19 @@ pub use baseball_detailed::BaseballDetailedRules;
 pub use baseball_mlb_detailed::BaseballMlbDetailedRules;
 pub use basketball::BasketballRules;
 pub use basketball_3x3_detail::Basketball3x3DetailRules;
+pub use basketball_3x3_olympic::Basketball3x3OlympicRules;
+pub use basketball_all_star::BasketballAllStarRules;
+pub use basketball_cba_detailed::BasketballCbaDetailedRules;
 pub use basketball_detailed::BasketballDetailedRules;
 pub use basketball_euroleague::BasketballEuroleagueRules;
+pub use basketball_fiba_asia_cup::BasketballFibaAsiaCupRules;
+pub use basketball_fiba_world_cup::BasketballFibaWorldCupRules;
+pub use basketball_g_league::BasketballGLeagueRules;
 pub use basketball_nba_detailed::BasketballNbaDetailedRules;
+pub use basketball_ncaa::BasketballNcaaRules;
+pub use basketball_olympic::BasketballOlympicRules;
+pub use basketball_playoff::BasketballPlayoffRules;
+pub use basketball_wnba::BasketballWnbaRules;
 pub use beach_handball::BeachHandballRules;
 pub use beach_soccer::BeachSoccerRules;
 pub use beach_volleyball::BeachVolleyballRules;
@@ -550,8 +570,8 @@ pub use floorball_iff::FloorballIffRules;
 pub use foosball::FoosballRules;
 pub use foosball_itsf_detailed::FoosballItsfDetailedRules;
 pub use football::FootballRules;
-pub use football_african_cup::{AfricanCupStage, FootballAfricanCupRules};
 pub use football_afc_champions::{AfcChampionsStage, FootballAfcChampionsRules};
+pub use football_african_cup::{AfricanCupStage, FootballAfricanCupRules};
 pub use football_asian_cup::{AsianCupStage, FootballAsianCupRules};
 pub use football_bundesliga::FootballBundesligaRules;
 pub use football_caf_champions::{CafChampionsStage, FootballCafChampionsRules};
@@ -901,11 +921,59 @@ pub fn all_rules() -> Vec<(
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     {
+        let r = Basketball3x3OlympicRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballAllStarRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballCbaDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
         let r = BasketballDetailedRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     {
+        let r = BasketballEuroleagueRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballFibaAsiaCupRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballFibaWorldCupRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballGLeagueRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballNbaDetailedRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballNcaaRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballOlympicRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballPlayoffRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
         let r = BasketballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BasketballWnbaRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     {

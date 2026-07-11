@@ -194,9 +194,6 @@ mod tests {
             .validate(&ValidateContext::Generic("match".to_string()))
             .is_ok());
         assert!(!rules.explain().is_empty());
-        assert_eq!(
-            rules.category(),
-            RuleCategory::sports("football_gold_cup")
-        );
+        assert_eq!(rules.category(), RuleCategory::sports("football_gold_cup"));
     }
 }
