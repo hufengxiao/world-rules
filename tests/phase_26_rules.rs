@@ -883,6 +883,227 @@ fn test_arbor_day_environmental() {
 }
 
 // ============================================================================
+// 26-03: 中华文化其他礼仪规则测试 (5种)
+// ============================================================================
+
+// ----- 中国书法礼仪规则测试 -----
+
+#[test]
+fn test_calligraphy_rules_basic() {
+    use world_rules::rules::social::ChineseCalligraphyRules;
+    let rules = ChineseCalligraphyRules::new();
+    assert_eq!(rules.metadata().name, "中国书法礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_calligraphy_study_arrangement() {
+    use world_rules::rules::social::ChineseCalligraphyRules;
+    let rules = ChineseCalligraphyRules::new();
+    let arrangement = rules.study_arrangement();
+    assert!(arrangement.iter().any(|a| a.contains("书房")));
+    assert!(arrangement.iter().any(|a| a.contains("案桌")));
+    assert!(arrangement.len() >= 6);
+}
+
+#[test]
+fn test_calligraphy_pen_holding() {
+    use world_rules::rules::social::ChineseCalligraphyRules;
+    let rules = ChineseCalligraphyRules::new();
+    let holding = rules.pen_holding_etiquette();
+    assert!(holding.iter().any(|h| h.contains("执笔")));
+    assert!(holding.iter().any(|h| h.contains("端正")));
+    assert!(holding.len() >= 6);
+}
+
+#[test]
+fn test_calligraphy_writing_etiquette() {
+    use world_rules::rules::social::ChineseCalligraphyRules;
+    let rules = ChineseCalligraphyRules::new();
+    let writing = rules.writing_etiquette();
+    assert!(writing.iter().any(|w| w.contains("端正")));
+    assert!(writing.iter().any(|w| w.contains("布局")));
+    assert!(writing.len() >= 6);
+}
+
+#[test]
+fn test_calligraphy_styles() {
+    use world_rules::rules::social::ChineseCalligraphyRules;
+    let rules = ChineseCalligraphyRules::new();
+    let styles = rules.calligraphy_styles();
+    assert!(styles.iter().any(|s| s.contains("楷书")));
+    assert!(styles.iter().any(|s| s.contains("行书")));
+    assert!(styles.iter().any(|s| s.contains("草书")));
+    assert!(styles.len() >= 6);
+}
+
+// ----- 中国棋类礼仪规则测试 -----
+
+#[test]
+fn test_chess_etiquette_rules_basic() {
+    use world_rules::rules::social::ChineseChessEtiquetteRules;
+    let rules = ChineseChessEtiquetteRules::new();
+    assert_eq!(rules.metadata().name, "中国棋类礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_chess_preparation() {
+    use world_rules::rules::social::ChineseChessEtiquetteRules;
+    let rules = ChineseChessEtiquetteRules::new();
+    let prep = rules.preparation_etiquette();
+    assert!(prep.iter().any(|p| p.contains("棋桌")));
+    assert!(prep.iter().any(|p| p.contains("环境")));
+    assert!(prep.len() >= 6);
+}
+
+#[test]
+fn test_chess_watching_etiquette() {
+    use world_rules::rules::social::ChineseChessEtiquetteRules;
+    let rules = ChineseChessEtiquetteRules::new();
+    let watching = rules.watching_etiquette();
+    assert!(watching.iter().any(|w| w.contains("观棋不语")));
+    assert!(watching.len() >= 6);
+}
+
+#[test]
+fn test_chess_proverbs() {
+    use world_rules::rules::social::ChineseChessEtiquetteRules;
+    let rules = ChineseChessEtiquetteRules::new();
+    let proverbs = rules.chess_proverbs();
+    assert!(proverbs.iter().any(|p| p.contains("观棋不语")));
+    assert!(proverbs.iter().any(|p| p.contains("落子无悔")));
+    assert!(proverbs.len() >= 6);
+}
+
+// ----- 中国建筑礼仪规则测试 -----
+
+#[test]
+fn test_architecture_rules_basic() {
+    use world_rules::rules::social::ChineseArchitectureEtiquetteRules;
+    let rules = ChineseArchitectureEtiquetteRules::new();
+    assert_eq!(rules.metadata().name, "中国建筑礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_architecture_site_selection() {
+    use world_rules::rules::social::ChineseArchitectureEtiquetteRules;
+    let rules = ChineseArchitectureEtiquetteRules::new();
+    let site = rules.site_selection();
+    assert!(site.iter().any(|s| s.contains("选址")));
+    assert!(site.iter().any(|s| s.contains("向阳")));
+    assert!(site.len() >= 6);
+}
+
+#[test]
+fn test_architecture_layout() {
+    use world_rules::rules::social::ChineseArchitectureEtiquetteRules;
+    let rules = ChineseArchitectureEtiquetteRules::new();
+    let layout = rules.layout_etiquette();
+    assert!(layout.iter().any(|l| l.contains("坐北朝南")));
+    assert!(layout.iter().any(|l| l.contains("中轴")));
+    assert!(layout.len() >= 6);
+}
+
+#[test]
+fn test_architecture_building_types() {
+    use world_rules::rules::social::ChineseArchitectureEtiquetteRules;
+    let rules = ChineseArchitectureEtiquetteRules::new();
+    let types = rules.building_types();
+    assert!(types.iter().any(|t| t.contains("四合院")));
+    assert!(types.iter().any(|t| t.contains("园林")));
+    assert!(types.iter().any(|t| t.contains("土楼")));
+    assert!(types.len() >= 6);
+}
+
+// ----- 中国藏书礼仪规则测试 -----
+
+#[test]
+fn test_book_collection_rules_basic() {
+    use world_rules::rules::social::ChineseBookCollectionRules;
+    let rules = ChineseBookCollectionRules::new();
+    assert_eq!(rules.metadata().name, "中国藏书礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_book_library_arrangement() {
+    use world_rules::rules::social::ChineseBookCollectionRules;
+    let rules = ChineseBookCollectionRules::new();
+    let arr = rules.library_arrangement();
+    assert!(arr.iter().any(|a| a.contains("藏书室")));
+    assert!(arr.iter().any(|a| a.contains("防潮")));
+    assert!(arr.len() >= 6);
+}
+
+#[test]
+fn test_book_lending_etiquette() {
+    use world_rules::rules::social::ChineseBookCollectionRules;
+    let rules = ChineseBookCollectionRules::new();
+    let lending = rules.lending_etiquette();
+    assert!(lending.iter().any(|l| l.contains("借书")));
+    assert!(lending.iter().any(|l| l.contains("归还")));
+    assert!(lending.len() >= 6);
+}
+
+#[test]
+fn test_book_famous_libraries() {
+    use world_rules::rules::social::ChineseBookCollectionRules;
+    let rules = ChineseBookCollectionRules::new();
+    let libs = rules.famous_libraries();
+    assert!(libs.iter().any(|l| l.contains("天一阁")));
+    assert!(libs.iter().any(|l| l.contains("文渊阁")));
+    assert!(libs.len() >= 6);
+}
+
+// ----- 中国收藏礼仪规则测试 -----
+
+#[test]
+fn test_antique_rules_basic() {
+    use world_rules::rules::social::ChineseAntiqueEtiquetteRules;
+    let rules = ChineseAntiqueEtiquetteRules::new();
+    assert_eq!(rules.metadata().name, "中国收藏礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_antique_philosophy() {
+    use world_rules::rules::social::ChineseAntiqueEtiquetteRules;
+    let rules = ChineseAntiqueEtiquetteRules::new();
+    let philosophy = rules.collection_philosophy();
+    assert!(philosophy.iter().any(|p| p.contains("修身")));
+    assert!(philosophy.iter().any(|p| p.contains("文化")));
+    assert!(philosophy.len() >= 6);
+}
+
+#[test]
+fn test_antique_appreciation() {
+    use world_rules::rules::social::ChineseAntiqueEtiquetteRules;
+    let rules = ChineseAntiqueEtiquetteRules::new();
+    let appreciation = rules.appreciation_etiquette();
+    assert!(appreciation.iter().any(|a| a.contains("鉴赏")));
+    assert!(appreciation.iter().any(|a| a.contains("谦虚")));
+    assert!(appreciation.len() >= 6);
+}
+
+#[test]
+fn test_antique_types() {
+    use world_rules::rules::social::ChineseAntiqueEtiquetteRules;
+    let rules = ChineseAntiqueEtiquetteRules::new();
+    let types = rules.collection_types();
+    assert!(types.iter().any(|t| t.contains("瓷器")));
+    assert!(types.iter().any(|t| t.contains("书画")));
+    assert!(types.iter().any(|t| t.contains("玉器")));
+    assert!(types.len() >= 6);
+}
+
+// ============================================================================
 // 总体测试计数验证
 // ============================================================================
 
@@ -890,19 +1111,22 @@ fn test_arbor_day_environmental() {
 fn test_phase_26_total_rules_count() {
     // Phase 26-01 应添加 10 种规则
     // Phase 26-02 应添加 10 种规则
-    // 总计 20 种节日礼仪规则
+    // Phase 26-03 应添加 5 种规则
+    // 总计 25 种礼仪规则
     use world_rules::rules::social::{
-        ArborDayRules, ArmyDayRules, ChildrensDayRules, ChineseBirthdayEtiquetteRules,
-        ChineseClanEtiquetteRules, ChineseComingOfAgeRules, ChineseCorrespondenceRules,
-        ChineseEtiquetteBasicsRules, ChineseInterpersonalEtiquetteRules,
-        ChineseOfficialEtiquetteRules, ChineseRitualSacrificeRules, ChineseTabooRules,
-        ChineseTraditionalDressRules, LaborDayRules, NationalDayRules, NewYearDayRules,
-        PartyFoundingDayRules, QixiFestivalRules, TeachersDayRules, WomensDayRules,
+        ArborDayRules, ArmyDayRules, ChildrensDayRules, ChineseAntiqueEtiquetteRules,
+        ChineseArchitectureEtiquetteRules, ChineseBirthdayEtiquetteRules, ChineseBookCollectionRules,
+        ChineseCalligraphyRules, ChineseClanEtiquetteRules, ChineseChessEtiquetteRules,
+        ChineseComingOfAgeRules, ChineseCorrespondenceRules, ChineseEtiquetteBasicsRules,
+        ChineseInterpersonalEtiquetteRules, ChineseOfficialEtiquetteRules,
+        ChineseRitualSacrificeRules, ChineseTabooRules, ChineseTraditionalDressRules,
+        LaborDayRules, NationalDayRules, NewYearDayRules, PartyFoundingDayRules,
+        QixiFestivalRules, TeachersDayRules, WomensDayRules,
     };
 
-    let rules_count = 20;
+    let rules_count = 25;
     assert_eq!(
-        rules_count, 20,
-        "Phase 26 应包含 20 种礼仪规则（10 传统 + 10 节日）"
+        rules_count, 25,
+        "Phase 26 应包含 25 种礼仪规则（10 传统 + 10 节日 + 5 其他）"
     );
 }
