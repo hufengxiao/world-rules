@@ -492,3 +492,283 @@ fn test_snowboard_fis_detailed_rules_basic() {
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
+
+// ============================================================================
+// 24-02: 滑冰规则测试 (5种)
+// ============================================================================
+
+// ----- 花样滑冰规则测试 -----
+
+#[test]
+fn test_figure_skating_rules_basic() {
+    use world_rules::rules::sports::FigureSkatingRules;
+    let rules = FigureSkatingRules::new();
+    assert_eq!(rules.metadata().name, "花样滑冰规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_figure_skating_categories() {
+    use world_rules::rules::sports::FigureSkatingRules;
+    let rules = FigureSkatingRules::new();
+    let categories = rules.competition_categories();
+    assert!(categories.iter().any(|c| c.contains("单人")));
+    assert!(categories.iter().any(|c| c.contains("双人")));
+    assert!(categories.iter().any(|c| c.contains("冰舞")));
+    assert!(categories.len() >= 5);
+}
+
+#[test]
+fn test_figure_skating_scoring() {
+    use world_rules::rules::sports::FigureSkatingRules;
+    let rules = FigureSkatingRules::new();
+    let scoring = rules.scoring_system();
+    assert!(scoring.iter().any(|s| s.contains("技术分")));
+    assert!(scoring.iter().any(|s| s.contains("艺术分")));
+    assert!(scoring.len() >= 3);
+}
+
+#[test]
+fn test_figure_skating_jumps() {
+    use world_rules::rules::sports::FigureSkatingRules;
+    let rules = FigureSkatingRules::new();
+    let jumps = rules.jump_types();
+    assert!(jumps.iter().any(|j| j.contains("跳")));
+    assert!(jumps.iter().any(|j| j.contains("四周")));
+    assert!(jumps.len() >= 5);
+}
+
+#[test]
+fn test_figure_skating_spins() {
+    use world_rules::rules::sports::FigureSkatingRules;
+    let rules = FigureSkatingRules::new();
+    let spins = rules.spin_types();
+    assert!(spins.iter().any(|s| s.contains("旋转")));
+    assert!(spins.len() >= 3);
+}
+
+#[test]
+fn test_figure_skating_deductions() {
+    use world_rules::rules::sports::FigureSkatingRules;
+    let rules = FigureSkatingRules::new();
+    let deductions = rules.deductions();
+    assert!(deductions.iter().any(|d| d.contains("摔倒")));
+    assert!(deductions.iter().any(|d| d.contains("扣")));
+    assert!(deductions.len() >= 3);
+}
+
+// ----- 速度滑冰规则测试 -----
+
+#[test]
+fn test_speed_skating_rules_basic() {
+    use world_rules::rules::sports::SpeedSkatingRules;
+    let rules = SpeedSkatingRules::new();
+    assert_eq!(rules.metadata().name, "速度滑冰规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_speed_skating_events() {
+    use world_rules::rules::sports::SpeedSkatingRules;
+    let rules = SpeedSkatingRules::new();
+    let events = rules.competition_events();
+    assert!(events.iter().any(|e| e.contains("500")));
+    assert!(events.iter().any(|e| e.contains("1000")));
+    assert!(events.iter().any(|e| e.contains("1500")));
+    assert!(events.len() >= 5);
+}
+
+#[test]
+fn test_speed_skating_techniques() {
+    use world_rules::rules::sports::SpeedSkatingRules;
+    let rules = SpeedSkatingRules::new();
+    let tech = rules.techniques();
+    assert!(tech.iter().any(|t| t.contains("起跑")));
+    assert!(tech.iter().any(|t| t.contains("弯道")));
+    assert!(tech.len() >= 3);
+}
+
+#[test]
+fn test_speed_skating_track() {
+    use world_rules::rules::sports::SpeedSkatingRules;
+    let rules = SpeedSkatingRules::new();
+    let track = rules.track_specifications();
+    assert!(track.iter().any(|t| t.contains("400")));
+    assert!(track.iter().any(|t| t.contains("道")));
+    assert!(track.len() >= 3);
+}
+
+#[test]
+fn test_speed_skating_equipment() {
+    use world_rules::rules::sports::SpeedSkatingRules;
+    let rules = SpeedSkatingRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("冰刀")));
+    assert!(equipment.len() >= 3);
+}
+
+// ----- 冰球规则测试 -----
+
+#[test]
+fn test_ice_hockey_rules_basic() {
+    use world_rules::rules::sports::IceHockeyRules;
+    let rules = IceHockeyRules::new();
+    assert_eq!(rules.metadata().name, "冰球规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn test_ice_hockey_rink() {
+    use world_rules::rules::sports::IceHockeyRules;
+    let rules = IceHockeyRules::new();
+    let rink = rules.rink_dimensions();
+    assert!(rink
+        .iter()
+        .any(|r| r.contains("60米") || r.contains("61米")));
+    assert!(rink.len() >= 3);
+}
+
+#[test]
+fn test_ice_hockey_team() {
+    use world_rules::rules::sports::IceHockeyRules;
+    let rules = IceHockeyRules::new();
+    let team = rules.team_composition();
+    assert!(team.iter().any(|t| t.contains("6人") || t.contains("6")));
+    assert!(team.iter().any(|t| t.contains("守门员")));
+    assert!(team.len() >= 3);
+}
+
+#[test]
+fn test_ice_hockey_periods() {
+    use world_rules::rules::sports::IceHockeyRules;
+    let rules = IceHockeyRules::new();
+    let periods = rules.periods();
+    assert!(periods
+        .iter()
+        .any(|p| p.contains("20分钟") || p.contains("20")));
+    assert!(periods.len() >= 3);
+}
+
+#[test]
+fn test_ice_hockey_penalties() {
+    use world_rules::rules::sports::IceHockeyRules;
+    let rules = IceHockeyRules::new();
+    let penalties = rules.penalties();
+    assert!(penalties.iter().any(|p| p.contains("分钟")));
+    assert!(penalties.len() >= 3);
+}
+
+#[test]
+fn test_ice_hockey_scoring() {
+    use world_rules::rules::sports::IceHockeyRules;
+    let rules = IceHockeyRules::new();
+    let scoring = rules.scoring();
+    assert!(scoring.iter().any(|s| s.contains("球")));
+    assert!(scoring.iter().any(|s| s.contains("门")));
+    assert!(scoring.len() >= 3);
+}
+
+#[test]
+fn test_ice_hockey_fouls() {
+    use world_rules::rules::sports::IceHockeyRules;
+    let rules = IceHockeyRules::new();
+    let fouls = rules.common_fouls();
+    assert!(fouls.len() >= 5);
+}
+
+// ----- 冰舞规则测试 -----
+
+#[test]
+fn test_ice_dancing_rules_basic() {
+    use world_rules::rules::sports::IceDancingRules;
+    let rules = IceDancingRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ----- 花样滑冰详细规则测试 -----
+
+#[test]
+fn test_figure_skating_detailed_rules_basic() {
+    use world_rules::rules::sports::FigureSkatingDetailedRules;
+    let rules = FigureSkatingDetailedRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ----- 速度滑冰详细规则测试 -----
+
+#[test]
+fn test_speed_skating_detailed_rules_basic() {
+    use world_rules::rules::sports::SpeedSkatingDetailedRules;
+    let rules = SpeedSkatingDetailedRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ----- 速度滑冰ISU规则测试 -----
+
+#[test]
+fn test_speed_skating_isu_rules_basic() {
+    use world_rules::rules::sports::SpeedSkatingIsuRules;
+    let rules = SpeedSkatingIsuRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ============================================================================
+// 24-03: 其他冬季规则测试 (5种)
+// ============================================================================
+
+// ----- 冰壶规则测试 -----
+
+#[test]
+fn test_curling_rules_basic() {
+    use world_rules::rules::sports::CurlingRules;
+    let rules = CurlingRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ----- 冰壶详细规则测试 -----
+
+#[test]
+fn test_curling_detailed_rules_basic() {
+    use world_rules::rules::sports::CurlingDetailedRules;
+    let rules = CurlingDetailedRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ----- 雪车规则测试 -----
+
+#[test]
+fn test_bobsleigh_rules_basic() {
+    use world_rules::rules::sports::BobsleighRules;
+    let rules = BobsleighRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ----- 雪橇规则测试 -----
+
+#[test]
+fn test_luge_rules_basic() {
+    use world_rules::rules::sports::LugeRules;
+    let rules = LugeRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+// ----- 骨架雪车规则测试 -----
+
+#[test]
+fn test_skeleton_rules_basic() {
+    use world_rules::rules::sports::SkeletonBsfDetailedRules;
+    let rules = SkeletonBsfDetailedRules::new();
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
