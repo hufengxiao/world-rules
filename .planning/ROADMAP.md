@@ -168,15 +168,15 @@ Plans:
 - [x] 21-03: 添加 10 种其他球类规则（排球世锦赛、排球奥运会、网球ATP总决赛、网球戴维斯杯、羽毛球世锦赛、乒乓球世界杯、日本职业棒球、世界棒球经典赛、手球欧冠、橄榄球六国赛）
 - [x] 21-04: 更新测试和文档
 
-#### Phase 22: E5 格斗与武术扩充
+#### Phase 22: E5 格斗与武术扩充 ✅
 **Goal**: +25 格斗规则
 **Depends on**: Phase 21
-**Status**: In Progress
+**Status**: Complete (2026-07-11)
 Plans:
 - [x] 22-01: 添加 10 种武术规则
 - [x] 22-02: 添加 10 种拳击规则
 - [x] 22-03: 添加 5 种其他格斗规则
-- [ ] 22-04: 更新测试和文档
+- [x] 22-04: 更新测试和文档
 
 #### Phase 23: E6 水上运动扩充
 **Goal**: +25 水上规则
@@ -371,8 +371,6 @@ Plans:
 - [ ] 52-01: 用户认证系统
 - [ ] 53-01: 规则订阅服务
 - [ ] 54-01: 规则分析工具
-- [ ] 55-01: 发布 v3.0
-
 ---
 
 ## Progress
@@ -389,7 +387,8 @@ Plans:
 | 19 | v2.2 | 5/5 | Complete | 2026-07-11 |
 | 20 | v2.2 | 4/4 | Complete | 2026-07-11 |
 | 21 | v2.2 | 4/4 | Complete | 2026-07-11 |
-| 22-35 | v2.2 | 0/58 | Planned | - |
+| 22 | v2.2 | 4/4 | Complete | 2026-07-11 |
+| 23-35 | v2.2 | 0/54 | Planned | - |
 | 36-45 | v2.3 | 0/15 | Planned | - |
 | 46-55 | v3.0 | 0/10 | Planned | - |
 
@@ -400,8 +399,8 @@ Plans:
 **Enabled Toolsets**: file, terminal
 **Verification**: cargo test && cargo clippy
 **Deliver**: local (save only, no push)
-**Total Plans**: 116 tasks remaining
+**Total Plans**: 112 tasks remaining
 **Estimated Duration**: ~60 hours of autonomous work
 
 ---
-*Last updated: 2026-07-11 - Phase 20-01 完成*
+*Last updated: 2026-07-11 - Phase 22 完成*

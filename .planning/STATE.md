@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: planning
 progress:
   total_phases: 55
-  completed_phases: 21
+  completed_phases: 22
   total_plans: 116
-  completed_plans: 41
-  percent: 57
+  completed_plans: 45
+  percent: 61
 ---
 
 # Project State
@@ -16,16 +16,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
-**Current focus:** Phase 22 - E5 格斗与武术扩充 (v2.2 继续)
+**Current focus:** Phase 23 - E6 水上运动扩充 (v2.2 继续)
 
 ## Current Position
 
-Phase: 22 of 55 (E5 格斗与武术扩充)
-Plan: 3 of 4 complete in current phase
-Status: Ready for task 22-04
-Last activity: 2026-07-11 — 完成 Phase 22-03（添加5种其他格斗规则：K-1, Luta Livre, ONE MMA, Pancrase, Pankration）
+Phase: 23 of 55 (E6 水上运动扩充)
+Plan: 0 of 4 complete in current phase
+Status: Ready for task 23-01
+Last activity: 2026-07-11 — 完成 Phase 22（格斗与武术扩充：25种规则，测试和文档）
 
-Progress: [████████░] 57%
+Progress: [█████████░] 61%
 
 ## Performance Metrics
 
@@ -79,18 +79,21 @@ Progress: [████████░] 57%
   - 20-03: 5种其他麻将变体（美国、越南、菲律宾、新加坡、马来西亚）✅
   - 20-04: 测试和文档（tests/phase_20_rules.rs, docs/phase_20.md, 80个测试用例）✅
 
-- Phase 21: E4 球类运动扩充 (+30 规则，完整测试覆盖) ✅
+|- Phase 21: E4 球类运动扩充 (+30 规则，完整测试覆盖) ✅
   - 21-01: 10种足球相关规则（英超、女足世界杯、女子欧洲杯、金杯赛、大洋洲杯、女子俱乐部世界杯、南美解放者杯、亚冠、非洲冠军联赛、欧洲超级杯）✅
   - 21-02: 10种篮球相关规则（WNBA、NCAA、CBA详细、FIBA世界杯、奥运会、NBA全明星、NBA季后赛、G联盟、3x3奥运、FIBA亚洲杯）✅
   - 21-03: 10种其他球类规则（排球世锦赛、排球奥运会、网球ATP总决赛、网球戴维斯杯、羽毛球世锦赛、乒乓球世界杯、日本职业棒球、世界棒球经典赛、手球欧冠、橄榄球六国赛）✅
   - 21-04: 测试和文档（tests/phase_21_rules.rs 更新，docs/phase_21.md 创建）✅
 
-进行中:
-- Phase 22: E5 格斗与武术扩充 (+25 规则)
+|- Phase 22: E5 格斗与武术扩充 (+25 规则，完整测试覆盖) ✅
   - 22-01: 10种武术规则（咏春拳、八卦掌、形意拳、中国摔跤、忍术、极真会馆空手道、松涛馆空手道、刚柔流空手道、菲律宾短棍术、马来传统武术）✅
-  - 22-02: 10种拳击规则（奥运会拳击、WBO、业余拳击、昆斯伯里拳击、英国拳击、散打、法国踢腿术、缅甸拳击、高棉拳击、白拳）✅
+  - 22-02: 10种拳击规则（奥运会拳击、WBO、业余拳击、昆斯伯里拳击、英国拳击、散打、法国踢腿术、缅甸拳击、高棉拳击）✅
   - 22-03: 5种其他格斗规则（K-1、Luta Livre、ONE Championship MMA、Pancrase、Pankration）✅
-  - 下一步: 22-04 更新测试和文档
+  - 22-04: 测试和文档（tests/phase_22_rules.rs，docs/phase_22.md）✅
+
+进行中:
+- Phase 23: E6 水上运动扩充 (+25 规则)
+  - 下一步: 23-01 添加10种游泳规则
 
 ## Accumulated Context
 
@@ -111,8 +114,8 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-v2.2 待完成（78 tasks）:
-- Phase 22-35: 规则扩充 1098 → 2000+
+v2.2 待完成（71 tasks）:
+- Phase 23-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
 
