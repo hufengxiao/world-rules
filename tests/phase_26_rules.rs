@@ -285,7 +285,9 @@ fn test_sacrifice_procedure() {
     let rules = ChineseRitualSacrificeRules::new();
     let procedure = rules.sacrifice_procedure();
     assert!(procedure.iter().any(|p| p.contains("斋戒")));
-    assert!(procedure.iter().any(|p| p.contains("上香") || p.contains("焚香")));
+    assert!(procedure
+        .iter()
+        .any(|p| p.contains("上香") || p.contains("焚香")));
     assert!(procedure.len() >= 6);
 }
 
@@ -559,25 +561,348 @@ fn test_clan_duties() {
 }
 
 // ============================================================================
+// 26-02: 中华文化节日礼仪规则测试 (10种)
+// ============================================================================
+
+// ----- 元旦礼仪规则测试 -----
+
+#[test]
+fn test_new_year_day_rules_basic() {
+    use world_rules::rules::social::NewYearDayRules;
+    let rules = NewYearDayRules::new();
+    assert_eq!(rules.metadata().name, "元旦礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_new_year_day_celebration() {
+    use world_rules::rules::social::NewYearDayRules;
+    let rules = NewYearDayRules::new();
+    let methods = rules.celebration_methods();
+    assert!(methods.iter().any(|m| m.contains("升旗")));
+    assert!(methods.iter().any(|m| m.contains("倒计时")));
+    assert!(methods.len() >= 5);
+}
+
+#[test]
+fn test_new_year_day_greetings() {
+    use world_rules::rules::social::NewYearDayRules;
+    let rules = NewYearDayRules::new();
+    let greetings = rules.greetings();
+    assert!(greetings.iter().any(|g| g.contains("新年快乐")));
+    assert!(greetings.len() >= 5);
+}
+
+// ----- 七夕节礼仪规则测试 -----
+
+#[test]
+fn test_qixi_festival_rules_basic() {
+    use world_rules::rules::social::QixiFestivalRules;
+    let rules = QixiFestivalRules::new();
+    assert_eq!(rules.metadata().name, "七夕节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_qixi_legend_culture() {
+    use world_rules::rules::social::QixiFestivalRules;
+    let rules = QixiFestivalRules::new();
+    let legend = rules.legend_culture();
+    assert!(legend.iter().any(|l| l.contains("牛郎织女")));
+    assert!(legend.iter().any(|l| l.contains("鹊桥")));
+    assert!(legend.len() >= 5);
+}
+
+#[test]
+fn test_qixi_traditional_customs() {
+    use world_rules::rules::social::QixiFestivalRules;
+    let rules = QixiFestivalRules::new();
+    let customs = rules.traditional_customs();
+    assert!(customs.iter().any(|c| c.contains("乞巧")));
+    assert!(customs.iter().any(|c| c.contains("穿针")));
+    assert!(customs.len() >= 5);
+}
+
+// ----- 妇女节礼仪规则测试 -----
+
+#[test]
+fn test_womens_day_rules_basic() {
+    use world_rules::rules::social::WomensDayRules;
+    let rules = WomensDayRules::new();
+    assert_eq!(rules.metadata().name, "妇女节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_womens_day_significance() {
+    use world_rules::rules::social::WomensDayRules;
+    let rules = WomensDayRules::new();
+    let sig = rules.significance();
+    assert!(sig.iter().any(|s| s.contains("性别平等")));
+    assert!(sig.iter().any(|s| s.contains("权利")));
+    assert!(sig.len() >= 5);
+}
+
+#[test]
+fn test_womens_day_workplace() {
+    use world_rules::rules::social::WomensDayRules;
+    let rules = WomensDayRules::new();
+    let etiquette = rules.workplace_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("福利")));
+    assert!(etiquette.iter().any(|e| e.contains("半天")));
+    assert!(etiquette.len() >= 5);
+}
+
+// ----- 劳动节礼仪规则测试 -----
+
+#[test]
+fn test_labor_day_rules_basic() {
+    use world_rules::rules::social::LaborDayRules;
+    let rules = LaborDayRules::new();
+    assert_eq!(rules.metadata().name, "劳动节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_labor_day_celebrations() {
+    use world_rules::rules::social::LaborDayRules;
+    let rules = LaborDayRules::new();
+    let celeb = rules.celebrations();
+    assert!(celeb.iter().any(|c| c.contains("表彰")));
+    assert!(celeb.iter().any(|c| c.contains("劳动竞赛")));
+    assert!(celeb.len() >= 5);
+}
+
+#[test]
+fn test_labor_day_greetings() {
+    use world_rules::rules::social::LaborDayRules;
+    let rules = LaborDayRules::new();
+    let greetings = rules.greetings();
+    assert!(greetings.iter().any(|g| g.contains("劳动最光荣")));
+    assert!(greetings.len() >= 5);
+}
+
+// ----- 儿童节礼仪规则测试 -----
+
+#[test]
+fn test_childrens_day_rules_basic() {
+    use world_rules::rules::social::ChildrensDayRules;
+    let rules = ChildrensDayRules::new();
+    assert_eq!(rules.metadata().name, "儿童节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_childrens_day_parent_etiquette() {
+    use world_rules::rules::social::ChildrensDayRules;
+    let rules = ChildrensDayRules::new();
+    let etiquette = rules.parent_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("陪伴")));
+    assert!(etiquette.iter().any(|e| e.contains("礼物")));
+    assert!(etiquette.len() >= 5);
+}
+
+#[test]
+fn test_childrens_day_school_etiquette() {
+    use world_rules::rules::social::ChildrensDayRules;
+    let rules = ChildrensDayRules::new();
+    let etiquette = rules.school_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("文艺演出")));
+    assert!(etiquette.iter().any(|e| e.contains("表彰")));
+    assert!(etiquette.len() >= 5);
+}
+
+// ----- 教师节礼仪规则测试 -----
+
+#[test]
+fn test_teachers_day_rules_basic() {
+    use world_rules::rules::social::TeachersDayRules;
+    let rules = TeachersDayRules::new();
+    assert_eq!(rules.metadata().name, "教师节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_teachers_day_student_etiquette() {
+    use world_rules::rules::social::TeachersDayRules;
+    let rules = TeachersDayRules::new();
+    let etiquette = rules.student_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("祝福")));
+    assert!(etiquette.iter().any(|e| e.contains("感谢")));
+    assert!(etiquette.len() >= 5);
+}
+
+#[test]
+fn test_teachers_day_greetings() {
+    use world_rules::rules::social::TeachersDayRules;
+    let rules = TeachersDayRules::new();
+    let greetings = rules.greetings();
+    assert!(greetings.iter().any(|g| g.contains("桃李")));
+    assert!(greetings.iter().any(|g| g.contains("春蚕")));
+    assert!(greetings.len() >= 5);
+}
+
+// ----- 国庆节礼仪规则测试 -----
+
+#[test]
+fn test_national_day_rules_basic() {
+    use world_rules::rules::social::NationalDayRules;
+    let rules = NationalDayRules::new();
+    assert_eq!(rules.metadata().name, "国庆节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_national_day_official_etiquette() {
+    use world_rules::rules::social::NationalDayRules;
+    let rules = NationalDayRules::new();
+    let etiquette = rules.official_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("升旗")));
+    assert!(etiquette.iter().any(|e| e.contains("阅兵")));
+    assert!(etiquette.len() >= 5);
+}
+
+#[test]
+fn test_national_day_patriotic() {
+    use world_rules::rules::social::NationalDayRules;
+    let rules = NationalDayRules::new();
+    let etiquette = rules.patriotic_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("国旗")));
+    assert!(etiquette.iter().any(|e| e.contains("国歌")));
+    assert!(etiquette.len() >= 5);
+}
+
+// ----- 建党节礼仪规则测试 -----
+
+#[test]
+fn test_party_founding_day_rules_basic() {
+    use world_rules::rules::social::PartyFoundingDayRules;
+    let rules = PartyFoundingDayRules::new();
+    assert_eq!(rules.metadata().name, "建党节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_party_founding_member_etiquette() {
+    use world_rules::rules::social::PartyFoundingDayRules;
+    let rules = PartyFoundingDayRules::new();
+    let etiquette = rules.member_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("入党誓词")));
+    assert!(etiquette.iter().any(|e| e.contains("党史")));
+    assert!(etiquette.len() >= 5);
+}
+
+#[test]
+fn test_party_founding_activities() {
+    use world_rules::rules::social::PartyFoundingDayRules;
+    let rules = PartyFoundingDayRules::new();
+    let activities = rules.organizational_activities();
+    assert!(activities.iter().any(|a| a.contains("主题党日")));
+    assert!(activities.iter().any(|a| a.contains("红色教育")));
+    assert!(activities.len() >= 5);
+}
+
+// ----- 建军节礼仪规则测试 -----
+
+#[test]
+fn test_army_day_rules_basic() {
+    use world_rules::rules::social::ArmyDayRules;
+    let rules = ArmyDayRules::new();
+    assert_eq!(rules.metadata().name, "建军节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_army_day_military_etiquette() {
+    use world_rules::rules::social::ArmyDayRules;
+    let rules = ArmyDayRules::new();
+    let etiquette = rules.military_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("升旗")));
+    assert!(etiquette.iter().any(|e| e.contains("阅兵")));
+    assert!(etiquette.len() >= 5);
+}
+
+#[test]
+fn test_army_day_soldier_etiquette() {
+    use world_rules::rules::social::ArmyDayRules;
+    let rules = ArmyDayRules::new();
+    let etiquette = rules.soldier_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("忠诚")));
+    assert!(etiquette.iter().any(|e| e.contains("服务人民")));
+    assert!(etiquette.len() >= 5);
+}
+
+// ----- 植树节礼仪规则测试 -----
+
+#[test]
+fn test_arbor_day_rules_basic() {
+    use world_rules::rules::social::ArborDayRules;
+    let rules = ArborDayRules::new();
+    assert_eq!(rules.metadata().name, "植树节礼仪");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Social(_)));
+}
+
+#[test]
+fn test_arbor_day_significance() {
+    use world_rules::rules::social::ArborDayRules;
+    let rules = ArborDayRules::new();
+    let sig = rules.significance();
+    assert!(sig.iter().any(|s| s.contains("绿化")));
+    assert!(sig.iter().any(|s| s.contains("环保")));
+    assert!(sig.len() >= 5);
+}
+
+#[test]
+fn test_arbor_day_planting() {
+    use world_rules::rules::social::ArborDayRules;
+    let rules = ArborDayRules::new();
+    let etiquette = rules.planting_etiquette();
+    assert!(etiquette.iter().any(|e| e.contains("科学选址")));
+    assert!(etiquette.iter().any(|e| e.contains("护理")));
+    assert!(etiquette.len() >= 5);
+}
+
+#[test]
+fn test_arbor_day_environmental() {
+    use world_rules::rules::social::ArborDayRules;
+    let rules = ArborDayRules::new();
+    let actions = rules.environmental_actions();
+    assert!(actions.iter().any(|a| a.contains("节约")));
+    assert!(actions.iter().any(|a| a.contains("回收")));
+    assert!(actions.len() >= 5);
+}
+
+// ============================================================================
 // 总体测试计数验证
 // ============================================================================
 
 #[test]
 fn test_phase_26_total_rules_count() {
     // Phase 26-01 应添加 10 种规则
+    // Phase 26-02 应添加 10 种规则
+    // 总计 20 种节日礼仪规则
     use world_rules::rules::social::{
-        ChineseComingOfAgeRules,
-        ChineseBirthdayEtiquetteRules,
-        ChineseTabooRules,
-        ChineseEtiquetteBasicsRules,
-        ChineseRitualSacrificeRules,
-        ChineseTraditionalDressRules,
-        ChineseInterpersonalEtiquetteRules,
-        ChineseCorrespondenceRules,
-        ChineseOfficialEtiquetteRules,
-        ChineseClanEtiquetteRules,
+        ArborDayRules, ArmyDayRules, ChildrensDayRules, ChineseBirthdayEtiquetteRules,
+        ChineseClanEtiquetteRules, ChineseComingOfAgeRules, ChineseCorrespondenceRules,
+        ChineseEtiquetteBasicsRules, ChineseInterpersonalEtiquetteRules,
+        ChineseOfficialEtiquetteRules, ChineseRitualSacrificeRules, ChineseTabooRules,
+        ChineseTraditionalDressRules, LaborDayRules, NationalDayRules, NewYearDayRules,
+        PartyFoundingDayRules, QixiFestivalRules, TeachersDayRules, WomensDayRules,
     };
 
-    let rules_count = 10;
-    assert_eq!(rules_count, 10, "Phase 26-01 应包含 10 种传统礼仪规则");
+    let rules_count = 20;
+    assert_eq!(
+        rules_count, 20,
+        "Phase 26 应包含 20 种礼仪规则（10 传统 + 10 节日）"
+    );
 }
