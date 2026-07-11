@@ -248,10 +248,7 @@ fn test_all_business_etiquette_explanations() {
 
     for explanation in explanations {
         // 验证解释内容包含关键章节标识
-        assert!(
-            explanation.contains("礼仪"),
-            "规则的解释缺少礼仪章节"
-        );
+        assert!(explanation.contains("礼仪"), "规则的解释缺少礼仪章节");
     }
 }
 

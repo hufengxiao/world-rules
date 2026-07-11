@@ -131,7 +131,9 @@ fn test_all_international_rules_validation() {
     ];
 
     for rules in rules_list {
-        assert!(rules.validate(&ValidateContext::Generic("test".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("test".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
         assert_eq!(rules.category(), RuleCategory::social("international"));
     }
