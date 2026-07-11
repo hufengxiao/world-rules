@@ -5,8 +5,8 @@ progress:
   total_phases: 55
   completed_phases: 26
   total_plans: 116
-  completed_plans: 64
-  percent: 82
+  completed_plans: 65
+  percent: 83
 ---
 
 # Project State
@@ -21,11 +21,11 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 ## Current Position
 
 Phase: 27 of 55 (E10 国际礼仪扩充)
-Plan: 1 of 4 complete in current phase
-Status: In Progress (27-01 完成)
-Last activity: 2026-07-11 — 完成 Phase 27-01（10种商务礼仪规则）
+Plan: 2 of 4 complete in current phase
+Status: In Progress (27-01、27-02 完成)
+Last activity: 2026-07-12 — 完成 Phase 27-02（10种餐饮礼仪规则）
 
-Progress: [██████████████░] 82%
+Progress: [███████████████░] 83%
 
 ## Performance Metrics
 
@@ -113,7 +113,7 @@ Progress: [██████████████░] 82%
 ||  - 26-03: 添加 5 种其他礼仪规则（书法礼仪、棋类礼仪、建筑礼仪、藏书礼仪、收藏礼仪）✅
 ||  - 26-04: 测试和文档（tests/phase_26_rules.rs 更新，docs/phase_26.md 更新，25个测试用例）✅
 
-- 下一步: Phase 27-01（10种商务礼仪规则）
+|- Phase 27-02（10种餐饮礼仪规则）
 
 ## Accumulated Context
 
