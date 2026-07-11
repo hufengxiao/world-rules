@@ -9,6 +9,12 @@ pub struct KansaiMahjongRules {
     metadata: RuleMetadata,
 }
 
+impl Default for KansaiMahjongRules {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl KansaiMahjongRules {
     pub fn new() -> Self {
         Self {

@@ -9,6 +9,12 @@ pub struct OpenRiichiMahjongRules {
     metadata: RuleMetadata,
 }
 
+impl Default for OpenRiichiMahjongRules {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl OpenRiichiMahjongRules {
     pub fn new() -> Self {
         Self {

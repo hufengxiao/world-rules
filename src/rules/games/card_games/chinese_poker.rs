@@ -83,13 +83,7 @@ impl ChinesePokerRules {
                 for k in (j + 1)..cards.len() {
                     for l in (k + 1)..cards.len() {
                         for m in (l + 1)..cards.len() {
-                            let combo = vec![
-                                cards[i].clone(),
-                                cards[j].clone(),
-                                cards[k].clone(),
-                                cards[l].clone(),
-                                cards[m].clone(),
-                            ];
+                            let combo = vec![cards[i], cards[j], cards[k], cards[l], cards[m]];
 
                             let eval = super::poker::TexasHoldemRules::evaluate_hand(&combo);
                             let rank = eval.rank;

@@ -9,6 +9,12 @@ pub struct WashizuMahjongRules {
     metadata: RuleMetadata,
 }
 
+impl Default for WashizuMahjongRules {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl WashizuMahjongRules {
     pub fn new() -> Self {
         Self {

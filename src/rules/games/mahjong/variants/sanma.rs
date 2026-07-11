@@ -9,6 +9,12 @@ pub struct SanmaMahjongRules {
     metadata: RuleMetadata,
 }
 
+impl Default for SanmaMahjongRules {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl SanmaMahjongRules {
     pub fn new() -> Self {
         Self {

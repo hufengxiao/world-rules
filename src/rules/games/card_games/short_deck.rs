@@ -482,7 +482,7 @@ impl Rule for ShortDeckRules {
 
         // 简单检查：确保没有2-5
         for part in &parts {
-            let rank_str = if let Some(rest) = part.strip_prefix("10") {
+            let rank_str = if let Some(_rest) = part.strip_prefix("10") {
                 "10"
             } else {
                 &part[..part.len() - 1]

@@ -9,6 +9,12 @@ pub struct RiichiCompetitiveRules {
     metadata: RuleMetadata,
 }
 
+impl Default for RiichiCompetitiveRules {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl RiichiCompetitiveRules {
     pub fn new() -> Self {
         Self {

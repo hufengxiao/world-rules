@@ -3,7 +3,7 @@
 //! Five Card Draw 是最经典的扑克变体之一，
 //! 玩家获得5张暗牌，可以丢弃部分牌并重新抽牌。
 
-use super::cards::{Card, Rank, Suit};
+use super::cards::{Card, Rank};
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 
 /// 五张抽牌游戏阶段
@@ -142,7 +142,7 @@ impl FiveCardDrawRules {
         let mut keep_indices = Vec::new();
 
         // 保留对子
-        for (_, indices) in &rank_counts {
+        for indices in rank_counts.values() {
             if indices.len() == 2 {
                 keep_indices.extend(indices.clone());
                 break;

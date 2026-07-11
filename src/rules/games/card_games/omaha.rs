@@ -3,7 +3,7 @@
 //! 奥马哈扑克是德州扑克的变体，玩家获得4张底牌，
 //! 必须使用其中2张与公共牌中的3张组成最佳牌型。
 
-use super::cards::{Card, Rank, Suit};
+use super::cards::Card;
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 
 /// 奥马哈扑克手牌评估结果
@@ -49,7 +49,7 @@ impl OmahaRules {
         // 尝试所有底牌组合（4选2 = 6种）
         for i in 0..hole_cards.len() {
             for j in (i + 1)..hole_cards.len() {
-                let selected_hole = vec![hole_cards[i].clone(), hole_cards[j].clone()];
+                let selected_hole = vec![hole_cards[i], hole_cards[j]];
                 let hole_indices = vec![i, j];
 
                 // 尝试所有公共牌组合（至少5选3）
@@ -57,9 +57,9 @@ impl OmahaRules {
                     for c2 in (c1 + 1)..community_cards.len() {
                         for c3 in (c2 + 1)..community_cards.len() {
                             let selected_community = vec![
-                                community_cards[c1].clone(),
-                                community_cards[c2].clone(),
-                                community_cards[c3].clone(),
+                                community_cards[c1],
+                                community_cards[c2],
+                                community_cards[c3],
                             ];
                             let community_indices = vec![c1, c2, c3];
 
