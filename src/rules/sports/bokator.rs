@@ -12,9 +12,12 @@ pub struct BokatorRules {
 impl BokatorRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("高棉拳击规则", "柬埔寨传统武术Bokator/Pradal Serey竞赛规则")
-                .with_origin("柬埔寨")
-                .with_tags(vec!["体育".into(), "武术".into(), "格斗".into()]),
+            metadata: RuleMetadata::new(
+                "高棉拳击规则",
+                "柬埔寨传统武术Bokator/Pradal Serey竞赛规则",
+            )
+            .with_origin("柬埔寨")
+            .with_tags(vec!["体育".into(), "武术".into(), "格斗".into()]),
         }
     }
 

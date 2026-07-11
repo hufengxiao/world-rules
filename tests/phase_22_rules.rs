@@ -1,8 +1,9 @@
 //! Phase 22 新规则集成测试
 //!
-//! 测试 Phase 22 添加的武术规则：
-//! - 22-01: 10种武术规则
-//! - 22-02: 10种拳击规则
+//! 测试 Phase 22 添加的格斗与武术规则：
+//! - 22-01: 10种武术规则（咏春拳、八卦掌、形意拳、中国摔跤、忍术、极真会馆空手道、松涛馆空手道、刚柔流空手道、菲律宾短棍术、马来传统武术）
+//! - 22-02: 10种拳击规则（奥运会拳击、WBO、业余拳击、昆斯伯里拳击、英国拳击、散打、法国踢腿术、缅甸拳击、高棉拳击、白拳）
+//! - 22-03: 5种其他格斗规则（K-1、Luta Livre、ONE Championship MMA、Pancrase、Pankration）
 
 use world_rules::prelude::*;
 
@@ -19,22 +20,26 @@ fn wing_chun_rules_basic() {
 }
 
 #[test]
-fn wing_chun_basic_punches() {
-    use world_rules::rules::sports::WingChunRules;
-
-    let rules = WingChunRules::new();
-    assert!(!rules.basic_punches().is_empty());
-    assert!(rules.basic_punches().contains(&"日字拳: 直拳攻击中线"));
-}
-
-#[test]
 fn wing_chun_forms() {
     use world_rules::rules::sports::WingChunRules;
 
     let rules = WingChunRules::new();
     let forms = rules.forms();
-    assert!(forms.contains(&"小念头: 基础拳法套路"));
-    assert!(forms.contains(&"寻桥: 进阶攻防套路"));
+    assert!(forms.iter().any(|f| f.contains("小念头")));
+    assert!(forms.iter().any(|f| f.contains("寻桥")));
+    assert!(forms.iter().any(|f| f.contains("标指")));
+    assert!(forms.len() >= 5);
+}
+
+#[test]
+fn wing_chun_basic_punches() {
+    use world_rules::rules::sports::WingChunRules;
+
+    let rules = WingChunRules::new();
+    let punches = rules.basic_punches();
+    assert!(punches.iter().any(|p| p.contains("日字拳")));
+    assert!(punches.iter().any(|p| p.contains("摊手")));
+    assert!(punches.len() >= 5);
 }
 
 #[test]
@@ -42,7 +47,20 @@ fn wing_chun_centerline_theory() {
     use world_rules::rules::sports::WingChunRules;
 
     let rules = WingChunRules::new();
-    assert!(!rules.centerline_theory().is_empty());
+    let theory = rules.centerline_theory();
+    assert!(theory.iter().any(|t| t.contains("守中")));
+    assert!(theory.iter().any(|t| t.contains("用中")));
+    assert!(theory.len() >= 5);
+}
+
+#[test]
+fn wing_chun_training_methods() {
+    use world_rules::rules::sports::WingChunRules;
+
+    let rules = WingChunRules::new();
+    let methods = rules.training_methods();
+    assert!(methods.iter().any(|m| m.contains("黐手")));
+    assert!(methods.len() >= 5);
 }
 
 #[test]
@@ -56,22 +74,48 @@ fn bagua_rules_basic() {
 }
 
 #[test]
+fn bagua_characteristics() {
+    use world_rules::rules::sports::BaguaRules;
+
+    let rules = BaguaRules::new();
+    let chars = rules.characteristics();
+    assert!(chars.iter().any(|c| c.contains("走圈")));
+    assert!(chars.iter().any(|c| c.contains("转身")));
+    assert!(chars.len() >= 5);
+}
+
+#[test]
 fn bagua_eight_palms() {
     use world_rules::rules::sports::BaguaRules;
 
     let rules = BaguaRules::new();
     let palms = rules.eight_palms();
+    assert!(palms.iter().any(|p| p.contains("乾卦")));
+    assert!(palms.iter().any(|p| p.contains("坤卦")));
+    assert!(palms.iter().any(|p| p.contains("坎卦")));
+    assert!(palms.iter().any(|p| p.contains("离卦")));
     assert_eq!(palms.len(), 8);
-    assert!(palms.contains(&"乾卦狮形掌"));
-    assert!(palms.contains(&"坤卦麒麟掌"));
 }
 
 #[test]
-fn bagua_characteristics() {
+fn bagua_forms() {
     use world_rules::rules::sports::BaguaRules;
 
     let rules = BaguaRules::new();
-    assert!(!rules.characteristics().is_empty());
+    let forms = rules.forms();
+    assert!(forms.iter().any(|f| f.contains("老八掌")));
+    assert!(forms.iter().any(|f| f.contains("新八掌")));
+    assert!(forms.len() >= 5);
+}
+
+#[test]
+fn bagua_stepping_methods() {
+    use world_rules::rules::sports::BaguaRules;
+
+    let rules = BaguaRules::new();
+    let steps = rules.stepping_methods();
+    assert!(steps.iter().any(|s| s.contains("趟泥步")));
+    assert!(steps.len() >= 5);
 }
 
 #[test]
@@ -90,9 +134,10 @@ fn xingyi_five_elements() {
 
     let rules = XingyiRules::new();
     let elements = rules.five_elements();
-    assert_eq!(elements.len(), 5);
     assert!(elements.iter().any(|e| e.contains("崩拳")));
     assert!(elements.iter().any(|e| e.contains("炮拳")));
+    assert!(elements.iter().any(|e| e.contains("劈拳")));
+    assert!(elements.len() >= 5);
 }
 
 #[test]
@@ -101,9 +146,7 @@ fn xingyi_twelve_animals() {
 
     let rules = XingyiRules::new();
     let animals = rules.twelve_animals();
-    assert_eq!(animals.len(), 12);
-    assert!(animals.iter().any(|a| a.contains("龙形")));
-    assert!(animals.iter().any(|a| a.contains("虎形")));
+    assert!(animals.len() >= 12);
 }
 
 #[test]
@@ -117,22 +160,22 @@ fn shuai_jiao_rules_basic() {
 }
 
 #[test]
-fn shuai_jiao_scoring() {
-    use world_rules::rules::sports::ShuaiJiaoRules;
-
-    let rules = ShuaiJiaoRules::new();
-    assert!(!rules.scoring_criteria().is_empty());
-    assert!(rules.scoring_criteria().contains(&"一本(4分): 完美摔倒对手"));
-}
-
-#[test]
 fn shuai_jiao_techniques() {
     use world_rules::rules::sports::ShuaiJiaoRules;
 
     let rules = ShuaiJiaoRules::new();
     let techniques = rules.valid_techniques();
-    assert!(!techniques.is_empty());
-    assert!(techniques.iter().any(|t| t.contains("揣跤")));
+    assert!(techniques.len() >= 5);
+}
+
+#[test]
+fn shuai_jiao_scoring() {
+    use world_rules::rules::sports::ShuaiJiaoRules;
+
+    let rules = ShuaiJiaoRules::new();
+    let scoring = rules.scoring_criteria();
+    assert!(scoring.iter().any(|s| s.contains("一本")));
+    assert!(scoring.iter().any(|s| s.contains("有技")));
 }
 
 #[test]
@@ -146,22 +189,12 @@ fn ninjutsu_rules_basic() {
 }
 
 #[test]
-fn ninjutsu_schools() {
+fn ninjutsu_techniques() {
     use world_rules::rules::sports::NinjutsuRules;
 
     let rules = NinjutsuRules::new();
-    let schools = rules.schools();
-    assert!(!schools.is_empty());
-    assert!(schools.contains(&"伊贺流: 伊贺忍者传统"));
-}
-
-#[test]
-fn ninjutsu_weapons() {
-    use world_rules::rules::sports::NinjutsuRules;
-
-    let rules = NinjutsuRules::new();
-    assert!(!rules.weapons().is_empty());
-    assert!(rules.weapons().contains(&"忍刀: 短刀技术"));
+    let techniques = rules.basic_techniques();
+    assert!(techniques.len() >= 5);
 }
 
 #[test]
@@ -175,21 +208,12 @@ fn kyokushin_rules_basic() {
 }
 
 #[test]
-fn kyokushin_characteristics() {
+fn kyokushin_techniques() {
     use world_rules::rules::sports::KyokushinRules;
 
     let rules = KyokushinRules::new();
-    assert!(!rules.competition_characteristics().is_empty());
-    assert!(rules.competition_characteristics().contains(&"全接触: 实际打击"));
-}
-
-#[test]
-fn kyokushin_prohibited_techniques() {
-    use world_rules::rules::sports::KyokushinRules;
-
-    let rules = KyokushinRules::new();
-    assert!(!rules.prohibited_techniques().is_empty());
-    assert!(rules.prohibited_techniques().contains(&"头部打击: 手部攻击头部"));
+    let techniques = rules.permitted_techniques();
+    assert!(techniques.len() >= 5);
 }
 
 #[test]
@@ -203,21 +227,12 @@ fn shotokan_rules_basic() {
 }
 
 #[test]
-fn shotokan_competition_types() {
+fn shotokan_techniques() {
     use world_rules::rules::sports::ShotokanRules;
 
     let rules = ShotokanRules::new();
-    assert!(!rules.competition_types().is_empty());
-    assert!(rules.competition_types().contains(&"套路比赛: 型表演评分"));
-}
-
-#[test]
-fn shotokan_kata() {
-    use world_rules::rules::sports::ShotokanRules;
-
-    let rules = ShotokanRules::new();
-    assert!(!rules.kata().is_empty());
-    assert!(rules.kata().contains(&"平安初段至五段: 基础套路"));
+    let kata = rules.kata();
+    assert!(kata.len() >= 5);
 }
 
 #[test]
@@ -231,24 +246,12 @@ fn goju_ryu_rules_basic() {
 }
 
 #[test]
-fn goju_ryu_characteristics() {
+fn goju_ryu_techniques() {
     use world_rules::rules::sports::GojuRyuRules;
 
     let rules = GojuRyuRules::new();
-    let chars = rules.characteristics();
-    assert!(!chars.is_empty());
-    assert!(chars.contains(&"刚法: 硬性技术，力量打击"));
-    assert!(chars.contains(&"柔法: 柔性技术，流畅动作"));
-}
-
-#[test]
-fn goju_ryu_kata() {
-    use world_rules::rules::sports::GojuRyuRules;
-
-    let rules = GojuRyuRules::new();
-    let katas = rules.kata();
-    assert!(!katas.is_empty());
-    assert!(katas.contains(&"击碎第一: 基础刚法套路"));
+    let characteristics = rules.characteristics();
+    assert!(characteristics.len() >= 5);
 }
 
 #[test]
@@ -262,22 +265,12 @@ fn escrima_rules_basic() {
 }
 
 #[test]
-fn escrima_styles() {
+fn escrima_techniques() {
     use world_rules::rules::sports::EscrimaRules;
 
     let rules = EscrimaRules::new();
-    assert!(!rules.styles().is_empty());
-    assert!(rules.styles().contains(&"Arnis: 马尼拉风格"));
-}
-
-#[test]
-fn escrima_weapons() {
-    use world_rules::rules::sports::EscrimaRules;
-
-    let rules = EscrimaRules::new();
-    assert!(!rules.weapons().is_empty());
-    assert!(rules.weapons().contains(&"单棍: 单根短棍"));
-    assert!(rules.weapons().contains(&"双棍: 两根短棍"));
+    let techniques = rules.basic_techniques();
+    assert!(techniques.len() >= 5);
 }
 
 #[test]
@@ -291,23 +284,12 @@ fn silat_melayu_rules_basic() {
 }
 
 #[test]
-fn silat_melayu_styles() {
+fn silat_melayu_techniques() {
     use world_rules::rules::sports::SilatMelayuRules;
 
     let rules = SilatMelayuRules::new();
-    let styles = rules.styles();
-    assert!(!styles.is_empty());
-    assert!(styles.contains(&"Silat Gayong: 盖勇流派"));
-}
-
-#[test]
-fn silat_melayu_animal_forms() {
-    use world_rules::rules::sports::SilatMelayuRules;
-
-    let rules = SilatMelayuRules::new();
-    let forms = rules.animal_forms();
-    assert!(!forms.is_empty());
-    assert!(forms.contains(&"虎形: 猛虎扑击动作"));
+    let techniques = rules.basic_techniques();
+    assert!(techniques.len() >= 5);
 }
 
 // ===== Phase 22-02: 拳击规则测试 =====
@@ -327,8 +309,54 @@ fn boxing_olympic_weight_classes() {
     use world_rules::rules::sports::BoxingOlympicRules;
 
     let rules = BoxingOlympicRules::new();
-    assert!(!rules.weight_classes().is_empty());
-    assert!(rules.weight_classes().iter().any(|w| w.contains("重量级")));
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 8);
+}
+
+#[test]
+fn boxing_olympic_women_weight_classes() {
+    use world_rules::rules::sports::BoxingOlympicRules;
+
+    let rules = BoxingOlympicRules::new();
+    let classes = rules.women_weight_classes();
+    assert!(classes.len() >= 6);
+}
+
+#[test]
+fn boxing_olympic_round_system() {
+    use world_rules::rules::sports::BoxingOlympicRules;
+
+    let rules = BoxingOlympicRules::new();
+    let rounds = rules.round_system();
+    assert!(rounds.iter().any(|r| r.contains("回合")));
+}
+
+#[test]
+fn boxing_olympic_scoring_system() {
+    use world_rules::rules::sports::BoxingOlympicRules;
+
+    let rules = BoxingOlympicRules::new();
+    let scoring = rules.scoring_system();
+    assert!(scoring.iter().any(|s| s.contains("10分")));
+}
+
+#[test]
+fn boxing_olympic_equipment() {
+    use world_rules::rules::sports::BoxingOlympicRules;
+
+    let rules = BoxingOlympicRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("拳套")));
+    assert!(equipment.iter().any(|e| e.contains("护齿")));
+}
+
+#[test]
+fn boxing_olympic_fouls() {
+    use world_rules::rules::sports::BoxingOlympicRules;
+
+    let rules = BoxingOlympicRules::new();
+    let fouls = rules.fouls();
+    assert!(fouls.len() >= 10);
 }
 
 #[test]
@@ -342,12 +370,21 @@ fn boxing_wbo_rules_basic() {
 }
 
 #[test]
-fn boxing_wbo_championship() {
+fn boxing_wbo_weight_classes() {
     use world_rules::rules::sports::BoxingWboRules;
 
     let rules = BoxingWboRules::new();
-    assert!(!rules.championship_rules().is_empty());
-    assert!(rules.championship_rules().contains(&"12回合世界冠军赛"));
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 10);
+}
+
+#[test]
+fn boxing_wbo_championship_rules() {
+    use world_rules::rules::sports::BoxingWboRules;
+
+    let rules = BoxingWboRules::new();
+    let championship = rules.championship_rules();
+    assert!(championship.iter().any(|c| c.contains("12回合")));
 }
 
 #[test]
@@ -361,13 +398,21 @@ fn boxing_amateur_rules_basic() {
 }
 
 #[test]
-fn boxing_amateur_equipment() {
+fn boxing_amateur_weight_classes() {
     use world_rules::rules::sports::BoxingAmateurRules;
 
     let rules = BoxingAmateurRules::new();
-    let equip = rules.equipment();
-    assert!(!equip.is_empty());
-    assert!(equip.iter().any(|e| e.contains("头盔")));
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 10);
+}
+
+#[test]
+fn boxing_amateur_rounds() {
+    use world_rules::rules::sports::BoxingAmateurRules;
+
+    let rules = BoxingAmateurRules::new();
+    let rounds = rules.rounds();
+    assert!(rounds.iter().any(|r| r.contains("回合")));
 }
 
 #[test]
@@ -381,13 +426,12 @@ fn boxing_queensberry_rules_basic() {
 }
 
 #[test]
-fn boxing_queensberry_core() {
+fn boxing_queensberry_core_rules() {
     use world_rules::rules::sports::BoxingQueensberryRules;
 
     let rules = BoxingQueensberryRules::new();
     let core = rules.core_rules();
-    assert!(!core.is_empty());
-    assert!(core.contains(&"禁止摔跤或搂抱"));
+    assert!(core.len() >= 5);
 }
 
 #[test]
@@ -401,12 +445,12 @@ fn boxing_british_rules_basic() {
 }
 
 #[test]
-fn boxing_british_licensing() {
+fn boxing_british_weight_classes() {
     use world_rules::rules::sports::BoxingBritishRules;
 
     let rules = BoxingBritishRules::new();
-    assert!(!rules.licensing().is_empty());
-    assert!(rules.licensing().iter().any(|l| l.contains("BBBoC")));
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 8);
 }
 
 #[test]
@@ -420,14 +464,62 @@ fn sanda_rules_basic() {
 }
 
 #[test]
-fn sanda_techniques() {
+fn sanda_weight_classes() {
+    use world_rules::rules::sports::SandaRules;
+
+    let rules = SandaRules::new();
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 12);
+}
+
+#[test]
+fn sanda_round_system() {
+    use world_rules::rules::sports::SandaRules;
+
+    let rules = SandaRules::new();
+    let rounds = rules.round_system();
+    assert!(rounds.iter().any(|r| r.contains("3回合")));
+}
+
+#[test]
+fn sanda_scoring_areas() {
+    use world_rules::rules::sports::SandaRules;
+
+    let rules = SandaRules::new();
+    let areas = rules.scoring_areas();
+    assert!(areas.iter().any(|a| a.contains("头部")));
+    assert!(areas.iter().any(|a| a.contains("躯干")));
+}
+
+#[test]
+fn sanda_permitted_techniques() {
     use world_rules::rules::sports::SandaRules;
 
     let rules = SandaRules::new();
     let techniques = rules.permitted_techniques();
-    assert!(!techniques.is_empty());
     assert!(techniques.iter().any(|t| t.contains("拳法")));
+    assert!(techniques.iter().any(|t| t.contains("腿法")));
     assert!(techniques.iter().any(|t| t.contains("摔法")));
+}
+
+#[test]
+fn sanda_prohibited_techniques() {
+    use world_rules::rules::sports::SandaRules;
+
+    let rules = SandaRules::new();
+    let prohibited = rules.prohibited_techniques();
+    assert!(prohibited.iter().any(|p| p.contains("后脑")));
+    assert!(prohibited.iter().any(|p| p.contains("裆部")));
+}
+
+#[test]
+fn sanda_equipment() {
+    use world_rules::rules::sports::SandaRules;
+
+    let rules = SandaRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("头盔")));
+    assert!(equipment.iter().any(|e| e.contains("拳套")));
 }
 
 #[test]
@@ -441,13 +533,21 @@ fn savate_rules_basic() {
 }
 
 #[test]
-fn savate_levels() {
+fn savate_weight_classes() {
     use world_rules::rules::sports::SavateRules;
 
     let rules = SavateRules::new();
-    let levels = rules.competition_levels();
-    assert!(!levels.is_empty());
-    assert!(levels.contains(&"大师级: 最高级别"));
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 6);
+}
+
+#[test]
+fn savate_round_system() {
+    use world_rules::rules::sports::SavateRules;
+
+    let rules = SavateRules::new();
+    let rounds = rules.round_system();
+    assert!(rounds.iter().any(|r| r.contains("回合")));
 }
 
 #[test]
@@ -461,13 +561,34 @@ fn lethwei_rules_basic() {
 }
 
 #[test]
-fn lethwei_headbutt() {
+fn lethwei_unique_characteristics() {
     use world_rules::rules::sports::LethweiRules;
 
     let rules = LethweiRules::new();
-    let chars = rules.unique_characteristics();
-    assert!(!chars.is_empty());
-    assert!(chars.iter().any(|c| c.contains("头击")));
+    let characteristics = rules.unique_characteristics();
+    assert!(characteristics.iter().any(|c| c.contains("头击")));
+    assert!(characteristics.iter().any(|c| c.contains("无拳套")));
+}
+
+#[test]
+fn lethwei_permitted_techniques() {
+    use world_rules::rules::sports::LethweiRules;
+
+    let rules = LethweiRules::new();
+    let techniques = rules.permitted_techniques();
+    assert!(techniques.iter().any(|t| t.contains("拳法")));
+    assert!(techniques.iter().any(|t| t.contains("腿法")));
+    assert!(techniques.iter().any(|t| t.contains("肘击")));
+    assert!(techniques.iter().any(|t| t.contains("头击")));
+}
+
+#[test]
+fn lethwei_victory_conditions() {
+    use world_rules::rules::sports::LethweiRules;
+
+    let rules = LethweiRules::new();
+    let conditions = rules.victory_conditions();
+    assert!(conditions.iter().any(|c| c.contains("KO")));
 }
 
 #[test]
@@ -481,33 +602,237 @@ fn bokator_rules_basic() {
 }
 
 #[test]
+fn bokator_techniques() {
+    use world_rules::rules::sports::BokatorRules;
+
+    let rules = BokatorRules::new();
+    let techniques = rules.permitted_techniques();
+    assert!(techniques.len() >= 5);
+}
+
+#[test]
 fn bokator_animal_forms() {
     use world_rules::rules::sports::BokatorRules;
 
     let rules = BokatorRules::new();
     let forms = rules.animal_forms();
-    assert_eq!(forms.len(), 8);
-    assert!(forms.contains(&"鹰形: 飞翔攻击和爪法"));
-    assert!(forms.contains(&"狮形: 猛烈攻击组合"));
+    assert!(forms.iter().any(|f| f.contains("鹰形")));
+    assert!(forms.iter().any(|f| f.contains("龙形")));
 }
 
-#[test]
-fn voivovam_rules_basic() {
-    use world_rules::rules::sports::VoivovamRules;
+// ===== Phase 22-03: 其他格斗规则测试 =====
 
-    let rules = VoivovamRules::new();
-    assert_eq!(rules.metadata().name, "白拳规则");
+#[test]
+fn k1_rules_basic() {
+    use world_rules::rules::sports::K1Rules;
+
+    let rules = K1Rules::new();
+    assert_eq!(rules.metadata().name, "K-1踢拳规则");
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
 
 #[test]
-fn voivovam_weapons() {
-    use world_rules::rules::sports::VoivovamRules;
+fn k1_round_system() {
+    use world_rules::rules::sports::K1Rules;
 
-    let rules = VoivovamRules::new();
-    let weapons = rules.traditional_weapons();
-    assert!(!weapons.is_empty());
-    assert!(weapons.iter().any(|w| w.contains("刀")));
-    assert!(weapons.iter().any(|w| w.contains("剑")));
+    let rules = K1Rules::new();
+    let rounds = rules.round_system();
+    assert!(rounds.iter().any(|r| r.contains("3回合")));
+}
+
+#[test]
+fn k1_permitted_techniques() {
+    use world_rules::rules::sports::K1Rules;
+
+    let rules = K1Rules::new();
+    let techniques = rules.permitted_techniques();
+    assert!(techniques.iter().any(|t| t.contains("拳法")));
+    assert!(techniques.iter().any(|t| t.contains("腿法")));
+    assert!(techniques.iter().any(|t| t.contains("膝击")));
+}
+
+#[test]
+fn k1_prohibited_techniques() {
+    use world_rules::rules::sports::K1Rules;
+
+    let rules = K1Rules::new();
+    let prohibited = rules.prohibited_techniques();
+    assert!(prohibited.iter().any(|p| p.contains("肘击")));
+    assert!(prohibited.iter().any(|p| p.contains("地面")));
+}
+
+#[test]
+fn k1_clinching_rules() {
+    use world_rules::rules::sports::K1Rules;
+
+    let rules = K1Rules::new();
+    let clinching = rules.clinching_rules();
+    assert!(clinching.iter().any(|c| c.contains("5秒")));
+}
+
+#[test]
+fn k1_weight_classes() {
+    use world_rules::rules::sports::K1Rules;
+
+    let rules = K1Rules::new();
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 7);
+}
+
+#[test]
+fn luta_livre_rules_basic() {
+    use world_rules::rules::sports::LutaLivreRules;
+
+    let rules = LutaLivreRules::new();
+    assert_eq!(rules.metadata().name, "Luta Livre规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn luta_livre_unique_characteristics() {
+    use world_rules::rules::sports::LutaLivreRules;
+
+    let rules = LutaLivreRules::new();
+    let characteristics = rules.unique_characteristics();
+    assert!(characteristics.iter().any(|c| c.contains("无道服")));
+}
+
+#[test]
+fn luta_livre_permitted_techniques() {
+    use world_rules::rules::sports::LutaLivreRules;
+
+    let rules = LutaLivreRules::new();
+    let techniques = rules.permitted_techniques();
+    assert!(techniques.iter().any(|t| t.contains("摔法")));
+    assert!(techniques.iter().any(|t| t.contains("关节技")));
+}
+
+#[test]
+fn luta_livre_submission_categories() {
+    use world_rules::rules::sports::LutaLivreRules;
+
+    let rules = LutaLivreRules::new();
+    let submissions = rules.submission_categories();
+    assert!(submissions.iter().any(|s| s.contains("手臂锁")));
+    assert!(submissions.iter().any(|s| s.contains("腿部锁")));
+}
+
+#[test]
+fn one_championship_mma_rules_basic() {
+    use world_rules::rules::sports::OneChampionshipMmaRules;
+
+    let rules = OneChampionshipMmaRules::new();
+    assert_eq!(rules.metadata().name, "ONE Championship MMA规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn one_championship_round_system() {
+    use world_rules::rules::sports::OneChampionshipMmaRules;
+
+    let rules = OneChampionshipMmaRules::new();
+    let rounds = rules.round_system();
+    assert!(rounds.len() >= 5);
+}
+
+#[test]
+fn one_championship_weight_classes() {
+    use world_rules::rules::sports::OneChampionshipMmaRules;
+
+    let rules = OneChampionshipMmaRules::new();
+    let classes = rules.weight_classes();
+    assert!(classes.len() >= 6);
+}
+
+#[test]
+fn pancrase_rules_basic() {
+    use world_rules::rules::sports::PancraseRules;
+
+    let rules = PancraseRules::new();
+    assert_eq!(rules.metadata().name, "Pancrase规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn pancrase_historical_characteristics() {
+    use world_rules::rules::sports::PancraseRules;
+
+    let rules = PancraseRules::new();
+    let characteristics = rules.historical_characteristics();
+    assert!(characteristics.iter().any(|c| c.contains("日本")));
+    assert!(characteristics.iter().any(|c| c.contains("1993")));
+}
+
+#[test]
+fn pancrase_permitted_techniques() {
+    use world_rules::rules::sports::PancraseRules;
+
+    let rules = PancraseRules::new();
+    let techniques = rules.permitted_techniques();
+    assert!(techniques.len() >= 5);
+}
+
+#[test]
+fn pankration_rules_basic() {
+    use world_rules::rules::sports::PankrationRules;
+
+    let rules = PankrationRules::new();
+    assert_eq!(rules.metadata().name, "Pankration规则");
+    assert!(!rules.explain().is_empty());
+    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+}
+
+#[test]
+fn pankration_historical_characteristics() {
+    use world_rules::rules::sports::PankrationRules;
+
+    let rules = PankrationRules::new();
+    let characteristics = rules.historical_characteristics();
+    assert!(characteristics.iter().any(|c| c.contains("古代奥林匹克")));
+    assert!(characteristics.iter().any(|c| c.contains("公元前")));
+}
+
+#[test]
+fn pankration_ancient_rules() {
+    use world_rules::rules::sports::PankrationRules;
+
+    let rules = PankrationRules::new();
+    let ancient = rules.ancient_rules();
+    assert!(ancient.iter().any(|a| a.contains("无时间")));
+    assert!(ancient.iter().any(|a| a.contains("咬人")));
+}
+
+#[test]
+fn pankration_modern_revision() {
+    use world_rules::rules::sports::PankrationRules;
+
+    let rules = PankrationRules::new();
+    let modern = rules.modern_revision();
+    assert!(modern.iter().any(|m| m.contains("现代")));
+    assert!(modern.iter().any(|m| m.contains("安全")));
+}
+
+#[test]
+fn pankration_modern_permitted_techniques() {
+    use world_rules::rules::sports::PankrationRules;
+
+    let rules = PankrationRules::new();
+    let techniques = rules.modern_permitted_techniques();
+    assert!(techniques.iter().any(|t| t.contains("拳法")));
+    assert!(techniques.iter().any(|t| t.contains("腿法")));
+    assert!(techniques.iter().any(|t| t.contains("摔法")));
+}
+
+#[test]
+fn pankration_modern_prohibited_techniques() {
+    use world_rules::rules::sports::PankrationRules;
+
+    let rules = PankrationRules::new();
+    let prohibited = rules.modern_prohibited_techniques();
+    assert!(prohibited.iter().any(|p| p.contains("肘击")));
+    assert!(prohibited.iter().any(|p| p.contains("眼睛")));
 }

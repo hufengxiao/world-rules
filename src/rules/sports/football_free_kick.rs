@@ -3,7 +3,7 @@
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 任意球类型
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum FreeKickType {
     /// 直接任意球（可直接射门）
     Direct,

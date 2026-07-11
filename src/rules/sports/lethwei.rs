@@ -192,6 +192,8 @@ mod tests {
     fn test_lethwei_equipment() {
         let rules = LethweiRules::new();
         let equip = rules.equipment();
-        assert!(equip.iter().any(|e| e.contains("缠手带") || e.contains("无拳套")));
+        assert!(equip
+            .iter()
+            .any(|e| e.contains("缠手带") || e.contains("无拳套")));
     }
 }

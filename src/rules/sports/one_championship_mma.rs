@@ -12,9 +12,12 @@ pub struct OneChampionshipMmaRules {
 impl OneChampionshipMmaRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("ONE Championship MMA规则", "ONE Championship综合格斗竞赛规则")
-                .with_origin("亚洲/新加坡")
-                .with_tags(vec!["体育".into(), "格斗".into(), "MMA".into()]),
+            metadata: RuleMetadata::new(
+                "ONE Championship MMA规则",
+                "ONE Championship综合格斗竞赛规则",
+            )
+            .with_origin("亚洲/新加坡")
+            .with_tags(vec!["体育".into(), "格斗".into(), "MMA".into()]),
         }
     }
 

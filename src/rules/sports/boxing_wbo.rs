@@ -195,6 +195,8 @@ mod tests {
     fn test_boxing_wbo_mandatory() {
         let rules = BoxingWboRules::new();
         assert!(!rules.mandatory_challenge().is_empty());
-        assert!(rules.mandatory_challenge().contains(&"第一名拳手获得强制挑战权"));
+        assert!(rules
+            .mandatory_challenge()
+            .contains(&"第一名拳手获得强制挑战权"));
     }
 }

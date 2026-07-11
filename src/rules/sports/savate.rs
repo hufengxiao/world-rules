@@ -121,13 +121,7 @@ impl SavateRules {
 
     /// 犯规处罚
     pub fn foul_penalties(&self) -> Vec<&'static str> {
-        vec![
-            "口头警告",
-            "扣1分",
-            "扣2分",
-            "取消资格",
-            "犯规累积原则",
-        ]
+        vec!["口头警告", "扣1分", "扣2分", "取消资格", "犯规累积原则"]
     }
 }
 
@@ -202,6 +196,8 @@ mod tests {
         let rules = SavateRules::new();
         let equip = rules.equipment();
         assert!(equip.iter().any(|e| e.contains("踢鞋")));
-        assert!(equip.iter().any(|e| e.contains("拳套") || e.contains("手套")));
+        assert!(equip
+            .iter()
+            .any(|e| e.contains("拳套") || e.contains("手套")));
     }
 }
