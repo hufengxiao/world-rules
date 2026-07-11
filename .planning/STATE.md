@@ -5,8 +5,8 @@ progress:
   total_phases: 55
   completed_phases: 21
   total_plans: 116
-  completed_plans: 38
-  percent: 55
+  completed_plans: 39
+  percent: 56
 ---
 
 # Project State
@@ -21,11 +21,11 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 ## Current Position
 
 Phase: 22 of 55 (E5 格斗与武术扩充)
-Plan: 0 of 4 complete in current phase
-Status: Ready for task 22-01
-Last activity: 2026-07-11 — 完成 Phase 21-04（更新测试和文档）
+Plan: 1 of 4 complete in current phase
+Status: Ready for task 22-02
+Last activity: 2026-07-11 — 完成 Phase 22-01（添加10种武术规则）
 
-Progress: [███████░] 55%
+Progress: [███████░] 56%
 
 ## Performance Metrics
 
@@ -87,7 +87,8 @@ Progress: [███████░] 55%
 
 进行中:
 - Phase 22: E5 格斗与武术扩充 (+25 规则)
-  - 下一步: 22-01 添加10种武术规则
+  - 22-01: 10种武术规则（咏春拳、八卦掌、形意拳、中国摔跤、忍术、极真会馆空手道、松涛馆空手道、刚柔流空手道、菲律宾短棍术、马来传统武术）✅
+  - 下一步: 22-02 添加10种拳击规则
 
 ## Accumulated Context
 
@@ -121,6 +122,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-07-11 10:00
-Stopped at: v2.2 Phase 21-04 完成
+Last session: 2026-07-11 11:30
+Stopped at: v2.2 Phase 22-01 完成（10种武术规则）
 Resume file: None
