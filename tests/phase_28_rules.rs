@@ -496,3 +496,138 @@ fn test_antenna_theory_rules() {
     assert!(!rules.antenna_measurements().is_empty());
     assert!(!rules.applications().is_empty());
 }
+
+// ============= Phase 28-03: 其他物理规则测试 =============
+
+use world_rules::rules::science::{
+    AcousticsDetailedRules, AtomicPhysicsRules, AstrophysicsDetailedRules, BiophysicsRules,
+    CondensedMatterDetailedRules, CosmologyDetailedRules, GeophysicsDetailedRules,
+    ParticlePhysicsDetailedRules, PlasmaPhysicsDetailedRules, StatisticalPhysicsDetailedRules,
+};
+
+/// 测试粒子物理详细规则
+#[test]
+fn test_particle_physics_detailed_rules() {
+    let rules = ParticlePhysicsDetailedRules::new();
+    assert_eq!(rules.metadata().name, "粒子物理详细规则");
+    assert!(!rules.standard_model_particles().is_empty());
+    assert!(!rules.fundamental_interactions().is_empty());
+    assert!(!rules.quark_rules().is_empty());
+    assert!(!rules.lepton_rules().is_empty());
+    assert!(!rules.conservation_laws().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试等离子体物理详细规则
+#[test]
+fn test_plasma_physics_detailed_rules() {
+    let rules = PlasmaPhysicsDetailedRules::new();
+    assert_eq!(rules.metadata().name, "等离子体物理详细规则");
+    assert!(!rules.plasma_properties().is_empty());
+    assert!(!rules.debye_length().is_empty());
+    assert!(!rules.plasma_oscillations().is_empty());
+    assert!(!rules.magnetic_confinement().is_empty());
+    assert!(!rules.fusion_rules().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试凝聚态物理详细规则
+#[test]
+fn test_condensed_matter_detailed_rules() {
+    let rules = CondensedMatterDetailedRules::new();
+    assert_eq!(rules.metadata().name, "凝聚态物理详细规则");
+    assert!(!rules.crystal_structure().is_empty());
+    assert!(!rules.band_theory().is_empty());
+    assert!(!rules.superconductivity().is_empty());
+    assert!(!rules.semiconductor_rules().is_empty());
+    assert!(!rules.low_dimensional_systems().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试统计物理详细规则
+#[test]
+fn test_statistical_physics_detailed_rules() {
+    let rules = StatisticalPhysicsDetailedRules::new();
+    assert_eq!(rules.metadata().name, "统计物理详细规则");
+    assert!(!rules.statistical_mechanics_basics().is_empty());
+    assert!(!rules.ensemble_theory().is_empty());
+    assert!(!rules.boltzmann_distribution().is_empty());
+    assert!(!rules.fermi_dirac_statistics().is_empty());
+    assert!(!rules.bose_einstein_statistics().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试声学详细规则
+#[test]
+fn test_acoustics_detailed_rules() {
+    let rules = AcousticsDetailedRules::new();
+    assert_eq!(rules.metadata().name, "声学详细规则");
+    assert!(!rules.sound_wave_basics().is_empty());
+    assert!(!rules.sound_wave_propagation().is_empty());
+    assert!(!rules.doppler_effect_rules().is_empty());
+    assert!(!rules.acoustic_resonance().is_empty());
+    assert!(!rules.acoustic_impedance_rules().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试地球物理详细规则
+#[test]
+fn test_geophysics_detailed_rules() {
+    let rules = GeophysicsDetailedRules::new();
+    assert_eq!(rules.metadata().name, "地球物理详细规则");
+    assert!(!rules.seismology_basics().is_empty());
+    assert!(!rules.gravity_field_rules().is_empty());
+    assert!(!rules.plate_tectonics_rules().is_empty());
+    assert!(!rules.earth_internal_structure().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试天体物理详细规则
+#[test]
+fn test_astrophysics_detailed_rules() {
+    let rules = AstrophysicsDetailedRules::new();
+    assert_eq!(rules.metadata().name, "天体物理详细规则");
+    assert!(!rules.stellar_structure().is_empty());
+    assert!(!rules.stellar_evolution().is_empty());
+    assert!(!rules.stellar_remnants().is_empty());
+    assert!(!rules.nuclear_fusion_rules().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试宇宙学详细规则
+#[test]
+fn test_cosmology_detailed_rules() {
+    let rules = CosmologyDetailedRules::new();
+    assert_eq!(rules.metadata().name, "宇宙学详细规则");
+    assert!(!rules.cosmic_expansion().is_empty());
+    assert!(!rules.dark_matter_rules().is_empty());
+    assert!(!rules.dark_energy_rules().is_empty());
+    assert!(!rules.cosmic_microwave_background().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试生物物理规则
+#[test]
+fn test_biophysics_rules() {
+    let rules = BiophysicsRules::new();
+    assert_eq!(rules.metadata().name, "生物物理规则");
+    assert!(!rules.biomolecular_physics().is_empty());
+    assert!(!rules.cellular_physics().is_empty());
+    assert!(!rules.biomechanics().is_empty());
+    assert!(!rules.bioelectricity().is_empty());
+    assert!(!rules.biophotonics().is_empty());
+    assert!(!rules.explain().is_empty());
+}
+
+/// 测试原子物理规则
+#[test]
+fn test_atomic_physics_rules() {
+    let rules = AtomicPhysicsRules::new();
+    assert_eq!(rules.metadata().name, "原子物理规则");
+    assert!(!rules.atomic_structure().is_empty());
+    assert!(!rules.electron_shell_rules().is_empty());
+    assert!(!rules.atomic_spectrum().is_empty());
+    assert!(!rules.atomic_energy_levels().is_empty());
+    assert!(!rules.atomic_radiation().is_empty());
+    assert!(!rules.explain().is_empty());
+}
