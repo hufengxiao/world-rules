@@ -1,8 +1,11 @@
 //! 帆板运动规则
+//!
+//! 帆板（Windsurfing）是奥运会正式比赛项目，
+//! 结合了冲浪和帆船的元素。
 
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
-/// 帆板运动规则 ( Windsurfing)
+/// 帆板运动规则
 pub struct WindsurfingRules {
     metadata: RuleMetadata,
 }
@@ -10,51 +13,119 @@ pub struct WindsurfingRules {
 impl WindsurfingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("帆板运动规则", "帆板冲浪运动规则")
-                .with_origin("美国")
-                .with_tags(vec!["体育".into(), "水上".into()]),
+            metadata: RuleMetadata::new("帆板运动规则", "世界帆联帆板竞赛规则")
+                .with_origin("World Sailing")
+                .with_tags(vec!["体育".into(), "水上".into(), "帆板".into()]),
         }
     }
 
-    /// 比赛类型
-    pub fn competition_types(&self) -> Vec<&'static str> {
+    /// 比赛项目
+    pub fn events(&self) -> Vec<&'static str> {
         vec![
-            "竞速比赛",
-            "花样比赛",
-            "大浪比赛",
-            "自由式比赛",
-            "长距离比赛",
+            "男子帆板RS:X级",
+            "女子帆板RS:X级",
+            "男子帆板IQFoil级",
+            "女子帆板IQFoil级",
+            "帆板马拉松赛",
+            "帆板绕标赛",
+            "帆板速度赛",
         ]
     }
 
-    /// 比赛规则
-    pub fn competition_rules(&self) -> Vec<&'static str> {
-        vec!["比赛路线", "时间限制", "评分标准", "风力要求", "安全规则"]
+    /// 板型分类
+    pub fn board_types(&self) -> Vec<&'static str> {
+        vec![
+            "RS:X级: 奥运会标准板",
+            "IQFoil级: 翼型帆板(2024奥运)",
+            "Formula级别: 专业竞赛板",
+            "Slalom级别: 速度竞赛板",
+            "Wave级别: 波浪帆板",
+            "Freestyle级别: 自由式帆板",
+        ]
     }
 
-    /// 技术动作
-    pub fn techniques(&self) -> Vec<&'static str> {
-        vec!["基础操控", "转向技巧", "跳跃动作", "花样技巧", "竞速技术"]
+    /// 竞赛规则
+    pub fn racing_rules(&self) -> Vec<&'static str> {
+        vec![
+            "起航信号: 5分钟预告",
+            "航线绕标: 按规定方向",
+            "风向变化: 航线可调整",
+            "碰撞规则: 避让优先权",
+            "终点判定: 线上完整通过",
+            "计时精确到秒",
+        ]
     }
 
-    /// 评分标准
-    pub fn scoring(&self) -> Vec<&'static str> {
-        vec!["完成时间", "技术难度", "执行质量", "创新表现", "流畅性"]
-    }
-
-    /// 安全规则
-    pub fn safety_rules(&self) -> Vec<&'static str> {
-        vec!["安全区域", "风力限制", "救生装备", "救援准备", "医疗支持"]
+    /// 评分系统
+    pub fn scoring_system(&self) -> Vec<&'static str> {
+        vec![
+            "积分制: 第1名得1分",
+            "积分制: 第2名得2分",
+            "总分: 各轮积分之和",
+            "低分制排名",
+            "可丢弃一轮最差成绩",
+            "金牌轮: 双倍积分",
+        ]
     }
 
     /// 装备要求
-    pub fn equipment(&self) -> Vec<&'static str> {
-        vec!["帆板装备", "帆具系统", "桅杆横杆", "防护装备", "安全装备"]
+    pub fn equipment_requirements(&self) -> Vec<&'static str> {
+        vec![
+            "帆板长度: 2.5-4米",
+            "帆面积: 根据级别规定",
+            "桅杆: 符合级别标准",
+            "脚踏板: 固定牢固",
+            "安全绳: 必备装备",
+            "救生衣: 强制穿戴",
+        ]
     }
 
-    /// 级别体系
-    pub fn skill_levels(&self) -> Vec<&'static str> {
-        vec!["初学者级别", "中级水平", "高级水平", "专业级别", "教练认证"]
+    /// 气象条件
+    pub fn weather_conditions(&self) -> Vec<&'static str> {
+        vec![
+            "最低风速: 3节",
+            "最大风速: 25节",
+            "风向要求: 稳定风向",
+            "浪高限制: 2米以下",
+            "恶劣天气可延期",
+            "安全委员会决定",
+        ]
+    }
+
+    /// 禁赛与处罚
+    pub fn penalties(&self) -> Vec<&'static str> {
+        vec![
+            "违规绕标: DSQ取消成绩",
+            "抢航: DSQ或评分惩罚",
+            "碰撞: 评分惩罚或DSQ",
+            "违反避让规则: 评分惩罚",
+            "使用禁用装备: DSQ",
+            "抗议程序规定",
+        ]
+    }
+
+    /// 安全要求
+    pub fn safety_requirements(&self) -> Vec<&'static str> {
+        vec![
+            "救生衣强制穿戴",
+            "安全绳连接帆板",
+            "水上救援艇待命",
+            "通信设备要求",
+            "恶劣天气预案",
+            "医疗救护设施",
+        ]
+    }
+
+    /// 参赛资格
+    pub fn participation_requirements(&self) -> Vec<&'static str> {
+        vec![
+            "通过资格赛选拔",
+            "国家级帆板协会认证",
+            "年龄限制: 16岁以上",
+            "体检合格证明",
+            "保险证明",
+            "级别认证",
+        ]
     }
 }
 
@@ -76,26 +147,20 @@ impl Rule for WindsurfingRules {
     fn explain(&self) -> String {
         format!(
             "【帆板运动规则】\n\n\
-            比赛类型:\n{}\n\n\
-            技术动作:\n{}\n\n\
-            安全规则:\n{}\n\n\
-            装备要求:\n{}\n",
-            self.competition_types()
+            比赛项目:\n{}\n\n\
+            板型分类:\n{}\n\n\
+            竞赛规则:\n{}\n",
+            self.events()
                 .iter()
-                .map(|r| format!("  • {}", r))
+                .map(|e| format!("  • {}", e))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.techniques()
+            self.board_types()
                 .iter()
-                .map(|r| format!("  • {}", r))
+                .map(|b| format!("  • {}", b))
                 .collect::<Vec<_>>()
                 .join("\n"),
-            self.safety_rules()
-                .iter()
-                .map(|r| format!("  • {}", r))
-                .collect::<Vec<_>>()
-                .join("\n"),
-            self.equipment()
+            self.racing_rules()
                 .iter()
                 .map(|r| format!("  • {}", r))
                 .collect::<Vec<_>>()
@@ -109,8 +174,28 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_windsurfing_rules() {
+    fn windsurfing_rules_basic() {
         let rules = WindsurfingRules::new();
-        assert!(!rules.competition_types().is_empty());
+        assert_eq!(rules.metadata().name, "帆板运动规则");
+        assert!(!rules.explain().is_empty());
+        assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+    }
+
+    #[test]
+    fn windsurfing_events() {
+        let rules = WindsurfingRules::new();
+        let events = rules.events();
+        assert!(events.iter().any(|e| e.contains("RS:X")));
+        assert!(events.iter().any(|e| e.contains("IQFoil")));
+        assert!(events.len() >= 7);
+    }
+
+    #[test]
+    fn windsurfing_equipment() {
+        let rules = WindsurfingRules::new();
+        let equip = rules.equipment_requirements();
+        assert!(equip.iter().any(|e| e.contains("帆")));
+        assert!(equip.iter().any(|e| e.contains("救生衣")));
+        assert!(equip.len() >= 6);
     }
 }
