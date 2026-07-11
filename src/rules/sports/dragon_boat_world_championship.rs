@@ -15,7 +15,12 @@ impl DragonBoatWorldChampionshipRules {
         Self {
             metadata: RuleMetadata::new("龙舟世界锦标赛规则", "国际龙舟联合会世界锦标赛规则")
                 .with_origin("IDBF")
-                .with_tags(vec!["体育".into(), "水上".into(), "龙舟".into(), "中国传统".into()]),
+                .with_tags(vec![
+                    "体育".into(),
+                    "水上".into(),
+                    "龙舟".into(),
+                    "中国传统".into(),
+                ]),
         }
     }
 

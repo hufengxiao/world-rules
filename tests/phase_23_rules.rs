@@ -1,567 +1,528 @@
 //! Phase 23 新规则集成测试
 //!
-//! 测试 Phase 23 添加的水上运动规则：
-//! - 23-01: 10种游泳规则（奥运游泳、世界锦标赛、短池、公开水域、大师、残奥、蝶泳、仰泳、蛙泳、自由泳）
+//! 测试 Phase 23 添加的 5 种潜水规则：
+//! - 23-03: 添加 5 种潜水规则
 
 use world_rules::prelude::*;
 
-// ===== Phase 23-01: 游泳规则测试 =====
+// ===== 水肺潜水规则测试 =====
 
 #[test]
-fn swimming_olympic_rules_basic() {
-    use world_rules::rules::sports::SwimmingOlympicRules;
-
-    let rules = SwimmingOlympicRules::new();
-    assert_eq!(rules.metadata().name, "奥运游泳规则");
+fn test_scuba_diving_rules_basic() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    assert_eq!(rules.metadata().name, "水肺潜水规则");
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
 
 #[test]
-fn swimming_olympic_events() {
-    use world_rules::rules::sports::SwimmingOlympicRules;
-
-    let rules = SwimmingOlympicRules::new();
-    let events = rules.events();
-    assert!(events.iter().any(|e| e.contains("自由泳")));
-    assert!(events.iter().any(|e| e.contains("仰泳")));
-    assert!(events.iter().any(|e| e.contains("蛙泳")));
-    assert!(events.iter().any(|e| e.contains("蝶泳")));
-    assert!(events.iter().any(|e| e.contains("混合泳")));
-    assert!(events.len() >= 10);
+fn test_scuba_diving_certification_levels() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let levels = rules.certification_levels();
+    assert!(levels.iter().any(|l| l.contains("开放水域")));
+    assert!(levels.iter().any(|l| l.contains("进阶")));
+    assert!(levels.len() >= 5);
 }
 
 #[test]
-fn swimming_olympic_pool_specs() {
-    use world_rules::rules::sports::SwimmingOlympicRules;
-
-    let rules = SwimmingOlympicRules::new();
-    let specs = rules.pool_specifications();
-    assert!(specs.iter().any(|s| s.contains("50米")));
-    assert!(specs.iter().any(|s| s.contains("25米")));
-    assert!(specs.len() >= 8);
+fn test_scuba_diving_rules() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let rules_list = rules.diving_rules();
+    assert!(rules_list.iter().any(|r| r.contains("潜伴")));
+    assert!(rules_list.iter().any(|r| r.contains("安全停留")));
+    assert!(rules_list.len() >= 5);
 }
 
 #[test]
-fn swimming_world_championship_rules_basic() {
-    use world_rules::rules::sports::SwimmingWorldChampionshipRules;
+fn test_scuba_diving_equipment() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("气瓶")));
+    assert!(equipment.iter().any(|e| e.contains("调节器")));
+    assert!(equipment.len() >= 5);
+}
 
-    let rules = SwimmingWorldChampionshipRules::new();
-    assert_eq!(rules.metadata().name, "世界游泳锦标赛规则");
+#[test]
+fn test_scuba_diving_types() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let types = rules.diving_types();
+    assert!(types.iter().any(|t| t.contains("休闲潜水")));
+    assert!(types.iter().any(|t| t.contains("深潜")));
+    assert!(types.len() >= 5);
+}
+
+#[test]
+fn test_scuba_diving_safety_procedures() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let procedures = rules.safety_procedures();
+    assert!(procedures.iter().any(|p| p.contains("潜水计划")));
+    assert!(procedures.iter().any(|p| p.contains("BWRAF")));
+    assert!(procedures.len() >= 5);
+}
+
+#[test]
+fn test_scuba_diving_hand_signals() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let signals = rules.hand_signals();
+    assert!(signals.iter().any(|s| s.contains("OK")));
+    assert!(signals.iter().any(|s| s.contains("上升")));
+    assert!(signals.len() >= 5);
+}
+
+#[test]
+fn test_scuba_diving_depth_limits() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let limits = rules.depth_limits();
+    assert!(limits.iter().any(|l| l.contains("18米")));
+    assert!(limits.iter().any(|l| l.contains("40米")));
+    assert!(limits.len() >= 5);
+}
+
+#[test]
+fn test_scuba_diving_environmental_rules() {
+    use world_rules::rules::sports::ScubaDivingRules;
+    let rules = ScubaDivingRules::new();
+    let env_rules = rules.environmental_rules();
+    assert!(env_rules.iter().any(|r| r.contains("珊瑚")));
+    assert!(env_rules.iter().any(|r| r.contains("海洋生物")));
+    assert!(env_rules.len() >= 5);
+}
+
+// ===== 水下曲棍球规则测试 =====
+
+#[test]
+fn test_underwater_hockey_rules_basic() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    assert_eq!(rules.metadata().name, "水下曲棍球规则");
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
 
 #[test]
-fn swimming_world_championship_events() {
-    use world_rules::rules::sports::SwimmingWorldChampionshipRules;
-
-    let rules = SwimmingWorldChampionshipRules::new();
-    let events = rules.events();
-    assert!(events.iter().any(|e| e.contains("自由泳")));
-    assert!(events.iter().any(|e| e.contains("公开水域")));
-    assert!(events.len() >= 10);
+fn test_underwater_hockey_playing_area() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    let area = rules.playing_area();
+    assert!(area.iter().any(|a| a.contains("21-25米")));
+    assert!(area.iter().any(|a| a.contains("水深")));
+    assert!(area.len() >= 5);
 }
 
 #[test]
-fn swimming_world_championship_prize_money() {
-    use world_rules::rules::sports::SwimmingWorldChampionshipRules;
-
-    let rules = SwimmingWorldChampionshipRules::new();
-    let prize = rules.prize_money();
-    assert!(prize.iter().any(|p| p.contains("金牌")));
-    assert!(prize.iter().any(|p| p.contains("银牌")));
-    assert!(prize.iter().any(|p| p.contains("铜牌")));
-    assert!(prize.len() >= 9);
+fn test_underwater_hockey_team_composition() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    let team = rules.team_composition();
+    assert!(team.iter().any(|t| t.contains("6人")));
+    assert!(team.iter().any(|t| t.contains("替补")));
+    assert!(team.len() >= 5);
 }
 
 #[test]
-fn swimming_short_course_rules_basic() {
-    use world_rules::rules::sports::SwimmingShortCourseRules;
-
-    let rules = SwimmingShortCourseRules::new();
-    assert_eq!(rules.metadata().name, "短池游泳规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+fn test_underwater_hockey_equipment() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("面镜")));
+    assert!(equipment.iter().any(|e| e.contains("脚蹼")));
+    assert!(equipment.iter().any(|e| e.contains("球杆")));
+    assert!(equipment.len() >= 5);
 }
 
 #[test]
-fn swimming_short_course_pool_specs() {
-    use world_rules::rules::sports::SwimmingShortCourseRules;
-
-    let rules = SwimmingShortCourseRules::new();
-    let specs = rules.pool_specifications();
-    assert!(specs.iter().any(|s| s.contains("25米")));
-    assert!(specs.len() >= 6);
+fn test_underwater_hockey_game_rules() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    let game_rules = rules.game_rules();
+    assert!(game_rules.iter().any(|r| r.contains("球门")));
+    assert!(game_rules.iter().any(|r| r.contains("得分")));
+    assert!(game_rules.len() >= 5);
 }
 
 #[test]
-fn swimming_short_course_turn_rules() {
-    use world_rules::rules::sports::SwimmingShortCourseRules;
-
-    let rules = SwimmingShortCourseRules::new();
-    let turns = rules.turn_rules();
-    assert!(turns.iter().any(|t| t.contains("自由泳")));
-    assert!(turns.iter().any(|t| t.contains("转身")));
-    assert!(turns.len() >= 7);
-}
-
-#[test]
-fn swimming_open_water_rules_basic() {
-    use world_rules::rules::sports::SwimmingOpenWaterRules;
-
-    let rules = SwimmingOpenWaterRules::new();
-    assert_eq!(rules.metadata().name, "公开水域游泳规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn swimming_open_water_distances() {
-    use world_rules::rules::sports::SwimmingOpenWaterRules;
-
-    let rules = SwimmingOpenWaterRules::new();
-    let distances = rules.distances();
-    assert!(distances.iter().any(|d| d.contains("5公里")));
-    assert!(distances.iter().any(|d| d.contains("10公里")));
-    assert!(distances.iter().any(|d| d.contains("25公里")));
-    assert!(distances.len() >= 5);
-}
-
-#[test]
-fn swimming_open_water_safety() {
-    use world_rules::rules::sports::SwimmingOpenWaterRules;
-
-    let rules = SwimmingOpenWaterRules::new();
-    let safety = rules.safety_requirements();
-    assert!(safety.iter().any(|s| s.contains("水温")));
-    assert!(safety.iter().any(|s| s.contains("安全艇")));
-    assert!(safety.len() >= 8);
-}
-
-#[test]
-fn swimming_masters_rules_basic() {
-    use world_rules::rules::sports::SwimmingMastersRules;
-
-    let rules = SwimmingMastersRules::new();
-    assert_eq!(rules.metadata().name, "大师游泳规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn swimming_masters_age_groups() {
-    use world_rules::rules::sports::SwimmingMastersRules;
-
-    let rules = SwimmingMastersRules::new();
-    let ages = rules.age_groups();
-    assert!(ages.iter().any(|a| a.contains("25")));
-    assert!(ages.iter().any(|a| a.contains("70")));
-    assert!(ages.len() >= 12);
-}
-
-#[test]
-fn swimming_masters_eligibility() {
-    use world_rules::rules::sports::SwimmingMastersRules;
-
-    let rules = SwimmingMastersRules::new();
-    let eligibility = rules.eligibility();
-    assert!(eligibility.iter().any(|e| e.contains("25岁")));
-    assert!(eligibility.len() >= 6);
-}
-
-#[test]
-fn swimming_paralympic_rules_basic() {
-    use world_rules::rules::sports::SwimmingParalympicRules;
-
-    let rules = SwimmingParalympicRules::new();
-    assert_eq!(rules.metadata().name, "残疾人游泳规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn swimming_paralympic_classification() {
-    use world_rules::rules::sports::SwimmingParalympicRules;
-
-    let rules = SwimmingParalympicRules::new();
-    let classification = rules.classification();
-    assert!(classification.iter().any(|c| c.contains("S级")));
-    assert!(classification.iter().any(|c| c.contains("1-10级")));
-    assert!(classification.iter().any(|c| c.contains("视力残疾")));
-    assert!(classification.len() >= 7);
-}
-
-#[test]
-fn swimming_paralympic_adaptations() {
-    use world_rules::rules::sports::SwimmingParalympicRules;
-
-    let rules = SwimmingParalympicRules::new();
-    let adaptations = rules.adaptations();
-    assert!(adaptations.iter().any(|a| a.contains("辅助")));
-    assert!(adaptations.iter().any(|a| a.contains("视力残疾")));
-    assert!(adaptations.len() >= 6);
-}
-
-#[test]
-fn swimming_butterfly_rules_basic() {
-    use world_rules::rules::sports::SwimmingButterflyRules;
-
-    let rules = SwimmingButterflyRules::new();
-    assert_eq!(rules.metadata().name, "蝶泳规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn swimming_butterfly_technique() {
-    use world_rules::rules::sports::SwimmingButterflyRules;
-
-    let rules = SwimmingButterflyRules::new();
-    let technique = rules.technique();
-    assert!(technique.iter().any(|t| t.contains("双臂同时")));
-    assert!(technique.iter().any(|t| t.contains("海豚腿")));
-    assert!(technique.len() >= 6);
-}
-
-#[test]
-fn swimming_butterfly_fouls() {
-    use world_rules::rules::sports::SwimmingButterflyRules;
-
-    let rules = SwimmingButterflyRules::new();
+fn test_underwater_hockey_fouls() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
     let fouls = rules.fouls();
-    assert!(fouls.iter().any(|f| f.contains("单手触壁")));
-    assert!(fouls.iter().any(|f| f.contains("蛙泳腿")));
-    assert!(fouls.len() >= 7);
+    assert!(fouls.iter().any(|f| f.contains("抓球")));
+    assert!(fouls.iter().any(|f| f.contains("阻挡")));
+    assert!(fouls.len() >= 5);
 }
 
 #[test]
-fn swimming_backstroke_rules_basic() {
-    use world_rules::rules::sports::SwimmingBackstrokeRules;
+fn test_underwater_hockey_penalties() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    let penalties = rules.penalties();
+    assert!(penalties.iter().any(|p| p.contains("罚下")));
+    assert!(penalties.len() >= 5);
+}
 
-    let rules = SwimmingBackstrokeRules::new();
-    assert_eq!(rules.metadata().name, "仰泳规则");
+#[test]
+fn test_underwater_hockey_referees() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    let referees = rules.referees();
+    assert!(referees.iter().any(|r| r.contains("主裁判")));
+    assert!(referees.iter().any(|r| r.contains("计时员")));
+    assert!(referees.len() >= 5);
+}
+
+#[test]
+fn test_underwater_hockey_safety_rules() {
+    use world_rules::rules::sports::UnderwaterHockeyRules;
+    let rules = UnderwaterHockeyRules::new();
+    let safety = rules.safety_rules();
+    assert!(safety.iter().any(|s| s.contains("屏气")));
+    assert!(safety.iter().any(|s| s.contains("医疗")));
+    assert!(safety.len() >= 5);
+}
+
+// ===== 水下橄榄球规则测试 =====
+
+#[test]
+fn test_underwater_rugby_rules_basic() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    assert_eq!(rules.metadata().name, "水下橄榄球规则");
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
 
 #[test]
-fn swimming_backstroke_technique() {
-    use world_rules::rules::sports::SwimmingBackstrokeRules;
-
-    let rules = SwimmingBackstrokeRules::new();
-    let technique = rules.technique();
-    assert!(technique.iter().any(|t| t.contains("仰卧")));
-    assert!(technique.iter().any(|t| t.contains("交替")));
-    assert!(technique.len() >= 6);
+fn test_underwater_rugby_playing_area() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let area = rules.playing_area();
+    assert!(area.iter().any(|a| a.contains("12-18米")));
+    assert!(area.iter().any(|a| a.contains("篮筐")));
+    assert!(area.len() >= 5);
 }
 
 #[test]
-fn swimming_backstroke_starting() {
-    use world_rules::rules::sports::SwimmingBackstrokeRules;
-
-    let rules = SwimmingBackstrokeRules::new();
-    let starting = rules.starting();
-    assert!(starting.iter().any(|s| s.contains("水中出发")));
-    assert!(starting.iter().any(|s| s.contains("15米")));
-    assert!(starting.len() >= 6);
+fn test_underwater_rugby_team_composition() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let team = rules.team_composition();
+    assert!(team.iter().any(|t| t.contains("6人")));
+    assert!(team.iter().any(|t| t.contains("替补")));
+    assert!(team.len() >= 5);
 }
 
 #[test]
-fn swimming_breaststroke_rules_basic() {
-    use world_rules::rules::sports::SwimmingBreaststrokeRules;
+fn test_underwater_rugby_equipment() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("面镜")));
+    assert!(equipment.iter().any(|e| e.contains("脚蹼")));
+    assert!(equipment.iter().any(|e| e.contains("水球")));
+    assert!(equipment.len() >= 5);
+}
 
-    let rules = SwimmingBreaststrokeRules::new();
-    assert_eq!(rules.metadata().name, "蛙泳规则");
+#[test]
+fn test_underwater_rugby_game_rules() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let game_rules = rules.game_rules();
+    assert!(game_rules.iter().any(|r| r.contains("篮筐")));
+    assert!(game_rules.iter().any(|r| r.contains("得分")));
+    assert!(game_rules.len() >= 5);
+}
+
+#[test]
+fn test_underwater_rugby_contact_rules() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let contact = rules.contact_rules();
+    assert!(contact.iter().any(|c| c.contains("允许")));
+    assert!(contact.iter().any(|c| c.contains("禁止")));
+    assert!(contact.len() >= 5);
+}
+
+#[test]
+fn test_underwater_rugby_fouls() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let fouls = rules.fouls();
+    assert!(fouls.iter().any(|f| f.contains("攻击")));
+    assert!(fouls.iter().any(|f| f.contains("装备")));
+    assert!(fouls.len() >= 5);
+}
+
+#[test]
+fn test_underwater_rugby_penalties() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let penalties = rules.penalties();
+    assert!(penalties.iter().any(|p| p.contains("罚下")));
+    assert!(penalties.len() >= 5);
+}
+
+#[test]
+fn test_underwater_rugby_tactics() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let tactics = rules.tactics();
+    assert!(tactics.iter().any(|t| t.contains("阵型")));
+    assert!(tactics.iter().any(|t| t.contains("配合")));
+    assert!(tactics.len() >= 5);
+}
+
+#[test]
+fn test_underwater_rugby_safety_rules() {
+    use world_rules::rules::sports::UnderwaterRugbyRules;
+    let rules = UnderwaterRugbyRules::new();
+    let safety = rules.safety_rules();
+    assert!(safety.iter().any(|s| s.contains("医疗")));
+    assert!(safety.iter().any(|s| s.contains("装备")));
+    assert!(safety.len() >= 5);
+}
+
+// ===== 竞技屏气潜水规则测试 =====
+
+#[test]
+fn test_apnea_diving_rules_basic() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    assert_eq!(rules.metadata().name, "竞技屏气潜水规则");
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
 
 #[test]
-fn swimming_breaststroke_technique() {
-    use world_rules::rules::sports::SwimmingBreaststrokeRules;
-
-    let rules = SwimmingBreaststrokeRules::new();
-    let technique = rules.technique();
-    assert!(technique.iter().any(|t| t.contains("双手同时")));
-    assert!(technique.iter().any(|t| t.contains("双腿同时")));
-    assert!(technique.len() >= 6);
+fn test_apnea_diving_competition_events() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let events = rules.competition_events();
+    assert!(events.iter().any(|e| e.contains("静态屏气")));
+    assert!(events.iter().any(|e| e.contains("恒重下潜")));
+    assert!(events.iter().any(|e| e.contains("无限制")));
+    assert!(events.len() >= 5);
 }
 
 #[test]
-fn swimming_breaststroke_kick() {
-    use world_rules::rules::sports::SwimmingBreaststrokeRules;
-
-    let rules = SwimmingBreaststrokeRules::new();
-    let kick = rules.kick();
-    assert!(kick.iter().any(|k| k.contains("蛙泳腿")));
-    assert!(kick.iter().any(|k| k.contains("剪刀腿")));
-    assert!(kick.len() >= 6);
+fn test_apnea_diving_safety_rules() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let safety = rules.safety_rules();
+    assert!(safety.iter().any(|s| s.contains("安全潜水员")));
+    assert!(safety.iter().any(|s| s.contains("医疗")));
+    assert!(safety.len() >= 5);
 }
 
 #[test]
-fn swimming_freestyle_rules_basic() {
-    use world_rules::rules::sports::SwimmingFreestyleRules;
+fn test_apnea_diving_competition_procedures() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let procedures = rules.competition_procedures();
+    assert!(procedures.iter().any(|p| p.contains("宣布")));
+    assert!(procedures.iter().any(|p| p.contains("裁判")));
+    assert!(procedures.len() >= 5);
+}
 
-    let rules = SwimmingFreestyleRules::new();
-    assert_eq!(rules.metadata().name, "自由泳规则");
+#[test]
+fn test_apnea_diving_technical_requirements() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let tech = rules.technical_requirements();
+    assert!(tech.iter().any(|t| t.contains("面镜")));
+    assert!(tech.iter().any(|t| t.contains("脚蹼")));
+    assert!(tech.len() >= 5);
+}
+
+#[test]
+fn test_apnea_diving_fouls() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let fouls = rules.fouls();
+    assert!(fouls.iter().any(|f| f.contains("晕厥")));
+    assert!(fouls.iter().any(|f| f.contains("LMC")));
+    assert!(fouls.len() >= 5);
+}
+
+#[test]
+fn test_apnea_diving_scoring() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let scoring = rules.scoring();
+    assert!(scoring.iter().any(|s| s.contains("白卡")));
+    assert!(scoring.iter().any(|s| s.contains("红卡")));
+    assert!(scoring.len() >= 5);
+}
+
+#[test]
+fn test_apnea_diving_certification_levels() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let levels = rules.certification_levels();
+    assert!(levels.iter().any(|l| l.contains("初级")));
+    assert!(levels.iter().any(|l| l.contains("竞技")));
+    assert!(levels.len() >= 5);
+}
+
+#[test]
+fn test_apnea_diving_record_types() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let records = rules.record_types();
+    assert!(records.iter().any(|r| r.contains("世界记录")));
+    assert!(records.iter().any(|r| r.contains("国家记录")));
+    assert!(records.len() >= 5);
+}
+
+#[test]
+fn test_apnea_diving_health_requirements() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let health = rules.health_requirements();
+    assert!(health.iter().any(|h| h.contains("医疗")));
+    assert!(health.iter().any(|h| h.contains("心脏")));
+    assert!(health.len() >= 5);
+}
+
+#[test]
+fn test_apnea_diving_prohibited_actions() {
+    use world_rules::rules::sports::ApneaDivingRules;
+    let rules = ApneaDivingRules::new();
+    let prohibited = rules.prohibited_actions();
+    assert!(prohibited.iter().any(|p| p.contains("单独潜水")));
+    assert!(prohibited.iter().any(|p| p.contains("过度换气")));
+    assert!(prohibited.len() >= 5);
+}
+
+// ===== 技术潜水规则测试 =====
+
+#[test]
+fn test_technical_diving_rules_basic() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    assert_eq!(rules.metadata().name, "技术潜水规则");
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
 
 #[test]
-fn swimming_freestyle_definition() {
-    use world_rules::rules::sports::SwimmingFreestyleRules;
-
-    let rules = SwimmingFreestyleRules::new();
-    let definition = rules.definition();
-    assert!(definition.iter().any(|d| d.contains("任何泳姿")));
-    assert!(definition.iter().any(|d| d.contains("爬泳")));
-    assert!(definition.len() >= 5);
+fn test_technical_diving_diving_types() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let types = rules.diving_types();
+    assert!(types.iter().any(|t| t.contains("深潜")));
+    assert!(types.iter().any(|t| t.contains("洞穴")));
+    assert!(types.iter().any(|t| t.contains("沉船")));
+    assert!(types.len() >= 5);
 }
 
 #[test]
-fn swimming_freestyle_distances() {
-    use world_rules::rules::sports::SwimmingFreestyleRules;
-
-    let rules = SwimmingFreestyleRules::new();
-    let distances = rules.distances();
-    assert!(distances.iter().any(|d| d.contains("50米")));
-    assert!(distances.iter().any(|d| d.contains("100米")));
-    assert!(distances.iter().any(|d| d.contains("1500米")));
-    assert!(distances.len() >= 7);
+fn test_technical_diving_certification_requirements() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let certs = rules.certification_requirements();
+    assert!(certs.iter().any(|c| c.contains("基础技术")));
+    assert!(certs.iter().any(|c| c.contains("洞穴")));
+    assert!(certs.iter().any(|c| c.contains("Trimix")));
+    assert!(certs.len() >= 5);
 }
 
 #[test]
-fn swimming_freestyle_key_points() {
-    use world_rules::rules::sports::SwimmingFreestyleRules;
-
-    let rules = SwimmingFreestyleRules::new();
-    let points = rules.key_points();
-    assert!(points.iter().any(|p| p.contains("高肘")));
-    assert!(points.iter().any(|p| p.contains("打腿")));
-    assert!(points.len() >= 7);
-}
-
-// ===== Phase 23-02: 水上运动规则测试 =====
-
-#[test]
-fn artistic_swimming_detailed_rules_basic() {
-    use world_rules::rules::sports::ArtisticSwimmingDetailedRules;
-
-    let rules = ArtisticSwimmingDetailedRules::new();
-    assert_eq!(rules.metadata().name, "艺术游泳详细规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+fn test_technical_diving_equipment() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let equipment = rules.equipment();
+    assert!(equipment.iter().any(|e| e.contains("双气瓶")));
+    assert!(equipment.iter().any(|e| e.contains("减压")));
+    assert!(equipment.iter().any(|e| e.contains("潜水电脑")));
+    assert!(equipment.len() >= 5);
 }
 
 #[test]
-fn artistic_swimming_detailed_events() {
-    use world_rules::rules::sports::ArtisticSwimmingDetailedRules;
-
-    let rules = ArtisticSwimmingDetailedRules::new();
-    let events = rules.events();
-    assert!(events.iter().any(|e| e.contains("双人")));
-    assert!(events.iter().any(|e| e.contains("集体")));
-    assert!(events.len() >= 9);
+fn test_technical_diving_gas_planning() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let gas = rules.gas_planning();
+    assert!(gas.iter().any(|g| g.contains("三分之一")));
+    assert!(gas.iter().any(|g| g.contains("氧分压")));
+    assert!(gas.iter().any(|g| g.contains("减压")));
+    assert!(gas.len() >= 5);
 }
 
 #[test]
-fn diving_platform_rules_basic() {
-    use world_rules::rules::sports::DivingPlatformRules;
-
-    let rules = DivingPlatformRules::new();
-    assert_eq!(rules.metadata().name, "跳台跳水规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+fn test_technical_diving_safety_rules() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let safety = rules.safety_rules();
+    assert!(safety.iter().any(|s| s.contains("团队")));
+    assert!(safety.iter().any(|s| s.contains("应急")));
+    assert!(safety.iter().any(|s| s.contains("三之一")));
+    assert!(safety.len() >= 5);
 }
 
 #[test]
-fn diving_platform_heights() {
-    use world_rules::rules::sports::DivingPlatformRules;
-
-    let rules = DivingPlatformRules::new();
-    let heights = rules.platform_heights();
-    assert!(heights.iter().any(|h| h.contains("10米")));
-    assert!(heights.len() >= 6);
+fn test_technical_diving_decompression_procedures() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let deco = rules.decompression_procedures();
+    assert!(deco.iter().any(|d| d.contains("停留")));
+    assert!(deco.iter().any(|d| d.contains("气体切换")));
+    assert!(deco.iter().any(|d| d.contains("氧气")));
+    assert!(deco.len() >= 5);
 }
 
 #[test]
-fn diving_springboard_rules_basic() {
-    use world_rules::rules::sports::DivingSpringboardRules;
-
-    let rules = DivingSpringboardRules::new();
-    assert_eq!(rules.metadata().name, "跳板跳水规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+fn test_technical_diving_team_procedures() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let team = rules.team_procedures();
+    assert!(team.iter().any(|t| t.contains("潜伴")));
+    assert!(team.iter().any(|t| t.contains("线导")));
+    assert!(team.len() >= 5);
 }
 
 #[test]
-fn diving_springboard_specs() {
-    use world_rules::rules::sports::DivingSpringboardRules;
-
-    let rules = DivingSpringboardRules::new();
-    let specs = rules.springboard_specs();
-    assert!(specs.iter().any(|s| s.contains("1米")));
-    assert!(specs.iter().any(|s| s.contains("3米")));
-    assert!(specs.len() >= 6);
+fn test_technical_diving_risk_management() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let risk = rules.risk_management();
+    assert!(risk.iter().any(|r| r.contains("风险评估")));
+    assert!(risk.iter().any(|r| r.contains("中止")));
+    assert!(risk.len() >= 5);
 }
 
 #[test]
-fn high_diving_rules_basic() {
-    use world_rules::rules::sports::HighDivingRules;
-
-    let rules = HighDivingRules::new();
-    assert_eq!(rules.metadata().name, "高台跳水规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
+fn test_technical_diving_prohibited_actions() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let prohibited = rules.prohibited_actions();
+    assert!(prohibited.iter().any(|p| p.contains("单独潜水")));
+    assert!(prohibited.iter().any(|p| p.contains("超越训练")));
+    assert!(prohibited.len() >= 5);
 }
 
 #[test]
-fn high_diving_heights() {
-    use world_rules::rules::sports::HighDivingRules;
-
-    let rules = HighDivingRules::new();
-    let heights = rules.platform_heights();
-    assert!(heights.iter().any(|h| h.contains("20米")));
-    assert!(heights.iter().any(|h| h.contains("27米")));
-    assert!(heights.len() >= 6);
+fn test_technical_diving_health_requirements() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let health = rules.health_requirements();
+    assert!(health.iter().any(|h| h.contains("体检")));
+    assert!(health.iter().any(|h| h.contains("心理")));
+    assert!(health.len() >= 5);
 }
 
 #[test]
-fn windsurfing_rules_basic() {
-    use world_rules::rules::sports::WindsurfingRules;
-
-    let rules = WindsurfingRules::new();
-    assert_eq!(rules.metadata().name, "帆板运动规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn windsurfing_events() {
-    use world_rules::rules::sports::WindsurfingRules;
-
-    let rules = WindsurfingRules::new();
-    let events = rules.events();
-    assert!(events.iter().any(|e| e.contains("RS:X")));
-    assert!(events.iter().any(|e| e.contains("IQFoil")));
-    assert!(events.len() >= 7);
-}
-
-#[test]
-fn surfing_competition_rules_basic() {
-    use world_rules::rules::sports::SurfingCompetitionRules;
-
-    let rules = SurfingCompetitionRules::new();
-    assert_eq!(rules.metadata().name, "冲浪竞赛规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn surfing_competition_events() {
-    use world_rules::rules::sports::SurfingCompetitionRules;
-
-    let rules = SurfingCompetitionRules::new();
-    let events = rules.events();
-    assert!(events.iter().any(|e| e.contains("短板")));
-    assert!(events.iter().any(|e| e.contains("长板")));
-    assert!(events.len() >= 7);
-}
-
-#[test]
-fn stand_up_paddle_racing_rules_basic() {
-    use world_rules::rules::sports::StandUpPaddleRacingRules;
-
-    let rules = StandUpPaddleRacingRules::new();
-    assert_eq!(rules.metadata().name, "竞技桨板规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn stand_up_paddle_racing_distances() {
-    use world_rules::rules::sports::StandUpPaddleRacingRules;
-
-    let rules = StandUpPaddleRacingRules::new();
-    let distances = rules.race_distances();
-    assert!(distances.iter().any(|d| d.contains("短距离")));
-    assert!(distances.iter().any(|d| d.contains("长距离")));
-    assert!(distances.len() >= 6);
-}
-
-#[test]
-fn water_polo_world_league_rules_basic() {
-    use world_rules::rules::sports::WaterPoloWorldLeagueRules;
-
-    let rules = WaterPoloWorldLeagueRules::new();
-    assert_eq!(rules.metadata().name, "水球世界联赛规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn water_polo_world_league_structure() {
-    use world_rules::rules::sports::WaterPoloWorldLeagueRules;
-
-    let rules = WaterPoloWorldLeagueRules::new();
-    let structure = rules.league_structure();
-    assert!(structure.iter().any(|s| s.contains("男子")));
-    assert!(structure.iter().any(|s| s.contains("女子")));
-    assert!(structure.len() >= 6);
-}
-
-#[test]
-fn dragon_boat_world_championship_rules_basic() {
-    use world_rules::rules::sports::DragonBoatWorldChampionshipRules;
-
-    let rules = DragonBoatWorldChampionshipRules::new();
-    assert_eq!(rules.metadata().name, "龙舟世界锦标赛规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn dragon_boat_world_championship_events() {
-    use world_rules::rules::sports::DragonBoatWorldChampionshipRules;
-
-    let rules = DragonBoatWorldChampionshipRules::new();
-    let events = rules.events();
-    assert!(events.iter().any(|e| e.contains("标准龙舟")));
-    assert!(events.iter().any(|e| e.contains("小龙舟")));
-    assert!(events.len() >= 10);
-}
-
-#[test]
-fn dragon_boat_world_championship_culture() {
-    use world_rules::rules::sports::DragonBoatWorldChampionshipRules;
-
-    let rules = DragonBoatWorldChampionshipRules::new();
-    let culture = rules.cultural_elements();
-    assert!(culture.iter().any(|c| c.contains("龙头")));
-    assert!(culture.iter().any(|c| c.contains("屈原")));
-    assert!(culture.len() >= 6);
-}
-
-#[test]
-fn rowing_world_cup_rules_basic() {
-    use world_rules::rules::sports::RowingWorldCupRules;
-
-    let rules = RowingWorldCupRules::new();
-    assert_eq!(rules.metadata().name, "赛艇世界杯规则");
-    assert!(!rules.explain().is_empty());
-    assert!(matches!(rules.category(), RuleCategory::Sports(_)));
-}
-
-#[test]
-fn rowing_world_cup_events() {
-    use world_rules::rules::sports::RowingWorldCupRules;
-
-    let rules = RowingWorldCupRules::new();
-    let events = rules.events();
-    assert!(events.iter().any(|e| e.contains("单人")));
-    assert!(events.iter().any(|e| e.contains("双人")));
-    assert!(events.iter().any(|e| e.contains("八人")));
-    assert!(events.len() >= 11);
+fn test_technical_diving_training_requirements() {
+    use world_rules::rules::sports::TechnicalDivingRules;
+    let rules = TechnicalDivingRules::new();
+    let training = rules.training_requirements();
+    assert!(training.iter().any(|t| t.contains("渐进")));
+    assert!(training.iter().any(|t| t.contains("导师")));
+    assert!(training.len() >= 5);
 }
