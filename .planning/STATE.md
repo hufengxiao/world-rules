@@ -20,28 +20,29 @@ See: .planning/PROJECT.md (updated 2026-07-10)
 
 ## Current Position
 
-Phase: 29 of 55 (E12 数学规则扩充)
-Plan: 3 of 4 complete in current phase
-Status: In progress - 29-03 完成（10种其他数学规则）
-Last activity: 2026-07-12 — 完成 Phase 29-03（10种其他数学规则）
+Phase: 30 of 55 (E13 生命科学扩充)
+Plan: 0 of 4 complete in current phase
+Status: Not started - Phase 29 完成
+Last activity: 2026-07-12 — 完成 Phase 29（30种数学规则）
 
-Progress: [████████████████░] 88%
+Progress: [█████████████████░] 89%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 28 (Phase 28 完成)
+- Total milestones completed: 29 (Phase 29 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 38 tasks
+- Remaining plans: 37 tasks
 
 **By Phase:**
 
-|| Phase | Status | Plans |
-||---|--------|-------|
-|| 13-28 | v2.2 Phase 28 | COMPLETE ✅ |
-|| 29-35 | v2.2 规则扩充 | 24 tasks |
-|| 36-45 | v2.3 生态建设 | 15 tasks |
-|| 46-55 | v3.0 平台化 | 10 tasks |
+||| Phase | Status | Plans |
+|||---|--------|-------|
+||| 13-28 | v2.2 Phase 28 | COMPLETE ✅ |
+||| 29 | v2.2 Phase 29 | COMPLETE ✅ |
+||| 30-35 | v2.2 规则扩充 | 24 tasks |
+||| 36-45 | v2.3 生态建设 | 15 tasks |
+||| 46-55 | v3.0 平台化 | 10 tasks |
 
 ## Milestone Summary
 
@@ -118,11 +119,17 @@ Progress: [████████████████░] 88%
 ||||  - 27-03: 添加 5 种其他国际礼仪规则（外交礼仪、国际会议礼仪、国际旅行礼仪、国际礼物礼仪、国际问候礼仪）✅
 ||||  - 27-04: 测试和文档（tests/phase_27_rules.rs，tests/phase_27_dining_rules.rs，tests/phase_27_other_rules.rs，docs/phase_27.md）✅
 
-|||- Phase 28: E11 物理规则扩充 (+30 物理规则，完整测试覆盖) ✅
-||||  - 28-01: 添加 10 种力学规则（静力学、动力学、运动学、材料力学、流体动力学、振动与波、刚体动力学、分析力学、天体力学、计算力学）✅
-||||  - 28-02: 添加 10 种电磁学规则（静电学、静磁学、电路理论、电磁感应、麦克斯韦方程组、电磁波传播、电磁兼容、微波技术、光学基础、天线理论）✅
-||||  - 28-03: 添加 10 种其他物理规则（粒子物理、等离子体、凝聚态、统计物理、声学、地球物理、天体物理、宇宙学、生物物理、原子物理）✅
-||||  - 28-04: 测试和文档（tests/phase_28_rules.rs，docs/phase_28.md，260+测试用例）✅
+|- Phase 28: E11 物理规则扩充 (+30 物理规则，完整测试覆盖) ✅
+|||||  - 28-01: 添加 10 种力学规则（静力学、动力学、运动学、材料力学、流体动力学、振动与波、刚体动力学、分析力学、天体力学、计算力学）✅
+|||||  - 28-02: 添加 10 种电磁学规则（静电学、静磁学、电路理论、电磁感应、麦克斯韦方程组、电磁波传播、电磁兼容、微波技术、光学基础、天线理论）✅
+|||||  - 28-03: 添加 10 种其他物理规则（粒子物理、等离子体、凝聚态、统计物理、声学、地球物理、天体物理、宇宙学、生物物理、原子物理）✅
+|||||  - 28-04: 测试和文档（tests/phase_28_rules.rs，docs/phase_28.md，260+测试用例）✅
+|
+|- Phase 29: E12 数学规则扩充 (+30 数学规则，完整测试覆盖) ✅
+|  - 29-01: 添加 10 种代数规则（群论、环论、域论、向量空间、矩阵代数、双线性代数、多项式代数、模理论、范数理论、方程理论）✅
+|  - 29-02: 添加 10 种几何规则（平面几何、圆的几何、立体几何、解析几何、三角几何、几何变换、非欧几何、几何作图、几何定理、几何应用）✅
+|  - 29-03: 添加 10 种其他数学规则（微积分、概率论、拓扑学、统计学、数论、图论、优化理论、离散数学、数值分析、实分析）✅
+|  - 29-04: 测试和文档（tests/phase_29_rules.rs，tests/phase_29_math_rules.rs，docs/phase_29.md）✅
 
 ## Accumulated Context
 
@@ -140,12 +147,13 @@ Recent decisions affecting current work:
 - Phase 19 完成，新增 20 种棋类/桌游规则 + 53 测试用例
 - Phase 20 完成，新增 15 种麻将变体规则 + 80 测试用例
 - Phase 21 完成，新增 30 种球类规则 + 100+ 测试用例
-- Phase 28 完成，新增 30 种物理规则 + 260+ 测试用例
+- Phase 28 完成，新增 30 种物理规则 + 260 测试用例
+- Phase 29 完成，新增 30 种数学规则 + 290 测试用例
 
 ### Pending Todos
 
-v2.2 待完成（40 tasks）:
-- Phase 29-35: 规则扩充 1098 → 2000+
+v2.2 待完成（37 tasks）:
+|- Phase 30-35: 规则扩充 1098 → 2000+
 
 ### Blockers/Concerns
 
