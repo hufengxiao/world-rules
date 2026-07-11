@@ -3,10 +3,10 @@ gsd_state_version: '1.0'
 status: planning
 progress:
   total_phases: 55
-  completed_phases: 23
+  completed_phases: 24
   total_plans: 116
-  completed_plans: 51
-  percent: 70
+  completed_plans: 55
+  percent: 75
 ---
 
 # Project State
@@ -16,30 +16,30 @@ progress:
 See: .planning/PROJECT.md (updated 2026-07-10)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
-**Current focus:** Phase 24 - E7 冬季运动扩充 (v2.2 继续)
+**Current focus:** Phase 25 - E8 残疾人运动扩充 (v2.2 继续)
 
 ## Current Position
 
-Phase: 24 of 55 (E7 冬季运动扩充)
-Plan: 1 of 4 complete in current phase
-Status: In progress - 24-01 完成，开始 24-02
-Last activity: 2026-07-11 — 完成 Phase 24-01（10种滑雪规则测试）
+Phase: 25 of 55 (E8 残疾人运动扩充)
+Plan: 0 of 4 complete in current phase
+Status: Not started - Phase 24 完成，开始 Phase 25
+Last activity: 2026-07-11 — 完成 Phase 24-04（20种冬季规则）
 
-Progress: [███████████░] 70%
+Progress: [████████████░] 75%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total milestones completed: 23 (Phase 23 完成)
+- Total milestones completed: 24 (Phase 24 完成)
 - Current milestone: v2.2 规则扩充
-- Remaining plans: 65 tasks
+- Remaining plans: 61 tasks
 
 **By Phase:**
 
 ||| Phase | Status | Plans |
 ||---|--------|-------|
-|| 13-23 | v2.2 Phase 23 | COMPLETE ✅ |
-|| 24-35 | v2.2 规则扩充 | 48 tasks |
+|| 13-24 | v2.2 Phase 24 | COMPLETE ✅ |
+|| 25-35 | v2.2 规则扩充 | 44 tasks |
 | 36-45 | v2.3 生态建设 | 15 tasks |
 | 46-55 | v3.0 平台化 | 10 tasks |
 
@@ -98,10 +98,15 @@ Progress: [███████████░] 70%
 |  - 23-03: 5种潜水规则（水肺潜水、水下曲棍球、水下橄榄球、竞技屏气潜水、技术潜水）✅
 |  - 23-04: 测试和文档（tests/phase_23_rules.rs，docs/phase_23.md，120+测试用例）✅
 |
+||- Phase 24: E7 冬季运动扩充 (+20 规则，完整测试覆盖) ✅
+|  - 24-01: 10种滑雪规则（高山滑雪、跳台滑雪、越野滑雪、自由式滑雪、北欧两项、冬季两项、单板滑雪、高山滑雪世界杯、越野滑雪世界杯、冬季两项IBU）✅
+|  - 24-02: 5种滑冰规则（花样滑冰、速度滑冰、冰球、冰舞、花样滑冰详细规则）✅
+|  - 24-03: 5种其他冬季规则（冰壶、冰壶详细、雪车、雪橇、骨架雪车）✅
+|  - 24-04: 测试和文档（tests/phase_24_rules.rs，docs/phase_24.md，100+测试用例）✅
+|
 |进行中:
-||- Phase 24: E7 冬季运动扩充 (+20 规则)
-||  - 24-01: 10种滑雪规则测试（高山滑雪、跳台滑雪、越野滑雪、自由式滑雪、北欧两项、冬季两项、单板滑雪、高山滑雪世界杯、越野滑雪世界杯、冬季两项IBU）✅
-||  - 下一步: 24-02 添加5种滑冰规则
+||- Phase 25: E8 残疾人运动扩充 (+25 规则)
+||  - 下一步: 25-01 添加10种残奥规则
 
 ## Accumulated Context
 
