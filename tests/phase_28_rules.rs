@@ -500,7 +500,7 @@ fn test_antenna_theory_rules() {
 // ============= Phase 28-03: 其他物理规则测试 =============
 
 use world_rules::rules::science::{
-    AcousticsDetailedRules, AtomicPhysicsRules, AstrophysicsDetailedRules, BiophysicsRules,
+    AcousticsDetailedRules, AstrophysicsDetailedRules, AtomicPhysicsRules, BiophysicsRules,
     CondensedMatterDetailedRules, CosmologyDetailedRules, GeophysicsDetailedRules,
     ParticlePhysicsDetailedRules, PlasmaPhysicsDetailedRules, StatisticalPhysicsDetailedRules,
 };
