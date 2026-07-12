@@ -43,7 +43,7 @@
 - [x] 规则验证属性测试
 - [x] 规则序列化属性测试
 
-## Phase 16: 发布准备 ⏳
+## Phase 16: 发布准备 ✅ (自动化任务完成)
 - [x] 完善 README.md
 - [x] 添加 CHANGELOG.md
 - [x] 添加 CONTRIBUTING.md
@@ -52,5 +52,5 @@
 - [x] 添加自动发布工作流 (.github/workflows/publish.yml)
 - [x] 删除冗余的 release.yml 工作流（功能已合并到 publish.yml）
 - [x] 添加发布脚本 (scripts/release.sh, scripts/release.ps1)
-- [ ] 配置 GitHub Secrets (CRATES_IO_TOKEN)
-- [ ] 创建 v2.0.0 tag 触发自动发布
+- [ ] ⚠️ 配置 GitHub Secrets (CRATES_IO_TOKEN) - 需要用户手动操作
+- [ ] ⚠️ 创建 v2.0.0 tag 触发自动发布 - 需要用户手动操作
