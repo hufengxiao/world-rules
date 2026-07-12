@@ -1,7 +1,7 @@
 # World-Rules 项目状态
 
 ## 当前状态
-- **Phase 16**: ⏳ 进行中 - 发布准备
+- **Phase 16**: ⏳ 进行中 - 发布准备（等待用户操作）
 
 ## 进度统计
 - **总规则数**: 600+ 条
@@ -53,21 +53,33 @@
   - 修复 seven_card_stud.rs 中的 HandRank 引用
   - 修复 bridge 相关测试（使用 metadata().name）
   - 修复 proptest 测试文件注释语法
+- ✅ 推送所有提交到远程仓库
 
-## 下一步任务
-- ⚠️ **需要用户干预**: 配置 GitHub Secrets
-  - 访问 https://github.com/hufengxiao/world-rules/settings/secrets/actions
-  - 添加 `CRATES_IO_TOKEN` secret
-  - 值为 crates.io 的 API token (从 https://crates.io/settings/tokens 获取)
-- ⚠️ **需要用户干预**: 创建版本 tag 触发自动发布
-  - **推荐方式**: 使用发布脚本
-    - Linux/macOS/Git Bash: `./scripts/release.sh`
-    - Windows PowerShell: `.\scripts\release.ps1`
-    - 脚本会自动验证代码、创建 tag、推送到远程
-  - **手动方式**: 
-    - 确保 `CRATES_IO_TOKEN` 已配置
-    - 运行 `git tag v2.0.0 && git push --tags`
-    - GitHub Actions 将自动验证并发布
+## 验证状态
+- ✅ cargo check --lib 通过
+- ✅ cargo doc --lib --no-deps 成功
+- ✅ cargo publish --dry-run 通过
+- ✅ cargo clippy --lib 通过
+- ✅ 所有代码已提交并推送
+
+## 下一步任务（需要用户操作）
+### ⚠️ 配置 GitHub Secrets
+1. 访问 https://github.com/hufengxiao/world-rules/settings/secrets/actions
+2. 点击 "New repository secret"
+3. Name: `CRATES_IO_TOKEN`
+4. Value: 从 https://crates.io/settings/tokens 获取的 API token
+5. 点击 "Add secret"
+
+### ⚠️ 创建版本 tag 触发自动发布
+**推荐方式**: 使用发布脚本
+- **Linux/macOS/Git Bash**: `./scripts/release.sh`
+- **Windows PowerShell**: `.\scripts\release.ps1`
+- 脚本会自动验证代码、创建 tag、推送到远程
+
+**手动方式**: 
+1. 确保 `CRATES_IO_TOKEN` 已配置
+2. 运行 `git tag v2.0.0 && git push --tags`
+3. GitHub Actions 将自动验证并发布
 
 ## 发布检查清单
 - [x] README.md 完整
@@ -81,5 +93,6 @@
 - [x] 自动发布工作流配置完成
 - [x] 发布脚本添加
 - [x] 源代码编译通过 (cargo clippy --lib)
-- [ ] crates.io API token 配置为 GitHub Secret
-- [ ] 创建 tag 触发发布
+- [x] 所有提交已推送到远程
+- [ ] crates.io API token 配置为 GitHub Secret ⚠️ 需要用户操作
+- [ ] 创建 tag 触发发布 ⚠️ 需要用户操作
