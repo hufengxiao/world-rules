@@ -19,14 +19,13 @@ fn parse_sudoku_grid(s: &str) -> Option<[[Option<u8>; 9]; 9]> {
         let col = i % 9;
         if ch == '.' || ch == '0' {
             grid[row][col] = None;
-        } else if let Some(d) = ch.to_digit(10) {
+        } else {
+            let d = ch.to_digit(10)?;
             if (1..=9).contains(&d) {
                 grid[row][col] = Some(d as u8);
             } else {
                 return None;
             }
-        } else {
-            return None;
         }
     }
     Some(grid)
