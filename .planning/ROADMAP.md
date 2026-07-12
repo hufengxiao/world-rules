@@ -45,6 +45,6 @@
 
 ## Phase 16: 发布准备 ⏳
 - [x] 完善 README.md
-- [ ] 添加 CHANGELOG.md
+- [x] 添加 CHANGELOG.md
 - [ ] 添加 CONTRIBUTING.md
 - [ ] 发布到 crates.io
