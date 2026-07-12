@@ -35,10 +35,14 @@
   - 漏洞报告指南
 
 ## 下一步任务
-- 发布到 crates.io（需要 API token 配置）
-  - cargo publish --dry-run 已验证通过
-  - 需要用户执行 `cargo login` 配置 API token
-  - 然后执行 `cargo publish` 发布
+- ⚠️ **需要用户干预**: 发布到 crates.io
+  - cargo publish --dry-run 已验证通过 ✅
+  - 需要 API token 才能发布
+  - **操作步骤**:
+    1. 访问 https://crates.io/settings/tokens
+    2. 创建新的 API token
+    3. 执行 `cargo login <your-token>`
+    4. 重新运行此任务以完成发布
 
 ## 发布检查清单
 - [x] README.md 完整
