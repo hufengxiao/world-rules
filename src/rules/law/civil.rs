@@ -1,8 +1,47 @@
 //! 民法基础知识
+//!
+//! 本模块提供中国民法典基础知识规则，包括基本原则、民事主体、
+//! 民事权利、民事法律行为、代理制度和诉讼时效等。
+//!
+//! # Examples
+//!
+//! ```rust
+//! use world_rules::rules::law::civil::CivilLawRules;
+//! use world_rules::rules::core::Rule;
+//!
+//! let rules = CivilLawRules::new();
+//!
+//! // 获取民法基本原则
+//! let principles = rules.basic_principles();
+//! assert!(principles.len() >= 6);
+//!
+//! // 获取规则说明
+//! let explanation = rules.explain();
+//! assert!(explanation.contains("民法规则"));
+//! ```
 
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 民法规则
+///
+/// 提供中国民法典基础知识，涵盖民事主体、民事权利、
+/// 民事法律行为、代理制度和诉讼时效等内容。
+///
+/// # Examples
+///
+/// ```rust
+/// use world_rules::rules::law::civil::CivilLawRules;
+/// use world_rules::rules::core::Rule;
+///
+/// let rules = CivilLawRules::new();
+///
+/// // 查看规则元数据
+/// assert_eq!(rules.metadata().name, "民法规则");
+///
+/// // 获取民事权利类型
+/// let rights = rules.civil_rights();
+/// assert!(rights.iter().any(|r| r.contains("人身权")));
+/// ```
 pub struct CivilLawRules {
     metadata: RuleMetadata,
 }
