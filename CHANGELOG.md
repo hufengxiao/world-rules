@@ -151,10 +151,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Phase 16: 发布准备
-  - [x] 完善 README.md
-  - [ ] 添加 CHANGELOG.md
-  - [ ] 添加 CONTRIBUTING.md
-  - [ ] 发布到 crates.io
+  - ✅ 完善 README.md
+  - ✅ 添加 CHANGELOG.md
+  - ✅ 添加 CONTRIBUTING.md
+  - ✅ 添加 CODE_OF_CONDUCT.md
+  - ✅ 添加 SECURITY.md
+  - ✅ 添加自动发布工作流 (.github/workflows/publish.yml)
+  - ✅ 添加 Dependabot 配置
 
 ### Planned
 - 更多游戏规则
