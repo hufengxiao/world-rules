@@ -47,6 +47,12 @@
   - scripts/release.sh (Linux/macOS/Git Bash)
   - scripts/release.ps1 (Windows PowerShell)
   - 自动验证代码并创建 tag 触发发布
+- ✅ 修复源代码和测试文件中的编译错误
+  - 修复 RuleCategory 测试（使用 to_string() 替代 field 访问）
+  - 修复 ValidateContext 测试（使用 generic() 替代 default()）
+  - 修复 seven_card_stud.rs 中的 HandRank 引用
+  - 修复 bridge 相关测试（使用 metadata().name）
+  - 修复 proptest 测试文件注释语法
 
 ## 下一步任务
 - ⚠️ **需要用户干预**: 配置 GitHub Secrets
@@ -74,5 +80,6 @@
 - [x] 发布验证通过 (cargo publish --dry-run)
 - [x] 自动发布工作流配置完成
 - [x] 发布脚本添加
+- [x] 源代码编译通过 (cargo clippy --lib)
 - [ ] crates.io API token 配置为 GitHub Secret
 - [ ] 创建 tag 触发发布
