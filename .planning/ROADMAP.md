@@ -27,7 +27,7 @@
 
 ## Phase 13: API 文档 ⏳
 - [x] 为核心类型添加 rustdoc 注释
-- [ ] 添加 # Examples 示例代码
+- [x] 添加 # Examples 示例代码
 - [ ] 添加 # Safety 安全说明
 - [ ] 生成 cargo doc
 
