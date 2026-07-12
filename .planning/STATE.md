@@ -1,32 +1,32 @@
 ---
 gsd_state_version: '1.0'
-status: planning
+status: progress
 progress:
   total_phases: 55
   completed_phases: 30
   total_plans: 116
-  completed_plans: 84
-  percent: 95
+  completed_plans: 85
+  percent: 96
 ---
 
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-07-10)
+See: .planning/ROADMAP.md (updated 2026-07-12)
 
-**Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的算法和完整的测试覆盖
+**Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的代码和完整的测试覆盖
+
 **Current focus:** Phase 31 - E14 地球科学扩充 (v2.2 继续)
 
 ## Current Position
 
 Phase: 31 of 55 (E14 地球科学扩充)
-Plan: 0 of 4 complete in current phase
-Status: Not started - Phase 30 已完成，准备开始 Phase 31
-Last activity: 2026-07-12 — 完成 Phase 30-04（生命科学扩充综合测试和文档）
+Plan: 1 of 4 complete in current phase
+Status: In Progress - Phase 31-01 已完成（11种地理规则），准备 Phase 31-02
+Last action: 2026-07-12 — 完成 Phase 31-01：11种地理详细规则
 
-Progress: [███████████████████░] 95%
-
+Progress: [███████████████████░] 96%
 ## Performance Metrics
 
 **Velocity:**
@@ -133,10 +133,16 @@ Progress: [███████████████████░] 95%
   - 29-04: 测试和文档（tests/phase_29_rules.rs，tests/phase_29_math_rules.rs，docs/phase_29.md）✅
 
 - Phase 30: E13 生命科学扩充 (+30 生命科学规则，完整测试覆盖) ✅
-  - 30-01: 添加 9 种生物学规则（衰老生物学、癌症生物学、发育生物学、表观遗传学、代谢生物学、种群生物学、结构生物学、系统生物学、病毒学）✅
-  - 30-02: 添加 10 种医学基础规则（诊断学、急诊医学、内科、妇产科、病理生理学、儿科、药理学、预防医学、精神病学、外科）✅
-  - 30-03: 添加 10 种其他生命科学规则（神经生物学、再生生物学、干细胞生物学、免疫生物学、生物力学、生物光学、生物声学、生物电学、生物热力学、生物节律）✅
+  - 30-01: 添加 10 种生物学规则（衰老生物学、癌症生物学、发育生物学、表观遗传学、代谢生物学、种群生物学、结构生物学、系统生物学、病毒学）
+  - 30-02: 添加 10 种医学基础规则（诊断学、急诊医学、内科学、病理学、病理生理学、儿科学、药理学、预防医学、精神病学、外科学）
+  - 30-03: 添加 10 种其他生命科学规则（神经生物学、再生生物学、干细胞生物学、免疫生物学、生物力学、生物光学、生物声学、生物电学、生物热力学、生物节律）
   - 30-04: 测试和文档（tests/phase_30_rules.rs，tests/phase_30_03_rules.rs，docs/phase_30.md，docs/phase_30_03_life_science.md）✅
+
+- Phase 31: E14 地球科学扩充 (进行中)
+  - 31-01: 添加 11 种地理规则（地貌学详细、气候学详细、水文学详细、土壤地理、生物地理详细、城市地理详细、经济地理详细、文化地理详细、政治地理详细、遥感地理详细、GIS地理详细）✅
+  - 31-02: 添加 10 种气象规则 (待开始)
+  - 31-03: 添加 5 种其他地球科学规则 (待开始)
+  - 31-04: 更新测试和文档 (待开始)
 
 ## Accumulated Context
 
