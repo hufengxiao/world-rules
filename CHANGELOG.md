@@ -158,6 +158,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - ✅ 添加 SECURITY.md
   - ✅ 添加自动发布工作流 (.github/workflows/publish.yml)
   - ✅ 添加 Dependabot 配置
+  - ✅ 删除冗余的 release.yml 工作流
+  - ✅ 添加发布脚本 (scripts/release.sh, scripts/release.ps1)
 
 ### Planned
 - 更多游戏规则
