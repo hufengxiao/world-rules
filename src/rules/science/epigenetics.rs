@@ -201,6 +201,9 @@ mod tests {
     fn test_epigenetic_phenomena() {
         let rules = EpigeneticsLaws::new();
         assert_eq!(rules.epigenetic_phenomena().len(), 8);
-        assert!(rules.epigenetic_phenomena().iter().any(|p| p.contains("印记")));
+        assert!(rules
+            .epigenetic_phenomena()
+            .iter()
+            .any(|p| p.contains("印记")));
     }
 }

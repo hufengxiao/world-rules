@@ -194,7 +194,10 @@ mod tests {
     fn test_regulatory_mechanisms() {
         let rules = DevelopmentalBiologyLaws::new();
         assert_eq!(rules.regulatory_mechanisms().len(), 8);
-        assert!(rules.regulatory_mechanisms().iter().any(|m| m.contains("Hox")));
+        assert!(rules
+            .regulatory_mechanisms()
+            .iter()
+            .any(|m| m.contains("Hox")));
     }
 
     #[test]
