@@ -190,7 +190,10 @@ mod tests {
     #[test]
     fn test_oceanography_category() {
         let rules = OceanographyDetailedRules::new();
-        assert_eq!(rules.category().to_string(), "Science/oceanography_detailed");
+        assert_eq!(
+            rules.category().to_string(),
+            "Science/oceanography_detailed"
+        );
     }
 
     #[test]
