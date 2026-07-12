@@ -134,11 +134,23 @@ impl Rule for CriminalLawSpecificDeepRules {
         crate::rules::core::format_rule_sections(
             "刑法分则深度规则",
             &[
-                ("危害国家安全罪详解", &self.national_security_crimes_detailed()),
-                ("危害公共安全罪详解", &self.public_security_crimes_detailed()),
-                ("侵犯人身权利罪详解", &self.personal_rights_crimes_detailed()),
+                (
+                    "危害国家安全罪详解",
+                    &self.national_security_crimes_detailed(),
+                ),
+                (
+                    "危害公共安全罪详解",
+                    &self.public_security_crimes_detailed(),
+                ),
+                (
+                    "侵犯人身权利罪详解",
+                    &self.personal_rights_crimes_detailed(),
+                ),
                 ("侵犯财产罪详解", &self.property_crimes_detailed()),
-                ("妨害社会管理秩序罪详解", &self.social_management_crimes_detailed()),
+                (
+                    "妨害社会管理秩序罪详解",
+                    &self.social_management_crimes_detailed(),
+                ),
                 ("贪污贿赂罪详解", &self.corruption_crimes_detailed()),
             ],
         )

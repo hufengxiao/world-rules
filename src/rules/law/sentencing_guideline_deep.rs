@@ -137,7 +137,10 @@ impl Rule for SentencingGuidelineDeepRules {
                 ("量刑方法详解", &self.sentencing_methods_detailed()),
                 ("量刑程序详解", &self.sentencing_procedure_detailed()),
                 ("未成年人量刑详解", &self.juvenile_sentencing_detailed()),
-                ("量刑规范化详解", &self.sentencing_standardization_detailed()),
+                (
+                    "量刑规范化详解",
+                    &self.sentencing_standardization_detailed(),
+                ),
             ],
         )
     }

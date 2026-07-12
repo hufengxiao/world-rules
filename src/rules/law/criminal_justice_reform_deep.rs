@@ -136,8 +136,14 @@ impl Rule for CriminalJusticeReformDeepRules {
                 ("量刑制度改革详解", &self.sentencing_reform_detailed()),
                 ("执行制度改革详解", &self.execution_reform_detailed()),
                 ("辩护制度改革详解", &self.defense_reform_detailed()),
-                ("刑事诉讼程序改革详解", &self.criminal_procedure_reform_detailed()),
-                ("刑事司法人权保障改革详解", &self.human_rights_reform_detailed()),
+                (
+                    "刑事诉讼程序改革详解",
+                    &self.criminal_procedure_reform_detailed(),
+                ),
+                (
+                    "刑事司法人权保障改革详解",
+                    &self.human_rights_reform_detailed(),
+                ),
             ],
         )
     }

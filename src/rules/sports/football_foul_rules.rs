@@ -16,7 +16,7 @@ pub enum FoulSeverity {
 }
 
 /// 纪律处罚类型
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum DisciplinaryAction {
     /// 口头警告
     Warning,

@@ -169,6 +169,7 @@ impl Rule for OmahaRules {
 mod tests {
     use super::*;
     use crate::rules::core::ValidateContext;
+    use crate::rules::games::card_games::{Rank, Suit};
 
     fn card(suit: Suit, rank: Rank) -> Card {
         Card::new(suit, rank)

@@ -37,6 +37,10 @@ harness = false
 name = "sudoku_bench"
 harness = false
 
+[[bench]]
+name = "law_bench"
+harness = false
+
 [[bin]]
 name = "wr"
 path = "src/bin/wr.rs"
