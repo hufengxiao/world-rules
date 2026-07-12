@@ -41,6 +41,12 @@
   - 每周检查 Rust 依赖更新
   - 每周检查 GitHub Actions 版本更新
   - 自动创建 PR 并指派审查者
+- ✅ 删除冗余的 release.yml 工作流
+  - 功能已合并到 publish.yml
+- ✅ 添加发布脚本
+  - scripts/release.sh (Linux/macOS/Git Bash)
+  - scripts/release.ps1 (Windows PowerShell)
+  - 自动验证代码并创建 tag 触发发布
 
 ## 下一步任务
 - ⚠️ **需要用户干预**: 配置 GitHub Secrets
@@ -48,9 +54,14 @@
   - 添加 `CRATES_IO_TOKEN` secret
   - 值为 crates.io 的 API token (从 https://crates.io/settings/tokens 获取)
 - ⚠️ **需要用户干预**: 创建版本 tag 触发自动发布
-  - 确保 `CRATES_IO_TOKEN` 已配置
-  - 运行 `git tag v2.0.0 && git push --tags`
-  - GitHub Actions 将自动验证并发布
+  - **推荐方式**: 使用发布脚本
+    - Linux/macOS/Git Bash: `./scripts/release.sh`
+    - Windows PowerShell: `.\scripts\release.ps1`
+    - 脚本会自动验证代码、创建 tag、推送到远程
+  - **手动方式**: 
+    - 确保 `CRATES_IO_TOKEN` 已配置
+    - 运行 `git tag v2.0.0 && git push --tags`
+    - GitHub Actions 将自动验证并发布
 
 ## 发布检查清单
 - [x] README.md 完整
@@ -62,5 +73,6 @@
 - [x] 文档生成正常 (cargo doc)
 - [x] 发布验证通过 (cargo publish --dry-run)
 - [x] 自动发布工作流配置完成
+- [x] 发布脚本添加
 - [ ] crates.io API token 配置为 GitHub Secret
 - [ ] 创建 tag 触发发布

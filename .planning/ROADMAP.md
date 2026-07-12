@@ -50,5 +50,7 @@
 - [x] 添加 CODE_OF_CONDUCT.md
 - [x] 添加 SECURITY.md
 - [x] 添加自动发布工作流 (.github/workflows/publish.yml)
+- [x] 删除冗余的 release.yml 工作流（功能已合并到 publish.yml）
+- [x] 添加发布脚本 (scripts/release.sh, scripts/release.ps1)
 - [ ] 配置 GitHub Secrets (CRATES_IO_TOKEN)
 - [ ] 创建 v2.0.0 tag 触发自动发布
