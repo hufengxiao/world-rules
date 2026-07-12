@@ -37,6 +37,10 @@
   - 当推送 v* tag 时自动发布到 crates.io
   - 包含发布前验证（格式检查、测试、clippy）
   - 发布后自动创建 GitHub Release
+- ✅ 添加 Dependabot 配置 (.github/dependabot.yml)
+  - 每周检查 Rust 依赖更新
+  - 每周检查 GitHub Actions 版本更新
+  - 自动创建 PR 并指派审查者
 
 ## 下一步任务
 - ⚠️ **需要用户干预**: 配置 GitHub Secrets
