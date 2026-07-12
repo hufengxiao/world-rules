@@ -1,23 +1,57 @@
 # World Rules - 世界规则库
 
-一个收集各种规则的 Rust 库，包含真实的游戏算法、牌型识别和规则验证。
-
 [![CI](https://github.com/hufengxiao/world-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/hufengxiao/world-rules/actions)
+[![Crates.io](https://img.shields.io/crates/v/world_rules.svg)](https://crates.io/crates/world_rules)
+[![Documentation](https://docs.rs/world_rules/badge.svg)](https://docs.rs/world_rules)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Rust](https://img.shields.io/badge/rust-1.70%2B-orange.svg)](https://www.rust-lang.org/)
 
-## 特性
+一个全面的 Rust 规则库，包含 **600+** 条规则，覆盖游戏、体育、法律、科学等多个领域。提供真实可用的算法实现，包括麻将胡牌判定、扑克牌型评估、象棋走子验证等。
 
-- **622** 条规则，覆盖 **6** 大分类（游戏/体育/社交/科学/法律/健康）
-- **831** 个测试（788 单元 + 28 集成），clippy 零 warning
-- 真实游戏算法：麻将胡牌判定、德州扑克牌型评估、斗地主牌型识别、中国象棋走子验证、五子棋胜负判定
-- `simple_rule!` 宏自动 生成 Rule trait + explain + 测试
-- CLI 工具 `wr`：list/show/stats/validate，支持 `--json` 输出
+## ✨ 特性
 
-## 快速开始
+### 🎮 游戏规则 (400+ 条)
+- **25种麻将变体**：四川麻将、国标麻将、日本麻将等，支持完整胡牌判定
+- **7种扑克游戏**：德州扑克、斗地主、21点、桥牌、掼蛋、跑得快、升级
+- **15种棋类游戏**：中国象棋、国际象棋、围棋、五子棋、军棋等
+- **10+种桌游**：麻将牌、扑克牌、龙虎斗等
+
+### ⚖️ 法律规则 (300+ 条)
+- **刑法规则**：总则、分则、刑事诉讼程序、犯罪学、量刑指南
+- **民法规则**：合同法、物权法、侵权责任
+- **商法规则**：公司法、证券法、破产法
+- **程序法规则**：民事、刑事、行政诉讼程序
+
+### 🏃 体育规则
+- 足球、篮球、网球、乒乓球、羽毛球等规则
+
+### 🤝 社交礼仪
+- 商务礼仪、餐桌礼仪、网络礼仪等
+
+### 🔬 科学定律
+- 物理定律、化学定律、生物定律等
+
+### 🏥 健康规则
+- 营养健康、运动健康、心理健康等
+
+## 📊 项目规模
+
+- **总规则数**: 600+ 条
+- **代码行数**: 68,000+ 行
+- **源文件数**: 1,481 个 Rust 文件
+- **测试覆盖**: 集成测试 + 属性测试 (proptest)
+- **性能基准**: criterion 基准测试
+
+## 🚀 快速开始
+
+### 添加依赖
 
 ```toml
 [dependencies]
-world_rules = "0.7"
+world_rules = "2"
 ```
+
+### 基础用法
 
 ```rust
 use world_rules::prelude::*;
@@ -62,75 +96,168 @@ let (pat, _) = recognize_pattern(&cards).unwrap();
 assert_eq!(pat, CardPattern::Bomb);
 ```
 
-## CLI 工具
+## 💻 CLI 工具
+
+安装 CLI 工具：
 
 ```bash
-cargo build --features cli --bin wr
-
-wr list                        # 列出所有规则
-wr list --category sports      # 按分类过滤
-wr list --search 麻将          # 搜索
-wr list --json                 # JSON 输出
-wr show 围棋                   # 规则详解
-wr stats                       # 统计信息
-wr validate mahjong "1万 2万 3万 ..."  # 麻将胡牌验证
-wr validate poker "Ah Kh Qh Jh 10h"    # 扑克牌型评估
+cargo install world_rules --features cli
 ```
 
-## 核心设计
+使用示例：
+
+```bash
+wr list                        # 列出所有规则
+wr list --category sports      # 按分类过滤
+wr list --search 麻将          # 搜索规则
+wr list --json                 # JSON 输出
+wr show 围棋                   # 显示规则详情
+wr stats                       # 显示统计信息
+wr validate mahjong "1万 2万 3万 ..."  # 麻将胡牌验证
+wr validate poker "Ah Kh Qh Jh 10h"   # 扑克牌型评估
+```
+
+## 🏗️ 核心设计
+
+所有规则都实现了统一的 `Rule` trait：
 
 ```rust
 pub trait Rule: Send + Sync {
     fn metadata(&self) -> &RuleMetadata;  // 规则元数据
     fn category(&self) -> RuleCategory;   // 规则分类
-    fn validate(&self, context: &str) -> RuleResult<bool>; // 验证
+    fn validate(&self, context: &str) -> RuleResult<bool>; // 验证规则
     fn explain(&self) -> String;          // 规则说明
 }
 ```
 
-## 项目结构
+使用 `simple_rule!` 宏快速定义规则：
+
+```rust
+simple_rule!(
+    MahjongRule,
+    "麻将胡牌规则",
+    RuleCategory::Games,
+    "验证是否符合麻将胡牌条件"
+);
+```
+
+## 📁 项目结构
 
 ```
 world-rules/
 ├── src/
 │   ├── lib.rs              # 库入口
-│   ├── prelude.rs          # 预导入
+│   ├── prelude.rs          # 预导入模块
 │   └── rules/
 │       ├── core.rs         # 核心 trait + simple_rule! 宏
-│       ├── games/          # 🎮 游戏规则（含麻将/扑克/棋类/斗地主）
+│       ├── games/          # 🎮 游戏规则
+│       │   ├── mahjong/    # 麻将规则 (25种变体)
+│       │   ├── card_games/ # 扑克游戏 (德州扑克、斗地主等)
+│       │   ├── chess/      # 棋类游戏 (象棋、围棋等)
+│       │   └── board/      # 桌游规则
 │       ├── sports/         # 🏃 体育规则
 │       ├── social/         # 🤝 社交礼仪
 │       ├── science/        # 🔬 科学定律
 │       ├── law/            # ⚖️ 法律法规
+│       │   ├── civil_law/  # 民法规则
+│       │   ├── criminal_law/ # 刑法规则
+│       │   ├── commercial_law/ # 商法规则
+│       │   └── procedure_law/ # 程序法规则
 │       └── health/         # 🏥 健康规则
-├── tests/
-│   └── integration.rs      # 集成测试
-├── examples/
-│   └── demo.rs             # 使用示例
-└── docs/
-    └── RULES_CATALOG.md    # 完整规则目录
+├── benches/               # 性能基准测试
+├── tests/                 # 集成测试 & 属性测试
+├── examples/              # 使用示例
+└── docs/                  # 文档
+    └── RULES_CATALOG.md   # 完整规则目录
 ```
 
-## 完整规则目录
+## 📚 文档
 
-详见 [docs/RULES_CATALOG.md](docs/RULES_CATALOG.md)
+- **API 文档**: [docs.rs/world_rules](https://docs.rs/world_rules)
+- **规则目录**: [docs/RULES_CATALOG.md](docs/RULES_CATALOG.md)
+- **开发路线图**: [ROADMAP.md](ROADMAP.md)
 
-n## 演进路线
+## 🧪 测试
 
-详见 [ROADMAP.md](ROADMAP.md)，包含 12 个 Milestone 的详细规划。
+运行测试：
 
-每个 Milestone 遵循 Loop Engineering 反馈环：
-规划 → 实现 → 测试 → 发布 → 反馈 → 下一轮
-## 贡献
+```bash
+# 运行所有测试
+cargo test
 
-欢迎贡献更多规则！
+# 运行特定测试
+cargo test mahjong
+
+# 运行属性测试
+cargo test --test proptest_law
+
+# 运行性能基准测试
+cargo bench
+```
+
+## 🔧 特性标志
+
+- `default` - 默认特性，无额外依赖
+- `cli` - 启用 CLI 工具，需要 `serde_json`
+- `full` - 启用所有功能特性
+
+## 📋 演进路线
+
+项目采用 Loop Engineering 开发方法，包含 16 个 Phase：
+
+| Phase | 状态 | 内容 |
+|-------|------|------|
+| Phase 1-11 | ✅ | 核心框架 + 各领域规则 |
+| Phase 12 | ✅ | 刑法深度规则扩展 |
+| Phase 13 | ✅ | API 文档 |
+| Phase 14 | ✅ | 性能基准测试 |
+| Phase 15 | ✅ | 属性测试 |
+| Phase 16 | ⏳ | 发布准备 |
+
+详见 [ROADMAP.md](ROADMAP.md)
+
+## 🤝 贡献
+
+欢迎贡献更多规则！请遵循以下步骤：
 
 1. Fork 本仓库
-2. 创建新的规则模块，使用 `simple_rule!` 宏
-3. 实现 `Rule` trait
-4. 添加测试
-5. 提交 Pull Request
+2. 创建特性分支 (`git checkout -b feature/new-rule`)
+3. 使用 `simple_rule!` 宏或实现 `Rule` trait
+4. 添加测试（单元测试或属性测试）
+5. 确保通过 `cargo clippy -- -D warnings`
+6. 提交 Pull Request
 
-## 许可证
+### 开发指南
 
-MIT License
+```bash
+# 克隆仓库
+git clone https://github.com/hufengxiao/world-rules
+cd world-rules
+
+# 安装依赖
+cargo build
+
+# 运行测试
+cargo test
+
+# 代码检查
+cargo clippy -- -D warnings
+
+# 格式化代码
+cargo fmt
+
+# 生成文档
+cargo doc --open
+```
+
+## 📄 许可证
+
+本项目采用 [MIT License](LICENSE) 许可证。
+
+## 🙏 致谢
+
+感谢所有贡献者和开源社区的支持！
+
+---
+
+**注意**: 本库提供的法律规则仅供学习和参考，不构成法律建议。如有法律问题，请咨询专业律师。

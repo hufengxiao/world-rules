@@ -1,5 +1,35 @@
 # Changelog
 
+## v2.0.0 (2026-07-12)
+
+### 刑法深度规则扩展 (Phase 12)
+- 新增刑法总则深度规则 (`criminal_law_general_deep.rs`)
+- 新增刑法分则深度规则 (`criminal_law_specific_deep.rs`)
+- 新增刑事诉讼程序深度规则 (`criminal_procedure_deep.rs`)
+- 新增犯罪学深度规则 (`criminology_deep.rs`)
+- 新增经济犯罪深度规则 (`economic_crime_deep.rs`)
+- 新增量刑指南深度规则 (`sentencing_guideline_deep.rs`)
+- 新增刑事证据规则深度规则 (`criminal_evidence_deep.rs`)
+- 新增刑事司法改革深度规则 (`criminal_justice_reform_deep.rs`)
+- 新增刑事被害人保护深度规则 (`victim_protection_deep.rs`)
+- 总计新增 9 个刑法深度规则模块
+
+### API 文档完善 (Phase 13)
+- 为核心类型添加 rustdoc 注释
+- 添加 # Examples 示例代码
+- 添加 # Safety 安全说明
+- 生成 cargo doc 成功
+
+### 基准测试 (Phase 14)
+- 创建 `benches/law_bench.rs` 法律规则性能基准测试
+- 使用 criterion 框架编写
+- 包含规则创建、验证、解释、序列化等多种性能测试
+
+### 属性测试 (Phase 15)
+- 创建 `tests/proptest_law.rs` 法律规则属性测试
+- 使用 proptest 框架编写
+- 包含规则创建、验证、分类、元数据等多种属性测试
+
 ## v0.7.5 (2026-06-10)
 
 ### 示例代码
