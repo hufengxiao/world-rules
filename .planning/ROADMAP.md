@@ -44,7 +44,7 @@
 - [x] 规则序列化属性测试
 
 ## Phase 16: 发布准备 ⏳
-- [ ] 完善 README.md
+- [x] 完善 README.md
 - [ ] 添加 CHANGELOG.md
 - [ ] 添加 CONTRIBUTING.md
 - [ ] 发布到 crates.io
