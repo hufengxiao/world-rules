@@ -5,8 +5,8 @@
 
 ## 进度统计
 - **总规则数**: 600+ 条
-- **代码行数**: 68,000+ 行
-- **源文件数**: 1,481 个
+- **代码行数**: 176,000+ 行
+- **源文件数**: 1,486 个
 - **已完成 Phase**: 15
 - **进行中 Phase**: 16
 
@@ -28,6 +28,11 @@
   - 提交信息规范
   - PR 流程
   - 添加新规则指南
+- ✅ 添加 CODE_OF_CONDUCT.md
+  - 采用 Contributor Covenant 行为准则
+- ✅ 添加 SECURITY.md
+  - 安全政策说明
+  - 漏洞报告指南
 
 ## 下一步任务
 - 发布到 crates.io（需要 API token 配置）
@@ -39,6 +44,8 @@
 - [x] README.md 完整
 - [x] CHANGELOG.md 添加
 - [x] CONTRIBUTING.md 添加
+- [x] CODE_OF_CONDUCT.md 添加
+- [x] SECURITY.md 添加
 - [x] Cargo.toml 元数据完整
 - [x] 文档生成正常 (cargo doc)
 - [x] 发布验证通过 (cargo publish --dry-run)

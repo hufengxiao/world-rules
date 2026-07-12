@@ -47,4 +47,6 @@
 - [x] 完善 README.md
 - [x] 添加 CHANGELOG.md
 - [x] 添加 CONTRIBUTING.md
+- [x] 添加 CODE_OF_CONDUCT.md
+- [x] 添加 SECURITY.md
 - [ ] 发布到 crates.io
