@@ -210,6 +210,7 @@ impl Rule for SevenCardStudRules {
 mod tests {
     use super::*;
     use crate::rules::core::ValidateContext;
+    use crate::rules::games::card_games::poker::HandRank;
 
     fn card(suit: Suit, rank: Rank) -> Card {
         Card::new(suit, rank)
@@ -236,7 +237,7 @@ mod tests {
         let eval = SevenCardStudRules::evaluate_stud_hand(&cards);
         assert!(eval.is_some());
         let result = eval.unwrap();
-        assert_eq!(result.rank, super::poker::HandRank::RoyalFlush);
+        assert_eq!(result.rank, HandRank::RoyalFlush);
         assert_eq!(result.cards.len(), 5);
     }
 
@@ -252,7 +253,7 @@ mod tests {
 
         let eval = SevenCardStudRules::evaluate_stud_hand(&cards);
         assert!(eval.is_some());
-        assert_eq!(eval.unwrap().rank, super::poker::HandRank::RoyalFlush);
+        assert_eq!(eval.unwrap().rank, HandRank::RoyalFlush);
     }
 
     #[test]

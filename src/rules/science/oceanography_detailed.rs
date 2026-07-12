@@ -190,14 +190,13 @@ mod tests {
     #[test]
     fn test_oceanography_category() {
         let rules = OceanographyDetailedRules::new();
-        assert_eq!(rules.category().domain, "science");
-        assert_eq!(rules.category().name, "oceanography_detailed");
+        assert_eq!(rules.category().to_string(), "Science/oceanography_detailed");
     }
 
     #[test]
     fn test_oceanography_validate() {
         let rules = OceanographyDetailedRules::new();
-        let ctx = crate::rules::core::ValidateContext::default();
+        let ctx = crate::rules::core::ValidateContext::generic("test");
         assert!(rules.validate(&ctx).is_ok());
     }
 }

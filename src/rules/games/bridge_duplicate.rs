@@ -123,7 +123,7 @@ mod tests {
     #[test]
     fn test_bridge_duplicate_rules() {
         let rules = BridgeDuplicateRules::new();
-        assert_eq!(rules.name(), "复式桥牌规则");
+        assert_eq!(rules.metadata().name, "复式桥牌规则");
         assert!(!rules.explain().is_empty());
         assert!(!rules.tournament_formats().is_empty());
     }

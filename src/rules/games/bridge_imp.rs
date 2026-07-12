@@ -133,7 +133,7 @@ mod tests {
     #[test]
     fn test_bridge_imp_rules() {
         let rules = BridgeImpRules::new();
-        assert_eq!(rules.name(), "IMP桥牌规则");
+        assert_eq!(rules.metadata().name, "IMP桥牌规则");
         assert!(!rules.explain().is_empty());
         assert!(!rules.imp_conversion_table().is_empty());
     }

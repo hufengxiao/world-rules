@@ -6,7 +6,7 @@
 use proptest::prelude::*;
 use world_rules::rules::games::card_games::{Card, Rank, Suit};
 
-/// 生成任意花色
+// 生成任意花色
 prop_compose! {
     fn any_suit()(suit_idx in 0u8..=3) -> Suit {
         match suit_idx {
@@ -18,7 +18,7 @@ prop_compose! {
     }
 }
 
-/// 生成任意牌面（不含大小王）
+// 生成任意牌面（不含大小王）
 prop_compose! {
     fn any_rank_no_joker()(rank_idx in 0u8..=12) -> Rank {
         match rank_idx {
@@ -39,7 +39,7 @@ prop_compose! {
     }
 }
 
-/// 生成任意牌面（包含大小王）
+// 生成任意牌面（包含大小王）
 prop_compose! {
     fn any_rank_with_joker()(rank_idx in 0u8..=13) -> Rank {
         match rank_idx {
@@ -61,21 +61,21 @@ prop_compose! {
     }
 }
 
-/// 生成任意扑克牌
+// 生成任意扑克牌
 prop_compose! {
     fn any_card()(suit in any_suit(), rank in any_rank_no_joker()) -> Card {
         Card::new(suit, rank)
     }
 }
 
-/// 生成包含大小王的任意牌
+// 生成包含大小王的任意牌
 prop_compose! {
     fn any_card_with_joker()(suit in any_suit(), rank in any_rank_with_joker()) -> Card {
         Card::new(suit, rank)
     }
 }
 
-/// 生成扑克手牌（最多7张）
+// 生成扑克手牌（最多7张）
 prop_compose! {
     fn any_poker_hand()(cards in prop::collection::vec(any_card(), 0..7)) -> Vec<Card> {
         cards
@@ -199,8 +199,8 @@ mod additional_tests {
     fn test_proptest_config() {
         proptest!(|(suit in any_suit(), rank in any_rank_no_joker())| {
             let card = Card::new(suit, rank);
-            assert!(card.suit() == suit);
-            assert!(card.rank() == rank);
+            assert!(card.suit == suit);
+            assert!(card.rank == rank);
         });
     }
 }

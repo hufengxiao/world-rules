@@ -5,14 +5,14 @@
 
 use proptest::prelude::*;
 
-/// 生成有效的数独数字 (1-9)
+// 生成有效的数独数字 (1-9)
 prop_compose! {
     fn sudoku_digit()(n in 1u8..=9) -> u8 {
         n
     }
 }
 
-/// 生成可能为空的数独数字 (None 或 1-9)
+// 生成可能为空的数独数字 (None 或 1-9)
 prop_compose! {
     fn sudoku_cell_value()(n in 0u8..=9) -> Option<u8> {
         if n == 0 {
@@ -23,7 +23,7 @@ prop_compose! {
     }
 }
 
-/// 生成数独行（9个单元格）
+// 生成数独行（9个单元格）
 prop_compose! {
     fn sudoku_row()(cells in prop::collection::vec(sudoku_cell_value(), 9)) -> Vec<Option<u8>> {
         cells

@@ -113,7 +113,7 @@ mod tests {
     #[test]
     fn test_bridge_rubber_rules() {
         let rules = BridgeRubberRules::new();
-        assert_eq!(rules.name(), "盘式桥牌规则");
+        assert_eq!(rules.metadata().name, "盘式桥牌规则");
         assert!(!rules.explain().is_empty());
         assert!(!rules.overview().is_empty());
         assert!(!rules.scoring_rules().is_empty());

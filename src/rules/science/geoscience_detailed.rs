@@ -190,14 +190,13 @@ mod tests {
     #[test]
     fn test_geoscience_category() {
         let rules = GeoscienceDetailedRules::new();
-        assert_eq!(rules.category().domain, "science");
-        assert_eq!(rules.category().name, "geoscience_detailed");
+        assert_eq!(rules.category().to_string(), "Science/geoscience_detailed");
     }
 
     #[test]
     fn test_geoscience_validate() {
         let rules = GeoscienceDetailedRules::new();
-        let ctx = crate::rules::core::ValidateContext::default();
+        let ctx = crate::rules::core::ValidateContext::generic("test");
         assert!(rules.validate(&ctx).is_ok());
     }
 }

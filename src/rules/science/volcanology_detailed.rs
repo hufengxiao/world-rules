@@ -190,14 +190,13 @@ mod tests {
     #[test]
     fn test_volcanology_category() {
         let rules = VolcanologyDetailedRules::new();
-        assert_eq!(rules.category().domain, "science");
-        assert_eq!(rules.category().name, "volcanology_detailed");
+        assert_eq!(rules.category().to_string(), "Science/volcanology_detailed");
     }
 
     #[test]
     fn test_volcanology_validate() {
         let rules = VolcanologyDetailedRules::new();
-        let ctx = crate::rules::core::ValidateContext::default();
+        let ctx = crate::rules::core::ValidateContext::generic("test");
         assert!(rules.validate(&ctx).is_ok());
     }
 }
