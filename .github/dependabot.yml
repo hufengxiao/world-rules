@@ -1,0 +1,49 @@
+# Dependabot 配置
+# 自动检查并更新依赖版本
+
+version: 2
+updates:
+  # Rust 依赖更新
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "rust"
+    reviewers:
+      - "hufengxiao"
+    # 开发依赖和主要依赖分组更新
+    groups:
+      dev-dependencies:
+        patterns:
+          - "criterion"
+          - "proptest"
+          - "serde_json"
+      production-dependencies:
+        patterns:
+          - "thiserror"
+          - "serde"
+
+  # GitHub Actions 更新
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    reviewers:
+      - "hufengxiao"
