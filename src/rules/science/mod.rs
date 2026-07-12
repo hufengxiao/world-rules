@@ -358,6 +358,18 @@ pub mod water_resources;
 pub mod zoology;
 pub mod zoology_detailed;
 
+// Phase 30-03: 新增生命科学规则模块
+pub mod neurobiology_rules;
+pub mod regenerative_biology;
+pub mod stem_cell_biology;
+pub mod immunobiology_rules;
+pub mod biomechanics_rules;
+pub mod biooptics_rules;
+pub mod bioacoustics_rules;
+pub mod bioelectricity_rules;
+pub mod biothermodynamics_rules;
+pub mod chronobiology_rules;
+
 pub use acoustics::AcousticsRules;
 pub use acoustics_detailed::AcousticsDetailedRules;
 pub use aerospace_engineering::AerospaceEngineeringLaws;
@@ -658,6 +670,18 @@ pub use waste_management::WasteManagementRules;
 pub use water_resources::WaterResourcesRules;
 pub use zoology::ZoologyLaws;
 pub use zoology_detailed::ZoologyDetailedRules;
+
+// Phase 30-03: 新增生命科学规则导出
+pub use neurobiology_rules::NeurobiologyRules;
+pub use regenerative_biology::RegenerativeBiologyRules;
+pub use stem_cell_biology::StemCellBiologyRules;
+pub use immunobiology_rules::ImmunobiologyRules;
+pub use biomechanics_rules::BiomechanicsRules;
+pub use biooptics_rules::BioopticsRules;
+pub use bioacoustics_rules::BioacousticsRules;
+pub use bioelectricity_rules::BioelectricityRules;
+pub use biothermodynamics_rules::BiothermodynamicsRules;
+pub use chronobiology_rules::ChronobiologyRules;
 
 pub fn all_rules() -> Vec<(
     &'static str,
@@ -1197,6 +1221,47 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = ZoologyLaws::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    // Phase 30-03: 新增生命科学规则注册
+    {
+        let r = NeurobiologyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RegenerativeBiologyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = StemCellBiologyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ImmunobiologyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BiomechanicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BioopticsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BioacousticsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BioelectricityRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BiothermodynamicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChronobiologyRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
     }
     rules
