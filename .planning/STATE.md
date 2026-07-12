@@ -22,9 +22,9 @@ See: .planning/ROADMAP.md (updated 2026-07-12)
 ## Current Position
 
 Phase: 31 of 55 (E14 地球科学扩充)
-Plan: 1 of 4 complete in current phase
-Status: In Progress - Phase 31-01 已完成（11种地理规则），准备 Phase 31-02
-Last action: 2026-07-12 — 完成 Phase 31-01：11种地理详细规则
+Plan: 2 of 4 complete in current phase
+Status: In Progress - Phase 31-02 已完成（10种气象规则），准备 Phase 31-03
+Last action: 2026-07-12 — 完成 Phase 31-02：10种气象规则
 
 Progress: [███████████████████░] 96%
 ## Performance Metrics
@@ -140,7 +140,7 @@ Progress: [███████████████████░] 96%
 
 - Phase 31: E14 地球科学扩充 (进行中)
   - 31-01: 添加 11 种地理规则（地貌学详细、气候学详细、水文学详细、土壤地理、生物地理详细、城市地理详细、经济地理详细、文化地理详细、政治地理详细、遥感地理详细、GIS地理详细）✅
-  - 31-02: 添加 10 种气象规则 (待开始)
+  - 31-02: 添加 10 种气象规则（气象学详细、天气学、热带气象、中尺度气象、动力气象、物理气象、海洋气象、航空气象、雷达气象、卫星气象）✅
   - 31-03: 添加 5 种其他地球科学规则 (待开始)
   - 31-04: 更新测试和文档 (待开始)
 
