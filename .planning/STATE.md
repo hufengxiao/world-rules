@@ -3,9 +3,9 @@ gsd_state_version: '1.0'
 status: progress
 progress:
   total_phases: 55
-  completed_phases: 30
+  completed_phases: 31
   total_plans: 116
-  completed_plans: 86
+  completed_plans: 90
   percent: 97
 ---
 
@@ -17,14 +17,14 @@ See: .planning/ROADMAP.md (updated 2026-07-12)
 
 **Core value:** 提供真实、可验证的规则实现 — 不是简单的描述，而是可运行的代码和完整的测试覆盖
 
-**Current focus:** Phase 31 - E14 地球科学扩充 (v2.2 继续)
+**Current focus:** Phase 32 - E15 中国法律扩充 (v2.2 继续)
 
 ## Current Position
 
-Phase: 31 of 55 (E14 地球科学扩充)
-Plan: 3 of 4 complete in current phase
-Status: In Progress - Phase 31-03 已完成（5种地球科学详细规则），准备 Phase 31-04
-Last action: 2026-07-12 — 完成 Phase 31-03：地质学详细、地球科学详细、地震学详细、海洋学详细、火山学详细
+Phase: 32 of 55 (E15 中国法律扩充)
+Plan: 0 of 5 complete in current phase
+Status: Ready to start Phase 32-01
+Last action: 2026-07-12 — 完成 Phase 31-04：测试和文档更新（phase_31_meteorology_rules.rs, phase_31_earth_science_rules.rs, docs/phase_31.md）
 
 Progress: [███████████████████▓] 97%
 ## Performance Metrics
@@ -138,11 +138,13 @@ Progress: [███████████████████▓] 97%
   - 30-03: 添加 10 种其他生命科学规则（神经生物学、再生生物学、干细胞生物学、免疫生物学、生物力学、生物光学、生物声学、生物电学、生物热力学、生物节律）
   - 30-04: 测试和文档（tests/phase_30_rules.rs，tests/phase_30_03_rules.rs，docs/phase_30.md，docs/phase_30_03_life_science.md）✅
 
-- Phase 31: E14 地球科学扩充 (进行中)
-  - 31-01: 添加 11 种地理规则（地貌学详细、气候学详细、水文学详细、土壤地理、生物地理详细、城市地理详细、经济地理详细、文化地理详细、政治地理详细、遥感地理详细、GIS地理详细）✅
-  - 31-02: 添加 10 种气象规则（气象学详细、天气学、热带气象、中尺度气象、动力气象、物理气象、海洋气象、航空气象、雷达气象、卫星气象）✅
-  - 31-03: 添加 5 种其他地球科学规则 (待开始)
-  - 31-04: 更新测试和文档 (待开始)
+|- Phase 31: E14 地球科学扩充 (+26 地球科学规则，完整测试覆盖) ✅
+|  - 31-01: 添加 11 种地理规则（地貌学详细、气候学详细、水文学详细、土壤地理、生物地理详细、城市地理详细、经济地理详细、文化地理详细、政治地理详细、遥感地理详细、GIS地理详细）✅
+|  - 31-02: 添加 10 种气象规则（气象学详细、天气学、热带气象、中尺度气象、动力气象、物理气象、海洋气象、航空气象、雷达气象、卫星气象）✅
+|  - 31-03: 添加 5 种其他地球科学规则（地质学详细、地球科学详细、地震学详细、海洋学详细、火山学详细）✅
+|  - 31-04: 更新测试和文档（tests/phase_31_meteorology_rules.rs，tests/phase_31_earth_science_rules.rs，docs/phase_31.md）✅
+|
+|- Phase 32: E15 中国法律扩充 (待开始)
 
 ## Accumulated Context
 
