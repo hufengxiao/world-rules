@@ -197,12 +197,15 @@ pub mod genetics_detailed;
 pub mod genomic_laws;
 pub mod geography;
 pub mod geology;
+pub mod geology_detailed;
 pub mod geometry_math;
 pub mod geomorphology;
 pub mod geomorphology_detailed;
 pub mod geophysics;
 pub mod geophysics_detailed;
 pub mod geoscience;
+pub mod geoscience_detailed;
+pub mod seismology_detailed;
 pub mod geriatrics;
 pub mod gis;
 pub mod gis_detailed;
@@ -531,11 +534,13 @@ pub use genetics_detailed::GeneticsDetailedRules;
 pub use genomic_laws::GenomicLawsRules;
 pub use geography::GeographyLaws;
 pub use geology::GeologyRules;
+pub use geology_detailed::GeologyDetailedRules;
 pub use geometry_math::GeometryMathRules;
 pub use geomorphology::GeomorphologyRules;
 pub use geophysics::GeophysicsRules;
 pub use geophysics_detailed::GeophysicsDetailedRules;
 pub use geoscience::GeoscienceLaws;
+pub use geoscience_detailed::GeoscienceDetailedRules;
 pub use geriatrics::GeriatricsRules;
 pub use gis::GisRules;
 pub use graph_theory::GraphTheoryRules;
@@ -665,6 +670,7 @@ pub use rigid_body_dynamics::RigidBodyDynamicsRules;
 pub use robotics_detailed::RoboticsDetailedRules;
 pub use robotics_theory::RoboticsTheoryRules;
 pub use seismology::SeismologyRules;
+pub use seismology_detailed::SeismologyDetailedRules;
 pub use signal_processing::SignalProcessingRules;
 pub use social_psychology::SocialPsychologyRules;
 pub use sociology::SociologyLaws;
@@ -1304,6 +1310,27 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = ChronobiologyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    // Phase 31-01: 新增地理科学详细规则注册
+    {
+        let r = GeologyDetailedRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GeoscienceDetailedRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SeismologyDetailedRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OceanographyDetailedRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VolcanologyDetailedRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
     }
     rules
