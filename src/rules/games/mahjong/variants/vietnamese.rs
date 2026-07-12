@@ -202,7 +202,7 @@ mod tests {
     fn test_vietnamese_scoring() {
         let rules = VietnameseMahjongRules::new();
         let scoring = rules.scoring_rules();
-        assert!(scoring.iter().any(|(name, _)| name == "清一色"));
-        assert!(scoring.iter().any(|(name, _)| name == "十三幺"));
+        assert!(scoring.iter().any(|(name, _)| *name == "清一色"));
+        assert!(scoring.iter().any(|(name, _)| *name == "十三幺"));
     }
 }

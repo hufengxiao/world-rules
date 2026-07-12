@@ -215,7 +215,7 @@ mod tests {
         let rules = MalaysianMahjongRules::new();
         let fans = rules.special_fan_types();
         assert!(fans.iter().any(|(name, _)| name.contains("动物")));
-        assert!(fans.iter().any(|(name, _)| name == "清一色"));
+        assert!(fans.iter().any(|(name, _)| *name == "清一色"));
     }
 
     #[test]
@@ -223,7 +223,7 @@ mod tests {
         let rules = MalaysianMahjongRules::new();
         let fans = rules.special_fan_types();
         // 验证动物牌番种计分
-        let full_animal = fans.iter().find(|(name, _)| name == "全动物");
+        let full_animal = fans.iter().find(|(name, _)| *name == "全动物");
         assert!(full_animal.is_some());
         assert_eq!(full_animal.unwrap().1, 8);
     }
