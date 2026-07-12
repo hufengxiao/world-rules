@@ -11,7 +11,7 @@
 - **进行中 Phase**: 16
 
 ## 最新完成
-### Phase 16: 发布准备（部分完成）
+### Phase 16: 发布准备（进行中）
 - ✅ 完善 README.md
   - 添加徽章 (Crates.io, Documentation, License, Rust)
   - 添加项目规模统计
@@ -33,16 +33,20 @@
 - ✅ 添加 SECURITY.md
   - 安全政策说明
   - 漏洞报告指南
+- ✅ 添加自动发布工作流 (.github/workflows/publish.yml)
+  - 当推送 v* tag 时自动发布到 crates.io
+  - 包含发布前验证（格式检查、测试、clippy）
+  - 发布后自动创建 GitHub Release
 
 ## 下一步任务
-- ⚠️ **需要用户干预**: 发布到 crates.io
-  - cargo publish --dry-run 已验证通过 ✅
-  - 需要 API token 才能发布
-  - **操作步骤**:
-    1. 访问 https://crates.io/settings/tokens
-    2. 创建新的 API token
-    3. 执行 `cargo login <your-token>`
-    4. 重新运行此任务以完成发布
+- ⚠️ **需要用户干预**: 配置 GitHub Secrets
+  - 访问 https://github.com/hufengxiao/world-rules/settings/secrets/actions
+  - 添加 `CRATES_IO_TOKEN` secret
+  - 值为 crates.io 的 API token (从 https://crates.io/settings/tokens 获取)
+- ⚠️ **需要用户干预**: 创建版本 tag 触发自动发布
+  - 确保 `CRATES_IO_TOKEN` 已配置
+  - 运行 `git tag v2.0.0 && git push --tags`
+  - GitHub Actions 将自动验证并发布
 
 ## 发布检查清单
 - [x] README.md 完整
@@ -53,5 +57,6 @@
 - [x] Cargo.toml 元数据完整
 - [x] 文档生成正常 (cargo doc)
 - [x] 发布验证通过 (cargo publish --dry-run)
-- [ ] crates.io API token 配置
-- [ ] 执行 cargo publish
+- [x] 自动发布工作流配置完成
+- [ ] crates.io API token 配置为 GitHub Secret
+- [ ] 创建 tag 触发发布

@@ -205,16 +205,29 @@ cargo bench
 
 项目采用 Loop Engineering 开发方法，包含 16 个 Phase：
 
-| Phase | 状态 | 内容 |
-|-------|------|------|
-| Phase 1-11 | ✅ | 核心框架 + 各领域规则 |
-| Phase 12 | ✅ | 刑法深度规则扩展 |
-| Phase 13 | ✅ | API 文档 |
-| Phase 14 | ✅ | 性能基准测试 |
-| Phase 15 | ✅ | 属性测试 |
-| Phase 16 | ⏳ | 发布准备 |
+|| Phase | 状态 | 内容 ||
+||-------|------|------||
+|| Phase 1-11 | ✅ | 核心框架 + 各领域规则 ||
+|| Phase 12 | ✅ | 刑法深度规则扩展 ||
+|| Phase 13 | ✅ | API 文档 ||
+|| Phase 14 | ✅ | 性能基准测试 ||
+|| Phase 15 | ✅ | 属性测试 ||
+|| Phase 16 | ⏳ | 发布准备 ||
 
 详见 [ROADMAP.md](ROADMAP.md)
+
+## 🚀 发布流程
+
+本项目使用 GitHub Actions 自动发布到 crates.io：
+
+1. 确保 `CRATES_IO_TOKEN` 已配置为 GitHub Secret
+   - 访问 https://crates.io/settings/tokens 创建 API token
+   - 添加到 https://github.com/hufengxiao/world-rules/settings/secrets/actions
+2. 创建版本 tag：`git tag v2.0.0 && git push --tags`
+3. GitHub Actions 将自动：
+   - 运行测试、clippy 检查
+   - 发布到 crates.io
+   - 创建 GitHub Release
 
 ## 🤝 贡献
 

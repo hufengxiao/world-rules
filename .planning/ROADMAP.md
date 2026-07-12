@@ -49,4 +49,6 @@
 - [x] 添加 CONTRIBUTING.md
 - [x] 添加 CODE_OF_CONDUCT.md
 - [x] 添加 SECURITY.md
-- [ ] 发布到 crates.io
+- [x] 添加自动发布工作流 (.github/workflows/publish.yml)
+- [ ] 配置 GitHub Secrets (CRATES_IO_TOKEN)
+- [ ] 创建 v2.0.0 tag 触发自动发布
