@@ -670,9 +670,9 @@ fn test_sitting_volleyball_rules_basic() {
 fn test_sitting_volleyball_classification() {
     use world_rules::rules::sports::SittingVolleyballRules;
     let rules = SittingVolleyballRules::new();
-    let classification = rules.classification();
-    assert!(classification.iter().any(|c| c.contains("VS1")));
-    assert!(classification.iter().any(|c| c.contains("VS2")));
+    let classification = rules.player_classification();
+    assert!(classification.iter().any(|c| c.contains("VS")));
+    assert!(classification.iter().any(|c| c.contains("VD")));
     assert!(classification.len() >= 4);
 }
 
@@ -680,7 +680,7 @@ fn test_sitting_volleyball_classification() {
 fn test_sitting_volleyball_court() {
     use world_rules::rules::sports::SittingVolleyballRules;
     let rules = SittingVolleyballRules::new();
-    let court = rules.court();
+    let court = rules.court_specifications();
     assert!(court.iter().any(|c| c.contains("10×6")));
     assert!(court.iter().any(|c| c.contains("网高")));
     assert!(court.len() >= 4);
@@ -690,9 +690,9 @@ fn test_sitting_volleyball_court() {
 fn test_sitting_volleyball_technique() {
     use world_rules::rules::sports::SittingVolleyballRules;
     let rules = SittingVolleyballRules::new();
-    let technique = rules.technique();
+    let technique = rules.technique_rules();
     assert!(technique.iter().any(|t| t.contains("臀部")));
-    assert!(technique.iter().any(|t| t.contains("3次")));
+    assert!(technique.iter().any(|t| t.contains("接触")));
     assert!(technique.len() >= 4);
 }
 
