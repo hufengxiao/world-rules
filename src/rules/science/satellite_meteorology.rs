@@ -20,7 +20,9 @@ impl SatelliteMeteorologyRules {
     }
 
     /// 卫星遥感原理规则
-    pub fn satellite_remote_sensing_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn satellite_remote_sensing_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("卫星轨道定律", "轨道特性", "气象卫星轨道类型分析"),
             ("卫星观测定律", "观测方式", "卫星观测方式分类"),

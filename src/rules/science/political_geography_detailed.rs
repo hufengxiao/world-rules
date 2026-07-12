@@ -76,7 +76,9 @@ impl PoliticalGeographyDetailedRules {
     }
 
     /// 国际组织规则
-    pub fn international_organization_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn international_organization_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("联合国定律", "国际组织", "联合国地理功能"),
             ("区域组织定律", "区域组织", "区域国际组织地理"),

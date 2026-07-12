@@ -90,7 +90,9 @@ impl HydrologyDetailedRules {
     }
 
     /// 水文测量规则
-    pub fn hydrological_measurement_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn hydrological_measurement_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("流量测量定律", "流量测验", "河流流量测量方法"),
             ("水位测量定律", "水位观测", "水位观测站设置"),

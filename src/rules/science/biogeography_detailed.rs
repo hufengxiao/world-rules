@@ -118,7 +118,9 @@ impl BiogeographyDetailedRules {
     }
 
     /// 保护生物地理规则
-    pub fn conservation_biogeography_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn conservation_biogeography_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("保护区定律", "保护区设计", "保护区设计原理"),
             ("保护区网络定律", "网络布局", "保护区网络布局规划"),

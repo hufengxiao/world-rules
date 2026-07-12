@@ -335,6 +335,30 @@ pub use xiangqi_detailed::XiangqiDetailedRules;
 pub use yahtzee::YahtzeeRules;
 pub use zhajinhua::ZhajinhuaRules;
 
+/// 获取所有游戏规则的元数据列表
+///
+/// 返回一个包含所有游戏规则的元数据、分类和说明的向量。
+/// 用于遍历和展示所有规则。
+///
+/// # Returns
+///
+/// 返回一个 Vec，每个元素是一个元组：
+/// - `&'static str`: 规则分类标识（如 "games"）
+/// - `RuleMetadata`: 规则元数据
+/// - `RuleCategory`: 规则分类
+/// - `String`: 规则说明文本
+///
+/// # Examples
+/// ```
+/// use world_rules::rules::games::all_rules;
+///
+/// let rules = all_rules();
+/// assert!(!rules.is_empty());
+/// // 每个元素包含分类标识、元数据、分类和说明
+/// for (category, meta, cat, explain) in &rules {
+///     println!("{}: {}", meta.name, category);
+/// }
+/// ```
 pub fn all_rules() -> Vec<(
     &'static str,
     crate::rules::core::RuleMetadata,

@@ -137,7 +137,9 @@ impl BiothermodynamicsRules {
     }
 
     /// 生物热力学应用定律
-    pub fn biothermodynamics_applications(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn biothermodynamics_applications(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("体温监测定律", "体温监测", "监测体温"),
             ("体温调节定律", "调节体温", "调节体温技术"),

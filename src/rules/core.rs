@@ -252,24 +252,45 @@ impl std::fmt::Display for RuleMetadata {
 /// 规则错误类型
 ///
 /// 统一的错误枚举，用于规则验证和查询过程中的错误处理。
+///
+/// # Examples
+/// ```
+/// use world_rules::rules::core::RuleError;
+///
+/// let err = RuleError::RuleNotFound("麻将规则".to_string());
+/// assert!(err.to_string().contains("麻将规则"));
+/// ```
 #[derive(Debug, thiserror::Error)]
 pub enum RuleError {
+    /// 规则不存在错误
     #[error("规则不存在: {0}")]
     RuleNotFound(String),
 
+    /// 规则验证失败错误
     #[error("规则验证失败: {0}")]
     ValidationError(String),
 
+    /// 配置错误
     #[error("配置错误: {0}")]
     ConfigError(String),
 
+    /// 不支持的操作错误
     #[error("不支持的操作: {0}")]
     UnsupportedOperation(String),
 
+    /// 上下文类型不匹配错误
     #[error("上下文类型不匹配: 期望 {expected}, 实际 {actual}")]
-    ContextMismatch { expected: String, actual: String },
+    ContextMismatch {
+        /// 期望的上下文类型
+        expected: String,
+        /// 实际的上下文类型
+        actual: String,
+    },
 }
 
+/// 规则操作结果类型
+///
+/// 使用 `Result<T, RuleError>` 作为规则操作的统一返回类型。
 pub type RuleResult<T> = Result<T, RuleError>;
 
 /// 验证上下文
@@ -297,8 +318,11 @@ pub enum ValidateContext {
     PokerCards(String),
     /// 象棋走法
     ChessMove {
+        /// 棋子名称（如"车"、"马"）
         piece: String,
+        /// 起始位置（坐标格式）
         from: String,
+        /// 目标位置（坐标格式）
         to: String,
     },
     /// 五子棋棋盘 (坐标列表: (x, y, is_black))
@@ -510,8 +534,11 @@ pub trait Rule: Send + Sync {
 /// assert_eq!(rs.list_rules().len(), 0);
 /// ```
 pub struct RuleSet {
+    /// 规则集元数据（名称、描述等）
     pub metadata: RuleMetadata,
+    /// 规则集所属分类
     pub category: RuleCategory,
+    /// 规则集合（按名称索引）
     pub rules: HashMap<String, Box<dyn Rule>>,
 }
 
@@ -786,10 +813,46 @@ impl RuleSet {
 }
 
 /// 规则验证器 - 统一校验规则完整性
+///
+/// 提供规则元数据和规则本身的完整性验证功能。
+///
+/// # Examples
+/// ```
+/// use world_rules::rules::core::{RuleValidator, RuleMetadata};
+///
+/// let meta = RuleMetadata::new("测试规则", "测试描述");
+/// let issues = RuleValidator::validate_metadata(&meta);
+/// assert!(issues.is_empty());
+/// ```
 pub struct RuleValidator;
 
 impl RuleValidator {
     /// 验证规则元数据完整性
+    ///
+    /// 检查规则元数据的必填字段是否完整。
+    ///
+    /// # Arguments
+    ///
+    /// * `meta` - 要验证的规则元数据
+    ///
+    /// # Returns
+    ///
+    /// 返回一个包含所有问题描述的 Vec。如果元数据完整，返回空 Vec。
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleValidator, RuleMetadata};
+    ///
+    /// // 完整的元数据
+    /// let meta = RuleMetadata::new("规则名称", "规则描述");
+    /// let issues = RuleValidator::validate_metadata(&meta);
+    /// assert!(issues.is_empty());
+    ///
+    /// // 缺失名称的元数据
+    /// let bad_meta = RuleMetadata::new("", "描述");
+    /// let issues = RuleValidator::validate_metadata(&bad_meta);
+    /// assert!(issues.iter().any(|i| i.contains("名称")));
+    /// ```
     pub fn validate_metadata(meta: &RuleMetadata) -> Vec<String> {
         let mut issues = Vec::new();
         if meta.name.is_empty() {
@@ -805,6 +868,31 @@ impl RuleValidator {
     }
 
     /// 验证规则完整性（元数据 + explain）
+    ///
+    /// 检查规则的元数据和说明是否完整。
+    ///
+    /// # Arguments
+    ///
+    /// * `rule` - 要验证的规则（实现了 Rule trait）
+    ///
+    /// # Returns
+    ///
+    /// 返回一个包含所有问题描述的 Vec。如果规则完整，返回空 Vec。
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleValidator, Rule, RuleMetadata, RuleCategory};
+    ///
+    /// struct TestRule { meta: RuleMetadata }
+    /// impl Rule for TestRule {
+    ///     fn metadata(&self) -> &RuleMetadata { &self.meta }
+    ///     fn category(&self) -> RuleCategory { RuleCategory::games("test") }
+    /// }
+    ///
+    /// let rule = TestRule { meta: RuleMetadata::new("测试", "描述") };
+    /// let issues = RuleValidator::validate_rule(&rule);
+    /// assert!(issues.is_empty());
+    /// ```
     pub fn validate_rule(rule: &dyn Rule) -> Vec<String> {
         let mut issues = Self::validate_metadata(rule.metadata());
         let explain = rule.explain();
@@ -815,6 +903,33 @@ impl RuleValidator {
     }
 
     /// 批量验证规则集
+    ///
+    /// 对一组规则进行完整性验证。
+    ///
+    /// # Arguments
+    ///
+    /// * `rules` - 要验证的规则列表
+    ///
+    /// # Returns
+    ///
+    /// 返回一个包含规则名称和对应问题列表的 Vec。
+    /// 只包含有问题的规则，完整的规则不会出现在结果中。
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleValidator, Rule, RuleMetadata, RuleCategory};
+    ///
+    /// struct GoodRule { meta: RuleMetadata }
+    /// impl Rule for GoodRule {
+    ///     fn metadata(&self) -> &RuleMetadata { &self.meta }
+    ///     fn category(&self) -> RuleCategory { RuleCategory::games("test") }
+    /// }
+    ///
+    /// let rule = GoodRule { meta: RuleMetadata::new("完整规则", "描述") };
+    /// let rules: Vec<&dyn Rule> = vec![&rule];
+    /// let issues = RuleValidator::validate_ruleset(&rules);
+    /// assert!(issues.is_empty()); // 完整规则不在结果中
+    /// ```
     pub fn validate_ruleset(rules: &[&dyn Rule]) -> Vec<(String, Vec<String>)> {
         rules
             .iter()
@@ -903,11 +1018,14 @@ macro_rules! simple_rule {
         category: $category:expr,
         sections: [ $( ($section_title:expr, $section_fn:ident) ),* ] $(,)?
     ) => {
+        #[doc = $display_name]
+        #[doc = $desc]
         pub struct $name {
             metadata: $crate::rules::core::RuleMetadata,
         }
 
         impl $name {
+            /// 创建新的规则实例
             pub fn new() -> Self {
                 Self {
                     metadata: $crate::rules::core::RuleMetadata::new(
@@ -969,11 +1087,14 @@ macro_rules! simple_rule {
         origin: $origin:expr,
         tags: [ $( $tag:expr ),* ] $(,)?
     ) => {
+        #[doc = $display_name]
+        #[doc = $desc]
         pub struct $name {
             metadata: $crate::rules::core::RuleMetadata,
         }
 
         impl $name {
+            /// 创建新的规则实例
             pub fn new() -> Self {
                 Self {
                     metadata: $crate::rules::core::RuleMetadata::new(

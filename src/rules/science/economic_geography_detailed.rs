@@ -76,7 +76,9 @@ impl EconomicGeographyDetailedRules {
     }
 
     /// 交通地理规则
-    pub fn transportation_geography_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn transportation_geography_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("交通网络定律", "网络结构", "交通网络结构类型"),
             ("交通节点定律", "节点枢纽", "交通节点枢纽功能"),

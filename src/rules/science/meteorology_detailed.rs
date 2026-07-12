@@ -76,7 +76,9 @@ impl MeteorologyDetailedRules {
     }
 
     /// 气象观测规则
-    pub fn meteorological_observation_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn meteorological_observation_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("地面观测定律", "地面站", "地面气象站观测要素和方法"),
             ("高空探测定律", "探空观测", "高空气象探测技术和数据"),
@@ -90,7 +92,9 @@ impl MeteorologyDetailedRules {
     }
 
     /// 数值天气预报规则
-    pub fn numerical_weather_prediction_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn numerical_weather_prediction_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("模式初始化定律", "初值化", "数值模式初值形成方法"),
             ("模式积分定律", "时间积分", "模式方程时间积分方案"),
@@ -118,7 +122,9 @@ impl MeteorologyDetailedRules {
     }
 
     /// 大气边界层规则
-    pub fn atmospheric_boundary_layer_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn atmospheric_boundary_layer_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("边界层结构定律", "垂直分层", "大气边界层垂直结构特征"),
             ("湍流混合定律", "湍流输送", "边界层湍流混合过程"),

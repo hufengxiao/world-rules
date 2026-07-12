@@ -16,10 +16,10 @@
 
 use world_rules::rules::core::{Rule, RuleCategory};
 use world_rules::rules::science::{
-    MeteorologyDetailedRules, SynopticMeteorologyRules, TropicalMeteorologyRules,
-    MesoscaleMeteorologyRules, DynamicMeteorologyRules, PhysicalMeteorologyRules,
-    MarineMeteorologyRules, AviationMeteorologyRules, RadarMeteorologyRules,
-    SatelliteMeteorologyRules,
+    AviationMeteorologyRules, DynamicMeteorologyRules, MarineMeteorologyRules,
+    MesoscaleMeteorologyRules, MeteorologyDetailedRules, PhysicalMeteorologyRules,
+    RadarMeteorologyRules, SatelliteMeteorologyRules, SynopticMeteorologyRules,
+    TropicalMeteorologyRules,
 };
 
 // ============================================================================
@@ -31,8 +31,11 @@ use world_rules::rules::science::{
 fn test_meteorology_detailed_rules_comprehensive() {
     let rules = MeteorologyDetailedRules::new();
     assert_eq!(rules.metadata().name, "气象学详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("meteorology_detailed"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("meteorology_detailed")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.weather_forecast_rules().len(), 8);
     assert_eq!(rules.atmospheric_physics_rules().len(), 8);
@@ -44,7 +47,7 @@ fn test_meteorology_detailed_rules_comprehensive() {
     assert_eq!(rules.atmospheric_boundary_layer_rules().len(), 8);
     assert_eq!(rules.weather_radar_rules().len(), 8);
     assert_eq!(rules.weather_satellite_rules().len(), 8);
-    
+
     // 总规则数: 80
     let total = rules.weather_forecast_rules().len()
         + rules.atmospheric_physics_rules().len()
@@ -57,7 +60,7 @@ fn test_meteorology_detailed_rules_comprehensive() {
         + rules.weather_radar_rules().len()
         + rules.weather_satellite_rules().len();
     assert_eq!(total, 80);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -66,8 +69,11 @@ fn test_meteorology_detailed_rules_comprehensive() {
 fn test_synoptic_meteorology_rules_comprehensive() {
     let rules = SynopticMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "天气学规则");
-    assert_eq!(rules.category(), RuleCategory::science("synoptic_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("synoptic_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.frontal_analysis_rules().len(), 8);
     assert_eq!(rules.cyclone_analysis_rules().len(), 8);
@@ -78,7 +84,7 @@ fn test_synoptic_meteorology_rules_comprehensive() {
     assert_eq!(rules.vorticity_analysis_rules().len(), 8);
     assert_eq!(rules.weather_process_rules().len(), 8);
     assert_eq!(rules.weather_pattern_rules().len(), 8);
-    
+
     // 总规则数: 72
     let total = rules.frontal_analysis_rules().len()
         + rules.cyclone_analysis_rules().len()
@@ -90,7 +96,7 @@ fn test_synoptic_meteorology_rules_comprehensive() {
         + rules.weather_process_rules().len()
         + rules.weather_pattern_rules().len();
     assert_eq!(total, 72);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -99,8 +105,11 @@ fn test_synoptic_meteorology_rules_comprehensive() {
 fn test_tropical_meteorology_rules_comprehensive() {
     let rules = TropicalMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "热带气象学规则");
-    assert_eq!(rules.category(), RuleCategory::science("tropical_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("tropical_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.typhoon_rules().len(), 8);
     assert_eq!(rules.tropical_convection_rules().len(), 8);
@@ -111,7 +120,7 @@ fn test_tropical_meteorology_rules_comprehensive() {
     assert_eq!(rules.tropical_precipitation_rules().len(), 8);
     assert_eq!(rules.tropical_cyclone_motion_rules().len(), 8);
     assert_eq!(rules.tropical_cyclone_disaster_rules().len(), 8);
-    
+
     // 总规则数: 72
     let total = rules.typhoon_rules().len()
         + rules.tropical_convection_rules().len()
@@ -123,7 +132,7 @@ fn test_tropical_meteorology_rules_comprehensive() {
         + rules.tropical_cyclone_motion_rules().len()
         + rules.tropical_cyclone_disaster_rules().len();
     assert_eq!(total, 72);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -132,8 +141,11 @@ fn test_tropical_meteorology_rules_comprehensive() {
 fn test_mesoscale_meteorology_rules_comprehensive() {
     let rules = MesoscaleMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "中尺度气象学规则");
-    assert_eq!(rules.category(), RuleCategory::science("mesoscale_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("mesoscale_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.severe_convection_rules().len(), 8);
     assert_eq!(rules.thunderstorm_rules().len(), 8);
@@ -141,7 +153,7 @@ fn test_mesoscale_meteorology_rules_comprehensive() {
     assert_eq!(rules.heavy_rain_rules().len(), 8);
     assert_eq!(rules.hail_rules().len(), 8);
     assert_eq!(rules.downburst_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.severe_convection_rules().len()
         + rules.thunderstorm_rules().len()
@@ -150,7 +162,7 @@ fn test_mesoscale_meteorology_rules_comprehensive() {
         + rules.hail_rules().len()
         + rules.downburst_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -159,8 +171,11 @@ fn test_mesoscale_meteorology_rules_comprehensive() {
 fn test_dynamic_meteorology_rules_comprehensive() {
     let rules = DynamicMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "动力气象学规则");
-    assert_eq!(rules.category(), RuleCategory::science("dynamic_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("dynamic_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.atmospheric_motion_equations_rules().len(), 8);
     assert_eq!(rules.atmospheric_waves_rules().len(), 8);
@@ -168,7 +183,7 @@ fn test_dynamic_meteorology_rules_comprehensive() {
     assert_eq!(rules.atmospheric_energy_rules().len(), 8);
     assert_eq!(rules.general_circulation_rules().len(), 8);
     assert_eq!(rules.atmospheric_vortices_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.atmospheric_motion_equations_rules().len()
         + rules.atmospheric_waves_rules().len()
@@ -177,7 +192,7 @@ fn test_dynamic_meteorology_rules_comprehensive() {
         + rules.general_circulation_rules().len()
         + rules.atmospheric_vortices_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -186,8 +201,11 @@ fn test_dynamic_meteorology_rules_comprehensive() {
 fn test_physical_meteorology_rules_comprehensive() {
     let rules = PhysicalMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "物理气象学规则");
-    assert_eq!(rules.category(), RuleCategory::science("physical_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("physical_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.atmospheric_radiation_rules().len(), 8);
     assert_eq!(rules.cloud_physics_rules().len(), 8);
@@ -195,7 +213,7 @@ fn test_physical_meteorology_rules_comprehensive() {
     assert_eq!(rules.atmospheric_electrical_rules().len(), 8);
     assert_eq!(rules.atmospheric_acoustics_rules().len(), 8);
     assert_eq!(rules.atmospheric_chemistry_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.atmospheric_radiation_rules().len()
         + rules.cloud_physics_rules().len()
@@ -204,7 +222,7 @@ fn test_physical_meteorology_rules_comprehensive() {
         + rules.atmospheric_acoustics_rules().len()
         + rules.atmospheric_chemistry_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -213,8 +231,11 @@ fn test_physical_meteorology_rules_comprehensive() {
 fn test_marine_meteorology_rules_comprehensive() {
     let rules = MarineMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "海洋气象学规则");
-    assert_eq!(rules.category(), RuleCategory::science("marine_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("marine_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.air_sea_interaction_rules().len(), 8);
     assert_eq!(rules.marine_weather_systems_rules().len(), 8);
@@ -222,7 +243,7 @@ fn test_marine_meteorology_rules_comprehensive() {
     assert_eq!(rules.marine_forecast_rules().len(), 8);
     assert_eq!(rules.marine_disaster_rules().len(), 8);
     assert_eq!(rules.shipping_meteorology_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.air_sea_interaction_rules().len()
         + rules.marine_weather_systems_rules().len()
@@ -231,7 +252,7 @@ fn test_marine_meteorology_rules_comprehensive() {
         + rules.marine_disaster_rules().len()
         + rules.shipping_meteorology_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -240,8 +261,11 @@ fn test_marine_meteorology_rules_comprehensive() {
 fn test_aviation_meteorology_rules_comprehensive() {
     let rules = AviationMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "航空气象学规则");
-    assert_eq!(rules.category(), RuleCategory::science("aviation_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("aviation_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.flight_meteorology_rules().len(), 8);
     assert_eq!(rules.airport_meteorology_rules().len(), 8);
@@ -249,7 +273,7 @@ fn test_aviation_meteorology_rules_comprehensive() {
     assert_eq!(rules.turbulence_rules().len(), 8);
     assert_eq!(rules.aircraft_icing_rules().len(), 8);
     assert_eq!(rules.wind_shear_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.flight_meteorology_rules().len()
         + rules.airport_meteorology_rules().len()
@@ -258,7 +282,7 @@ fn test_aviation_meteorology_rules_comprehensive() {
         + rules.aircraft_icing_rules().len()
         + rules.wind_shear_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -268,7 +292,7 @@ fn test_radar_meteorology_rules_comprehensive() {
     let rules = RadarMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "气象雷达学规则");
     assert_eq!(rules.category(), RuleCategory::science("radar_meteorology"));
-    
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.radar_principle_rules().len(), 8);
     assert_eq!(rules.reflectivity_factor_rules().len(), 8);
@@ -276,7 +300,7 @@ fn test_radar_meteorology_rules_comprehensive() {
     assert_eq!(rules.dual_polarization_radar_rules().len(), 8);
     assert_eq!(rules.radar_qpe_rules().len(), 8);
     assert_eq!(rules.echo_identification_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.radar_principle_rules().len()
         + rules.reflectivity_factor_rules().len()
@@ -285,7 +309,7 @@ fn test_radar_meteorology_rules_comprehensive() {
         + rules.radar_qpe_rules().len()
         + rules.echo_identification_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -294,8 +318,11 @@ fn test_radar_meteorology_rules_comprehensive() {
 fn test_satellite_meteorology_rules_comprehensive() {
     let rules = SatelliteMeteorologyRules::new();
     assert_eq!(rules.metadata().name, "卫星气象学规则");
-    assert_eq!(rules.category(), RuleCategory::science("satellite_meteorology"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("satellite_meteorology")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.satellite_remote_sensing_rules().len(), 8);
     assert_eq!(rules.satellite_channel_rules().len(), 8);
@@ -303,7 +330,7 @@ fn test_satellite_meteorology_rules_comprehensive() {
     assert_eq!(rules.satellite_wind_rules().len(), 8);
     assert_eq!(rules.satellite_retrieval_rules().len(), 8);
     assert_eq!(rules.satellite_monitoring_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.satellite_remote_sensing_rules().len()
         + rules.satellite_channel_rules().len()
@@ -312,7 +339,7 @@ fn test_satellite_meteorology_rules_comprehensive() {
         + rules.satellite_retrieval_rules().len()
         + rules.satellite_monitoring_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 

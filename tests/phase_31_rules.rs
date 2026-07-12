@@ -17,10 +17,10 @@
 
 use world_rules::rules::core::{Rule, RuleCategory};
 use world_rules::rules::science::{
-    GeomorphologyDetailedRules, ClimatologyDetailedRules, HydrologyDetailedRules,
-    SoilGeographyRules, BiogeographyDetailedRules, UrbanGeographyDetailedRules,
-    EconomicGeographyDetailedRules, CulturalGeographyDetailedRules,
-    PoliticalGeographyDetailedRules, RemoteSensingDetailedRules, GISDetailedRules,
+    BiogeographyDetailedRules, ClimatologyDetailedRules, CulturalGeographyDetailedRules,
+    EconomicGeographyDetailedRules, GISDetailedRules, GeomorphologyDetailedRules,
+    HydrologyDetailedRules, PoliticalGeographyDetailedRules, RemoteSensingDetailedRules,
+    SoilGeographyRules, UrbanGeographyDetailedRules,
 };
 
 // ============================================================================
@@ -32,7 +32,10 @@ use world_rules::rules::science::{
 fn test_geomorphology_detailed_rules() {
     let rules = GeomorphologyDetailedRules::new();
     assert_eq!(rules.metadata().name, "地貌学详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("geomorphology_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("geomorphology_detailed")
+    );
     assert_eq!(rules.erosion_landform_rules().len(), 8);
     assert_eq!(rules.deposition_landform_rules().len(), 8);
     assert_eq!(rules.fluvial_landform_rules().len(), 8);
@@ -49,7 +52,10 @@ fn test_geomorphology_detailed_rules() {
 fn test_climatology_detailed_rules() {
     let rules = ClimatologyDetailedRules::new();
     assert_eq!(rules.metadata().name, "气候学详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("climatology_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("climatology_detailed")
+    );
     assert_eq!(rules.climate_classification_rules().len(), 8);
     assert_eq!(rules.climate_elements_rules().len(), 8);
     assert_eq!(rules.climate_change_rules().len(), 8);
@@ -66,7 +72,10 @@ fn test_climatology_detailed_rules() {
 fn test_hydrology_detailed_rules() {
     let rules = HydrologyDetailedRules::new();
     assert_eq!(rules.metadata().name, "水文学详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("hydrology_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("hydrology_detailed")
+    );
     assert_eq!(rules.hydrological_cycle_rules().len(), 8);
     assert_eq!(rules.river_hydrology_rules().len(), 8);
     assert_eq!(rules.groundwater_rules().len(), 8);
@@ -101,7 +110,10 @@ fn test_soil_geography_rules() {
 fn test_biogeography_detailed_rules() {
     let rules = BiogeographyDetailedRules::new();
     assert_eq!(rules.metadata().name, "生物地理规则");
-    assert_eq!(rules.category(), RuleCategory::science("biogeography_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("biogeography_detailed")
+    );
     assert_eq!(rules.species_distribution_rules().len(), 8);
     assert_eq!(rules.community_distribution_rules().len(), 8);
     assert_eq!(rules.ecosystem_distribution_rules().len(), 8);
@@ -119,7 +131,10 @@ fn test_biogeography_detailed_rules() {
 fn test_urban_geography_detailed_rules() {
     let rules = UrbanGeographyDetailedRules::new();
     assert_eq!(rules.metadata().name, "城市地理规则");
-    assert_eq!(rules.category(), RuleCategory::science("urban_geography_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("urban_geography_detailed")
+    );
     assert_eq!(rules.urbanization_rules().len(), 8);
     assert_eq!(rules.urban_structure_rules().len(), 8);
     assert_eq!(rules.urban_system_rules().len(), 8);
@@ -138,7 +153,10 @@ fn test_urban_geography_detailed_rules() {
 fn test_economic_geography_detailed_rules() {
     let rules = EconomicGeographyDetailedRules::new();
     assert_eq!(rules.metadata().name, "经济地理规则");
-    assert_eq!(rules.category(), RuleCategory::science("economic_geography_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("economic_geography_detailed")
+    );
     assert_eq!(rules.industrial_layout_rules().len(), 8);
     assert_eq!(rules.agricultural_geography_rules().len(), 8);
     assert_eq!(rules.industrial_geography_rules().len(), 8);
@@ -156,7 +174,10 @@ fn test_economic_geography_detailed_rules() {
 fn test_cultural_geography_detailed_rules() {
     let rules = CulturalGeographyDetailedRules::new();
     assert_eq!(rules.metadata().name, "文化地理规则");
-    assert_eq!(rules.category(), RuleCategory::science("cultural_geography_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("cultural_geography_detailed")
+    );
     assert_eq!(rules.cultural_region_rules().len(), 8);
     assert_eq!(rules.cultural_diffusion_rules().len(), 8);
     assert_eq!(rules.cultural_ecology_rules().len(), 8);
@@ -174,7 +195,10 @@ fn test_cultural_geography_detailed_rules() {
 fn test_political_geography_detailed_rules() {
     let rules = PoliticalGeographyDetailedRules::new();
     assert_eq!(rules.metadata().name, "政治地理规则");
-    assert_eq!(rules.category(), RuleCategory::science("political_geography_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("political_geography_detailed")
+    );
     assert_eq!(rules.territory_rules().len(), 8);
     assert_eq!(rules.boundary_rules().len(), 8);
     assert_eq!(rules.geopolitics_rules().len(), 8);
@@ -192,7 +216,10 @@ fn test_political_geography_detailed_rules() {
 fn test_remote_sensing_detailed_rules() {
     let rules = RemoteSensingDetailedRules::new();
     assert_eq!(rules.metadata().name, "遥感地理详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("remote_sensing_detailed"));
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("remote_sensing_detailed")
+    );
     assert_eq!(rules.remote_sensing_principles().len(), 8);
     assert_eq!(rules.classification_rules().len(), 8);
     assert_eq!(rules.interpretation_rules().len(), 8);

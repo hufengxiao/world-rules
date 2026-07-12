@@ -104,7 +104,9 @@ impl PhysicalMeteorologyRules {
     }
 
     /// 大气热力学规则
-    pub fn atmospheric_thermodynamics_rules(&self) -> Vec<(&'static str, &'static str, &'static str)> {
+    pub fn atmospheric_thermodynamics_rules(
+        &self,
+    ) -> Vec<(&'static str, &'static str, &'static str)> {
         vec![
             ("热力学第一定律", "能量守恒", "大气能量守恒原理"),
             ("热力学第二定律", "熵增原理", "大气熵变化过程"),

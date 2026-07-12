@@ -11,8 +11,8 @@
 
 use world_rules::rules::core::{Rule, RuleCategory};
 use world_rules::rules::science::{
-    GeologyDetailedRules, GeoscienceDetailedRules, SeismologyDetailedRules,
-    OceanographyDetailedRules, VolcanologyDetailedRules,
+    GeologyDetailedRules, GeoscienceDetailedRules, OceanographyDetailedRules,
+    SeismologyDetailedRules, VolcanologyDetailedRules,
 };
 
 // ============================================================================
@@ -25,7 +25,7 @@ fn test_geology_detailed_rules_comprehensive() {
     let rules = GeologyDetailedRules::new();
     assert_eq!(rules.metadata().name, "地质学详细规则");
     assert_eq!(rules.category(), RuleCategory::science("geology_detailed"));
-    
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.rock_types_rules().len(), 8);
     assert_eq!(rules.mineralogy_rules().len(), 8);
@@ -35,7 +35,7 @@ fn test_geology_detailed_rules_comprehensive() {
     assert_eq!(rules.geological_time_rules().len(), 8);
     assert_eq!(rules.geological_processes_rules().len(), 8);
     assert_eq!(rules.geological_resources_rules().len(), 8);
-    
+
     // 总规则数: 64
     let total = rules.rock_types_rules().len()
         + rules.mineralogy_rules().len()
@@ -46,7 +46,7 @@ fn test_geology_detailed_rules_comprehensive() {
         + rules.geological_processes_rules().len()
         + rules.geological_resources_rules().len();
     assert_eq!(total, 64);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -55,8 +55,11 @@ fn test_geology_detailed_rules_comprehensive() {
 fn test_geoscience_detailed_rules_comprehensive() {
     let rules = GeoscienceDetailedRules::new();
     assert_eq!(rules.metadata().name, "地球科学综合详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("geoscience_detailed"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("geoscience_detailed")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.earth_system_rules().len(), 8);
     assert_eq!(rules.global_change_rules().len(), 8);
@@ -64,7 +67,7 @@ fn test_geoscience_detailed_rules_comprehensive() {
     assert_eq!(rules.human_environment_rules().len(), 8);
     assert_eq!(rules.natural_disasters_rules().len(), 8);
     assert_eq!(rules.earth_observation_rules().len(), 8);
-    
+
     // 总规则数: 48
     let total = rules.earth_system_rules().len()
         + rules.global_change_rules().len()
@@ -73,7 +76,7 @@ fn test_geoscience_detailed_rules_comprehensive() {
         + rules.natural_disasters_rules().len()
         + rules.earth_observation_rules().len();
     assert_eq!(total, 48);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -82,8 +85,11 @@ fn test_geoscience_detailed_rules_comprehensive() {
 fn test_seismology_detailed_rules_comprehensive() {
     let rules = SeismologyDetailedRules::new();
     assert_eq!(rules.metadata().name, "地震学详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("seismology_detailed"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("seismology_detailed")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.seismic_wave_types_rules().len(), 8);
     assert_eq!(rules.earthquake_magnitude_rules().len(), 8);
@@ -93,7 +99,7 @@ fn test_seismology_detailed_rules_comprehensive() {
     assert_eq!(rules.earthquake_disaster_rules().len(), 8);
     assert_eq!(rules.earthquake_engineering_rules().len(), 8);
     assert_eq!(rules.earthquake_prediction_rules().len(), 8);
-    
+
     // 总规则数: 64
     let total = rules.seismic_wave_types_rules().len()
         + rules.earthquake_magnitude_rules().len()
@@ -104,7 +110,7 @@ fn test_seismology_detailed_rules_comprehensive() {
         + rules.earthquake_engineering_rules().len()
         + rules.earthquake_prediction_rules().len();
     assert_eq!(total, 64);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -113,8 +119,11 @@ fn test_seismology_detailed_rules_comprehensive() {
 fn test_oceanography_detailed_rules_comprehensive() {
     let rules = OceanographyDetailedRules::new();
     assert_eq!(rules.metadata().name, "海洋学详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("oceanography_detailed"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("oceanography_detailed")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.ocean_circulation_rules().len(), 8);
     assert_eq!(rules.ocean_chemistry_rules().len(), 8);
@@ -124,7 +133,7 @@ fn test_oceanography_detailed_rules_comprehensive() {
     assert_eq!(rules.marine_ecosystem_rules().len(), 8);
     assert_eq!(rules.ocean_geology_rules().len(), 8);
     assert_eq!(rules.ocean_resources_rules().len(), 8);
-    
+
     // 总规则数: 64
     let total = rules.ocean_circulation_rules().len()
         + rules.ocean_chemistry_rules().len()
@@ -135,7 +144,7 @@ fn test_oceanography_detailed_rules_comprehensive() {
         + rules.ocean_geology_rules().len()
         + rules.ocean_resources_rules().len();
     assert_eq!(total, 64);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -144,8 +153,11 @@ fn test_oceanography_detailed_rules_comprehensive() {
 fn test_volcanology_detailed_rules_comprehensive() {
     let rules = VolcanologyDetailedRules::new();
     assert_eq!(rules.metadata().name, "火山学详细规则");
-    assert_eq!(rules.category(), RuleCategory::science("volcanology_detailed"));
-    
+    assert_eq!(
+        rules.category(),
+        RuleCategory::science("volcanology_detailed")
+    );
+
     // 验证所有方法返回正确数量
     assert_eq!(rules.volcano_types_rules().len(), 8);
     assert_eq!(rules.eruption_types_rules().len(), 8);
@@ -155,7 +167,7 @@ fn test_volcanology_detailed_rules_comprehensive() {
     assert_eq!(rules.volcano_warning_rules().len(), 8);
     assert_eq!(rules.volcanic_geology_rules().len(), 8);
     assert_eq!(rules.volcanic_hazards_rules().len(), 8);
-    
+
     // 总规则数: 64
     let total = rules.volcano_types_rules().len()
         + rules.eruption_types_rules().len()
@@ -166,7 +178,7 @@ fn test_volcanology_detailed_rules_comprehensive() {
         + rules.volcanic_geology_rules().len()
         + rules.volcanic_hazards_rules().len();
     assert_eq!(total, 64);
-    
+
     assert!(!rules.explain().is_empty());
 }
 
@@ -294,7 +306,7 @@ fn test_phase_31_03_total_rules() {
         + geology.geological_time_rules().len()
         + geology.geological_processes_rules().len()
         + geology.geological_resources_rules().len();
-    
+
     // 地球科学综合详细: 48
     let geoscience = GeoscienceDetailedRules::new();
     let geoscience_total = geoscience.earth_system_rules().len()
@@ -303,7 +315,7 @@ fn test_phase_31_03_total_rules() {
         + geoscience.human_environment_rules().len()
         + geoscience.natural_disasters_rules().len()
         + geoscience.earth_observation_rules().len();
-    
+
     // 地震学详细: 64
     let seismology = SeismologyDetailedRules::new();
     let seismology_total = seismology.seismic_wave_types_rules().len()
@@ -314,7 +326,7 @@ fn test_phase_31_03_total_rules() {
         + seismology.earthquake_disaster_rules().len()
         + seismology.earthquake_engineering_rules().len()
         + seismology.earthquake_prediction_rules().len();
-    
+
     // 海洋学详细: 64
     let oceanography = OceanographyDetailedRules::new();
     let oceanography_total = oceanography.ocean_circulation_rules().len()
@@ -325,7 +337,7 @@ fn test_phase_31_03_total_rules() {
         + oceanography.marine_ecosystem_rules().len()
         + oceanography.ocean_geology_rules().len()
         + oceanography.ocean_resources_rules().len();
-    
+
     // 火山学详细: 64
     let volcanology = VolcanologyDetailedRules::new();
     let volcanology_total = volcanology.volcano_types_rules().len()
@@ -336,8 +348,12 @@ fn test_phase_31_03_total_rules() {
         + volcanology.volcano_warning_rules().len()
         + volcanology.volcanic_geology_rules().len()
         + volcanology.volcanic_hazards_rules().len();
-    
+
     // 总规则数: 64 + 48 + 64 + 64 + 64 = 288
-    let total = geology_total + geoscience_total + seismology_total + oceanography_total + volcanology_total;
+    let total = geology_total
+        + geoscience_total
+        + seismology_total
+        + oceanography_total
+        + volcanology_total;
     assert_eq!(total, 288);
 }
