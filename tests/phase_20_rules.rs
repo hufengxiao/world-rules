@@ -573,13 +573,25 @@ fn phase_20_01_origin_tags() {
         ShanxiMahjongRules,
     };
 
-    assert_eq!(HunanMahjongRules::new().metadata().origin, Some("湖南"));
-    assert_eq!(HebeiMahjongRules::new().metadata().origin, Some("河北"));
-    assert_eq!(ShanxiMahjongRules::new().metadata().origin, Some("山西"));
-    assert_eq!(NingxiaMahjongRules::new().metadata().origin, Some("宁夏"));
+    assert_eq!(
+        HunanMahjongRules::new().metadata().origin,
+        Some("湖南".to_string())
+    );
+    assert_eq!(
+        HebeiMahjongRules::new().metadata().origin,
+        Some("河北".to_string())
+    );
+    assert_eq!(
+        ShanxiMahjongRules::new().metadata().origin,
+        Some("山西".to_string())
+    );
+    assert_eq!(
+        NingxiaMahjongRules::new().metadata().origin,
+        Some("宁夏".to_string())
+    );
     assert_eq!(
         InnerMongoliaMahjongRules::new().metadata().origin,
-        Some("内蒙古")
+        Some("内蒙古".to_string())
     );
 }
 
@@ -616,7 +628,7 @@ fn american_mahjong_scoring_rules() {
     let scoring = rules.scoring_rules();
 
     assert!(!scoring.is_empty());
-    assert!(scoring.iter().any(|(name, _)| name == "清一色"));
+    assert!(scoring.iter().any(|(name, _)| *name == "清一色"));
     assert!(scoring.iter().any(|(name, _)| name.contains("Joker")));
 }
 
@@ -661,8 +673,8 @@ fn vietnamese_mahjong_scoring() {
     let scoring = rules.scoring_rules();
 
     assert!(!scoring.is_empty());
-    assert!(scoring.iter().any(|(name, _)| name == "清一色"));
-    assert!(scoring.iter().any(|(name, _)| name == "十三幺"));
+    assert!(scoring.iter().any(|(name, _)| *name == "清一色"));
+    assert!(scoring.iter().any(|(name, _)| *name == "十三幺"));
 }
 
 #[test]
@@ -695,8 +707,8 @@ fn filipino_mahjong_scoring_rules() {
     let scoring = rules.simplified_scoring();
 
     assert!(!scoring.is_empty());
-    assert!(scoring.iter().any(|(name, _)| name == "平胡"));
-    assert!(scoring.iter().any(|(name, _)| name == "清一色"));
+    assert!(scoring.iter().any(|(name, _)| *name == "平胡"));
+    assert!(scoring.iter().any(|(name, _)| *name == "清一色"));
 }
 
 #[test]
@@ -763,7 +775,7 @@ fn malaysian_mahjong_special_fans() {
 
     assert!(!fans.is_empty());
     assert!(fans.iter().any(|(name, _)| name.contains("动物")));
-    assert!(fans.iter().any(|(name, _)| name == "清一色"));
+    assert!(fans.iter().any(|(name, _)| *name == "清一色"));
 }
 
 #[test]
@@ -774,7 +786,7 @@ fn malaysian_mahjong_animal_scoring() {
     let fans = rules.special_fan_types();
 
     // 验证动物牌番种计分
-    let full_animal = fans.iter().find(|(name, _)| name == "全动物");
+    let full_animal = fans.iter().find(|(name, _)| *name == "全动物");
     assert!(full_animal.is_some());
     assert_eq!(full_animal.unwrap().1, 8);
 }
@@ -857,21 +869,24 @@ fn phase_20_03_origin_tags() {
         VietnameseMahjongRules,
     };
 
-    assert_eq!(AmericanMahjongRules::new().metadata().origin, Some("美国"));
+    assert_eq!(
+        AmericanMahjongRules::new().metadata().origin,
+        Some("美国".to_string())
+    );
     assert_eq!(
         VietnameseMahjongRules::new().metadata().origin,
-        Some("越南")
+        Some("越南".to_string())
     );
     assert_eq!(
         FilipinoMahjongRules::new().metadata().origin,
-        Some("菲律宾")
+        Some("菲律宾".to_string())
     );
     assert_eq!(
         SingaporeMahjongRules::new().metadata().origin,
-        Some("新加坡")
+        Some("新加坡".to_string())
     );
     assert_eq!(
         MalaysianMahjongRules::new().metadata().origin,
-        Some("马来西亚")
+        Some("马来西亚".to_string())
     );
 }

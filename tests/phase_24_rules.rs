@@ -767,8 +767,8 @@ fn test_luge_rules_basic() {
 
 #[test]
 fn test_skeleton_rules_basic() {
-    use world_rules::rules::sports::SkeletonBsfDetailedRules;
-    let rules = SkeletonBsfDetailedRules::new();
+    use world_rules::rules::sports::SkeletonIbsfDetailedRules;
+    let rules = SkeletonIbsfDetailedRules::new();
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
