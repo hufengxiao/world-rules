@@ -819,25 +819,25 @@ fn phase_19_all_rules_have_unique_names() {
         PairGoRules, PowerGridRules, PuertoRicoRules,
     };
 
-    let rules = [
+    let rules: Vec<Box<dyn Rule>> = vec![
         // Phase 19-02: 围棋变体
-        Go9x9Rules::new(),
-        Go13x13Rules::new(),
-        BlindGoRules::new(),
-        OneColorGoRules::new(),
-        PairGoRules::new(),
+        Box::new(Go9x9Rules::new()),
+        Box::new(Go13x13Rules::new()),
+        Box::new(BlindGoRules::new()),
+        Box::new(OneColorGoRules::new()),
+        Box::new(PairGoRules::new()),
         // Phase 19-03: 其他棋类
-        JanggiRules::new(),
-        MakrukRules::new(),
-        JungleRules::new(),
-        MancalaRules::new(),
-        MiniShogiRules::new(),
+        Box::new(JanggiRules::new()),
+        Box::new(MakrukRules::new()),
+        Box::new(JungleRules::new()),
+        Box::new(MancalaRules::new()),
+        Box::new(MiniShogiRules::new()),
         // Phase 19-04: 桌游
-        AgricolaRules::new(),
-        CarcassonneRules::new(),
-        DominionRules::new(),
-        PowerGridRules::new(),
-        PuertoRicoRules::new(),
+        Box::new(AgricolaRules::new()),
+        Box::new(CarcassonneRules::new()),
+        Box::new(DominionRules::new()),
+        Box::new(PowerGridRules::new()),
+        Box::new(PuertoRicoRules::new()),
     ];
 
     // 确保每个规则有不同的名称

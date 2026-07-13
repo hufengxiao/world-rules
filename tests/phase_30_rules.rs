@@ -607,16 +607,16 @@ fn test_phase_30_total_rules_count() {
     // 这里只验证 Phase 30-03 的精确计数
     // Phase 30-01 和 30-02 的详细计数在各自的模块测试中
 
-    let neurobiology = NeurobiologyRules::new();
-    let regenerative = RegenerativeBiologyRules::new();
-    let stem_cell = StemCellBiologyRules::new();
-    let immunobiology = ImmunobiologyRules::new();
-    let biomechanics = BiomechanicsRules::new();
-    let biooptics = BioopticsRules::new();
-    let bioacoustics = BioacousticsRules::new();
-    let bioelectricity = BioelectricityRules::new();
-    let biothermodynamics = BiothermodynamicsRules::new();
-    let chronobiology = ChronobiologyRules::new();
+    let _neurobiology = NeurobiologyRules::new();
+    let _regenerative = RegenerativeBiologyRules::new();
+    let _stem_cell = StemCellBiologyRules::new();
+    let _immunobiology = ImmunobiologyRules::new();
+    let _biomechanics = BiomechanicsRules::new();
+    let _biooptics = BioopticsRules::new();
+    let _bioacoustics = BioacousticsRules::new();
+    let _bioelectricity = BioelectricityRules::new();
+    let _biothermodynamics = BiothermodynamicsRules::new();
+    let _chronobiology = ChronobiologyRules::new();
 
     // Phase 30-03 总规则数
     let phase_30_03_total = 70 + 69 + 70 * 8; // 699
