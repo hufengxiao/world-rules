@@ -33,8 +33,7 @@ prop_compose! {
 /// 生成数独网格字符串（81个字符）
 prop_compose! {
     fn sudoku_grid_string()(chars in prop::collection::vec(
-        proptest::char::range('0', '9').or(proptest::char::range('.', '.')),
-        81
+        "[0-9.]", 81
     )) -> String {
         chars.into_iter().collect()
     }
@@ -43,8 +42,7 @@ prop_compose! {
 /// 生成部分数独网格（少于81字符）
 prop_compose! {
     fn partial_sudoku_string()(len in 0usize..=100, chars in proptest::collection::vec(
-        proptest::char::range('0', '9').or(proptest::char::range('.', '.')),
-        0..100
+        "[0-9.]", 0..100
     )) -> String {
         chars.into_iter().collect()
     }
@@ -147,7 +145,10 @@ proptest! {
             for box_row in 0..3 {
                 for box_col in 0..3 {
                     let box_values: Vec<Option<u8>> = (0..3)
-                        .flat_map(|r| (0..3).map(|c| grid[(box_row * 3 + r) * 9 + box_col * 3 + c]))
+                        .flat_map(|r| {
+                            let r = r;
+                            (0..3).map(|c| grid[(box_row * 3 + r) * 9 + box_col * 3 + c])
+                        })
                         .collect();
                     prop_assert_eq!(box_values.len(), 9);
                 }
