@@ -476,9 +476,8 @@ proptest! {
         let ctx = ValidateContext::Generic(text);
 
         for rule in &rules {
-            let result = std::panic::catch_unwind(|| {
-                rule.validate(&ctx)
-            });
+            // 直接验证，不使用 catch_unwind（dyn Rule 可能包含内部可变性）
+            let result = rule.validate(&ctx);
             prop_assert!(result.is_ok());
         }
     }
