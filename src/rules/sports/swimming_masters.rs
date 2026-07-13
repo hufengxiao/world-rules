@@ -10,7 +10,7 @@ pub struct SwimmingMastersRules {
 impl SwimmingMastersRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("大师游泳规则", "成人游泳比赛规则 (25岁以上)")
+            metadata: RuleMetadata::new("成人游泳规则", "成人游泳比赛规则 (25岁以上)")
                 .with_origin("FINA")
                 .with_tags(vec!["体育".into(), "游泳".into(), "大师".into()]),
         }

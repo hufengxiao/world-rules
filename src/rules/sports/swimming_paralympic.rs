@@ -10,7 +10,7 @@ pub struct SwimmingParalympicRules {
 impl SwimmingParalympicRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("残疾人游泳规则", "残疾人游泳比赛规则")
+            metadata: RuleMetadata::new("残奥游泳规则", "残疾人游泳比赛规则")
                 .with_origin("IPC")
                 .with_tags(vec!["体育".into(), "游泳".into(), "残奥".into()]),
         }

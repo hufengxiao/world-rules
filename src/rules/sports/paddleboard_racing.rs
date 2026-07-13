@@ -1,7 +1,7 @@
 //! 桨板竞速规则
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: PaddleboardRacingRules, name: "桨板竞速规则", desc: "桨板竞速规则", origin: "国际", tags: ["体育", "水上"] }
+simple_rule! { struct: PaddleboardRacingRules, name: "竞技桨板规则", desc: "桨板竞速规则", origin: "国际", tags: ["体育", "水上"] }
 impl PaddleboardRacingRules {
     pub fn section_0(&self) -> Vec<&'static str> {
         vec!["长距离短距离"]
