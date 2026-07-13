@@ -278,16 +278,16 @@ fn phase_19_all_go_variants_have_unique_categories() {
         BlindGoRules, Go13x13Rules, Go9x9Rules, OneColorGoRules, PairGoRules,
     };
 
-    let rules = [
-        Go9x9Rules::new(),
-        Go13x13Rules::new(),
-        BlindGoRules::new(),
-        OneColorGoRules::new(),
-        PairGoRules::new(),
+    let rules: Vec<Box<dyn Rule>> = vec![
+        Box::new(Go9x9Rules::new()),
+        Box::new(Go13x13Rules::new()),
+        Box::new(BlindGoRules::new()),
+        Box::new(OneColorGoRules::new()),
+        Box::new(PairGoRules::new()),
     ];
 
     // 确保每个规则有不同的名称
-    let names: Vec<_> = rules.iter().map(|r| r.metadata().name).collect();
+    let names: Vec<_> = rules.iter().map(|r| r.metadata().name.clone()).collect();
     for i in 0..names.len() {
         for j in (i + 1)..names.len() {
             assert_ne!(names[i], names[j], "规则名称应该唯一");
@@ -303,15 +303,7 @@ fn phase_19_all_go_variants_explain_non_empty() {
     };
 
     // 每个规则的说明内容应该至少200字符
-    let rules = [
-        Go9x9Rules::new(),
-        Go13x13Rules::new(),
-        BlindGoRules::new(),
-        OneColorGoRules::new(),
-        PairGoRules::new(),
-    ];
-
-    for rule in &rules {
+    for rule in [&Go9x9Rules::new(), &Go13x13Rules::new() as &dyn Rule, &BlindGoRules::new(), &OneColorGoRules::new(), &PairGoRules::new()] {
         let explanation = rule.explain();
         assert!(explanation.len() >= 200, "规则说明应该详细（至少200字符）");
     }
@@ -859,25 +851,25 @@ fn phase_19_all_rules_explain_detailed() {
     };
 
     // 每个规则的说明内容应该至少 200 字符
-    let rules = [
+    let rules: Vec<Box<dyn Rule>> = vec![
         // Phase 19-02: 围棋变体
-        Go9x9Rules::new(),
-        Go13x13Rules::new(),
-        BlindGoRules::new(),
-        OneColorGoRules::new(),
-        PairGoRules::new(),
+        Box::new(Go9x9Rules::new()),
+        Box::new(Go13x13Rules::new()),
+        Box::new(BlindGoRules::new()),
+        Box::new(OneColorGoRules::new()),
+        Box::new(PairGoRules::new()),
         // Phase 19-03: 其他棋类
-        JanggiRules::new(),
-        MakrukRules::new(),
-        JungleRules::new(),
-        MancalaRules::new(),
-        MiniShogiRules::new(),
+        Box::new(JanggiRules::new()),
+        Box::new(MakrukRules::new()),
+        Box::new(JungleRules::new()),
+        Box::new(MancalaRules::new()),
+        Box::new(MiniShogiRules::new()),
         // Phase 19-04: 桌游
-        AgricolaRules::new(),
-        CarcassonneRules::new(),
-        DominionRules::new(),
-        PowerGridRules::new(),
-        PuertoRicoRules::new(),
+        Box::new(AgricolaRules::new()),
+        Box::new(CarcassonneRules::new()),
+        Box::new(DominionRules::new()),
+        Box::new(PowerGridRules::new()),
+        Box::new(PuertoRicoRules::new()),
     ];
 
     for rule in &rules {

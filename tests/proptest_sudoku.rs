@@ -147,7 +147,7 @@ proptest! {
                     let box_values: Vec<Option<u8>> = (0..3)
                         .flat_map(|r| {
                             let r = r;
-                            (0..3).map(|c| grid[(box_row * 3 + r) * 9 + box_col * 3 + c])
+                            (0..3).map(move |c| grid[(box_row * 3 + r) * 9 + box_col * 3 + c])
                         })
                         .collect();
                     prop_assert_eq!(box_values.len(), 9);
