@@ -439,7 +439,7 @@ fn test_surfing_competition_scoring() {
 fn test_windsurfing_rules_basic() {
     use world_rules::rules::sports::WindsurfingRules;
     let rules = WindsurfingRules::new();
-    assert_eq!(rules.metadata().name, "帆板规则");
+    assert_eq!(rules.metadata().name, "帆板运动规则");
     assert!(!rules.explain().is_empty());
     assert!(matches!(rules.category(), RuleCategory::Sports(_)));
 }
