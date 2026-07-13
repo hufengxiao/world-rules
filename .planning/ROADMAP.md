@@ -55,12 +55,16 @@
 |- [x] 配置 GitHub Secrets (CRATES_IO_TOKEN) - 用户已配置
 |- [ ] ⚠️ 创建 v2.0.0 tag 触发自动发布 - 需要测试通过
 
-## Phase 17: 测试编译错误修复 🔄
-|- [ ] 修复 phase_18_rules.rs 测试编译错误
-|- [ ] 修复 phase_20_rules.rs 测试编译错误  
-|- [ ] 修复 phase_24_rules.rs 测试编译错误
-|- [ ] 修复 phase_32_civil_rules.rs 导入错误 - 添加缺失的 pub use 导出
-|- [ ] 修复 proptest_law.rs catch_unwind 类型问题
-|- [ ] 运行 cargo test 验证所有测试通过
-|- [ ] 运行 cargo clippy 验证无警告
+## Phase 17: 测试编译错误修复 🔄 (进行中)
+|- [x] 修复 phase_18_rules.rs 测试编译错误 - ShortDeckRules 类型导入
+|- [x] 修复 phase_20_rules.rs 测试编译错误 - 字符串比较和 Option<String> 类型
+|- [x] 修复 phase_24_rules.rs 测试编译错误 - SkeletonIbsfDetailedRules 类型名称
+|- [x] 修复 phase_27_dining_rules.rs - 临时值生命周期问题
+|- [x] 修复 phase_27_other_rules.rs - 临时值生命周期问题
+|- [x] 修复 phase_30_rules.rs - 未使用变量警告
+|- [x] 修复 phase_19_rules.rs - 异构类型数组问题
+|- [x] 修复 phase_32_civil_rules.rs - 添加缺失的 CivilCode*DeepRules 导出
+|- [x] 修复 proptest_law.rs - catch_unwind 类型问题
+|- [x] 移除重复的 LaborDetailedRules 导入
+|- [ ] 验证 CI 测试通过
 |- [ ] 重新创建 v2.0.0 tag 触发发布

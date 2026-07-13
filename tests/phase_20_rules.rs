@@ -40,8 +40,8 @@ fn hunan_mahjong_fan_types() {
     let fan_types = rules.fan_types();
 
     assert!(!fan_types.is_empty());
-    assert!(fan_types.iter().any(|(name, _)| name == "七小对"));
-    assert!(fan_types.iter().any(|(name, _)| name == "龙七对"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "七小对"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "龙七对"));
 }
 
 #[test]
@@ -84,7 +84,7 @@ fn hebei_mahjong_fan_types() {
     let fan_types = rules.fan_types();
 
     assert!(!fan_types.is_empty());
-    assert!(fan_types.iter().any(|(name, _)| name == "屁胡"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "屁胡"));
 }
 
 #[test]
@@ -127,7 +127,7 @@ fn shanxi_mahjong_fan_types() {
     let fan_types = rules.fan_types();
 
     assert!(!fan_types.is_empty());
-    assert!(fan_types.iter().any(|(name, _)| name == "缺一门"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "缺一门"));
 }
 
 #[test]
@@ -170,7 +170,7 @@ fn ningxia_mahjong_fan_types() {
     let fan_types = rules.fan_types();
 
     assert!(!fan_types.is_empty());
-    assert!(fan_types.iter().any(|(name, _)| name == "碰碰胡"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "碰碰胡"));
 }
 
 #[test]
@@ -213,9 +213,9 @@ fn inner_mongolia_mahjong_fan_types() {
     let fan_types = rules.fan_types();
 
     assert!(!fan_types.is_empty());
-    assert!(fan_types.iter().any(|(name, _)| name == "清一色"));
-    assert!(fan_types.iter().any(|(name, _)| name == "清对"));
-    assert!(fan_types.iter().any(|(name, _)| name == "清七对"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "清一色"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "清对"));
+    assert!(fan_types.iter().any(|(name, _)| *name == "清七对"));
 }
 
 #[test]
@@ -262,8 +262,8 @@ fn riichi_competitive_yaku_types() {
     let yaku = rules.competitive_yaku();
 
     assert!(!yaku.is_empty());
-    assert!(yaku.iter().any(|(name, _)| name == "立直"));
-    assert!(yaku.iter().any(|(name, _)| name == "断幺九"));
+    assert!(yaku.iter().any(|(name, _)| *name == "立直"));
+    assert!(yaku.iter().any(|(name, _)| *name == "断幺九"));
 }
 
 #[test]
@@ -481,17 +481,23 @@ fn phase_20_02_origin_tags() {
 
     assert_eq!(
         RiichiCompetitiveRules::new().metadata().origin,
-        Some("日本")
+        Some("日本".to_string())
     );
-    assert_eq!(WashizuMahjongRules::new().metadata().origin, Some("日本"));
-    assert_eq!(SanmaMahjongRules::new().metadata().origin, Some("日本"));
+    assert_eq!(
+        WashizuMahjongRules::new().metadata().origin,
+        Some("日本".to_string())
+    );
+    assert_eq!(
+        SanmaMahjongRules::new().metadata().origin,
+        Some("日本".to_string())
+    );
     assert_eq!(
         KansaiMahjongRules::new().metadata().origin,
-        Some("日本关西")
+        Some("日本关西".to_string())
     );
     assert_eq!(
         OpenRiichiMahjongRules::new().metadata().origin,
-        Some("日本")
+        Some("日本".to_string())
     );
 }
 
