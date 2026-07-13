@@ -839,7 +839,7 @@ fn phase_19_all_rules_have_unique_names() {
     ];
 
     // 确保每个规则有不同的名称
-    let names: Vec<_> = rules.iter().map(|r| r.metadata().name).collect();
+    let names: Vec<_> = rules.iter().map(|r| r.metadata().name.clone()).collect();
     for i in 0..names.len() {
         for j in (i + 1)..names.len() {
             assert_ne!(names[i], names[j], "规则名称应该唯一");
