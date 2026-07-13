@@ -4,11 +4,7 @@ use crate::simple_rule;
 simple_rule! { struct: PaddleboardRacingRules, name: "竞技桨板规则", desc: "桨板竞速规则", origin: "国际", tags: ["体育", "水上"] }
 impl PaddleboardRacingRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec![
-            "短距离冲刺赛",
-            "长距离耐力赛",
-            "技术绕标赛",
-        ]
+        vec!["短距离冲刺赛", "长距离耐力赛", "技术绕标赛"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {
