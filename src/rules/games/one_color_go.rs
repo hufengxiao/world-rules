@@ -18,7 +18,7 @@ impl OneColorGoRules {
     pub fn section_basic(&self) -> Vec<&'static str> {
         vec![
             "棋盘: 标准19×19",
-            "棋子: 双方使用相同颜色的棋子",
+            "棋子: 双方使用同色棋子",
             "落子: 黑先白后，但棋子外观相同",
             "区分方式: 仅凭记忆和落子顺序",
             "目的: 训练记忆力和棋局推理能力",
