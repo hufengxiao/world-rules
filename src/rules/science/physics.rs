@@ -172,7 +172,6 @@ impl Rule for PhysicsLaws {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_newton_second_law() {

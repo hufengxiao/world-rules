@@ -249,7 +249,6 @@ impl Rule for SudokuRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_sudoku_rules() {

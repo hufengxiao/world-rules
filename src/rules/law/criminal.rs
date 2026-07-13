@@ -144,7 +144,6 @@ impl Rule for CriminalLawRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_criminal_law_rules() {

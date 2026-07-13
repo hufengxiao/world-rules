@@ -182,7 +182,6 @@ impl Rule for CivilLawRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_civil_law_rules() {

@@ -464,7 +464,6 @@ impl Rule for ChineseChessRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_chess_rules() {

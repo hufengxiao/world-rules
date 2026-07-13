@@ -140,7 +140,6 @@ impl Rule for BasketballRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_basketball_rules() {

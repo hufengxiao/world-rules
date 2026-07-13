@@ -53,7 +53,7 @@
 |- [x] 删除冗余的 release.yml 工作流（功能已合并到 publish.yml）
 |- [x] 添加发布脚本 (scripts/release.sh, scripts/release.ps1)
 |- [x] 配置 GitHub Secrets (CRATES_IO_TOKEN) - 用户已配置
-|- [ ] ⚠️ 创建 v2.0.0 tag 触发自动发布 - 需要测试通过
+||- [x] 创建 v2.0.0 tag 触发自动发布 - 已完成（测试通过，已发布到 crates.io）
 
 ## Phase 17: 测试编译错误修复 ✅
 |- [x] 修复 phase_18_rules.rs 测试编译错误 - ShortDeckRules 类型导入

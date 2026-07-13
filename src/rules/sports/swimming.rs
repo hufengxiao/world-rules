@@ -202,7 +202,6 @@ impl Rule for SwimmingRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::rules::core::ValidateContext;
 
     #[test]
     fn test_swimming_rules() {

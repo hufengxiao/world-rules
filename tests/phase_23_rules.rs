@@ -121,7 +121,7 @@ fn test_swimming_open_water_rules_basic() {
 fn test_swimming_open_water_events() {
     use world_rules::rules::sports::SwimmingOpenWaterRules;
     let rules = SwimmingOpenWaterRules::new();
-    let events = rules.events();
+    let events = rules.event_types();
     assert!(events
         .iter()
         .any(|e| e.contains("10公里") || e.contains("10km")));
@@ -132,7 +132,7 @@ fn test_swimming_open_water_events() {
 fn test_swimming_open_water_safety() {
     use world_rules::rules::sports::SwimmingOpenWaterRules;
     let rules = SwimmingOpenWaterRules::new();
-    let safety = rules.safety_rules();
+    let safety = rules.safety_requirements();
     assert!(safety
         .iter()
         .any(|s| s.contains("安全") || s.contains("医疗")));
@@ -154,7 +154,7 @@ fn test_swimming_paralympic_rules_basic() {
 fn test_swimming_paralympic_classification() {
     use world_rules::rules::sports::SwimmingParalympicRules;
     let rules = SwimmingParalympicRules::new();
-    let classification = rules.classification_system();
+    let classification = rules.classification();
     assert!(classification
         .iter()
         .any(|c| c.contains("S") || c.contains("分级")));
@@ -218,7 +218,7 @@ fn test_swimming_backstroke_rules_basic() {
 fn test_swimming_backstroke_start() {
     use world_rules::rules::sports::SwimmingBackstrokeRules;
     let rules = SwimmingBackstrokeRules::new();
-    let start = rules.starting_rules();
+    let start = rules.starting();
     assert!(start.iter().any(|s| s.contains("水中")));
     assert!(start.len() >= 3);
 }
@@ -338,7 +338,7 @@ fn test_diving_platform_heights() {
 fn test_diving_platform_scoring() {
     use world_rules::rules::sports::DivingPlatformRules;
     let rules = DivingPlatformRules::new();
-    let scoring = rules.scoring_system();
+    let scoring = rules.scoring_criteria();
     assert!(scoring
         .iter()
         .any(|s| s.contains("裁判") || s.contains("分")));
@@ -360,7 +360,7 @@ fn test_diving_springboard_rules_basic() {
 fn test_diving_springboard_specs() {
     use world_rules::rules::sports::DivingSpringboardRules;
     let rules = DivingSpringboardRules::new();
-    let specs = rules.board_specifications();
+    let specs = rules.springboard_specs();
     assert!(specs
         .iter()
         .any(|s| s.contains("3米") || s.contains("弹性")));
@@ -393,7 +393,7 @@ fn test_high_diving_heights() {
 fn test_high_diving_safety() {
     use world_rules::rules::sports::HighDivingRules;
     let rules = HighDivingRules::new();
-    let safety = rules.safety_rules();
+    let safety = rules.safety_requirements();
     assert!(safety
         .iter()
         .any(|s| s.contains("安全") || s.contains("医疗")));
@@ -448,7 +448,7 @@ fn test_windsurfing_rules_basic() {
 fn test_windsurfing_equipment() {
     use world_rules::rules::sports::WindsurfingRules;
     let rules = WindsurfingRules::new();
-    let equipment = rules.equipment();
+    let equipment = rules.equipment_requirements();
     assert!(equipment
         .iter()
         .any(|e| e.contains("帆") || e.contains("板")));
@@ -470,7 +470,7 @@ fn test_paddleboard_racing_rules_basic() {
 fn test_paddleboard_racing_events() {
     use world_rules::rules::sports::PaddleboardRacingRules;
     let rules = PaddleboardRacingRules::new();
-    let events = rules.events();
+    let events = rules.section_0();
     assert!(events
         .iter()
         .any(|e| e.contains("冲刺") || e.contains("长距离")));
