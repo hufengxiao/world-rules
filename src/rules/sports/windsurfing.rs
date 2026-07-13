@@ -13,7 +13,7 @@ pub struct WindsurfingRules {
 impl WindsurfingRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("帆板规则", "世界帆联帆板竞赛规则")
+            metadata: RuleMetadata::new("帆板运动规则", "世界帆联帆板竞赛规则")
                 .with_origin("World Sailing")
                 .with_tags(vec!["体育".into(), "水上".into(), "帆板".into()]),
         }
