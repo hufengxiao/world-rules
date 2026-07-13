@@ -57,7 +57,7 @@ fn premier_league_relegation() {
 
 #[test]
 fn women_world_cup_rules_basic() {
-    use world_rules::rules::sports::{FootballWomenWorldCupRules, WomenWorldCupStage};
+    use world_rules::rules::sports::FootballWomenWorldCupRules;
 
     let rules = FootballWomenWorldCupRules::new();
     assert_eq!(rules.metadata().name, "女足世界杯规则");

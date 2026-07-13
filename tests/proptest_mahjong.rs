@@ -225,14 +225,14 @@ proptest! {
     fn test_standard_winning_hand(
         // 生成一组标准胡牌：顺子+顺子+顺子+刻子+对子
         s1_a in valid_wan_number(),
-        s1_b in valid_wan_number(),
-        s1_c in valid_wan_number(),
+        _s1_b in valid_wan_number(),
+        _s1_c in valid_wan_number(),
         s2_a in valid_tiao_number(),
-        s2_b in valid_tiao_number(),
-        s2_c in valid_tiao_number(),
+        _s2_b in valid_tiao_number(),
+        _s2_c in valid_tiao_number(),
         s3_a in valid_tong_number(),
-        s3_b in valid_tong_number(),
-        s3_c in valid_tong_number(),
+        _s3_b in valid_tong_number(),
+        _s3_c in valid_tong_number(),
         k_num in valid_wan_number(),
         p_num in valid_tiao_number(),
     ) {

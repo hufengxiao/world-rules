@@ -1108,6 +1108,7 @@ fn test_antique_types() {
 // ============================================================================
 
 #[test]
+#[allow(unused_imports)]
 fn test_phase_26_total_rules_count() {
     // Phase 26-01 应添加 10 种规则
     // Phase 26-02 应添加 10 种规则
