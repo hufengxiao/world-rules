@@ -176,7 +176,7 @@ jobs:
       # 保存基准结果作为 artifact（master 分支）
       - name: Upload benchmark results
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: benchmark-results
           path: .bench-results/
