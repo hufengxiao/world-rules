@@ -584,7 +584,6 @@ pub use japan_company_law::JapanCompanyLawRules;
 pub use juvenile_justice::JuvenileJusticeRules;
 pub use labor_contract_law::LaborContractLawRules;
 pub use labor_detailed::LaborDetailedRules;
-pub use labor_detailed::LaborDetailedRules;
 pub use labor_detailed2::LaborDetailed2Rules;
 pub use labor_dispute_law::LaborDisputeLawRules;
 pub use labor_international::LaborInternationalRules;
