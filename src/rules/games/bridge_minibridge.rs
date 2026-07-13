@@ -10,7 +10,7 @@
 //! use world_rules::rules::core::Rule;
 //!
 //! let rules = BridgeMinibridgeRules::new();
-//! assert_eq!(rules.name(), "迷你桥牌规则");
+//! assert_eq!(rules.metadata().name, "迷你桥牌规则");
 //! assert!(!rules.explain().is_empty());
 //! ```
 

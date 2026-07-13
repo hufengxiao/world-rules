@@ -10,7 +10,7 @@
 //! use world_rules::rules::core::Rule;
 //!
 //! let rules = BridgeImpRules::new();
-//! assert_eq!(rules.name(), "IMP桥牌规则");
+//! assert_eq!(rules.metadata().name, "IMP桥牌规则");
 //! assert!(!rules.explain().is_empty());
 //! ```
 

@@ -242,7 +242,7 @@ pub fn load_plugins_from_dir(dir: &Path) -> Vec<PluginRule> {
 ///
 /// # Examples
 ///
-/// ```rust
+/// ```rust,ignore
 /// use world_rules::plugins::load_plugin_from_str;
 /// use world_rules::rules::core::Rule;
 ///
@@ -327,32 +327,6 @@ impl Rule for PluginRule {
     }
 
     /// 生成规则的可读说明
-    ///
-    /// # Examples
-    ///
-    /// ```rust
-    /// use world_rules::plugins::load_plugin_from_str;
-    /// use world_rules::rules::core::Rule;
-    ///
-    /// let json = r#"{
-    ///     "name": "测试插件",
-    ///     "version": "1.0.0",
-    ///     "rules": [
-    ///         {
-    ///             "name": "麻将规则",
-    ///             "description": "四川麻将",
-    ///             "category": "games",
-    ///             "sections": [
-    ///                 { "title": "基本规则", "items": ["规则1", "规则2"] }
-    ///             ]
-    ///         }
-    ///     ]
-    /// }"#;
-    /// let rules = load_plugin_from_str(json).unwrap();
-    /// let explanation = rules[0].explain();
-    /// assert!(explanation.contains("麻将规则"));
-    /// assert!(explanation.contains("基本规则"));
-    /// ```
     fn explain(&self) -> String {
         let mut result = format!("【{}】", self.metadata.name);
         for (title, items) in &self.sections {

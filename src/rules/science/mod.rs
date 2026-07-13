@@ -27,11 +27,11 @@
 //! 使用规则示例：
 //!
 //! ```rust
-//! use world_rules::rules::science::{PhysicsRules, ChemistryRules};
+//! use world_rules::rules::science::{PhysicsLaws, ChemistryRules};
 //! use world_rules::rules::core::Rule;
 //!
 //! // 物理规则
-//! let physics = PhysicsRules::new();
+//! let physics = PhysicsLaws::new();
 //! println!("规则: {}", physics.metadata().name);
 //! println!("分类: {:?}", physics.category());
 //!

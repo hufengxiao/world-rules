@@ -29,16 +29,16 @@
 //! 使用规则示例：
 //!
 //! ```rust
-//! use world_rules::rules::law::{CivilRules, CriminalRules};
+//! use world_rules::rules::law::{CivilLawRules, CriminalLawRules};
 //! use world_rules::rules::core::Rule;
 //!
 //! // 民法规则
-//! let civil = CivilRules::new();
+//! let civil = CivilLawRules::new();
 //! println!("规则: {}", civil.metadata().name);
 //! println!("分类: {:?}", civil.category());
 //!
 //! // 刑法规则
-//! let criminal = CriminalRules::new();
+//! let criminal = CriminalLawRules::new();
 //! let explanation = criminal.explain();
 //! assert!(!explanation.is_empty());
 //! ```
