@@ -102,18 +102,18 @@ fn poker_chinese_hand_division() {
 
 #[test]
 fn poker_short_deck_basic() {
-    use world_rules::rules::games::card_games::short_deck::ShortDeckPokerRules;
+    use world_rules::rules::games::card_games::short_deck::ShortDeckRules;
 
-    let rules = ShortDeckPokerRules::new();
+    let rules = ShortDeckRules::new();
     assert!(!rules.metadata().name.is_empty());
     assert!(!rules.explain().is_empty());
 }
 
 #[test]
 fn poker_short_deck_card_range() {
-    use world_rules::rules::games::card_games::short_deck::ShortDeckPokerRules;
+    use world_rules::rules::games::card_games::short_deck::ShortDeckRules;
 
-    let rules = ShortDeckPokerRules::new();
+    let rules = ShortDeckRules::new();
     let explanation = rules.explain();
 
     // 验证关键规则被说明
@@ -460,7 +460,7 @@ fn pyramid_solitaire_matching() {
 
 #[test]
 fn phase_18_rules_registered_in_module() {
-    use world_rules::rules::games::card_games::short_deck::ShortDeckPokerRules;
+    use world_rules::rules::games::card_games::short_deck::ShortDeckRules;
     use world_rules::rules::games::{
         BaccaratRules, BigTwoRules, BridgeChicagoRules, BridgeDuplicateRules, BridgeImpRules,
         BridgeMinibridgeRules, BridgeRubberRules, CanfieldRules, CaribbeanStudRules, CassinoRules,
@@ -475,7 +475,7 @@ fn phase_18_rules_registered_in_module() {
         Box::new(StudPokerRules::new()),
         Box::new(PokerFiveCardRules::new()),
         Box::new(PokerChineseRules::new()),
-        Box::new(ShortDeckPokerRules::new()),
+        Box::new(ShortDeckRules::new()),
         Box::new(BridgeRubberRules::new()),
         Box::new(BridgeDuplicateRules::new()),
         Box::new(BridgeChicagoRules::new()),
@@ -509,32 +509,68 @@ fn phase_18_rules_metadata_consistency() {
     };
 
     // 验证规则元数据的完整性和一致性
-    let test_cases = vec![
-        ("Omaha", PokerOmahaRules::new()),
-        ("Stud", StudPokerRules::new()),
-        ("Chinese Poker", PokerChineseRules::new()),
-        ("Rubber Bridge", BridgeRubberRules::new()),
-        ("Duplicate Bridge", BridgeDuplicateRules::new()),
-        ("Chicago Bridge", BridgeChicagoRules::new()),
-        ("Big Two", BigTwoRules::new()),
-        ("Baccarat", BaccaratRules::new()),
-        ("Three Card Poker", ThreeCardPokerRules::new()),
-        ("Caribbean Stud", CaribbeanStudRules::new()),
-        ("Gin Rummy", GinRummyRules::new()),
-        ("Klondike Solitaire", KlondikeSolitaireRules::new()),
-        ("Pyramid Solitaire", PyramidSolitaireRules::new()),
-    ];
+    // Omaha
+    let rule = PokerOmahaRules::new();
+    assert!(rule.metadata().description.len() > 10, "Omaha 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Omaha 规则应有标签");
 
-    for (expected_type, rule) in test_cases {
-        assert!(
-            rule.metadata().description.len() > 10,
-            "{} 规则描述应足够详细",
-            expected_type
-        );
-        assert!(
-            rule.metadata().tags.len() > 0,
-            "{} 规则应有标签",
-            expected_type
-        );
-    }
+    // Stud
+    let rule = StudPokerRules::new();
+    assert!(rule.metadata().description.len() > 10, "Stud 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Stud 规则应有标签");
+
+    // Chinese Poker
+    let rule = PokerChineseRules::new();
+    assert!(rule.metadata().description.len() > 10, "Chinese Poker 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Chinese Poker 规则应有标签");
+
+    // Rubber Bridge
+    let rule = BridgeRubberRules::new();
+    assert!(rule.metadata().description.len() > 10, "Rubber Bridge 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Rubber Bridge 规则应有标签");
+
+    // Duplicate Bridge
+    let rule = BridgeDuplicateRules::new();
+    assert!(rule.metadata().description.len() > 10, "Duplicate Bridge 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Duplicate Bridge 规则应有标签");
+
+    // Chicago Bridge
+    let rule = BridgeChicagoRules::new();
+    assert!(rule.metadata().description.len() > 10, "Chicago Bridge 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Chicago Bridge 规则应有标签");
+
+    // Big Two
+    let rule = BigTwoRules::new();
+    assert!(rule.metadata().description.len() > 10, "Big Two 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Big Two 规则应有标签");
+
+    // Baccarat
+    let rule = BaccaratRules::new();
+    assert!(rule.metadata().description.len() > 10, "Baccarat 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Baccarat 规则应有标签");
+
+    // Three Card Poker
+    let rule = ThreeCardPokerRules::new();
+    assert!(rule.metadata().description.len() > 10, "Three Card Poker 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Three Card Poker 规则应有标签");
+
+    // Caribbean Stud
+    let rule = CaribbeanStudRules::new();
+    assert!(rule.metadata().description.len() > 10, "Caribbean Stud 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Caribbean Stud 规则应有标签");
+
+    // Gin Rummy
+    let rule = GinRummyRules::new();
+    assert!(rule.metadata().description.len() > 10, "Gin Rummy 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Gin Rummy 规则应有标签");
+
+    // Klondike Solitaire
+    let rule = KlondikeSolitaireRules::new();
+    assert!(rule.metadata().description.len() > 10, "Klondike Solitaire 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Klondike Solitaire 规则应有标签");
+
+    // Pyramid Solitaire
+    let rule = PyramidSolitaireRules::new();
+    assert!(rule.metadata().description.len() > 10, "Pyramid Solitaire 规则描述应足够详细");
+    assert!(rule.metadata().tags.len() > 0, "Pyramid Solitaire 规则应有标签");
 }
