@@ -303,7 +303,13 @@ fn phase_19_all_go_variants_explain_non_empty() {
     };
 
     // 每个规则的说明内容应该至少200字符
-    for rule in [&Go9x9Rules::new(), &Go13x13Rules::new() as &dyn Rule, &BlindGoRules::new(), &OneColorGoRules::new(), &PairGoRules::new()] {
+    for rule in [
+        &Go9x9Rules::new(),
+        &Go13x13Rules::new() as &dyn Rule,
+        &BlindGoRules::new(),
+        &OneColorGoRules::new(),
+        &PairGoRules::new(),
+    ] {
         let explanation = rule.explain();
         assert!(explanation.len() >= 200, "规则说明应该详细（至少200字符）");
     }
