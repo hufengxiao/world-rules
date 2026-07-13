@@ -111,17 +111,19 @@ fn test_food_festival_rules() {
 #[test]
 fn test_all_dining_rules_validation() {
     // 测试所有餐饮礼仪规则的验证功能
+    let western = WesternDiningRules::new();
+    let japanese = JapaneseCuisineRules::new();
+    let korean = KoreanCuisineRules::new();
+    let formal = FormalBanquetRules::new();
+    let cocktail = CocktailPartyRules::new();
+    let buffet = BuffetDiningRules::new();
+    let coffee = CoffeeHouseRules::new();
+    let tea = TeaHouseRules::new();
+    let wine = WineTastingRules::new();
+    let festival = FoodFestivalRules::new();
+
     let rules_list: Vec<&dyn Rule> = vec![
-        &WesternDiningRules::new(),
-        &JapaneseCuisineRules::new(),
-        &KoreanCuisineRules::new(),
-        &FormalBanquetRules::new(),
-        &CocktailPartyRules::new(),
-        &BuffetDiningRules::new(),
-        &CoffeeHouseRules::new(),
-        &TeaHouseRules::new(),
-        &WineTastingRules::new(),
-        &FoodFestivalRules::new(),
+        &western, &japanese, &korean, &formal, &cocktail, &buffet, &coffee, &tea, &wine, &festival,
     ];
 
     for rules in rules_list {

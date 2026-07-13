@@ -122,13 +122,13 @@ fn test_international_greeting_rules() {
 #[test]
 fn test_all_international_rules_validation() {
     // 测试所有其他国际礼仪规则的验证功能
-    let rules_list: Vec<&dyn Rule> = vec![
-        &DiplomaticEtiquetteRules::new(),
-        &InternationalConferenceRules::new(),
-        &InternationalTravelRules::new(),
-        &InternationalGiftRules::new(),
-        &InternationalGreetingRules::new(),
-    ];
+    let diplomatic = DiplomaticEtiquetteRules::new();
+    let conference = InternationalConferenceRules::new();
+    let travel = InternationalTravelRules::new();
+    let gift = InternationalGiftRules::new();
+    let greeting = InternationalGreetingRules::new();
+
+    let rules_list: Vec<&dyn Rule> = vec![&diplomatic, &conference, &travel, &gift, &greeting];
 
     for rules in rules_list {
         assert!(rules
