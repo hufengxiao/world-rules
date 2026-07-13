@@ -1,7 +1,7 @@
 //! NBA G联盟规则
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: BasketballGLeagueRules, name: "NBA G联盟规则", desc: "NBA发展联盟比赛规则", origin: "美国", tags: ["体育", "篮球", "发展联盟"] }
+simple_rule! { struct: BasketballGLeagueRules, name: "G联盟规则", desc: "NBA发展联盟比赛规则", origin: "美国", tags: ["体育", "篮球", "发展联盟"] }
 impl BasketballGLeagueRules {
     pub fn section_0(&self) -> Vec<&'static str> {
         vec![

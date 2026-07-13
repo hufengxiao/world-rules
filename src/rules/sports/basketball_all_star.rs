@@ -1,7 +1,7 @@
 //! NBA 全明星赛规则
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-simple_rule! { struct: BasketballAllStarRules, name: "NBA全明星赛规则", desc: "NBA全明星周末比赛规则", origin: "美国", tags: ["体育", "篮球", "全明星"] }
+simple_rule! { struct: BasketballAllStarRules, name: "NBA全明星规则", desc: "NBA全明星周末比赛规则", origin: "美国", tags: ["体育", "篮球", "全明星"] }
 impl BasketballAllStarRules {
     pub fn section_0(&self) -> Vec<&'static str> {
         vec![
