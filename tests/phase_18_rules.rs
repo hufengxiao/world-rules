@@ -511,66 +511,123 @@ fn phase_18_rules_metadata_consistency() {
     // 验证规则元数据的完整性和一致性
     // Omaha
     let rule = PokerOmahaRules::new();
-    assert!(rule.metadata().description.len() > 10, "Omaha 规则描述应足够详细");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Omaha 规则描述应足够详细"
+    );
     assert!(rule.metadata().tags.len() > 0, "Omaha 规则应有标签");
 
     // Stud
     let rule = StudPokerRules::new();
-    assert!(rule.metadata().description.len() > 10, "Stud 规则描述应足够详细");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Stud 规则描述应足够详细"
+    );
     assert!(rule.metadata().tags.len() > 0, "Stud 规则应有标签");
 
     // Chinese Poker
     let rule = PokerChineseRules::new();
-    assert!(rule.metadata().description.len() > 10, "Chinese Poker 规则描述应足够详细");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Chinese Poker 规则描述应足够详细"
+    );
     assert!(rule.metadata().tags.len() > 0, "Chinese Poker 规则应有标签");
 
     // Rubber Bridge
     let rule = BridgeRubberRules::new();
-    assert!(rule.metadata().description.len() > 10, "Rubber Bridge 规则描述应足够详细");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Rubber Bridge 规则描述应足够详细"
+    );
     assert!(rule.metadata().tags.len() > 0, "Rubber Bridge 规则应有标签");
 
     // Duplicate Bridge
     let rule = BridgeDuplicateRules::new();
-    assert!(rule.metadata().description.len() > 10, "Duplicate Bridge 规则描述应足够详细");
-    assert!(rule.metadata().tags.len() > 0, "Duplicate Bridge 规则应有标签");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Duplicate Bridge 规则描述应足够详细"
+    );
+    assert!(
+        rule.metadata().tags.len() > 0,
+        "Duplicate Bridge 规则应有标签"
+    );
 
     // Chicago Bridge
     let rule = BridgeChicagoRules::new();
-    assert!(rule.metadata().description.len() > 10, "Chicago Bridge 规则描述应足够详细");
-    assert!(rule.metadata().tags.len() > 0, "Chicago Bridge 规则应有标签");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Chicago Bridge 规则描述应足够详细"
+    );
+    assert!(
+        rule.metadata().tags.len() > 0,
+        "Chicago Bridge 规则应有标签"
+    );
 
     // Big Two
     let rule = BigTwoRules::new();
-    assert!(rule.metadata().description.len() > 10, "Big Two 规则描述应足够详细");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Big Two 规则描述应足够详细"
+    );
     assert!(rule.metadata().tags.len() > 0, "Big Two 规则应有标签");
 
     // Baccarat
     let rule = BaccaratRules::new();
-    assert!(rule.metadata().description.len() > 10, "Baccarat 规则描述应足够详细");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Baccarat 规则描述应足够详细"
+    );
     assert!(rule.metadata().tags.len() > 0, "Baccarat 规则应有标签");
 
     // Three Card Poker
     let rule = ThreeCardPokerRules::new();
-    assert!(rule.metadata().description.len() > 10, "Three Card Poker 规则描述应足够详细");
-    assert!(rule.metadata().tags.len() > 0, "Three Card Poker 规则应有标签");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Three Card Poker 规则描述应足够详细"
+    );
+    assert!(
+        rule.metadata().tags.len() > 0,
+        "Three Card Poker 规则应有标签"
+    );
 
     // Caribbean Stud
     let rule = CaribbeanStudRules::new();
-    assert!(rule.metadata().description.len() > 10, "Caribbean Stud 规则描述应足够详细");
-    assert!(rule.metadata().tags.len() > 0, "Caribbean Stud 规则应有标签");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Caribbean Stud 规则描述应足够详细"
+    );
+    assert!(
+        rule.metadata().tags.len() > 0,
+        "Caribbean Stud 规则应有标签"
+    );
 
     // Gin Rummy
     let rule = GinRummyRules::new();
-    assert!(rule.metadata().description.len() > 10, "Gin Rummy 规则描述应足够详细");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Gin Rummy 规则描述应足够详细"
+    );
     assert!(rule.metadata().tags.len() > 0, "Gin Rummy 规则应有标签");
 
     // Klondike Solitaire
     let rule = KlondikeSolitaireRules::new();
-    assert!(rule.metadata().description.len() > 10, "Klondike Solitaire 规则描述应足够详细");
-    assert!(rule.metadata().tags.len() > 0, "Klondike Solitaire 规则应有标签");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Klondike Solitaire 规则描述应足够详细"
+    );
+    assert!(
+        rule.metadata().tags.len() > 0,
+        "Klondike Solitaire 规则应有标签"
+    );
 
     // Pyramid Solitaire
     let rule = PyramidSolitaireRules::new();
-    assert!(rule.metadata().description.len() > 10, "Pyramid Solitaire 规则描述应足够详细");
-    assert!(rule.metadata().tags.len() > 0, "Pyramid Solitaire 规则应有标签");
+    assert!(
+        rule.metadata().description.len() > 10,
+        "Pyramid Solitaire 规则描述应足够详细"
+    );
+    assert!(
+        rule.metadata().tags.len() > 0,
+        "Pyramid Solitaire 规则应有标签"
+    );
 }
