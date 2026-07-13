@@ -349,11 +349,11 @@ fn test_phase_31_03_total_rules() {
         + volcanology.volcano_distribution_rules().len()
         + volcanology.volcano_research_rules().len();
 
-    // 总规则数: 64 + 48 + 64 + 64 + 64 = 288
+    // 总规则数: 64 + 48 + 64 + 64 + 64 = 304 (实际)
     let total = geology_total
         + geoscience_total
         + seismology_total
         + oceanography_total
         + volcanology_total;
-    assert_eq!(total, 288);
+    assert_eq!(total, 304);
 }
