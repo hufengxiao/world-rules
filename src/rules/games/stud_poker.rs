@@ -14,7 +14,7 @@ simple_rule! {
 
 impl StudPokerRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["发1张底牌", "逐张发面牌并下注", "5张后比牌"]
+        vec!["每人发7张牌", "其中3张朝下", "其中4张朝上", "逐张发面牌并下注"]
     }
 
     pub fn section_1(&self) -> Vec<&'static str> {

@@ -78,7 +78,7 @@ impl CaribbeanStudRules {
     pub fn section_progressive(&self) -> Vec<&'static str> {
         vec![
             "渐进奖池注通常为$1或固定金额",
-            "无论庄家是否有资格都可获得：",
+            "累计奖池无论庄家是否有资格都可获得：",
             "  - 皇家同花顺：100%奖池",
             "  - 同花顺：10%奖池",
             "  - 四条：$500或固定金额",

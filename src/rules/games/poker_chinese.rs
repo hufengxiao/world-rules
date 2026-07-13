@@ -4,7 +4,7 @@ use crate::simple_rule;
 simple_rule! { struct: PokerChineseRules, name: "中国扑克规则", desc: "中国式扑克游戏", origin: "中国", tags: ["游戏", "扑克"] }
 impl PokerChineseRules {
     pub fn section_0(&self) -> Vec<&'static str> {
-        vec!["斗地主变体", "跑得快变体", "掼蛋变体"]
+        vec!["每人13张牌", "分成3手牌", "前手3张", "中手5张", "后手5张"]
     }
 }
 impl Rule for PokerChineseRules {
