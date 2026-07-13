@@ -11,13 +11,13 @@
 //! - CivilCodeTortDeepRules (民法典侵权责任编深度规则)
 //! - CivilProcedureDeepRules (民事诉讼法深度规则)
 //! - ConsumerProtectionDeepRules (消费者权益保护法深度规则)
-//! - LaborLawDeepRules (劳动法深度规则)
+//! - LaborLawRules (劳动法规则)
 
 use world_rules::rules::core::{Rule, RuleCategory};
 use world_rules::rules::law::{
     CivilCodeContractDeepRules, CivilCodeGeneralDeepRules, CivilCodeMarriageDeepRules,
     CivilCodePersonalityDeepRules, CivilCodePropertyDeepRules, CivilCodeTortDeepRules,
-    CivilProcedureDeepRules, ConsumerProtectionDeepRules, LaborLawDeepRules,
+    CivilProcedureDeepRules, ConsumerProtectionDeepRules, LaborLawRules,
 };
 
 // ============================================================================
@@ -175,7 +175,7 @@ fn test_consumer_protection_deep_rules() {
 /// 测试劳动法深度规则
 #[test]
 fn test_labor_law_deep_rules() {
-    let rules = LaborLawDeepRules::new();
+    let rules = LaborLawRules::new();
     assert_eq!(rules.metadata().name, "劳动法深度规则");
     assert_eq!(rules.category(), RuleCategory::law("labor_law_deep"));
     assert_eq!(rules.labor_relations_detailed().len(), 10);
