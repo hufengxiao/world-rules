@@ -313,6 +313,17 @@ pub trait Game: Send + Sync {
 ///     turn_count: u32,
 /// }
 ///
+/// impl Game for ChessGame {
+///     type Info = String;
+///     type State = String;
+///     type Action = String;
+///
+///     fn info(&self) -> &Self::Info { &"Chess" }
+///     fn state(&self) -> &Self::State { &"playing" }
+///     fn is_game_over(&self) -> bool { false }
+///     fn reset(&mut self) { self.current_player = 0; self.turn_count = 0; }
+/// }
+///
 /// impl TurnBased for ChessGame {
 ///     type Player = u8;
 ///
@@ -327,6 +338,10 @@ pub trait Game: Send + Sync {
 ///
 ///     fn turn_number(&self) -> u32 {
 ///         self.turn_count
+///     }
+///
+///     fn players(&self) -> Vec<Self::Player> {
+///         vec![0, 1]
 ///     }
 /// }
 /// ```
@@ -376,6 +391,17 @@ pub trait TurnBased: Game {
 ///
 /// struct CardGame {
 ///     scores: HashMap<u8, i32>,
+/// }
+///
+/// impl Game for CardGame {
+///     type Info = String;
+///     type State = String;
+///     type Action = String;
+///
+///     fn info(&self) -> &Self::Info { &"CardGame" }
+///     fn state(&self) -> &Self::State { &"playing" }
+///     fn is_game_over(&self) -> bool { false }
+///     fn reset(&mut self) { self.scores.clear(); }
 /// }
 ///
 /// impl Scoreable for CardGame {
@@ -453,6 +479,19 @@ pub trait Position: Debug + Clone + Eq + Hash + Send + Sync {
 /// struct GoBoard {
 ///     size: usize,
 ///     stones: Vec<Vec<Option<bool>>>, // Some(true) = 黑, Some(false) = 白
+/// }
+///
+/// impl Game for GoBoard {
+///     type Info = String;
+///     type State = String;
+///     type Action = (usize, usize);
+///
+///     fn info(&self) -> &Self::Info { &"Go" }
+///     fn state(&self) -> &Self::State { &"playing" }
+///     fn is_game_over(&self) -> bool { false }
+///     fn reset(&mut self) {
+///         self.stones = vec![vec![None; self.size]; self.size];
+///     }
 /// }
 ///
 /// impl BoardGame for GoBoard {
@@ -585,6 +624,21 @@ pub trait BoardGameExt: BoardGame {
 ///     deck: VecDeque<u8>,
 ///     hands: Vec<Vec<u8>>,
 ///     discard_pile: Vec<u8>,
+/// }
+///
+/// impl Game for PokerGame {
+///     type Info = String;
+///     type State = String;
+///     type Action = u8;
+///
+///     fn info(&self) -> &Self::Info { &"Poker" }
+///     fn state(&self) -> &Self::State { &"playing" }
+///     fn is_game_over(&self) -> bool { false }
+///     fn reset(&mut self) {
+///         self.deck.clear();
+///         self.hands.clear();
+///         self.discard_pile.clear();
+///     }
 /// }
 ///
 /// impl CardGame for PokerGame {
