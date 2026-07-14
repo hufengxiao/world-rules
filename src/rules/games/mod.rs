@@ -163,6 +163,7 @@ pub mod reversi;
 pub mod risk;
 pub mod rubiks_cube;
 pub mod rummy_detailed;
+pub mod railway_tycoon;
 pub mod scrabble;
 pub mod seven_wonders;
 pub mod sheng_ji;
@@ -306,6 +307,7 @@ pub use reversi::ReversiRules;
 pub use risk::RiskRules;
 pub use rubiks_cube::{CubeType, RubiksCubeRules};
 pub use rummy_detailed::RummyDetailedRules;
+pub use railway_tycoon::RailwayTycoonRules;
 pub use scrabble::ScrabbleRules;
 pub use seven_wonders::SevenWondersRules;
 pub use sheng_ji::ShengJiRules;
@@ -636,6 +638,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = RiskRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RailwayTycoonRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
