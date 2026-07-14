@@ -319,6 +319,7 @@ pub mod personal_info_protection;
 pub mod plea_bargaining;
 pub mod privacy_rights;
 pub mod probation_law;
+pub mod procedural_law_deep;
 pub mod public_interest_litigation;
 pub mod real_estate_detailed;
 pub mod real_estate_law_detailed;
@@ -406,6 +407,7 @@ pub use consumer_extended::ConsumerLawExtendedRules;
 pub use education::EducationLawRules;
 pub use labor_extended::LaborLawExtendedRules;
 pub use medical::MedicalLawRules;
+pub use procedural_law_deep::ProceduralLawDeepRules;
 pub use property_management::PropertyManagementLawRules;
 pub use real_estate::RealEstateLawRules;
 pub use social_insurance::SocialInsuranceLawRules;
@@ -1116,6 +1118,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = PriceLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ProceduralLawDeepRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
     }
     {
