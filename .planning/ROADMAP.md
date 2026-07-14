@@ -70,10 +70,10 @@
 - [x] 创建 v2.0.0 tag 并推送到远程，触发自动发布
 
 ## Phase 18: 体育规则深度扩展 ⬜
-状态: Not started
+状态: In progress
 
 ### Plans
-- [ ] 创建 athletics_detailed.rs - 田径项目详细规则
+- [x] 创建 athletics_detailed.rs - 田径项目详细规则
 - [ ] 创建 aquatics_detailed.rs - 水上项目详细规则
 - [ ] 创建 gymnastics_detailed.rs - 体操项目详细规则
 - [ ] 创建 combat_sports_detailed.rs - 格斗项目详细规则
