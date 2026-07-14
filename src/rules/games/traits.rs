@@ -680,8 +680,11 @@ pub trait CardGameExt: CardGame {
     fn peek_deck(&self) -> Option<Self::Card>;
 
     /// 从指定玩家的手牌中搜索卡牌
-    fn search_hand(&self, player: Self::Player, predicate: impl Fn(&Self::Card) -> bool)
-        -> Vec<Self::Card>;
+    fn search_hand(
+        &self,
+        player: Self::Player,
+        predicate: impl Fn(&Self::Card) -> bool,
+    ) -> Vec<Self::Card>;
 
     /// 将牌从弃牌堆洗回牌堆
     fn reshuffle_discard(&mut self);
