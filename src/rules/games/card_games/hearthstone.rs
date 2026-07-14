@@ -1,5 +1,5 @@
 //! 炉石传说（Hearthstone）基础规则
-//! 
+//!
 //! 炉石传说是由暴雪娱乐开发的免费数字集换式卡牌游戏，
 //! 基于《魔兽世界》的背景设定。
 
@@ -42,7 +42,7 @@ impl HearthstoneBasicRules {
             "游戏风格：快节奏、易上手",
         ]
     }
-    
+
     pub fn section_victory(&self) -> Vec<&'static str> {
         vec![
             "【胜利方式】",
@@ -62,7 +62,7 @@ impl HearthstoneBasicRules {
             "  - 依此类推",
         ]
     }
-    
+
     pub fn section_heroes(&self) -> Vec<&'static str> {
         vec![
             "【英雄职业】",
@@ -108,7 +108,7 @@ impl HearthstoneBasicRules {
             "  - 特点：快攻、流放、武器",
         ]
     }
-    
+
     pub fn section_card_types(&self) -> Vec<&'static str> {
         vec![
             "【卡牌类型】",
@@ -144,7 +144,7 @@ impl HearthstoneBasicRules {
             "  - 任务线有多个阶段",
         ]
     }
-    
+
     pub fn section_mana(&self) -> Vec<&'static str> {
         vec![
             "【法力系统】",
@@ -170,7 +170,7 @@ impl HearthstoneBasicRules {
             "  - 法力恢复：回复法力水晶",
         ]
     }
-    
+
     pub fn section_zones(&self) -> Vec<&'static str> {
         vec![
             "【游戏区域】",
@@ -201,7 +201,7 @@ impl HearthstoneBasicRules {
             "  - 某些效果可以回收",
         ]
     }
-    
+
     pub fn section_turn(&self) -> Vec<&'static str> {
         vec![
             "【回合流程】",
@@ -230,7 +230,7 @@ impl HearthstoneBasicRules {
             "  - 烧绳提示（15 秒）",
         ]
     }
-    
+
     pub fn section_combat(&self) -> Vec<&'static str> {
         vec![
             "【战斗系统】",
@@ -260,7 +260,7 @@ impl HearthstoneBasicRules {
             "  - 嘲讽存在时优先攻击嘲讽",
         ]
     }
-    
+
     pub fn section_keywords(&self) -> Vec<&'static str> {
         vec![
             "【常见关键词】",
@@ -309,7 +309,7 @@ impl HearthstoneBasicRules {
             "  - 死亡后复活一次（1点生命）",
         ]
     }
-    
+
     pub fn section_rarity(&self) -> Vec<&'static str> {
         vec![
             "【卡牌稀有度】",
@@ -345,7 +345,7 @@ impl HearthstoneBasicRules {
             "  - 每个卡组只能有 1 张",
         ]
     }
-    
+
     pub fn section_modes(&self) -> Vec<&'static str> {
         vec![
             "【游戏模式】",
@@ -381,7 +381,7 @@ impl HearthstoneBasicRules {
             "  - 首胜奖励经典卡包",
         ]
     }
-    
+
     pub fn section_deck_building(&self) -> Vec<&'static str> {
         vec![
             "【构筑规则】",
@@ -414,14 +414,14 @@ impl HearthstoneBasicRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_hearthstone_rules_creation() {
         let rules = HearthstoneBasicRules::new();
         assert!(rules.explain().contains("炉石传说"));
         assert!(rules.explain().contains("暴雪"));
     }
-    
+
     #[test]
     fn test_heroes() {
         let rules = HearthstoneBasicRules::new();
@@ -429,7 +429,7 @@ mod tests {
         assert!(heroes.iter().any(|s| s.contains("战士")));
         assert!(heroes.iter().any(|s| s.contains("法师")));
     }
-    
+
     #[test]
     fn test_keywords() {
         let rules = HearthstoneBasicRules::new();
@@ -437,7 +437,7 @@ mod tests {
         assert!(keywords.iter().any(|s| s.contains("嘲讽")));
         assert!(keywords.iter().any(|s| s.contains("圣盾")));
     }
-    
+
     #[test]
     fn test_mana_system() {
         let rules = HearthstoneBasicRules::new();

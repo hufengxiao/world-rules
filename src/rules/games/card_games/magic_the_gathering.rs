@@ -1,5 +1,5 @@
 //! 万智牌（Magic: The Gathering）基础规则
-//! 
+//!
 //! 万智牌是由 Richard Garfield 设计的集换式卡牌游戏（TCG），
 //! 于 1993 年由威世智（Wizards of the Coast）发行。
 //! 是世界上第一个集换式卡牌游戏。
@@ -42,7 +42,7 @@ impl MagicTheGatheringBasicRules {
             "游戏目标：将对手生命值降至 0",
         ]
     }
-    
+
     pub fn section_victory(&self) -> Vec<&'static str> {
         vec![
             "【胜利方式】",
@@ -62,7 +62,7 @@ impl MagicTheGatheringBasicRules {
             "  - 获得 10+ 中毒计数",
         ]
     }
-    
+
     pub fn section_card_types(&self) -> Vec<&'static str> {
         vec![
             "【主要类型】",
@@ -103,7 +103,7 @@ impl MagicTheGatheringBasicRules {
             "  - 拥有生物类别的非生物牌",
         ]
     }
-    
+
     pub fn section_colors(&self) -> Vec<&'static str> {
         vec![
             "【五色系统】",
@@ -139,7 +139,7 @@ impl MagicTheGatheringBasicRules {
             "  - 通常需要通用法力",
         ]
     }
-    
+
     pub fn section_zones(&self) -> Vec<&'static str> {
         vec![
             "【游戏区域】",
@@ -177,7 +177,7 @@ impl MagicTheGatheringBasicRules {
             "  - 特殊游戏模式使用",
         ]
     }
-    
+
     pub fn section_gameplay(&self) -> Vec<&'static str> {
         vec![
             "【游戏准备】",
@@ -200,7 +200,7 @@ impl MagicTheGatheringBasicRules {
             "  - 特定卡牌可强制平局",
         ]
     }
-    
+
     pub fn section_turn_structure(&self) -> Vec<&'static str> {
         vec![
             "【回合阶段】",
@@ -231,7 +231,7 @@ impl MagicTheGatheringBasicRules {
             "  - 伤害清除，持续效果结束",
         ]
     }
-    
+
     pub fn section_stack(&self) -> Vec<&'static str> {
         vec![
             "【堆叠机制】",
@@ -263,7 +263,7 @@ impl MagicTheGatheringBasicRules {
             "  - 连锁触发能力",
         ]
     }
-    
+
     pub fn section_costs(&self) -> Vec<&'static str> {
         vec![
             "【法力系统】",
@@ -294,7 +294,7 @@ impl MagicTheGatheringBasicRules {
             "  - 如：万世负担（牺牲生物）",
         ]
     }
-    
+
     pub fn section_combat(&self) -> Vec<&'static str> {
         vec![
             "【战斗流程】",
@@ -328,7 +328,7 @@ impl MagicTheGatheringBasicRules {
             "  - 威慑：只能被 2+ 生物阻挡",
         ]
     }
-    
+
     pub fn section_keywords(&self) -> Vec<&'static str> {
         vec![
             "【常见关键字】",
@@ -373,7 +373,7 @@ impl MagicTheGatheringBasicRules {
             "  - 造成伤害时回复等量生命",
         ]
     }
-    
+
     pub fn section_strategy(&self) -> Vec<&'static str> {
         vec![
             "【套牌类型】",
@@ -411,14 +411,14 @@ impl MagicTheGatheringBasicRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_mtg_rules_creation() {
         let rules = MagicTheGatheringBasicRules::new();
         assert!(rules.explain().contains("万智牌"));
         assert!(rules.explain().contains("Richard Garfield"));
     }
-    
+
     #[test]
     fn test_card_types() {
         let rules = MagicTheGatheringBasicRules::new();
@@ -426,7 +426,7 @@ mod tests {
         assert!(types.iter().any(|s| s.contains("地牌")));
         assert!(types.iter().any(|s| s.contains("生物")));
     }
-    
+
     #[test]
     fn test_colors() {
         let rules = MagicTheGatheringBasicRules::new();
@@ -434,7 +434,7 @@ mod tests {
         assert!(colors.iter().any(|s| s.contains("白色")));
         assert!(colors.iter().any(|s| s.contains("蓝色")));
     }
-    
+
     #[test]
     fn test_combat_system() {
         let rules = MagicTheGatheringBasicRules::new();
@@ -442,7 +442,7 @@ mod tests {
         assert!(combat.iter().any(|s| s.contains("攻击")));
         assert!(combat.iter().any(|s| s.contains("阻挡")));
     }
-    
+
     #[test]
     fn test_keywords() {
         let rules = MagicTheGatheringBasicRules::new();

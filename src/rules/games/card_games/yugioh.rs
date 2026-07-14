@@ -1,5 +1,5 @@
 //! 游戏王（Yu-Gi-Oh!）基础规则
-//! 
+//!
 //! 游戏王是由高桥和希创作的日本集换式卡牌游戏（OCG/TCG），
 //! 基于同名漫画《游戏王》中的魔法与巫师游戏。
 
@@ -42,7 +42,7 @@ impl YuGiOhBasicRules {
             "发行商：科乐美（Konami）",
         ]
     }
-    
+
     pub fn section_victory(&self) -> Vec<&'static str> {
         vec![
             "【胜利方式】",
@@ -62,7 +62,7 @@ impl YuGiOhBasicRules {
             "  - 特殊胜利卡生效",
         ]
     }
-    
+
     pub fn section_card_types(&self) -> Vec<&'static str> {
         vec![
             "【主要类型】",
@@ -90,7 +90,7 @@ impl YuGiOhBasicRules {
             "  - 灵摆怪兽",
         ]
     }
-    
+
     pub fn section_monsters(&self) -> Vec<&'static str> {
         vec![
             "【怪兽卡分类】",
@@ -131,7 +131,7 @@ impl YuGiOhBasicRules {
             "  - 绿色卡框",
         ]
     }
-    
+
     pub fn section_spells(&self) -> Vec<&'static str> {
         vec![
             "【魔法卡类型】",
@@ -167,7 +167,7 @@ impl YuGiOhBasicRules {
             "  - 蓝色卡框",
         ]
     }
-    
+
     pub fn section_traps(&self) -> Vec<&'static str> {
         vec![
             "【陷阱卡类型】",
@@ -194,7 +194,7 @@ impl YuGiOhBasicRules {
             "  - 激活需要满足条件",
         ]
     }
-    
+
     pub fn section_zones(&self) -> Vec<&'static str> {
         vec![
             "【场上区域】",
@@ -233,7 +233,7 @@ impl YuGiOhBasicRules {
             "  - 放置灵摆怪兽作魔法",
         ]
     }
-    
+
     pub fn section_turn(&self) -> Vec<&'static str> {
         vec![
             "【回合流程】",
@@ -267,7 +267,7 @@ impl YuGiOhBasicRules {
             "  - 回合结束",
         ]
     }
-    
+
     pub fn section_combat(&self) -> Vec<&'static str> {
         vec![
             "【战斗流程】",
@@ -301,7 +301,7 @@ impl YuGiOhBasicRules {
             "  - 造成等量生命值伤害",
         ]
     }
-    
+
     pub fn section_chains(&self) -> Vec<&'static str> {
         vec![
             "【连锁机制】",
@@ -334,7 +334,7 @@ impl YuGiOhBasicRules {
             "  - 双方放弃后结算连锁",
         ]
     }
-    
+
     pub fn section_summoning(&self) -> Vec<&'static str> {
         vec![
             "【召唤方式】",
@@ -374,7 +374,7 @@ impl YuGiOhBasicRules {
             "  - 使用场上怪兽作为素材",
         ]
     }
-    
+
     pub fn section_extra_deck(&self) -> Vec<&'static str> {
         vec![
             "【额外卡组规则】",
@@ -410,7 +410,7 @@ impl YuGiOhBasicRules {
             "  - 各有特定召唤条件",
         ]
     }
-    
+
     pub fn section_banlist(&self) -> Vec<&'static str> {
         vec![
             "【禁忌限制表】",
@@ -444,14 +444,14 @@ impl YuGiOhBasicRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_yugioh_rules_creation() {
         let rules = YuGiOhBasicRules::new();
         assert!(rules.explain().contains("游戏王"));
         assert!(rules.explain().contains("高桥和希"));
     }
-    
+
     #[test]
     fn test_monster_types() {
         let rules = YuGiOhBasicRules::new();
@@ -459,7 +459,7 @@ mod tests {
         assert!(monsters.iter().any(|s| s.contains("通常怪兽")));
         assert!(monsters.iter().any(|s| s.contains("效果怪兽")));
     }
-    
+
     #[test]
     fn test_spell_types() {
         let rules = YuGiOhBasicRules::new();
@@ -467,7 +467,7 @@ mod tests {
         assert!(spells.iter().any(|s| s.contains("速攻魔法")));
         assert!(spells.iter().any(|s| s.contains("场地魔法")));
     }
-    
+
     #[test]
     fn test_combat_system() {
         let rules = YuGiOhBasicRules::new();

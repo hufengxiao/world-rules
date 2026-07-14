@@ -1,5 +1,5 @@
 //! UNO 详细规则
-//! 
+//!
 //! UNO 是一款流行的家庭卡牌游戏，由 Merle Robbins 于 1971 年发明。
 //! 玩家需要尽快打出手中的牌，并在剩下一张牌时喊出"UNO"。
 
@@ -39,7 +39,7 @@ impl UnoDetailedRules {
             "发行商：Mattel（美泰）",
         ]
     }
-    
+
     pub fn section_deck(&self) -> Vec<&'static str> {
         vec![
             "标准 UNO 牌组：108 张牌",
@@ -56,7 +56,7 @@ impl UnoDetailedRules {
             "空白牌（4张）：用于自定义规则",
         ]
     }
-    
+
     pub fn section_setup(&self) -> Vec<&'static str> {
         vec![
             "选择发牌者：首次游戏随机选择",
@@ -70,7 +70,7 @@ impl UnoDetailedRules {
             "抽牌堆：剩余牌作为抽牌堆",
         ]
     }
-    
+
     pub fn section_gameplay(&self) -> Vec<&'static str> {
         vec![
             "轮次顺序：按当前方向依次进行",
@@ -87,7 +87,7 @@ impl UnoDetailedRules {
             "抽牌后可选择出牌或保留",
         ]
     }
-    
+
     pub fn section_special_cards(&self) -> Vec<&'static str> {
         vec![
             "【跳过牌 Skip】",
@@ -118,7 +118,7 @@ impl UnoDetailedRules {
             "  - 争议：被质疑时需展示手牌",
         ]
     }
-    
+
     pub fn section_playing_rules(&self) -> Vec<&'static str> {
         vec![
             "出牌时机：轮到自己时",
@@ -137,7 +137,7 @@ impl UnoDetailedRules {
             "  - 抽牌后可立即出牌或保留",
         ]
     }
-    
+
     pub fn section_uno_call(&self) -> Vec<&'static str> {
         vec![
             "【核心规则】",
@@ -159,7 +159,7 @@ impl UnoDetailedRules {
             "  - 观察其他玩家是否喊 UNO",
         ]
     }
-    
+
     pub fn section_scoring(&self) -> Vec<&'static str> {
         vec![
             "【计分方式】",
@@ -182,7 +182,7 @@ impl UnoDetailedRules {
             "  - 先达到目标的队伍获胜",
         ]
     }
-    
+
     pub fn section_variants(&self) -> Vec<&'static str> {
         vec![
             "【标准变体】",
@@ -208,7 +208,7 @@ impl UnoDetailedRules {
             "  - 特殊方块牌",
         ]
     }
-    
+
     pub fn section_strategy(&self) -> Vec<&'static str> {
         vec![
             "【基本策略】",
@@ -243,14 +243,14 @@ impl UnoDetailedRules {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_uno_rules_creation() {
         let rules = UnoDetailedRules::new();
         assert!(rules.explain().contains("UNO"));
         assert!(rules.explain().contains("108"));
     }
-    
+
     #[test]
     fn test_deck_composition() {
         let rules = UnoDetailedRules::new();
@@ -258,7 +258,7 @@ mod tests {
         assert!(deck.iter().any(|s| s.contains("108")));
         assert!(deck.iter().any(|s| s.contains("数字牌")));
     }
-    
+
     #[test]
     fn test_special_cards() {
         let rules = UnoDetailedRules::new();
@@ -267,7 +267,7 @@ mod tests {
         assert!(special.iter().any(|s| s.contains("反转")));
         assert!(special.iter().any(|s| s.contains("+2")));
     }
-    
+
     #[test]
     fn test_uno_calling_rules() {
         let rules = UnoDetailedRules::new();
@@ -275,7 +275,7 @@ mod tests {
         assert!(uno_call.iter().any(|s| s.contains("UNO")));
         assert!(uno_call.iter().any(|s| s.contains("惩罚")));
     }
-    
+
     #[test]
     fn test_scoring_system() {
         let rules = UnoDetailedRules::new();
