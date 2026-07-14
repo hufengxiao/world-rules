@@ -22,8 +22,8 @@
 
 - **Phase**: 18
 - **轨道**: SPORT (体育规则)
-- **任务**: 创建 gymnastics_detailed.rs - 体操项目详细规则
-- **进度**: 2/7 任务完成 (29%)
+- **任务**: 创建 combat_sports_detailed.rs - 格斗项目详细规则
+- **进度**: 3/7 任务完成 (43%)
 
 ---
 
@@ -52,8 +52,8 @@
 ├──────────────────────────────────────────────────────────┤
 │  ✅ athletics_detailed.rs - 田径项目详细规则              │
 │  ✅ aquatics_detailed.rs - 水上项目详细规则               │
-│  ⬜ gymnastics_detailed.rs - 体操项目详细规则  ← 当前     │
-│  ⬜ combat_sports_detailed.rs - 格斗项目详细规则          │
+│  ✅ gymnastics_detailed.rs - 体操项目详细规则              │
+│  ⬜ combat_sports_detailed.rs - 格斗项目详细规则  ← 当前     │
 │  ⬜ ball_games_detailed.rs - 球类运动详细规则             │
 │  ⬜ 更新 mod.rs 导出新模块                                │
 │  ⬜ 添加相关测试用例                                       │
