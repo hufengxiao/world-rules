@@ -1,57 +1,49 @@
 # World-Rules 项目状态
 
 ## 当前状态
-- **Phase 17**: ✅ 所有任务完成，代码维护中
+- **Phase 18**: 体育规则深度扩展（准备开始）
+- **进度**: 17/25 Phase 完成 (68%)
 
 ## 进度统计
 - **总规则数**: 600+ 条
 - **代码行数**: 176,000+ 行
 - **源文件数**: 1,486 个
-- **已完成 Phase**: 17（全部完成）
+- **已完成 Phase**: 17（基础功能全部完成）
 
-## 最新验证 (2026-07-13)
-- ✅ cargo check --lib 通过
-- ✅ cargo clippy --lib 通过
-- ✅ v2.0.0 tag 已创建并推送到远程
-- ✅ GitHub Actions 自动发布已触发
-- ✅ 体育规则名称优化已提交 (7d1744a)
-
-## 最新完成
-### 代码维护 (2026-07-13)
-- ✅ 优化体育规则名称：竞技桨板规则、成人游泳规则、残奥游泳规则、帆板规则
-
-### Phase 17: 测试编译错误修复 ✅
-- ✅ 修复 phase_18_rules.rs 测试编译错误 - ShortDeckRules 类型导入
-- ✅ 修复 phase_20_rules.rs 测试编译错误 - 字符串比较和 Option<String> 类型
-- ✅ 修复 phase_24_rules.rs 测试编译错误 - SkeletonIbsfDetailedRules 类型名称
-- ✅ 修复 phase_27_dining_rules.rs - 临时值生命周期问题
-- ✅ 修复 phase_27_other_rules.rs - 临时值生命周期问题
-- ✅ 修复 phase_30_rules.rs - 未使用变量警告
-- ✅ 修复 phase_19_rules.rs - 异构类型数组问题
-- ✅ 修复 phase_32_civil_rules.rs - 添加缺失的 CivilCode*DeepRules 导出
-- ✅ 修复 proptest_law.rs - catch_unwind 类型问题
-- ✅ 移除重复的 LaborDetailedRules 导入
-- ✅ 验证 CI 测试通过
-- ✅ 创建 v2.0.0 tag 并推送，触发自动发布
-
-## 发布状态
-- ✅ v2.0.0 已发布到 crates.io（通过 GitHub Actions 自动发布）
+## 最新验证 (2026-07-14)
+- ✅ v2.0.0 已发布到 crates.io
 - ✅ GitHub Release 已自动创建
+- ✅ 所有基础测试通过
+- ✅ ROADMAP 已更新，新增 Phase 18-25
 
-## 发布检查清单
-- [x] README.md 完整
-- [x] CHANGELOG.md 添加
-- [x] CONTRIBUTING.md 添加
-- [x] CODE_OF_CONDUCT.md 添加
-- [x] SECURITY.md 添加
-- [x] Cargo.toml 元数据完整
-- [x] 文档生成正常 (cargo doc)
-- [x] 发布验证通过 (cargo publish --dry-run)
-- [x] 自动发布工作流配置完成
-- [x] 发布脚本添加
-- [x] 源代码编译通过 (cargo clippy --lib)
-- [x] 所有提交已推送到远程
-- [x] crates.io API token 配置为 GitHub Secret
-- [x] v2.0.0 tag 已创建并推送
+## 开发路线
+| Phase | 名称 | 状态 |
+|-------|------|------|
+| 1-17 | 基础开发 | ✅ 已完成 |
+| 18 | 体育规则深度扩展 | ⬜ 准备开始 |
+| 19 | 游戏规则增强 | ⬜ 待定 |
+| 20 | API 稳定性增强 | ⬜ 待定 |
+| 21 | 性能优化 | ⬜ 待定 |
+| 22 | 文档完善 | ⬜ 待定 |
+| 23 | 测试覆盖率提升 | ⬜ 待定 |
+| 24 | 国际化增强 | ⬜ 待定 |
+| 25 | 示例和教程 | ⬜ 待定 |
 
-## 所有任务已完成 🎉
+## 下一步计划
+1. **Phase 18**: 体育规则深度扩展
+   - 田径、水上、体操、格斗、球类运动详细规则
+   - 提供更专业的体育规则支持
+
+2. **Phase 19**: 游戏规则增强
+   - 扩展棋类、卡牌、桌面游戏规则
+   - 添加规则难度分级
+
+3. **Phase 20-25**: 持续改进
+   - API 稳定性、性能、文档、测试、国际化、示例
+
+## 当前 Position
+- **Phase**: 18
+- **Task**: 体育规则深度扩展 - 第一个任务（创建 athletics_detailed.rs）
+
+## 发布历史
+- v2.0.0 (2026-07-13): 完整法律规则库 + 游戏规则库发布
