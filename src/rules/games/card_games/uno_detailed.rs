@@ -243,6 +243,7 @@ impl UnoDetailedRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::Rule;
 
     #[test]
     fn test_uno_rules_creation() {

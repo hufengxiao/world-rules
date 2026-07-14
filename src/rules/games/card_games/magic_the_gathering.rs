@@ -411,6 +411,7 @@ impl MagicTheGatheringBasicRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::Rule;
 
     #[test]
     fn test_mtg_rules_creation() {

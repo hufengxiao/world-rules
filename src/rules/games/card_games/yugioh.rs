@@ -444,6 +444,7 @@ impl YuGiOhBasicRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::Rule;
 
     #[test]
     fn test_yugioh_rules_creation() {
