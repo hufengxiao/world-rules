@@ -288,7 +288,10 @@ impl Rule for ShogiVariantRules {
         crate::rules::core::format_rule_sections(
             "日本将棋规则",
             &[
-                ("棋盘", &vec!["9x9棋盘", "双方各20枚棋子", "棋子初始位置固定"]),
+                (
+                    "棋盘",
+                    &vec!["9x9棋盘", "双方各20枚棋子", "棋子初始位置固定"],
+                ),
                 ("棋子", &variants.shogi_pieces()),
                 ("特殊规则", &variants.shogi_special()),
             ],
