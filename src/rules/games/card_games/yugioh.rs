@@ -442,7 +442,7 @@ impl YuGiOhBasicRules {
 }
 
 #[cfg(test)]
-mod tests {
+mod yugioh_tests {
     use super::*;
     use crate::rules::core::Rule;
 

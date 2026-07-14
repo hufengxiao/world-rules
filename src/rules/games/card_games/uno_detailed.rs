@@ -241,7 +241,7 @@ impl UnoDetailedRules {
 }
 
 #[cfg(test)]
-mod tests {
+mod uno_tests {
     use super::*;
     use crate::rules::core::Rule;
 

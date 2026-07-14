@@ -412,7 +412,7 @@ impl HearthstoneBasicRules {
 }
 
 #[cfg(test)]
-mod tests {
+mod heathstone_tests {
     use super::*;
     use crate::rules::core::Rule;
 
