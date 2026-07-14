@@ -121,7 +121,10 @@ impl Rule for CommercialLawDeepRules {
                 ("证券法深度规则", &self.securities_law_detailed()),
                 ("保险法深度规则", &self.insurance_law_detailed()),
                 ("破产法深度规则", &self.bankruptcy_law_detailed()),
-                ("票据法深度规则", &self.negotiable_instruments_law_detailed()),
+                (
+                    "票据法深度规则",
+                    &self.negotiable_instruments_law_detailed(),
+                ),
             ],
         )
     }
@@ -158,9 +161,6 @@ mod tests {
     #[test]
     fn test_category() {
         let rules = CommercialLawDeepRules::new();
-        assert_eq!(
-            rules.category(),
-            RuleCategory::law("commercial_law_deep")
-        );
+        assert_eq!(rules.category(), RuleCategory::law("commercial_law_deep"));
     }
 }

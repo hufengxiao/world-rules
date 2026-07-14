@@ -80,6 +80,7 @@ pub mod advertising;
 pub mod antimonopoly;
 pub mod bidding;
 pub mod customs;
+pub mod economic_law_deep;
 pub mod foreign_trade;
 pub mod patent;
 pub mod price;
@@ -88,6 +89,7 @@ pub mod trademark;
 
 // 行政法类
 pub mod administrative;
+pub mod administrative_law_deep;
 pub mod agriculture;
 pub mod archives;
 pub mod construction;
@@ -111,6 +113,7 @@ pub mod medical;
 pub mod property_management;
 pub mod real_estate;
 pub mod social_insurance;
+pub mod social_law_deep;
 pub mod tourism;
 
 // 程序法类
