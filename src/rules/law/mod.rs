@@ -69,6 +69,7 @@ pub mod traffic;
 // 商法类
 pub mod banking;
 pub mod bankruptcy;
+pub mod commercial_law_deep;
 pub mod company;
 pub mod insurance;
 pub mod maritime;
