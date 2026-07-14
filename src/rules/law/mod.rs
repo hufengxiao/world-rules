@@ -177,6 +177,7 @@ pub mod civil_code_contract_deep;
 pub mod civil_code_general;
 pub mod civil_code_general_deep;
 pub mod civil_code_inheritance;
+pub mod civil_code_inheritance_deep;
 pub mod civil_code_marriage;
 pub mod civil_code_marriage_deep;
 pub mod civil_code_personality;
