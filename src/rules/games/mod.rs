@@ -86,6 +86,7 @@ pub mod chess960;
 pub mod chess960_detailed;
 pub mod chess_detailed;
 pub mod chinese_checkers;
+pub mod civilization;
 pub mod codenames;
 pub mod connect_four;
 pub mod craps;
@@ -183,6 +184,7 @@ pub mod texas_holdem_detailed;
 pub mod three_card_poker;
 pub mod tic_tac_toe;
 pub mod ticket_to_ride;
+pub mod total_war;
 pub mod trivia_game;
 pub mod twenty_four_point;
 pub mod two_player_mahjong;
@@ -230,6 +232,7 @@ pub use chess960::Chess960Rules;
 pub use chess960_detailed::Chess960DetailedRules;
 pub use chess_detailed::ChessDetailedRules;
 pub use chinese_checkers::ChineseCheckersRules;
+pub use civilization::CivilizationRules;
 pub use codenames::CodenamesRules;
 pub use connect_four::ConnectFourRules;
 pub use craps::CrapsRules;
@@ -327,6 +330,7 @@ pub use texas_holdem_detailed::TexasHoldemDetailedRules;
 pub use three_card_poker::ThreeCardPokerRules;
 pub use tic_tac_toe::TicTacToeRules;
 pub use ticket_to_ride::TicketToRideRules;
+pub use total_war::TotalWarRules;
 pub use trivia_game::TriviaGameRules;
 pub use twenty_four_point::TwentyFourPointRules;
 pub use two_player_mahjong::TwoPlayerMahjongRules;
@@ -474,6 +478,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = ChongqingMahjongRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CivilizationRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
@@ -742,6 +750,10 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = ZhajinhuaRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TotalWarRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
     }
     {
