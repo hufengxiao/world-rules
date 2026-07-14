@@ -205,7 +205,10 @@ pub use big_two::BigTwoRules;
 pub use blackjack::BlackjackRules;
 pub use blind_chess::BlindChessRules;
 pub use blind_go::BlindGoRules;
-pub use board_games::{ChessRules, ChineseChessRules, GoRules, GomokuRules};
+pub use board_games::{
+    ChessRules, ChessVariant, ChessVariantsRules, ChineseChessRules, GoRules, GomokuRules,
+    InternationalChessRules, JanggiVariantRules, ShogiVariantRules,
+};
 pub use bridge::BridgeRules;
 pub use bridge_chicago::BridgeChicagoRules;
 pub use bridge_detailed::BridgeDetailedRules;
