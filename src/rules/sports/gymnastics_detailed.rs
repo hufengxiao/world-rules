@@ -137,12 +137,7 @@ impl GymnasticsDetailedRules {
 
     /// 竞技体操女子项目
     pub fn womens_apparatus(&self) -> Vec<&'static str> {
-        vec![
-            "跳马 (VT)",
-            "高低杠 (UB)",
-            "平衡木 (BB)",
-            "自由体操 (FX)",
-        ]
+        vec!["跳马 (VT)", "高低杠 (UB)", "平衡木 (BB)", "自由体操 (FX)"]
     }
 
     /// 体操评分规则（2022-2024周期）

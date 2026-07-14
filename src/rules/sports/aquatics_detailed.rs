@@ -42,10 +42,7 @@ impl SwimmingStroke {
 
     /// 是否允许滚翻转身
     pub fn allows_flip_turn(&self) -> bool {
-        matches!(
-            self,
-            SwimmingStroke::Freestyle | SwimmingStroke::Backstroke
-        )
+        matches!(self, SwimmingStroke::Freestyle | SwimmingStroke::Backstroke)
     }
 }
 
@@ -78,7 +75,10 @@ impl DivingEvent {
 
     /// 是否为双人项目
     pub fn is_synchronized(&self) -> bool {
-        matches!(self, DivingEvent::Synchronized3m | DivingEvent::Synchronized10m)
+        matches!(
+            self,
+            DivingEvent::Synchronized3m | DivingEvent::Synchronized10m
+        )
     }
 
     /// 获取高度（米）

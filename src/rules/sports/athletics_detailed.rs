@@ -501,7 +501,7 @@ impl AthleticsDetailedRules {
     }
 
     /// 残疾人田径规则
-        pub fn para_athletics_rules(&self) -> Vec<&'static str> {
+    pub fn para_athletics_rules(&self) -> Vec<&'static str> {
         vec![
             "分级制度: T（径赛）、F（田赛）",
             "轮椅竞速: T32-34、T51-54级",

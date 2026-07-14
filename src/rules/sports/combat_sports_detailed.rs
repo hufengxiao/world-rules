@@ -69,9 +69,7 @@ impl CombatSport {
     pub fn allows_grappling(&self) -> bool {
         matches!(
             self,
-            CombatSport::Wrestling
-                | CombatSport::Judo
-                | CombatSport::BrazilianJiuJitsu
+            CombatSport::Wrestling | CombatSport::Judo | CombatSport::BrazilianJiuJitsu
         )
     }
 }
