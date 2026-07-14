@@ -135,7 +135,10 @@ impl Rule for ProceduralLawDeepRules {
             "程序法深度规则",
             &[
                 ("民事诉讼深度规则", &self.civil_litigation_detailed()),
-                ("行政诉讼深度规则", &self.administrative_litigation_detailed()),
+                (
+                    "行政诉讼深度规则",
+                    &self.administrative_litigation_detailed(),
+                ),
                 ("仲裁程序深度规则", &self.arbitration_procedure_detailed()),
                 ("调解程序深度规则", &self.mediation_procedure_detailed()),
                 ("执行程序深度规则", &self.execution_procedure_detailed()),
