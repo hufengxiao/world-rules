@@ -13,8 +13,19 @@
 //! ├── board_games/    # 棋类游戏（象棋、围棋等）
 //! ├── card_games/     # 卡牌游戏（扑克牌型评估）
 //! ├── mahjong/        # 麻将核心逻辑和各地变体
+//! ├── traits.rs       # 游戏规则通用 trait 设计
 //! ├── *其他游戏       # 各类独立游戏规则
 //! ```
+//!
+//! # 通用 Trait 设计
+//!
+//! 本模块提供了一套游戏规则的通用 trait 层次结构：
+//!
+//! - [`traits::Game`] - 所有游戏的基础 trait
+//! - [`traits::TurnBased`] - 回合制游戏 trait
+//! - [`traits::Scoreable`] - 可计分游戏 trait
+//! - [`traits::BoardGame`] - 棋盘游戏 trait
+//! - [`traits::CardGame`] - 卡牌游戏 trait
 //!
 //! # Examples
 //!
@@ -44,6 +55,7 @@
 //! - [`poker_five_card`] - 五张牌扑克规则
 //! - [`poker_omaha`] - 奥马哈扑克规则
 //! - [`texas_holdem`] - 德州扑克规则
+//! - [`traits`] - 游戏规则通用 trait 设计
 //!
 //! # 规则统计
 //!
@@ -198,6 +210,9 @@ pub mod xiangqi_detailed;
 pub mod yahtzee;
 pub mod zhajinhua;
 
+/// 游戏规则通用 trait 设计
+pub mod traits;
+
 pub use abalone::AbaloneRules;
 pub use aeroplane_chess::AeroplaneChessRules;
 pub use agricola::AgricolaRules;
@@ -343,6 +358,12 @@ pub use xiangqi960::Xiangqi960Rules;
 pub use xiangqi_detailed::XiangqiDetailedRules;
 pub use yahtzee::YahtzeeRules;
 pub use zhajinhua::ZhajinhuaRules;
+
+// 导出游戏规则通用 traits
+pub use traits::{
+    BoardGame, BoardGameExt, CardGame, CardGameExt, Difficulty, Game, GameInfo, GameState,
+    GameType, Position, Scoreable, TurnBased,
+};
 
 /// 获取所有游戏规则的元数据列表
 ///
