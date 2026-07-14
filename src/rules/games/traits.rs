@@ -39,6 +39,9 @@
 use std::fmt::Debug;
 use std::hash::Hash;
 
+// 从 core 重新导出 Difficulty，供游戏规则使用
+pub use crate::rules::core::Difficulty;
+
 /// 游戏状态
 ///
 /// 表示游戏的当前运行状态。
@@ -53,39 +56,6 @@ pub enum GameState {
     Finished,
     /// 游戏暂停
     Paused,
-}
-
-/// 游戏难度等级
-///
-/// 用于游戏规则难度分级系统。
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, Default)]
-pub enum Difficulty {
-    /// 入门级 - 适合新手学习基本规则
-    Beginner,
-    /// 简单级 - 掌握基本策略即可参与
-    Easy,
-    /// 普通级 - 需要一定经验和策略
-    #[default]
-    Normal,
-    /// 困难级 - 需要深入理解和高级策略
-    Hard,
-    /// 专家级 - 需要精通规则和复杂策略
-    Expert,
-    /// 大师级 - 最高难度，竞技级别
-    Master,
-}
-
-impl std::fmt::Display for Difficulty {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match self {
-            Self::Beginner => write!(f, "入门"),
-            Self::Easy => write!(f, "简单"),
-            Self::Normal => write!(f, "普通"),
-            Self::Hard => write!(f, "困难"),
-            Self::Expert => write!(f, "专家"),
-            Self::Master => write!(f, "大师"),
-        }
-    }
 }
 
 /// 游戏类型分类

@@ -5,6 +5,47 @@ use std::collections::HashMap;
 /// 三元组规则条目 (名称, 公式/分类, 描述)
 pub type TitledItem = (&'static str, &'static str, &'static str);
 
+/// 规则难度等级
+///
+/// 用于游戏规则难度分级系统。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::core::Difficulty;
+///
+/// assert!(Difficulty::Beginner < Difficulty::Easy);
+/// assert_eq!(format!("{}", Difficulty::Hard), "困难");
+/// ```
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, Default, serde::Serialize, serde::Deserialize)]
+pub enum Difficulty {
+    /// 入门级 - 适合新手学习基本规则
+    Beginner,
+    /// 简单级 - 掌握基本策略即可参与
+    Easy,
+    /// 普通级 - 需要一定经验和策略
+    #[default]
+    Normal,
+    /// 困难级 - 需要深入理解和高级策略
+    Hard,
+    /// 专家级 - 需要精通规则和复杂策略
+    Expert,
+    /// 大师级 - 最高难度，竞技级别
+    Master,
+}
+
+impl std::fmt::Display for Difficulty {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Beginner => write!(f, "入门"),
+            Self::Easy => write!(f, "简单"),
+            Self::Normal => write!(f, "普通"),
+            Self::Hard => write!(f, "困难"),
+            Self::Expert => write!(f, "专家"),
+            Self::Master => write!(f, "大师"),
+        }
+    }
+}
+
 /// 规则分类
 ///
 /// 每个规则都属于一个大分类下的子分类。
@@ -145,17 +186,19 @@ impl std::fmt::Display for RuleCategory {
 
 /// 规则元数据
 ///
-/// 包含规则的基本信息：名称、描述、版本、来源和标签。
+/// 包含规则的基本信息：名称、描述、版本、来源、标签和难度等级。
 /// 通过 builder 模式构造。
 ///
 /// # 示例
 /// ```
-/// use world_rules::rules::core::RuleMetadata;
+/// use world_rules::rules::core::{RuleMetadata, Difficulty};
 ///
 /// let meta = RuleMetadata::new("四川麻将", "血战到底规则")
 ///     .with_origin("四川")
-///     .with_tags(vec!["麻将".into(), "地方变体".into()]);
+///     .with_tags(vec!["麻将".into(), "地方变体".into()])
+///     .with_difficulty(Difficulty::Hard);
 /// assert_eq!(meta.name, "四川麻将");
+/// assert_eq!(meta.difficulty, Difficulty::Hard);
 /// ```
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct RuleMetadata {
@@ -169,6 +212,9 @@ pub struct RuleMetadata {
     pub origin: Option<String>,
     /// 标签
     pub tags: Vec<String>,
+    /// 规则难度等级（默认 Normal）
+    #[serde(default)]
+    pub difficulty: Difficulty,
 }
 
 impl RuleMetadata {
@@ -189,6 +235,7 @@ impl RuleMetadata {
             version: "1.0.0".to_string(),
             origin: None,
             tags: Vec::new(),
+            difficulty: Difficulty::default(),
         }
     }
 
@@ -232,6 +279,21 @@ impl RuleMetadata {
     /// ```
     pub fn with_tags(mut self, tags: Vec<String>) -> Self {
         self.tags = tags;
+        self
+    }
+
+    /// 设置规则难度等级
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::core::{RuleMetadata, Difficulty};
+    ///
+    /// let meta = RuleMetadata::new("围棋", "古老棋类游戏")
+    ///     .with_difficulty(Difficulty::Expert);
+    /// assert_eq!(meta.difficulty, Difficulty::Expert);
+    /// ```
+    pub fn with_difficulty(mut self, difficulty: Difficulty) -> Self {
+        self.difficulty = difficulty;
         self
     }
 }
@@ -1259,5 +1321,57 @@ mod validator_tests {
         let meta = RuleMetadata::new("名称", "");
         let issues = RuleValidator::validate_metadata(&meta);
         assert!(issues.iter().any(|i| i.contains("描述")));
+    }
+}
+
+#[cfg(test)]
+mod difficulty_tests {
+    use super::*;
+
+    #[test]
+    fn test_difficulty_ordering() {
+        assert!(Difficulty::Beginner < Difficulty::Easy);
+        assert!(Difficulty::Easy < Difficulty::Normal);
+        assert!(Difficulty::Normal < Difficulty::Hard);
+        assert!(Difficulty::Hard < Difficulty::Expert);
+        assert!(Difficulty::Expert < Difficulty::Master);
+    }
+
+    #[test]
+    fn test_difficulty_default() {
+        let diff = Difficulty::default();
+        assert_eq!(diff, Difficulty::Normal);
+    }
+
+    #[test]
+    fn test_difficulty_display() {
+        assert_eq!(format!("{}", Difficulty::Beginner), "入门");
+        assert_eq!(format!("{}", Difficulty::Easy), "简单");
+        assert_eq!(format!("{}", Difficulty::Normal), "普通");
+        assert_eq!(format!("{}", Difficulty::Hard), "困难");
+        assert_eq!(format!("{}", Difficulty::Expert), "专家");
+        assert_eq!(format!("{}", Difficulty::Master), "大师");
+    }
+
+    #[test]
+    fn test_metadata_with_difficulty() {
+        let meta = RuleMetadata::new("围棋", "古老棋类游戏")
+            .with_difficulty(Difficulty::Expert);
+        assert_eq!(meta.difficulty, Difficulty::Expert);
+    }
+
+    #[test]
+    fn test_metadata_default_difficulty() {
+        let meta = RuleMetadata::new("测试", "描述");
+        assert_eq!(meta.difficulty, Difficulty::Normal);
+    }
+
+    #[test]
+    fn test_difficulty_serde() {
+        let diff = Difficulty::Hard;
+        let json = serde_json::to_string(&diff).unwrap();
+        assert!(json.contains("Hard"));
+        let parsed: Difficulty = serde_json::from_str(&json).unwrap();
+        assert_eq!(parsed, Difficulty::Hard);
     }
 }
