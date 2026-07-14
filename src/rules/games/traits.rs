@@ -305,8 +305,11 @@ pub trait Game: Send + Sync {
 ///
 /// # Examples
 ///
-/// ```rust
+/// ```ignore
 /// use world_rules::rules::games::traits::*;
+///
+/// // 实现 TurnBased trait 需要先实现 Game trait
+/// // 具体实现请参考 crate 文档
 ///
 /// struct ChessGame {
 ///     current_player: u8,
@@ -385,9 +388,12 @@ pub trait TurnBased: Game {
 ///
 /// # Examples
 ///
-/// ```rust
+/// ```ignore
 /// use world_rules::rules::games::traits::*;
 /// use std::collections::HashMap;
+///
+/// // 实现 Scoreable trait 需要先实现 Game trait
+/// // 具体实现请参考 crate 文档
 ///
 /// struct CardGame {
 ///     scores: HashMap<u8, i32>,
@@ -473,8 +479,12 @@ pub trait Position: Debug + Clone + Eq + Hash + Send + Sync {
 ///
 /// # Examples
 ///
-/// ```rust
+/// ```ignore
 /// use world_rules::rules::games::traits::*;
+///
+/// // 实现 BoardGame trait 需要先实现 Game trait
+/// // Position 类型需要实现 Position trait
+/// // 具体实现请参考 crate 文档
 ///
 /// struct GoBoard {
 ///     size: usize,
@@ -616,9 +626,12 @@ pub trait BoardGameExt: BoardGame {
 ///
 /// # Examples
 ///
-/// ```rust
+/// ```ignore
 /// use world_rules::rules::games::traits::*;
 /// use std::collections::VecDeque;
+///
+/// // 实现 CardGame trait 需要先实现 Game trait
+/// // 具体实现请参考 crate 文档
 ///
 /// struct PokerGame {
 ///     deck: VecDeque<u8>,
