@@ -489,6 +489,14 @@ cargo bench -- mahjong
 
 如果您的问题未在本文档中找到答案：
 
+- 🔍 **快速搜索 FAQ**：
+  ```bash
+  # Linux/macOS/Git Bash
+  ./docs/faq_search.sh 麻将
+  
+  # Windows PowerShell
+  .\docs\faq_search.ps1 -Keyword 麻将
+  ```
 - 📖 查看 [API 文档](https://docs.rs/world_rules)
 - 📋 查看 [规则目录](RULES_CATALOG.md)
 - 🛠️ 查看 [最佳实践](BEST_PRACTICES.md)
