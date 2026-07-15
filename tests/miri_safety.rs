@@ -311,3 +311,250 @@ impl Rule for TestRule {
         }
     }
 }
+
+/// 测试 Drop 实现的正确性（内存安全关键测试）
+#[test]
+fn test_drop_correctness() {
+    use std::sync::atomic::{AtomicUsize, Ordering};
+
+    // 统计 Drop 调用次数
+    static DROP_COUNTER: AtomicUsize = AtomicUsize::new(0);
+
+    struct DropTracker {
+        id: usize,
+    }
+
+    impl Drop for DropTracker {
+        fn drop(&mut self) {
+            DROP_COUNTER.fetch_add(1, Ordering::SeqCst);
+        }
+    }
+
+    let initial_count = DROP_COUNTER.load(Ordering::SeqCst);
+
+    {
+        let _tracker1 = DropTracker { id: 1 };
+        let _tracker2 = DropTracker { id: 2 };
+
+        // 创建规则
+        let meta = RuleMetadata::new("drop_test", "测试 Drop");
+        let _rule = TestRule { meta };
+
+        // 作用域结束时应调用 Drop
+    }
+
+    let final_count = DROP_COUNTER.load(Ordering::SeqCst);
+    assert!(
+        final_count > initial_count,
+        "Drop 应该被正确调用，确保内存释放"
+    );
+}
+
+/// 测试内存对齐（MIRI 会检测对齐问题）
+#[test]
+fn test_memory_alignment() {
+    // 创建各种大小的对象
+    for size in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024].iter() {
+        let name = "x".repeat(*size);
+        let meta = RuleMetadata::new(&name, &name);
+        let rule = TestRule { meta };
+
+        // 验证对象创建和访问没有对齐问题
+        assert!(!rule.metadata().name.is_empty());
+    }
+}
+
+/// 测试引用生命周期（MIRI 会检测悬垂引用）
+#[test]
+fn test_reference_lifetime() {
+    let meta = RuleMetadata::new("lifetime_test", "生命周期测试");
+    let rule = TestRule { meta };
+
+    // 获取引用
+    let metadata_ref = rule.metadata();
+
+    // 验证引用有效
+    assert!(!metadata_ref.name.is_empty());
+
+    // 使用后引用仍然有效
+    assert!(!metadata_ref.description.is_empty());
+}
+
+/// 测试 Box 动态分发内存安全
+#[test]
+fn test_box_dyn_memory_safety() {
+    let mut rules: Vec<Box<dyn Rule>> = Vec::new();
+
+    // 创建大量 Box<dyn Rule>
+    for i in 0..100 {
+        let meta = RuleMetadata::new(&format!("box_rule_{}", i), &format!("Description {}", i));
+        let rule: Box<dyn Rule> = Box::new(TestRule { meta });
+        rules.push(rule);
+    }
+
+    // 使用动态分发
+    for rule in &rules {
+        let _ = rule.category();
+        let _ = rule.metadata();
+    }
+
+    // 清空集合，测试 Box 内存释放
+    rules.clear();
+    rules.shrink_to_fit();
+
+    // Vec 应正确释放内存
+}
+
+/// 测试 HashMap 内存管理
+#[test]
+fn test_hashmap_memory_safety() {
+    use std::collections::HashMap;
+
+    let mut map: HashMap<String, RuleMetadata> = HashMap::new();
+
+    // 插入大量数据
+    for i in 0..1000 {
+        let key = format!("key_{}", i);
+        let value = RuleMetadata::new(&format!("value_{}", i), &format!("Description {}", i));
+        map.insert(key, value);
+    }
+
+    // 查询
+    for i in 0..100 {
+        let key = format!("key_{}", i * 10);
+        assert!(map.contains_key(&key));
+    }
+
+    // 删除
+    for i in 0..100 {
+        let key = format!("key_{}", i * 5);
+        map.remove(&key);
+    }
+
+    // 清空
+    map.clear();
+    map.shrink_to_fit();
+
+    // HashMap 应正确释放内存
+}
+
+/// 测试字符串内存管理
+#[test]
+fn test_string_memory_safety() {
+    // 测试短字符串（栈分配）
+    for _ in 0..10000 {
+        let short = String::from("short");
+        let _ = short.len();
+    }
+
+    // 测试长字符串（堆分配）
+    for _ in 0..100 {
+        let long = "x".repeat(10000);
+        let _ = long.len();
+    }
+
+    // 测试字符串拼接
+    for _ in 0..100 {
+        let mut s = String::new();
+        for j in 0..100 {
+            s.push_str(&format!("part_{}_", j));
+        }
+        let _ = s.len();
+    }
+}
+
+/// 测试 Vec 内存管理
+#[test]
+fn test_vec_memory_safety() {
+    // 测试增长
+    let mut vec: Vec<i32> = Vec::new();
+    for i in 0..10000 {
+        vec.push(i);
+    }
+
+    // 测试收缩
+    for _ in 0..5000 {
+        vec.pop();
+    }
+
+    // 测试清空
+    vec.clear();
+    vec.shrink_to_fit();
+
+    assert_eq!(vec.capacity(), 0);
+}
+
+/// 测试引用计数内存管理
+#[test]
+fn test_arc_memory_safety() {
+    use std::sync::Arc;
+
+    let meta = Arc::new(RuleMetadata::new("arc_test", "Arc 测试"));
+
+    // 克隆多个引用
+    let mut refs = vec![];
+    for _ in 0..100 {
+        refs.push(Arc::clone(&meta));
+    }
+
+    // 所有引用都有效
+    for r in &refs {
+        assert!(!r.name.is_empty());
+    }
+
+    // 释放所有克隆引用
+    refs.clear();
+
+    // 原始引用仍然有效
+    assert!(!meta.name.is_empty());
+}
+
+/// 测试 RefCell 运行时借用检查
+#[test]
+fn test_refcell_borrow_safety() {
+    use std::cell::RefCell;
+
+    let cell = RefCell::new(RuleMetadata::new("refcell_test", "RefCell 测试"));
+
+    // 不可变借用
+    {
+        let borrowed = cell.borrow();
+        assert!(!borrowed.name.is_empty());
+    }
+
+    // 可变借用
+    {
+        let mut borrowed = cell.borrow_mut();
+        borrowed.version = "2.0.0".to_string();
+    }
+
+    // 验证修改
+    assert_eq!(cell.borrow().version, "2.0.0");
+}
+
+/// 测试 Mutex 锁的内存安全
+#[test]
+fn test_mutex_memory_safety() {
+    use std::sync::Mutex;
+
+    let mutex = Mutex::new(RuleMetadata::new("mutex_test", "Mutex 测试"));
+
+    // 在多线程环境下使用
+    let mutex_clone = Arc::new(mutex);
+    let mut handles = vec![];
+
+    for i in 0..10 {
+        let m = Arc::clone(&mutex_clone);
+        let handle = thread::spawn(move || {
+            let mut guard = m.lock().unwrap();
+            guard.version = format!("{}.0.0", i);
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().expect("Thread panicked");
+    }
+
+    // 锁应正确释放
+}
