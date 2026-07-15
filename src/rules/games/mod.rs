@@ -212,6 +212,7 @@ pub mod zhajinhua;
 
 /// 游戏规则通用 trait 设计
 pub mod traits;
+pub mod version;
 
 pub use abalone::AbaloneRules;
 pub use aeroplane_chess::AeroplaneChessRules;
@@ -363,6 +364,12 @@ pub use zhajinhua::ZhajinhuaRules;
 pub use traits::{
     BoardGame, BoardGameExt, CardGame, CardGameExt, Difficulty, Game, GameInfo, GameState,
     GameType, Position, Scoreable, TurnBased,
+};
+
+// 导出游戏规则版本管理
+pub use version::{
+    ChangeType, CompatibilityRule, GameVersion, VersionChange, VersionError, VersionHistory,
+    VersionManager, VersionRange,
 };
 
 /// 获取所有游戏规则的元数据列表
