@@ -404,6 +404,8 @@ mod extreme_value_tests {
 
 mod concurrency_boundary_tests {
     use super::*;
+    use std::sync::Arc;
+    use std::thread;
 
     /// 测试手牌的 Send trait（编译时检查）
     #[test]
@@ -425,6 +427,125 @@ mod concurrency_boundary_tests {
         fn assert_send_sync<T: Send + Sync>() {}
         assert_send_sync::<Tile>();
         assert_send_sync::<TileType>();
+    }
+
+    /// 测试 RuleMetadata 的 Send/Sync trait
+    #[test]
+    fn metadata_is_send_sync() {
+        fn assert_send_sync<T: Send + Sync>() {}
+        assert_send_sync::<RuleMetadata>();
+    }
+
+    /// 测试 RuleCategory 的 Send/Sync trait
+    #[test]
+    fn category_is_send_sync() {
+        fn assert_send_sync<T: Send + Sync>() {}
+        assert_send_sync::<RuleCategory>();
+    }
+
+    /// 测试 Difficulty 的 Send/Sync trait
+    #[test]
+    fn difficulty_is_send_sync() {
+        fn assert_send_sync<T: Send + Sync>() {}
+        assert_send_sync::<Difficulty>();
+    }
+
+    /// 测试 Card 的 Send/Sync trait
+    #[test]
+    fn card_is_send_sync() {
+        fn assert_send_sync<T: Send + Sync>() {}
+        assert_send_sync::<Card>();
+        assert_send_sync::<Suit>();
+        assert_send_sync::<Rank>();
+    }
+
+    /// 测试多线程访问 Hand（通过 Arc）
+    #[test]
+    fn hand_thread_safe_access() {
+        let hand = Arc::new(Hand::new());
+        let hand_clone = Arc::clone(&hand);
+
+        // 编译时检查 Arc<Hand> 是否 Send
+        fn assert_send<T: Send>() {}
+        assert_send::<Arc<Hand>>();
+
+        // 在新线程中访问
+        let handle = thread::spawn(move || {
+            let _ = hand_clone.tiles().len();
+        });
+        handle.join().unwrap();
+    }
+
+    /// 测试多线程创建 Tile
+    #[test]
+    fn tile_creation_thread_safe() {
+        let tiles: Vec<Tile> = (1..=9)
+            .flat_map(|n| vec![Tile::wan(n), Tile::tiao(n), Tile::tong(n)])
+            .collect();
+
+        let handles: Vec<_> = (0..4)
+            .map(|_| {
+                let tiles_clone = tiles.clone();
+                thread::spawn(move || {
+                    // 多线程中访问 tiles
+                    tiles_clone.len()
+                })
+            })
+            .collect();
+
+        let results: Vec<_> = handles.into_iter().map(|h| h.join().unwrap()).collect();
+        assert!(results.iter().all(|&len| len == 27));
+    }
+
+    /// 测试多线程创建 Card
+    #[test]
+    fn card_creation_thread_safe() {
+        let cards = vec![
+            Card::new(Suit::Heart, Rank::Ace),
+            Card::new(Suit::Spade, Rank::King),
+        ];
+
+        let handles: Vec<_> = (0..4)
+            .map(|_| {
+                let cards_clone = cards.clone();
+                thread::spawn(move || cards_clone.len())
+            })
+            .collect();
+
+        let results: Vec<_> = handles.into_iter().map(|h| h.join().unwrap()).collect();
+        assert!(results.iter().all(|&len| len == 2));
+    }
+
+    /// 测试多线程创建 RuleMetadata
+    #[test]
+    fn metadata_thread_safe_creation() {
+        let meta = Arc::new(RuleMetadata::new("规则", "描述"));
+
+        let handles: Vec<_> = (0..4)
+            .map(|_| {
+                let meta_clone = Arc::clone(&meta);
+                thread::spawn(move || meta_clone.name.clone())
+            })
+            .collect();
+
+        let results: Vec<_> = handles.into_iter().map(|h| h.join().unwrap()).collect();
+        assert!(results.iter().all(|name| name == "规则"));
+    }
+
+    /// 测试多线程访问 Difficulty
+    #[test]
+    fn difficulty_thread_safe() {
+        let difficulty = Difficulty::Hard;
+
+        let handles: Vec<_> = (0..4)
+            .map(|_| {
+                let diff = difficulty;
+                thread::spawn(move || format!("{}", diff))
+            })
+            .collect();
+
+        let results: Vec<_> = handles.into_iter().map(|h| h.join().unwrap()).collect();
+        assert!(results.iter().all(|s| s == "困难"));
     }
 }
 
