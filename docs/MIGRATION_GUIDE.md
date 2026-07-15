@@ -175,6 +175,8 @@ v2.x 大幅扩展游戏规则：
 
 ## API 变更
 
+> **详细 API 变更说明请参考：[API_CHANGES.md](./API_CHANGES.md)**
+
 ### 新增 Trait 方法
 
 `RuleMetadata` 结构体新增 `difficulty` 字段：
