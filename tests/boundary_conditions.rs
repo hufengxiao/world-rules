@@ -344,9 +344,19 @@ mod extreme_value_tests {
 
         // 所有等级数量固定为 13
         let ranks = vec![
-            Rank::Two, Rank::Three, Rank::Four, Rank::Five, Rank::Six,
-            Rank::Seven, Rank::Eight, Rank::Nine, Rank::Ten,
-            Rank::Jack, Rank::Queen, Rank::King, Rank::Ace,
+            Rank::Two,
+            Rank::Three,
+            Rank::Four,
+            Rank::Five,
+            Rank::Six,
+            Rank::Seven,
+            Rank::Eight,
+            Rank::Nine,
+            Rank::Ten,
+            Rank::Jack,
+            Rank::Queen,
+            Rank::King,
+            Rank::Ace,
         ];
         assert_eq!(ranks.len(), 13);
     }

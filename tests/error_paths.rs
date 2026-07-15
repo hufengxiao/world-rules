@@ -7,7 +7,9 @@
 //! 3. 错误恢复测试 - 测试系统从错误中恢复的能力
 //! 4. Panic 测试 - 测试预期 panic 的场景
 
-use world_rules::rules::core::{Difficulty, RuleCategory, RuleError, RuleMetadata, RuleSet, ValidateContext};
+use world_rules::rules::core::{
+    Difficulty, RuleCategory, RuleError, RuleMetadata, RuleSet, ValidateContext,
+};
 use world_rules::rules::games::card_games::poker::TexasHoldemRules;
 use world_rules::rules::games::card_games::{Card, Rank, Suit};
 use world_rules::rules::games::mahjong::{Dragon, Hand, Tile, TileType, Wind};
@@ -138,8 +140,7 @@ mod invalid_input_tests {
         assert_eq!(meta.tags.len(), 1);
 
         // Unicode 标签
-        let meta = RuleMetadata::new("规则", "描述")
-            .with_tags(vec!["🎮🎯🎲".to_string()]);
+        let meta = RuleMetadata::new("规则", "描述").with_tags(vec!["🎮🎯🎲".to_string()]);
         assert_eq!(meta.tags[0], "🎮🎯🎲");
     }
 }
@@ -521,8 +522,7 @@ mod panic_tests {
         let meta = RuleMetadata::new("", "");
         let _display = format!("{}", meta);
 
-        let meta = RuleMetadata::new("规则", "描述")
-            .with_tags(vec![]);
+        let meta = RuleMetadata::new("规则", "描述").with_tags(vec![]);
         let _display = format!("{}", meta);
     }
 }
@@ -571,7 +571,8 @@ mod comprehensive_error_tests {
         assert!(!meta.name.is_empty());
 
         // 步骤 4: 添加更多有效字段
-        meta = meta.with_version("2.0.0")
+        meta = meta
+            .with_version("2.0.0")
             .with_origin("中国")
             .with_tags(vec!["测试".to_string()])
             .with_difficulty(Difficulty::Expert);
@@ -702,9 +703,19 @@ mod comprehensive_error_tests {
     #[test]
     fn all_rank_variants() {
         let ranks = vec![
-            Rank::Two, Rank::Three, Rank::Four, Rank::Five, Rank::Six,
-            Rank::Seven, Rank::Eight, Rank::Nine, Rank::Ten,
-            Rank::Jack, Rank::Queen, Rank::King, Rank::Ace,
+            Rank::Two,
+            Rank::Three,
+            Rank::Four,
+            Rank::Five,
+            Rank::Six,
+            Rank::Seven,
+            Rank::Eight,
+            Rank::Nine,
+            Rank::Ten,
+            Rank::Jack,
+            Rank::Queen,
+            Rank::King,
+            Rank::Ace,
         ];
 
         assert_eq!(ranks.len(), 13);
