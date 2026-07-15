@@ -1,0 +1,25 @@
+# 性能基线配置
+# 用于 CI 性能回归检测
+
+[general]
+# 性能回归阈值百分比（超过此值视为回归）
+regression_threshold = 5.0
+# 改进阈值百分比（超过此值视为优化）
+improvement_threshold = 5.0
+# 最小样本数
+min_sample_size = 10
+
+[benchmarks]
+# 需要运行的基准测试
+include = [
+    "law_bench",
+    "mahjong_bench",
+    "poker_bench",
+    "sudoku_bench"
+]
+
+[storage]
+# 基线存储路径
+baseline_dir = "target/criterion"
+# 历史数据存储路径
+history_dir = ".performance-history"

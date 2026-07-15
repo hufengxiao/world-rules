@@ -58,8 +58,10 @@
 //! ```
 
 pub mod i18n;
+pub mod performance_checker;
 pub mod plugins;
 pub mod prelude;
 pub mod rules;
 
 pub use rules::{Rule, RuleCategory, RuleMetadata, RuleSet, ValidateContext};
+pub use performance_checker::{PerformanceBaseline, PerformanceChecker, PerformanceComparison, PerformanceReport};

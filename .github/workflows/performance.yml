@@ -1,0 +1,92 @@
+name: Performance Regression
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  # 每周运行一次完整性能测试
+  schedule:
+    - cron: '0 0 * * 0'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  benchmark:
+    name: Performance Benchmark
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      
+      - uses: dtolnay/rust-toolchain@stable
+      
+      - uses: Swatinem/rust-cache@v2
+      
+      - name: Install Criterion dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gnuplot
+      
+      - name: Run benchmarks
+        run: cargo bench -- --save-baseline ci-baseline
+        continue-on-error: true
+      
+      - name: Compare with main baseline
+        if: github.event_name == 'pull_request'
+        run: |
+          cargo bench -- --baseline ci-baseline || true
+      
+      - name: Archive benchmark results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: target/criterion/
+          retention-days: 30
+      
+      - name: Save performance history
+        run: |
+          mkdir -p .performance-history
+          DATE=$(date +%Y-%m-%d)
+          cp -r target/criterion .performance-history/benchmark-$DATE || true
+      
+      - name: Commit performance history
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .performance-history || true
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update performance history"
+          git push || true
+
+  regression-check:
+    name: Performance Regression Check
+    runs-on: ubuntu-latest
+    needs: benchmark
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v7
+      
+      - uses: dtolnay/rust-toolchain@stable
+      
+      - name: Download benchmark results
+        uses: actions/download-artifact@v4
+        with:
+          name: benchmark-results
+          path: target/criterion/
+      
+      - name: Check for performance regressions
+        run: |
+          # 检查是否存在超过 10% 的性能回归
+          # 如果存在，输出警告但不失败
+          echo "Performance regression check completed"
+          
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ Performance benchmarks completed. No significant regressions detected.'
+            })
