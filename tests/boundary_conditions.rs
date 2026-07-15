@@ -7,7 +7,6 @@
 //! 3. 极限值测试 - 测试集合和序列的边界
 //! 4. 并发边界测试 - 测试多线程访问的安全性
 
-use world_rules::prelude::*;
 use world_rules::rules::core::{Difficulty, RuleCategory, RuleMetadata};
 use world_rules::rules::games::card_games::poker::TexasHoldemRules;
 use world_rules::rules::games::card_games::{Card, Rank, Suit};
@@ -54,9 +53,10 @@ mod numeric_boundaries {
         let num = tile.tile_type.number().unwrap_or(0);
         assert!(num >= 1 && num <= 9, "数字应被 clamp 到 1-9 范围");
 
-        let tile = Tile::tiao(-1);
+        // u8 最大值（wrap around）
+        let tile = Tile::tiao(255);
         let num = tile.tile_type.number().unwrap_or(0);
-        assert!(num >= 1 && num <= 9, "负数应被 clamp 到 1-9 范围");
+        assert!(num >= 1 && num <= 9, "大数字应被 clamp 到 1-9 范围");
     }
 
     /// 测试麻将牌数字边界：超出范围高值
@@ -366,9 +366,21 @@ mod error_path_tests {
         ];
         let _ = TexasHoldemRules::evaluate_hand(&cards);
 
-        // 10 张牌
+        // 10 张牌（使用固定牌）
+        let ranks = [
+            Rank::Two,
+            Rank::Three,
+            Rank::Four,
+            Rank::Five,
+            Rank::Six,
+            Rank::Seven,
+            Rank::Eight,
+            Rank::Nine,
+            Rank::Ten,
+            Rank::Jack,
+        ];
         let cards: Vec<Card> = (0..10)
-            .map(|i| Card::new(Suit::Heart, Rank::values()[i % 13].clone()))
+            .map(|i| Card::new(Suit::Heart, ranks[i].clone()))
             .collect();
         let _ = TexasHoldemRules::evaluate_hand(&cards);
     }
