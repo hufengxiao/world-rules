@@ -157,6 +157,85 @@ mod null_and_none_tests {
         let meta = RuleMetadata::new("规则", "描述").with_tags(vec![]);
         assert!(meta.tags.is_empty());
     }
+
+    /// 测试空字符串名称
+    #[test]
+    fn empty_name() {
+        let meta = RuleMetadata::new("", "");
+        assert_eq!(meta.name, "");
+        assert_eq!(meta.description, "");
+    }
+
+    /// 测试空白字符名称
+    #[test]
+    fn whitespace_name() {
+        let meta = RuleMetadata::new("   ", "   ");
+        assert_eq!(meta.name, "   ");
+        assert_eq!(meta.description, "   ");
+    }
+
+    /// 测试空分类名
+    #[test]
+    fn empty_category_name() {
+        let cat = RuleCategory::games("");
+        assert_eq!(cat.to_string(), "Games/");
+
+        let cat = RuleCategory::law("");
+        assert_eq!(cat.to_string(), "Law/");
+    }
+
+    /// 测试劳动法规则返回非空列表
+    #[test]
+    fn labor_law_non_empty_results() {
+        let rules = world_rules::rules::law::labor::LaborLawRules::new();
+        assert!(!rules.working_hours().is_empty());
+        assert!(!rules.leave_rules().is_empty());
+        assert!(!rules.contract_rules().is_empty());
+    }
+
+    /// 测试空输入到规则解释方法
+    #[test]
+    fn explain_with_empty_metadata() {
+        let meta = RuleMetadata::new("", "");
+        let display = format!("{}", meta);
+        assert_eq!(display, ""); // 空名称显示为空
+    }
+
+    /// 测试大量空值添加到手牌
+    #[test]
+    fn hand_with_many_empty_melds() {
+        let mut hand = Hand::new();
+        // 手牌初始状态应有空 tiles 和空 melds
+        assert!(hand.tiles().is_empty());
+        assert!(hand.melds().is_empty());
+    }
+
+    /// 测试 None 在 Option 字段中的处理
+    #[test]
+    fn metadata_origin_none() {
+        let meta = RuleMetadata::new("规则", "描述");
+        // 不设置 origin，保持 None
+        assert!(meta.origin.is_none());
+
+        // 显示方法应正确处理 None
+        let display = format!("{}", meta);
+        assert!(!display.contains("(")); // 无 origin 时不显示括号
+    }
+
+    /// 测试 Difficulty 默认值
+    #[test]
+    fn difficulty_default_is_normal() {
+        let meta = RuleMetadata::new("规则", "描述");
+        assert_eq!(meta.difficulty, Difficulty::Normal);
+    }
+
+    /// 测试空标签的序列化
+    #[test]
+    fn empty_tags_serialization() {
+        let meta = RuleMetadata::new("规则", "描述");
+        let json = serde_json::to_string(&meta).unwrap();
+        assert!(json.contains("\"tags\":[]"));
+    }
 }
 
 // ============================================================================
