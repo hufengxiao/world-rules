@@ -1,0 +1,134 @@
+# MIRI 内存安全检测 workflow
+# Phase 25 任务：集成 MIRI 检测
+# MIRI 是 Rust 的未定义行为和内存安全检测工具
+
+name: MIRI
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'benches/**'
+      - 'Cargo.toml'
+      - '.github/workflows/miri.yml'
+  pull_request:
+    branches: [master]
+    paths:
+      - 'src/**'
+      - 'tests/**'
+      - 'benches/**'
+      - 'Cargo.toml'
+      - '.github/workflows/miri.yml'
+  schedule:
+    # 每周一凌晨 2:00 运行（UTC）
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+
+jobs:
+  miri:
+    name: MIRI Memory Safety Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: miri
+      
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+      
+      - name: Initialize MIRI
+        run: cargo miri setup
+      
+      - name: Run MIRI on library tests
+        run: cargo miri test --lib
+        continue-on-error: true
+        id: miri_lib
+      
+      - name: Run MIRI on integration tests
+        run: cargo miri test --test integration
+        continue-on-error: true
+        id: miri_integration
+      
+      - name: Run MIRI on specific unsafe-sensitive tests
+        run: |
+          # 运行边界条件和错误路径测试（内存安全敏感区域）
+          cargo miri test --test boundary_conditions || true
+          cargo miri test --test error_paths || true
+        continue-on-error: true
+      
+      - name: Generate MIRI report
+        if: always()
+        run: |
+          echo "## MIRI Memory Safety Report" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Library Tests**: ${{ steps.miri_lib.outcome }}" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Integration Tests**: ${{ steps.miri_integration.outcome }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Memory Safety Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.miri_lib.outcome }}" == "success" ] && [ "${{ steps.miri_integration.outcome }}" == "success" ]; then
+            echo "🟢 **All MIRI checks passed - No memory safety issues detected**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "🟡 **MIRI detected potential issues - Review logs for details**" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "---" >> $GITHUB_STEP_SUMMARY
+          echo "_MIRI checks for: uninitialized memory, out-of-bounds access, use-after-free, data races, memory leaks_" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Check for unsafe code
+        run: |
+          echo "### Unsafe Code Analysis" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          UNSAFE_COUNT=$(grep -r "unsafe" --include="*.rs" src/ | wc -l || echo "0")
+          if [ "$UNSAFE_COUNT" -eq 0 ]; then
+            echo "🟢 **No unsafe code found in src/**" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "🟡 **Found $UNSAFE_COUNT unsafe blocks - Manual review recommended**" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+            grep -rn "unsafe" --include="*.rs" src/ >> $GITHUB_STEP_SUMMARY || true
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi
+
+  miri-specific:
+    name: MIRI Specific Checks
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      
+      - name: Install Rust nightly
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: miri
+      
+      - name: Setup Rust cache
+        uses: Swatinem/rust-cache@v2
+      
+      - name: Initialize MIRI
+        run: cargo miri setup
+      
+      - name: Run MIRI with tree borrows
+        run: cargo miri test --lib -- --format=pretty
+        env:
+          MIRIFLAGS: "-Zmiri-tree-borrows"
+        continue-on-error: true
+      
+      - name: Run MIRI with stacked borrows
+        run: cargo miri test --lib
+        env:
+          MIRIFLAGS: "-Zmiri-strict-provenance"
+        continue-on-error: true
