@@ -22,8 +22,8 @@ full = ["serde_json"]
 
 [dev-dependencies]
 serde_json = "1"
-criterion = "0.8"
-proptest = "1.4"
+# criterion = "0.8"  # 暂时禁用，需要 GCC
+# proptest = "1.4"   # 暂时禁用，需要 GCC
 
 [[bench]]
 name = "mahjong_bench"
