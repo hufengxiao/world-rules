@@ -1,7 +1,13 @@
 # Dependabot 配置
-# 自动检查并更新依赖版本
+# 自动依赖更新管理
 
 version: 2
+registries:
+  crates-io:
+    type: cargo-registry
+    url: https://crates.io
+    token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+
 updates:
   # Rust 依赖更新
   - package-ecosystem: "cargo"
@@ -9,27 +15,57 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "09:00"
+      time: "06:00"
+      timezone: "UTC"
+    
+    # 限制每次 PR 的更新数量
     open-pull-requests-limit: 5
+    
+    # 自动重新 base
+    rebase-strategy: "auto"
+    
+    # 提交消息配置
     commit-message:
       prefix: "deps"
       include: "scope"
-    labels:
-      - "dependencies"
-      - "rust"
-    reviewers:
-      - "hufengxiao"
-    # 开发依赖和主要依赖分组更新
+    
+    # 分组更新策略
     groups:
+      # 开发依赖一起更新
       dev-dependencies:
         patterns:
           - "criterion"
           - "proptest"
-          - "serde_json"
-      production-dependencies:
+        update-types:
+          - "minor"
+          - "patch"
+      
+      # Serde 生态一起更新
+      serde-ecosystem:
         patterns:
-          - "thiserror"
           - "serde"
+          - "serde_json"
+        update-types:
+          - "minor"
+          - "patch"
+    
+    # 忽略的更新
+    ignore:
+      # 不自动更新主版本
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    
+    # 标签
+    labels:
+      - "dependencies"
+      - "automated"
+    
+    # 审查者（如果有）
+    # reviewers:
+    #   - "hufengxiao"
+    
+    # 目标分支
+    target-branch: "master"
 
   # GitHub Actions 更新
   - package-ecosystem: "github-actions"
@@ -37,13 +73,24 @@ updates:
     schedule:
       interval: "weekly"
       day: "monday"
-      time: "09:00"
+      time: "06:00"
+      timezone: "UTC"
+    
     open-pull-requests-limit: 3
+    
     commit-message:
       prefix: "ci"
       include: "scope"
+    
     labels:
+      - "ci"
       - "dependencies"
-      - "github-actions"
-    reviewers:
-      - "hufengxiao"
+      - "automated"
+    
+    # 分组更新所有 actions
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    
+    target-branch: "master"

@@ -1,0 +1,98 @@
+name: Dependabot Auto-merge
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  auto-merge:
+    name: Auto-merge Dependabot PRs
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      
+      - name: Check PR details
+        id: pr-details
+        run: |
+          # 获取 PR 标题和标签
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          PR_LABELS=$(echo '${{ toJson(github.event.pull_request.labels) }}' | jq -r '.[].name')
+          
+          echo "pr_title=$PR_TITLE" >> $GITHUB_OUTPUT
+          echo "labels=$PR_LABELS" >> $GITHUB_OUTPUT
+          
+          # 检查更新类型
+          if [[ "$PR_TITLE" =~ "major" ]]; then
+            echo "update_type=major" >> $GITHUB_OUTPUT
+            echo "auto_merge=false" >> $GITHUB_OUTPUT
+          elif [[ "$PR_TITLE" =~ "minor" ]]; then
+            echo "update_type=minor" >> $GITHUB_OUTPUT
+            echo "auto_merge=true" >> $GITHUB_OUTPUT
+          elif [[ "$PR_TITLE" =~ "patch" ]]; then
+            echo "update_type=patch" >> $GITHUB_OUTPUT
+            echo "auto_merge=true" >> $GITHUB_OUTPUT
+          else
+            # 默认不自动合并
+            echo "update_type=unknown" >> $GITHUB_OUTPUT
+            echo "auto_merge=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Wait for CI
+        if: steps.pr-details.outputs.auto_merge == 'true'
+        run: |
+          echo "等待 CI 测试完成..."
+          sleep 30
+          
+          # 检查 CI 状态
+          for i in {1..10}; do
+            STATUS=$(gh pr checks ${{ github.event.pull_request.number }} --repo ${{ github.repository }} || true)
+            if echo "$STATUS" | grep -q "pass"; then
+              echo "✅ CI 测试通过"
+              exit 0
+            elif echo "$STATUS" | grep -q "fail"; then
+              echo "❌ CI 测试失败"
+              exit 1
+            fi
+            echo "等待 CI... ($i/10)"
+            sleep 30
+          done
+          
+          echo "⚠️ CI 超时，不自动合并"
+          exit 1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Auto-merge
+        if: steps.pr-details.outputs.auto_merge == 'true'
+        run: |
+          echo "## 🤖 自动合并 Dependabot PR" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**PR**: #${{ github.event.pull_request.number }}" >> $GITHUB_STEP_SUMMARY
+          echo "**标题**: ${{ steps.pr-details.outputs.pr_title }}" >> $GITHUB_STEP_SUMMARY
+          echo "**更新类型**: ${{ steps.pr-details.outputs.update_type }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ 已通过 CI 验证，自动合并" >> $GITHUB_STEP_SUMMARY
+          
+          # 执行合并
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --squash \
+            --delete-branch \
+            --body "✅ 自动合并: CI 测试通过，更新类型为 ${{ steps.pr-details.outputs.update_type }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Comment on major updates
+        if: steps.pr-details.outputs.update_type == 'major'
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --repo ${{ github.repository }} \
+            --body "⚠️ 这是一个主版本更新，需要人工审查后才能合并。\n\n请检查破坏性变更并确保兼容性。"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
