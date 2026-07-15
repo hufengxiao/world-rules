@@ -182,6 +182,10 @@ jobs:
       - name: Check performance thresholds
         run: python3 scripts/check-performance-thresholds.py || echo "Threshold check completed"
       
+      # 性能报告可视化
+      - name: Generate performance report
+        run: python3 scripts/visualize-performance.py || echo "Report generation completed"
+      
       # 发布性能阈值报告到 PR
       - name: Comment threshold report on PR
         if: github.event_name == 'pull_request'
