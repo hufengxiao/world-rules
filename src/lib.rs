@@ -63,5 +63,7 @@ pub mod plugins;
 pub mod prelude;
 pub mod rules;
 
+pub use performance_checker::{
+    PerformanceBaseline, PerformanceChecker, PerformanceComparison, PerformanceReport,
+};
 pub use rules::{Rule, RuleCategory, RuleMetadata, RuleSet, ValidateContext};
-pub use performance_checker::{PerformanceBaseline, PerformanceChecker, PerformanceComparison, PerformanceReport};

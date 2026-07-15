@@ -69,7 +69,7 @@ impl PerformanceChecker {
     pub fn save_baselines(&self) -> Result<(), Box<dyn std::error::Error>> {
         let parent = self.config_path.parent().unwrap();
         fs::create_dir_all(parent)?;
-        
+
         let content = serde_json::to_string_pretty(&self.baselines)?;
         fs::write(&self.config_path, content)?;
         Ok(())
@@ -87,8 +87,9 @@ impl PerformanceChecker {
         current_ns: f64,
     ) -> Option<PerformanceComparison> {
         self.baselines.get(name).map(|baseline| {
-            let change_percent = ((current_ns - baseline.avg_time_ns) / baseline.avg_time_ns) * 100.0;
-            
+            let change_percent =
+                ((current_ns - baseline.avg_time_ns) / baseline.avg_time_ns) * 100.0;
+
             PerformanceComparison {
                 name: name.to_string(),
                 baseline_ns: baseline.avg_time_ns,
@@ -190,30 +191,12 @@ impl PerformanceReport {
                 "✅ 正常"
             };
 
-            html.push_str(&format!(
-                "    <tr class=\"{}\">\n",
-                class
-            ));
-            html.push_str(&format!(
-                "      <td>{}</td>\n",
-                comp.name
-            ));
-            html.push_str(&format!(
-                "      <td>{:.2}</td>\n",
-                comp.baseline_ns
-            ));
-            html.push_str(&format!(
-                "      <td>{:.2}</td>\n",
-                comp.current_ns
-            ));
-            html.push_str(&format!(
-                "      <td>{:+.2}%</td>\n",
-                comp.change_percent
-            ));
-            html.push_str(&format!(
-                "      <td>{}</td>\n",
-                status
-            ));
+            html.push_str(&format!("    <tr class=\"{}\">\n", class));
+            html.push_str(&format!("      <td>{}</td>\n", comp.name));
+            html.push_str(&format!("      <td>{:.2}</td>\n", comp.baseline_ns));
+            html.push_str(&format!("      <td>{:.2}</td>\n", comp.current_ns));
+            html.push_str(&format!("      <td>{:+.2}%</td>\n", comp.change_percent));
+            html.push_str(&format!("      <td>{}</td>\n", status));
             html.push_str("    </tr>\n");
         }
 
@@ -246,7 +229,7 @@ mod tests {
     #[test]
     fn test_performance_checker() {
         let mut checker = PerformanceChecker::new();
-        
+
         let baseline = PerformanceBaseline {
             name: "test".to_string(),
             avg_time_ns: 1000.0,
@@ -254,12 +237,12 @@ mod tests {
             samples: 100,
             created_at: "2026-01-01".to_string(),
         };
-        
+
         checker.update_baseline(baseline);
-        
+
         let comp = checker.compare_performance("test", 1200.0);
         assert!(comp.is_some());
-        
+
         let comp = comp.unwrap();
         assert_eq!(comp.change_percent, 20.0);
         assert!(comp.is_regression);
