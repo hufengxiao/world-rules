@@ -1,11 +1,15 @@
 # World Rules - 世界规则库
 
 [![CI](https://github.com/hufengxiao/world-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/hufengxiao/world-rules/actions)
+[![Quality Gate](https://github.com/hufengxiao/world-rules/actions/workflows/quality-gate.yml/badge.svg)](https://github.com/hufengxiao/world-rules/actions)
+[![Security Audit](https://github.com/hufengxiao/world-rules/actions/workflows/security.yml/badge.svg)](https://github.com/hufengxiao/world-rules/actions)
 [![Coverage](https://codecov.io/gh/hufengxiao/world-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/hufengxiao/world-rules)
 [![Crates.io](https://img.shields.io/crates/v/world_rules.svg)](https://crates.io/crates/world_rules)
 [![Documentation](https://docs.rs/world_rules/badge.svg)](https://docs.rs/world_rules)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Rust](https://img.shields.io/badge/rust-1.70%2B-orange.svg)](https://www.rust-lang.org/)
+[![Security](https://img.shields.io/badge/security-audit%20passing-brightgreen)](https://github.com/hufengxiao/world-rules/actions/workflows/security.yml)
+[![Clippy](https://img.shields.io/badge/clippy-passing-brightgreen)](https://github.com/hufengxiao/world-rules/actions)
 
 一个全面的 Rust 规则库，包含 **600+** 条规则，覆盖游戏、体育、法律、科学等多个领域。提供真实可用的算法实现，包括麻将胡牌判定、扑克牌型评估、象棋走子验证等。
 
