@@ -12,7 +12,6 @@
 
 use std::sync::Arc;
 use std::thread;
-use world_rules::prelude::*;
 use world_rules::rules::core::{Rule, RuleCategory, RuleMetadata, RuleSet, ValidateContext};
 
 /// 测试规则元数据创建的内存安全
@@ -60,9 +59,9 @@ fn test_validate_context_memory_safety() {
         let ctx1 = ValidateContext::doudizhu_cards(&format!("{}s {}h", i % 13 + 1, i % 4));
         let ctx2 = ValidateContext::mahjong_tiles(&format!("{}m {}m", i % 9 + 1, (i + 1) % 9 + 1));
         let ctx3 = ValidateContext::poker_cards(&format!("As {}h", i % 13 + 1));
-        let ctx4 = ValidateContext::chess_move("车", "0,0", &format!("0,{}", i % 9));
-        let ctx5 = ValidateContext::gomoku_board(vec![(i % 15, i % 15, true)]);
-        let ctx6 = ValidateContext::generic(&format!("generic_{}", i));
+        let _ctx4 = ValidateContext::chess_move("车", "0,0", &format!("0,{}", i % 9));
+        let _ctx5 = ValidateContext::gomoku_board(vec![(i % 15, i % 15, true)]);
+        let _ctx6 = ValidateContext::generic(&format!("generic_{}", i));
 
         // 验证上下文类型
         assert!(!ctx1.type_name().is_empty());
@@ -79,11 +78,11 @@ fn test_rule_category_memory_safety() {
     for i in 0..1000 {
         let cat1 = RuleCategory::games(&format!("game_{}", i));
         let cat2 = RuleCategory::sports(&format!("sport_{}", i));
-        let cat3 = RuleCategory::social(&format!("social_{}", i));
-        let cat4 = RuleCategory::science(&format!("science_{}", i));
-        let cat5 = RuleCategory::law(&format!("law_{}", i));
-        let cat6 = RuleCategory::health(&format!("health_{}", i));
-        let cat7 = RuleCategory::custom(&format!("custom_{}", i), &format!("rule_{}", i));
+        let _cat3 = RuleCategory::social(&format!("social_{}", i));
+        let _cat4 = RuleCategory::science(&format!("science_{}", i));
+        let _cat5 = RuleCategory::law(&format!("law_{}", i));
+        let _cat6 = RuleCategory::health(&format!("health_{}", i));
+        let _cat7 = RuleCategory::custom(&format!("custom_{}", i), &format!("rule_{}", i));
 
         // 验证分类字符串
         assert!(cat1.to_string().contains("game"));
@@ -173,25 +172,8 @@ fn test_serialization_memory_safety() {
     }
 }
 
-/// 测试规则集克隆的内存安全
-#[test]
-fn test_ruleset_clone_memory_safety() {
-    let original = RuleSet::new("克隆测试".to_string(), RuleCategory::games("test"));
-
-    for i in 0..100 {
-        let meta = RuleMetadata::new(&format!("clone_rule_{}", i), &format!("Description {}", i));
-        let rule = TestRule { meta };
-        original.add_rule(rule);
-    }
-
-    for _ in 0..100 {
-        let cloned = original.clone();
-        assert_eq!(cloned.len(), original.len());
-        // 克隆的规则集应正确释放
-    }
-}
-
 /// 测试空值处理的内存安全
+/// 注意：RuleSet 包含 Box<dyn Rule>，无法实现 Clone
 #[test]
 fn test_null_handling_memory_safety() {
     let ruleset = RuleSet::new("空值测试".to_string(), RuleCategory::games("test"));
@@ -643,7 +625,7 @@ fn test_nested_structures_no_leak() {
             // 将 inner 规则集的规则添加到 outer
             for name in inner.list_rules() {
                 if let Some(rule) = inner.get_rule(name) {
-                    let meta = RuleMetadata::new(rule.metadata().name, rule.metadata().description);
+                    let meta = RuleMetadata::new(rule.metadata().name.clone(), rule.metadata().description.clone());
                     outer.add_rule(TestRule { meta });
                 }
             }
