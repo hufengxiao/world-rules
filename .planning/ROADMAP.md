@@ -243,9 +243,9 @@
 - **稳定性要求**: 无性能回归（±5%）
 
 ### Phase 25: 内存安全检测
-状态: Not started
+状态: In Progress
 
-- [ ] 集成 MIRI 检测
+- [x] 集成 MIRI 检测
 - [ ] 修复 Unsafe 代码问题
 - [ ] 补充内存安全测试
 - [ ] CI 集成 MIRI 检查
