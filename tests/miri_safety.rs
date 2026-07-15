@@ -625,7 +625,10 @@ fn test_nested_structures_no_leak() {
             // 将 inner 规则集的规则添加到 outer
             for name in inner.list_rules() {
                 if let Some(rule) = inner.get_rule(name) {
-                    let meta = RuleMetadata::new(rule.metadata().name.clone(), rule.metadata().description.clone());
+                    let meta = RuleMetadata::new(
+                        rule.metadata().name.clone(),
+                        rule.metadata().description.clone(),
+                    );
                     outer.add_rule(TestRule { meta });
                 }
             }
