@@ -399,7 +399,10 @@ mod sports_numeric_boundaries {
         let rules = world_rules::rules::sports::athletics::AthleticsRules::new();
         let long_distance = rules.long_distance_events();
         assert!(long_distance.contains(&10000), "应包含10000米长跑");
-        assert!(long_distance.iter().all(|&d| d <= 10000), "所有距离应 <= 10000米");
+        assert!(
+            long_distance.iter().all(|&d| d <= 10000),
+            "所有距离应 <= 10000米"
+        );
     }
 
     /// 测试田径项目距离排序
@@ -427,9 +430,15 @@ mod law_numeric_boundaries {
         let rules = world_rules::rules::law::labor::LaborLawRules::new();
         let hours = rules.working_hours();
         // 标准工作时间应为 8 小时
-        assert!(hours.iter().any(|h| h.contains("每日8小时")), "标准工作时间为每日8小时");
+        assert!(
+            hours.iter().any(|h| h.contains("每日8小时")),
+            "标准工作时间为每日8小时"
+        );
         // 加班每日不超过 3 小时
-        assert!(hours.iter().any(|h| h.contains("3小时")), "加班每日不超过3小时");
+        assert!(
+            hours.iter().any(|h| h.contains("3小时")),
+            "加班每日不超过3小时"
+        );
     }
 
     /// 测试劳动法年假边界：最小和最大天数
@@ -449,7 +458,10 @@ mod law_numeric_boundaries {
         let rules = world_rules::rules::law::labor::LaborLawRules::new();
         let contract = rules.contract_rules();
         // 试用期最长不超过 6 个月（隐含在合同期限1-3年试用期不超过2月中）
-        assert!(contract.iter().any(|c| c.contains("试用期")), "应包含试用期规定");
+        assert!(
+            contract.iter().any(|c| c.contains("试用期")),
+            "应包含试用期规定"
+        );
     }
 }
 
@@ -506,7 +518,7 @@ mod games_numeric_boundaries {
         hand.add_tile(Tile::tiao(1));
         hand.add_tile(Tile::tiao(1));
         hand.add_tile(Tile::tong(5)); // 雀头
-        // 测试不应 panic
+                                      // 测试不应 panic
         assert!(true);
     }
 }
@@ -516,8 +528,8 @@ mod games_numeric_boundaries {
 // ============================================================================
 
 mod collection_boundary_tests {
-    use world_rules::rules::games::mahjong::{Hand, Tile};
     use world_rules::rules::games::card_games::{Card, Rank, Suit};
+    use world_rules::rules::games::mahjong::{Hand, Tile};
 
     /// 测试空集合处理
     #[test]
