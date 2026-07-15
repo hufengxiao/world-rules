@@ -8,10 +8,10 @@
 //! 4. 并发边界测试 - 测试多线程访问的安全性
 
 use world_rules::prelude::*;
-use world_rules::rules::games::mahjong::{Dragon, Hand, Tile, TileType, Wind};
+use world_rules::rules::core::{Difficulty, RuleCategory, RuleMetadata};
 use world_rules::rules::games::card_games::poker::TexasHoldemRules;
 use world_rules::rules::games::card_games::{Card, Rank, Suit};
-use world_rules::rules::core::{Difficulty, RuleCategory, RuleMetadata};
+use world_rules::rules::games::mahjong::{Dragon, Hand, Tile, TileType, Wind};
 
 // ============================================================================
 // 1. 数值边界测试
@@ -25,10 +25,10 @@ mod numeric_boundaries {
     fn mahjong_tile_minimum_number() {
         let tile = Tile::wan(1);
         assert_eq!(tile.tile_type.number(), Some(1));
-        
+
         let tile = Tile::tiao(1);
         assert_eq!(tile.tile_type.number(), Some(1));
-        
+
         let tile = Tile::tong(1);
         assert_eq!(tile.tile_type.number(), Some(1));
     }
@@ -38,10 +38,10 @@ mod numeric_boundaries {
     fn mahjong_tile_maximum_number() {
         let tile = Tile::wan(9);
         assert_eq!(tile.tile_type.number(), Some(9));
-        
+
         let tile = Tile::tiao(9);
         assert_eq!(tile.tile_type.number(), Some(9));
-        
+
         let tile = Tile::tong(9);
         assert_eq!(tile.tile_type.number(), Some(9));
     }
@@ -53,7 +53,7 @@ mod numeric_boundaries {
         let tile = Tile::wan(0);
         let num = tile.tile_type.number().unwrap_or(0);
         assert!(num >= 1 && num <= 9, "数字应被 clamp 到 1-9 范围");
-        
+
         let tile = Tile::tiao(-1);
         let num = tile.tile_type.number().unwrap_or(0);
         assert!(num >= 1 && num <= 9, "负数应被 clamp 到 1-9 范围");
@@ -66,7 +66,7 @@ mod numeric_boundaries {
         let tile = Tile::wan(10);
         let num = tile.tile_type.number().unwrap_or(0);
         assert!(num >= 1 && num <= 9, "数字应被 clamp 到 1-9 范围");
-        
+
         let tile = Tile::tiao(255);
         let num = tile.tile_type.number().unwrap_or(0);
         assert!(num >= 1 && num <= 9, "大数字应被 clamp 到 1-9 范围");
@@ -91,10 +91,10 @@ mod numeric_boundaries {
     fn difficulty_boundary() {
         // 最小难度
         assert!(Difficulty::Beginner < Difficulty::Easy);
-        
+
         // 最大难度
         assert!(Difficulty::Expert < Difficulty::Master);
-        
+
         // 默认值
         assert_eq!(Difficulty::default(), Difficulty::Normal);
     }
@@ -112,7 +112,7 @@ mod null_and_none_tests {
     fn empty_hand() {
         let hand = Hand::new();
         assert!(!hand.can_win(), "空手牌不应胡牌");
-        
+
         let waiting = hand.find_waiting_tiles();
         assert!(waiting.is_empty(), "空手牌没有听牌");
     }
@@ -148,7 +148,7 @@ mod null_and_none_tests {
     fn honor_tile_number_is_none() {
         let feng = TileType::Feng(Wind::Dong);
         assert!(feng.number().is_none(), "风牌没有数字");
-        
+
         let jian = TileType::Jian(Dragon::HongZhong);
         assert!(jian.number().is_none(), "箭牌没有数字");
     }
@@ -231,7 +231,7 @@ mod extreme_value_tests {
         let long_name = "x".repeat(1000);
         let cat = RuleCategory::games(&long_name);
         assert!(cat.to_string().contains(&long_name));
-        
+
         // 空名称
         let empty_cat = RuleCategory::games("");
         assert!(true);
@@ -290,7 +290,7 @@ mod type_conversion_boundaries {
         let tile = Tile::wan(1);
         let display = format!("{}", tile);
         assert!(!display.is_empty());
-        
+
         let tile = Tile::feng(Wind::Dong);
         let display = format!("{}", tile);
         assert!(!display.is_empty());
@@ -301,10 +301,10 @@ mod type_conversion_boundaries {
     fn category_display() {
         let cat = RuleCategory::games("mahjong");
         assert_eq!(cat.to_string(), "Games/mahjong");
-        
+
         let cat = RuleCategory::sports("football");
         assert_eq!(cat.to_string(), "Sports/football");
-        
+
         let cat = RuleCategory::law("contract");
         assert_eq!(cat.to_string(), "Law/contract");
     }
@@ -326,7 +326,7 @@ mod type_conversion_boundaries {
         // Unicode 字符
         let cat = RuleCategory::games("麻将🀄");
         assert!(cat.to_string().contains("麻将"));
-        
+
         // 空格
         let cat = RuleCategory::sports("football soccer");
         assert!(cat.to_string().contains("football soccer"));
@@ -365,7 +365,7 @@ mod error_path_tests {
             Card::new(Suit::Spade, Rank::King),
         ];
         let _ = TexasHoldemRules::evaluate_hand(&cards);
-        
+
         // 10 张牌
         let cards: Vec<Card> = (0..10)
             .map(|i| Card::new(Suit::Heart, Rank::values()[i % 13].clone()))
