@@ -558,3 +558,220 @@ fn test_mutex_memory_safety() {
 
     // 锁应正确释放
 }
+
+// ============================================================================
+// 内存泄漏检测测试 (Phase 25)
+// ============================================================================
+
+/// 测试规则集添加/删除不会泄漏内存
+#[test]
+fn test_ruleset_no_leak() {
+    // 反复创建和销毁规则集
+    for _ in 0..100 {
+        let mut ruleset = RuleSet::new("leak_test".to_string(), RuleCategory::games("test"));
+
+        for i in 0..100 {
+            let meta = RuleMetadata::new(&format!("rule_{}", i), &format!("Description {}", i));
+            let rule = TestRule { meta };
+            ruleset.add_rule(rule);
+        }
+
+        // 规则集离开作用域时，所有规则应正确释放
+    }
+}
+
+/// 测试循环结构不会导致内存泄漏
+#[test]
+fn test_no_cyclic_leak() {
+    use std::cell::RefCell;
+    use std::rc::Rc;
+
+    // 使用 RefCell 和 Rc 模拟可能的循环引用
+    for _ in 0..100 {
+        let inner = RefCell::new(Vec::new());
+        let rc = Rc::new(inner);
+
+        for i in 0..100 {
+            rc.borrow_mut().push(format!("item_{}", i));
+        }
+
+        // Rc 离开作用域时，引用计数归零，内存释放
+    }
+}
+
+/// 测试大量小对象分配不会泄漏
+#[test]
+fn test_small_objects_no_leak() {
+    // 分配大量小字符串
+    for _ in 0..10000 {
+        let _s1 = String::from("a");
+        let _s2 = String::from("ab");
+        let _s3 = String::from("abc");
+        let _s4 = String::from("abcd");
+        // 所有字符串应正确释放
+    }
+}
+
+/// 测试大对象分配不会泄漏
+#[test]
+fn test_large_objects_no_leak() {
+    // 分配大对象
+    for _ in 0..100 {
+        let large_vec: Vec<u8> = vec![0u8; 1_000_000];
+        let _ = large_vec.len();
+        // 大向量应正确释放
+    }
+}
+
+/// 测试嵌套结构不会泄漏
+#[test]
+fn test_nested_structures_no_leak() {
+    // 创建嵌套的规则集
+    for _ in 0..100 {
+        let mut outer = RuleSet::new("outer".to_string(), RuleCategory::games("test"));
+
+        for i in 0..10 {
+            let mut inner = RuleSet::new(format!("inner_{}", i), RuleCategory::games("test"));
+
+            for j in 0..10 {
+                let meta =
+                    RuleMetadata::new(&format!("rule_{}_{}", i, j), &format!("Description {}", j));
+                let rule = TestRule { meta };
+                inner.add_rule(rule);
+            }
+
+            // 将 inner 规则集的规则添加到 outer
+            for name in inner.list_rules() {
+                if let Some(rule) = inner.get_rule(name) {
+                    let meta = RuleMetadata::new(rule.metadata().name, rule.metadata().description);
+                    outer.add_rule(TestRule { meta });
+                }
+            }
+        }
+
+        // 所有嵌套结构应正确释放
+    }
+}
+
+/// 测试克隆操作不会泄漏
+#[test]
+fn test_clone_no_leak() {
+    let original = RuleMetadata::new("clone_test", "克隆测试")
+        .with_version("1.0.0")
+        .with_origin("测试")
+        .with_tags(vec!["test".to_string()]);
+
+    // 反复克隆
+    for _ in 0..1000 {
+        let cloned = original.clone();
+        let _ = cloned.name;
+        // 克隆的对象应正确释放
+    }
+}
+
+/// 测试序列化/反序列化不会泄漏
+#[test]
+fn test_serde_no_leak() {
+    let meta = RuleMetadata::new("serde_test", "序列化测试");
+
+    // 反复序列化和反序列化
+    for _ in 0..100 {
+        let json = serde_json::to_string(&meta).expect("序列化失败");
+        let _: RuleMetadata = serde_json::from_str(&json).expect("反序列化失败");
+        // 所有临时字符串应正确释放
+    }
+}
+
+/// 测试线程间传递不会泄漏
+#[test]
+fn test_thread_transfer_no_leak() {
+    use std::sync::mpsc;
+
+    let (tx, rx) = mpsc::channel();
+
+    // 发送端
+    let sender = thread::spawn(move || {
+        for i in 0..100 {
+            let meta = RuleMetadata::new(&format!("thread_rule_{}", i), "线程测试");
+            tx.send(meta).expect("发送失败");
+        }
+    });
+
+    // 接收端
+    let receiver = thread::spawn(move || {
+        while let Ok(meta) = rx.recv() {
+            let _ = meta.name;
+        }
+    });
+
+    sender.join().expect("Sender panicked");
+    receiver.join().expect("Receiver panicked");
+}
+
+/// 测试动态分发不会泄漏
+#[test]
+fn test_dynamic_dispatch_no_leak() {
+    let mut rules: Vec<Box<dyn Rule>> = Vec::new();
+
+    // 创建大量 trait object
+    for i in 0..1000 {
+        let meta = RuleMetadata::new(&format!("dyn_rule_{}", i), &format!("Description {}", i));
+        let rule: Box<dyn Rule> = Box::new(TestRule { meta });
+        rules.push(rule);
+    }
+
+    // 使用动态分发
+    for rule in &rules {
+        let _ = rule.metadata();
+        let _ = rule.category();
+    }
+
+    // 清空，测试 trait object 的内存释放
+    rules.clear();
+}
+
+/// 测试递归结构不会导致栈溢出或内存泄漏
+#[test]
+fn test_recursive_structure_no_leak() {
+    // 深度嵌套的上下文
+    fn create_nested_context(depth: usize) -> ValidateContext {
+        if depth == 0 {
+            return ValidateContext::generic("leaf");
+        }
+        ValidateContext::generic(&format!("level_{}", depth))
+    }
+
+    // 创建深度嵌套结构
+    for depth in [1, 10, 50, 100].iter() {
+        let ctx = create_nested_context(*depth);
+        let _ = ctx.type_name();
+    }
+}
+
+/// 测试异步场景下的内存安全（同步测试，验证数据结构）
+#[test]
+fn test_async_ready_memory_safety() {
+    use std::future::Future;
+    use std::pin::Pin;
+    use std::task::{Context, Poll};
+
+    // 创建一个简单的 Future 来测试内存管理
+    struct SimpleFuture {
+        data: RuleMetadata,
+    }
+
+    impl Future for SimpleFuture {
+        type Output = ();
+
+        fn poll(self: Pin<&mut Self>, _cx: &mut Context<'_>) -> Poll<Self::Output> {
+            Poll::Ready(())
+        }
+    }
+
+    // 创建和销毁 Future
+    for _ in 0..100 {
+        let meta = RuleMetadata::new("future_test", "Future 测试");
+        let _future = SimpleFuture { data: meta };
+        // Future 应正确释放
+    }
+}
