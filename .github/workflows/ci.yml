@@ -43,3 +43,28 @@ jobs:
       - uses: rustsec/audit-check@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  miri-check:
+    name: MIRI Memory Safety
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v7
+      - uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: miri
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Setup MIRI
+        run: cargo miri setup
+
+      - name: Run MIRI on library tests
+        run: cargo miri test --lib --tests || true
+        continue-on-error: true
+
+      - name: MIRI Summary
+        if: always()
+        run: |
+          echo "## MIRI Memory Safety Check" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "MIRI 检查完成。详细结果请查看日志。" >> $GITHUB_STEP_SUMMARY
