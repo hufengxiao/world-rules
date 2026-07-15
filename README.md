@@ -1,6 +1,7 @@
 # World Rules - 世界规则库
 
 [![CI](https://github.com/hufengxiao/world-rules/actions/workflows/ci.yml/badge.svg)](https://github.com/hufengxiao/world-rules/actions)
+[![Coverage](https://codecov.io/gh/hufengxiao/world-rules/branch/master/graph/badge.svg)](https://codecov.io/gh/hufengxiao/world-rules)
 [![Crates.io](https://img.shields.io/crates/v/world_rules.svg)](https://crates.io/crates/world_rules)
 [![Documentation](https://docs.rs/world_rules/badge.svg)](https://docs.rs/world_rules)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)

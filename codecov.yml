@@ -1,0 +1,26 @@
+# Codecov 配置
+coverage:
+  status:
+    project:
+      default:
+        target: 70%  # 目标覆盖率阈值
+        threshold: 5%  # 允许的覆盖率下降幅度
+    patch:
+      default:
+        target: 70%  # 新代码覆盖率阈值
+        threshold: 5%
+
+# 忽略特定路径
+ignore:
+  - "benches/**/*"
+  - "examples/**/*"
+  - "tests/**/*"
+  - "**/mod.rs"
+
+# 注释配置
+comment:
+  layout: "reach, diff, flags, files"
+  behavior: default
+  require_changes: false  # 如果没有变化也发布评论
+  require_base: no
+  require_head: yes
