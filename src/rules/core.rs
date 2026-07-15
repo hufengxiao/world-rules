@@ -16,7 +16,19 @@ pub type TitledItem = (&'static str, &'static str, &'static str);
 /// assert!(Difficulty::Beginner < Difficulty::Easy);
 /// assert_eq!(format!("{}", Difficulty::Hard), "困难");
 /// ```
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, Default, serde::Serialize, serde::Deserialize)]
+#[derive(
+    Debug,
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    Hash,
+    PartialOrd,
+    Ord,
+    Default,
+    serde::Serialize,
+    serde::Deserialize,
+)]
 pub enum Difficulty {
     /// 入门级 - 适合新手学习基本规则
     Beginner,
@@ -1355,8 +1367,7 @@ mod difficulty_tests {
 
     #[test]
     fn test_metadata_with_difficulty() {
-        let meta = RuleMetadata::new("围棋", "古老棋类游戏")
-            .with_difficulty(Difficulty::Expert);
+        let meta = RuleMetadata::new("围棋", "古老棋类游戏").with_difficulty(Difficulty::Expert);
         assert_eq!(meta.difficulty, Difficulty::Expert);
     }
 

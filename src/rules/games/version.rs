@@ -453,10 +453,7 @@ impl CompatibilityRule {
     /// 检查版本是否兼容
     pub fn is_compatible(&self, version: &GameVersion) -> bool {
         let min_check = version >= &self.min_version;
-        let max_check = self
-            .max_version
-            .as_ref()
-            .is_none_or(|max| version <= max);
+        let max_check = self.max_version.as_ref().is_none_or(|max| version <= max);
         min_check && max_check
     }
 }
@@ -527,7 +524,9 @@ impl VersionManager {
             // 默认规则: 与当前版本主版本号相同
             version.is_compatible_with(&self.history.current())
         } else {
-            self.compatibility_rules.iter().all(|r| r.is_compatible(version))
+            self.compatibility_rules
+                .iter()
+                .all(|r| r.is_compatible(version))
         }
     }
 
@@ -542,8 +541,12 @@ impl VersionManager {
     }
 
     /// 注册迁移函数
-    pub fn register_migration<F>(&mut self, from_version: GameVersion, to_version: GameVersion, migration: F)
-    where
+    pub fn register_migration<F>(
+        &mut self,
+        from_version: GameVersion,
+        to_version: GameVersion,
+        migration: F,
+    ) where
         F: Fn(&str) -> Result<String, String> + Send + Sync + 'static,
     {
         let key = format!("{}_{}", from_version, to_version);
@@ -551,7 +554,12 @@ impl VersionManager {
     }
 
     /// 执行迁移
-    pub fn migrate(&self, from: &GameVersion, to: &GameVersion, data: &str) -> Result<String, String> {
+    pub fn migrate(
+        &self,
+        from: &GameVersion,
+        to: &GameVersion,
+        data: &str,
+    ) -> Result<String, String> {
         let key = format!("{}_{}", from, to);
         match self.migrations.get(&key) {
             Some(migration) => migration(data),
