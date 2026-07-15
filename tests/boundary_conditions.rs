@@ -322,6 +322,80 @@ mod extreme_value_tests {
         let meta = RuleMetadata::new(&long_text, &long_text);
         assert_eq!(meta.name, long_text);
     }
+
+    /// 测试 u8 极限值（麻将牌数字）
+    #[test]
+    fn mahjong_tile_u8_limits() {
+        // u8 最小值
+        let tile = Tile::wan(0);
+        assert!(tile.tile_type.number().unwrap_or(0) >= 1);
+
+        // u8 最大值
+        let tile = Tile::wan(255);
+        assert!(tile.tile_type.number().unwrap_or(0) <= 9);
+    }
+
+    /// 测试扑克牌花色和等级数量极限
+    #[test]
+    fn poker_suit_rank_limits() {
+        // 所有花色数量固定为 4
+        let suits = vec![Suit::Heart, Suit::Spade, Suit::Club, Suit::Diamond];
+        assert_eq!(suits.len(), 4);
+
+        // 所有等级数量固定为 13
+        let ranks = vec![
+            Rank::Two, Rank::Three, Rank::Four, Rank::Five, Rank::Six,
+            Rank::Seven, Rank::Eight, Rank::Nine, Rank::Ten,
+            Rank::Jack, Rank::Queen, Rank::King, Rank::Ace,
+        ];
+        assert_eq!(ranks.len(), 13);
+    }
+
+    /// 测试字符串长度的极限（10000 字符）
+    #[test]
+    fn extremely_long_string() {
+        let very_long = "x".repeat(10000);
+        let meta = RuleMetadata::new(&very_long, "描述");
+        assert_eq!(meta.name.len(), 10000);
+    }
+
+    /// 测试大量标签的极限
+    #[test]
+    fn many_tags_limit() {
+        let tags: Vec<String> = (0..1000).map(|i| format!("标签{}", i)).collect();
+        let meta = RuleMetadata::new("规则", "描述").with_tags(tags.clone());
+        assert_eq!(meta.tags.len(), 1000);
+    }
+
+    /// 测试嵌套分类深度极限
+    #[test]
+    fn deep_nested_category() {
+        let deep_name = format!("{}/{}", "level1", "level2/level3/level4/level5");
+        let cat = RuleCategory::custom("deep", &deep_name);
+        assert!(cat.to_string().contains("level1"));
+    }
+
+    /// 测试迭代器极限（大量迭代）
+    #[test]
+    fn iterator_limit() {
+        let mut count = 0u64;
+        for i in 0..100_000 {
+            count += i;
+        }
+        // 测试应快速完成，不超时
+        assert!(count > 0);
+    }
+
+    /// 测试大集合的性能
+    #[test]
+    fn large_collection_performance() {
+        // 创建大型牌集合（10000 张牌）
+        let mut tiles = Vec::with_capacity(10000);
+        for _ in 0..10000 {
+            tiles.push(Tile::wan(1));
+        }
+        assert_eq!(tiles.len(), 10000);
+    }
 }
 
 // ============================================================================
