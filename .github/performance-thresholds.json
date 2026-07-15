@@ -1,0 +1,67 @@
+{
+  "version": "1.0",
+  "description": "性能阈值配置 - 用于检测性能回归",
+  "thresholds": {
+    "law_creation": {
+      "max_time_us": 100,
+      "regression_percent": 10,
+      "critical_percent": 20
+    },
+    "law_validate": {
+      "max_time_us": 1000,
+      "regression_percent": 10,
+      "critical_percent": 25
+    },
+    "law_explain": {
+      "max_time_us": 500,
+      "regression_percent": 15,
+      "critical_percent": 30
+    },
+    "law_metadata": {
+      "max_time_us": 50,
+      "regression_percent": 10,
+      "critical_percent": 20
+    },
+    "civil_methods": {
+      "max_time_us": 200,
+      "regression_percent": 10,
+      "critical_percent": 20
+    },
+    "law_serialization": {
+      "max_time_us": 100,
+      "regression_percent": 15,
+      "critical_percent": 30
+    },
+    "law_batch_validate": {
+      "max_time_us": 5000,
+      "regression_percent": 10,
+      "critical_percent": 25
+    },
+    "mahjong": {
+      "max_time_us": 1000,
+      "regression_percent": 10,
+      "critical_percent": 20
+    },
+    "poker": {
+      "max_time_us": 1000,
+      "regression_percent": 10,
+      "critical_percent": 20
+    },
+    "sudoku": {
+      "max_time_us": 2000,
+      "regression_percent": 10,
+      "critical_percent": 25
+    }
+  },
+  "global": {
+    "default_regression_percent": 10,
+    "default_critical_percent": 20,
+    "fail_on_critical": true,
+    "warn_on_regression": true
+  },
+  "notifications": {
+    "github_issue": true,
+    "pr_comment": true,
+    "slack_webhook": null
+  }
+}
