@@ -343,10 +343,7 @@ impl VersionHistory {
 
     /// 添加版本
     pub fn add_version(&mut self, version: GameVersion, description: impl Into<String>) {
-        if self.changes.is_empty() {
-            // 第一个版本
-            self.current = version;
-        } else {
+        if version != self.current {
             let change = VersionChange::new(self.current, version, description);
             self.changes.push(change);
             self.current = version;
@@ -374,11 +371,7 @@ impl VersionHistory {
 
     /// 获取版本数量
     pub fn version_count(&self) -> usize {
-        if self.changes.is_empty() {
-            1
-        } else {
-            self.changes.len() + 1
-        }
+        self.changes.len()
     }
 
     /// 添加标签
