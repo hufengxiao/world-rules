@@ -32,15 +32,37 @@ fn parse_sudoku_grid(s: &str) -> Option<[[Option<u8>; 9]; 9]> {
 }
 
 /// 数独难度
+///
+/// 数独游戏的四个难度等级，根据初始提示数字数量划分。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::sudoku::SudokuDifficulty;
+///
+/// assert_eq!(SudokuDifficulty::Easy.name(), "简单");
+/// assert_eq!(SudokuDifficulty::Expert.clue_range(), (17, 24));
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum SudokuDifficulty {
+    /// 简单难度 - 36-45个提示数字
     Easy,
+    /// 中等难度 - 30-35个提示数字
     Medium,
+    /// 困难难度 - 25-29个提示数字
     Hard,
+    /// 专家难度 - 17-24个提示数字
     Expert,
 }
 
 impl SudokuDifficulty {
+    /// 获取难度名称
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::sudoku::SudokuDifficulty;
+    ///
+    /// assert_eq!(SudokuDifficulty::Easy.name(), "简单");
+    /// ```
     pub fn name(&self) -> &'static str {
         match self {
             SudokuDifficulty::Easy => "简单",
@@ -51,6 +73,16 @@ impl SudokuDifficulty {
     }
 
     /// 提示数字数量范围
+    ///
+    /// 返回该难度下初始提示数字的数量范围。
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::sudoku::SudokuDifficulty;
+    ///
+    /// assert_eq!(SudokuDifficulty::Easy.clue_range(), (36, 45));
+    /// assert_eq!(SudokuDifficulty::Expert.clue_range(), (17, 24));
+    /// ```
     pub fn clue_range(&self) -> (u8, u8) {
         match self {
             SudokuDifficulty::Easy => (36, 45),
@@ -62,11 +94,31 @@ impl SudokuDifficulty {
 }
 
 /// 数独规则
+///
+/// 标准数独游戏规则实现。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::sudoku::SudokuRules;
+///
+/// let rules = SudokuRules::new();
+/// assert_eq!(rules.grid_size(), 9);
+/// assert_eq!(rules.box_size(), (3, 3));
+/// ```
 pub struct SudokuRules {
     metadata: RuleMetadata,
 }
 
 impl SudokuRules {
+    /// 创建新的数独规则实例
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::sudoku::SudokuRules;
+    ///
+    /// let rules = SudokuRules::new();
+    /// assert_eq!(rules.grid_size(), 9);
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("数独规则", "标准数独游戏规则")
