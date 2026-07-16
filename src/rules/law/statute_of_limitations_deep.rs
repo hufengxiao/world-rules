@@ -8,8 +8,8 @@
 
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
-use serde::{Deserialize, Serialize};
 use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 /// 诉讼时效类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -281,21 +281,27 @@ impl StatuteOfLimitationsDeepRules {
     /// let (interrupted, msg) = rules.check_interruption(InterruptReason::Demand, true);
     /// assert!(interrupted);
     /// ```
-    pub fn check_interruption(
-        &self,
-        reason: InterruptReason,
-        occurred: bool,
-    ) -> (bool, String) {
+    pub fn check_interruption(&self, reason: InterruptReason, occurred: bool) -> (bool, String) {
         if !occurred {
             return (false, "未发生中断事由".to_string());
         }
 
         let msg = match reason {
-            InterruptReason::Litigation => "权利人提起诉讼，诉讼时效中断，自程序终结时重新计算".to_string(),
-            InterruptReason::Arbitration => "权利人申请仲裁，诉讼时效中断，自程序终结时重新计算".to_string(),
-            InterruptReason::Demand => "权利人提出履行请求，诉讼时效中断，自请求提出之日起重新计算".to_string(),
-            InterruptReason::Acknowledgment => "义务人同意履行，诉讼时效中断，自同意之日起重新计算".to_string(),
-            InterruptReason::EquivalentAction => "与起诉或申请仲裁具有同等效力的行为，诉讼时效中断".to_string(),
+            InterruptReason::Litigation => {
+                "权利人提起诉讼，诉讼时效中断，自程序终结时重新计算".to_string()
+            }
+            InterruptReason::Arbitration => {
+                "权利人申请仲裁，诉讼时效中断，自程序终结时重新计算".to_string()
+            }
+            InterruptReason::Demand => {
+                "权利人提出履行请求，诉讼时效中断，自请求提出之日起重新计算".to_string()
+            }
+            InterruptReason::Acknowledgment => {
+                "义务人同意履行，诉讼时效中断，自同意之日起重新计算".to_string()
+            }
+            InterruptReason::EquivalentAction => {
+                "与起诉或申请仲裁具有同等效力的行为，诉讼时效中断".to_string()
+            }
         };
 
         (true, msg)
@@ -338,20 +344,36 @@ impl StatuteOfLimitationsDeepRules {
         let last_6_months = general_limitation_days - 180; // 最后6个月开始于第915天
 
         if elapsed_days < last_6_months {
-            return (false, "中止事由未发生在时效期间的最后6个月内，不构成中止".to_string());
+            return (
+                false,
+                "中止事由未发生在时效期间的最后6个月内，不构成中止".to_string(),
+            );
         }
 
         if obstacle_resolved {
-            return (true, "中止事由已消除，诉讼时效继续计算，剩余时效加上中止期间".to_string());
+            return (
+                true,
+                "中止事由已消除，诉讼时效继续计算，剩余时效加上中止期间".to_string(),
+            );
         }
 
         let msg = match reason {
-            SuspendReason::ForceMajeure => "因不可抗力导致诉讼时效中止，待不可抗力消除后继续计算".to_string(),
-            SuspendReason::NoLegalRepresentative => "无法定代理人导致诉讼时效中止，待法定代理人确定后继续计算".to_string(),
-            SuspendReason::RepresentativeIncident => "法定代理人丧失代理权导致诉讼时效中止".to_string(),
+            SuspendReason::ForceMajeure => {
+                "因不可抗力导致诉讼时效中止，待不可抗力消除后继续计算".to_string()
+            }
+            SuspendReason::NoLegalRepresentative => {
+                "无法定代理人导致诉讼时效中止，待法定代理人确定后继续计算".to_string()
+            }
+            SuspendReason::RepresentativeIncident => {
+                "法定代理人丧失代理权导致诉讼时效中止".to_string()
+            }
             SuspendReason::UndeterminedHeir => "继承开始后未确定继承人导致诉讼时效中止".to_string(),
-            SuspendReason::UnderControl => "权利人被控制导致诉讼时效中止，待控制解除后继续计算".to_string(),
-            SuspendReason::OtherObstacle => "其他障碍导致权利人不能行使请求权，诉讼时效中止".to_string(),
+            SuspendReason::UnderControl => {
+                "权利人被控制导致诉讼时效中止，待控制解除后继续计算".to_string()
+            }
+            SuspendReason::OtherObstacle => {
+                "其他障碍导致权利人不能行使请求权，诉讼时效中止".to_string()
+            }
         };
 
         (true, msg)
@@ -393,12 +415,18 @@ impl StatuteOfLimitationsDeepRules {
 
         if elapsed_years > 20 {
             if has_special_circumstance {
-                (true, "虽超过20年最长保护期，但有特殊情况，可申请法院延长".to_string())
+                (
+                    true,
+                    "虽超过20年最长保护期，但有特殊情况，可申请法院延长".to_string(),
+                )
             } else {
                 (false, "超过20年最长保护期，人民法院不予保护".to_string())
             }
         } else {
-            (true, format!("未超过20年最长保护期（已过{}年）", elapsed_years))
+            (
+                true,
+                format!("未超过20年最长保护期（已过{}年）", elapsed_years),
+            )
         }
     }
 
@@ -650,7 +678,10 @@ mod tests {
         );
 
         assert!(result.within_limitation);
-        assert!(matches!(result.status, LimitationStatus::Interrupted { .. }));
+        assert!(matches!(
+            result.status,
+            LimitationStatus::Interrupted { .. }
+        ));
     }
 
     #[test]
@@ -673,11 +704,8 @@ mod tests {
         // 普通时效3年，最后6个月从第915天开始（1095-180）
         let elapsed_days = 950; // 在最后6个月内
 
-        let (suspended, _) = rules.check_suspension(
-            SuspendReason::ForceMajeure,
-            elapsed_days,
-            false,
-        );
+        let (suspended, _) =
+            rules.check_suspension(SuspendReason::ForceMajeure, elapsed_days, false);
 
         assert!(suspended);
     }
@@ -687,11 +715,8 @@ mod tests {
         let rules = StatuteOfLimitationsDeepRules::new();
         let elapsed_days = 100; // 不在最后6个月内
 
-        let (suspended, _) = rules.check_suspension(
-            SuspendReason::ForceMajeure,
-            elapsed_days,
-            false,
-        );
+        let (suspended, _) =
+            rules.check_suspension(SuspendReason::ForceMajeure, elapsed_days, false);
 
         assert!(!suspended);
     }
