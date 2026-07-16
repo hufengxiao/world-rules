@@ -3,17 +3,42 @@
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 国际象棋棋子类型
+///
+/// 表示国际象棋中六种不同的棋子类型。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::board_games::chess::ChessPieceType;
+///
+/// assert_eq!(ChessPieceType::King.name(), "王");
+/// assert_eq!(ChessPieceType::Queen.english_name(), "Queen");
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum ChessPieceType {
+    /// 王 - 游戏的核心，被将死则输
     King,
+    /// 后 - 最强的棋子，可横竖斜走
     Queen,
+    /// 车 - 可横竖走，参与王车易位
     Rook,
+    /// 象 - 可斜走，分黑白格象
     Bishop,
+    /// 马 - L形走法，可跳子
     Knight,
+    /// 兵 - 前进一步，吃子斜进，可升变
     Pawn,
 }
 
 impl ChessPieceType {
+    /// 获取棋子中文名称
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::board_games::chess::ChessPieceType;
+    ///
+    /// assert_eq!(ChessPieceType::King.name(), "王");
+    /// assert_eq!(ChessPieceType::Queen.name(), "后");
+    /// ```
     pub fn name(&self) -> &'static str {
         match self {
             ChessPieceType::King => "王",
@@ -25,6 +50,15 @@ impl ChessPieceType {
         }
     }
 
+    /// 获取棋子英文名称
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::board_games::chess::ChessPieceType;
+    ///
+    /// assert_eq!(ChessPieceType::King.english_name(), "King");
+    /// assert_eq!(ChessPieceType::Queen.english_name(), "Queen");
+    /// ```
     pub fn english_name(&self) -> &'static str {
         match self {
             ChessPieceType::King => "King",
@@ -36,6 +70,18 @@ impl ChessPieceType {
         }
     }
 
+    /// 获取棋子 Unicode 符号
+    ///
+    /// # 参数
+    /// - `is_white`: 是否为白方棋子
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::board_games::chess::ChessPieceType;
+    ///
+    /// assert_eq!(ChessPieceType::King.symbol(true), "♔");
+    /// assert_eq!(ChessPieceType::King.symbol(false), "♚");
+    /// ```
     pub fn symbol(&self, is_white: bool) -> &'static str {
         match self {
             ChessPieceType::King => {
@@ -84,6 +130,16 @@ impl ChessPieceType {
     }
 
     /// 棋子相对价值
+    ///
+    /// 返回棋子的相对价值分数，用于评估局面。
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::board_games::chess::ChessPieceType;
+    ///
+    /// assert_eq!(ChessPieceType::Queen.value(), 9);
+    /// assert_eq!(ChessPieceType::Pawn.value(), 1);
+    /// ```
     pub fn value(&self) -> u16 {
         match self {
             ChessPieceType::King => 1000,
@@ -97,11 +153,31 @@ impl ChessPieceType {
 }
 
 /// 国际象棋规则
+///
+/// 实现国际棋联（FIDE）标准国际象棋规则。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::board_games::chess::ChessRules;
+///
+/// let rules = ChessRules::new();
+/// assert_eq!(rules.board_size(), 8);
+/// assert_eq!(rules.promotion_pieces().len(), 4);
+/// ```
 pub struct ChessRules {
     metadata: RuleMetadata,
 }
 
 impl ChessRules {
+    /// 创建新的国际象棋规则实例
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::board_games::chess::ChessRules;
+    ///
+    /// let rules = ChessRules::new();
+    /// assert_eq!(rules.board_size(), 8);
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("国际象棋规则", "FIDE 国际象棋标准规则")
@@ -110,6 +186,15 @@ impl ChessRules {
         }
     }
 
+    /// 获取棋盘大小
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::board_games::chess::ChessRules;
+    ///
+    /// let rules = ChessRules::new();
+    /// assert_eq!(rules.board_size(), 8);
+    /// ```
     pub fn board_size(&self) -> u8 {
         8 // 8×8棋盘
     }
