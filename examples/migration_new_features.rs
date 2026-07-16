@@ -5,7 +5,7 @@
 //! 运行: cargo run --example migration_new_features
 
 use world_rules::prelude::*;
-use world_rules::{Difficulty, PerformanceBaseline, PerformanceChecker, PerformanceReport};
+use world_rules::{PerformanceBaseline, PerformanceChecker};
 
 fn main() {
     println!("=== v2.x 新功能示例 ===\n");
@@ -65,7 +65,7 @@ fn main() {
     // 查看不同规则的难度
     let rules_list: Vec<Box<dyn Rule>> = vec![
         Box::new(SichuanMahjongRules::new()),
-        Box::new(GuoBiaoMahjongRules::new()),
+        Box::new(GuobiaoMahjongRules::new()),
         Box::new(TexasHoldemRules::new()),
     ];
 
