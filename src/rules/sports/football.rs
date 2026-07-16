@@ -3,24 +3,71 @@
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 足球比赛状态
+///
+/// 记录比赛当前的比分、牌数和时间信息。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::sports::football::FootballMatchState;
+///
+/// let state = FootballMatchState {
+///     score_home: 2,
+///     score_away: 1,
+///     yellow_cards_home: 1,
+///     yellow_cards_away: 2,
+///     red_cards_home: 0,
+///     red_cards_away: 0,
+///     half: 2,
+///     minutes: 75,
+/// };
+/// assert_eq!(state.score_home, 2);
+/// ```
 #[derive(Debug, Clone)]
 pub struct FootballMatchState {
+    /// 主队进球数
     pub score_home: u8,
+    /// 客队进球数
     pub score_away: u8,
+    /// 主队黄牌数
     pub yellow_cards_home: u8,
+    /// 客队黄牌数
     pub yellow_cards_away: u8,
+    /// 主队红牌数
     pub red_cards_home: u8,
+    /// 客队红牌数
     pub red_cards_away: u8,
+    /// 当前半场 (1 或 2)
     pub half: u8,
+    /// 当前分钟数
     pub minutes: u8,
 }
 
 /// 足球规则
+///
+/// 实现国际足联（FIFA）标准足球规则。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::sports::football::FootballRules;
+///
+/// let rules = FootballRules::new();
+/// assert_eq!(rules.match_duration(), 90);
+/// assert_eq!(rules.team_size(), 11);
+/// ```
 pub struct FootballRules {
     metadata: RuleMetadata,
 }
 
 impl FootballRules {
+    /// 创建新的足球规则实例
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::sports::football::FootballRules;
+    ///
+    /// let rules = FootballRules::new();
+    /// assert_eq!(rules.match_duration(), 90);
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("足球规则", "国际足联 (FIFA) 标准足球规则")
@@ -68,20 +115,41 @@ impl FootballRules {
 }
 
 /// 犯规类型
+///
+/// 足球比赛中不同类型的犯规。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::sports::football::{FootballRules, FoulType, Penalty};
+///
+/// let rules = FootballRules::new();
+/// let penalty = rules.get_foul_penalty(FoulType::Violent);
+/// assert!(matches!(penalty, Penalty::RedCard));
+/// ```
 #[derive(Debug, Clone)]
 pub enum FoulType {
+    /// 轻微犯规
     Minor,
+    /// 严重犯规
     Serious,
+    /// 暴力犯规
     Violent,
+    /// 禁区内犯规
     PenaltyArea,
 }
 
 /// 处罚类型
+///
+/// 足球比赛中针对犯规的不同处罚。
 #[derive(Debug, Clone)]
 pub enum Penalty {
+    /// 任意球
     FreeKick,
+    /// 黄牌
     YellowCard,
+    /// 红牌
     RedCard,
+    /// 点球
     PenaltyKick,
 }
 
