@@ -222,10 +222,7 @@ impl AgencyDeepRules {
     /// let (is_apparent, msg) = rules.validate_apparent_agency(&elements);
     /// assert!(is_apparent);
     /// ```
-    pub fn validate_apparent_agency(
-        &self,
-        elements: &ApparentAgencyElements,
-    ) -> (bool, String) {
+    pub fn validate_apparent_agency(&self, elements: &ApparentAgencyElements) -> (bool, String) {
         if !elements.has_authority_appearance {
             return (false, "不存在权利外观，不构成表见代理".to_string());
         }
@@ -455,12 +452,7 @@ mod tests {
     #[test]
     fn test_validate_authorized_agency_valid() {
         let rules = AgencyDeepRules::new();
-        let result = rules.validate_authorized_agency(
-            AgencyType::Entrusted,
-            true,
-            true,
-            true,
-        );
+        let result = rules.validate_authorized_agency(AgencyType::Entrusted, true, true, true);
         assert!(result.is_valid);
         assert_eq!(result.authority_status, AgencyAuthorityStatus::Authorized);
     }
@@ -468,12 +460,7 @@ mod tests {
     #[test]
     fn test_validate_authorized_agency_no_authority() {
         let rules = AgencyDeepRules::new();
-        let result = rules.validate_authorized_agency(
-            AgencyType::Entrusted,
-            true,
-            false,
-            true,
-        );
+        let result = rules.validate_authorized_agency(AgencyType::Entrusted, true, false, true);
         assert!(!result.is_valid);
         assert_eq!(result.authority_status, AgencyAuthorityStatus::NoAuthority);
     }
@@ -481,12 +468,7 @@ mod tests {
     #[test]
     fn test_validate_authorized_agency_exceeded() {
         let rules = AgencyDeepRules::new();
-        let result = rules.validate_authorized_agency(
-            AgencyType::Entrusted,
-            false,
-            true,
-            true,
-        );
+        let result = rules.validate_authorized_agency(AgencyType::Entrusted, false, true, true);
         assert!(!result.is_valid);
         assert_eq!(result.authority_status, AgencyAuthorityStatus::Exceeded);
     }
@@ -509,7 +491,10 @@ mod tests {
     fn test_validate_unauthorized_agency_good_faith() {
         let rules = AgencyDeepRules::new();
         let status = rules.validate_unauthorized_agency(false, false, true);
-        assert!(matches!(status, UnauthorizedAgencyStatus::GoodFaithRevocable));
+        assert!(matches!(
+            status,
+            UnauthorizedAgencyStatus::GoodFaithRevocable
+        ));
     }
 
     #[test]
