@@ -16,11 +16,11 @@ fn main() {
     let mut mahjong_set = RuleSet::new("麻将规则集".to_string(), RuleCategory::games("mahjong"));
 
     // 添加多种麻将规则
-    mahjong_set.add_rule(Box::new(SichuanMahjongRules::new()));
-    mahjong_set.add_rule(Box::new(GuoBiaoMahjongRules::new()));
+    mahjong_set.add_rule(SichuanMahjongRules::new());
+    mahjong_set.add_rule(GuobiaoMahjongRules::new());
     // 可以添加更多...
 
-    println!("规则集: {}", mahjong_set.name);
+    println!("规则集: {}", mahjong_set.metadata.name);
     println!("规则数量: {}", mahjong_set.len());
     println!("分类: {:?}", mahjong_set.category);
 
@@ -60,7 +60,7 @@ fn main() {
     println!("3. 性能测试");
     println!("-------------\n");
 
-    use std::time::{Duration, Instant};
+    use std::time::Instant;
 
     let iterations = 1000;
     let hand = "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条";
