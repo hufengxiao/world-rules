@@ -64,10 +64,6 @@ name = "complete_app"
 path = "examples/complete_app.rs"
 
 [[example]]
-name = "law_rules_example"
-path = "examples/law_rules_example.rs"
-
-[[example]]
 name = "sports_rules_example"
 path = "examples/sports_rules_example.rs"
 
