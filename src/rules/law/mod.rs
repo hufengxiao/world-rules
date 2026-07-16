@@ -176,6 +176,7 @@ pub mod banking_law_detailed;
 pub mod bankruptcy_detailed;
 pub mod biometric_law;
 pub mod children_rights;
+pub mod civil_act_deep;
 pub mod civil_code_contract;
 pub mod civil_code_contract_deep;
 pub mod civil_code_general;
@@ -474,6 +475,10 @@ pub use banking_law_detailed::BankingLawDetailedRules;
 pub use bankruptcy_detailed::BankruptcyDetailedRules;
 pub use biometric_law::BiometricLawRules;
 pub use children_rights::ChildrenRightsRules;
+pub use civil_act_deep::{
+    ActEstablishmentStatus, ActValidityStatus, CapacityLevel, CivilActDeepRules, InvalidReason,
+    PendingReason, RevocableReason, ValidityCheckParams,
+};
 pub use civil_code_contract::CivilCodeContractRules;
 pub use civil_code_contract_deep::CivilCodeContractDeepRules;
 pub use civil_code_general::CivilCodeGeneralRules;
