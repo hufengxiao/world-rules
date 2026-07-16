@@ -394,7 +394,7 @@ impl StatuteOfLimitationsDeepRules {
     ///
     /// # Examples
     /// ```
-    /// use world_rules::rules::law::statute_ofLimitations_deep::StatuteOfLimitationsDeepRules;
+    /// use world_rules::rules::law::statute_of_limitations_deep::StatuteOfLimitationsDeepRules;
     /// use chrono::{Duration, Utc};
     ///
     /// let rules = StatuteOfLimitationsDeepRules::new();
