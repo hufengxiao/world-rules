@@ -68,8 +68,6 @@ fn demonstrate_track_field() {
     println!("2. 田径运动规则");
     println!("------------------\n");
 
-    use world_rules::rules::sports::athletics::*;
-
     // 短跑
     let sprint = SprintRules::new();
     println!("短跑规则:");
@@ -107,7 +105,7 @@ fn demonstrate_water_sports() {
     println!("3. 水上运动规则");
     println!("------------------\n");
 
-    use world_rules::rules::sports::aquatics::*;
+    use world_rules::rules::sports::*;
 
     // 游泳
     let swimming = SwimmingRules::new();
