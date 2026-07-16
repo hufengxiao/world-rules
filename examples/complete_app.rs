@@ -4,9 +4,9 @@
 //!
 //! 运行: cargo run --example complete_app
 
-use world_rules::prelude::*;
 use std::collections::HashMap;
 use std::time::Instant;
+use world_rules::prelude::*;
 
 fn main() {
     println!("=== 完整应用示例 - 游戏规则验证系统 ===\n");
@@ -39,34 +39,16 @@ fn build_rule_registry() -> HashMap<String, Box<dyn Rule>> {
     let mut registry: HashMap<String, Box<dyn Rule>> = HashMap::new();
 
     // 注册麻将规则
-    registry.insert(
-        "四川麻将".to_string(),
-        Box::new(SichuanMahjongRules::new()),
-    );
-    registry.insert(
-        "国标麻将".to_string(),
-        Box::new(GuobiaoMahjongRules::new()),
-    );
-    registry.insert(
-        "日本麻将".to_string(),
-        Box::new(RiichiMahjongRules::new()),
-    );
+    registry.insert("四川麻将".to_string(), Box::new(SichuanMahjongRules::new()));
+    registry.insert("国标麻将".to_string(), Box::new(GuobiaoMahjongRules::new()));
+    registry.insert("日本麻将".to_string(), Box::new(RiichiMahjongRules::new()));
 
     // 注册扑克规则
-    registry.insert(
-        "德州扑克".to_string(),
-        Box::new(TexasHoldemRules::new()),
-    );
+    registry.insert("德州扑克".to_string(), Box::new(TexasHoldemRules::new()));
 
     // 注册体育规则
-    registry.insert(
-        "足球规则".to_string(),
-        Box::new(FootballRules::new()),
-    );
-    registry.insert(
-        "篮球规则".to_string(),
-        Box::new(BasketballRules::new()),
-    );
+    registry.insert("足球规则".to_string(), Box::new(FootballRules::new()));
+    registry.insert("篮球规则".to_string(), Box::new(BasketballRules::new()));
 
     registry
 }
@@ -78,8 +60,14 @@ fn run_batch_tests(registry: &HashMap<String, Box<dyn Rule>>) {
 
     // 测试用例
     let test_cases = vec![
-        ("四川麻将", "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条"),
-        ("国标麻将", "1万 1万 1万 2万 2万 2万 3万 3万 3万 4万 4万 4万 5万 5万"),
+        (
+            "四川麻将",
+            "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条",
+        ),
+        (
+            "国标麻将",
+            "1万 1万 1万 2万 2万 2万 3万 3万 3万 4万 4万 4万 5万 5万",
+        ),
         ("德州扑克", "A♠ K♠ Q♠ J♠ 10♠"),
     ];
 
@@ -89,12 +77,16 @@ fn run_batch_tests(registry: &HashMap<String, Box<dyn Rule>>) {
     for (rule_name, input) in &test_cases {
         if let Some(rule) = registry.get(*rule_name) {
             let result = rule.validate(&ValidateContext::Generic(input.to_string()));
-            
+
             match result {
                 Ok(valid) => {
                     let status = if valid { "✅ 通过" } else { "❌ 失败" };
                     println!("{} 验证 '{}': {}", rule_name, input, status);
-                    if valid { passed += 1; } else { failed += 1; }
+                    if valid {
+                        passed += 1;
+                    } else {
+                        failed += 1;
+                    }
                 }
                 Err(e) => {
                     println!("{} 验证 '{}': ❌ 错误 {:?}", rule_name, input, e);
@@ -119,7 +111,7 @@ fn analyze_performance(registry: &HashMap<String, Box<dyn Rule>>) {
         // 仅测试麻将规则
         if name.contains("麻将") {
             let hand = "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条";
-            
+
             let start = Instant::now();
             for _ in 0..iterations {
                 let _ = rule.validate(&ValidateContext::Generic(hand.to_string()));
@@ -177,10 +169,10 @@ fn generate_statistics(registry: &HashMap<String, Box<dyn Rule>>) {
 /// 生成报告
 fn generate_report(registry: &HashMap<String, Box<dyn Rule>>) -> String {
     let mut report = String::new();
-    
+
     report.push_str("=== 规则验证报告 ===\n\n");
     report.push_str(&format!("注册规则总数: {}\n\n", registry.len()));
-    
+
     report.push_str("规则列表:\n");
     for (name, rule) in registry.iter() {
         let meta = rule.metadata();

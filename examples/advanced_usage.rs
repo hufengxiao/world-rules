@@ -4,9 +4,9 @@
 //!
 //! 运行: cargo run --example advanced_usage
 
+use std::time::Instant;
 use world_rules::prelude::*;
 use world_rules::{PerformanceBaseline, PerformanceChecker};
-use std::time::Instant;
 
 fn main() {
     println!("=== 世界规则库 - 进阶使用 ===\n");
@@ -34,10 +34,7 @@ fn demonstrate_rule_set() {
     println!("----------------\n");
 
     // 创建规则集
-    let mut game_rules = RuleSet::new(
-        "游戏规则集".to_string(),
-        RuleCategory::games("mixed"),
-    );
+    let mut game_rules = RuleSet::new("游戏规则集".to_string(), RuleCategory::games("mixed"));
 
     // 添加多种游戏规则
     game_rules.add_rule(SichuanMahjongRules::new());
@@ -104,7 +101,7 @@ fn demonstrate_performance_checking() {
         println!("   基线: {:.2}μs", comp.baseline_ns / 1000.0);
         println!("   当前: {:.2}μs", comp.current_ns / 1000.0);
         println!("   变化: {:.1}%", comp.change_percent);
-        
+
         if comp.is_regression {
             println!("   ⚠️  检测到性能回归");
         } else {
@@ -120,20 +117,33 @@ fn demonstrate_batch_validation() {
     println!("--------------\n");
 
     let rules = SichuanMahjongRules::new();
-    
+
     let test_cases = vec![
-        ("1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条", "标准牌型"),
-        ("1万 1万 1万 2万 2万 2万 3万 3万 3万 4万 4万 4万 5万 5万", "全刻子"),
-        ("1条 2条 3条 4条 5条 6条 7条 8条 9条 1万 1万 1万 2万 2万", "清一色"),
+        (
+            "1万 2万 3万 4万 5万 6万 7万 8万 9万 1条 1条 1条 2条 2条",
+            "标准牌型",
+        ),
+        (
+            "1万 1万 1万 2万 2万 2万 3万 3万 3万 4万 4万 4万 5万 5万",
+            "全刻子",
+        ),
+        (
+            "1条 2条 3条 4条 5条 6条 7条 8条 9条 1万 1万 1万 2万 2万",
+            "清一色",
+        ),
     ];
 
     println!("批量验证 {} 个牌型:\n", test_cases.len());
-    
+
     for (hand, desc) in &test_cases {
         let result = rules.validate(&ValidateContext::Generic(hand.to_string()));
         match result {
             Ok(valid) => {
-                let status = if *valid { "✅ 合法" } else { "❌ 不合法" };
+                let status = if *valid {
+                    "✅ 合法"
+                } else {
+                    "❌ 不合法"
+                };
                 println!("{} ({}): {}", desc, hand, status);
             }
             Err(e) => println!("{}: ❌ 错误 {:?}", desc, e),
@@ -154,7 +164,7 @@ fn demonstrate_rule_comparison() {
     ];
 
     println!("麻将变体规则对比:\n");
-    
+
     for rule in &mahjong_variants {
         let meta = rule.metadata();
         println!("{}:", meta.name);
@@ -189,11 +199,26 @@ fn demonstrate_custom_metadata() {
 
     // 难度排序
     println!("\n难度等级排序:");
-    println!("  Beginner < Easy: {}", Difficulty::Beginner < Difficulty::Easy);
-    println!("  Easy < Intermediate: {}", Difficulty::Easy < Difficulty::Intermediate);
-    println!("  Intermediate < Advanced: {}", Difficulty::Intermediate < Difficulty::Advanced);
-    println!("  Advanced < Expert: {}", Difficulty::Advanced < Difficulty::Expert);
-    println!("  Expert < Master: {}", Difficulty::Expert < Difficulty::Master);
+    println!(
+        "  Beginner < Easy: {}",
+        Difficulty::Beginner < Difficulty::Easy
+    );
+    println!(
+        "  Easy < Intermediate: {}",
+        Difficulty::Easy < Difficulty::Intermediate
+    );
+    println!(
+        "  Intermediate < Advanced: {}",
+        Difficulty::Intermediate < Difficulty::Advanced
+    );
+    println!(
+        "  Advanced < Expert: {}",
+        Difficulty::Advanced < Difficulty::Expert
+    );
+    println!(
+        "  Expert < Master: {}",
+        Difficulty::Expert < Difficulty::Master
+    );
 
     println!();
 }

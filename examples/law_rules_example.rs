@@ -38,7 +38,7 @@ fn demonstrate_civil_law() {
 
     // 民法分则（物权、债权等）
     use world_rules::rules::law::civil::*;
-    
+
     // 物权规则
     let property_rules = PropertyLawRules::new();
     println!("\n物权法规则:");
@@ -65,7 +65,7 @@ fn demonstrate_criminal_law() {
 
     // 刑法分则
     use world_rules::rules::law::criminal::*;
-    
+
     // 犯罪构成规则
     let crime_constitution = CrimeConstitutionRules::new();
     println!("\n犯罪构成规则:");
@@ -84,7 +84,7 @@ fn demonstrate_labor_law() {
     println!("----------------\n");
 
     let labor = LaborLawRules::new();
-    
+
     println!("劳动法规则:");
     println!("  名称: {}", labor.metadata().name);
     println!("  描述: {}", labor.metadata().description);
@@ -92,7 +92,7 @@ fn demonstrate_labor_law() {
 
     // 劳动法子规则
     use world_rules::rules::law::labor::*;
-    
+
     // 劳动合同规则
     let contract = LaborContractRules::new();
     println!("\n劳动合同规则:");
