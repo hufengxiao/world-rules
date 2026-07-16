@@ -1,7 +1,7 @@
 //! 迁移示例 3: 自定义规则
-//! 
+//!
 //! 展示如何创建自定义规则并使用 v2.x 新功能
-//! 
+//!
 //! 运行: cargo run --example migration_custom_rules
 
 use world_rules::prelude::*;
@@ -26,7 +26,7 @@ impl MyCustomRule {
                 ]),
         }
     }
-    
+
     /// 创建简单版本（使用默认难度）
     fn simple() -> Self {
         Self {
@@ -40,11 +40,11 @@ impl Rule for MyCustomRule {
     fn metadata(&self) -> &RuleMetadata {
         &self.meta
     }
-    
+
     fn category(&self) -> RuleCategory {
         RuleCategory::games("custom")
     }
-    
+
     fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
         match context {
             ValidateContext::Generic(input) => {
@@ -52,7 +52,7 @@ impl Rule for MyCustomRule {
                 // 这里我们检查输入是否包含特定关键词
                 let keywords = ["规则", "验证", "示例"];
                 let contains_keyword = keywords.iter().any(|kw| input.contains(kw));
-                
+
                 if contains_keyword {
                     Ok(true)
                 } else {
@@ -95,11 +95,11 @@ impl Rule for SimpleGameRule {
     fn metadata(&self) -> &RuleMetadata {
         &self.meta
     }
-    
+
     fn category(&self) -> RuleCategory {
         RuleCategory::games("simple")
     }
-    
+
     fn validate(&self, context: &ValidateContext) -> RuleResult<bool> {
         match context {
             ValidateContext::Generic(input) => {
@@ -133,13 +133,13 @@ impl Rule for SimpleGameRule {
 
 fn main() {
     println!("=== 自定义规则示例 ===\n");
-    
+
     // === 1. 创建并使用自定义规则 ===
     println!("1. 基础自定义规则");
     println!("-------------------\n");
-    
+
     let custom_rule = MyCustomRule::new();
-    
+
     println!("规则信息:");
     println!("  名称: {}", custom_rule.metadata().name);
     println!("  描述: {}", custom_rule.metadata().description);
@@ -147,58 +147,49 @@ fn main() {
     println!("  难度: {:?}", custom_rule.metadata().difficulty);
     println!("  标签: {:?}", custom_rule.metadata().tags);
     println!("  分类: {:?}", custom_rule.category());
-    
+
     // 测试验证
     println!("\n验证测试:");
-    let test_cases = vec![
-        "这是一个规则示例",
-        "验证测试",
-        "不包含关键词",
-    ];
-    
+    let test_cases = vec!["这是一个规则示例", "验证测试", "不包含关键词"];
+
     for input in test_cases {
         let result = custom_rule.validate(&ValidateContext::Generic(input.to_string()));
         match result {
-            Ok(valid) => println!("  '{}': {}", input, if valid { "✅ 通过" } else { "❌ 失败" }),
+            Ok(valid) => println!(
+                "  '{}': {}",
+                input,
+                if valid { "✅ 通过" } else { "❌ 失败" }
+            ),
             Err(e) => println!("  '{}': ❌ {:?}", input, e),
         }
     }
-    
+
     // === 2. 使用规则集 ===
     println!("\n\n2. 规则集管理");
     println!("---------------\n");
-    
-    let mut rule_set = RuleSet::new(
-        "自定义规则集".to_string(),
-        RuleCategory::games("custom"),
-    );
-    
+
+    let mut rule_set = RuleSet::new("自定义规则集".to_string(), RuleCategory::games("custom"));
+
     // 添加规则
     rule_set.add_rule(Box::new(MyCustomRule::new()));
     rule_set.add_rule(Box::new(SimpleGameRule::new()));
-    
+
     println!("规则集信息:");
     println!("  名称: {}", rule_set.name);
     println!("  规则数量: {}", rule_set.len());
     println!("  分类: {:?}", rule_set.category);
-    
+
     println!("\n规则列表:");
     for name in rule_set.list_rules() {
         println!("  - {}", name);
     }
-    
+
     // === 3. 批量验证 ===
     println!("\n\n3. 批量验证");
     println!("-------------\n");
-    
-    let inputs = vec![
-        "规则测试",
-        "验证示例",
-        "5",
-        "15",
-        "无效输入",
-    ];
-    
+
+    let inputs = vec!["规则测试", "验证示例", "5", "15", "无效输入"];
+
     for input in inputs {
         println!("\n输入: '{}'", input);
         for (name, rule) in rule_set.rules.iter() {
@@ -209,13 +200,13 @@ fn main() {
             }
         }
     }
-    
+
     // === 4. 导出规则集信息 ===
     println!("\n\n4. 规则集文档");
     println!("---------------\n");
-    
+
     let markdown = rule_set.to_markdown();
     println!("{}", markdown);
-    
+
     println!("\n✅ 自定义规则创建完成！");
 }
