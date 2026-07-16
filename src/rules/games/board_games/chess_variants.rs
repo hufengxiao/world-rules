@@ -208,6 +208,16 @@ pub struct InternationalChessRules {
 }
 
 impl InternationalChessRules {
+    /// 创建国际象棋规则实例
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::games::board_games::chess_variants::InternationalChessRules;
+    /// use world_rules::rules::core::Rule;
+    ///
+    /// let rules = InternationalChessRules::new();
+    /// assert_eq!(rules.metadata().name, "国际象棋规则");
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("国际象棋规则", "FIDE标准国际象棋规则")
@@ -255,6 +265,16 @@ pub struct ShogiVariantRules {
 }
 
 impl ShogiVariantRules {
+    /// 创建日本将棋规则实例
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::games::board_games::chess_variants::ShogiVariantRules;
+    /// use world_rules::rules::core::Rule;
+    ///
+    /// let rules = ShogiVariantRules::new();
+    /// assert_eq!(rules.metadata().name, "日本将棋规则");
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("日本将棋规则", "日本将棋完整规则")
@@ -305,6 +325,16 @@ pub struct JanggiVariantRules {
 }
 
 impl JanggiVariantRules {
+    /// 创建韩国象棋规则实例
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::games::board_games::chess_variants::JanggiVariantRules;
+    /// use world_rules::rules::core::Rule;
+    ///
+    /// let rules = JanggiVariantRules::new();
+    /// assert_eq!(rules.metadata().name, "韩国象棋规则");
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("韩国象棋规则", "韩国象棋(Janggi)完整规则")

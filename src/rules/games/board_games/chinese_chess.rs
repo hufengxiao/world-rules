@@ -36,6 +36,20 @@ pub enum PieceType {
 }
 
 impl PieceType {
+    /// 获取棋子名称
+    ///
+    /// # Arguments
+    ///
+    /// * `is_red` - 是否为红方（红方和黑方某些棋子名称不同）
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::games::board_games::chinese_chess::PieceType;
+    ///
+    /// assert_eq!(PieceType::King.name(true), "帅");
+    /// assert_eq!(PieceType::King.name(false), "将");
+    /// assert_eq!(PieceType::Horse.name(true), "马");
+    /// ```
     pub fn name(&self, is_red: bool) -> &'static str {
         match self {
             PieceType::King => {
@@ -89,9 +103,12 @@ impl PieceType {
 /// 棋子
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct Piece {
+    /// 棋子类型（将、士、象、马、车、炮、兵）
     pub piece_type: PieceType,
+    /// 是否为红方（true=红方，false=黑方）
     pub is_red: bool,
-    pub position: (u8, u8), // (列, 行) 0-8列, 0-9行
+    /// 棋子位置（列, 行），范围：列0-8，行0-9
+    pub position: (u8, u8),
 }
 
 /// 中国象棋规则
@@ -100,6 +117,16 @@ pub struct ChineseChessRules {
 }
 
 impl ChineseChessRules {
+    /// 创建中国象棋规则实例
+    ///
+    /// # Examples
+    /// ```
+    /// use world_rules::rules::games::board_games::chinese_chess::ChineseChessRules;
+    /// use world_rules::rules::core::Rule;
+    ///
+    /// let rules = ChineseChessRules::new();
+    /// assert_eq!(rules.metadata().name, "中国象棋规则");
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("中国象棋规则", "中国象棋标准规则")
