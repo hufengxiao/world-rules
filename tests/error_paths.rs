@@ -89,7 +89,7 @@ mod invalid_input_tests {
         assert!(cat.to_string().contains("🎮"));
 
         // 控制字符
-        let cat = RuleCategory::games("\n\t");
+        let _cat = RuleCategory::games("\n\t");
         assert!(true); // 不应 panic
     }
 
@@ -330,7 +330,7 @@ mod error_recovery_tests {
     /// 测试 RuleSet 添加和查询规则
     #[test]
     fn ruleset_add_and_query() {
-        let mut rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+        let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
 
         // 添加规则（使用 RuleMetadata 作为示例）
         // 注意：这里测试 RuleSet 的基本操作，不依赖具体 Rule 实现
@@ -383,7 +383,7 @@ mod error_recovery_tests {
     #[test]
     fn ruleset_duplicate_add() {
         // RuleSet 的 add_rule 应覆盖同名规则
-        let mut rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
+        let rs = RuleSet::new("测试".to_string(), RuleCategory::games("test"));
 
         // 由于没有简单的 Rule 实现，这里测试基本操作
         assert!(rs.is_empty());
@@ -561,11 +561,8 @@ mod comprehensive_error_tests {
     /// 测试多步错误恢复
     #[test]
     fn multi_step_error_recovery() {
-        // 步骤 1: 创建无效元数据
-        let mut meta = RuleMetadata::new("", "");
-
-        // 步骤 2: 尝试修复（实际上元数据是不可变的，需要重建）
-        meta = RuleMetadata::new("有效名称", "有效描述");
+        // 步骤 1: 创建有效元数据
+        let mut meta = RuleMetadata::new("有效名称", "有效描述");
 
         // 步骤 3: 验证修复成功
         assert!(!meta.name.is_empty());
