@@ -50,3 +50,39 @@ required-features = ["cli"]
 [[example]]
 name = "demo"
 path = "examples/demo.rs"
+
+[[example]]
+name = "basic_usage"
+path = "examples/basic_usage.rs"
+
+[[example]]
+name = "advanced_usage"
+path = "examples/advanced_usage.rs"
+
+[[example]]
+name = "complete_app"
+path = "examples/complete_app.rs"
+
+[[example]]
+name = "law_rules_example"
+path = "examples/law_rules_example.rs"
+
+[[example]]
+name = "sports_rules_example"
+path = "examples/sports_rules_example.rs"
+
+[[example]]
+name = "validate_games"
+path = "examples/validate_games.rs"
+
+[[example]]
+name = "migration_basic"
+path = "examples/migration_basic.rs"
+
+[[example]]
+name = "migration_new_features"
+path = "examples/migration_new_features.rs"
+
+[[example]]
+name = "migration_batch_processing"
+path = "examples/migration_batch_processing.rs"
