@@ -204,7 +204,7 @@ mod null_and_none_tests {
     /// 测试大量空值添加到手牌
     #[test]
     fn hand_with_many_empty_melds() {
-        let mut hand = Hand::new();
+        let hand = Hand::new();
         // 手牌初始状态应有空 tiles 和空 melds
         assert!(hand.tiles().is_empty());
         assert!(hand.melds().is_empty());
@@ -706,8 +706,6 @@ mod sports_numeric_boundaries {
 // ============================================================================
 
 mod law_numeric_boundaries {
-    use super::*;
-
     /// 测试劳动法工时边界：每日最大工作时间
     #[test]
     fn labor_working_hours_boundary() {

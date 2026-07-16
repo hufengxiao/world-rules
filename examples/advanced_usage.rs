@@ -139,11 +139,7 @@ fn demonstrate_batch_validation() {
         let result = rules.validate(&ValidateContext::Generic(hand.to_string()));
         match result {
             Ok(valid) => {
-                let status = if *valid {
-                    "✅ 合法"
-                } else {
-                    "❌ 不合法"
-                };
+                let status = if valid { "✅ 合法" } else { "❌ 不合法" };
                 println!("{} ({}): {}", desc, hand, status);
             }
             Err(e) => println!("{}: ❌ 错误 {:?}", desc, e),
@@ -182,13 +178,12 @@ fn demonstrate_custom_metadata() {
     // 创建自定义元数据
     let custom_meta = RuleMetadata::new("my_custom_rule", "我的自定义规则")
         .with_version("1.0.0")
-        .with_difficulty(Difficulty::Intermediate)
+        .with_difficulty(Difficulty::Normal)
         .with_tags(vec![
             "自定义".to_string(),
             "进阶".to_string(),
             "示例".to_string(),
-        ])
-        .with_description("这是一个自定义规则的示例元数据");
+        ]);
 
     println!("自定义规则元数据:");
     println!("  名称: {}", custom_meta.name);
@@ -203,18 +198,9 @@ fn demonstrate_custom_metadata() {
         "  Beginner < Easy: {}",
         Difficulty::Beginner < Difficulty::Easy
     );
-    println!(
-        "  Easy < Intermediate: {}",
-        Difficulty::Easy < Difficulty::Intermediate
-    );
-    println!(
-        "  Intermediate < Advanced: {}",
-        Difficulty::Intermediate < Difficulty::Advanced
-    );
-    println!(
-        "  Advanced < Expert: {}",
-        Difficulty::Advanced < Difficulty::Expert
-    );
+    println!("  Easy < Normal: {}", Difficulty::Easy < Difficulty::Normal);
+    println!("  Normal < Hard: {}", Difficulty::Normal < Difficulty::Hard);
+    println!("  Hard < Expert: {}", Difficulty::Hard < Difficulty::Expert);
     println!(
         "  Expert < Master: {}",
         Difficulty::Expert < Difficulty::Master
