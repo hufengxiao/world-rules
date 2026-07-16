@@ -25,7 +25,7 @@ fn main() {
         created_at: "2026-07-16".to_string(),
     };
 
-    checker.update_baseline(baseline);
+    checker.update_baseline(baseline.clone());
     println!("✅ 已设置性能基线:");
     println!("   平均时间: {}μs", baseline.avg_time_ns / 1000.0);
     println!("   标准差: {}μs", baseline.std_dev / 1000.0);
