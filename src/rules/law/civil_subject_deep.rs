@@ -102,7 +102,12 @@ impl CivilSubjectDeepRules {
     /// let limited = rules.determine_capacity(10, false, true);
     /// assert_eq!(limited, CapacityType::Limited);
     /// ```
-    pub fn determine_capacity(&self, age: u32, is_working: bool, can_identify: bool) -> CapacityType {
+    pub fn determine_capacity(
+        &self,
+        age: u32,
+        is_working: bool,
+        can_identify: bool,
+    ) -> CapacityType {
         if age >= 18 {
             if can_identify {
                 CapacityType::Full
@@ -209,7 +214,7 @@ impl CivilSubjectDeepRules {
         let has_capacity = self.has_civil_capacity(is_alive, true);
         let capacity_type = self.determine_capacity(age, is_working, can_identify);
         let needs_guardian = capacity_type != CapacityType::Full;
-        
+
         let guardian_order = if age < 18 {
             self.get_guardian_order_minor()
         } else {
@@ -314,7 +319,7 @@ impl CivilSubjectDeepRules {
             has_address,
             has_property,
         );
-        
+
         let message = if valid_establishment && has_representative {
             "法人设立合法，具有民事主体资格".to_string()
         } else if !valid_establishment {
@@ -368,9 +373,18 @@ impl CivilSubjectDeepRules {
     /// 返回是否满足宣告失踪条件
     pub fn validate_missing_declaration(&self, missing_years: u32) -> (bool, String) {
         if missing_years >= 2 {
-            (true, format!("下落不明满{}年，可以申请宣告失踪", missing_years))
+            (
+                true,
+                format!("下落不明满{}年，可以申请宣告失踪", missing_years),
+            )
         } else {
-            (false, format!("下落不明未满2年，不符合宣告失踪条件（当前{}年）", missing_years))
+            (
+                false,
+                format!(
+                    "下落不明未满2年，不符合宣告失踪条件（当前{}年）",
+                    missing_years
+                ),
+            )
         }
     }
 
@@ -382,15 +396,28 @@ impl CivilSubjectDeepRules {
     ///
     /// # Returns
     /// 返回是否满足宣告死亡条件
-    pub fn validate_death_declaration(&self, missing_years: u32, is_accident: bool) -> (bool, String) {
+    pub fn validate_death_declaration(
+        &self,
+        missing_years: u32,
+        is_accident: bool,
+    ) -> (bool, String) {
         if is_accident {
             if missing_years >= 2 {
-                (true, "因意外事件下落不明满2年，可以申请宣告死亡".to_string())
+                (
+                    true,
+                    "因意外事件下落不明满2年，可以申请宣告死亡".to_string(),
+                )
             } else {
-                (false, format!("意外事件下落不明未满2年（当前{}年）", missing_years))
+                (
+                    false,
+                    format!("意外事件下落不明未满2年（当前{}年）", missing_years),
+                )
             }
         } else if missing_years >= 4 {
-            (true, format!("下落不明满{}年，可以申请宣告死亡", missing_years))
+            (
+                true,
+                format!("下落不明满{}年，可以申请宣告死亡", missing_years),
+            )
         } else {
             (false, format!("下落不明未满4年（当前{}年）", missing_years))
         }
@@ -409,7 +436,6 @@ impl CivilSubjectDeepRules {
             "监护顺序（成年）：配偶→父母子女→其他近亲属→其他愿意监护的个人或组织",
             "宣告失踪：下落不明满2年，利害关系人可申请宣告失踪",
             "宣告死亡：下落不明满4年，或意外事件下落不明满2年",
-            
             // 法人规则
             "法人设立条件：有名称、组织机构、住所、财产或经费",
             "营利法人：以取得利润并分配给出资人为目的，如公司",
@@ -417,7 +443,6 @@ impl CivilSubjectDeepRules {
             "特别法人：机关法人、农村集体经济组织、基层群众性自治组织",
             "法定代表人：代表法人从事民事活动的负责人",
             "法人分支机构：以法人名义从事活动，责任由法人承担",
-            
             // 非法人组织规则
             "个人独资企业：投资人以其个人财产对企业债务承担无限责任",
             "合伙企业：合伙人对合伙企业债务承担无限连带责任",
@@ -442,22 +467,22 @@ impl Rule for CivilSubjectDeepRules {
     fn explain(&self) -> String {
         let rules = self.get_deep_rules();
         let mut result = String::from("民事主体深度规则：\n\n");
-        
+
         result.push_str("【自然人规则】\n");
         for rule in rules.iter().take(9) {
             result.push_str(&format!("• {}\n", rule));
         }
-        
+
         result.push_str("\n【法人规则】\n");
         for rule in rules.iter().skip(9).take(6) {
             result.push_str(&format!("• {}\n", rule));
         }
-        
+
         result.push_str("\n【非法人组织规则】\n");
         for rule in rules.iter().skip(15) {
             result.push_str(&format!("• {}\n", rule));
         }
-        
+
         result
     }
 }
@@ -477,8 +502,14 @@ mod tests {
     #[test]
     fn test_determine_capacity_adult() {
         let rules = CivilSubjectDeepRules::new();
-        assert_eq!(rules.determine_capacity(25, false, true), CapacityType::Full);
-        assert_eq!(rules.determine_capacity(18, false, true), CapacityType::Full);
+        assert_eq!(
+            rules.determine_capacity(25, false, true),
+            CapacityType::Full
+        );
+        assert_eq!(
+            rules.determine_capacity(18, false, true),
+            CapacityType::Full
+        );
     }
 
     #[test]
@@ -491,8 +522,14 @@ mod tests {
     #[test]
     fn test_determine_capacity_limited() {
         let rules = CivilSubjectDeepRules::new();
-        assert_eq!(rules.determine_capacity(10, false, true), CapacityType::Limited);
-        assert_eq!(rules.determine_capacity(15, false, true), CapacityType::Limited);
+        assert_eq!(
+            rules.determine_capacity(10, false, true),
+            CapacityType::Limited
+        );
+        assert_eq!(
+            rules.determine_capacity(15, false, true),
+            CapacityType::Limited
+        );
     }
 
     #[test]
@@ -562,14 +599,8 @@ mod tests {
     #[test]
     fn test_validate_legal_person() {
         let rules = CivilSubjectDeepRules::new();
-        let result = rules.validate_legal_person(
-            LegalPersonType::ForProfit,
-            true,
-            true,
-            true,
-            true,
-            true,
-        );
+        let result =
+            rules.validate_legal_person(LegalPersonType::ForProfit, true, true, true, true, true);
         assert!(result.valid_establishment);
         assert!(result.valid_representative);
     }
@@ -580,7 +611,7 @@ mod tests {
         let (has_cap, msg) = rules.validate_fetus_protection(true);
         assert!(has_cap);
         assert!(msg.contains("活着出生"));
-        
+
         let (no_cap, msg2) = rules.validate_fetus_protection(false);
         assert!(!no_cap);
         assert!(msg2.contains("死体"));
@@ -591,7 +622,7 @@ mod tests {
         let rules = CivilSubjectDeepRules::new();
         let (valid, _) = rules.validate_missing_declaration(2);
         assert!(valid);
-        
+
         let (invalid, _) = rules.validate_missing_declaration(1);
         assert!(!invalid);
     }
@@ -601,10 +632,10 @@ mod tests {
         let rules = CivilSubjectDeepRules::new();
         let (valid, _) = rules.validate_death_declaration(4, false);
         assert!(valid);
-        
+
         let (valid_accident, _) = rules.validate_death_declaration(2, true);
         assert!(valid_accident);
-        
+
         let (invalid, _) = rules.validate_death_declaration(3, false);
         assert!(!invalid);
     }
@@ -628,7 +659,10 @@ mod tests {
         let rules = CivilSubjectDeepRules::new();
         assert_eq!(rules.get_age_category(25, false), AgeCategory::Adult);
         assert_eq!(rules.get_age_category(16, true), AgeCategory::WorkingMinor);
-        assert_eq!(rules.get_age_category(10, false), AgeCategory::EightToEighteen);
+        assert_eq!(
+            rules.get_age_category(10, false),
+            AgeCategory::EightToEighteen
+        );
         assert_eq!(rules.get_age_category(5, false), AgeCategory::UnderEight);
     }
 }

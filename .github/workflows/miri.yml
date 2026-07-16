@@ -54,11 +54,15 @@ jobs:
         run: cargo miri test --lib
         continue-on-error: true
         id: miri_lib
+        env:
+          MIRIFLAGS: "-Zmiri-isolation-error=warn"
       
       - name: Run MIRI on integration tests
         run: cargo miri test --test integration
         continue-on-error: true
         id: miri_integration
+        env:
+          MIRIFLAGS: "-Zmiri-isolation-error=warn"
       
       - name: Run MIRI on specific unsafe-sensitive tests
         run: |
@@ -66,6 +70,8 @@ jobs:
           cargo miri test --test boundary_conditions || true
           cargo miri test --test error_paths || true
         continue-on-error: true
+        env:
+          MIRIFLAGS: "-Zmiri-isolation-error=warn"
       
       - name: Generate MIRI report
         if: always()
@@ -124,11 +130,11 @@ jobs:
       - name: Run MIRI with tree borrows
         run: cargo miri test --lib -- --format=pretty
         env:
-          MIRIFLAGS: "-Zmiri-tree-borrows"
+          MIRIFLAGS: "-Zmiri-tree-borrows -Zmiri-isolation-error=warn"
         continue-on-error: true
       
       - name: Run MIRI with stacked borrows
         run: cargo miri test --lib
         env:
-          MIRIFLAGS: "-Zmiri-strict-provenance"
+          MIRIFLAGS: "-Zmiri-strict-provenance -Zmiri-isolation-error=warn"
         continue-on-error: true
