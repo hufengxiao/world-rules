@@ -44,11 +44,30 @@ fn parse_blackjack_cards(s: &str) -> Result<Vec<Card>, String> {
 }
 
 /// 21点规则
+///
+/// Blackjack（21点）是美国流行的扑克游戏规则。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::blackjack::BlackjackRules;
+///
+/// let rules = BlackjackRules::new();
+/// assert_eq!(rules.target_value(), 21);
+/// ```
 pub struct BlackjackRules {
     metadata: RuleMetadata,
 }
 
 impl BlackjackRules {
+    /// 创建新的21点规则实例
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::blackjack::BlackjackRules;
+    ///
+    /// let rules = BlackjackRules::new();
+    /// assert_eq!(rules.target_value(), 21);
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("21点规则", "Blackjack 标准规则")

@@ -3,15 +3,38 @@
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata};
 
 /// 飞机颜色
+///
+/// 飞行棋中四种颜色的飞机，分别代表四个玩家。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::aeroplane_chess::PlaneColor;
+///
+/// let red = PlaneColor::Red;
+/// assert_eq!(red.name(), "红色");
+/// ```
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum PlaneColor {
+    /// 红色飞机
     Red,
+    /// 黄色飞机
     Yellow,
+    /// 蓝色飞机
     Blue,
+    /// 绿色飞机
     Green,
 }
 
 impl PlaneColor {
+    /// 获取颜色名称
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::aeroplane_chess::PlaneColor;
+    ///
+    /// assert_eq!(PlaneColor::Red.name(), "红色");
+    /// assert_eq!(PlaneColor::Yellow.name(), "黄色");
+    /// ```
     pub fn name(&self) -> &'static str {
         match self {
             PlaneColor::Red => "红色",
@@ -23,11 +46,31 @@ impl PlaneColor {
 }
 
 /// 飞行棋规则
+///
+/// 中国传统棋类游戏，四人各控制4架飞机竞速到达终点。
+///
+/// # 示例
+/// ```
+/// use world_rules::rules::games::aeroplane_chess::AeroplaneChessRules;
+///
+/// let rules = AeroplaneChessRules::new();
+/// assert_eq!(rules.player_count(), 4);
+/// assert_eq!(rules.planes_per_player(), 4);
+/// ```
 pub struct AeroplaneChessRules {
     metadata: RuleMetadata,
 }
 
 impl AeroplaneChessRules {
+    /// 创建新的飞行棋规则实例
+    ///
+    /// # 示例
+    /// ```
+    /// use world_rules::rules::games::aeroplane_chess::AeroplaneChessRules;
+    ///
+    /// let rules = AeroplaneChessRules::new();
+    /// assert_eq!(rules.player_count(), 4);
+    /// ```
     pub fn new() -> Self {
         Self {
             metadata: RuleMetadata::new("飞行棋规则", "飞行棋游戏规则")
