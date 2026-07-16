@@ -79,6 +79,7 @@ pub mod securities;
 pub mod advertising;
 pub mod antimonopoly;
 pub mod bidding;
+pub mod competition_law_deep;
 pub mod customs;
 pub mod economic_law_deep;
 pub mod foreign_trade;
