@@ -48,7 +48,7 @@ fn main() {
     println!("\n=== 使用其他规则 ===\n");
 
     // 国标麻将
-    let guobiao = GuoBiaoMahjongRules::new();
+    let guobiao = GuobiaoMahjongRules::new();
     println!("国标麻将: {}", guobiao.metadata().name);
 
     // 扑克规则
