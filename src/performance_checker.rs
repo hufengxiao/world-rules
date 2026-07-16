@@ -276,6 +276,10 @@ impl PerformanceChecker {
     ///
     /// 如果无法创建目录或写入文件，返回错误。
     ///
+    /// # Panics
+    ///
+    /// 不会 panic。所有错误都通过 `Result` 返回。
+    ///
     /// # 示例
     ///
     /// ```no_run
@@ -292,7 +296,11 @@ impl PerformanceChecker {
     /// checker.save_baselines().unwrap();
     /// ```
     pub fn save_baselines(&self) -> Result<(), Box<dyn std::error::Error>> {
-        let parent = self.config_path.parent().unwrap();
+        // 使用 ok_or 而不是 unwrap，避免 panic
+        let parent = self
+            .config_path
+            .parent()
+            .ok_or_else(|| format!("无效的配置路径: {:?}", self.config_path))?;
         fs::create_dir_all(parent)?;
 
         let content = serde_json::to_string_pretty(&self.baselines)?;
@@ -332,6 +340,11 @@ impl PerformanceChecker {
     ///
     /// - `Some(PerformanceComparison)` - 如果找到对应的基线
     /// - `None` - 如果没有对应的基线
+    ///
+    /// # Panics
+    ///
+    /// 当基线的 `avg_time_ns` 为 0 时，除法运算会导致 panic。
+    /// 在正常使用情况下不会发生，因为有效基准的执行时间不会为 0。
     ///
     /// # 示例
     ///
