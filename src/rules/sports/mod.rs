@@ -530,6 +530,8 @@ pub mod wushu;
 pub mod wushu_iwuf;
 pub mod xingyi;
 pub mod yoga_competition;
+pub mod youth_athletics;
+pub mod youth_swimming;
 
 pub use adaptive_athletics::AdaptiveAthleticsRules;
 pub use adaptive_ball_games::AdaptiveBallGamesRules;
@@ -1013,6 +1015,8 @@ pub use wushu::WushuRules;
 pub use wushu_iwuf::WushuIwufRules;
 pub use xingyi::XingyiRules;
 pub use yoga_competition::YogaCompetitionRules;
+pub use youth_athletics::{YouthAgeGroup, YouthAthleticsRules};
+pub use youth_swimming::{YouthSwimAgeGroup, YouthSwimmingRules};
 
 pub fn all_rules() -> Vec<(
     &'static str,
@@ -2005,6 +2009,14 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = YogaCompetitionRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = YouthAthleticsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = YouthSwimmingRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     rules
