@@ -670,7 +670,7 @@ mod tests {
         let rules = WorldCupGroupStageRules::new();
         let group_draw = rules.group_draw_32();
         assert!(group_draw.contains(&"32支球队分为8个小组(A-H组)"));
-        assert_eq!(rules.ranking_rules().len(), 8);
+        assert_eq!(rules.ranking_rules().len(), 9);
     }
 
     #[test]
