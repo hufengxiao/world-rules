@@ -224,6 +224,7 @@ pub mod football_league;
 pub mod football_ligue1;
 pub mod football_match_time_rules;
 pub mod football_nations_league;
+pub mod football_nfl_detailed;
 pub mod football_oceania_cup;
 pub mod football_offside_detailed;
 pub mod football_olympic;
@@ -714,6 +715,10 @@ pub use football_ligue1::FootballLigue1Rules;
 pub use football_match_time_rules::{FootballMatchTimeRules, MatchPhase};
 pub use football_nations_league::{
     FootballNationsLeagueRules, NationsLeagueLevel, NationsLeagueStage,
+};
+pub use football_nfl_detailed::{
+    NflDefenseRules, NflDraftRules, NflFieldRules, NflGameTimingRules, NflOffenseRules,
+    NflPlayoffRules, NflSalaryCapRules, NflScoringRules,
 };
 pub use football_oceania_cup::{FootballOceaniaCupRules, OceaniaCupStage};
 pub use football_offside_detailed::{FootballOffsideDetailedRules, OffsidePosition};
