@@ -339,6 +339,7 @@ pub mod muay_thai_ifma_detailed;
 pub mod mud_racing;
 pub mod nascar;
 pub mod nascar_detailed;
+pub mod national_games;
 pub mod netball;
 pub mod netball_world;
 pub mod nine_ball_detailed;
@@ -846,6 +847,10 @@ pub use muay_thai_ifma_detailed::MuayThaiIfmaDetailedRules;
 pub use mud_racing::MudRacingRules;
 pub use nascar::NASCARRules;
 pub use nascar_detailed::NascarDetailedRules;
+pub use national_games::{
+    NationalGamesOrganizationRules, NationalGamesQualificationRules,
+    NationalGamesSportsProgramRules, NationalGamesMedalRules,
+};
 pub use netball::NetballRules;
 pub use netball_world::NetballWorldRules;
 pub use nine_ball_detailed::NineBallDetailedRules;
@@ -2110,6 +2115,22 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = AsianGamesMedalRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NationalGamesOrganizationRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NationalGamesQualificationRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NationalGamesSportsProgramRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NationalGamesMedalRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     rules
