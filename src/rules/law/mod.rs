@@ -119,7 +119,9 @@ pub mod tourism;
 
 // 程序法类
 pub mod administrative_procedure;
+pub mod administrative_procedure_deep;
 pub mod arbitration;
+pub mod arbitration_deep;
 pub mod civil_procedure;
 pub mod criminal_procedure;
 pub mod lawyer;
@@ -317,6 +319,7 @@ pub mod maritime_law_intl;
 pub mod marriage_detailed;
 pub mod marriage_detailed2;
 pub mod mediation_law;
+pub mod mediation_deep;
 pub mod mental_health_law;
 pub mod metaverse_law;
 pub mod mineral_detailed;
