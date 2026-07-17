@@ -847,7 +847,7 @@ mod tests {
         let rules = AthleteHealthMonitoringRules::new();
 
         assert_eq!(rules.metadata().name, "运动员健康监测规则");
-        assert_eq!(rules.category(), RuleCategory::Sports);
+        assert_eq!(rules.category(), RuleCategory::sports("athlete_health_monitoring"));
 
         let explanation = rules.explain();
         assert!(explanation.contains("训练负荷管理"));
