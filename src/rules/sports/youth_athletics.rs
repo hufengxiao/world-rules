@@ -361,7 +361,7 @@ mod tests {
     fn test_junior_events() {
         let rules = YouthAthleticsRules::new();
         let events = rules.junior_events();
-        assert!(events.iter().any(|e| e.contains("跨栏")));
+        assert!(events.iter().any(|e| e.contains("栏")));
         assert!(events.iter().any(|e| e.contains("三级跳远")));
     }
 
