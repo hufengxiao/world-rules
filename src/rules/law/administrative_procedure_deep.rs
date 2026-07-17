@@ -194,6 +194,9 @@ mod tests {
     #[test]
     fn test_category() {
         let rules = AdministrativeProcedureDeepRules::new();
-        assert_eq!(rules.category(), RuleCategory::law("administrative_procedure_deep"));
+        assert_eq!(
+            rules.category(),
+            RuleCategory::law("administrative_procedure_deep")
+        );
     }
 }
