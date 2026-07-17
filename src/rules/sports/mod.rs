@@ -461,6 +461,7 @@ pub mod strongman;
 pub mod sumo;
 pub mod surf_kayak;
 pub mod sports_injury;
+pub mod sports_rehabilitation;
 pub mod surfing;
 pub mod surfing_competition;
 pub mod surfing_wsl;
