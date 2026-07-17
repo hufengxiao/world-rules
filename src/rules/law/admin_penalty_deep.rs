@@ -154,11 +154,11 @@ impl AdminPenaltyDeepRules {
 
         // 根据情节严重程度调整
         match params.severity {
-            1 => multiplier *= 0.5,     // 较轻
-            2 => multiplier *= 0.8,     // 轻微
-            3 => {}                      // 一般
-            4 => multiplier *= 1.5,     // 较重
-            5 => multiplier *= 2.0,     // 严重
+            1 => multiplier *= 0.5, // 较轻
+            2 => multiplier *= 0.8, // 轻微
+            3 => {}                 // 一般
+            4 => multiplier *= 1.5, // 较重
+            5 => multiplier *= 2.0, // 严重
             _ => {}
         }
 
@@ -186,8 +186,8 @@ impl AdminPenaltyDeepRules {
     ///
     /// # 参数
     /// - `fine_amount`: 罚款金额
-    /// - `distance`: 到最近银行的距离
-    /// - `is_individual`: 是否为个人
+    /// - `distance_km`: 距离银行距离（公里）
+    /// - `_is_individual`: 是否为个人（未使用）
     ///
     /// # 返回
     /// 是否可以当场收缴
@@ -195,7 +195,7 @@ impl AdminPenaltyDeepRules {
         &self,
         fine_amount: f64,
         distance_km: f64,
-        is_individual: bool,
+        _is_individual: bool,
     ) -> bool {
         // 简易程序且20元以下罚款可当场收缴
         if fine_amount <= 20.0 {
@@ -260,7 +260,7 @@ impl AdminPenaltyDeepRules {
             return 0;
         }
 
-        let base_days = match severity {
+        let base_days: u8 = match severity {
             1 => 1,
             2 => 3,
             3 => 7,
@@ -280,7 +280,7 @@ impl AdminPenaltyDeepRules {
             base_days
         };
 
-        days.max(1).min(15)
+        days.clamp(1, 15)
     }
 
     /// 判断处罚是否超过追诉时效

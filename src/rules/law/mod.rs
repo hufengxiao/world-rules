@@ -156,10 +156,10 @@ pub mod telecommunications;
 
 // 资源法类
 pub mod admin_license;
-pub mod admin_penalty;
-pub mod admin_reconsideration;
-pub mod admin_penalty_deep;
 pub mod admin_license_deep;
+pub mod admin_penalty;
+pub mod admin_penalty_deep;
+pub mod admin_reconsideration;
 pub mod admin_reconsideration_deep;
 pub mod administrative_detailed;
 pub mod administrative_detailed2;

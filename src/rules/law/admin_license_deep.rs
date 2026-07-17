@@ -146,7 +146,10 @@ impl AdminLicenseDeepRules {
     ///
     /// # 返回
     /// 申请状态
-    pub fn determine_application_status(&self, params: &LicenseApplicationParams) -> ApplicationStatus {
+    pub fn determine_application_status(
+        &self,
+        params: &LicenseApplicationParams,
+    ) -> ApplicationStatus {
         if !params.materials_complete {
             return ApplicationStatus::Correction;
         }
@@ -243,21 +246,17 @@ impl AdminLicenseDeepRules {
     ///
     /// # 返回
     /// 有效期（月）
-    pub fn calculate_validity_period(
-        &self,
-        license_type: LicenseType,
-        is_temporary: bool,
-    ) -> u32 {
+    pub fn calculate_validity_period(&self, license_type: LicenseType, is_temporary: bool) -> u32 {
         if is_temporary {
             return 6; // 临时许可最多6个月
         }
 
         match license_type {
-            LicenseType::General => 60,      // 5年
-            LicenseType::Special => 36,      // 3年
-            LicenseType::Approval => 36,     // 3年
-            LicenseType::Verify => 24,       // 2年
-            LicenseType::Registration => 0,  // 登记类无期限
+            LicenseType::General => 60,     // 5年
+            LicenseType::Special => 36,     // 3年
+            LicenseType::Approval => 36,    // 3年
+            LicenseType::Verify => 24,      // 2年
+            LicenseType::Registration => 0, // 登记类无期限
         }
     }
 
@@ -304,10 +303,7 @@ impl AdminLicenseDeepRules {
             return true;
         }
 
-        match license_type {
-            LicenseType::Registration => false,
-            _ => true,
-        }
+        !matches!(license_type, LicenseType::Registration)
     }
 
     /// 判断是否应撤销许可
@@ -426,10 +422,8 @@ mod tests {
     #[test]
     fn test_check_materials_incomplete() {
         let rules = AdminLicenseDeepRules::new();
-        let result = rules.check_materials(
-            &["身份证", "申请书", "营业执照"],
-            &["身份证", "申请书"],
-        );
+        let result =
+            rules.check_materials(&["身份证", "申请书", "营业执照"], &["身份证", "申请书"]);
         assert!(!result.is_complete);
         assert_eq!(result.missing_materials.len(), 1);
     }
@@ -560,13 +554,19 @@ mod tests {
     #[test]
     fn test_calculate_validity_period_general() {
         let rules = AdminLicenseDeepRules::new();
-        assert_eq!(rules.calculate_validity_period(LicenseType::General, false), 60);
+        assert_eq!(
+            rules.calculate_validity_period(LicenseType::General, false),
+            60
+        );
     }
 
     #[test]
     fn test_calculate_validity_period_temporary() {
         let rules = AdminLicenseDeepRules::new();
-        assert_eq!(rules.calculate_validity_period(LicenseType::General, true), 6);
+        assert_eq!(
+            rules.calculate_validity_period(LicenseType::General, true),
+            6
+        );
     }
 
     #[test]

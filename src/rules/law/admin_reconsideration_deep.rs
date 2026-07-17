@@ -250,7 +250,10 @@ impl AdminReconsiderationDeepRules {
         pending_criminal_case: bool,
         awaiting_other_decision: bool,
     ) -> bool {
-        applicant_deceased || applicant_incapacitated || pending_criminal_case || awaiting_other_decision
+        applicant_deceased
+            || applicant_incapacitated
+            || pending_criminal_case
+            || awaiting_other_decision
     }
 
     /// 判断是否应终止复议
@@ -273,20 +276,16 @@ impl AdminReconsiderationDeepRules {
         applicant_withdraws || applicant_no_successor || act_rescinded || request_fulfilled
     }
 
-    /// 计算申请人应知悉权利的期限
+    /// 获取知悉权利期限
     ///
     /// # 参数
-    /// - `params`: 申请参数
+    /// - `_params`: 复议参数（未使用）
     ///
     /// # 返回
     /// 期限（天）
-    pub fn calculate_awareness_period(&self, params: &ReconsiderationParams) -> u32 {
+    pub fn calculate_awareness_period(&self, _params: &ReconsiderationParams) -> u32 {
         // 一般情况下60日内应知悉权利
-        if params.is_individual {
-            60
-        } else {
-            60
-        }
+        60
     }
 
     /// 获取复议范围说明
