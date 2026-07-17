@@ -405,6 +405,12 @@ pub enum ValidateContext {
     Generic(String),
 }
 
+impl Default for ValidateContext {
+    fn default() -> Self {
+        Self::Generic(String::new())
+    }
+}
+
 impl ValidateContext {
     /// 创建斗地主牌面上下文
     ///

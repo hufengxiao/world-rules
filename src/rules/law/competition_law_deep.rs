@@ -373,7 +373,7 @@ mod tests {
     #[test]
     fn test_validate() {
         let rules = CompetitionLawDeepRules::new();
-        let ctx = crate::rules::core::ValidateContext::default();
+        let ctx = crate::rules::core::ValidateContext::Generic(String::new());
         assert!(rules.validate(&ctx).unwrap());
     }
 }
