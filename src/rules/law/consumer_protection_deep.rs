@@ -1,7 +1,137 @@
 //! 消费者权益保护法深度规则
+//!
+//! 涵盖消费者权益保护核心领域的详细内容，包括：
+//! - 消费者权利类型与认定
+//! - 争议解决机制
+//! - 救济措施与赔偿规则
+//!
+//! # 法律依据
+//!
+//! 主要依据：
+//! - 《中华人民共和国消费者权益保护法》（2013年修正）
+//! - 《中华人民共和国产品质量法》
+//! - 《中华人民共和国电子商务法》
+//! - 《最高人民法院关于审理食品药品纠纷案件适用法律若干问题的规定》
 
 use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
+use serde::{Deserialize, Serialize};
+
+/// 消费者权利类型
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum ConsumerRight {
+    /// 安全保障权 - 人身、财产安全不受损害
+    Safety,
+    /// 知情权 - 知悉商品或服务真实情况
+    RightToKnow,
+    /// 自主选择权 - 自主选择商品或服务
+    RightToChoose,
+    /// 公平交易权 - 公平交易条件，拒绝强制交易
+    RightToFairTrade,
+    /// 求偿权 - 因损害获得赔偿
+    RightToCompensation,
+    /// 结社权 - 成立社会团体
+    RightToAssociation,
+    /// 受教育权 - 获得消费知识
+    RightToEducation,
+    /// 受尊重权 - 人格尊严、民族风俗习惯受尊重
+    RightToRespect,
+    /// 监督权 - 监督商品、服务及消费者权益保护工作
+    RightToSupervision,
+    /// 个人信息保护权 - 个人信息安全
+    RightToPrivacy,
+}
+
+/// 争议解决方式
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum DisputeResolution {
+    /// 协商和解
+    Negotiation,
+    /// 调解
+    Mediation,
+    /// 行政投诉
+    AdministrativeComplaint,
+    /// 仲裁
+    Arbitration,
+    /// 诉讼
+    Litigation,
+}
+
+/// 救济类型
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum RemedyType {
+    /// 修理
+    Repair,
+    /// 更换
+    Replacement,
+    /// 退货
+    Return,
+    /// 补足商品数量
+    Supplement,
+    /// 退还货款
+    Refund,
+    /// 赔偿损失
+    Damages,
+    /// 惩罚性赔偿
+    PunitiveDamages,
+    /// 精神损害赔偿
+    MoralDamages,
+}
+
+/// 消费者类型
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum ConsumerType {
+    /// 普通消费者
+    Ordinary,
+    /// 老年消费者（60岁以上）
+    Elderly,
+    /// 残疾消费者
+    Disabled,
+    /// 未成年人消费者（18岁以下）
+    Minor,
+    /// 农村消费者
+    Rural,
+}
+
+/// 商品类型
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+pub enum GoodsType {
+    /// 普通商品
+    Ordinary,
+    /// 耐用商品（机动车、计算机、电视机等）
+    Durable,
+    /// 食品
+    Food,
+    /// 药品
+    Drug,
+    /// 医疗器械
+    MedicalDevice,
+    /// 定制商品
+    CustomMade,
+    /// 鲜活易腐商品
+    Perishable,
+    /// 数字化商品
+    Digital,
+}
+
+/// 消费者权益验证参数
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ConsumerValidationParams {
+    /// 消费者类型
+    pub consumer_type: ConsumerType,
+    /// 商品类型
+    pub goods_type: GoodsType,
+    /// 购买天数
+    pub days_since_purchase: u32,
+    /// 是否存在质量问题
+    pub has_quality_issue: bool,
+    /// 是否存在欺诈行为
+    pub has_fraud: bool,
+    /// 是否造成人身损害
+    pub has_personal_injury: bool,
+    /// 商品价格
+    pub price: f64,
+}
 
 simple_rule! {
     struct: ConsumerProtectionDeepRules,
@@ -12,6 +142,160 @@ simple_rule! {
 }
 
 impl ConsumerProtectionDeepRules {
+    /// 验证七天无理由退货条件
+    ///
+    /// # 参数
+    /// - `goods_type`: 商品类型
+    /// - `days`: 购买后天数
+    /// - `is_sealed`: 是否已拆封（对数字化商品）
+    ///
+    /// # 返回
+    /// 是否符合七天无理由退货条件
+    pub fn validate_seven_day_return(
+        &self,
+        goods_type: GoodsType,
+        days: u32,
+        is_sealed: bool,
+    ) -> bool {
+        if days > 7 {
+            return false;
+        }
+
+        match goods_type {
+            // 定制商品不适用
+            GoodsType::CustomMade => false,
+            // 鲜活易腐商品不适用
+            GoodsType::Perishable => false,
+            // 数字化商品拆封后不适用
+            GoodsType::Digital => !is_sealed,
+            // 其他商品适用
+            _ => true,
+        }
+    }
+
+    /// 计算惩罚性赔偿金额
+    ///
+    /// # 参数
+    /// - `price`: 商品价格
+    /// - `has_fraud`: 是否存在欺诈
+    /// - `has_personal_injury`: 是否造成人身损害
+    ///
+    /// # 返回
+    /// (惩罚性赔偿倍数, 最低赔偿金额)
+    pub fn calculate_punitive_damages(
+        &self,
+        price: f64,
+        has_fraud: bool,
+        has_personal_injury: bool,
+    ) -> (u32, f64) {
+        if has_personal_injury {
+            // 人身损害：损失二倍以下惩罚性赔偿
+            (2, price * 2.0)
+        } else if has_fraud {
+            // 欺诈：三倍赔偿，最低500元
+            let amount = price * 3.0;
+            (3, amount.max(500.0))
+        } else {
+            (0, 0.0)
+        }
+    }
+
+    /// 判断举证责任归属
+    ///
+    /// # 参数
+    /// - `goods_type`: 商品类型
+    /// - `months`: 购买后月数
+    ///
+    /// # 返回
+    /// 是否由经营者承担举证责任
+    pub fn is_burden_of_proof_on_operator(&self, goods_type: GoodsType, months: u32) -> bool {
+        // 耐用商品六个月内由经营者承担举证责任
+        if matches!(goods_type, GoodsType::Durable) && months <= 6 {
+            return true;
+        }
+        false
+    }
+
+    /// 验证消费者权利
+    ///
+    /// # 参数
+    /// - `right`: 消费者权利类型
+    /// - `params`: 验证参数
+    ///
+    /// # 返回
+    /// (权利是否成立, 法律依据)
+    pub fn validate_consumer_right(
+        &self,
+        right: ConsumerRight,
+        params: &ConsumerValidationParams,
+    ) -> (bool, String) {
+        match right {
+            ConsumerRight::Safety => {
+                let basis = "《消费者权益保护法》第7条：消费者在购买、使用商品和接受服务时享有人身、财产安全不受损害的权利。".to_string();
+                (true, basis)
+            }
+            ConsumerRight::RightToKnow => {
+                let basis = "《消费者权益保护法》第8条：消费者享有知悉其购买、使用的商品或者接受的服务的真实情况的权利。".to_string();
+                (true, basis)
+            }
+            ConsumerRight::RightToChoose => {
+                let basis =
+                    "《消费者权益保护法》第9条：消费者享有自主选择商品或者服务的权利。".to_string();
+                (true, basis)
+            }
+            ConsumerRight::RightToFairTrade => {
+                let basis =
+                    "《消费者权益保护法》第10条：消费者享有公平交易条件，有权拒绝强制交易。"
+                        .to_string();
+                (true, basis)
+            }
+            ConsumerRight::RightToCompensation => {
+                if params.has_quality_issue || params.has_personal_injury {
+                    let basis = "《消费者权益保护法》第11条：消费者因购买、使用商品或接受服务受到损害的，享有依法获得赔偿的权利。".to_string();
+                    (true, basis)
+                } else {
+                    (false, "未发生损害，无需赔偿".to_string())
+                }
+            }
+            ConsumerRight::RightToPrivacy => {
+                let basis = "《消费者权益保护法》第29条：经营者收集、使用消费者个人信息，应遵循合法、正当、必要原则。".to_string();
+                (true, basis)
+            }
+            _ => {
+                let basis = format!("{:?}", right);
+                (true, basis)
+            }
+        }
+    }
+
+    /// 确定最佳争议解决方式
+    ///
+    /// # 参数
+    /// - `amount`: 争议金额
+    /// - `has_personal_injury`: 是否涉及人身损害
+    /// - `operator_responded`: 经营者是否回应
+    ///
+    /// # 返回
+    /// 推荐的争议解决方式
+    pub fn recommend_dispute_resolution(
+        &self,
+        amount: f64,
+        has_personal_injury: bool,
+        operator_responded: bool,
+    ) -> DisputeResolution {
+        if operator_responded && !has_personal_injury && amount < 5000.0 {
+            // 协商和解
+            DisputeResolution::Negotiation
+        } else if amount < 10000.0 && !has_personal_injury {
+            // 行政投诉
+            DisputeResolution::AdministrativeComplaint
+        } else {
+            // 诉讼
+            DisputeResolution::Litigation
+        }
+    }
+
+    /// 消费者权利详细规则
     pub fn consumer_rights_detailed(&self) -> Vec<&'static str> {
         vec![
             "消费者概念: 消费者为生活消费需要购买使用商品或者接受服务其权益受消费者权益保护法保护",
@@ -27,6 +311,7 @@ impl ConsumerProtectionDeepRules {
         ]
     }
 
+    /// 经营者义务详细规则
     pub fn operator_obligations_detailed(&self) -> Vec<&'static str> {
         vec![
             "经营者概念: 经营者为消费者提供其生产销售的商品或者服务应当遵守消费者权益保护法",
@@ -42,6 +327,7 @@ impl ConsumerProtectionDeepRules {
         ]
     }
 
+    /// 产品质量详细规则
     pub fn product_quality_detailed(&self) -> Vec<&'static str> {
         vec![
             "产品质量要求: 产品不存在危及人身财产安全的不合理危险有保障人体健康和人身财产安全的国家标准行业标准的应当符合该标准",
@@ -57,6 +343,7 @@ impl ConsumerProtectionDeepRules {
         ]
     }
 
+    /// 不正当行为详细规则
     pub fn unfair_practices_detailed(&self) -> Vec<&'static str> {
         vec![
             "虚假宣传: 经营者不得对其商品的性能功能质量销售状况用户评价曾获荣誉等作虚假或者引人误解的商业宣传欺骗误导消费者",
@@ -72,6 +359,7 @@ impl ConsumerProtectionDeepRules {
         ]
     }
 
+    /// 电子商务详细规则
     pub fn e_commerce_rules_detailed(&self) -> Vec<&'static str> {
         vec![
             "电子商务经营者: 电子商务经营者应当全面真实准确及时地披露商品或者服务信息保障消费者的知情权和选择权",
@@ -87,6 +375,7 @@ impl ConsumerProtectionDeepRules {
         ]
     }
 
+    /// 争议解决详细规则
     pub fn dispute_resolution_detailed(&self) -> Vec<&'static str> {
         vec![
             "争议解决途径: 消费者和经营者发生消费者权益争议的可以通过下列途径解决与经营者协商和解请求消费者协会或者依法成立的其他调解组织调解",
@@ -102,6 +391,7 @@ impl ConsumerProtectionDeepRules {
         ]
     }
 
+    /// 特殊保护详细规则
     pub fn special_protection_detailed(&self) -> Vec<&'static str> {
         vec![
             "弱势消费者保护: 经营者应当对老年消费者残疾人消费者等弱势消费者提供便利和优惠服务",
@@ -183,6 +473,173 @@ mod tests {
         assert_eq!(
             rules.category(),
             RuleCategory::law("consumer_protection_deep")
+        );
+    }
+
+    #[test]
+    fn test_seven_day_return_ordinary_goods() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 普通商品，5天内，可以退
+        assert!(rules.validate_seven_day_return(GoodsType::Ordinary, 5, false));
+        // 普通商品，10天后，不能退
+        assert!(!rules.validate_seven_day_return(GoodsType::Ordinary, 10, false));
+    }
+
+    #[test]
+    fn test_seven_day_return_custom_made() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 定制商品，不适用七天退货
+        assert!(!rules.validate_seven_day_return(GoodsType::CustomMade, 3, false));
+    }
+
+    #[test]
+    fn test_seven_day_return_perishable() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 鲜活易腐商品，不适用七天退货
+        assert!(!rules.validate_seven_day_return(GoodsType::Perishable, 2, false));
+    }
+
+    #[test]
+    fn test_seven_day_return_digital() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 数字化商品，未拆封可以退
+        assert!(rules.validate_seven_day_return(GoodsType::Digital, 5, false));
+        // 数字化商品，已拆封不能退
+        assert!(!rules.validate_seven_day_return(GoodsType::Digital, 5, true));
+    }
+
+    #[test]
+    fn test_punitive_damages_fraud() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 欺诈行为，三倍赔偿
+        let (multiplier, amount) = rules.calculate_punitive_damages(100.0, true, false);
+        assert_eq!(multiplier, 3);
+        assert_eq!(amount, 300.0);
+    }
+
+    #[test]
+    fn test_punitive_damages_fraud_minimum() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 欺诈行为，三倍赔偿，最低500元
+        let (multiplier, amount) = rules.calculate_punitive_damages(50.0, true, false);
+        assert_eq!(multiplier, 3);
+        assert_eq!(amount, 500.0); // 最低赔偿
+    }
+
+    #[test]
+    fn test_punitive_damages_personal_injury() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 人身损害，二倍赔偿
+        let (multiplier, amount) = rules.calculate_punitive_damages(1000.0, false, true);
+        assert_eq!(multiplier, 2);
+        assert_eq!(amount, 2000.0);
+    }
+
+    #[test]
+    fn test_punitive_damages_no_fraud() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 无欺诈无损害，无惩罚性赔偿
+        let (multiplier, amount) = rules.calculate_punitive_damages(100.0, false, false);
+        assert_eq!(multiplier, 0);
+        assert_eq!(amount, 0.0);
+    }
+
+    #[test]
+    fn test_burden_of_proof_durable_goods() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 耐用商品，3个月内，经营者承担举证责任
+        assert!(rules.is_burden_of_proof_on_operator(GoodsType::Durable, 3));
+        // 耐用商品，7个月后，消费者承担举证责任
+        assert!(!rules.is_burden_of_proof_on_operator(GoodsType::Durable, 7));
+    }
+
+    #[test]
+    fn test_burden_of_proof_ordinary_goods() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 普通商品，消费者承担举证责任
+        assert!(!rules.is_burden_of_proof_on_operator(GoodsType::Ordinary, 3));
+    }
+
+    #[test]
+    fn test_validate_consumer_right_safety() {
+        let rules = ConsumerProtectionDeepRules::new();
+        let params = ConsumerValidationParams {
+            consumer_type: ConsumerType::Ordinary,
+            goods_type: GoodsType::Ordinary,
+            days_since_purchase: 10,
+            has_quality_issue: false,
+            has_fraud: false,
+            has_personal_injury: false,
+            price: 100.0,
+        };
+        let (valid, basis) = rules.validate_consumer_right(ConsumerRight::Safety, &params);
+        assert!(valid);
+        assert!(basis.contains("第7条"));
+    }
+
+    #[test]
+    fn test_validate_consumer_right_compensation_with_damage() {
+        let rules = ConsumerProtectionDeepRules::new();
+        let params = ConsumerValidationParams {
+            consumer_type: ConsumerType::Ordinary,
+            goods_type: GoodsType::Ordinary,
+            days_since_purchase: 10,
+            has_quality_issue: true,
+            has_fraud: false,
+            has_personal_injury: false,
+            price: 100.0,
+        };
+        let (valid, _) = rules.validate_consumer_right(ConsumerRight::RightToCompensation, &params);
+        assert!(valid);
+    }
+
+    #[test]
+    fn test_validate_consumer_right_compensation_without_damage() {
+        let rules = ConsumerProtectionDeepRules::new();
+        let params = ConsumerValidationParams {
+            consumer_type: ConsumerType::Ordinary,
+            goods_type: GoodsType::Ordinary,
+            days_since_purchase: 10,
+            has_quality_issue: false,
+            has_fraud: false,
+            has_personal_injury: false,
+            price: 100.0,
+        };
+        let (valid, _) = rules.validate_consumer_right(ConsumerRight::RightToCompensation, &params);
+        assert!(!valid);
+    }
+
+    #[test]
+    fn test_recommend_dispute_resolution_negotiation() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 小额、经营者回应、无损害 -> 协商
+        assert_eq!(
+            rules.recommend_dispute_resolution(1000.0, false, true),
+            DisputeResolution::Negotiation
+        );
+    }
+
+    #[test]
+    fn test_recommend_dispute_resolution_administrative() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 中额、无损害 -> 行政投诉
+        assert_eq!(
+            rules.recommend_dispute_resolution(8000.0, false, false),
+            DisputeResolution::AdministrativeComplaint
+        );
+    }
+
+    #[test]
+    fn test_recommend_dispute_resolution_litigation() {
+        let rules = ConsumerProtectionDeepRules::new();
+        // 大额或人身损害 -> 诉讼
+        assert_eq!(
+            rules.recommend_dispute_resolution(20000.0, false, false),
+            DisputeResolution::Litigation
+        );
+        assert_eq!(
+            rules.recommend_dispute_resolution(1000.0, true, false),
+            DisputeResolution::Litigation
         );
     }
 }
