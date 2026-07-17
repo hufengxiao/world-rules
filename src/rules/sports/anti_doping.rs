@@ -613,7 +613,7 @@ mod tests {
         // 测试 explain
         let explanation = rules.explain();
         assert!(!explanation.is_empty());
-        assert!(explanation.iter().any(|e| e.contains("WADA")));
+        assert!(explanation.contains("WADA"));
     }
 
     #[test]
