@@ -572,7 +572,7 @@ pub use ballroom_dancing::BallroomDancingRules;
 pub use base_jumping::BaseJumpingRules;
 pub use baseball::BaseballRules;
 pub use baseball_detailed::BaseballDetailedRules;
-pub use baseball_mlb_detailed::BaseballMlbDetailedRules;
+pub use baseball_mlb_detailed::{BaseballMlbDetailedRules, MlbDetailedRules};
 pub use baseball_npb::{BaseballNpbRules, NpbLeague};
 pub use baseball_wbc::{BaseballWbcRules, WbcStage};
 pub use basketball::BasketballRules;
