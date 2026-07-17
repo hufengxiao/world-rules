@@ -342,6 +342,7 @@ pub mod netball_world;
 pub mod nine_ball_detailed;
 pub mod ninjutsu;
 pub mod nordic_combined;
+pub mod olympic_detailed;
 pub mod obstacle_course;
 pub mod one_championship_mma;
 pub mod orienteering;
@@ -843,6 +844,11 @@ pub use netball_world::NetballWorldRules;
 pub use nine_ball_detailed::NineBallDetailedRules;
 pub use ninjutsu::NinjutsuRules;
 pub use nordic_combined::NordicCombinedRules;
+pub use olympic_detailed::{
+    OlympicAntiDopingRules, OlympicArbitrationRules, OlympicCeremonyRules,
+    OlympicCompetitionRules, OlympicMedalRules, OlympicOrganizationRules,
+    OlympicQualificationRules,
+};
 pub use obstacle_course::ObstacleCourseRules;
 pub use one_championship_mma::OneChampionshipMmaRules;
 pub use orienteering::OrienteeringRules;
