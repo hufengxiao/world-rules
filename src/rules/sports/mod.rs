@@ -56,6 +56,7 @@ pub mod adaptive_ball_games;
 pub mod adaptive_rowing;
 pub mod adaptive_sled;
 pub mod adaptive_swimming;
+pub mod anti_doping;
 pub mod aikido;
 pub mod aikido_aikikai;
 pub mod air_hockey;
