@@ -247,27 +247,18 @@ impl Rule for CompetitionLawDeepRules {
                     &self.market_dominance_determination(),
                 ),
                 ("滥用市场支配地位规则", &self.abuse_of_dominance_rules()),
-                (
-                    "经营者集中审查规则",
-                    &self.business_concentration_review(),
-                ),
+                ("经营者集中审查规则", &self.business_concentration_review()),
                 ("行政性垄断规则", &self.administrative_monopoly_rules()),
                 (
                     "反垄断执法程序规则",
                     &self.antimonopoly_enforcement_procedure(),
                 ),
-                (
-                    "反不正当竞争-市场混淆行为",
-                    &self.market_confusion_rules(),
-                ),
+                ("反不正当竞争-市场混淆行为", &self.market_confusion_rules()),
                 (
                     "反不正当竞争-商业贿赂规则",
                     &self.commercial_bribery_rules(),
                 ),
-                (
-                    "反不正当竞争-虚假宣传规则",
-                    &self.false_advertising_rules(),
-                ),
+                ("反不正当竞争-虚假宣传规则", &self.false_advertising_rules()),
                 (
                     "反不正当竞争-侵犯商业秘密规则",
                     &self.trade_secret_infringement_rules(),
@@ -364,10 +355,7 @@ mod tests {
     #[test]
     fn test_category() {
         let rules = CompetitionLawDeepRules::new();
-        assert_eq!(
-            rules.category(),
-            RuleCategory::law("competition_law_deep")
-        );
+        assert_eq!(rules.category(), RuleCategory::law("competition_law_deep"));
     }
 
     #[test]

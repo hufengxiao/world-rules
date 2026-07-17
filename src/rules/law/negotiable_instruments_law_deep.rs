@@ -159,6 +159,9 @@ mod tests {
     #[test]
     fn test_category() {
         let rules = NegotiableInstrumentsLawDeepRules::new();
-        assert_eq!(rules.category(), RuleCategory::law("negotiable_instruments_law_deep"));
+        assert_eq!(
+            rules.category(),
+            RuleCategory::law("negotiable_instruments_law_deep")
+        );
     }
 }
