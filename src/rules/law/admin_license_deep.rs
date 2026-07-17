@@ -298,12 +298,13 @@ impl AdminLicenseDeepRules {
             return false;
         }
 
-        // 应在许可有效期届满30日前提出
-        if months_before_expiry > 1 {
-            return true;
+        // 登记类许可不需要延续
+        if matches!(license_type, LicenseType::Registration) {
+            return false;
         }
 
-        !matches!(license_type, LicenseType::Registration)
+        // 应在许可有效期届满30日前提出（即至少1个月前）
+        months_before_expiry >= 1
     }
 
     /// 判断是否应撤销许可
