@@ -74,6 +74,7 @@ pub mod artistic_swimming_detailed;
 pub mod asian_games;
 pub mod athletics;
 pub mod athletics_detailed;
+pub mod athlete_health_monitoring;
 pub mod australian_football;
 pub mod badminton;
 pub mod badminton_bwf_world_championship;
