@@ -81,19 +81,19 @@ impl HealthIndicator {
     /// 获取监测频率（天）
     pub fn monitoring_frequency_days(&self) -> u32 {
         match self {
-            HealthIndicator::HeartRate => 1,        // 每日
-            HealthIndicator::BloodPressure => 7,    // 每周
-            HealthIndicator::BodyTemperature => 1,  // 每日
-            HealthIndicator::OxygenSaturation => 1, // 每日（训练日）
-            HealthIndicator::BodyWeight => 1,       // 每日
-            HealthIndicator::BodyFatPercentage => 30, // 每月
-            HealthIndicator::MuscleMass => 30,      // 每月
-            HealthIndicator::BoneDensity => 365,    // 每年
-            HealthIndicator::Hemoglobin => 90,      // 每季度
-            HealthIndicator::TestosteroneLevel => 90, // 每季度
-            HealthIndicator::CortisolLevel => 30,   // 每月
-            HealthIndicator::SleepQuality => 1,     // 每日
-            HealthIndicator::RestingHeartRate => 1, // 每日
+            HealthIndicator::HeartRate => 1,            // 每日
+            HealthIndicator::BloodPressure => 7,        // 每周
+            HealthIndicator::BodyTemperature => 1,      // 每日
+            HealthIndicator::OxygenSaturation => 1,     // 每日（训练日）
+            HealthIndicator::BodyWeight => 1,           // 每日
+            HealthIndicator::BodyFatPercentage => 30,   // 每月
+            HealthIndicator::MuscleMass => 30,          // 每月
+            HealthIndicator::BoneDensity => 365,        // 每年
+            HealthIndicator::Hemoglobin => 90,          // 每季度
+            HealthIndicator::TestosteroneLevel => 90,   // 每季度
+            HealthIndicator::CortisolLevel => 30,       // 每月
+            HealthIndicator::SleepQuality => 1,         // 每日
+            HealthIndicator::RestingHeartRate => 1,     // 每日
             HealthIndicator::HeartRateVariability => 1, // 每日
         }
     }
@@ -212,11 +212,11 @@ impl TrainingLoadMetric {
     /// 获取安全阈值范围
     pub fn safe_threshold(&self) -> (f64, f64) {
         match self {
-            TrainingLoadMetric::AcuteLoad => (0.0, 1000.0),      // 取决于运动项目
-            TrainingLoadMetric::ChronicLoad => (0.0, 800.0),      // 取决于运动项目
+            TrainingLoadMetric::AcuteLoad => (0.0, 1000.0), // 取决于运动项目
+            TrainingLoadMetric::ChronicLoad => (0.0, 800.0), // 取决于运动项目
             TrainingLoadMetric::AcuteChronicWorkloadRatio => (0.8, 1.3), // 推荐 0.8-1.3
-            TrainingLoadMetric::TrainingMonotony => (0.0, 2.0),   // < 2.0 为安全
-            TrainingLoadMetric::TrainingStrain => (0.0, 2000.0),  // 取决于运动项目
+            TrainingLoadMetric::TrainingMonotony => (0.0, 2.0), // < 2.0 为安全
+            TrainingLoadMetric::TrainingStrain => (0.0, 2000.0), // 取决于运动项目
         }
     }
 
@@ -488,10 +488,7 @@ impl AthleteHealthMonitoringRules {
             return 0.0;
         }
 
-        let variance: f64 = weekly_loads
-            .iter()
-            .map(|x| (x - mean).powi(2))
-            .sum::<f64>()
+        let variance: f64 = weekly_loads.iter().map(|x| (x - mean).powi(2)).sum::<f64>()
             / weekly_loads.len() as f64;
 
         let std_dev = variance.sqrt();
@@ -670,8 +667,14 @@ mod tests {
     #[test]
     fn test_health_indicator_monitoring_frequency() {
         assert_eq!(HealthIndicator::HeartRate.monitoring_frequency_days(), 1);
-        assert_eq!(HealthIndicator::BloodPressure.monitoring_frequency_days(), 7);
-        assert_eq!(HealthIndicator::BoneDensity.monitoring_frequency_days(), 365);
+        assert_eq!(
+            HealthIndicator::BloodPressure.monitoring_frequency_days(),
+            7
+        );
+        assert_eq!(
+            HealthIndicator::BoneDensity.monitoring_frequency_days(),
+            365
+        );
     }
 
     #[test]
@@ -773,7 +776,8 @@ mod tests {
         let rules = AthleteHealthMonitoringRules::new();
 
         // 高单调性（每日负荷相同）
-        let high_monotony = rules.calculate_monotony(&[100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0]);
+        let high_monotony =
+            rules.calculate_monotony(&[100.0, 100.0, 100.0, 100.0, 100.0, 100.0, 100.0]);
         assert!(high_monotony < 0.01); // 应该接近 0
 
         // 低单调性（每日负荷变化大）
@@ -805,7 +809,8 @@ mod tests {
         let stage = rules.assess_overtraining_risk(1.4, 2.2, 6.0, 65, 65);
         assert!(matches!(
             stage,
-            OvertrainingStage::FunctionalOverreaching | OvertrainingStage::NonFunctionalOverreaching
+            OvertrainingStage::FunctionalOverreaching
+                | OvertrainingStage::NonFunctionalOverreaching
         ));
 
         // 过度训练综合征
@@ -847,7 +852,10 @@ mod tests {
         let rules = AthleteHealthMonitoringRules::new();
 
         assert_eq!(rules.metadata().name, "运动员健康监测规则");
-        assert_eq!(rules.category(), RuleCategory::sports("athlete_health_monitoring"));
+        assert_eq!(
+            rules.category(),
+            RuleCategory::sports("athlete_health_monitoring")
+        );
 
         let explanation = rules.explain();
         assert!(explanation.contains("训练负荷管理"));

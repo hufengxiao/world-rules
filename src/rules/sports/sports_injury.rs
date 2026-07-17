@@ -84,7 +84,7 @@ pub enum InjuryType {
     Laceration,
     /// 烧伤
     Burn,
-    
+
     // 慢性损伤
     /// 肌腱炎
     Tendinitis,
@@ -354,15 +354,18 @@ impl SportsInjuryRules {
     /// 创建新的运动损伤规则实例
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("运动损伤处理规则", "基于运动医学标准的损伤分类、处理流程和康复指南")
-                .with_origin("国际运动医学联合会(FIMS)")
-                .with_tags(vec![
-                    "运动医学".into(),
-                    "损伤处理".into(),
-                    "康复".into(),
-                    "PRICE".into(),
-                    "脑震荡".into(),
-                ]),
+            metadata: RuleMetadata::new(
+                "运动损伤处理规则",
+                "基于运动医学标准的损伤分类、处理流程和康复指南",
+            )
+            .with_origin("国际运动医学联合会(FIMS)")
+            .with_tags(vec![
+                "运动医学".into(),
+                "损伤处理".into(),
+                "康复".into(),
+                "PRICE".into(),
+                "脑震荡".into(),
+            ]),
         }
     }
 
@@ -661,7 +664,10 @@ mod tests {
         assert!(grade3_symptoms.contains(&"意识丧失"));
 
         // 休息时间
-        assert!(ConcussionGrade::Grade1.minimum_rest_days() < ConcussionGrade::Grade3.minimum_rest_days());
+        assert!(
+            ConcussionGrade::Grade1.minimum_rest_days()
+                < ConcussionGrade::Grade3.minimum_rest_days()
+        );
 
         // 影像学检查
         assert!(!ConcussionGrade::Grade1.requires_imaging());

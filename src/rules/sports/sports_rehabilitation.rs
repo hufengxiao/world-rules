@@ -65,30 +65,21 @@ impl RehabilitationPhase {
     /// 获取阶段目标
     pub fn objectives(&self) -> &'static [&'static str] {
         match self {
-            RehabilitationPhase::AcutePhase => &[
-                "控制炎症",
-                "缓解疼痛",
-                "保护损伤组织",
-                "预防并发症",
-            ],
+            RehabilitationPhase::AcutePhase => {
+                &["控制炎症", "缓解疼痛", "保护损伤组织", "预防并发症"]
+            }
             RehabilitationPhase::SubacutePhase => &[
                 "恢复关节活动度",
                 "开始肌肉激活",
                 "渐进性负重",
                 "预防肌肉萎缩",
             ],
-            RehabilitationPhase::RecoveryPhase => &[
-                "恢复肌肉力量",
-                "改善关节灵活性",
-                "恢复本体感觉",
-                "提高耐力",
-            ],
-            RehabilitationPhase::FunctionalTrainingPhase => &[
-                "专项动作训练",
-                "力量强化",
-                "灵敏性训练",
-                "运动技能恢复",
-            ],
+            RehabilitationPhase::RecoveryPhase => {
+                &["恢复肌肉力量", "改善关节灵活性", "恢复本体感觉", "提高耐力"]
+            }
+            RehabilitationPhase::FunctionalTrainingPhase => {
+                &["专项动作训练", "力量强化", "灵敏性训练", "运动技能恢复"]
+            }
             RehabilitationPhase::ReturnToActivityPhase => &[
                 "完全运动能力恢复",
                 "心理准备评估",
@@ -401,24 +392,12 @@ impl RehabilitationPrinciple {
             RehabilitationPrinciple::ProgressiveOverload => {
                 "康复训练强度应逐步增加，避免过度负荷导致再次损伤"
             }
-            RehabilitationPrinciple::Individualization => {
-                "根据运动员具体情况制定个性化康复方案"
-            }
-            RehabilitationPrinciple::Specificity => {
-                "康复训练应针对特定运动项目和损伤类型"
-            }
-            RehabilitationPrinciple::ComprehensiveApproach => {
-                "康复应涵盖生理、心理、功能等多方面"
-            }
-            RehabilitationPrinciple::SafetyFirst => {
-                "确保训练安全，避免并发症和再损伤"
-            }
-            RehabilitationPrinciple::ActiveParticipation => {
-                "鼓励运动员积极参与康复过程"
-            }
-            RehabilitationPrinciple::EarlyIntervention => {
-                "损伤后尽早开始适当康复，促进恢复"
-            }
+            RehabilitationPrinciple::Individualization => "根据运动员具体情况制定个性化康复方案",
+            RehabilitationPrinciple::Specificity => "康复训练应针对特定运动项目和损伤类型",
+            RehabilitationPrinciple::ComprehensiveApproach => "康复应涵盖生理、心理、功能等多方面",
+            RehabilitationPrinciple::SafetyFirst => "确保训练安全，避免并发症和再损伤",
+            RehabilitationPrinciple::ActiveParticipation => "鼓励运动员积极参与康复过程",
+            RehabilitationPrinciple::EarlyIntervention => "损伤后尽早开始适当康复，促进恢复",
             RehabilitationPrinciple::MultidisciplinaryTeamwork => {
                 "医疗、康复、教练团队协作制定方案"
             }
@@ -515,7 +494,10 @@ impl SportsRehabilitationRules {
     }
 
     /// 根据康复阶段获取适用训练类型
-    pub fn get_exercises_for_phase(&self, phase: RehabilitationPhase) -> Vec<RehabilitationExerciseType> {
+    pub fn get_exercises_for_phase(
+        &self,
+        phase: RehabilitationPhase,
+    ) -> Vec<RehabilitationExerciseType> {
         self.exercise_types()
             .into_iter()
             .filter(|ex| ex.applicable_phases().contains(&phase))
@@ -528,15 +510,10 @@ impl SportsRehabilitationRules {
         criteria_met: &[ReturnToActivityCriteria],
     ) -> RehabilitationDecision {
         let all_criteria = self.return_to_activity_criteria();
-        let mandatory_criteria: Vec<_> = all_criteria
-            .iter()
-            .filter(|c| c.is_mandatory())
-            .collect();
+        let mandatory_criteria: Vec<_> = all_criteria.iter().filter(|c| c.is_mandatory()).collect();
 
         // 检查强制标准
-        let mandatory_met = mandatory_criteria
-            .iter()
-            .all(|c| criteria_met.contains(c));
+        let mandatory_met = mandatory_criteria.iter().all(|c| criteria_met.contains(c));
 
         if !mandatory_met {
             return RehabilitationDecision::NotReady {
@@ -561,7 +538,10 @@ impl SportsRehabilitationRules {
     }
 
     /// 获取康复计划模板
-    pub fn rehabilitation_plan_template(&self, phase: RehabilitationPhase) -> RehabilitationPlanTemplate {
+    pub fn rehabilitation_plan_template(
+        &self,
+        phase: RehabilitationPhase,
+    ) -> RehabilitationPlanTemplate {
         let exercises = self.get_exercises_for_phase(phase);
         let duration_days = phase.duration_days().next().unwrap_or(14);
 
@@ -601,13 +581,9 @@ pub enum RehabilitationDecision {
     /// 准备完全恢复运动
     ReadyForFullActivity,
     /// 准备有限制运动
-    ReadyForModifiedActivity {
-        restrictions: Vec<String>,
-    },
+    ReadyForModifiedActivity { restrictions: Vec<String> },
     /// 未准备好
-    NotReady {
-        reason: String,
-    },
+    NotReady { reason: String },
 }
 
 /// 康复计划模板
@@ -683,7 +659,10 @@ mod tests {
     fn test_phase_names() {
         assert_eq!(RehabilitationPhase::AcutePhase.name(), "急性期");
         assert_eq!(RehabilitationPhase::RecoveryPhase.name(), "恢复期");
-        assert_eq!(RehabilitationPhase::ReturnToActivityPhase.name(), "返回运动期");
+        assert_eq!(
+            RehabilitationPhase::ReturnToActivityPhase.name(),
+            "返回运动期"
+        );
     }
 
     #[test]

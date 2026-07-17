@@ -72,9 +72,9 @@ pub mod archery_detailed;
 pub mod arm_wrestling;
 pub mod artistic_swimming_detailed;
 pub mod asian_games;
+pub mod athlete_health_monitoring;
 pub mod athletics;
 pub mod athletics_detailed;
-pub mod athlete_health_monitoring;
 pub mod australian_football;
 pub mod badminton;
 pub mod badminton_bwf_world_championship;
@@ -452,6 +452,8 @@ pub mod softball_detailed;
 pub mod speed_skating;
 pub mod speed_skating_detailed;
 pub mod speed_skating_isu;
+pub mod sports_injury;
+pub mod sports_rehabilitation;
 pub mod squash;
 pub mod squash_psa;
 pub mod stand_up_paddle_racing;
@@ -460,8 +462,6 @@ pub mod steeplechase;
 pub mod strongman;
 pub mod sumo;
 pub mod surf_kayak;
-pub mod sports_injury;
-pub mod sports_rehabilitation;
 pub mod surfing;
 pub mod surfing_competition;
 pub mod surfing_wsl;
@@ -968,6 +968,9 @@ pub use softball_detailed::SoftballDetailedRules;
 pub use speed_skating::SpeedSkatingRules;
 pub use speed_skating_detailed::SpeedSkatingDetailedRules;
 pub use speed_skating_isu::SpeedSkatingIsuRules;
+pub use sports_injury::{
+    ConcussionGrade, InjurySeverity, InjuryType, PriceStep, ReturnToPlayStage, SportsInjuryRules,
+};
 pub use squash::SquashRules;
 pub use squash_psa::SquashPsaRules;
 pub use stand_up_paddle_racing::StandUpPaddleRacingRules;
@@ -976,9 +979,6 @@ pub use steeplechase::SteeplechaseRules;
 pub use strongman::StrongmanRules;
 pub use sumo::SumoRules;
 pub use surf_kayak::SurfKayakRules;
-pub use sports_injury::{
-    ConcussionGrade, InjurySeverity, InjuryType, PriceStep, ReturnToPlayStage, SportsInjuryRules,
-};
 pub use surfing::SurfingRules;
 pub use surfing_competition::SurfingCompetitionRules;
 pub use surfing_wsl::SurfingWslRules;
