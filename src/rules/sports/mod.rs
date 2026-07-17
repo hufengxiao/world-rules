@@ -211,6 +211,7 @@ pub mod football_confederations_cup;
 pub mod football_copa_america;
 pub mod football_copa_libertadores;
 pub mod football_corner_kick;
+pub mod football_csl_detailed;
 pub mod football_detailed;
 pub mod football_euro_cup;
 pub mod football_field_rules;
@@ -695,6 +696,10 @@ pub use football_champions::FootballChampionsRules;
 pub use football_club_world_cup::{ClubWorldCupStage, FootballClubWorldCupRules};
 pub use football_copa_america::{CopaAmericaStage, FootballCopaAmericaRules};
 pub use football_copa_libertadores::{CopaLibertadoresStage, FootballCopaLibertadoresRules};
+pub use football_csl_detailed::{
+    CslCompetitionRules, CslDisciplinaryRules, CslFinancialRules, CslMatchRules,
+    CslPlayerRegistrationRules, CslTransferRules, CslVARRules,
+};
 pub use football_corner_kick::{CornerKickType, FootballCornerKickRules};
 pub use football_detailed::FootballDetailedRules;
 pub use football_euro_cup::{EuroCupStage, FootballEuroCupRules};
