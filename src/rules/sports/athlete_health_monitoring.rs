@@ -827,7 +827,7 @@ mod tests {
         assert_eq!(grade, HealthAssessmentGrade::Excellent);
 
         // 良好状态
-        let grade = rules.comprehensive_assessment(true, true, 80, 4, false);
+        let grade = rules.comprehensive_assessment(true, true, 70, 6, false);
         assert_eq!(grade, HealthAssessmentGrade::Good);
 
         // 不适合训练
