@@ -133,7 +133,7 @@ impl AntiDopingViolationType {
     /// 获取基准禁赛期（月）
     pub fn base_suspension_months(&self) -> u32 {
         match self {
-            AntiDopingViolationType::Use => 48,        // 4年
+            AntiDopingViolationType::Use => 48, // 4年
             AntiDopingViolationType::Refusal => 48,
             AntiDopingViolationType::WhereaboutsFailure => 12, // 12个月
             AntiDopingViolationType::Tampering => 48,
@@ -290,19 +290,24 @@ impl AntiDopingRules {
     }
 
     /// 计算违规禁赛期
-    pub fn calculate_suspension(&self, violation: AntiDopingViolationType, is_first_violation: bool, is_intentional: bool) -> u32 {
+    pub fn calculate_suspension(
+        &self,
+        violation: AntiDopingViolationType,
+        is_first_violation: bool,
+        is_intentional: bool,
+    ) -> u32 {
         let base = violation.base_suspension_months();
-        
+
         if !is_first_violation {
             // 第二次违规加倍
             return base * 2;
         }
-        
+
         if !is_intentional {
             // 非故意违规可减半
             return base / 2;
         }
-        
+
         base
     }
 
@@ -396,7 +401,11 @@ impl AntiDopingRules {
     }
 
     /// 验证物质是否禁用
-    pub fn is_substance_prohibited(&self, substance_type: ProhibitedSubstanceType, is_in_competition: bool) -> bool {
+    pub fn is_substance_prohibited(
+        &self,
+        substance_type: ProhibitedSubstanceType,
+        is_in_competition: bool,
+    ) -> bool {
         match substance_type.prohibition_context() {
             ProhibitionContext::AllTimes => true,
             ProhibitionContext::InCompetition => is_in_competition,
@@ -470,10 +479,7 @@ mod tests {
             ProhibitedSubstanceType::AnabolicAgents.name(),
             "蛋白同化制剂"
         );
-        assert_eq!(
-            ProhibitedSubstanceType::Stimulants.name(),
-            "兴奋剂"
-        );
+        assert_eq!(ProhibitedSubstanceType::Stimulants.name(), "兴奋剂");
     }
 
     #[test]
@@ -483,7 +489,7 @@ mod tests {
             ProhibitedSubstanceType::AnabolicAgents.prohibition_context(),
             ProhibitionContext::AllTimes
         );
-        
+
         // 仅赛内禁用
         assert_eq!(
             ProhibitedSubstanceType::Stimulants.prohibition_context(),
@@ -495,59 +501,41 @@ mod tests {
     fn test_violation_types() {
         assert_eq!(AntiDopingViolationType::Use.name(), "使用禁用物质/方法");
         assert_eq!(AntiDopingViolationType::Use.base_suspension_months(), 48);
-        assert_eq!(AntiDopingViolationType::WhereaboutsFailure.base_suspension_months(), 12);
+        assert_eq!(
+            AntiDopingViolationType::WhereaboutsFailure.base_suspension_months(),
+            12
+        );
     }
 
     #[test]
     fn test_suspension_calculation() {
         let rules = AntiDopingRules::new();
-        
+
         // 首次故意违规 - 4年
-        let suspension = rules.calculate_suspension(
-            AntiDopingViolationType::Use,
-            true,
-            true
-        );
+        let suspension = rules.calculate_suspension(AntiDopingViolationType::Use, true, true);
         assert_eq!(suspension, 48);
-        
+
         // 非故意违规 - 减半
-        let suspension = rules.calculate_suspension(
-            AntiDopingViolationType::Use,
-            true,
-            false
-        );
+        let suspension = rules.calculate_suspension(AntiDopingViolationType::Use, true, false);
         assert_eq!(suspension, 24);
-        
+
         // 第二次违规 - 加倍
-        let suspension = rules.calculate_suspension(
-            AntiDopingViolationType::Use,
-            false,
-            true
-        );
+        let suspension = rules.calculate_suspension(AntiDopingViolationType::Use, false, true);
         assert_eq!(suspension, 96);
     }
 
     #[test]
     fn test_is_substance_prohibited() {
         let rules = AntiDopingRules::new();
-        
+
         // 所有时间禁用的物质
-        assert!(rules.is_substance_prohibited(
-            ProhibitedSubstanceType::AnabolicAgents,
-            false
-        ));
-        
+        assert!(rules.is_substance_prohibited(ProhibitedSubstanceType::AnabolicAgents, false));
+
         // 赛内禁用的物质 - 赛外不禁用
-        assert!(!rules.is_substance_prohibited(
-            ProhibitedSubstanceType::Stimulants,
-            false
-        ));
-        
+        assert!(!rules.is_substance_prohibited(ProhibitedSubstanceType::Stimulants, false));
+
         // 赛内禁用的物质 - 赛内禁用
-        assert!(rules.is_substance_prohibited(
-            ProhibitedSubstanceType::Stimulants,
-            true
-        ));
+        assert!(rules.is_substance_prohibited(ProhibitedSubstanceType::Stimulants, true));
     }
 
     #[test]
@@ -555,7 +543,7 @@ mod tests {
         let rules = AntiDopingRules::new();
         let procedures = rules.doping_control_procedures();
         assert!(!procedures.is_empty());
-        
+
         // 检查包含关键程序
         let has_sample_collection = procedures.iter().any(|(name, _)| *name == "样本采集");
         assert!(has_sample_collection);
@@ -564,11 +552,11 @@ mod tests {
     #[test]
     fn test_athlete_rights_and_obligations() {
         let rules = AntiDopingRules::new();
-        
+
         // 权利和义务列表不应为空
         assert!(!rules.athlete_rights().is_empty());
         assert!(!rules.athlete_obligations().is_empty());
-        
+
         // 检查关键权利
         let rights = rules.athlete_rights();
         let has_bottle_rights = rights.iter().any(|r| r.contains("B瓶"));
@@ -580,7 +568,7 @@ mod tests {
         let rules = AntiDopingRules::new();
         let tue_rules = rules.tue_rules();
         assert!(!tue_rules.is_empty());
-        
+
         // 检查关键规则
         let has_advance_submit = tue_rules.iter().any(|r| r.contains("提前提交"));
         assert!(has_advance_submit);
@@ -591,7 +579,7 @@ mod tests {
         let rules = AntiDopingRules::new();
         let requirements = rules.sample_collection_requirements();
         assert!(requirements.len() >= 5);
-        
+
         // 检查关键要求
         let has_sealing = requirements.iter().any(|r| r.contains("密封"));
         assert!(has_sealing);
@@ -602,7 +590,7 @@ mod tests {
         let rules = AntiDopingRules::new();
         let measures = rules.education_measures();
         assert!(!measures.is_empty());
-        
+
         // 检查包含教育课程
         let has_education = measures.iter().any(|m| m.contains("教育"));
         assert!(has_education);
@@ -611,17 +599,17 @@ mod tests {
     #[test]
     fn test_rule_trait_implementation() {
         use crate::rules::core::Rule;
-        
+
         let rules = AntiDopingRules::new();
-        
+
         // 测试 metadata
         let metadata = rules.metadata();
         assert!(metadata.name.contains("兴奋剂"));
-        
+
         // 测试 category
         let category = rules.category();
         assert!(matches!(category, RuleCategory::Sports(_)));
-        
+
         // 测试 explain
         let explanation = rules.explain();
         assert!(!explanation.is_empty());
@@ -639,11 +627,11 @@ mod tests {
     fn test_whereabouts_requirements() {
         let rules = AntiDopingRules::new();
         let requirements = rules.whereabouts_requirements();
-        
+
         // 检查每日1小时要求
         let has_daily_requirement = requirements.iter().any(|r| r.contains("每日"));
         assert!(has_daily_requirement);
-        
+
         // 检查错过检查次数
         let has_missed_count = requirements.iter().any(|r| r.contains("三次"));
         assert!(has_missed_count);
@@ -653,9 +641,9 @@ mod tests {
     fn test_protected_person_rules() {
         let rules = AntiDopingRules::new();
         let protected_rules = rules.protected_person_rules();
-        
+
         assert!(!protected_rules.is_empty());
-        
+
         // 检查未成年人保护
         let has_minor_protection = protected_rules.iter().any(|r| r.contains("未成年人"));
         assert!(has_minor_protection);
@@ -665,11 +653,11 @@ mod tests {
     fn test_laboratory_requirements() {
         let rules = AntiDopingRules::new();
         let requirements = rules.laboratory_requirements();
-        
+
         // 检查WADA认证要求
         let has_wada_cert = requirements.iter().any(|r| r.contains("WADA"));
         assert!(has_wada_cert);
-        
+
         // 检查ISO标准
         let has_iso = requirements.iter().any(|r| r.contains("ISO"));
         assert!(has_iso);

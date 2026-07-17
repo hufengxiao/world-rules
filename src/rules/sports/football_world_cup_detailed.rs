@@ -698,7 +698,10 @@ mod tests {
     fn test_metadata() {
         let rules = WorldCupOrganizationRules::new();
         assert_eq!(rules.metadata().name, "世界杯组织架构规则");
-        assert_eq!(rules.category(), RuleCategory::sports("world_cup_organization"));
+        assert_eq!(
+            rules.category(),
+            RuleCategory::sports("world_cup_organization")
+        );
     }
 
     #[test]

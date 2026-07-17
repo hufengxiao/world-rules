@@ -14,9 +14,12 @@ pub struct AsianGamesOrganizationRules {
 impl AsianGamesOrganizationRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("亚运会组织架构规则", "亚洲奥林匹克理事会组织架构和运营规则")
-                .with_origin("OCA章程")
-                .with_tags(vec!["体育".into(), "亚运会".into(), "组织".into()]),
+            metadata: RuleMetadata::new(
+                "亚运会组织架构规则",
+                "亚洲奥林匹克理事会组织架构和运营规则",
+            )
+            .with_origin("OCA章程")
+            .with_tags(vec!["体育".into(), "亚运会".into(), "组织".into()]),
         }
     }
 
@@ -430,7 +433,10 @@ mod tests {
     fn test_metadata() {
         let rules = AsianGamesOrganizationRules::new();
         assert_eq!(rules.metadata().name, "亚运会组织架构规则");
-        assert_eq!(rules.category(), RuleCategory::sports("asian_games_organization"));
+        assert_eq!(
+            rules.category(),
+            RuleCategory::sports("asian_games_organization")
+        );
     }
 
     #[test]

@@ -56,7 +56,6 @@ pub mod adaptive_ball_games;
 pub mod adaptive_rowing;
 pub mod adaptive_sled;
 pub mod adaptive_swimming;
-pub mod anti_doping;
 pub mod aikido;
 pub mod aikido_aikikai;
 pub mod air_hockey;
@@ -65,13 +64,14 @@ pub mod airship_racing;
 pub mod alpine_skiing;
 pub mod american_football_detailed;
 pub mod american_football_nfl;
+pub mod anti_doping;
 pub mod apnea_diving;
 pub mod aquatics_detailed;
 pub mod archery;
 pub mod archery_detailed;
-pub mod asian_games;
 pub mod arm_wrestling;
 pub mod artistic_swimming_detailed;
+pub mod asian_games;
 pub mod athletics;
 pub mod athletics_detailed;
 pub mod australian_football;
@@ -532,13 +532,13 @@ pub mod white_water_rafting_irf;
 pub mod windsurfing;
 pub mod windsurfing_pwa;
 pub mod wing_chun;
+pub mod world_championships_detailed;
 pub mod wrc_fia;
 pub mod wrestling;
 pub mod wrestling_wwf;
 pub mod wtcr;
 pub mod wushu;
 pub mod wushu_iwuf;
-pub mod world_championships_detailed;
 pub mod xingyi;
 pub mod yoga_competition;
 pub mod youth_athletics;
@@ -562,12 +562,12 @@ pub use apnea_diving::ApneaDivingRules;
 pub use aquatics_detailed::AquaticsDetailedRules;
 pub use archery::ArcheryRules;
 pub use archery_detailed::ArcheryDetailedRules;
-pub use asian_games::{
-    AsianGamesOrganizationRules, AsianGamesQualificationRules, AsianGamesSportsProgramRules,
-    AsianGamesMedalRules,
-};
 pub use arm_wrestling::ArmWrestlingRules;
 pub use artistic_swimming_detailed::ArtisticSwimmingDetailedRules;
+pub use asian_games::{
+    AsianGamesMedalRules, AsianGamesOrganizationRules, AsianGamesQualificationRules,
+    AsianGamesSportsProgramRules,
+};
 pub use athletics::{AthleticsEvent, AthleticsRules};
 pub use athletics_detailed::AthleticsDetailedRules;
 pub use australian_football::AustralianFootballRules;
@@ -849,8 +849,8 @@ pub use mud_racing::MudRacingRules;
 pub use nascar::NASCARRules;
 pub use nascar_detailed::NascarDetailedRules;
 pub use national_games::{
-    NationalGamesOrganizationRules, NationalGamesQualificationRules,
-    NationalGamesSportsProgramRules, NationalGamesMedalRules,
+    NationalGamesMedalRules, NationalGamesOrganizationRules, NationalGamesQualificationRules,
+    NationalGamesSportsProgramRules,
 };
 pub use netball::NetballRules;
 pub use netball_world::NetballWorldRules;
@@ -1046,17 +1046,17 @@ pub use white_water_rafting_irf::WhiteWaterRaftingIrfRules;
 pub use windsurfing::WindsurfingRules;
 pub use windsurfing_pwa::WindsurfingPwaRules;
 pub use wing_chun::WingChunRules;
+pub use world_championships_detailed::{
+    WorldAquaticsChampionshipsRules, WorldAthleticsChampionshipsRules,
+    WorldBadmintonChampionshipsRules, WorldGymnasticsChampionshipsRules,
+    WorldWeightliftingChampionshipsRules,
+};
 pub use wrc_fia::WrcFiaRules;
 pub use wrestling::WrestlingRules;
 pub use wrestling_wwf::WrestlingWwfRules;
 pub use wtcr::WtcrRules;
 pub use wushu::WushuRules;
 pub use wushu_iwuf::WushuIwufRules;
-pub use world_championships_detailed::{
-    WorldAthleticsChampionshipsRules, WorldAquaticsChampionshipsRules,
-    WorldGymnasticsChampionshipsRules, WorldWeightliftingChampionshipsRules,
-    WorldBadmintonChampionshipsRules,
-};
 pub use xingyi::XingyiRules;
 pub use yoga_competition::YogaCompetitionRules;
 pub use youth_athletics::{YouthAgeGroup, YouthAthleticsRules};
