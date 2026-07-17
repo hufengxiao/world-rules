@@ -535,6 +535,7 @@ pub mod wrestling_wwf;
 pub mod wtcr;
 pub mod wushu;
 pub mod wushu_iwuf;
+pub mod world_championships_detailed;
 pub mod xingyi;
 pub mod yoga_competition;
 pub mod youth_athletics;
@@ -1040,6 +1041,11 @@ pub use wrestling_wwf::WrestlingWwfRules;
 pub use wtcr::WtcrRules;
 pub use wushu::WushuRules;
 pub use wushu_iwuf::WushuIwufRules;
+pub use world_championships_detailed::{
+    WorldAthleticsChampionshipsRules, WorldAquaticsChampionshipsRules,
+    WorldGymnasticsChampionshipsRules, WorldWeightliftingChampionshipsRules,
+    WorldBadmintonChampionshipsRules,
+};
 pub use xingyi::XingyiRules;
 pub use yoga_competition::YogaCompetitionRules;
 pub use youth_athletics::{YouthAgeGroup, YouthAthleticsRules};
@@ -2063,6 +2069,26 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = CampusFootballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorldAthleticsChampionshipsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorldAquaticsChampionshipsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorldGymnasticsChampionshipsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorldWeightliftingChampionshipsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorldBadmintonChampionshipsRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     rules
