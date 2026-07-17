@@ -511,10 +511,10 @@ mod tests {
     #[test]
     fn test_punitive_damages_fraud() {
         let rules = ConsumerProtectionDeepRules::new();
-        // 欺诈行为，三倍赔偿
-        let (multiplier, amount) = rules.calculate_punitive_damages(100.0, true, false);
+        // 欺诈行为，三倍赔偿（价格300元，超过最低限额）
+        let (multiplier, amount) = rules.calculate_punitive_damages(300.0, true, false);
         assert_eq!(multiplier, 3);
-        assert_eq!(amount, 300.0);
+        assert_eq!(amount, 900.0);
     }
 
     #[test]

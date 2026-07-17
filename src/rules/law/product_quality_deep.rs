@@ -144,10 +144,18 @@ impl ProductQualityDeepRules {
         has_national_standard: bool,
         meets_standard: bool,
     ) -> bool {
+        // 有国家标准且符合标准，不应认定存在不合理危险
+        if has_national_standard && meets_standard {
+            return false;
+        }
+
+        // 有国家标准但不符合标准，存在不合理危险
         if has_national_standard && !meets_standard {
             return true;
         }
 
+        // 无国家标准时，根据缺陷类型判断
+        // 所有缺陷类型都应视为存在不合理危险
         match defect_type {
             DefectType::Design => true,
             DefectType::Manufacturing => true,
