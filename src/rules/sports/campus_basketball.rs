@@ -597,20 +597,15 @@ impl Rule for CampusBasketballRules {
             3. 教育导向: 培养篮球兴趣\n\
             4. 公平参与: 每人都要上场\n\
             5. 技能发展: 循序渐进提升\n\
-            6. 团队精神: 培养协作意识".to_string()
+            6. 团队精神: 培养协作意识"
+            .to_string()
     }
 
     fn validate(&self, ctx: &ValidateContext) -> RuleResult<bool> {
         match ctx {
-            ValidateContext::Generic(context) if context == "campus_basketball" => {
-                Ok(true)
-            }
-            ValidateContext::Generic(context) if context == "basketball" => {
-                Ok(true)
-            }
-            ValidateContext::Generic(context) if context == "sports" => {
-                Ok(true)
-            }
+            ValidateContext::Generic(context) if context == "campus_basketball" => Ok(true),
+            ValidateContext::Generic(context) if context == "basketball" => Ok(true),
+            ValidateContext::Generic(context) if context == "sports" => Ok(true),
             _ => Ok(true),
         }
     }
@@ -629,29 +624,47 @@ mod tests {
 
     #[test]
     fn test_age_group_names() {
-        assert_eq!(CampusBasketballAgeGroup::PrimaryJunior.name(), "小学低年级组");
-        assert_eq!(CampusBasketballAgeGroup::PrimarySenior.name(), "小学高年级组");
+        assert_eq!(
+            CampusBasketballAgeGroup::PrimaryJunior.name(),
+            "小学低年级组"
+        );
+        assert_eq!(
+            CampusBasketballAgeGroup::PrimarySenior.name(),
+            "小学高年级组"
+        );
         assert_eq!(CampusBasketballAgeGroup::JuniorHigh.name(), "初中组");
         assert_eq!(CampusBasketballAgeGroup::SeniorHigh.name(), "高中组");
     }
 
     #[test]
     fn test_grade_ranges() {
-        assert_eq!(CampusBasketballAgeGroup::PrimaryJunior.grade_range(), "1-3年级");
-        assert_eq!(CampusBasketballAgeGroup::PrimarySenior.grade_range(), "4-6年级");
-        assert_eq!(CampusBasketballAgeGroup::JuniorHigh.grade_range(), "7-9年级");
-        assert_eq!(CampusBasketballAgeGroup::SeniorHigh.grade_range(), "10-12年级");
+        assert_eq!(
+            CampusBasketballAgeGroup::PrimaryJunior.grade_range(),
+            "1-3年级"
+        );
+        assert_eq!(
+            CampusBasketballAgeGroup::PrimarySenior.grade_range(),
+            "4-6年级"
+        );
+        assert_eq!(
+            CampusBasketballAgeGroup::JuniorHigh.grade_range(),
+            "7-9年级"
+        );
+        assert_eq!(
+            CampusBasketballAgeGroup::SeniorHigh.grade_range(),
+            "10-12年级"
+        );
     }
 
     #[test]
     fn test_field_dimensions() {
         let rules = CampusBasketballRules::new();
-        
+
         // 小学低年级组球场规格
         let primary_junior = rules.field_dimensions(CampusBasketballAgeGroup::PrimaryJunior);
         assert!(!primary_junior.is_empty());
         assert!(primary_junior.iter().any(|s| s.contains("篮筐高度")));
-        
+
         // 高中组球场规格
         let senior_high = rules.field_dimensions(CampusBasketballAgeGroup::SeniorHigh);
         assert!(!senior_high.is_empty());
@@ -661,11 +674,11 @@ mod tests {
     #[test]
     fn test_team_composition() {
         let rules = CampusBasketballRules::new();
-        
+
         // 小学低年级组球员人数
         let primary_junior = rules.team_composition(CampusBasketballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|s| s.contains("4人")));
-        
+
         // 高中组球员人数
         let senior_high = rules.team_composition(CampusBasketballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|s| s.contains("5人")));
@@ -674,11 +687,11 @@ mod tests {
     #[test]
     fn test_match_duration() {
         let rules = CampusBasketballRules::new();
-        
+
         // 小学低年级组比赛时间
         let primary_junior = rules.match_duration(CampusBasketballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|s| s.contains("20分钟")));
-        
+
         // 高中组比赛时间
         let senior_high = rules.match_duration(CampusBasketballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|s| s.contains("40分钟")));
@@ -687,11 +700,11 @@ mod tests {
     #[test]
     fn test_basket_height() {
         let rules = CampusBasketballRules::new();
-        
+
         // 小学低年级篮筐高度
         let primary_junior = rules.basket_and_ball_specs(CampusBasketballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|s| s.contains("2.60米")));
-        
+
         // 高中组篮筐高度
         let senior_high = rules.basket_and_ball_specs(CampusBasketballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|s| s.contains("3.05米")));
@@ -700,11 +713,11 @@ mod tests {
     #[test]
     fn test_foul_rules() {
         let rules = CampusBasketballRules::new();
-        
+
         // 小学低年级犯规规则
         let primary_junior = rules.foul_rules(CampusBasketballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|s| s.contains("无限制")));
-        
+
         // 高中组犯规规则
         let senior_high = rules.foul_rules(CampusBasketballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|s| s.contains("5次")));
@@ -714,7 +727,7 @@ mod tests {
     fn test_safety_rules() {
         let rules = CampusBasketballRules::new();
         let safety = rules.safety_rules();
-        
+
         assert!(!safety.is_empty());
         assert!(safety.iter().any(|s| s.contains("急救箱")));
         assert!(safety.iter().any(|s| s.contains("运动鞋")));
@@ -724,7 +737,7 @@ mod tests {
     fn test_educational_goals() {
         let rules = CampusBasketballRules::new();
         let goals = rules.educational_goals();
-        
+
         assert!(!goals.is_empty());
         assert!(goals.iter().any(|s| s.contains("快乐篮球")));
         assert!(goals.iter().any(|s| s.contains("团队协作")));
@@ -733,20 +746,24 @@ mod tests {
     #[test]
     fn test_rule_trait() {
         let rules = CampusBasketballRules::new();
-        
-        assert!(rules.validate(&ValidateContext::Generic("campus_basketball".to_string())).is_ok());
-        assert!(rules.validate(&ValidateContext::Generic("basketball".to_string())).is_ok());
+
+        assert!(rules
+            .validate(&ValidateContext::Generic("campus_basketball".to_string()))
+            .is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("basketball".to_string()))
+            .is_ok());
         assert!(!rules.explain().is_empty());
     }
 
     #[test]
     fn test_referee_rules() {
         let rules = CampusBasketballRules::new();
-        
+
         // 小学低年级裁判规则
         let primary_junior = rules.referee_rules(CampusBasketballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|s| s.contains("教育为主")));
-        
+
         // 高中组裁判规则
         let senior_high = rules.referee_rules(CampusBasketballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|s| s.contains("FIBA标准")));
@@ -755,11 +772,11 @@ mod tests {
     #[test]
     fn test_shot_clock_rules() {
         let rules = CampusBasketballRules::new();
-        
+
         // 小学低年级进攻时限
         let primary_junior = rules.shot_clock_rules(CampusBasketballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|s| s.contains("无限制")));
-        
+
         // 高中组进攻时限
         let senior_high = rules.shot_clock_rules(CampusBasketballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|s| s.contains("24秒")));
