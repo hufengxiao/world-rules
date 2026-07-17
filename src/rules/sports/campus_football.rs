@@ -199,11 +199,7 @@ impl CampusFootballRules {
     pub fn offside_rules(&self, age_group: CampusFootballAgeGroup) -> Vec<&'static str> {
         match age_group {
             CampusFootballAgeGroup::PrimaryJunior => {
-                vec![
-                    "不设越位规则",
-                    "鼓励进攻参与",
-                    "注重技术培养",
-                ]
+                vec!["不设越位规则", "鼓励进攻参与", "注重技术培养"]
             }
             CampusFootballAgeGroup::PrimarySenior => {
                 vec![
@@ -214,11 +210,7 @@ impl CampusFootballRules {
                 ]
             }
             CampusFootballAgeGroup::JuniorHigh | CampusFootballAgeGroup::SeniorHigh => {
-                vec![
-                    "执行标准越位规则",
-                    "边裁判定",
-                    "教学比赛可放宽",
-                ]
+                vec!["执行标准越位规则", "边裁判定", "教学比赛可放宽"]
             }
         }
     }
@@ -417,12 +409,12 @@ mod tests {
     #[test]
     fn test_field_dimensions() {
         let rules = CampusFootballRules::new();
-        
+
         // 小学低年级组场地
         let primary_junior = rules.field_dimensions(CampusFootballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|f| f.contains("30-40米")));
         assert!(primary_junior.iter().any(|f| f.contains("球门")));
-        
+
         // 高中组场地
         let senior_high = rules.field_dimensions(CampusFootballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|f| f.contains("70-80米")));
@@ -431,11 +423,11 @@ mod tests {
     #[test]
     fn test_match_duration() {
         let rules = CampusFootballRules::new();
-        
+
         // 小学低年级组比赛时间
         let primary_junior = rules.match_duration(CampusFootballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|m| m.contains("20分钟")));
-        
+
         // 高中组比赛时间
         let senior_high = rules.match_duration(CampusFootballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|m| m.contains("35-45分钟")));
@@ -444,11 +436,11 @@ mod tests {
     #[test]
     fn test_player_count() {
         let rules = CampusFootballRules::new();
-        
+
         // 小学低年级组5人制
         let primary_junior = rules.player_count(CampusFootballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|p| p.contains("5人制")));
-        
+
         // 高中组11人制
         let senior_high = rules.player_count(CampusFootballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|p| p.contains("11人制")));
@@ -457,11 +449,11 @@ mod tests {
     #[test]
     fn test_offside_rules() {
         let rules = CampusFootballRules::new();
-        
+
         // 小学低年级组不设越位
         let primary_junior = rules.offside_rules(CampusFootballAgeGroup::PrimaryJunior);
         assert!(primary_junior.iter().any(|o| o.contains("不设越位")));
-        
+
         // 高中组标准越位
         let senior_high = rules.offside_rules(CampusFootballAgeGroup::SeniorHigh);
         assert!(senior_high.iter().any(|o| o.contains("标准越位")));
@@ -494,7 +486,10 @@ mod tests {
     #[test]
     fn test_age_group_enum() {
         assert_eq!(CampusFootballAgeGroup::PrimaryJunior.name(), "小学低年级组");
-        assert_eq!(CampusFootballAgeGroup::PrimarySenior.grade_range(), "4-6年级");
+        assert_eq!(
+            CampusFootballAgeGroup::PrimarySenior.grade_range(),
+            "4-6年级"
+        );
         assert_eq!(CampusFootballAgeGroup::JuniorHigh.name(), "初中组");
     }
 

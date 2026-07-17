@@ -139,6 +139,7 @@ pub mod boxing_wbo;
 pub mod breakdancing;
 pub mod bungee_jumping;
 pub mod bungee_standards;
+pub mod campus_football;
 pub mod canoe_polo;
 pub mod capoeira;
 pub mod capoeira_roda;
@@ -532,7 +533,6 @@ pub mod xingyi;
 pub mod yoga_competition;
 pub mod youth_athletics;
 pub mod youth_swimming;
-pub mod campus_football;
 
 pub use adaptive_athletics::AdaptiveAthleticsRules;
 pub use adaptive_ball_games::AdaptiveBallGamesRules;
@@ -622,6 +622,7 @@ pub use boxing_wbo::BoxingWboRules;
 pub use breakdancing::BreakdancingRules;
 pub use bungee_jumping::BungeeJumpingRules;
 pub use bungee_standards::BungeeStandardsRules;
+pub use campus_football::{CampusFootballAgeGroup, CampusFootballRules};
 pub use canoe_polo::CanoePoloRules;
 pub use capoeira::CapoeiraRules;
 pub use capoeira_roda::CapoeiraRodaRules;
@@ -1018,7 +1019,6 @@ pub use xingyi::XingyiRules;
 pub use yoga_competition::YogaCompetitionRules;
 pub use youth_athletics::{YouthAgeGroup, YouthAthleticsRules};
 pub use youth_swimming::{YouthSwimAgeGroup, YouthSwimmingRules};
-pub use campus_football::{CampusFootballAgeGroup, CampusFootballRules};
 
 pub fn all_rules() -> Vec<(
     &'static str,

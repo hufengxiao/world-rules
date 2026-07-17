@@ -368,15 +368,15 @@ mod tests {
     #[test]
     fn test_hurdles_specifications() {
         let rules = YouthAthleticsRules::new();
-        
+
         // 少儿组不设跨栏
         let children_hurdles = rules.hurdles_specifications(YouthAgeGroup::Children);
         assert!(children_hurdles.iter().any(|h| h.contains("不设跨栏")));
-        
+
         // 少年组跨栏
         let youth_hurdles = rules.hurdles_specifications(YouthAgeGroup::Youth);
         assert!(youth_hurdles.iter().any(|h| h.contains("栏高")));
-        
+
         // 青少年组跨栏
         let junior_hurdles = rules.hurdles_specifications(YouthAgeGroup::Junior);
         assert!(junior_hurdles.iter().any(|h| h.contains("栏高")));

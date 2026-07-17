@@ -148,12 +148,7 @@ impl YouthSwimmingRules {
     pub fn starting_rules(&self, age_group: YouthSwimAgeGroup) -> Vec<&'static str> {
         match age_group {
             YouthSwimAgeGroup::Minnows => {
-                vec![
-                    "水中出发",
-                    "教练可协助准备",
-                    "不设出发跳台",
-                    "允许扶池边",
-                ]
+                vec!["水中出发", "教练可协助准备", "不设出发跳台", "允许扶池边"]
             }
             YouthSwimAgeGroup::Children => {
                 vec![
@@ -413,11 +408,11 @@ mod tests {
     #[test]
     fn test_starting_rules() {
         let rules = YouthSwimmingRules::new();
-        
+
         // 少儿组水中出发
         let minnows_start = rules.starting_rules(YouthSwimAgeGroup::Minnows);
         assert!(minnows_start.iter().any(|s| s.contains("水中出发")));
-        
+
         // 青少年组跳台出发
         let junior_start = rules.starting_rules(YouthSwimAgeGroup::Junior);
         assert!(junior_start.iter().any(|s| s.contains("跳台")));
