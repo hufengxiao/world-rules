@@ -68,6 +68,7 @@ pub mod apnea_diving;
 pub mod aquatics_detailed;
 pub mod archery;
 pub mod archery_detailed;
+pub mod asian_games;
 pub mod arm_wrestling;
 pub mod artistic_swimming_detailed;
 pub mod athletics;
@@ -559,6 +560,10 @@ pub use apnea_diving::ApneaDivingRules;
 pub use aquatics_detailed::AquaticsDetailedRules;
 pub use archery::ArcheryRules;
 pub use archery_detailed::ArcheryDetailedRules;
+pub use asian_games::{
+    AsianGamesOrganizationRules, AsianGamesQualificationRules, AsianGamesSportsProgramRules,
+    AsianGamesMedalRules,
+};
 pub use arm_wrestling::ArmWrestlingRules;
 pub use artistic_swimming_detailed::ArtisticSwimmingDetailedRules;
 pub use athletics::{AthleticsEvent, AthleticsRules};
@@ -2089,6 +2094,22 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = WorldBadmintonChampionshipsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AsianGamesOrganizationRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AsianGamesQualificationRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AsianGamesSportsProgramRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AsianGamesMedalRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     rules
