@@ -668,10 +668,10 @@ mod tests {
     #[test]
     fn test_phase_duration() {
         let duration = RehabilitationPhase::AcutePhase.duration_days();
-        assert!(duration.contains(3));
+        assert!(duration.contains(&3));
 
         let duration = RehabilitationPhase::RecoveryPhase.duration_days();
-        assert!(duration.contains(30));
+        assert!(duration.contains(&30));
     }
 
     #[test]
