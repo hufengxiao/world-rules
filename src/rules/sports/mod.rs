@@ -241,6 +241,7 @@ pub mod football_women_club_world_cup;
 pub mod football_women_euro;
 pub mod football_women_world_cup;
 pub mod football_world_cup;
+pub mod football_world_cup_detailed;
 pub mod formula_e;
 pub mod free_diving;
 pub mod free_diving_aida_detailed;
