@@ -782,7 +782,9 @@ mod tests {
         assert!(!rules.match_timing().is_empty());
         assert!(!rules.substitution_rules().is_empty());
         assert!(!rules.u23_policy().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("match".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("match".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -791,7 +793,9 @@ mod tests {
         assert!(!rules.points_system().is_empty());
         assert!(!rules.ranking_criteria().is_empty());
         assert!(!rules.acl_qualification().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("competition".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("competition".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -799,7 +803,9 @@ mod tests {
         let rules = CslPlayerRegistrationRules::new();
         assert!(!rules.squad_registration().is_empty());
         assert!(!rules.foreign_player_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("registration".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("registration".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -807,7 +813,9 @@ mod tests {
         let rules = CslTransferRules::new();
         assert!(!rules.transfer_windows().is_empty());
         assert!(!rules.adjustment_fee().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("transfer".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("transfer".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -815,7 +823,9 @@ mod tests {
         let rules = CslFinancialRules::new();
         assert!(!rules.salary_cap().is_empty());
         assert!(!rules.investment_cap().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("financial".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("financial".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -823,7 +833,9 @@ mod tests {
         let rules = CslVARRules::new();
         assert!(!rules.var_usage().is_empty());
         assert!(!rules.var_process().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("var".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("var".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -831,7 +843,9 @@ mod tests {
         let rules = CslDisciplinaryRules::new();
         assert!(!rules.yellow_card_accumulation().is_empty());
         assert!(!rules.red_card_suspension().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("disciplinary".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("disciplinary".to_string()))
+            .is_ok());
     }
 
     #[test]

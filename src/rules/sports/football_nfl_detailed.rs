@@ -870,7 +870,9 @@ mod tests {
         let rules = NflGameTimingRules::new();
         assert!(!rules.timing_rules().is_empty());
         assert!(!rules.timeout_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("timing".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("timing".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -878,7 +880,9 @@ mod tests {
         let rules = NflFieldRules::new();
         assert!(!rules.field_dimensions().is_empty());
         assert!(!rules.field_markings().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("field".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("field".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -886,7 +890,9 @@ mod tests {
         let rules = NflScoringRules::new();
         assert!(!rules.touchdown_rules().is_empty());
         assert!(!rules.field_goal_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("scoring".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("scoring".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -894,7 +900,9 @@ mod tests {
         let rules = NflOffenseRules::new();
         assert!(!rules.down_rules().is_empty());
         assert!(!rules.passing_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("offense".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("offense".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -902,7 +910,9 @@ mod tests {
         let rules = NflDefenseRules::new();
         assert!(!rules.tackling_rules().is_empty());
         assert!(!rules.interception_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("defense".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("defense".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -910,7 +920,9 @@ mod tests {
         let rules = NflDraftRules::new();
         assert!(!rules.draft_basics().is_empty());
         assert!(!rules.draft_order().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("draft".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("draft".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -918,7 +930,9 @@ mod tests {
         let rules = NflSalaryCapRules::new();
         assert!(!rules.salary_cap_basics().is_empty());
         assert!(!rules.cap_calculation().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("salary".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("salary".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -926,7 +940,9 @@ mod tests {
         let rules = NflPlayoffRules::new();
         assert!(!rules.playoff_qualification().is_empty());
         assert!(!rules.super_bowl_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("playoff".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("playoff".to_string()))
+            .is_ok());
     }
 
     #[test]

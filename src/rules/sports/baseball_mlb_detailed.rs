@@ -862,7 +862,9 @@ mod tests {
         let rules = MlbGameTimingRules::new();
         assert!(!rules.innings_rules().is_empty());
         assert!(!rules.extra_innings_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("timing".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("timing".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -870,7 +872,9 @@ mod tests {
         let rules = MlbFieldRules::new();
         assert!(!rules.field_dimensions().is_empty());
         assert!(!rules.infield_dimensions().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("field".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("field".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -878,7 +882,9 @@ mod tests {
         let rules = MlbPitchingRules::new();
         assert!(!rules.pitching_motion().is_empty());
         assert!(!rules.pitch_count().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("pitching".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("pitching".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -886,7 +892,9 @@ mod tests {
         let rules = MlbBattingRules::new();
         assert!(!rules.batting_motion().is_empty());
         assert!(!rules.out_types().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("batting".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("batting".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -894,7 +902,9 @@ mod tests {
         let rules = MlbBaseRunningRules::new();
         assert!(!rules.base_running().is_empty());
         assert!(!rules.stolen_base().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("running".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("running".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -902,7 +912,9 @@ mod tests {
         let rules = MlbDraftRules::new();
         assert!(!rules.draft_basics().is_empty());
         assert!(!rules.draft_order().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("draft".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("draft".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -910,7 +922,9 @@ mod tests {
         let rules = MlbSalaryRules::new();
         assert!(!rules.salary_rules().is_empty());
         assert!(!rules.arbitration_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("salary".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("salary".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -918,7 +932,9 @@ mod tests {
         let rules = MlbPlayoffRules::new();
         assert!(!rules.playoff_qualification().is_empty());
         assert!(!rules.world_series_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("playoff".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("playoff".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -944,7 +960,9 @@ mod tests {
     #[test]
     fn test_detailed_rules() {
         let rules = MlbDetailedRules::new();
-        assert!(rules.validate(&ValidateContext::Generic("mlb".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("mlb".to_string()))
+            .is_ok());
         let all_rules = rules.all_rules();
         assert_eq!(all_rules.len(), 8);
     }

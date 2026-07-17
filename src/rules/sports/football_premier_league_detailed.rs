@@ -730,7 +730,9 @@ mod tests {
         let rules = PremierLeagueMatchRules::new();
         assert!(!rules.match_timing().is_empty());
         assert!(!rules.substitution_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("match".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("match".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -739,7 +741,9 @@ mod tests {
         assert!(!rules.points_system().is_empty());
         assert!(!rules.ranking_criteria().is_empty());
         assert!(!rules.european_qualification().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("competition".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("competition".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -747,7 +751,9 @@ mod tests {
         let rules = PremierLeaguePlayerRegistrationRules::new();
         assert!(!rules.squad_registration().is_empty());
         assert!(!rules.homegrown_players().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("registration".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("registration".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -755,7 +761,9 @@ mod tests {
         let rules = PremierLeagueTransferRules::new();
         assert!(!rules.transfer_windows().is_empty());
         assert!(!rules.contract_rules().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("transfer".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("transfer".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -763,7 +771,9 @@ mod tests {
         let rules = PremierLeagueFinancialRules::new();
         assert!(!rules.profitability_sustainability().is_empty());
         assert!(!rules.broadcast_revenue().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("financial".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("financial".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -771,7 +781,9 @@ mod tests {
         let rules = PremierLeagueVARRules::new();
         assert!(!rules.var_usage().is_empty());
         assert!(!rules.var_process().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("var".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("var".to_string()))
+            .is_ok());
     }
 
     #[test]
@@ -779,7 +791,9 @@ mod tests {
         let rules = PremierLeagueDisciplinaryRules::new();
         assert!(!rules.yellow_card_accumulation().is_empty());
         assert!(!rules.red_card_suspension().is_empty());
-        assert!(rules.validate(&ValidateContext::Generic("disciplinary".to_string())).is_ok());
+        assert!(rules
+            .validate(&ValidateContext::Generic("disciplinary".to_string()))
+            .is_ok());
     }
 
     #[test]

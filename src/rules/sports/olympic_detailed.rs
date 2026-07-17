@@ -793,12 +793,26 @@ mod tests {
 
     #[test]
     fn test_all_rules_validate() {
-        assert!(OlympicOrganizationRules::new().validate(&ValidateContext::default()).is_ok());
-        assert!(OlympicQualificationRules::new().validate(&ValidateContext::default()).is_ok());
-        assert!(OlympicCompetitionRules::new().validate(&ValidateContext::default()).is_ok());
-        assert!(OlympicMedalRules::new().validate(&ValidateContext::default()).is_ok());
-        assert!(OlympicCeremonyRules::new().validate(&ValidateContext::default()).is_ok());
-        assert!(OlympicAntiDopingRules::new().validate(&ValidateContext::default()).is_ok());
-        assert!(OlympicArbitrationRules::new().validate(&ValidateContext::default()).is_ok());
+        assert!(OlympicOrganizationRules::new()
+            .validate(&ValidateContext::default())
+            .is_ok());
+        assert!(OlympicQualificationRules::new()
+            .validate(&ValidateContext::default())
+            .is_ok());
+        assert!(OlympicCompetitionRules::new()
+            .validate(&ValidateContext::default())
+            .is_ok());
+        assert!(OlympicMedalRules::new()
+            .validate(&ValidateContext::default())
+            .is_ok());
+        assert!(OlympicCeremonyRules::new()
+            .validate(&ValidateContext::default())
+            .is_ok());
+        assert!(OlympicAntiDopingRules::new()
+            .validate(&ValidateContext::default())
+            .is_ok());
+        assert!(OlympicArbitrationRules::new()
+            .validate(&ValidateContext::default())
+            .is_ok());
     }
 }
