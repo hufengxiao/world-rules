@@ -228,6 +228,7 @@ pub mod football_offside_detailed;
 pub mod football_olympic;
 pub mod football_penalty_rules;
 pub mod football_premier_league;
+pub mod football_premier_league_detailed;
 pub mod football_qualifying;
 pub mod football_seria;
 pub mod football_substitution_rules;
@@ -714,6 +715,11 @@ pub use football_offside_detailed::{FootballOffsideDetailedRules, OffsidePositio
 pub use football_olympic::{FootballOlympicRules, OlympicFootballStage};
 pub use football_penalty_rules::{FootballPenaltyRules, PenaltyKickType};
 pub use football_premier_league::FootballPremierLeagueRules;
+pub use football_premier_league_detailed::{
+    PremierLeagueCompetitionRules, PremierLeagueDisciplinaryRules, PremierLeagueFinancialRules,
+    PremierLeagueMatchRules, PremierLeaguePlayerRegistrationRules, PremierLeagueTransferRules,
+    PremierLeagueVARRules,
+};
 pub use football_qualifying::{FootballQualifyingRules, QualificationZone};
 pub use football_seria::FootballSeriaRules;
 pub use football_substitution_rules::{FootballSubstitutionRules, SubstitutionType};
