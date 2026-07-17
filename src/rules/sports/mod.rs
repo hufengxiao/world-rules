@@ -459,6 +459,7 @@ pub mod steeplechase;
 pub mod strongman;
 pub mod sumo;
 pub mod surf_kayak;
+pub mod sports_injury;
 pub mod surfing;
 pub mod surfing_competition;
 pub mod surfing_wsl;
@@ -973,6 +974,9 @@ pub use steeplechase::SteeplechaseRules;
 pub use strongman::StrongmanRules;
 pub use sumo::SumoRules;
 pub use surf_kayak::SurfKayakRules;
+pub use sports_injury::{
+    ConcussionGrade, InjurySeverity, InjuryType, PriceStep, ReturnToPlayStage, SportsInjuryRules,
+};
 pub use surfing::SurfingRules;
 pub use surfing_competition::SurfingCompetitionRules;
 pub use surfing_wsl::SurfingWslRules;
