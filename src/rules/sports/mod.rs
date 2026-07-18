@@ -508,6 +508,7 @@ pub mod ultimate_frisbee_wfdf_detailed;
 pub mod underwater_hockey;
 pub mod underwater_rugby;
 pub mod voivovam;
+pub mod overwatch;
 pub mod valorant;
 pub mod volleyball;
 pub mod volleyball_beach_detailed;

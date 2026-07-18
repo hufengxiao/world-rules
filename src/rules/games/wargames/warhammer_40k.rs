@@ -419,7 +419,8 @@ impl Warhammer40KRules {
         } else {
             5
         };
-        needed as f64 / 6.0
+        // 需要X+意味着骰子结果X, X+1, ..., 6都成功，共(7-X)种结果
+        (7 - needed) as f64 / 6.0
     }
 
     /// 计算护甲穿透修正
