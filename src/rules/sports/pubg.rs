@@ -14,12 +14,9 @@ pub struct PubgGameMechanicsRules {
 impl PubgGameMechanicsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "PUBG游戏机制规则",
-                "PUBG回合、缩圈、生存等基础游戏机制",
-            )
-            .with_origin("Krafton官方规则")
-            .with_tags(vec!["电竞".into(), "大逃杀".into(), "PUBG".into()]),
+            metadata: RuleMetadata::new("PUBG游戏机制规则", "PUBG回合、缩圈、生存等基础游戏机制")
+                .with_origin("Krafton官方规则")
+                .with_tags(vec!["电竞".into(), "大逃杀".into(), "PUBG".into()]),
         }
     }
 
@@ -579,7 +576,9 @@ mod tests {
     fn test_scoring_first_place() {
         let rules = PubgCompetitionRules::new();
         let scoring = rules.scoring_rules();
-        assert!(scoring.iter().any(|r| r.contains("第1名") && r.contains("15分")));
+        assert!(scoring
+            .iter()
+            .any(|r| r.contains("第1名") && r.contains("15分")));
     }
 
     #[test]

@@ -14,12 +14,9 @@ pub struct EsportsRefereeDutiesRules {
 impl EsportsRefereeDutiesRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电子竞技裁判职责规则",
-                "电子竞技比赛裁判职责和工作规范",
-            )
-            .with_origin("IESF国际电子竞技联合会")
-            .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
+            metadata: RuleMetadata::new("电子竞技裁判职责规则", "电子竞技比赛裁判职责和工作规范")
+                .with_origin("IESF国际电子竞技联合会")
+                .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
         }
     }
 
@@ -121,12 +118,9 @@ pub struct EsportsPenaltyRules {
 impl EsportsPenaltyRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电子竞技判罚标准规则",
-                "电子竞技比赛判罚标准和处罚措施",
-            )
-            .with_origin("IESF国际电子竞技联合会")
-            .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
+            metadata: RuleMetadata::new("电子竞技判罚标准规则", "电子竞技比赛判罚标准和处罚措施")
+                .with_origin("IESF国际电子竞技联合会")
+                .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
         }
     }
 
@@ -243,12 +237,9 @@ pub struct EsportsDisputeResolutionRules {
 impl EsportsDisputeResolutionRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电子竞技争议处理规则",
-                "电子竞技比赛争议处理和申诉程序",
-            )
-            .with_origin("IESF国际电子竞技联合会")
-            .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
+            metadata: RuleMetadata::new("电子竞技争议处理规则", "电子竞技比赛争议处理和申诉程序")
+                .with_origin("IESF国际电子竞技联合会")
+                .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
         }
     }
 
@@ -365,12 +356,9 @@ pub struct EsportsMatchManagementRules {
 impl EsportsMatchManagementRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new(
-                "电子竞技比赛管理规则",
-                "电子竞技比赛流程管理和组织规范",
-            )
-            .with_origin("IESF国际电子竞技联合会")
-            .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
+            metadata: RuleMetadata::new("电子竞技比赛管理规则", "电子竞技比赛流程管理和组织规范")
+                .with_origin("IESF国际电子竞技联合会")
+                .with_tags(vec!["电竞".into(), "裁判".into(), "规则".into()]),
         }
     }
 
