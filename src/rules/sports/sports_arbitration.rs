@@ -483,10 +483,9 @@ impl SportsArbitrationRules {
 
     /// 计算最低保证金（瑞士法郎）
     pub fn calculate_min_deposit(&self, dispute_amount: u32) -> u32 {
-        // CAS 最低保证金规则
-        let base = 1_000; // 基础保证金
+        // CAS 最低保证金规则：争议金额的1%，最低500瑞士法郎
         let percentage = dispute_amount / 100; // 1% 比例
-        base.max(percentage).max(500) // 最低500瑞士法郎
+        percentage.max(500) // 最低500瑞士法郎
     }
 
     /// 获取 CAS 总部信息
