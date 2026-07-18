@@ -579,7 +579,7 @@
 状态: In Progress
 
 - [x] Valorant 规则
-- [ ] Overwatch 规则
+- [x] Overwatch 规则
 - [ ] PUBG 规则
 - [ ] Fortnite 规则
 - [ ] 电子竞技裁判规则
