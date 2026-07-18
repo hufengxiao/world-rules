@@ -632,8 +632,11 @@ mod tests {
     #[test]
     fn test_consistency_validation() {
         let validator = GameRuleValidator::new();
-        let report = validator
-            .validate_consistency("游戏", vec![("规则1", "玩家A先手"), ("规则2", "玩家B先手")]);
+        // 测试真正矛盾的规则：一个说先手，一个说后手
+        let report = validator.validate_consistency(
+            "游戏",
+            vec![("规则1", "玩家A先手"), ("规则2", "玩家A后手")],
+        );
 
         assert!(!report.consistency.conflicts.is_empty());
     }
