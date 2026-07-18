@@ -455,6 +455,7 @@ pub mod speed_skating_isu;
 pub mod sports_arbitration;
 pub mod sports_facility;
 pub mod sports_injury;
+pub mod sports_organization;
 pub mod sports_rehabilitation;
 pub mod squash;
 pub mod squash_psa;
@@ -981,6 +982,14 @@ pub use sports_facility::{
 };
 pub use sports_injury::{
     ConcussionGrade, InjurySeverity, InjuryType, PriceStep, ReturnToPlayStage, SportsInjuryRules,
+};
+pub use sports_organization::{
+    ClubOperationArea, GovernancePrinciple, InternationalFederation, MembershipRequirement,
+    NOCResponsibility, OrganizationType, ProfessionalLeagueType, SportsOrganizationRules,
+};
+pub use sports_rehabilitation::{
+    RehabilitationAssessmentMetric, RehabilitationExerciseType, RehabilitationPhase,
+    RehabilitationPrinciple, ReturnToActivityCriteria, SportsRehabilitationRules,
 };
 pub use squash::SquashRules;
 pub use squash_psa::SquashPsaRules;
