@@ -396,10 +396,7 @@ impl GameRuleValidator {
             }
 
             // 检查格式（严格模式）
-            if self.strict_mode
-                && !content.ends_with('.')
-                && !content.ends_with('。')
-            {
+            if self.strict_mode && !content.ends_with('.') && !content.ends_with('。') {
                 warnings.push(format!("规则 '{}' 建议以句号结尾", name));
             }
         }
