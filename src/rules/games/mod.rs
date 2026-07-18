@@ -205,6 +205,7 @@ pub mod twenty_four_point;
 pub mod two_player_mahjong;
 pub mod uno;
 pub mod war_card;
+pub mod wargames;
 pub mod werewolf;
 pub mod who_is_spy;
 pub mod word_game;
@@ -355,6 +356,9 @@ pub use twenty_four_point::TwentyFourPointRules;
 pub use two_player_mahjong::TwoPlayerMahjongRules;
 pub use uno::UnoRules;
 pub use war_card::WarCardRules;
+pub use wargames::{
+    AgeOfSigmarRules, GenericWargameRules, MiniatureGameRules, Warhammer40KRules,
+};
 pub use werewolf::WerewolfRules;
 pub use who_is_spy::WhoIsSpyRules;
 pub use word_game::WordGameRules;
