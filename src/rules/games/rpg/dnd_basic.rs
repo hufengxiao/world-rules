@@ -3,7 +3,6 @@
 //! 龙与地下城（D&D）是世界上第一个也是最著名的桌面角色扮演游戏。
 //! 本模块实现 D&D 的基础规则系统。
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
 
 simple_rule! {

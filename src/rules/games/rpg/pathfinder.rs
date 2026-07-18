@@ -2,7 +2,6 @@
 //!
 //! Paizo Publishing 开发的 D&D 3.5 继承者，提供更深入的角色定制。
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
 
 simple_rule! {

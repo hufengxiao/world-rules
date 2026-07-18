@@ -1169,6 +1169,7 @@ macro_rules! simple_rule {
     ) => {
         #[doc = $display_name]
         #[doc = $desc]
+        #[allow(dead_code)]
         pub struct $name {
             metadata: $crate::rules::core::RuleMetadata,
         }

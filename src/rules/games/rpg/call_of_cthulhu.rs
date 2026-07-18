@@ -2,7 +2,6 @@
 //!
 //! Chaosium 开发的洛夫克拉夫特式恐怖角色扮演游戏。
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
 
 simple_rule! {

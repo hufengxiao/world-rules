@@ -3,7 +3,6 @@
 //! D&D 第五版（2014年发布）的核心规则扩展。
 //! 包含更详细的战斗、施法和角色创建规则。
 
-use crate::rules::core::{Rule, RuleCategory, RuleMetadata, RuleResult, ValidateContext};
 use crate::simple_rule;
 
 simple_rule! {
