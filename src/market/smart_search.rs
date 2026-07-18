@@ -145,7 +145,7 @@ impl SmartSearchEngine {
             .map(|(k, v)| (k.clone(), *v))
             .collect();
 
-        hot.sort_by(|a, b| b.1.cmp(&a.1));
+        hot.sort_by_key(|b| std::cmp::Reverse(b.1));
         hot.truncate(limit);
 
         hot
@@ -329,7 +329,7 @@ impl SearchAnalyzer {
     /// * `limit` - 返回数量限制
     pub fn get_top_searches(&self, limit: usize) -> Vec<&SmartSearchStats> {
         let mut top: Vec<&SmartSearchStats> = self.stats.values().collect();
-        top.sort_by(|a, b| b.total_searches.cmp(&a.total_searches));
+        top.sort_by_key(|b| std::cmp::Reverse(b.total_searches));
         top.truncate(limit);
         top
     }
