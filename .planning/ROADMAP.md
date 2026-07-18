@@ -581,7 +581,7 @@
 - [x] Valorant 规则
 - [x] Overwatch 规则
 - [x] PUBG 规则
-- [ ] Fortnite 规则
+- [x] Fortnite 规则
 - [ ] 电子竞技裁判规则
 - **验收**: 电竞扩展测试通过
 - **稳定性要求**: 测试覆盖率 ≥ 70%

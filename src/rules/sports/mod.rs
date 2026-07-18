@@ -200,6 +200,7 @@ pub mod fitness_competition;
 pub mod five_aside_football;
 pub mod floorball;
 pub mod floorball_iff;
+pub mod fortnite;
 pub mod foosball;
 pub mod foosball_itsf_detailed;
 pub mod football;
