@@ -452,12 +452,7 @@ pub struct FieldMaintenanceRequirement {
 
 impl FieldMaintenanceRequirement {
     /// 创建新维护要求
-    pub fn new(
-        name: &str,
-        surface_type: FieldSurfaceType,
-        frequency: u32,
-        standard: &str,
-    ) -> Self {
+    pub fn new(name: &str, surface_type: FieldSurfaceType, frequency: u32, standard: &str) -> Self {
         Self {
             name: name.to_string(),
             surface_type,
@@ -482,7 +477,12 @@ pub struct SafetyCheckItem {
 
 impl SafetyCheckItem {
     /// 创建新检查项
-    pub fn new(name: &str, check_type: SafetyFacilityType, mandatory: bool, standard: &str) -> Self {
+    pub fn new(
+        name: &str,
+        check_type: SafetyFacilityType,
+        mandatory: bool,
+        standard: &str,
+    ) -> Self {
         Self {
             name: name.to_string(),
             check_type,
@@ -650,10 +650,10 @@ impl SportsFacilityRules {
     pub fn equipment_inspection_standards(&self) -> Vec<(&'static str, u32)> {
         vec![
             ("比赛用球", 30),  // 每30天检验
-            ("计时设备", 90),   // 每90天检验
-            ("裁判设备", 180),  // 每180天检验
-            ("安全设备", 30),   // 每30天检验
-            ("医疗设备", 7),    // 每7天检验
+            ("计时设备", 90),  // 每90天检验
+            ("裁判设备", 180), // 每180天检验
+            ("安全设备", 30),  // 每30天检验
+            ("医疗设备", 7),   // 每7天检验
         ]
     }
 
@@ -747,16 +747,19 @@ impl SportsFacilityRules {
                 surface_type,
                 FieldSurfaceType::NaturalGrass | FieldSurfaceType::ArtificialTurf
             ),
-            "篮球" => matches!(surface_type, FieldSurfaceType::WoodenFloor | FieldSurfaceType::Concrete),
+            "篮球" => matches!(
+                surface_type,
+                FieldSurfaceType::WoodenFloor | FieldSurfaceType::Concrete
+            ),
             "网球" => matches!(
                 surface_type,
-                FieldSurfaceType::Clay
-                    | FieldSurfaceType::HardCourt
-                    | FieldSurfaceType::Grass
+                FieldSurfaceType::Clay | FieldSurfaceType::HardCourt | FieldSurfaceType::Grass
             ),
             "游泳" => matches!(surface_type, FieldSurfaceType::Water),
             "田径" => matches!(surface_type, FieldSurfaceType::SyntheticTrack),
-            "冰球" | "花样滑冰" | "速度滑冰" => matches!(surface_type, FieldSurfaceType::Ice),
+            "冰球" | "花样滑冰" | "速度滑冰" => {
+                matches!(surface_type, FieldSurfaceType::Ice)
+            }
             "滑雪" => matches!(surface_type, FieldSurfaceType::Snow),
             "沙滩排球" => matches!(surface_type, FieldSurfaceType::Sand),
             _ => true, // 其他运动默认接受
@@ -834,9 +837,18 @@ mod tests {
         assert_eq!(types.len(), 10);
 
         // 验证检查频率
-        assert_eq!(SafetyFacilityType::FireSafety.inspection_frequency_days(), 30);
-        assert_eq!(SafetyFacilityType::EmergencyExit.inspection_frequency_days(), 7);
-        assert_eq!(SafetyFacilityType::MedicalStation.inspection_frequency_days(), 1);
+        assert_eq!(
+            SafetyFacilityType::FireSafety.inspection_frequency_days(),
+            30
+        );
+        assert_eq!(
+            SafetyFacilityType::EmergencyExit.inspection_frequency_days(),
+            7
+        );
+        assert_eq!(
+            SafetyFacilityType::MedicalStation.inspection_frequency_days(),
+            1
+        );
     }
 
     #[test]
@@ -975,9 +987,15 @@ mod tests {
     #[test]
     fn test_field_surface_maintenance_frequency() {
         // 天然草坪需要每日维护
-        assert_eq!(FieldSurfaceType::NaturalGrass.maintenance_frequency_days(), 1);
+        assert_eq!(
+            FieldSurfaceType::NaturalGrass.maintenance_frequency_days(),
+            1
+        );
         // 塑胶跑道需要每月维护
-        assert_eq!(FieldSurfaceType::SyntheticTrack.maintenance_frequency_days(), 30);
+        assert_eq!(
+            FieldSurfaceType::SyntheticTrack.maintenance_frequency_days(),
+            30
+        );
     }
 
     #[test]
@@ -989,9 +1007,18 @@ mod tests {
 
     #[test]
     fn test_field_certification_level_names() {
-        assert_eq!(FieldCertificationLevel::FifaCertified.name(), "国际足联认证");
-        assert_eq!(FieldCertificationLevel::FibaCertified.name(), "国际篮联认证");
-        assert_eq!(FieldCertificationLevel::OlympicCertified.name(), "奥运会认证");
+        assert_eq!(
+            FieldCertificationLevel::FifaCertified.name(),
+            "国际足联认证"
+        );
+        assert_eq!(
+            FieldCertificationLevel::FibaCertified.name(),
+            "国际篮联认证"
+        );
+        assert_eq!(
+            FieldCertificationLevel::OlympicCertified.name(),
+            "奥运会认证"
+        );
     }
 
     #[test]

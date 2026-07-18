@@ -971,8 +971,8 @@ pub use speed_skating_detailed::SpeedSkatingDetailedRules;
 pub use speed_skating_isu::SpeedSkatingIsuRules;
 pub use sports_facility::{
     EquipmentType, FieldCertificationLevel, FieldMaintenanceRequirement, FieldQualityLevel,
-    FieldSpecification, FieldSurfaceType, SafetyCheckItem, SafetyFacilityType,
-    SportsFacilityRules, StadiumType,
+    FieldSpecification, FieldSurfaceType, SafetyCheckItem, SafetyFacilityType, SportsFacilityRules,
+    StadiumType,
 };
 pub use sports_injury::{
     ConcussionGrade, InjurySeverity, InjuryType, PriceStep, ReturnToPlayStage, SportsInjuryRules,
