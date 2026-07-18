@@ -633,9 +633,15 @@ impl EntityExtractor {
     /// 提取关键词前后的上下文
     fn extract_context(&self, text: &str, keyword: &str) -> String {
         if let Some(pos) = text.find(keyword) {
-            let start = pos.saturating_sub(10);
-            let end = (pos + keyword.len() + 20).min(text.len());
-            text[start..end].to_string()
+            // 计算字节位置
+            let start_byte = pos.saturating_sub(10);
+            let end_byte = (pos + keyword.len() + 20).min(text.len());
+
+            // 找到有效的字符边界
+            let start_byte = text.floor_char_boundary(start_byte);
+            let end_byte = text.floor_char_boundary(end_byte);
+
+            text[start_byte..end_byte].to_string()
         } else {
             keyword.to_string()
         }

@@ -333,6 +333,13 @@ impl TemplateLearner {
 
             if line.starts_with("impl ") {
                 in_impl = true;
+                continue;
+            }
+
+            // 检查impl块结束
+            if in_impl && line == "}" {
+                in_impl = false;
+                continue;
             }
 
             if in_impl && line.starts_with("fn ") {
