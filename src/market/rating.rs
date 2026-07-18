@@ -365,11 +365,19 @@ mod tests {
         let mut engine = RecommendationEngine::new();
         engine.update_preference("user-1", "games", 2.0);
 
-        let mut package1 = RulePackage::new("test-1", "游戏规则", "games");
+        let mut package1 = RulePackage::new(
+            "test-1".to_string(),
+            "游戏规则".to_string(),
+            "games".to_string(),
+        );
         package1.rating = 4.5;
         package1.downloads = 100;
 
-        let mut package2 = RulePackage::new("test-2", "体育规则", "sports");
+        let mut package2 = RulePackage::new(
+            "test-2".to_string(),
+            "体育规则".to_string(),
+            "sports".to_string(),
+        );
         package2.rating = 4.0;
         package2.downloads = 50;
 
@@ -385,10 +393,18 @@ mod tests {
     fn test_recommendation_engine_no_preferences() {
         let engine = RecommendationEngine::new();
 
-        let mut package1 = RulePackage::new("test-1", "高评分", "games");
+        let mut package1 = RulePackage::new(
+            "test-1".to_string(),
+            "高评分".to_string(),
+            "games".to_string(),
+        );
         package1.rating = 5.0;
 
-        let mut package2 = RulePackage::new("test-2", "低评分", "games");
+        let mut package2 = RulePackage::new(
+            "test-2".to_string(),
+            "低评分".to_string(),
+            "games".to_string(),
+        );
         package2.rating = 3.0;
 
         let packages = vec![package1.clone(), package2.clone()];

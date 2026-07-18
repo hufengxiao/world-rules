@@ -384,6 +384,7 @@ impl<T> ApiResponse<T> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::market::MarketConfig;
 
     #[test]
     fn test_web_config_default() {
