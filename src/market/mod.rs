@@ -24,11 +24,13 @@
 //! println!("找到 {} 个规则", results.len());
 //! ```
 
+mod rating;
 mod search;
 mod types;
 mod upload;
 mod web;
 
+pub use rating::*;
 pub use search::*;
 pub use types::*;
 pub use upload::*;
