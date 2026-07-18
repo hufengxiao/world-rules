@@ -1,5 +1,6 @@
 //! 规则模块 - 包含所有规则定义
 
+pub mod analysis;
 pub mod core;
 pub mod game_design_tools;
 pub mod games;
