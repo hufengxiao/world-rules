@@ -157,6 +157,19 @@ impl SearchEngine {
                 .or_default()
                 .push(rule_id.to_string());
         }
+
+        // 对于中文字符串，进行字符级索引（支持部分匹配）
+        let chars: Vec<char> = text.chars().collect();
+        // 索引 2-4 字符的子串
+        for len in 2..=4.min(chars.len()) {
+            for i in 0..=chars.len() - len {
+                let substr: String = chars[i..i + len].iter().collect();
+                self.inverted_index
+                    .entry(substr)
+                    .or_default()
+                    .push(rule_id.to_string());
+            }
+        }
     }
 
     /// 执行搜索
