@@ -32,11 +32,13 @@
 //! - 其他兼容 OpenAI API 的服务
 
 pub mod generator;
+pub mod learner;
 pub mod llm;
 pub mod template;
 pub mod validator;
 
 pub use generator::{GenerateConfig, GenerateResult, RuleGenerator};
+pub use learner::{LearningStats, RulePattern, TemplateLearner};
 pub use llm::{LLMConfig, LLMError, LLMProvider, MockLLMProvider};
 pub use template::{RuleTemplate, TemplateLibrary};
 pub use validator::{GeneratedRuleValidator, ValidationResult};
@@ -47,4 +49,5 @@ pub mod prelude {
     pub use crate::ai::{LLMConfig, LLMProvider};
     pub use crate::ai::{RuleTemplate, TemplateLibrary};
     pub use crate::ai::{GeneratedRuleValidator, ValidationResult};
+    pub use crate::ai::{TemplateLearner, LearningStats, RulePattern};
 }
