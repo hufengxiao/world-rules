@@ -26,8 +26,10 @@
 
 mod search;
 mod types;
+mod upload;
 mod web;
 
 pub use search::*;
 pub use types::*;
+pub use upload::*;
 pub use web::*;

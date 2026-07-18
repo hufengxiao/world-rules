@@ -601,9 +601,9 @@
 ## ⚪ Phase 57-60: INNOVATION 轨道（创新功能）
 
 ### Phase 57: 规则市场基础
-状态: Not started
+状态: In progress
 
-- [ ] 规则市场 Web 界面
+- [x] 规则市场 Web 界面
 - [ ] 规则上传/下载功能
 - [ ] 规则评分系统
 - [ ] 规则搜索功能
