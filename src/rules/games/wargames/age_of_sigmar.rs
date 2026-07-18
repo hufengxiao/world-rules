@@ -130,9 +130,9 @@ impl Faction {
             | Faction::CitiesOfSigmar
             | Faction::LuminethRealmLords
             | Faction::Seraphon => GrandAlliance::Order,
-            Faction::SlavesToDarkness | Faction::MaggotkinOfNurgle | Faction::HedonitesOfSlaanesh => {
-                GrandAlliance::Chaos
-            }
+            Faction::SlavesToDarkness
+            | Faction::MaggotkinOfNurgle
+            | Faction::HedonitesOfSlaanesh => GrandAlliance::Chaos,
             Faction::SoulblightGravelords | Faction::OssiarchBonereapers => GrandAlliance::Death,
             Faction::Ironjawz => GrandAlliance::Destruction,
         }
@@ -368,9 +368,18 @@ mod tests {
         let rules = AgeOfSigmarRules::new();
         let factions = rules.factions();
         assert_eq!(factions.len(), 10);
-        assert_eq!(Faction::StormcastEternals.grand_alliance(), GrandAlliance::Order);
-        assert_eq!(Faction::SlavesToDarkness.grand_alliance(), GrandAlliance::Chaos);
-        assert_eq!(Faction::SoulblightGravelords.grand_alliance(), GrandAlliance::Death);
+        assert_eq!(
+            Faction::StormcastEternals.grand_alliance(),
+            GrandAlliance::Order
+        );
+        assert_eq!(
+            Faction::SlavesToDarkness.grand_alliance(),
+            GrandAlliance::Chaos
+        );
+        assert_eq!(
+            Faction::SoulblightGravelords.grand_alliance(),
+            GrandAlliance::Death
+        );
     }
 
     #[test]

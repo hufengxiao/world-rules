@@ -356,9 +356,7 @@ pub use twenty_four_point::TwentyFourPointRules;
 pub use two_player_mahjong::TwoPlayerMahjongRules;
 pub use uno::UnoRules;
 pub use war_card::WarCardRules;
-pub use wargames::{
-    AgeOfSigmarRules, GenericWargameRules, MiniatureGameRules, Warhammer40KRules,
-};
+pub use wargames::{AgeOfSigmarRules, GenericWargameRules, MiniatureGameRules, Warhammer40KRules};
 pub use werewolf::WerewolfRules;
 pub use who_is_spy::WhoIsSpyRules;
 pub use word_game::WordGameRules;
