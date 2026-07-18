@@ -26,12 +26,14 @@
 
 mod rating;
 mod search;
+mod smart_search;
 mod types;
 mod upload;
 mod web;
 
 pub use rating::*;
 pub use search::*;
+pub use smart_search::*;
 pub use types::*;
 pub use upload::*;
 pub use web::*;
