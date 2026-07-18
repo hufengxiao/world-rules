@@ -5,6 +5,7 @@
 //! - **卡牌游戏**: 扑克、斗地主、麻将、德州扑克等
 //! - **桌游**: 大富翁、卡坦岛、风险等
 //! - **益智游戏**: 数独、魔方、24 点等
+//! - **角色扮演游戏**: D&D、Pathfinder、克苏鲁的呼唤等
 //!
 //! # 模块结构
 //!
@@ -13,6 +14,7 @@
 //! ├── board_games/    # 棋类游戏（象棋、围棋等）
 //! ├── card_games/     # 卡牌游戏（扑克牌型评估）
 //! ├── mahjong/        # 麻将核心逻辑和各地变体
+//! ├── rpg/            # 角色扮演游戏（D&D、Pathfinder、CoC）
 //! ├── traits.rs       # 游戏规则通用 trait 设计
 //! ├── *其他游戏       # 各类独立游戏规则
 //! ```
@@ -175,6 +177,7 @@ pub mod quarto;
 pub mod railway_tycoon;
 pub mod reversi;
 pub mod risk;
+pub mod rpg;
 pub mod rubiks_cube;
 pub mod rummy_detailed;
 pub mod scrabble;
