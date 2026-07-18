@@ -34,6 +34,7 @@
 pub mod generator;
 pub mod learner;
 pub mod llm;
+pub mod optimizer;
 pub mod template;
 pub mod validated_generator;
 pub mod validator;
@@ -41,6 +42,7 @@ pub mod validator;
 pub use generator::{GenerateConfig, GenerateResult, RuleGenerator};
 pub use learner::{LearningStats, RulePattern, TemplateLearner};
 pub use llm::{LLMConfig, LLMError, LLMProvider, MockLLMProvider};
+pub use optimizer::{OptimizationReport, OptimizationSuggestion, RuleOptimizer, SuggestionType};
 pub use template::{RuleTemplate, TemplateLibrary};
 pub use validated_generator::{
     GenerateStats, ValidatedGenerateConfig, ValidatedGenerateResult, ValidatedRuleGenerator,
@@ -55,4 +57,5 @@ pub mod prelude {
     pub use crate::ai::{GeneratedRuleValidator, ValidationResult};
     pub use crate::ai::{TemplateLearner, LearningStats, RulePattern};
     pub use crate::ai::{ValidatedRuleGenerator, ValidatedGenerateConfig, GenerateStats};
+    pub use crate::ai::{RuleOptimizer, OptimizationSuggestion, OptimizationReport, SuggestionType};
 }
