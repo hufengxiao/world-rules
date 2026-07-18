@@ -283,6 +283,31 @@ impl CallOfCthulhuRules {
     }
 }
 
+impl crate::rules::core::Rule for CallOfCthulhuRules {
+    fn metadata(&self) -> &crate::rules::core::RuleMetadata {
+        &self.metadata
+    }
+    fn category(&self) -> crate::rules::core::RuleCategory {
+        crate::rules::core::RuleCategory::games("rpg")
+    }
+    fn validate(
+        &self,
+        _ctx: &crate::rules::core::ValidateContext,
+    ) -> crate::rules::core::RuleResult<bool> {
+        Ok(true)
+    }
+    fn explain(&self) -> String {
+        crate::rules::core::format_rule_sections(
+            "克苏鲁的呼唤规则",
+            &[
+                ("概述", &self.section_overview()),
+                ("属性", &self.section_attributes()),
+                ("技能", &self.section_skills()),
+            ],
+        )
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

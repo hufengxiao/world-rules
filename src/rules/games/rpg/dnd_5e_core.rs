@@ -340,6 +340,30 @@ impl Dnd5eCoreRules {
     }
 }
 
+impl crate::rules::core::Rule for Dnd5eCoreRules {
+    fn metadata(&self) -> &crate::rules::core::RuleMetadata {
+        &self.metadata
+    }
+    fn category(&self) -> crate::rules::core::RuleCategory {
+        crate::rules::core::RuleCategory::games("rpg")
+    }
+    fn validate(
+        &self,
+        _ctx: &crate::rules::core::ValidateContext,
+    ) -> crate::rules::core::RuleResult<bool> {
+        Ok(true)
+    }
+    fn explain(&self) -> String {
+        crate::rules::core::format_rule_sections(
+            "D&D 5e 核心规则",
+            &[
+                ("专长", &self.section_feats()),
+                ("战斗机巧", &self.section_combat_maneuvers()),
+            ],
+        )
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

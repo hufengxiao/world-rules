@@ -243,6 +243,30 @@ impl PathfinderRules {
     }
 }
 
+impl crate::rules::core::Rule for PathfinderRules {
+    fn metadata(&self) -> &crate::rules::core::RuleMetadata {
+        &self.metadata
+    }
+    fn category(&self) -> crate::rules::core::RuleCategory {
+        crate::rules::core::RuleCategory::games("rpg")
+    }
+    fn validate(
+        &self,
+        _ctx: &crate::rules::core::ValidateContext,
+    ) -> crate::rules::core::RuleResult<bool> {
+        Ok(true)
+    }
+    fn explain(&self) -> String {
+        crate::rules::core::format_rule_sections(
+            "路径探路者规则",
+            &[
+                ("概述", &self.section_overview()),
+                ("职业", &self.section_pf1_classes()),
+            ],
+        )
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
