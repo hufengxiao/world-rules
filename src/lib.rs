@@ -58,6 +58,7 @@
 //! ```
 
 pub mod i18n;
+pub mod market;
 pub mod performance_checker;
 pub mod plugins;
 pub mod prelude;
