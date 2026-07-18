@@ -59,6 +59,7 @@
 
 pub mod ai;
 pub mod i18n;
+pub mod knowledge_graph;
 pub mod market;
 pub mod performance_checker;
 pub mod plugins;

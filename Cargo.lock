@@ -972,6 +972,7 @@ dependencies = [
  "chrono",
  "criterion",
  "proptest",
+ "regex",
  "serde",
  "serde_json",
  "thiserror",
