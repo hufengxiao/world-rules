@@ -27,21 +27,19 @@
 //! ```
 
 pub mod entity;
-pub mod relation;
 pub mod graph;
 pub mod inference;
+pub mod relation;
 
 pub use entity::{Entity, EntityExtractor, EntityType};
-pub use relation::{Relation, RelationExtractor, RelationType};
-pub use graph::{KnowledgeGraph, GraphNode, GraphEdge, GraphStats};
+pub use graph::{GraphEdge, GraphNode, GraphStats, KnowledgeGraph};
 pub use inference::{InferenceEngine, InferenceResult, InferenceRule};
+pub use relation::{Relation, RelationExtractor, RelationType};
 
 /// 知识图谱模块的公共接口
 pub mod prelude {
     pub use crate::knowledge_graph::{
-        Entity, EntityExtractor, EntityType,
-        Relation, RelationExtractor, RelationType,
-        KnowledgeGraph, GraphNode, GraphEdge, GraphStats,
-        InferenceEngine, InferenceResult, InferenceRule,
+        Entity, EntityExtractor, EntityType, GraphEdge, GraphNode, GraphStats, InferenceEngine,
+        InferenceResult, InferenceRule, KnowledgeGraph, Relation, RelationExtractor, RelationType,
     };
 }

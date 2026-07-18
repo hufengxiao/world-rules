@@ -59,10 +59,7 @@ impl RelationType {
     /// assert!(RelationType::Requires.is_causal());
     /// ```
     pub fn is_causal(&self) -> bool {
-        matches!(
-            self,
-            Self::Causes | Self::Requires | Self::Implies
-        )
+        matches!(self, Self::Causes | Self::Requires | Self::Implies)
     }
 
     /// 检查是否为冲突关系类型
@@ -88,10 +85,7 @@ impl RelationType {
     /// assert!(!RelationType::Prohibits.is_positive());
     /// ```
     pub fn is_positive(&self) -> bool {
-        matches!(
-            self,
-            Self::Permits | Self::Equivalent
-        )
+        matches!(self, Self::Permits | Self::Equivalent)
     }
 
     /// 获取关系显示名称
@@ -177,7 +171,9 @@ impl Relation {
         let target_entity = target_entity.into();
         let id = format!(
             "{}_{}_{}",
-            source_entity, relation_type.display_name(), target_entity
+            source_entity,
+            relation_type.display_name(),
+            target_entity
         );
         Self {
             id,
@@ -297,20 +293,39 @@ impl RelationExtractor {
         Self {
             config: RelationExtractorConfig::default(),
             causal_keywords: vec![
-                "导致".into(), "引起".into(), "产生".into(), "造成".into(),
-                "会".into(), "将".into(), "将会".into(),
+                "导致".into(),
+                "引起".into(),
+                "产生".into(),
+                "造成".into(),
+                "会".into(),
+                "将".into(),
+                "将会".into(),
             ],
             prohibit_keywords: vec![
-                "禁止".into(), "不得".into(), "不能".into(), "不许".into(),
-                "严禁".into(), "不可".into(), "禁止".into(),
+                "禁止".into(),
+                "不得".into(),
+                "不能".into(),
+                "不许".into(),
+                "严禁".into(),
+                "不可".into(),
+                "禁止".into(),
             ],
             permit_keywords: vec![
-                "允许".into(), "可以".into(), "许可".into(), "能够".into(),
-                "有权".into(), "可".into(),
+                "允许".into(),
+                "可以".into(),
+                "许可".into(),
+                "能够".into(),
+                "有权".into(),
+                "可".into(),
             ],
             condition_keywords: vec![
-                "如果".into(), "当".into(), "若".into(), "在".into(),
-                "满足".into(), "符合".into(), "具备".into(),
+                "如果".into(),
+                "当".into(),
+                "若".into(),
+                "在".into(),
+                "满足".into(),
+                "符合".into(),
+                "具备".into(),
             ],
         }
     }
@@ -404,7 +419,9 @@ impl RelationExtractor {
         for keyword in &self.causal_keywords {
             if text.contains(keyword) {
                 // 找到关键词前后的实体，建立关系
-                if let Some(relation) = self.create_relation_by_keyword(entities, text, keyword, RelationType::Causes) {
+                if let Some(relation) =
+                    self.create_relation_by_keyword(entities, text, keyword, RelationType::Causes)
+                {
                     relations.push(relation);
                 }
             }

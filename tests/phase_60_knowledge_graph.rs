@@ -1,10 +1,8 @@
 //! Phase 60 测试 - 规则知识图谱
 
 use world_rules::knowledge_graph::{
-    Entity, EntityExtractor, EntityType,
-    KnowledgeGraph, GraphNode, GraphEdge, GraphStats,
-    Relation, RelationExtractor, RelationType,
-    InferenceEngine, InferenceResult, InferenceRule,
+    Entity, EntityExtractor, EntityType, GraphEdge, GraphNode, GraphStats, InferenceEngine,
+    InferenceResult, InferenceRule, KnowledgeGraph, Relation, RelationExtractor, RelationType,
 };
 
 #[test]
@@ -41,7 +39,9 @@ fn test_entity_extractor_basic() {
     assert!(!entities.is_empty());
 
     // 应该检测到主体
-    let has_subject = entities.iter().any(|e| e.entity_type == EntityType::Subject);
+    let has_subject = entities
+        .iter()
+        .any(|e| e.entity_type == EntityType::Subject);
     assert!(has_subject);
 
     // 应该检测到动作
@@ -283,8 +283,7 @@ fn test_inference_engine_consistency() {
 
 #[test]
 fn test_inference_rule_creation() {
-    let rule = InferenceRule::new("测试规则", "这是一个测试规则")
-        .with_confidence(0.9);
+    let rule = InferenceRule::new("测试规则", "这是一个测试规则").with_confidence(0.9);
 
     assert_eq!(rule.name, "测试规则");
     assert_eq!(rule.description, "这是一个测试规则");
@@ -293,8 +292,7 @@ fn test_inference_rule_creation() {
 
 #[test]
 fn test_inference_result() {
-    let result = InferenceResult::success("推理成功")
-        .with_confidence(0.85);
+    let result = InferenceResult::success("推理成功").with_confidence(0.85);
 
     assert!(result.is_success());
     assert_eq!(result.confidence, 0.85);
@@ -316,10 +314,13 @@ fn test_complete_workflow() {
     // 3. 创建关系抽取器并抽取关系
     let relation_extractor = RelationExtractor::new();
     let relations = relation_extractor.extract(
-        graph.get_all_nodes().iter().map(|n| {
-            Entity::new(&n.name, n.entity_type)
-        }).collect::<Vec<_>>().as_slice(),
-        "球员犯规会被出示黄牌"
+        graph
+            .get_all_nodes()
+            .iter()
+            .map(|n| Entity::new(&n.name, n.entity_type))
+            .collect::<Vec<_>>()
+            .as_slice(),
+        "球员犯规会被出示黄牌",
     );
     graph.add_relations(relations);
 

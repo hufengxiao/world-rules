@@ -166,7 +166,10 @@ impl OptimizationReport {
     }
 
     /// 获取指定类型的建议
-    pub fn suggestions_by_type(&self, suggestion_type: &SuggestionType) -> Vec<&OptimizationSuggestion> {
+    pub fn suggestions_by_type(
+        &self,
+        suggestion_type: &SuggestionType,
+    ) -> Vec<&OptimizationSuggestion> {
         self.suggestions
             .iter()
             .filter(|s| s.suggestion_type == *suggestion_type)
@@ -280,7 +283,7 @@ impl RuleOptimizer {
 
         for code in codes {
             let report = self.analyze(code);
-            
+
             // 合并建议
             for suggestion in report.suggestions {
                 combined_report.add_suggestion(suggestion);
@@ -524,13 +527,10 @@ mod tests {
 
     #[test]
     fn test_suggestion_creation() {
-        let suggestion = OptimizationSuggestion::new(
-            SuggestionType::Performance,
-            "测试建议",
-            "测试描述",
-        )
-        .with_priority(2)
-        .with_impact("测试影响");
+        let suggestion =
+            OptimizationSuggestion::new(SuggestionType::Performance, "测试建议", "测试描述")
+                .with_priority(2)
+                .with_impact("测试影响");
 
         assert_eq!(suggestion.suggestion_type, SuggestionType::Performance);
         assert_eq!(suggestion.title, "测试建议");
@@ -542,11 +542,8 @@ mod tests {
         let mut report = OptimizationReport::new();
         assert_eq!(report.suggestions_count, 0);
 
-        let suggestion = OptimizationSuggestion::new(
-            SuggestionType::CodeQuality,
-            "测试",
-            "测试",
-        ).with_priority(1);
+        let suggestion = OptimizationSuggestion::new(SuggestionType::CodeQuality, "测试", "测试")
+            .with_priority(1);
 
         report.add_suggestion(suggestion);
         assert_eq!(report.suggestions_count, 1);
@@ -641,12 +638,10 @@ fn test_rule() {}
         let mut report = OptimizationReport::new();
 
         report.add_suggestion(
-            OptimizationSuggestion::new(SuggestionType::TestCoverage, "高", "")
-                .with_priority(1),
+            OptimizationSuggestion::new(SuggestionType::TestCoverage, "高", "").with_priority(1),
         );
         report.add_suggestion(
-            OptimizationSuggestion::new(SuggestionType::CodeQuality, "低", "")
-                .with_priority(5),
+            OptimizationSuggestion::new(SuggestionType::CodeQuality, "低", "").with_priority(5),
         );
 
         let high = report.high_priority_suggestions();

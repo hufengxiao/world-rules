@@ -310,20 +310,11 @@ impl InferenceEngine {
     fn default_rules() -> Vec<InferenceRule> {
         vec![
             // 传递规则：如果 A -> B -> C，则 A -> C
-            InferenceRule::new(
-                "传递推理",
-                "如果 A 导致 B，B 导致 C，则 A 导致 C",
-            ),
+            InferenceRule::new("传递推理", "如果 A 导致 B，B 导致 C，则 A 导致 C"),
             // 矛盾规则：如果 A 禁止 B，A 发生，则 B 不应该发生
-            InferenceRule::new(
-                "禁止推理",
-                "如果 A 禁止 B，A 发生，则 B 不应该发生",
-            ),
+            InferenceRule::new("禁止推理", "如果 A 禁止 B，A 发生，则 B 不应该发生"),
             // 逆否推理：如果 A -> B，则 !B -> !A
-            InferenceRule::new(
-                "逆否推理",
-                "如果 A 蕴含 B，则非 B 蕴含非 A",
-            ),
+            InferenceRule::new("逆否推理", "如果 A 蕴含 B，则非 B 蕴含非 A"),
         ]
     }
 
@@ -353,7 +344,6 @@ impl InferenceEngine {
         }
 
         // 执行推理
-        
 
         self.execute_inference(query_text)
     }
@@ -393,12 +383,7 @@ impl InferenceEngine {
     }
 
     /// 从实体出发进行推理
-    fn infer_from_entity(
-        &self,
-        entity_name: &str,
-        result: &mut InferenceResult,
-        depth: usize,
-    ) {
+    fn infer_from_entity(&self, entity_name: &str, result: &mut InferenceResult, depth: usize) {
         if depth >= self.config.max_depth {
             return;
         }
@@ -438,18 +423,13 @@ impl InferenceEngine {
         for next_edge in self.graph.get_out_edges(&edge.target) {
             if next_edge.relation_type == edge.relation_type {
                 // 推导出新关系
-                let inferred = Relation::new(
-                    &edge.source,
-                    &next_edge.target,
-                    edge.relation_type,
-                )
-                .with_confidence(edge.confidence * 0.9);
+                let inferred = Relation::new(&edge.source, &next_edge.target, edge.relation_type)
+                    .with_confidence(edge.confidence * 0.9);
 
                 result.add_inferred_relation(inferred);
                 result.add_path_step(format!(
                     "传递推理: {} -> {} -> {} 蕴含 {} -> {}",
-                    edge.source, edge.relation_type, edge.target,
-                    edge.source, next_edge.target
+                    edge.source, edge.relation_type, edge.target, edge.source, next_edge.target
                 ));
 
                 // 递归推理
@@ -464,15 +444,11 @@ impl InferenceEngine {
         edge: &crate::knowledge_graph::graph::GraphEdge,
         result: &mut InferenceResult,
     ) {
-        result.add_path_step(format!(
-            "发现冲突: {} 禁止 {}",
-            edge.source, edge.target
-        ));
+        result.add_path_step(format!("发现冲突: {} 禁止 {}", edge.source, edge.target));
 
         // 查找是否有违反冲突的情况
         for other_edge in self.graph.get_out_edges(&edge.source) {
-            if other_edge.target == edge.target
-                && other_edge.relation_type == RelationType::Permits
+            if other_edge.target == edge.target && other_edge.relation_type == RelationType::Permits
             {
                 result.add_path_step(format!(
                     "警告: 检测到矛盾 - {} 既禁止又允许 {}",
@@ -498,14 +474,16 @@ impl InferenceEngine {
         for edge in self.graph.get_all_edges() {
             for other_edge in self.graph.get_all_edges() {
                 // 检查同一对实体之间是否有冲突关系
-                if edge.source == other_edge.source && edge.target == other_edge.target
-                    && edge.relation_type.is_conflict() && other_edge.relation_type.is_positive() {
-                        result.add_path_step(format!(
-                            "冲突: {} 和 {} 对同一对实体 {} -> {}",
-                            edge.relation_type, other_edge.relation_type,
-                            edge.source, edge.target
-                        ));
-                    }
+                if edge.source == other_edge.source
+                    && edge.target == other_edge.target
+                    && edge.relation_type.is_conflict()
+                    && other_edge.relation_type.is_positive()
+                {
+                    result.add_path_step(format!(
+                        "冲突: {} 和 {} 对同一对实体 {} -> {}",
+                        edge.relation_type, other_edge.relation_type, edge.source, edge.target
+                    ));
+                }
             }
         }
 
@@ -529,8 +507,7 @@ mod tests {
 
     #[test]
     fn test_inference_rule() {
-        let rule = InferenceRule::new("测试规则", "这是一个测试规则")
-            .with_confidence(0.9);
+        let rule = InferenceRule::new("测试规则", "这是一个测试规则").with_confidence(0.9);
 
         assert_eq!(rule.name, "测试规则");
         assert_eq!(rule.description, "这是一个测试规则");
@@ -539,8 +516,7 @@ mod tests {
 
     #[test]
     fn test_inference_result() {
-        let result = InferenceResult::success("推理成功")
-            .with_confidence(0.85);
+        let result = InferenceResult::success("推理成功").with_confidence(0.85);
 
         assert!(result.is_success());
         assert_eq!(result.confidence, 0.85);

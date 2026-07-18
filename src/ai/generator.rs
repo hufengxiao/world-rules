@@ -159,9 +159,9 @@ impl RuleGenerator {
     /// 创建新的规则生成器
     pub fn new(config: GenerateConfig) -> Self {
         // 使用模拟提供商作为默认
-        use crate::ai::MockLLMProvider;
         use crate::ai::LLMConfig;
-        
+        use crate::ai::MockLLMProvider;
+
         let provider = MockLLMProvider::new(LLMConfig::default());
         Self {
             config,
@@ -195,16 +195,18 @@ impl RuleGenerator {
     pub fn generate(&self, prompt: &str) -> Result<GenerateResult, LLMError> {
         // 构建系统提示词
         let system_prompt = self.build_system_prompt();
-        
+
         // 构建用户提示词
         let user_prompt = self.build_user_prompt(prompt);
-        
+
         // 调用 LLM
-        let response = self.provider.generate_with_system(&system_prompt, &user_prompt)?;
-        
+        let response = self
+            .provider
+            .generate_with_system(&system_prompt, &user_prompt)?;
+
         // 解析响应
         let result = self.parse_response(&response)?;
-        
+
         Ok(result)
     }
 
@@ -263,14 +265,14 @@ impl RuleGenerator {
     fn parse_response(&self, response: &str) -> Result<GenerateResult, LLMError> {
         // 简单解析：提取代码块
         let code = self.extract_code_block(response)?;
-        
+
         // 提取规则名称（简单实现）
         let rule_name = self.extract_rule_name(&code)?;
-        
+
         // 创建结果
         let mut result = GenerateResult::new(code, rule_name);
         result.description = response.to_string();
-        
+
         Ok(result)
     }
 
@@ -283,7 +285,7 @@ impl RuleGenerator {
                 return Ok(text[start..start + end].trim().to_string());
             }
         }
-        
+
         // 如果没有找到代码块，返回整个响应（作为简单实现）
         Ok(text.to_string())
     }
@@ -303,7 +305,7 @@ impl RuleGenerator {
                 return Ok(name.to_string());
             }
         }
-        
+
         Ok("GeneratedRule".to_string())
     }
 }
@@ -346,7 +348,7 @@ mod tests {
     fn test_generate() {
         let generator = RuleGenerator::new(GenerateConfig::default());
         let result = generator.generate("测试生成").unwrap();
-        
+
         assert!(!result.code.is_empty());
         assert!(!result.rule_name.is_empty());
     }
@@ -355,7 +357,7 @@ mod tests {
     fn test_generate_batch() {
         let generator = RuleGenerator::new(GenerateConfig::default());
         let prompts = vec!["生成规则1", "生成规则2"];
-        
+
         let results = generator.generate_batch(&prompts).unwrap();
         assert_eq!(results.len(), 2);
     }
@@ -363,7 +365,7 @@ mod tests {
     #[test]
     fn test_extract_code_block() {
         let generator = RuleGenerator::new(GenerateConfig::default());
-        
+
         let text = "说明文字\n```rust\nfn test() {}\n```\n更多文字";
         let code = generator.extract_code_block(text).unwrap();
         assert_eq!(code, "fn test() {}");
@@ -372,7 +374,7 @@ mod tests {
     #[test]
     fn test_extract_rule_name() {
         let generator = RuleGenerator::new(GenerateConfig::default());
-        
+
         let code = "struct MyRule { field: i32 }";
         let name = generator.extract_rule_name(code).unwrap();
         assert_eq!(name, "MyRule");

@@ -69,7 +69,13 @@ impl GraphNode {
 
 impl std::fmt::Display for GraphNode {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "[{}] {} (度: {})", self.entity_type, self.name, self.degree())
+        write!(
+            f,
+            "[{}] {} (度: {})",
+            self.entity_type,
+            self.name,
+            self.degree()
+        )
     }
 }
 
@@ -549,10 +555,7 @@ impl KnowledgeGraph {
         // 添加节点
         for node in self.nodes.values() {
             let label = format!("{}\\n[{}]", node.name, node.entity_type);
-            dot.push_str(&format!(
-                "  \"{}\" [label=\"{}\"];\n",
-                node.id, label
-            ));
+            dot.push_str(&format!("  \"{}\" [label=\"{}\"];\n", node.id, label));
         }
 
         dot.push('\n');
@@ -583,8 +586,7 @@ mod tests {
 
     #[test]
     fn test_graph_node_creation() {
-        let entity = Entity::new("球员", EntityType::Subject)
-            .with_confidence(0.9);
+        let entity = Entity::new("球员", EntityType::Subject).with_confidence(0.9);
         let node = GraphNode::from_entity(entity);
 
         assert_eq!(node.name, "球员");

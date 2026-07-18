@@ -2,9 +2,7 @@
 //!
 //! 增强的规则生成器，支持生成经过验证的可编译规则代码。
 
-use crate::ai::{
-    GenerateConfig, GenerateResult, LLMError, RuleGenerator, ValidationResult,
-};
+use crate::ai::{GenerateConfig, GenerateResult, LLMError, RuleGenerator, ValidationResult};
 
 /// 验证生成配置
 #[derive(Debug, Clone)]
@@ -197,7 +195,7 @@ impl ValidatedRuleGenerator {
             if error.contains("大括号不匹配") {
                 let open = fixed.matches('{').count();
                 let close = fixed.matches('}').count();
-                
+
                 if open > close {
                     // 添加缺失的右括号
                     for _ in 0..(open - close) {
@@ -237,10 +235,7 @@ impl ValidatedRuleGenerator {
         &self,
         prompts: &[&str],
     ) -> Result<Vec<ValidatedGenerateResult>, LLMError> {
-        prompts
-            .iter()
-            .map(|p| self.generate_validated(p))
-            .collect()
+        prompts.iter().map(|p| self.generate_validated(p)).collect()
     }
 
     /// 生成统计信息
@@ -258,7 +253,11 @@ impl ValidatedRuleGenerator {
             total,
             passed,
             failed,
-            success_rate: if total > 0 { passed as f32 / total as f32 } else { 0.0 },
+            success_rate: if total > 0 {
+                passed as f32 / total as f32
+            } else {
+                0.0
+            },
             avg_fix_attempts: avg_attempts,
         }
     }

@@ -253,7 +253,7 @@ mod tests {
     #[test]
     fn test_mock_provider() {
         let provider = MockLLMProvider::default_provider();
-        
+
         let result = provider.generate("测试提示词").unwrap();
         assert!(result.contains("模拟生成"));
         assert!(result.contains("测试提示词"));
@@ -262,7 +262,7 @@ mod tests {
     #[test]
     fn test_provider_info() {
         let provider = MockLLMProvider::default_provider();
-        
+
         assert_eq!(provider.provider_name(), "MockLLM");
         assert_eq!(provider.model_name(), "gpt-3.5-turbo");
     }
@@ -270,22 +270,21 @@ mod tests {
     #[test]
     fn test_generate_with_system() {
         let provider = MockLLMProvider::default_provider();
-        
-        let result = provider.generate_with_system(
-            "你是一个规则生成助手",
-            "生成扑克规则"
-        ).unwrap();
-        
+
+        let result = provider
+            .generate_with_system("你是一个规则生成助手", "生成扑克规则")
+            .unwrap();
+
         assert!(result.contains("模拟生成"));
     }
 
     #[test]
     fn test_generate_batch() {
         let provider = MockLLMProvider::default_provider();
-        
+
         let prompts = vec!["提示词1", "提示词2", "提示词3"];
         let results = provider.generate_batch(&prompts).unwrap();
-        
+
         assert_eq!(results.len(), 3);
         for result in results {
             assert!(result.contains("模拟生成"));

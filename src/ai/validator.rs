@@ -171,12 +171,7 @@ impl GeneratedRuleValidator {
     }
 
     /// 检查结构特征
-    fn check_structure_features(
-        &self,
-        code: &str,
-        result: &mut ValidationResult,
-        score: &mut f32,
-    ) {
+    fn check_structure_features(&self, code: &str, result: &mut ValidationResult, score: &mut f32) {
         // 检查是否有 struct 定义
         if !code.contains("struct ") {
             result.add_error("缺少结构体定义");

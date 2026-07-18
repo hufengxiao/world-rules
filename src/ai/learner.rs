@@ -42,8 +42,8 @@ impl RulePattern {
 
     /// 转换为规则模板
     pub fn to_template(&self) -> RuleTemplate {
-        let mut template = RuleTemplate::new(format!("{}_template", self.category))
-            .with_category(&self.category);
+        let mut template =
+            RuleTemplate::new(format!("{}_template", self.category)).with_category(&self.category);
 
         // 添加结构特征作为必需字段
         for feature in &self.struct_features {
@@ -195,23 +195,23 @@ impl TemplateLearner {
 
         // 5. 创建或更新模式
         let pattern_key = format!("{}_pattern", category);
-        
+
         if let Some(existing) = self.patterns.get_mut(&pattern_key) {
             existing.frequency += 1;
-            
+
             // 合并特征（去重）
             for feature in &struct_features {
                 if !existing.struct_features.contains(feature) {
                     existing.struct_features.push(feature.clone());
                 }
             }
-            
+
             for method in &method_features {
                 if !existing.method_features.contains(method) {
                     existing.method_features.push(method.clone());
                 }
             }
-            
+
             for import in &imports {
                 if !existing.imports.contains(import) {
                     existing.imports.push(import.clone());
@@ -222,7 +222,7 @@ impl TemplateLearner {
             pattern.struct_features = struct_features;
             pattern.method_features = method_features;
             pattern.imports = imports;
-            
+
             self.patterns.insert(pattern_key.clone(), pattern);
         }
 
@@ -330,7 +330,7 @@ impl TemplateLearner {
         let mut in_impl = false;
         for line in code.lines() {
             let line = line.trim();
-            
+
             if line.starts_with("impl ") {
                 in_impl = true;
             }
@@ -344,7 +344,7 @@ impl TemplateLearner {
                     .next()
                     .unwrap_or("")
                     .trim();
-                
+
                 if !method.is_empty() {
                     methods.push(format!("fn_{}", method));
                 }
@@ -360,7 +360,7 @@ impl TemplateLearner {
 
         for line in code.lines() {
             let line = line.trim();
-            
+
             if line.starts_with("use ") {
                 imports.push(line.to_string());
             }
@@ -413,14 +413,8 @@ impl Rule for PokerRule {
     fn test_extract_category() {
         let learner = TemplateLearner::new();
 
-        assert_eq!(
-            learner.extract_category("RuleCategory::Law"),
-            "Law"
-        );
-        assert_eq!(
-            learner.extract_category("RuleCategory::Games"),
-            "Games"
-        );
+        assert_eq!(learner.extract_category("RuleCategory::Law"), "Law");
+        assert_eq!(learner.extract_category("RuleCategory::Games"), "Games");
     }
 
     #[test]
@@ -429,7 +423,7 @@ impl Rule for PokerRule {
 
         let code = "struct Test { field: String }";
         let features = learner.extract_struct_features(code);
-        
+
         assert!(!features.is_empty());
     }
 
@@ -439,7 +433,7 @@ impl Rule for PokerRule {
 
         let code = "impl Rule { fn test() {} fn validate() {} }";
         let methods = learner.extract_method_features(code);
-        
+
         assert!(!methods.is_empty());
     }
 
@@ -447,7 +441,7 @@ impl Rule for PokerRule {
     fn test_pattern_to_template() {
         let mut pattern = RulePattern::new("Games");
         pattern.method_features = vec!["fn_metadata".to_string()];
-        
+
         let template = pattern.to_template();
         assert_eq!(template.category, "Games");
     }

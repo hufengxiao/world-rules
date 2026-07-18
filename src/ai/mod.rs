@@ -52,10 +52,12 @@ pub use validator::{GeneratedRuleValidator, ValidationResult};
 /// AI 模块的公共接口
 pub mod prelude {
     pub use crate::ai::{GenerateConfig, GenerateResult, RuleGenerator};
-    pub use crate::ai::{LLMConfig, LLMProvider};
-    pub use crate::ai::{RuleTemplate, TemplateLibrary};
+    pub use crate::ai::{GenerateStats, ValidatedGenerateConfig, ValidatedRuleGenerator};
     pub use crate::ai::{GeneratedRuleValidator, ValidationResult};
-    pub use crate::ai::{TemplateLearner, LearningStats, RulePattern};
-    pub use crate::ai::{ValidatedRuleGenerator, ValidatedGenerateConfig, GenerateStats};
-    pub use crate::ai::{RuleOptimizer, OptimizationSuggestion, OptimizationReport, SuggestionType};
+    pub use crate::ai::{LLMConfig, LLMProvider};
+    pub use crate::ai::{LearningStats, RulePattern, TemplateLearner};
+    pub use crate::ai::{
+        OptimizationReport, OptimizationSuggestion, RuleOptimizer, SuggestionType,
+    };
+    pub use crate::ai::{RuleTemplate, TemplateLibrary};
 }

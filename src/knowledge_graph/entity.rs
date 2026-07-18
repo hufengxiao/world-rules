@@ -233,7 +233,11 @@ impl Entity {
 
 impl std::fmt::Display for Entity {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "[{}] {} (置信度: {:.2})", self.entity_type, self.name, self.confidence)
+        write!(
+            f,
+            "[{}] {} (置信度: {:.2})",
+            self.entity_type, self.name, self.confidence
+        )
     }
 }
 
@@ -311,29 +315,73 @@ impl EntityExtractor {
         Self {
             config: ExtractorConfig::default(),
             action_words: vec![
-                "犯规".into(), "得分".into(), "射门".into(), "传球".into(),
-                "违规".into(), "处罚".into(), "判罚".into(), "执行".into(),
-                "申请".into(), "提交".into(), "审核".into(), "批准".into(),
-                "签订".into(), "终止".into(), "解除".into(), "履行".into(),
+                "犯规".into(),
+                "得分".into(),
+                "射门".into(),
+                "传球".into(),
+                "违规".into(),
+                "处罚".into(),
+                "判罚".into(),
+                "执行".into(),
+                "申请".into(),
+                "提交".into(),
+                "审核".into(),
+                "批准".into(),
+                "签订".into(),
+                "终止".into(),
+                "解除".into(),
+                "履行".into(),
             ],
             condition_words: vec![
-                "如果".into(), "当".into(), "若".into(), "在...情况下".into(),
-                "符合".into(), "满足".into(), "具备".into(), "达到".into(),
-                "超过".into(), "低于".into(), "不满".into(), "超过".into(),
+                "如果".into(),
+                "当".into(),
+                "若".into(),
+                "在...情况下".into(),
+                "符合".into(),
+                "满足".into(),
+                "具备".into(),
+                "达到".into(),
+                "超过".into(),
+                "低于".into(),
+                "不满".into(),
+                "超过".into(),
             ],
             result_words: vec![
-                "则".into(), "那么".into(), "将会".into(), "必须".into(),
-                "应当".into(), "需要".into(), "导致".into(), "产生".into(),
-                "予以".into(), "给予".into(), "处以".into(), "判定".into(),
+                "则".into(),
+                "那么".into(),
+                "将会".into(),
+                "必须".into(),
+                "应当".into(),
+                "需要".into(),
+                "导致".into(),
+                "产生".into(),
+                "予以".into(),
+                "给予".into(),
+                "处以".into(),
+                "判定".into(),
             ],
             time_words: vec![
-                "比赛期间".into(), "赛程".into(), "赛季".into(), "全年".into(),
-                "每年".into(), "每月".into(), "每日".into(), "工作日".into(),
-                "节假日".into(), "期限内".into(), "有效期".into(), "时效".into(),
+                "比赛期间".into(),
+                "赛程".into(),
+                "赛季".into(),
+                "全年".into(),
+                "每年".into(),
+                "每月".into(),
+                "每日".into(),
+                "工作日".into(),
+                "节假日".into(),
+                "期限内".into(),
+                "有效期".into(),
+                "时效".into(),
             ],
             location_words: vec![
-                "场地".into(), "赛区".into(), "主场".into(), "客场".into(),
-                "法院".into(), "仲裁庭".into(), "办公地点".into(),
+                "场地".into(),
+                "赛区".into(),
+                "主场".into(),
+                "客场".into(),
+                "法院".into(),
+                "仲裁庭".into(),
+                "办公地点".into(),
             ],
         }
     }
@@ -408,9 +456,11 @@ impl EntityExtractor {
             .iter()
             .filter_map(|word| {
                 if text.contains(word) {
-                    Some(Entity::new(word, EntityType::Action)
-                        .with_confidence(0.9)
-                        .with_source(text))
+                    Some(
+                        Entity::new(word, EntityType::Action)
+                            .with_confidence(0.9)
+                            .with_source(text),
+                    )
                 } else {
                     None
                 }
@@ -426,9 +476,11 @@ impl EntityExtractor {
                 if text.contains(word) {
                     // 提取条件上下文
                     let condition_text = self.extract_context(text, word);
-                    Some(Entity::new(condition_text, EntityType::Condition)
-                        .with_confidence(0.85)
-                        .with_source(text))
+                    Some(
+                        Entity::new(condition_text, EntityType::Condition)
+                            .with_confidence(0.85)
+                            .with_source(text),
+                    )
                 } else {
                     None
                 }
@@ -443,9 +495,11 @@ impl EntityExtractor {
             .filter_map(|word| {
                 if text.contains(word) {
                     let result_text = self.extract_context_after(text, word);
-                    Some(Entity::new(result_text, EntityType::Result)
-                        .with_confidence(0.85)
-                        .with_source(text))
+                    Some(
+                        Entity::new(result_text, EntityType::Result)
+                            .with_confidence(0.85)
+                            .with_source(text),
+                    )
                 } else {
                     None
                 }
@@ -459,9 +513,11 @@ impl EntityExtractor {
             .iter()
             .filter_map(|word| {
                 if text.contains(word) {
-                    Some(Entity::new(word, EntityType::Time)
-                        .with_confidence(0.9)
-                        .with_source(text))
+                    Some(
+                        Entity::new(word, EntityType::Time)
+                            .with_confidence(0.9)
+                            .with_source(text),
+                    )
                 } else {
                     None
                 }
@@ -475,9 +531,11 @@ impl EntityExtractor {
             .iter()
             .filter_map(|word| {
                 if text.contains(word) {
-                    Some(Entity::new(word, EntityType::Location)
-                        .with_confidence(0.9)
-                        .with_source(text))
+                    Some(
+                        Entity::new(word, EntityType::Location)
+                            .with_confidence(0.9)
+                            .with_source(text),
+                    )
                 } else {
                     None
                 }
@@ -488,8 +546,10 @@ impl EntityExtractor {
     /// 抽取数量实体
     fn extract_quantities(&self, text: &str) -> Vec<Entity> {
         // 匹配数字 + 单位/量词的模式
-        let quantity_pattern = regex::Regex::new(r"\d+(\.\d+)?\s*(人|次|个|件|年|月|日|分钟|秒|米|厘米|公斤|克|元|万|亿|%)")
-            .unwrap_or_else(|_| regex::Regex::new(r"\d+").unwrap());
+        let quantity_pattern = regex::Regex::new(
+            r"\d+(\.\d+)?\s*(人|次|个|件|年|月|日|分钟|秒|米|厘米|公斤|克|元|万|亿|%)",
+        )
+        .unwrap_or_else(|_| regex::Regex::new(r"\d+").unwrap());
 
         quantity_pattern
             .find_iter(text)
@@ -507,15 +567,44 @@ impl EntityExtractor {
 
         // 常见主体词
         let subject_words = [
-            "球员", "运动员", "选手", "参赛者", "队员", "队长", "教练",
-            "裁判", "法官", "当事人", "原告", "被告", "申请人", "被申请人",
-            "公司", "企业", "组织", "机构", "个人", "公民", "法人",
+            "球员",
+            "运动员",
+            "选手",
+            "参赛者",
+            "队员",
+            "队长",
+            "教练",
+            "裁判",
+            "法官",
+            "当事人",
+            "原告",
+            "被告",
+            "申请人",
+            "被申请人",
+            "公司",
+            "企业",
+            "组织",
+            "机构",
+            "个人",
+            "公民",
+            "法人",
         ];
 
         // 常见客体词
         let object_words = [
-            "球", "比赛", "赛事", "合同", "协议", "文件", "证书",
-            "许可证", "执照", "资格", "权利", "义务", "责任",
+            "球",
+            "比赛",
+            "赛事",
+            "合同",
+            "协议",
+            "文件",
+            "证书",
+            "许可证",
+            "执照",
+            "资格",
+            "权利",
+            "义务",
+            "责任",
         ];
 
         for word in subject_words {
@@ -523,7 +612,7 @@ impl EntityExtractor {
                 entities.push(
                     Entity::new(word, EntityType::Subject)
                         .with_confidence(0.85)
-                        .with_source(text)
+                        .with_source(text),
                 );
             }
         }
@@ -533,7 +622,7 @@ impl EntityExtractor {
                 entities.push(
                     Entity::new(word, EntityType::Object)
                         .with_confidence(0.85)
-                        .with_source(text)
+                        .with_source(text),
                 );
             }
         }
@@ -592,8 +681,7 @@ mod tests {
 
     #[test]
     fn test_entity_matches() {
-        let entity = Entity::new("球员", EntityType::Subject)
-            .with_synonyms(vec!["运动员", "选手"]);
+        let entity = Entity::new("球员", EntityType::Subject).with_synonyms(vec!["运动员", "选手"]);
 
         assert!(entity.matches("球员"));
         assert!(entity.matches("运动员"));
@@ -613,7 +701,9 @@ mod tests {
         assert!(has_action);
 
         // 应该检测到主体
-        let has_subject = entities.iter().any(|e| e.entity_type == EntityType::Subject);
+        let has_subject = entities
+            .iter()
+            .any(|e| e.entity_type == EntityType::Subject);
         assert!(has_subject);
     }
 

@@ -249,7 +249,8 @@ impl Rule for {{rule_name}} {
         "{{rule_explanation}}".to_string()
     }
 }
-"#.to_string()
+"#
+                .to_string(),
             )
             .add_required_field("rule_name")
             .add_required_field("rule_description")
@@ -293,7 +294,8 @@ impl Rule for {{rule_name}} {
         "{{rule_explanation}}".to_string()
     }
 }
-"#.to_string()
+"#
+                .to_string(),
             )
             .add_required_field("rule_name")
             .add_required_field("rule_description")
@@ -337,7 +339,8 @@ impl Rule for {{rule_name}} {
         "{{rule_explanation}}".to_string()
     }
 }
-"#.to_string()
+"#
+                .to_string(),
             )
             .add_required_field("rule_name")
             .add_required_field("rule_description")
