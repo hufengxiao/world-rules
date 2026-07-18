@@ -189,6 +189,7 @@ pub mod escrima;
 pub mod esports;
 pub mod esports_detailed;
 pub mod esports_league;
+pub mod esports_referee;
 pub mod f1;
 pub mod f1_fia_detailed;
 pub mod fencing;
