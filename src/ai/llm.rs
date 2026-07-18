@@ -185,7 +185,7 @@ pub enum LLMError {
 /// # 示例
 ///
 /// ```rust
-/// use world_rules::ai::{MockLLMProvider, LLMConfig};
+/// use world_rules::ai::{MockLLMProvider, LLMConfig, LLMProvider};
 ///
 /// let config = LLMConfig::default();
 /// let provider = MockLLMProvider::new(config);

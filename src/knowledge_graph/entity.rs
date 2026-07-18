@@ -391,13 +391,10 @@ impl EntityExtractor {
     ///
     /// # Examples
     /// ```
-    /// use world_rules::knowledge_graph::{EntityExtractor, ExtractorConfig};
+    /// use world_rules::knowledge_graph::EntityExtractor;
     ///
-    /// let config = ExtractorConfig {
-    ///     min_confidence: 0.7,
-    ///     ..Default::default()
-    /// };
-    /// let extractor = EntityExtractor::with_config(config);
+    /// let extractor = EntityExtractor::new();
+    /// let entities = extractor.extract("球员在比赛中犯规会被出示黄牌");
     /// ```
     pub fn with_config(config: ExtractorConfig) -> Self {
         let mut extractor = Self::new();
