@@ -402,7 +402,7 @@ impl Warhammer40KRules {
     /// 计算命中成功率（基于技能值）
     pub fn hit_probability(&self, ballistic_skill: u32) -> f64 {
         // BS 为3+表示需要3+命中，即 (7-BS)/6
-        let needed = 7 - ballistic_skill.min(6).max(2);
+        let needed = 7 - ballistic_skill.clamp(2, 6);
         needed as f64 / 6.0
     }
 
@@ -431,7 +431,7 @@ impl Warhammer40KRules {
     pub fn morale_test(&self, models_lost: u32, leadership: u32) -> bool {
         // 骰子结果 + 损失数 <= 领导力 则通过
         // 这里返回是否可能通过
-        leadership >= models_lost + 1
+        leadership > models_lost
     }
 
     /// 获取指挥点数上限

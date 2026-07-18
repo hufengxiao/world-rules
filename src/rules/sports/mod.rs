@@ -508,6 +508,7 @@ pub mod ultimate_frisbee_wfdf_detailed;
 pub mod underwater_hockey;
 pub mod underwater_rugby;
 pub mod voivovam;
+pub mod valorant;
 pub mod volleyball;
 pub mod volleyball_beach_detailed;
 pub mod volleyball_detailed;
@@ -1042,6 +1043,10 @@ pub use ultimate_frisbee_wfdf_detailed::UltimateFrisbeeWfdfDetailedRules;
 pub use underwater_hockey::UnderwaterHockeyRules;
 pub use underwater_rugby::UnderwaterRugbyRules;
 pub use voivovam::VoivovamRules;
+pub use valorant::{
+    ValorantAgentRules, ValorantCompetitionRules, ValorantGameMechanicsRules, ValorantMapRules,
+    ValorantRefereeRules,
+};
 pub use volleyball::VolleyballRules;
 pub use volleyball_beach_detailed::VolleyballBeachDetailedRules;
 pub use volleyball_detailed::VolleyballDetailedRules;
@@ -2010,6 +2015,26 @@ pub fn all_rules() -> Vec<(
     }
     {
         let r = UltimateFrisbeeRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ValorantGameMechanicsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ValorantAgentRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ValorantMapRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ValorantCompetitionRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ValorantRefereeRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
     }
     {

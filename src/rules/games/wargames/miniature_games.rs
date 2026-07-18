@@ -298,7 +298,7 @@ impl MiniatureGameRules {
     }
 
     /// 获取测量工具建议
-    pub fn measurement_tools(&self, scale: ModelScale) -> Vec<&'static str> {
+    pub fn measurement_tools(&self, _scale: ModelScale) -> Vec<&'static str> {
         vec![
             "卷尺（英寸）",
             "直尺（英寸）",

@@ -281,27 +281,27 @@ impl AgeOfSigmarRules {
     /// 计算命中成功率
     pub fn hit_probability(&self, to_hit: u32) -> f64 {
         // to_hit 为需要掷出的最小值（如3+）
-        let needed = 7 - to_hit.min(6).max(2);
+        let needed = 7 - to_hit.clamp(2, 6);
         needed as f64 / 6.0
     }
 
     /// 计算造伤成功率
     pub fn wound_probability(&self, to_wound: u32) -> f64 {
-        let needed = 7 - to_wound.min(6).max(2);
+        let needed = 7 - to_wound.clamp(2, 6);
         needed as f64 / 6.0
     }
 
     /// 计算护甲检定成功率
     pub fn save_probability(&self, save: u32, rend: i32) -> f64 {
         // rend 为护甲穿透修正（负数表示降低护甲值）
-        let modified_save = (save as i32 - rend).min(6).max(2) as u32;
+        let modified_save = (save as i32 - rend).clamp(2, 6) as u32;
         let needed = 7 - modified_save;
         needed as f64 / 6.0
     }
 
     /// 检查战斗震慑
     pub fn battleshock_test(&self, models_lost: u32, bravery: u32) -> bool {
-        bravery >= models_lost + 1
+        bravery > models_lost
     }
 
     /// 获取胜利点数上限

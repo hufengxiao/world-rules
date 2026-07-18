@@ -576,9 +576,9 @@
 - **稳定性要求**: 测试覆盖率 ≥ 70%
 
 ### Phase 55: 电子竞技扩展
-状态: Not started
+状态: In Progress
 
-- [ ] Valorant 规则
+- [x] Valorant 规则
 - [ ] Overwatch 规则
 - [ ] PUBG 规则
 - [ ] Fortnite 规则
