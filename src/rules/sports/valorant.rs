@@ -14,9 +14,12 @@ pub struct ValorantGameMechanicsRules {
 impl ValorantGameMechanicsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("Valorant游戏机制规则", "Valorant回合、时间、经济等基础游戏机制")
-                .with_origin("Riot Games官方规则")
-                .with_tags(vec!["电竞".into(), "FPS".into(), "Valorant".into()]),
+            metadata: RuleMetadata::new(
+                "Valorant游戏机制规则",
+                "Valorant回合、时间、经济等基础游戏机制",
+            )
+            .with_origin("Riot Games官方规则")
+            .with_tags(vec!["电竞".into(), "FPS".into(), "Valorant".into()]),
         }
     }
 

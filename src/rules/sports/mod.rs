@@ -353,6 +353,7 @@ pub mod one_championship_mma;
 pub mod orienteering;
 pub mod orienteering_detailed;
 pub mod outrigger_canoe;
+pub mod overwatch;
 pub mod paddleboard_racing;
 pub mod paddleboarding;
 pub mod padel_fip;
@@ -507,9 +508,8 @@ pub mod ultimate_frisbee;
 pub mod ultimate_frisbee_wfdf_detailed;
 pub mod underwater_hockey;
 pub mod underwater_rugby;
-pub mod voivovam;
-pub mod overwatch;
 pub mod valorant;
+pub mod voivovam;
 pub mod volleyball;
 pub mod volleyball_beach_detailed;
 pub mod volleyball_detailed;
@@ -1043,11 +1043,11 @@ pub use ultimate_frisbee::UltimateFrisbeeRules;
 pub use ultimate_frisbee_wfdf_detailed::UltimateFrisbeeWfdfDetailedRules;
 pub use underwater_hockey::UnderwaterHockeyRules;
 pub use underwater_rugby::UnderwaterRugbyRules;
-pub use voivovam::VoivovamRules;
 pub use valorant::{
     ValorantAgentRules, ValorantCompetitionRules, ValorantGameMechanicsRules, ValorantMapRules,
     ValorantRefereeRules,
 };
+pub use voivovam::VoivovamRules;
 pub use volleyball::VolleyballRules;
 pub use volleyball_beach_detailed::VolleyballBeachDetailedRules;
 pub use volleyball_detailed::VolleyballDetailedRules;

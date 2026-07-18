@@ -14,9 +14,12 @@ pub struct OverwatchGameMechanicsRules {
 impl OverwatchGameMechanicsRules {
     pub fn new() -> Self {
         Self {
-            metadata: RuleMetadata::new("Overwatch游戏机制规则", "Overwatch回合、时间、重生等基础游戏机制")
-                .with_origin("Blizzard Entertainment官方规则")
-                .with_tags(vec!["电竞".into(), "FPS".into(), "Overwatch".into()]),
+            metadata: RuleMetadata::new(
+                "Overwatch游戏机制规则",
+                "Overwatch回合、时间、重生等基础游戏机制",
+            )
+            .with_origin("Blizzard Entertainment官方规则")
+            .with_tags(vec!["电竞".into(), "FPS".into(), "Overwatch".into()]),
         }
     }
 
