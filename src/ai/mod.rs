@@ -35,12 +35,16 @@ pub mod generator;
 pub mod learner;
 pub mod llm;
 pub mod template;
+pub mod validated_generator;
 pub mod validator;
 
 pub use generator::{GenerateConfig, GenerateResult, RuleGenerator};
 pub use learner::{LearningStats, RulePattern, TemplateLearner};
 pub use llm::{LLMConfig, LLMError, LLMProvider, MockLLMProvider};
 pub use template::{RuleTemplate, TemplateLibrary};
+pub use validated_generator::{
+    GenerateStats, ValidatedGenerateConfig, ValidatedGenerateResult, ValidatedRuleGenerator,
+};
 pub use validator::{GeneratedRuleValidator, ValidationResult};
 
 /// AI 模块的公共接口
@@ -50,4 +54,5 @@ pub mod prelude {
     pub use crate::ai::{RuleTemplate, TemplateLibrary};
     pub use crate::ai::{GeneratedRuleValidator, ValidationResult};
     pub use crate::ai::{TemplateLearner, LearningStats, RulePattern};
+    pub use crate::ai::{ValidatedRuleGenerator, ValidatedGenerateConfig, GenerateStats};
 }
