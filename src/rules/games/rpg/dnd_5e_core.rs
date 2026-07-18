@@ -367,6 +367,7 @@ impl crate::rules::core::Rule for Dnd5eCoreRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::Rule;
 
     #[test]
     fn test_dnd5e_core_rules_creation() {

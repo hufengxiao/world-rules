@@ -309,6 +309,7 @@ impl crate::rules::core::Rule for DndBasicRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::Rule;
 
     #[test]
     fn test_dnd_basic_rules_creation() {

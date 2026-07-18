@@ -311,6 +311,7 @@ impl crate::rules::core::Rule for CallOfCthulhuRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::Rule;
 
     #[test]
     fn test_coc_rules_creation() {

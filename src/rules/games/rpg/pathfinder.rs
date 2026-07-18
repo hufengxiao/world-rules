@@ -270,6 +270,7 @@ impl crate::rules::core::Rule for PathfinderRules {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::rules::core::Rule;
 
     #[test]
     fn test_pathfinder_rules_creation() {
