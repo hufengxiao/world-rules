@@ -354,6 +354,7 @@ pub mod orienteering;
 pub mod orienteering_detailed;
 pub mod outrigger_canoe;
 pub mod overwatch;
+pub mod pubg;
 pub mod paddleboard_racing;
 pub mod paddleboarding;
 pub mod padel_fip;
