@@ -341,6 +341,11 @@ impl ComplexityAnalyzer {
 
     /// 计算执行复杂度
     fn calculate_execution_complexity(&self, rules: &[&str]) -> f64 {
+        // 空规则没有执行复杂度
+        if rules.is_empty() {
+            return 0.0;
+        }
+
         let step_keywords = ["步骤", "阶段", "流程", "步骤", "step", "phase"];
         let mut step_count = 0;
 
@@ -381,6 +386,11 @@ impl ComplexityAnalyzer {
 
     /// 计算交互复杂度
     fn calculate_interaction_complexity(&self, rule_count: usize) -> f64 {
+        // 空规则没有交互复杂度
+        if rule_count == 0 {
+            return 0.0;
+        }
+
         // 规则越多，交互复杂度越高（组合爆炸）
         if rule_count <= 5 {
             0.1

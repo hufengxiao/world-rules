@@ -492,12 +492,32 @@ impl GameRuleValidator {
             ("增加", "减少"),
             ("允许", "禁止"),
             ("必须", "不能"),
+            ("可以", "禁止"),
+            ("需要", "不需要"),
+            ("赢", "输"),
+            ("胜利", "失败"),
+            ("获得", "失去"),
         ];
 
         for (word1, word2) in &contradictions {
+            // 检查是否包含矛盾词对
             if (rule1.contains(word1) && rule2.contains(word2))
                 || (rule1.contains(word2) && rule2.contains(word1))
             {
+                // 进一步检查：是否有相同的主体（简单检查：共同前缀）
+                // 例如 "玩家A先手" 和 "玩家A后手" 应该检测为矛盾
+                // 提取可能的主体部分进行粗略匹配
+                let subjects1: Vec<&str> = rule1.split_whitespace().collect();
+                let subjects2: Vec<&str> = rule2.split_whitespace().collect();
+
+                // 如果两个规则有共同的词（可能是同一个主体），则认为是矛盾
+                for s1 in &subjects1 {
+                    if subjects2.contains(s1) && s1.len() > 1 {
+                        return true;
+                    }
+                }
+
+                // 如果没有共同主体但有矛盾词，也返回 true（保守检测）
                 return true;
             }
         }
