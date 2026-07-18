@@ -128,7 +128,10 @@ impl UnitCategory {
 
     /// 是否有远程攻击能力
     pub fn has_ranged_attack(&self) -> bool {
-        matches!(self, UnitCategory::Ranged | UnitCategory::Artillery | UnitCategory::AirUnit)
+        matches!(
+            self,
+            UnitCategory::Ranged | UnitCategory::Artillery | UnitCategory::AirUnit
+        )
     }
 }
 
