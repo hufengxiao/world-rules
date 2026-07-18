@@ -229,6 +229,150 @@ impl FieldSpecification {
     }
 }
 
+/// 场地表面类型
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum FieldSurfaceType {
+    /// 天然草坪
+    NaturalGrass,
+    /// 人工草坪
+    ArtificialTurf,
+    /// 塑胶跑道
+    SyntheticTrack,
+    /// 木地板
+    WoodenFloor,
+    /// 混凝土
+    Concrete,
+    /// 红土
+    Clay,
+    /// 硬地（丙烯酸）
+    HardCourt,
+    /// 草地
+    Grass,
+    /// 沙地
+    Sand,
+    /// 冰面
+    Ice,
+    /// 雪面
+    Snow,
+    /// 水面
+    Water,
+}
+
+impl FieldSurfaceType {
+    /// 获取类型名称
+    pub fn name(&self) -> &'static str {
+        match self {
+            FieldSurfaceType::NaturalGrass => "天然草坪",
+            FieldSurfaceType::ArtificialTurf => "人工草坪",
+            FieldSurfaceType::SyntheticTrack => "塑胶跑道",
+            FieldSurfaceType::WoodenFloor => "木地板",
+            FieldSurfaceType::Concrete => "混凝土",
+            FieldSurfaceType::Clay => "红土",
+            FieldSurfaceType::HardCourt => "硬地",
+            FieldSurfaceType::Grass => "草地",
+            FieldSurfaceType::Sand => "沙地",
+            FieldSurfaceType::Ice => "冰面",
+            FieldSurfaceType::Snow => "雪面",
+            FieldSurfaceType::Water => "水面",
+        }
+    }
+
+    /// 获取维护频率（天）
+    pub fn maintenance_frequency_days(&self) -> u32 {
+        match self {
+            FieldSurfaceType::NaturalGrass => 1,
+            FieldSurfaceType::ArtificialTurf => 7,
+            FieldSurfaceType::SyntheticTrack => 30,
+            FieldSurfaceType::WoodenFloor => 7,
+            FieldSurfaceType::Concrete => 90,
+            FieldSurfaceType::Clay => 1,
+            FieldSurfaceType::HardCourt => 30,
+            FieldSurfaceType::Grass => 1,
+            FieldSurfaceType::Sand => 7,
+            FieldSurfaceType::Ice => 1,
+            FieldSurfaceType::Snow => 1,
+            FieldSurfaceType::Water => 1,
+        }
+    }
+}
+
+/// 场地认证等级
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum FieldCertificationLevel {
+    /// 国际足联认证
+    FifaCertified,
+    /// 国际篮联认证
+    FibaCertified,
+    /// 国际泳联认证
+    FinaCertified,
+    /// 国际网联认证
+    ItfCertified,
+    /// 国际田联认证
+    IaafCertified,
+    /// 奥运会认证
+    OlympicCertified,
+    /// 国家级认证
+    NationalCertified,
+}
+
+impl FieldCertificationLevel {
+    /// 获取认证名称
+    pub fn name(&self) -> &'static str {
+        match self {
+            FieldCertificationLevel::FifaCertified => "国际足联认证",
+            FieldCertificationLevel::FibaCertified => "国际篮联认证",
+            FieldCertificationLevel::FinaCertified => "国际泳联认证",
+            FieldCertificationLevel::ItfCertified => "国际网联认证",
+            FieldCertificationLevel::IaafCertified => "国际田联认证",
+            FieldCertificationLevel::OlympicCertified => "奥运会认证",
+            FieldCertificationLevel::NationalCertified => "国家级认证",
+        }
+    }
+
+    /// 获取认证有效期（年）
+    pub fn validity_years(&self) -> u32 {
+        match self {
+            FieldCertificationLevel::FifaCertified => 3,
+            FieldCertificationLevel::FibaCertified => 5,
+            FieldCertificationLevel::FinaCertified => 5,
+            FieldCertificationLevel::ItfCertified => 3,
+            FieldCertificationLevel::IaafCertified => 5,
+            FieldCertificationLevel::OlympicCertified => 4,
+            FieldCertificationLevel::NationalCertified => 3,
+        }
+    }
+}
+
+/// 场地维护要求
+#[derive(Debug, Clone, PartialEq)]
+pub struct FieldMaintenanceRequirement {
+    /// 要求名称
+    pub name: String,
+    /// 表面类型
+    pub surface_type: FieldSurfaceType,
+    /// 检查频率（天）
+    pub inspection_frequency_days: u32,
+    /// 检查标准
+    pub standard: String,
+}
+
+impl FieldMaintenanceRequirement {
+    /// 创建新维护要求
+    pub fn new(
+        name: &str,
+        surface_type: FieldSurfaceType,
+        frequency: u32,
+        standard: &str,
+    ) -> Self {
+        Self {
+            name: name.to_string(),
+            surface_type,
+            inspection_frequency_days: frequency,
+            standard: standard.to_string(),
+        }
+    }
+}
+
 /// 安全检查项
 #[derive(Debug, Clone, PartialEq)]
 pub struct SafetyCheckItem {
@@ -417,6 +561,112 @@ impl SportsFacilityRules {
             ("安全设备", 30),   // 每30天检验
             ("医疗设备", 7),    // 每7天检验
         ]
+    }
+
+    /// 获取场地表面类型列表
+    pub fn field_surface_types(&self) -> Vec<FieldSurfaceType> {
+        vec![
+            FieldSurfaceType::NaturalGrass,
+            FieldSurfaceType::ArtificialTurf,
+            FieldSurfaceType::SyntheticTrack,
+            FieldSurfaceType::WoodenFloor,
+            FieldSurfaceType::Concrete,
+            FieldSurfaceType::Clay,
+            FieldSurfaceType::HardCourt,
+            FieldSurfaceType::Grass,
+            FieldSurfaceType::Sand,
+            FieldSurfaceType::Ice,
+            FieldSurfaceType::Snow,
+            FieldSurfaceType::Water,
+        ]
+    }
+
+    /// 获取场地认证等级列表
+    pub fn field_certification_levels(&self) -> Vec<FieldCertificationLevel> {
+        vec![
+            FieldCertificationLevel::FifaCertified,
+            FieldCertificationLevel::FibaCertified,
+            FieldCertificationLevel::FinaCertified,
+            FieldCertificationLevel::ItfCertified,
+            FieldCertificationLevel::IaafCertified,
+            FieldCertificationLevel::OlympicCertified,
+            FieldCertificationLevel::NationalCertified,
+        ]
+    }
+
+    /// 获取场地维护要求
+    pub fn field_maintenance_requirements(&self) -> Vec<FieldMaintenanceRequirement> {
+        vec![
+            FieldMaintenanceRequirement::new(
+                "天然草坪维护",
+                FieldSurfaceType::NaturalGrass,
+                1,
+                "每日修剪、浇水、施肥，保持草坪平整",
+            ),
+            FieldMaintenanceRequirement::new(
+                "人工草坪清洁",
+                FieldSurfaceType::ArtificialTurf,
+                7,
+                "每周清洁，定期填充颗粒，检查接缝",
+            ),
+            FieldMaintenanceRequirement::new(
+                "塑胶跑道检查",
+                FieldSurfaceType::SyntheticTrack,
+                30,
+                "每月检查跑道平整度、弹性、排水系统",
+            ),
+            FieldMaintenanceRequirement::new(
+                "木地板维护",
+                FieldSurfaceType::WoodenFloor,
+                7,
+                "每周打蜡、清洁，检查地板平整度",
+            ),
+            FieldMaintenanceRequirement::new(
+                "红土场地维护",
+                FieldSurfaceType::Clay,
+                1,
+                "每日洒水、平整，保持湿度适中",
+            ),
+            FieldMaintenanceRequirement::new(
+                "硬地维护",
+                FieldSurfaceType::HardCourt,
+                30,
+                "每月清洁、检查裂缝、修补涂层",
+            ),
+            FieldMaintenanceRequirement::new(
+                "冰面维护",
+                FieldSurfaceType::Ice,
+                1,
+                "每日清冰、浇水，保持冰面平整",
+            ),
+        ]
+    }
+
+    /// 验证场地表面是否适合特定运动
+    pub fn validate_surface_for_sport(
+        &self,
+        surface_type: FieldSurfaceType,
+        sport_name: &str,
+    ) -> bool {
+        match sport_name {
+            "足球" => matches!(
+                surface_type,
+                FieldSurfaceType::NaturalGrass | FieldSurfaceType::ArtificialTurf
+            ),
+            "篮球" => matches!(surface_type, FieldSurfaceType::WoodenFloor | FieldSurfaceType::Concrete),
+            "网球" => matches!(
+                surface_type,
+                FieldSurfaceType::Clay
+                    | FieldSurfaceType::HardCourt
+                    | FieldSurfaceType::Grass
+            ),
+            "游泳" => matches!(surface_type, FieldSurfaceType::Water),
+            "田径" => matches!(surface_type, FieldSurfaceType::SyntheticTrack),
+            "冰球" | "花样滑冰" | "速度滑冰" => matches!(surface_type, FieldSurfaceType::Ice),
+            "滑雪" => matches!(surface_type, FieldSurfaceType::Snow),
+            "沙滩排球" => matches!(surface_type, FieldSurfaceType::Sand),
+            _ => true, // 其他运动默认接受
+        }
     }
 }
 
@@ -611,5 +861,88 @@ mod tests {
     fn test_default_implementation() {
         let rules = SportsFacilityRules::default();
         assert_eq!(rules.metadata().name, "体育设施规则");
+    }
+
+    #[test]
+    fn test_field_surface_types() {
+        let rules = SportsFacilityRules::new();
+        let surfaces = rules.field_surface_types();
+        assert_eq!(surfaces.len(), 12);
+    }
+
+    #[test]
+    fn test_field_surface_type_names() {
+        assert_eq!(FieldSurfaceType::NaturalGrass.name(), "天然草坪");
+        assert_eq!(FieldSurfaceType::ArtificialTurf.name(), "人工草坪");
+        assert_eq!(FieldSurfaceType::SyntheticTrack.name(), "塑胶跑道");
+        assert_eq!(FieldSurfaceType::WoodenFloor.name(), "木地板");
+    }
+
+    #[test]
+    fn test_field_surface_maintenance_frequency() {
+        // 天然草坪需要每日维护
+        assert_eq!(FieldSurfaceType::NaturalGrass.maintenance_frequency_days(), 1);
+        // 塑胶跑道需要每月维护
+        assert_eq!(FieldSurfaceType::SyntheticTrack.maintenance_frequency_days(), 30);
+    }
+
+    #[test]
+    fn test_field_certification_levels() {
+        let rules = SportsFacilityRules::new();
+        let levels = rules.field_certification_levels();
+        assert_eq!(levels.len(), 7);
+    }
+
+    #[test]
+    fn test_field_certification_level_names() {
+        assert_eq!(FieldCertificationLevel::FifaCertified.name(), "国际足联认证");
+        assert_eq!(FieldCertificationLevel::FibaCertified.name(), "国际篮联认证");
+        assert_eq!(FieldCertificationLevel::OlympicCertified.name(), "奥运会认证");
+    }
+
+    #[test]
+    fn test_field_certification_validity() {
+        // FIFA认证有效期3年
+        assert_eq!(FieldCertificationLevel::FifaCertified.validity_years(), 3);
+        // FIBA认证有效期5年
+        assert_eq!(FieldCertificationLevel::FibaCertified.validity_years(), 5);
+    }
+
+    #[test]
+    fn test_field_maintenance_requirements() {
+        let rules = SportsFacilityRules::new();
+        let requirements = rules.field_maintenance_requirements();
+        assert!(!requirements.is_empty());
+
+        // 验证天然草坪维护要求
+        let grass_req = requirements.iter().find(|r| r.name == "天然草坪维护");
+        assert!(grass_req.is_some());
+        assert_eq!(grass_req.unwrap().inspection_frequency_days, 1);
+    }
+
+    #[test]
+    fn test_validate_surface_for_sport() {
+        let rules = SportsFacilityRules::new();
+
+        // 足球适合天然草坪和人工草坪
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::NaturalGrass, "足球"));
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::ArtificialTurf, "足球"));
+        assert!(!rules.validate_surface_for_sport(FieldSurfaceType::WoodenFloor, "足球"));
+
+        // 篮球适合木地板和混凝土
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::WoodenFloor, "篮球"));
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::Concrete, "篮球"));
+        assert!(!rules.validate_surface_for_sport(FieldSurfaceType::NaturalGrass, "篮球"));
+
+        // 网球适合红土、硬地和草地
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::Clay, "网球"));
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::HardCourt, "网球"));
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::Grass, "网球"));
+
+        // 游泳适合水面
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::Water, "游泳"));
+
+        // 冰球适合冰面
+        assert!(rules.validate_surface_for_sport(FieldSurfaceType::Ice, "冰球"));
     }
 }
