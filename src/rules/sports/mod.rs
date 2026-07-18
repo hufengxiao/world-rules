@@ -452,6 +452,7 @@ pub mod softball_detailed;
 pub mod speed_skating;
 pub mod speed_skating_detailed;
 pub mod speed_skating_isu;
+pub mod sports_facility;
 pub mod sports_injury;
 pub mod sports_rehabilitation;
 pub mod squash;
@@ -968,6 +969,10 @@ pub use softball_detailed::SoftballDetailedRules;
 pub use speed_skating::SpeedSkatingRules;
 pub use speed_skating_detailed::SpeedSkatingDetailedRules;
 pub use speed_skating_isu::SpeedSkatingIsuRules;
+pub use sports_facility::{
+    EquipmentType, FieldQualityLevel, FieldSpecification, SafetyCheckItem, SafetyFacilityType,
+    SportsFacilityRules, StadiumType,
+};
 pub use sports_injury::{
     ConcussionGrade, InjurySeverity, InjuryType, PriceStep, ReturnToPlayStage, SportsInjuryRules,
 };
