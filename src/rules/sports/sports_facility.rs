@@ -121,6 +121,100 @@ pub enum EquipmentType {
     TimingScoringEquipment,
 }
 
+/// 体育设备认证标准
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum EquipmentCertification {
+    /// 国际比赛认证
+    InternationalCompetition,
+    /// 国家级认证
+    NationalCompetition,
+    /// 训练级认证
+    TrainingGrade,
+    /// 业余级认证
+    AmateurGrade,
+}
+
+impl EquipmentCertification {
+    /// 获取认证名称
+    pub fn name(&self) -> &'static str {
+        match self {
+            EquipmentCertification::InternationalCompetition => "国际比赛认证",
+            EquipmentCertification::NationalCompetition => "国家级认证",
+            EquipmentCertification::TrainingGrade => "训练级认证",
+            EquipmentCertification::AmateurGrade => "业余级认证",
+        }
+    }
+}
+
+/// 设备检验周期
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum InspectionInterval {
+    /// 每日检验
+    Daily,
+    /// 每周检验
+    Weekly,
+    /// 每月检验
+    Monthly,
+    /// 每季度检验
+    Quarterly,
+    /// 每年检验
+    Annually,
+}
+
+impl InspectionInterval {
+    /// 获取检验周期名称
+    pub fn name(&self) -> &'static str {
+        match self {
+            InspectionInterval::Daily => "每日",
+            InspectionInterval::Weekly => "每周",
+            InspectionInterval::Monthly => "每月",
+            InspectionInterval::Quarterly => "每季度",
+            InspectionInterval::Annually => "每年",
+        }
+    }
+
+    /// 转换为天数
+    pub fn days(&self) -> u32 {
+        match self {
+            InspectionInterval::Daily => 1,
+            InspectionInterval::Weekly => 7,
+            InspectionInterval::Monthly => 30,
+            InspectionInterval::Quarterly => 90,
+            InspectionInterval::Annually => 365,
+        }
+    }
+}
+
+/// 设备检验标准
+#[derive(Debug, Clone, PartialEq)]
+pub struct EquipmentInspectionStandard {
+    /// 设备名称
+    pub equipment_name: String,
+    /// 设备类型
+    pub equipment_type: EquipmentType,
+    /// 检验周期
+    pub interval: InspectionInterval,
+    /// 检验标准描述
+    pub standard: String,
+}
+
+impl EquipmentInspectionStandard {
+    /// 创建新检验标准
+    pub fn new(
+        equipment_name: &str,
+        equipment_type: EquipmentType,
+        interval: InspectionInterval,
+        standard: &str,
+    ) -> Self {
+        Self {
+            equipment_name: equipment_name.to_string(),
+            equipment_type,
+            interval,
+            standard: standard.to_string(),
+        }
+    }
+}
+
 impl EquipmentType {
     /// 获取类型名称
     pub fn name(&self) -> &'static str {
