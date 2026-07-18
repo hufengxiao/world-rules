@@ -402,7 +402,7 @@ mod tests {
     #[test]
     fn test_template_apply() {
         let template = RuleTemplate::new("test")
-            .with_code_template("Hello, {name}!")
+            .with_code_template("Hello, {{name}}!")
             .add_required_field("name");
 
         let mut params = HashMap::new();

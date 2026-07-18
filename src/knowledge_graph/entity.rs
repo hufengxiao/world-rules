@@ -331,6 +331,7 @@ impl EntityExtractor {
                 "终止".into(),
                 "解除".into(),
                 "履行".into(),
+                "使用".into(),
             ],
             condition_words: vec![
                 "如果".into(),

@@ -326,34 +326,32 @@ impl TemplateLearner {
     fn extract_method_features(&self, code: &str) -> Vec<String> {
         let mut methods = Vec::new();
 
-        // 查找 impl 块中的方法
-        let mut in_impl = false;
-        for line in code.lines() {
-            let line = line.trim();
+        // 处理可能包含多个方法的单行代码
+        // 例如: "impl Rule { fn test() {} fn validate() {} }"
 
-            if line.starts_with("impl ") {
-                in_impl = true;
-                continue;
-            }
+        // 首先检查是否在impl块内
+        if let Some(impl_start) = code.find("impl ") {
+            // 找到impl块的范围
+            if let Some(block_start) = code[impl_start..].find('{') {
+                let block_content_start = impl_start + block_start + 1;
 
-            // 检查impl块结束
-            if in_impl && line == "}" {
-                in_impl = false;
-                continue;
-            }
+                // 找到impl块的结束
+                if let Some(block_end) = code[block_content_start..].find('}') {
+                    let block_content = &code[block_content_start..block_content_start + block_end];
 
-            if in_impl && line.starts_with("fn ") {
-                // 提取方法名
-                let method = line
-                    .strip_prefix("fn ")
-                    .unwrap_or("")
-                    .split('(')
-                    .next()
-                    .unwrap_or("")
-                    .trim();
+                    // 在impl块内容中查找所有fn定义
+                    for part in block_content.split("fn ") {
+                        let part = part.trim();
+                        if part.is_empty() {
+                            continue;
+                        }
 
-                if !method.is_empty() {
-                    methods.push(format!("fn_{}", method));
+                        // 提取方法名（到第一个'('为止）
+                        let method = part.split('(').next().unwrap_or("").trim();
+                        if !method.is_empty() && method != "{" {
+                            methods.push(format!("fn_{}", method));
+                        }
+                    }
                 }
             }
         }
