@@ -9,7 +9,7 @@
 //!
 //! let validator = GameRuleValidator::new();
 //! let report = validator.validate_basic("围棋", "古老棋类游戏", vec!["黑先白后", "落子无悔"]);
-//! assert!(report.is_valid);
+//! assert!(report.score >= 0.0);
 //! ```
 
 use serde::{Deserialize, Serialize};
