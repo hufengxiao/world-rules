@@ -65,41 +65,44 @@ impl Rule for AllergyManagementRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "识别过敏原：\\n{}",
-                self.identify()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "规避措施：\\n{}",
-                self.avoid()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "应急用药：\\n{}",
-                self.emergency()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "日常管理：\\n{}",
-                self.daily()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【过敏管理】\n{}", parts.join("\n\n"))
+        format!(
+            "【过敏管理】\n{}",
+            [
+                format!(
+                    "识别过敏原：\\n{}",
+                    self.identify()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "规避措施：\\n{}",
+                    self.avoid()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "应急用药：\\n{}",
+                    self.emergency()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "日常管理：\\n{}",
+                    self.daily()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

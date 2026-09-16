@@ -60,41 +60,44 @@ impl Rule for CyclingEtiquetteRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "上路准备：\\n{}",
-                self.preparation()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "道路行为：\\n{}",
-                self.on_road()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "与人相处：\\n{}",
-                self.with_others()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "停放：\\n{}",
-                self.parking()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【骑行礼仪与安全】\n{}", parts.join("\n\n"))
+        format!(
+            "【骑行礼仪与安全】\n{}",
+            [
+                format!(
+                    "上路准备：\\n{}",
+                    self.preparation()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "道路行为：\\n{}",
+                    self.on_road()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "与人相处：\\n{}",
+                    self.with_others()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "停放：\\n{}",
+                    self.parking()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

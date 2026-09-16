@@ -66,41 +66,44 @@ impl Rule for BeachEtiquetteRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "沙滩占位：\\n{}",
-                self.beach_placeholder()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "水上礼仪：\\n{}",
-                self.water()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "音响与言行：\\n{}",
-                self.noise()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "安全与卫生：\\n{}",
-                self.safety()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【海滨沙滩礼仪】\n{}", parts.join("\n\n"))
+        format!(
+            "【海滨沙滩礼仪】\n{}",
+            [
+                format!(
+                    "沙滩占位：\\n{}",
+                    self.beach_placeholder()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "水上礼仪：\\n{}",
+                    self.water()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "音响与言行：\\n{}",
+                    self.noise()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "安全与卫生：\\n{}",
+                    self.safety()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

@@ -101,57 +101,60 @@ impl Rule for ConcertEtiquetteRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "观演准备：\\n{}",
-                self.preparation()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "入场与就座：\\n{}",
-                self.seating()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "演出进行中：\\n{}",
-                self.during_performance()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "鼓掌与互动：\\n{}",
-                self.applause()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "退场：\\n{}",
-                self.exit()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "常见误区：\\n{}",
-                self.common_missteps()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【音乐会与演出礼仪】\n{}", parts.join("\n\n"))
+        format!(
+            "【音乐会与演出礼仪】\n{}",
+            [
+                format!(
+                    "观演准备：\\n{}",
+                    self.preparation()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "入场与就座：\\n{}",
+                    self.seating()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "演出进行中：\\n{}",
+                    self.during_performance()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "鼓掌与互动：\\n{}",
+                    self.applause()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "退场：\\n{}",
+                    self.exit()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "常见误区：\\n{}",
+                    self.common_missteps()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

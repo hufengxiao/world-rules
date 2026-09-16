@@ -66,41 +66,44 @@ impl Rule for GamingEtiquetteRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "开局礼仪：\\n{}",
-                self.start()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "对局中：\\n{}",
-                self.during()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "输赢心态：\\n{}",
-                self.mindset()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "团队沟通：\\n{}",
-                self.communication()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【在线游戏礼仪】\n{}", parts.join("\n\n"))
+        format!(
+            "【在线游戏礼仪】\n{}",
+            [
+                format!(
+                    "开局礼仪：\\n{}",
+                    self.start()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "对局中：\\n{}",
+                    self.during()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "输赢心态：\\n{}",
+                    self.mindset()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "团队沟通：\\n{}",
+                    self.communication()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

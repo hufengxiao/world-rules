@@ -53,20 +53,23 @@ def gen_file(struct, name, desc, origin, tags, category, sections):
     L.append("    }")
     L.append("")
     L.append("    fn explain(&self) -> String {")
-    L.append("        let parts = vec![")
+    L.append("        format!(")
+    L.append("            \"【%s】\\n{}\"," % name)
+    L.append("            [")
     for title, method, _ in sections:
         L.append(
-            "            format!(\n"
-            '                "%s：\\\\n{}",\n' % title +
-            "                self.%s()\n" % method +
-            "                    .iter()\n"
-            "                    .map(|s| format!(\"  • {}\", s))\n"
-            "                    .collect::<Vec<_>>()\n"
-            '                    .join("\\\\n")\n'
-            "            ),"
+            "                format!(\n"
+            '                    "%s：\\\\n{}",\n' % title +
+            "                    self.%s()\n" % method +
+            "                        .iter()\n"
+            "                        .map(|s| format!(\"  • {}\", s))\n"
+            "                        .collect::<Vec<_>>()\n"
+            '                        .join("\\\\n")\n'
+            "                ),"
         )
-    L.append("        ];")
-    L.append("        format!(\"【%s】\\n{}\", parts.join(\"\\n\\n\"))" % name)
+    L.append("            ]")
+    L.append("            .join(\"\\n\\n\")")
+    L.append("        )")
     L.append("    }")
     L.append("}")
     L.append("")

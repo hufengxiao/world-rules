@@ -64,41 +64,44 @@ impl Rule for CampingEtiquetteRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "营地选址：\\n{}",
-                self.site()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "篝火使用：\\n{}",
-                self.fire()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "噪音管理：\\n{}",
-                self.noise()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "营地整洁：\\n{}",
-                self.cleanliness()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【露营礼仪】\n{}", parts.join("\n\n"))
+        format!(
+            "【露营礼仪】\n{}",
+            [
+                format!(
+                    "营地选址：\\n{}",
+                    self.site()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "篝火使用：\\n{}",
+                    self.fire()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "噪音管理：\\n{}",
+                    self.noise()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "营地整洁：\\n{}",
+                    self.cleanliness()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

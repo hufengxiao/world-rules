@@ -65,41 +65,44 @@ impl Rule for HypertensionLifestyleRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "饮食控盐：\\n{}",
-                self.salt()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "均衡饮食：\\n{}",
-                self.diet()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "运动与体重：\\n{}",
-                self.exercise()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "用药与监测：\\n{}",
-                self.medication()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【高血压生活方式管理】\n{}", parts.join("\n\n"))
+        format!(
+            "【高血压生活方式管理】\n{}",
+            [
+                format!(
+                    "饮食控盐：\\n{}",
+                    self.salt()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "均衡饮食：\\n{}",
+                    self.diet()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "运动与体重：\\n{}",
+                    self.exercise()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "用药与监测：\\n{}",
+                    self.medication()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

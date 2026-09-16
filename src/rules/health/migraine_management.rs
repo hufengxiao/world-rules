@@ -76,49 +76,52 @@ impl Rule for MigraineManagementRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "诱因识别：\\n{}",
-                self.triggers()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "规律生活：\\n{}",
-                self.routine()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "急性期护理：\\n{}",
-                self.acute()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "就医信号：\\n{}",
-                self.seek_care()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "日常管理：\\n{}",
-                self.daily()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【偏头痛管理】\n{}", parts.join("\n\n"))
+        format!(
+            "【偏头痛管理】\n{}",
+            [
+                format!(
+                    "诱因识别：\\n{}",
+                    self.triggers()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "规律生活：\\n{}",
+                    self.routine()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "急性期护理：\\n{}",
+                    self.acute()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "就医信号：\\n{}",
+                    self.seek_care()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "日常管理：\\n{}",
+                    self.daily()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

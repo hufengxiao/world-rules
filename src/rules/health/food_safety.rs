@@ -65,41 +65,44 @@ impl Rule for FoodSafetyRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
-            format!(
-                "选购：\\n{}",
-                self.shopping()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "储存：\\n{}",
-                self.storage()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "烹调：\\n{}",
-                self.cooking()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-            format!(
-                "卫生：\\n{}",
-                self.hygiene()
-                    .iter()
-                    .map(|s| format!("  • {}", s))
-                    .collect::<Vec<_>>()
-                    .join("\\n")
-            ),
-        ];
-        format!("【家庭食品安全】\n{}", parts.join("\n\n"))
+        format!(
+            "【家庭食品安全】\n{}",
+            [
+                format!(
+                    "选购：\\n{}",
+                    self.shopping()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "储存：\\n{}",
+                    self.storage()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "烹调：\\n{}",
+                    self.cooking()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+                format!(
+                    "卫生：\\n{}",
+                    self.hygiene()
+                        .iter()
+                        .map(|s| format!("  • {}", s))
+                        .collect::<Vec<_>>()
+                        .join("\\n")
+                ),
+            ]
+            .join("\n\n")
+        )
     }
 }
 

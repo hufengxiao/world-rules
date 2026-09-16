@@ -66,7 +66,7 @@ impl Rule for GymEtiquetteRules {
     }
 
     fn explain(&self) -> String {
-        let parts = vec![
+        let parts = [
             format!(
                 "器械使用：\\n{}",
                 self.equipment()
