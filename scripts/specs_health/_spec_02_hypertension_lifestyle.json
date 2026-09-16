@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "hypertension_lifestyle",
+  "struct": "HypertensionLifestyleRules",
+  "name": "高血压生活方式管理",
+  "desc": "高血压患者控制血压的饮食、运动与作息规则",
+  "origin": "医学",
+  "tags": [
+    "健康",
+    "血压",
+    "慢病",
+    "生活方式"
+  ],
+  "category": "RuleCategory::health(\"hypertension\")",
+  "sections": [
+    {
+      "title": "饮食控盐",
+      "method": "salt",
+      "items": [
+        "每日摄盐量控制不超过5克",
+        "少吃腌制腊味与加工食品",
+        "烹调多用天然调味替代盐",
+        "警惕酱料隐形盐分"
+      ]
+    },
+    {
+      "title": "均衡饮食",
+      "method": "diet",
+      "items": [
+        "多摄入蔬果与全谷物",
+        "控制饱和脂肪与胆固醇",
+        "适量优质蛋白",
+        "限制甜食与含糖饮料"
+      ]
+    },
+    {
+      "title": "运动与体重",
+      "method": "exercise",
+      "items": [
+        "每周中等强度运动等时机积累",
+        "减轻体重控制腰围",
+        "戒烟并控制饮酒",
+        "规律作息避免熬夜"
+      ]
+    },
+    {
+      "title": "用药与监测",
+      "method": "medication",
+      "items": [
+        "遵医嘱规律服用降压药",
+        "不自行停药或改量",
+        "家庭自测固定时段记录",
+        "定期复查与医生沟通调整"
+      ]
+    }
+  ]
+}

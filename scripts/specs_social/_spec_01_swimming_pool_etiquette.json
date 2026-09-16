@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "swimming_pool_etiquette",
+  "struct": "SwimmingPoolEtiquetteRules",
+  "name": "游泳馆礼仪",
+  "desc": "游泳馆、泳池内锻炼时的公共礼仪与安全规则",
+  "origin": "国际",
+  "tags": [
+    "社交",
+    "礼仪",
+    "游泳",
+    "泳池"
+  ],
+  "category": "RuleCategory::social(\"pool\")",
+  "sections": [
+    {
+      "title": "入场与更衣",
+      "method": "dress",
+      "items": [
+        "入水前先冲洗身体",
+        "穿合适泳装进入泳区",
+        "不在泳池边进食饮水",
+        "遵守馆内人数与时段安排"
+      ]
+    },
+    {
+      "title": "泳道秩序",
+      "method": "lane",
+      "items": [
+        "按方向循环游动不倒行",
+        "变速前先减速靠边",
+        "不在泳道中央停歇占道",
+        "泳速相差大时礼让快速泳道"
+      ]
+    },
+    {
+      "title": "安全规则",
+      "method": "safety",
+      "items": [
+        "不会游泳者佩戴浮具靠池边",
+        "不进行危险跳水",
+        "不干扰救生员工作",
+        "深水区遵守深浅分界"
+      ]
+    },
+    {
+      "title": "卫生礼仪",
+      "method": "hygiene",
+      "items": [
+        "咳嗽喷嚏远离人群",
+        "不在水中解便吐痰",
+        "离开前冲洗干净"
+      ]
+    }
+  ]
+}

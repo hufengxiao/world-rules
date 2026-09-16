@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "camping_etiquette",
+  "struct": "CampingEtiquetteRules",
+  "name": "露营礼仪",
+  "desc": "露营营地选址、篝火、噪音与环保的公共礼仪",
+  "origin": "国际",
+  "tags": [
+    "社交",
+    "户外",
+    "露营",
+    "礼仪"
+  ],
+  "category": "RuleCategory::social(\"camping\")",
+  "sections": [
+    {
+      "title": "营地选址",
+      "method": "site",
+      "items": [
+        "在指定营地扎营",
+        "避开陡坡与低洼易涝地",
+        "与邻居保持合理距离",
+        "不在禁露营区过夜"
+      ]
+    },
+    {
+      "title": "篝火使用",
+      "method": "fire",
+      "items": [
+        "只在允许的地方用火",
+        "用火期间有人看守",
+        "离营前彻底熄灭",
+        "遵守防火期规定"
+      ]
+    },
+    {
+      "title": "噪音管理",
+      "method": "noise",
+      "items": [
+        "夜间降低说话音量",
+        "避免过早过晚喧闹",
+        "音乐音量不越营地范围",
+        "尊重他人安静休息"
+      ]
+    },
+    {
+      "title": "营地整洁",
+      "method": "cleanliness",
+      "items": [
+        "离营带走全部物品",
+        "厨余垃圾独立收理",
+        "不惊扰野生动物与植被"
+      ]
+    }
+  ]
+}

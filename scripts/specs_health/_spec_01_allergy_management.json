@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "allergy_management",
+  "struct": "AllergyManagementRules",
+  "name": "过敏管理",
+  "desc": "食物过敏与接触性过敏的识别、规避与应急规则",
+  "origin": "医学",
+  "tags": [
+    "健康",
+    "过敏",
+    "免疫"
+  ],
+  "category": "RuleCategory::health(\"allergy\")",
+  "sections": [
+    {
+      "title": "识别过敏原",
+      "method": "identify",
+      "items": [
+        "明确记录已知过敏食物",
+        "阅读食品配料表",
+        "留意隐形过敏原如酱料",
+        "就医做规范过敏原检测"
+      ]
+    },
+    {
+      "title": "规避措施",
+      "method": "avoid",
+      "items": [
+        "外出用餐主动告知过敏信息",
+        "不抱侥幸尝试疑似过敏食物",
+        "注意交叉污染避免共用厨具",
+        "携带过敏信息卡片"
+      ]
+    },
+    {
+      "title": "应急用药",
+      "method": "emergency",
+      "items": [
+        "严重过敏者随身携带抗过敏药",
+        "备好肾上腺素注射剂使用者",
+        "出现喉头水肿立即呼救",
+        "症状加重不拖延就医"
+      ]
+    },
+    {
+      "title": "日常管理",
+      "method": "daily",
+      "items": [
+        "保持居室通风减少尘螨",
+        "花粉季减少外出与开窗",
+        "宠物接触时注意清洗",
+        "遵医嘱规范用药不自行停药"
+      ]
+    }
+  ]
+}

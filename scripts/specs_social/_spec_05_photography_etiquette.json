@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "photography_etiquette",
+  "struct": "PhotographyEtiquetteRules",
+  "name": "摄影礼仪",
+  "desc": "街拍、活动与公共场合摄影的隐私与版权礼仪",
+  "origin": "国际",
+  "tags": [
+    "社交",
+    "礼仪",
+    "摄影",
+    "隐私"
+  ],
+  "category": "RuleCategory::social(\"photography\")",
+  "sections": [
+    {
+      "title": "拍摄他人",
+      "method": "portrait",
+      "items": [
+        "拍摄他人前征得同意",
+        "尊重不愿被拍的意愿",
+        "不偷拍私密场合",
+        "人流中尽量避开正面特写"
+      ]
+    },
+    {
+      "title": "公共场所",
+      "method": "public",
+      "items": [
+        "在允许摄影的场所拍摄",
+        "使用闪光灯注意他人",
+        "拍摄前了解场地规定",
+        "不遮挡重要展品或他人视线"
+      ]
+    },
+    {
+      "title": "版权与发布",
+      "method": "copyright",
+      "items": [
+        "商用照片取得模特授权",
+        "分享时标注来源作者",
+        "尊重创作者署名权",
+        "不冒认他人作品"
+      ]
+    },
+    {
+      "title": "编辑与使用",
+      "method": "usage",
+      "items": [
+        "编辑照片尊重客观事实",
+        "未经许可不使用他人作品",
+        "涉及未成年人注意隐私"
+      ]
+    }
+  ]
+}

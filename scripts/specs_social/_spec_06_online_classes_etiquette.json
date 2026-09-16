@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "online_classes_etiquette",
+  "struct": "OnlineClassesEtiquetteRules",
+  "name": "在线课堂礼仪",
+  "desc": "视频会议、网课与线上课堂中的参与与互动礼仪",
+  "origin": "国际",
+  "tags": [
+    "社交",
+    "礼仪",
+    "在线视频",
+    "网课",
+    "会议"
+  ],
+  "category": "RuleCategory::social(\"online_class\")",
+  "sections": [
+    {
+      "title": "课前准备",
+      "method": "prep",
+      "items": [
+        "提前测试网络与音视频设备",
+        "准时进入在线课堂",
+        "背景整洁避免过于杂乱",
+        "准备单向时开麦克风"
+      ]
+    },
+    {
+      "title": "课堂互动",
+      "method": "interact",
+      "items": [
+        "按主持人或老师引导发言",
+        "不打断他人提问",
+        "发言清晰条理",
+        "需待答再反馈互动"
+      ]
+    },
+    {
+      "title": "礼仪细节",
+      "method": "etiquette",
+      "items": [
+        "中途静音保持安静",
+        "进出入课堂说明去向",
+        "不使用不雅昵称或头像",
+        "尊重教师与同学"
+      ]
+    },
+    {
+      "title": "课后沟通",
+      "method": "after",
+      "items": [
+        "课后有序提问答疑",
+        "不散播课堂隐私",
+        "按时提交课业"
+      ]
+    }
+  ]
+}

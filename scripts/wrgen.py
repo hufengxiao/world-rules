@@ -190,6 +190,19 @@ def main():
     category = spec.get("category", 'RuleCategory::social("generic")')
     sections = [(s.get("title", s["method"]), s["method"], s["items"]) for s in spec["sections"]]
 
+    _RUST_KEYWORDS = {
+        "as", "break", "const", "continue", "crate", "else", "enum", "extern",
+        "false", "fn", "for", "if", "impl", "in", "let", "loop", "match", "mod",
+        "move", "mut", "pub", "ref", "return", "self", "Self", "static", "struct",
+        "super", "trait", "true", "type", "unsafe", "use", "where", "while",
+        "async", "await", "dyn", "abstract", "become", "box", "do", "final",
+        "macro", "override", "priv", "typeof", "unsized", "virtual", "yield",
+        "try",
+    }
+    for _, method, _ in sections:
+        if method in _RUST_KEYWORDS:
+            raise SystemExit("方法名 %r 是 Rust 保留字，需改名" % method)
+
     content = gen_file(struct, name, desc, origin, tags, category, sections)
     out = os.path.join(RULES_DIR, cat, file_name + ".rs")
     if not os.path.isdir(os.path.dirname(out)):

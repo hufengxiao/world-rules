@@ -53,6 +53,7 @@
 //! - 10+ 条特殊人群健康规则
 
 pub mod addiction_recovery;
+pub mod allergy_management;
 pub mod anxiety_management;
 pub mod bone_health;
 pub mod brain_health;
@@ -70,11 +71,13 @@ pub mod exercise;
 pub mod eye_health;
 pub mod eye_strain_rules;
 pub mod first_aid;
+pub mod food_safety;
 pub mod gut_health;
 pub mod hair_health;
 pub mod hearing_health;
 pub mod heart_health;
 pub mod hydration_rules;
+pub mod hypertension_lifestyle;
 pub mod hypertension_management;
 pub mod immune_health;
 pub mod infant_health;
@@ -84,6 +87,7 @@ pub mod liver_health;
 pub mod men_health;
 pub mod mental_health;
 pub mod mental_wellness;
+pub mod migraine_management;
 pub mod nutrition;
 pub mod occupational_health;
 pub mod oral_health;
@@ -104,6 +108,7 @@ pub mod weight_management;
 pub mod women_health;
 
 pub use addiction_recovery::AddictionRecoveryRules;
+pub use allergy_management::AllergyManagementRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
@@ -121,11 +126,13 @@ pub use exercise::ExerciseRules;
 pub use eye_health::EyeHealthRules;
 pub use eye_strain_rules::EyeStrainRulesRules;
 pub use first_aid::FirstAidRules;
+pub use food_safety::FoodSafetyRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use hydration_rules::HydrationRulesRules;
+pub use hypertension_lifestyle::HypertensionLifestyleRules;
 pub use hypertension_management::HypertensionManagementRules;
 pub use immune_health::ImmuneHealthRules;
 pub use infant_health::InfantHealthRules;
@@ -135,6 +142,7 @@ pub use liver_health::LiverHealthRules;
 pub use men_health::MenHealthRules;
 pub use mental_health::MentalHealthRules;
 pub use mental_wellness::MentalWellnessRules;
+pub use migraine_management::MigraineManagementRules;
 pub use nutrition::NutritionRules;
 pub use occupational_health::OccupationalHealthRules;
 pub use oral_health::OralHealthRules;
@@ -162,6 +170,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FoodSafetyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HypertensionLifestyleRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AllergyManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MigraineManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ChildrenHealthRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

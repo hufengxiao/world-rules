@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "cycling_etiquette",
+  "struct": "CyclingEtiquetteRules",
+  "name": "骑行礼仪与安全",
+  "desc": "城市与郊野骑行时的道路交通礼仪与安全规则",
+  "origin": "国际",
+  "tags": [
+    "社交",
+    "礼仪",
+    "骑行",
+    "自行车",
+    "安全"
+  ],
+  "category": "RuleCategory::social(\"cycling\")",
+  "sections": [
+    {
+      "title": "上路准备",
+      "method": "preparation",
+      "items": [
+        "骑行前检查刹车轮胎链条",
+        "规范佩戴头盔",
+        "夜间装置反光与车灯",
+        "了解本地骑行交通规则"
+      ]
+    },
+    {
+      "title": "道路行为",
+      "method": "on_road",
+      "items": [
+        "靠右骑行不逆行",
+        "遵守信号灯与交通标线",
+        "变道转向提前打手势",
+        "不并排占道或追逐竞驶"
+      ]
+    },
+    {
+      "title": "与人相处",
+      "method": "with_others",
+      "items": [
+        "经过行人减速并保持距离",
+        "超车前清晰提示",
+        "路口减速礼让",
+        "不随意穿行机动车道"
+      ]
+    },
+    {
+      "title": "停放",
+      "method": "parking",
+      "items": [
+        "在指定区域规范停放",
+        "不影响他人通行",
+        "留意停放处并上锁"
+      ]
+    }
+  ]
+}
