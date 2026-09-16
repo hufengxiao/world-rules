@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "elder_fall_prevention",
+  "struct": "ElderFallPreventionRules",
+  "name": "老人防跌倒",
+  "desc": "预防老年人跌倒的居家改造、锻炼与行动安全规则",
+  "tags": ["健康", "老人", "跌倒", "预防", "居家安全"],
+  "category": "RuleCategory::health(\"elder_fall\")",
+  "sections": [
+    {
+      "title": "环境改造",
+      "method": "home",
+      "items": [
+        "过道保持无障碍与照明充足",
+        "浴室铺防滑垫装扶手",
+        "固定松散地垫与电线",
+        "常用物品放在易取高度"
+      ]
+    },
+    {
+      "title": "身体锻炼",
+      "method": "exercise",
+      "items": [
+        "坚持平衡与肌力训练",
+        "适度活动避免久坐",
+        "进行改善步态的练习",
+        "锻炼循序渐进量力"
+      ]
+    },
+    {
+      "title": "行动习惯",
+      "method": "habits",
+      "items": [
+        "起身站稳再行走",
+        "穿合脚防滑鞋拖鞋",
+        "夜间如厕开灯稳扶",
+        "不攀高取物"
+      ]
+    },
+    {
+      "title": "健康与照护",
+      "method": "care",
+      "items": [
+        "定期检查视听力",
+        "留意药物引起的头晕",
+        "跌倒后即使轻微也评估",
+        "照顾者协助防范"
+      ]
+    }
+  ]
+}

@@ -64,6 +64,7 @@ pub mod inheritance;
 pub mod intellectual_property;
 pub mod labor;
 pub mod marriage;
+pub mod rental_lease_basics;
 pub mod road_safety;
 pub mod traffic;
 
@@ -657,6 +658,7 @@ pub use product_quality_deep::ProductQualityDeepRules;
 pub use public_interest_litigation::PublicInterestLitigationRules;
 pub use real_estate_detailed::RealEstateDetailedRules;
 pub use real_estate_law_detailed::RealEstateLawDetailedRules;
+pub use rental_lease_basics::RentalLeaseBasicsRules;
 pub use right_to_education::RightToEducationRules;
 pub use right_to_health::RightToHealthRules;
 pub use right_to_housing::RightToHousingRules;
@@ -698,6 +700,10 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = RentalLeaseBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ConsumerRightsBasicsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

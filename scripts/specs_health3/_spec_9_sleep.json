@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "sleep_quality",
+  "struct": "SleepQualityRules",
+  "name": "优质睡眠作息",
+  "desc": "建立规律作息、改善睡眠质量的睡眠卫生规则",
+  "tags": ["健康", "睡眠", "作息", "休息", "作息卫生"],
+  "category": "RuleCategory::health(\"sleep_quality\")",
+  "sections": [
+    {
+      "title": "规律作息",
+      "method": "routine",
+      "items": [
+        "固定上床与起床时间",
+        "保证充足睡眠时长",
+        "周末不过度补觉打乱",
+        "建立睡前放松习惯"
+      ]
+    },
+    {
+      "title": "环境优化",
+      "method": "environment",
+      "items": [
+        "卧室昏暗安静温度适宜",
+        "睡前减少强光刺激",
+        "规律作息与室温相合",
+        "使用遮光窗帘"
+      ]
+    },
+    {
+      "title": "行为习惯",
+      "method": "habits",
+      "items": [
+        "睡前避免咖啡因与大量饮酒",
+        "睡前不看炫亮屏幕过久",
+        "避免夜间饱食",
+        "保持适度日间活动"
+      ]
+    },
+    {
+      "title": "睡眠困扰",
+      "method": "troubles",
+      "items": [
+        "失眠持续影响白昼就医",
+        "打鼾伴呼吸暂停早筛查",
+        "长期挣扎入睡留意情绪",
+        "不长期滥服助眠药"
+      ]
+    }
+  ]
+}

@@ -129,6 +129,7 @@ pub mod elevator;
 pub mod elevator_detailed;
 pub mod email;
 pub mod festival;
+pub mod fishing_etiquette;
 pub mod flight;
 pub mod food_festival;
 pub mod formal_banquet;
@@ -168,6 +169,7 @@ pub mod meeting_etiquette;
 pub mod mid_autumn;
 pub mod middle_east_etiquette;
 pub mod minimalism;
+pub mod mountain_hiking_etiquette;
 pub mod museum_etiquette;
 pub mod national_day;
 pub mod negotiation_etiquette;
@@ -302,6 +304,7 @@ pub use elevator::ElevatorEtiquette;
 pub use elevator_detailed::ElevatorDetailedRules;
 pub use email::EmailEtiquette;
 pub use festival::{ChineseFestival, FestivalEtiquette};
+pub use fishing_etiquette::FishingEtiquetteRules;
 pub use flight::FlightEtiquette;
 pub use food_festival::FoodFestivalRules;
 pub use formal_banquet::FormalBanquetRules;
@@ -341,6 +344,7 @@ pub use meeting_etiquette::MeetingEtiquetteRules;
 pub use mid_autumn::MidAutumnRules;
 pub use middle_east_etiquette::MiddleEastEtiquetteRules;
 pub use minimalism::MinimalismRules;
+pub use mountain_hiking_etiquette::MountainHikingEtiquetteRules;
 pub use museum_etiquette::MuseumEtiquetteRules;
 pub use national_day::NationalDayRules;
 pub use negotiation_etiquette::NegotiationEtiquetteRules;
@@ -404,6 +408,14 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = MountainHikingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FishingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = GraduationCeremonyRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

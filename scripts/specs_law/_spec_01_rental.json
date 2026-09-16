@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "rental_lease_basics",
+  "struct": "RentalLeaseBasicsRules",
+  "name": "房屋租赁合同要点",
+  "desc": "租房签约、押金、维修与退租中应知晓的法律要点",
+  "origin": "中国",
+  "tags": ["法律", "租房", "租赁", "合同", "权益"],
+  "category": "RuleCategory::law(\"rental_lease\")",
+  "sections": [
+    {
+      "title": "签约审阅",
+      "method": "contract",
+      "items": [
+        "明确租金、押金与期限",
+        "看清违约与续约条款",
+        "核对房屋权属与承租人身份",
+        "拒绝口头约定的模糊表述"
+      ]
+    },
+    {
+      "title": "交接查验",
+      "method": "move_in",
+      "items": [
+        "入住前房屋现状拍照留证",
+        "核对家具家电清单与状况",
+        "测试水电燃气等设施",
+        "用电用气安全注意事项留存"
+      ]
+    },
+    {
+      "title": "租期维护",
+      "method": "maintenance",
+      "items": [
+        "明确维修责任归属",
+        "重大维修及时告知房东",
+        "正常损耗不应一味由租客承担",
+        "保留往来书面记录"
+      ]
+    },
+    {
+      "title": "退租结清",
+      "method": "move_out",
+      "items": [
+        "按约提前通知退租",
+        "归还房屋达到合理清洁",
+        "核对押金退还与扣费依据",
+        "结清水电燃气等费用"
+      ]
+    }
+  ]
+}

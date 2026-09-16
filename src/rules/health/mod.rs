@@ -68,6 +68,7 @@ pub mod depression_awareness;
 pub mod detox_rules;
 pub mod diabetes_management;
 pub mod digestive_health;
+pub mod elder_fall_prevention;
 pub mod elderly_health;
 pub mod ergonomics;
 pub mod exercise;
@@ -109,7 +110,9 @@ pub mod skin_care_rules;
 pub mod skin_health;
 pub mod sleep;
 pub mod sleep_hygiene;
+pub mod sleep_quality;
 pub mod stress_management;
+pub mod sun_protection;
 pub mod teen_health;
 pub mod toddler_health;
 pub mod travel_health;
@@ -134,6 +137,7 @@ pub use depression_awareness::DepressionAwarenessRules;
 pub use detox_rules::DetoxRulesRules;
 pub use diabetes_management::DiabetesManagementRules;
 pub use digestive_health::DigestiveHealthRules;
+pub use elder_fall_prevention::ElderFallPreventionRules;
 pub use elderly_health::ElderlyHealthRules;
 pub use ergonomics::ErgonomicsRules;
 pub use exercise::ExerciseRules;
@@ -175,7 +179,9 @@ pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
 pub use sleep::SleepRules;
 pub use sleep_hygiene::SleepHygieneRules;
+pub use sleep_quality::SleepQualityRules;
 pub use stress_management::StressManagementRules;
+pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
 pub use toddler_health::ToddlerHealthRules;
 pub use travel_health::TravelHealthRules;
@@ -192,6 +198,18 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SleepQualityRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElderFallPreventionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SunProtectionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FootBlisterCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

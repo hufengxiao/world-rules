@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "sun_protection",
+  "struct": "SunProtectionRules",
+  "name": "防晒与紫外线防护",
+  "desc": "户外防晒、减少紫外线损伤的皮肤防护规则",
+  "origin": "医学",
+  "tags": ["健康", "防晒", "紫外线", "皮肤", "户外"],
+  "category": "RuleCategory::health(\"sun_protection\")",
+  "sections": [
+    {
+      "title": "防晒措施",
+      "method": "measures",
+      "items": [
+        "外出涂抹足量广谱防晒霜",
+        "避开日照最强的午间时段",
+        "穿戴防晒衣物、帽与墨镜",
+        "遮挡与防晒霜结合使用"
+      ]
+    },
+    {
+      "title": "正确用防晒",
+      "method": "application",
+      "items": [
+        "出门前提前涂抹均匀",
+        "按需每2小时补涂",
+        "出汗游泳后再次补涂",
+        "依据肤质选合适防晒系数"
+      ]
+    },
+    {
+      "title": "儿童与敏感人群",
+      "method": "special",
+      "items": [
+        "婴幼儿避免长时间暴晒",
+        "戴宽沿帽保护脸颈",
+        "使用儿童适用的温和防晒",
+        "留意无遮挡的眼部防护"
+      ]
+    },
+    {
+      "title": "晒后与防护",
+      "method": "after",
+      "items": [
+        "晒后冷敷舒缓皮肤",
+        "多补水防止脱水",
+        "留意异常皮肤变化",
+        "高热暴晒不适及时阴凉休息"
+      ]
+    }
+  ]
+}

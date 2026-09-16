@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "mountain_hiking_etiquette",
+  "struct": "MountainHikingEtiquetteRules",
+  "name": "登山徒步礼仪",
+  "desc": "山地徒步、登山中的结伴、环保与让行礼仪",
+  "tags": ["社交", "礼仪", "登山", "徒步", "环保"],
+  "category": "RuleCategory::social(\"mountain_hiking\")",
+  "sections": [
+    {
+      "title": "结伴与出发",
+      "method": "buddy",
+      "items": [
+        "结伴而行不单独冒险",
+        "出发前告知总体行程",
+        "备足饮水干粮与御寒",
+        "了解天气与路况"
+      ]
+    },
+    {
+      "title": "让行与沟通",
+      "method": "yielding",
+      "items": [
+        "上山者依体力自然节奏",
+        "窄道秉持助力让行",
+        "超队前提醒后队",
+        "不占道停留大幅休息"
+      ]
+    },
+    {
+      "title": "环保山林",
+      "method": "leave_no_trace",
+      "items": [
+        "带走全部垃圾",
+        "不折采高山植被",
+        "不生明火乱丢烟头",
+        "尊重野生动植物栖息"
+      ]
+    },
+    {
+      "title": "安全互助",
+      "method": "safety",
+      "items": [
+        "队伍前后彼此照应",
+        "遇到疲惫队友主动帮扶",
+        "讲清楚下撤与集合信号",
+        "遇险及时求助不下深壑"
+      ]
+    }
+  ]
+}

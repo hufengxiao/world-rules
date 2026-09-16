@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "fishing_etiquette",
+  "struct": "FishingEtiquetteRules",
+  "name": "垂钓礼仪",
+  "desc": "野钓、休闲垂钓时的互相尊重、环保与安全礼仪",
+  "tags": ["社交", "礼仪", "垂钓", "钓鱼", "水边"],
+  "category": "RuleCategory::social(\"fishing\")",
+  "sections": [
+    {
+      "title": "择位与间距",
+      "method": "spacing",
+      "items": [
+        "与人钓位保持安全距离",
+        "不抢占他人占好的窝点",
+        "observer垂钓指引时尊重",
+        "钓具互让不缠线吵闹"
+      ]
+    },
+    {
+      "title": "环保放流",
+      "method": "release",
+      "items": [
+        "小鱼或不食取者放流",
+        "遵守禁渔期与渔获规格",
+        "不用违禁渔具下药",
+        "垃圾随钓随收"
+      ]
+    },
+    {
+      "title": "安静与安全",
+      "method": "quiet",
+      "items": [
+        "提竿时轻声提示邻近",
+        "不大声喧哗惊鱼",
+        "甩竿前观察身后有人",
+        "水边留意水深与水流"
+      ]
+    },
+    {
+      "title": "人与水鸟",
+      "method": "wildlife",
+      "items": [
+        "不惊扰水鸟与鱼群过度",
+        "渔获不随意丢弃死鱼",
+        "爱护水域生态",
+        "遵守当地钓鱼规定"
+      ]
+    }
+  ]
+}
