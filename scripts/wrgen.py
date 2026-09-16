@@ -139,19 +139,16 @@ def register(cat, modname, struct):
         content = "\n".join(lines)
         changed = True
 
-    # 2) pub use
+    # 2) pub use —— 只追加到以 ; 结尾的完整 pub use 语句之后，避开多行 `{...}` 组
     use_line = "pub use %s::%s;" % (modname, struct)
     if use_line not in content:
-        use_lines = re.findall(r'^pub use \w+::\w+;', content, re.M)
-        if use_lines:
-            # 插到 pub use 块
-            sorted_uses = sorted(use_lines + [use_line])
-            # 直接追加在最后一个 pub use 之后
-            lines = content.split("\n")
-            last_use = None
-            for i, ln in enumerate(lines):
-                if ln.startswith("pub use "):
-                    last_use = i
+        lines = content.split("\n")
+        last_use = None
+        for i, ln in enumerate(lines):
+            # 独立 pub use X::Y; 语句（以分号结尾，且不是 `{` 组内）
+            if re.match(r'^pub use [\w:]+::[\w:]+\;$', ln.strip()):
+                last_use = i
+        if last_use is not None:
             lines.insert(last_use + 1, use_line)
             content = "\n".join(lines)
         else:

@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "pickleball_rules",
+  "struct": "PickleballRules",
+  "name": "匹克球规则",
+  "desc": "匹克球(getle)运动的场地、发球、计分与礼仪基础规则",
+  "origin": "国际",
+  "tags": ["体育", "匹克球", "球类", "规则"],
+  "category": "RuleCategory::sports(\"pickleball\")",
+  "sections": [
+    {
+      "title": "场地与设备",
+      "method": "court",
+      "items": [
+        "球场为短网双打及单打共用",
+        "使用匹克球与专用球拍",
+        "了解非截击区（厨房区）规则",
+        "场地尺寸符合标准规格"
+      ]
+    },
+    {
+      "title": "发球与计分",
+      "method": "serve",
+      "items": [
+        "发球需在底线后进行",
+        "使用下手式发球",
+        "按得分规则轮换发球",
+        "得分与局数按规定判定"
+      ]
+    },
+    {
+      "title": "双打配合",
+      "method": "doubles",
+      "items": [
+        "双打双方轮换发球",
+        "接发球员站在对区",
+        "遵守双方轮流击球规则",
+        "不得违例跨区连续击球"
+      ]
+    },
+    {
+      "title": "运动礼仪",
+      "method": "etiquette",
+      "items": [
+        "击球失误主动捡球",
+        "换场或休息时向对手致意",
+        "不指责搭档或对手",
+        "尊重计分与判罚"
+      ]
+    }
+  ]
+}

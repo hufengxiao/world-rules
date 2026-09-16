@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "fitness_class_etiquette",
+  "struct": "FitnessClassEtiquetteRules",
+  "name": "团操课程礼仪",
+  "desc": "健身房团课、跳操等集体课程的空间与礼仪",
+  "origin": "大众",
+  "tags": ["体育", "健身", "团课", "操课", "礼仪"],
+  "category": "RuleCategory::sports(\"fitness_class\")",
+  "sections": [
+    {
+      "title": "课前准备",
+      "method": "preparation",
+      "items": [
+        "提前到场找好位置",
+        "自带毛巾与水杯",
+        "短时热身后进课",
+        "穿着合体的运动装备"
+      ]
+    },
+    {
+      "title": "课中行为",
+      "method": "during",
+      "items": [
+        "紧跟教练节奏练习",
+        "难度不适时量力调整",
+        "不多说话打扰邻座",
+        "注意与相邻学员保持间距"
+      ]
+    },
+    {
+      "title": "空间与器具",
+      "method": "space",
+      "items": [
+        "器材轮流使用不独占",
+        "用完归位不挡通道",
+        "舞蹈区避免碰撞他人",
+        "共同维护教室整洁"
+      ]
+    },
+    {
+      "title": "课后",
+      "method": "after",
+      "items": [
+        "放松拉伸缓解酸痛",
+        "放回器材与毛巾",
+        "向教练道谢",
+        "合理补水与休息"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "jogging_etiquette",
+  "struct": "JoggingEtiquetteRules",
+  "name": "慢跑健身礼仪",
+  "desc": "慢跑、健步等有氧运动的公共礼仪与安全",
+  "origin": "大众",
+  "tags": ["体育", "慢跑", "健身", "礼仪", "安全"],
+  "category": "RuleCategory::sports(\"jogging\")",
+  "sections": [
+    {
+      "title": "热身准备",
+      "method": "warmup",
+      "items": [
+        "跑步前充分热身激活",
+        "穿着合脚运动鞋",
+        "补水并注意环境温度",
+        "轻度运动后可逐渐加速"
+      ]
+    },
+    {
+      "title": "道路礼仪",
+      "method": "road",
+      "items": [
+        "在人行步道跑步",
+        "避让行人主动让道",
+        "过马路看清红灯",
+        "避免并排占据整条路"
+      ]
+    },
+    {
+      "title": "安全要点",
+      "method": "safety",
+      "items": [
+        "夜间穿反光装备",
+        "控制合适配速不过冲",
+        "留意路面坑洼与交通",
+        "突发不适及时停下休息"
+      ]
+    },
+    {
+      "title": "健身规律",
+      "method": "routine",
+      "items": [
+        "循序渐进增加路远",
+        "合理安排休息与恢复",
+        "配合拉伸缓解肌疲劳",
+        "坚持适度不过度"
+      ]
+    }
+  ]
+}

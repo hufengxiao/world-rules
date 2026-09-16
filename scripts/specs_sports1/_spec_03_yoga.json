@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "yoga_etiquette",
+  "struct": "YogaEtiquetteRules",
+  "name": "瑜伽课堂礼仪",
+  "desc": "瑜伽课堂中的安静、尊重与自我限度礼仪",
+  "origin": "大众",
+  "tags": ["体育", "瑜伽", "课堂", "礼仪", "静修"],
+  "category": "RuleCategory::sports(\"yoga\")",
+  "sections": [
+    {
+      "title": "课前",
+      "method": "preparation",
+      "items": [
+        "提前到课备好垫子",
+        "手机静音勿扰",
+        "告知老师身体不适",
+        "不占他人垫位"
+      ]
+    },
+    {
+      "title": "课中",
+      "method": "during",
+      "items": [
+        "跟随呼吸与口令",
+        "不勉强高难度体式",
+        "保持安静专注",
+        "不评论他人动作水平"
+      ]
+    },
+    {
+      "title": "空间与安全",
+      "method": "space",
+      "items": [
+        "留出与他人合适间距",
+        "使用辅具量力",
+        "做动作不阻挡他人视线",
+        "需要休息可回到婴儿式"
+      ]
+    },
+    {
+      "title": "共修谦逊",
+      "method": "metta",
+      "items": [
+        "尊重老师与同修",
+        "不过度竞争比较",
+        "尊重不同水平的新手",
+        "课后向老师致谢"
+      ]
+    }
+  ]
+}

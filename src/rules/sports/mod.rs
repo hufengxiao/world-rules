@@ -197,6 +197,7 @@ pub mod fencing_detailed;
 pub mod field_archery;
 pub mod figure_skating;
 pub mod figure_skating_detailed;
+pub mod fitness_class_etiquette;
 pub mod fitness_competition;
 pub mod five_aside_football;
 pub mod floorball;
@@ -296,6 +297,7 @@ pub mod javelin;
 pub mod jet_ski;
 pub mod jet_ski_ijsba;
 pub mod jiu_jitsu;
+pub mod jogging_etiquette;
 pub mod judo;
 pub mod judo_detailed;
 pub mod judo_ijf_detailed;
@@ -390,6 +392,7 @@ pub mod parkour_fig;
 pub mod petanque;
 pub mod petanque_fipjp_detailed;
 pub mod pickleball_ifp;
+pub mod pickleball_rules;
 pub mod pole_vault;
 pub mod polo;
 pub mod powerlifting;
@@ -552,6 +555,7 @@ pub mod wushu;
 pub mod wushu_iwuf;
 pub mod xingyi;
 pub mod yoga_competition;
+pub mod yoga_etiquette;
 pub mod youth_athletics;
 pub mod youth_swimming;
 pub mod youth_training;
@@ -702,6 +706,7 @@ pub use fencing_detailed::FencingDetailedRules;
 pub use field_archery::FieldArcheryRules;
 pub use figure_skating::FigureSkatingRules;
 pub use figure_skating_detailed::FigureSkatingDetailedRules;
+pub use fitness_class_etiquette::FitnessClassEtiquetteRules;
 pub use fitness_competition::FitnessCompetitionRules;
 pub use five_aside_football::FiveAsideFootballRules;
 pub use floorball::FloorballRules;
@@ -812,6 +817,7 @@ pub use javelin::JavelinRules;
 pub use jet_ski::JetSkiRules;
 pub use jet_ski_ijsba::JetSkiIjsbaRules;
 pub use jiu_jitsu::JiuJitsuRules;
+pub use jogging_etiquette::JoggingEtiquetteRules;
 pub use judo::JudoRules;
 pub use judo_detailed::JudoDetailedRules;
 pub use judo_ijf_detailed::JudoIjfDetailedRules;
@@ -911,6 +917,7 @@ pub use parkour_fig::ParkourFigRules;
 pub use petanque::PetanqueRules;
 pub use petanque_fipjp_detailed::PetanqueFipjpDetailedRules;
 pub use pickleball_ifp::PickleballIfpRules;
+pub use pickleball_rules::PickleballRules;
 pub use pole_vault::PoleVaultRules;
 pub use polo::PoloRules;
 pub use powerlifting::PowerliftingRules;
@@ -1094,6 +1101,7 @@ pub use wushu::WushuRules;
 pub use wushu_iwuf::WushuIwufRules;
 pub use xingyi::XingyiRules;
 pub use yoga_competition::YogaCompetitionRules;
+pub use yoga_etiquette::YogaEtiquetteRules;
 pub use youth_athletics::{YouthAgeGroup, YouthAthleticsRules};
 pub use youth_swimming::{YouthSwimAgeGroup, YouthSwimmingRules};
 pub use youth_training::{
@@ -1108,6 +1116,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = YogaEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FitnessClassEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JoggingEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PickleballRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AikidoRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
