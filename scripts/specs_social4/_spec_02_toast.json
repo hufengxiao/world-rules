@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "banquet_toast_etiquette",
+  "struct": "BanquetToastEtiquetteRules",
+  "name": "宴会敬酒与祝词礼仪",
+  "desc": "宴席中举杯祝酒、致辞与敬酒次序的礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "宴会", "敬酒", "祝酒", "餐饮"],
+  "category": "RuleCategory::social(\"banquet_toast\")",
+  "sections": [
+    {
+      "title": "举杯致辞",
+      "method": "toast",
+      "items": [
+        "举杯时面带微笑起身致意",
+        "祝词简短得体不冗长",
+        "照顾在场所有宾客",
+        "不勉强不能喝酒者"
+      ]
+    },
+    {
+      "title": "敬酒次序",
+      "method": "order",
+      "items": [
+        "先敬长辈与主宾",
+        "再依次敬在场各位",
+        "受敬者举杯回敬",
+        "不宜频繁离席互敬"
+      ]
+    },
+    {
+      "title": "饮酒分寸",
+      "method": "moderation",
+      "items": [
+        "饮酒适量不贪杯",
+        "不劝酒不强行拼酒",
+        "尊重不能饮酒者以茶代酒",
+        "忌失态失言坏气氛"
+      ]
+    },
+    {
+      "title": "回应祝词",
+      "method": "respond",
+      "items": [
+        "被敬酒时起身回应",
+        "表达对主人的谢意",
+        "敬完主动回敬感谢",
+        "宴毕向主人致谢"
+      ]
+    }
+  ]
+}

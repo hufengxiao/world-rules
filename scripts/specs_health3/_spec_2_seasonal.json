@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "seasonal_health",
+  "struct": "SeasonalHealthRules",
+  "name": "换季健康防护",
+  "desc": "春夏季交替时季节性疾病与身体适应的防护规则",
+  "origin": "医学",
+  "tags": ["健康", "换季", "季节", "预防", "免疫"],
+  "category": "RuleCategory::health(\"seasonal\")",
+  "sections": [
+    {
+      "title": "起居适应",
+      "method": "routine",
+      "items": [
+        "根据气温增减衣物",
+        "保持作息规律充足睡眠",
+        "居家通风减少密闭",
+        "避免乍暖乍寒急剧受凉"
+      ]
+    },
+    {
+      "title": "饮食调理",
+      "method": "diet",
+      "items": [
+        "多吃时令蔬果补维C",
+        "清淡饮食少油腻辛辣",
+        "多喝温水保润",
+        "增强体质均衡营养"
+      ]
+    },
+    {
+      "title": "特殊防护",
+      "method": "prevention",
+      "items": [
+        "花粉过敏者减少高峰期外出",
+        "出门佩戴口罩护口鼻",
+        "过敏体质备应急药",
+        "感冒流行期勤洗手"
+      ]
+    },
+    {
+      "title": "身体信号",
+      "method": "warning",
+      "items": [
+        "持续不适不拖延",
+        "咳嗽发热多日就医",
+        "过敏症状加重需及时就诊",
+        "老人儿童更注重保暖防护"
+      ]
+    }
+  ]
+}

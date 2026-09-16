@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "tea_serving_etiquette",
+  "struct": "TeaServingEtiquetteRules",
+  "name": "奉茶与敬茶礼仪",
+  "desc": "家中或待客时奉茶、敬茶、续水的次序与礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "奉茶", "茶道", "待客"],
+  "category": "RuleCategory::social(\"serving_tea\")",
+  "sections": [
+    {
+      "title": "奉茶次序",
+      "method": "serving_order",
+      "items": [
+        "先敬长辈后敬平辈",
+        "按就座方位顺时针递茶",
+        "用双手奉上茶盏",
+        "茶盏放至客人顺手位置"
+      ]
+    },
+    {
+      "title": "斟茶细节",
+      "method": "pouring",
+      "items": [
+        "茶水不宜过满至杯缘",
+        "温度适宜不烫手",
+        "续水时及时为客人斟满",
+        "茶叶浓度随喜好掌握"
+      ]
+    },
+    {
+      "title": "敬茶礼节",
+      "method": "manner",
+      "items": [
+        "奉茶时微微欠身",
+        "称呼对方并示意请用",
+        "不为难拒茶的客人",
+        "待客期间主动续水"
+      ]
+    },
+    {
+      "title": "收尾",
+      "method": "conclusion",
+      "items": [
+        "客人走后清理茶具",
+        "记得对没有茶的客人道歉",
+        "用心奉茶表达待客诚意",
+        "等候时机得体添茶"
+      ]
+    }
+  ]
+}

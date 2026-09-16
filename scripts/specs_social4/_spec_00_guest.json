@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "guest_reception",
+  "struct": "GuestReceptionRules",
+  "name": "待客礼仪",
+  "desc": "家中接待客人时的迎客、奉茶、款待与送客礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "待客", "迎客", "茶道"],
+  "category": "RuleCategory::social(\"guest_reception\")",
+  "sections": [
+    {
+      "title": "迎客",
+      "method": "greeting",
+      "items": [
+        "提前整理居所保持整洁",
+        "准时或提前到门口迎候",
+        "面带微笑主动问候握手",
+        "引导客人入座并安置衣帽"
+      ]
+    },
+    {
+      "title": "款待",
+      "method": "hospitality",
+      "items": [
+        "奉上茶水或饮品点心",
+        "尊重客人的饮食偏好",
+        "交谈热络但不追问隐私",
+        "合理安排用餐或留宿"
+      ]
+    },
+    {
+      "title": "交谈",
+      "method": "conversation",
+      "items": [
+        "多以客人关心的为话题",
+        "不冷落或刻意回避客人",
+        "避免不删当面问询私事",
+        "照顾不擅长表达的客人"
+      ]
+    },
+    {
+      "title": "送客",
+      "method": "farewell",
+      "items": [
+        "客人起身时礼貌相送",
+        "送至门口或电梯",
+        "目送或挥手致意",
+        "约好下次见并妥当送行"
+      ]
+    }
+  ]
+}

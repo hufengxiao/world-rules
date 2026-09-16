@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "formal_introduction",
+  "struct": "FormalIntroductionRules",
+  "name": "社交场合引荐礼仪",
+  "desc": "正式场合介绍、引荐他人时的次序与称谓礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "引荐", "称谓", "正式场合"],
+  "category": "RuleCategory::social(\"formal_intro\")",
+  "sections": [
+    {
+      "title": "引荐次序",
+      "method": "order",
+      "items": [
+        "先引卑者见尊者",
+        "先男子见女子",
+        "先年轻者见长者",
+        "介绍中方或客人时按其贵宾身份"
+      ]
+    },
+    {
+      "title": "介绍方法",
+      "method": "method",
+      "items": [
+        "介绍姓名、职务或关系",
+        "音量清晰让人听清",
+        "用对方习惯称谓",
+        "不确定多音当众询问"
+      ]
+    },
+    {
+      "title": "握手致意",
+      "method": "handshake",
+      "items": [
+        "被介绍后主动握手致意",
+        "握手适度不过紧过久",
+        "目光注视对方微笑",
+        "尊者先伸手时再把握"
+      ]
+    },
+    {
+      "title": "散场与告辞",
+      "method": "farewell",
+      "items": [
+        "介绍完不冷落新相识",
+        "礼貌互留联系方式",
+        "离开时与主人道别",
+        "下次主动先打招呼"
+      ]
+    }
+  ]
+}

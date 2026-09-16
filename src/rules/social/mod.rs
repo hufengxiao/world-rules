@@ -58,6 +58,7 @@ pub mod american_etiquette;
 pub mod apology_etiquette;
 pub mod arbor_day;
 pub mod army_day;
+pub mod banquet_toast_etiquette;
 pub mod bar;
 pub mod barbecue_etiquette;
 pub mod beach_etiquette;
@@ -131,6 +132,7 @@ pub mod festival;
 pub mod flight;
 pub mod food_festival;
 pub mod formal_banquet;
+pub mod formal_introduction;
 pub mod french_etiquette;
 pub mod funeral;
 pub mod gaming_etiquette;
@@ -138,6 +140,7 @@ pub mod german_etiquette;
 pub mod gift;
 pub mod golf_etiquette;
 pub mod greeting;
+pub mod guest_reception;
 pub mod gym_etiquette;
 pub mod hospital_etiquette;
 pub mod hotel_stay_etiquette;
@@ -199,6 +202,7 @@ pub mod sustainable_living;
 pub mod swimming_pool_etiquette;
 pub mod tea;
 pub mod tea_house;
+pub mod tea_serving_etiquette;
 pub mod teachers_day;
 pub mod thai_etiquette;
 pub mod toasting;
@@ -224,6 +228,7 @@ pub use american_etiquette::AmericanEtiquetteRules;
 pub use apology_etiquette::ApologyEtiquetteRules;
 pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
+pub use banquet_toast_etiquette::BanquetToastEtiquetteRules;
 pub use bar::BarRules;
 pub use barbecue_etiquette::BarbecueEtiquetteRules;
 pub use beach_etiquette::BeachEtiquetteRules;
@@ -297,6 +302,7 @@ pub use festival::{ChineseFestival, FestivalEtiquette};
 pub use flight::FlightEtiquette;
 pub use food_festival::FoodFestivalRules;
 pub use formal_banquet::FormalBanquetRules;
+pub use formal_introduction::FormalIntroductionRules;
 pub use french_etiquette::FrenchEtiquetteRules;
 pub use funeral::{FuneralCulture, FuneralEtiquette};
 pub use gaming_etiquette::GamingEtiquetteRules;
@@ -304,6 +310,7 @@ pub use german_etiquette::GermanEtiquetteRules;
 pub use gift::GiftEtiquette;
 pub use golf_etiquette::GolfEtiquetteRules;
 pub use greeting::GreetingEtiquette;
+pub use guest_reception::GuestReceptionRules;
 pub use gym_etiquette::GymEtiquetteRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
 pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
@@ -365,6 +372,7 @@ pub use sustainable_living::SustainableLivingRules;
 pub use swimming_pool_etiquette::SwimmingPoolEtiquetteRules;
 pub use tea::{TeaCulture, TeaEtiquette};
 pub use tea_house::TeaHouseRules;
+pub use tea_serving_etiquette::TeaServingEtiquetteRules;
 pub use teachers_day::TeachersDayRules;
 pub use thai_etiquette::ThaiEtiquetteRules;
 pub use toasting::ToastingEtiquette;
@@ -390,6 +398,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FormalIntroductionRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BanquetToastEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TeaServingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GuestReceptionRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WaitingRoomEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

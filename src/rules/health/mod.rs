@@ -86,6 +86,7 @@ pub mod hypertension_lifestyle;
 pub mod hypertension_management;
 pub mod immune_health;
 pub mod infant_health;
+pub mod insect_bite_care;
 pub mod joint_health;
 pub mod kidney_health;
 pub mod liver_health;
@@ -101,6 +102,7 @@ pub mod posture_rules;
 pub mod prenatal_health;
 pub mod respiratory_health;
 pub mod scalds_burns;
+pub mod seasonal_health;
 pub mod skin_care_rules;
 pub mod skin_health;
 pub mod sleep;
@@ -110,6 +112,7 @@ pub mod teen_health;
 pub mod toddler_health;
 pub mod travel_health;
 pub mod vaccination_rules;
+pub mod vision_care;
 pub mod weight_management;
 pub mod women_health;
 
@@ -147,6 +150,7 @@ pub use hypertension_lifestyle::HypertensionLifestyleRules;
 pub use hypertension_management::HypertensionManagementRules;
 pub use immune_health::ImmuneHealthRules;
 pub use infant_health::InfantHealthRules;
+pub use insect_bite_care::InsectBiteCareRules;
 pub use joint_health::JointHealthRules;
 pub use kidney_health::KidneyHealthRules;
 pub use liver_health::LiverHealthRules;
@@ -162,6 +166,7 @@ pub use posture_rules::PostureRulesRules;
 pub use prenatal_health::PrenatalHealthRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use scalds_burns::ScaldBurnCareRules;
+pub use seasonal_health::SeasonalHealthRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
 pub use sleep::SleepRules;
@@ -171,6 +176,7 @@ pub use teen_health::TeenHealthRules;
 pub use toddler_health::ToddlerHealthRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
+pub use vision_care::VisionCareRules;
 pub use weight_management::WeightManagementRules;
 pub use women_health::WomenHealthRules;
 
@@ -182,6 +188,18 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = VisionCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SeasonalHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = InsectBiteCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FoodPoisoningCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
