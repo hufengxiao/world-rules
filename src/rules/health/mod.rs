@@ -81,6 +81,7 @@ pub mod food_safety;
 pub mod foot_blister_care;
 pub mod gut_health;
 pub mod hair_health;
+pub mod hand_washing_hygiene;
 pub mod hearing_health;
 pub mod heart_health;
 pub mod heatstroke_prevention;
@@ -97,8 +98,10 @@ pub mod men_health;
 pub mod mental_health;
 pub mod mental_wellness;
 pub mod migraine_management;
+pub mod muscle_stretch_routine;
 pub mod nutrition;
 pub mod occupational_health;
+pub mod office_ergonomics;
 pub mod oral_health;
 pub mod postpartum_health;
 pub mod posture_rules;
@@ -150,6 +153,7 @@ pub use food_safety::FoodSafetyRules;
 pub use foot_blister_care::FootBlisterCareRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
+pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
@@ -166,8 +170,10 @@ pub use men_health::MenHealthRules;
 pub use mental_health::MentalHealthRules;
 pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
+pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nutrition::NutritionRules;
 pub use occupational_health::OccupationalHealthRules;
+pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use posture_rules::PostureRulesRules;
@@ -198,6 +204,18 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = HandWashingHygieneRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OfficeErgonomicsRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MuscleStretchRoutineRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SleepQualityRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

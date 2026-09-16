@@ -58,6 +58,7 @@ pub mod american_etiquette;
 pub mod apology_etiquette;
 pub mod arbor_day;
 pub mod army_day;
+pub mod awards_ceremony_etiquette;
 pub mod banquet_toast_etiquette;
 pub mod bar;
 pub mod barbecue_etiquette;
@@ -121,6 +122,7 @@ pub mod cross_cultural;
 pub mod customer_service_etiquette;
 pub mod cycling_etiquette;
 pub mod dating_etiquette;
+pub mod deaf_accessibility;
 pub mod digital_detox;
 pub mod dining;
 pub mod diplomatic_etiquette;
@@ -233,6 +235,7 @@ pub use american_etiquette::AmericanEtiquetteRules;
 pub use apology_etiquette::ApologyEtiquetteRules;
 pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
+pub use awards_ceremony_etiquette::AwardsCeremonyEtiquetteRules;
 pub use banquet_toast_etiquette::BanquetToastEtiquetteRules;
 pub use bar::BarRules;
 pub use barbecue_etiquette::BarbecueEtiquetteRules;
@@ -296,6 +299,7 @@ pub use cross_cultural::CrossCulturalRules;
 pub use customer_service_etiquette::CustomerServiceEtiquetteRules;
 pub use cycling_etiquette::CyclingEtiquetteRules;
 pub use dating_etiquette::DatingEtiquetteRules;
+pub use deaf_accessibility::DeafAccessibilityEtiquetteRules;
 pub use digital_detox::DigitalDetoxRules;
 pub use dining::{DiningCulture, DiningEtiquette};
 pub use diplomatic_etiquette::DiplomaticEtiquetteRules;
@@ -408,6 +412,14 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DeafAccessibilityEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AwardsCeremonyEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = MountainHikingEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

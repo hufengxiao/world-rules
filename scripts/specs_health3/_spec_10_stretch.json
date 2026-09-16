@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "muscle_stretch_routine",
+  "struct": "MuscleStretchRoutineRules",
+  "name": "日常舒展拉伸",
+  "desc": "缓解肌肉紧张、改善柔韧的日常拉伸与活动规则",
+  "tags": ["健康", "拉伸", "柔韧", "久坐", "活动"],
+  "category": "RuleCategory::health(\"muscle_stretch\")",
+  "sections": [
+    {
+      "title": "久坐活动",
+      "method": "sedentary",
+      "items": [
+        "每静坐约一小时起身活动",
+        "伸展颈肩与腰背",
+        "站坐交替减少久坐",
+        "利用走动缓解僵硬"
+      ]
+    },
+    {
+      "title": "正确拉伸",
+      "method": "stretch",
+      "items": [
+        "循序渐进缓慢拉伸",
+        "感到牵拉而非剧痛",
+        "保持均匀呼吸",
+        "勿过度弹震用力"
+      ]
+    },
+    {
+      "title": "部位要点",
+      "method": "areas",
+      "items": [
+        "缓解肩颈可做转肩仰头",
+        "久站可活动脚踝小腿",
+        "腰背用温和屈伸",
+        "针对长时间保持的姿势舒展"
+      ]
+    },
+    {
+      "title": "习惯养成",
+      "method": "routine",
+      "items": [
+        "把拉伸融入日常如离坐时",
+        "结合深呼吸放松",
+        "运动后留出舒展时间",
+        "持续较明显酸痛及时就医"
+      ]
+    }
+  ]
+}

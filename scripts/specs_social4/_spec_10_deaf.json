@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "deaf_accessibility",
+  "struct": "DeafAccessibilityEtiquetteRules",
+  "name": "与听障人士沟通礼仪",
+  "desc": "与听力障碍者交流时尊重、清晰与辅助的礼仪",
+  "tags": ["社交", "礼仪", "听障", "无障碍", "沟通"],
+  "category": "RuleCategory::social(\"deaf_access\")",
+  "sections": [
+    {
+      "title": "发起沟通",
+      "method": "initiating",
+      "items": [
+        "进入对方视野再打招呼",
+        "轻拍肩膀或挥动作引起注意",
+        "确认对方注意后再开口",
+        "不低估对方理解能力"
+      ]
+    },
+    {
+      "title": "表达清晰",
+      "method": "speaking",
+      "items": [
+        "面向对方便于读唇",
+        "讲话口型自然语速适中",
+        "必要用手势或书面辅助",
+        "不明示意时用笔写文字"
+      ]
+    },
+    {
+      "title": "借助工具",
+      "method": "tools",
+      "items": [
+        "用手语时请专业翻译",
+        "善用文字信息与字幕",
+        "尊重对方偏好的交流方式",
+        "遇到误读耐心重说"
+      ]
+    },
+    {
+      "title": "尊重包容",
+      "method": "respect",
+      "items": [
+        "不称呼歧视性词汇",
+        "交谈时保持眼神与尊重",
+        "不把对方当作无能力者",
+        "经意间始终平等相待"
+      ]
+    }
+  ]
+}

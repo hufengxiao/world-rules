@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "awards_ceremony_etiquette",
+  "struct": "AwardsCeremonyEtiquetteRules",
+  "name": "领奖致辞礼仪",
+  "desc": "颁奖典礼中获奖、领奖与致感谢辞的礼仪",
+  "tags": ["社交", "礼仪", "颁奖", "获奖", "致辞"],
+  "category": "RuleCategory::social(\"awards_ceremony\")",
+  "sections": [
+    {
+      "title": "领奖准备",
+      "method": "preparation",
+      "items": [
+        "按时到场了解流程",
+        "着装得体尊重场合",
+        "提前准备简短感谢辞",
+        "受托奖项代领者事先说明"
+      ]
+    },
+    {
+      "title": "上台领奖",
+      "method": "accepting",
+      "items": [
+        "有序上台礼貌致意",
+        "向颁奖人致谢并握手",
+        "双手接奖杯以示尊重",
+        "不遗漏在场重要致谢人"
+      ]
+    },
+    {
+      "title": "致辞表达",
+      "method": "speech",
+      "items": [
+        "感谢辞简短诚挚",
+        "致谢团队与支持者",
+        "不拖长或离题",
+        "语气谦逊不过分自夸"
+      ]
+    },
+    {
+      "title": "下台与后续",
+      "method": "after",
+      "items": [
+        "掌声中从容下台",
+        "与祝贺者友好互动",
+        "不忘向落选者表示尊重",
+        "尊重时间与流程安排"
+      ]
+    }
+  ]
+}

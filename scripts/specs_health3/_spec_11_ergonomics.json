@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "office_ergonomics",
+  "struct": "OfficeErgonomicsRules",
+  "name": "办公室人体工学",
+  "desc": "工位设置与坐姿以减少久坐损害的人体工学规则",
+  "tags": ["健康", "人体工学", "坐姿", "工位", "久坐"],
+  "category": "RuleCategory::health(\"office_ergonomics\")",
+  "sections": [
+    {
+      "title": "座椅与姿态",
+      "method": "posture",
+      "items": [
+        "坐姿腰背挺直脚踏实地",
+        "调节座椅高度使膝约直角",
+        "屏幕与眼睛保持适度距离",
+        "手臂自然承托不耸肩"
+      ]
+    },
+    {
+      "title": "工位布置",
+      "method": "setup",
+      "items": [
+        "显示器顶端与视线平",
+        "键盘置于手肘自然高度",
+        "鼠标靠近在手边",
+        "用支架减少低头"
+      ]
+    },
+    {
+      "title": "用屏习惯",
+      "method": "screen",
+      "items": [
+        "保持适当视距与亮度",
+        "避免长时间固定姿势",
+        "穿插站立或走动",
+        "减少不必要炫目的反光"
+      ]
+    },
+    {
+      "title": "健康预警",
+      "method": "warning",
+      "items": [
+        "肩颈腕持续酸痛适时调整",
+        "出现麻木或刺痛就医",
+        "久坐人群落实定时活动",
+        "留意不适并主动休息"
+      ]
+    }
+  ]
+}

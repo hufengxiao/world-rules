@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "hand_washing_hygiene",
+  "struct": "HandWashingHygieneRules",
+  "name": "洗手与手部卫生",
+  "desc": "正确洗手时机与方法以预防传染的基本卫生规则",
+  "tags": ["健康", "洗手", "卫生", "防疫", "传染病"],
+  "category": "RuleCategory::health(\"hand_hygiene\")",
+  "sections": [
+    {
+      "title": "洗手时机",
+      "method": "timing",
+      "items": [
+        "饭前便后洗手",
+        "外出回家先洗手",
+        "接触污染物、垃圾后洗手",
+        "用手触摸口鼻眼前洗手"
+      ]
+    },
+    {
+      "title": "正确方法",
+      "method": "method",
+      "items": [
+        "用流动水湿润双手",
+        "涂抹肥皂搓揉至少20秒",
+        "搓洗指缝手背拇指",
+        "清洗后用纸巾或净干毛巾"
+      ]
+    },
+    {
+      "title": "外出替代",
+      "method": "alternative",
+      "items": [
+        "无水源用免洗洗手液",
+        "以含酒精成分产品消毒",
+        "补水后仍应尽快正规手洗",
+        "不忽视指尖与手腕清洗"
+      ]
+    },
+    {
+      "title": "护手习惯",
+      "method": "care",
+      "items": [
+        "洗手后适度护手霜保湿",
+        "保持指甲短净",
+        "特殊岗位按规范洗手",
+        "伤口处理前后严格清洁"
+      ]
+    }
+  ]
+}
