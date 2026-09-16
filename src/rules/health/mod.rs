@@ -54,6 +54,7 @@
 
 pub mod addiction_recovery;
 pub mod allergy_management;
+pub mod ankle_sprain_care;
 pub mod anxiety_management;
 pub mod bone_health;
 pub mod brain_health;
@@ -61,6 +62,7 @@ pub mod cancer_prevention;
 pub mod children_health;
 pub mod chronic_disease;
 pub mod common_cold_care;
+pub mod cut_wound_care;
 pub mod dental_health;
 pub mod depression_awareness;
 pub mod detox_rules;
@@ -73,6 +75,7 @@ pub mod eye_health;
 pub mod eye_strain_rules;
 pub mod fever_care;
 pub mod first_aid;
+pub mod food_poisoning_care;
 pub mod food_safety;
 pub mod gut_health;
 pub mod hair_health;
@@ -97,6 +100,7 @@ pub mod postpartum_health;
 pub mod posture_rules;
 pub mod prenatal_health;
 pub mod respiratory_health;
+pub mod scalds_burns;
 pub mod skin_care_rules;
 pub mod skin_health;
 pub mod sleep;
@@ -111,6 +115,7 @@ pub mod women_health;
 
 pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
+pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
@@ -118,6 +123,7 @@ pub use cancer_prevention::CancerPreventionRules;
 pub use children_health::ChildrenHealthRules;
 pub use chronic_disease::ChronicDiseaseRules;
 pub use common_cold_care::CommonColdCareRules;
+pub use cut_wound_care::CutWoundCareRules;
 pub use dental_health::DentalHealthRules;
 pub use depression_awareness::DepressionAwarenessRules;
 pub use detox_rules::DetoxRulesRules;
@@ -130,6 +136,7 @@ pub use eye_health::EyeHealthRules;
 pub use eye_strain_rules::EyeStrainRulesRules;
 pub use fever_care::FeverCareRules;
 pub use first_aid::FirstAidRules;
+pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
@@ -154,6 +161,7 @@ pub use postpartum_health::PostpartumHealthRules;
 pub use posture_rules::PostureRulesRules;
 pub use prenatal_health::PrenatalHealthRules;
 pub use respiratory_health::RespiratoryHealthRules;
+pub use scalds_burns::ScaldBurnCareRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
 pub use sleep::SleepRules;
@@ -174,6 +182,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FoodPoisoningCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AnkleSprainCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CutWoundCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ScaldBurnCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FeverCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

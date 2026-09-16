@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "food_poisoning_care",
+  "struct": "FoodPoisoningCareRules",
+  "name": "食物中毒应对",
+  "desc": "食物中毒症状识别、家庭应对与就医判断规则",
+  "origin": "医学",
+  "tags": ["健康", "食物", "中毒", "安全", "急症"],
+  "category": "RuleCategory::health(\"food_poisoning\")",
+  "sections": [
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "识别恶心呕吐、腹痛腹泻",
+        "注意发热与脱水迹象",
+        "多人同食后相似症状需警惕",
+        "症状严重或持续需就医"
+      ]
+    },
+    {
+      "title": "家庭护理",
+      "method": "care",
+      "items": [
+        "补充水分与电解质防脱水",
+        "呕吐后暂缓进食逐渐试喂",
+        "清淡易消化饮食",
+        "避免乱用止泄药掩盖病情"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek_care",
+      "items": [
+        "持续剧烈呕吐无法进水时",
+        "高热寒战或血便需及时就医",
+        "老年人孕妇儿童更需警惕",
+        "疑似食用毒菇等立即急诊"
+      ]
+    },
+    {
+      "title": "食品安全",
+      "method": "prevention",
+      "items": [
+        "生熟分开存放充分加热",
+        "不食过期变质食物",
+        "注意凉拌与隔夜菜品",
+        "食品购买选择正规渠道"
+      ]
+    }
+  ]
+}

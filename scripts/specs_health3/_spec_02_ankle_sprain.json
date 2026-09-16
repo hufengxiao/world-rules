@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "ankle_sprain_care",
+  "struct": "AnkleSprainCareRules",
+  "name": "踝扭伤处理",
+  "desc": "脚踝关节扭伤的即时处理、休息与康复规则",
+  "origin": "医学",
+  "tags": ["健康", "扭伤", "脚踝", "康复", "运动伤"],
+  "category": "RuleCategory::health(\"ankle_sprain\")",
+  "sections": [
+    {
+      "title": "即时处理",
+      "method": "immediate",
+      "items": [
+        "立即停止活动并抬高患肢",
+        "用冰袋冷敷减轻肿胀",
+        "冷敷每次15至20分钟",
+        "用弹性绷带适度加压固定"
+      ]
+    },
+    {
+      "title": "休息与制动",
+      "method": "immobilize",
+      "items": [
+        "受伤初期减少负重行走",
+        "使用拐杖或扶手减轻承重",
+        "不过早恢复剧烈活动",
+        "保持患肢抬高利于消肿"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek_care",
+      "items": [
+        "严重肿胀淤青或无法负重就医",
+        "疼痛剧烈疑似脱位骨折",
+        "多次反复扭伤需评估韧带",
+        "儿童或老人扭伤应更谨慎"
+      ]
+    },
+    {
+      "title": "康复训练",
+      "method": "rehab",
+      "items": [
+        "肿消后循序渐进活动关节",
+        "进行平衡与强化肌群训练",
+        "逐步恢复正常负重",
+        "复健期间疼痛明显即休息"
+      ]
+    }
+  ]
+}

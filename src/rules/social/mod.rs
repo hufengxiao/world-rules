@@ -140,6 +140,7 @@ pub mod golf_etiquette;
 pub mod greeting;
 pub mod gym_etiquette;
 pub mod hospital_etiquette;
+pub mod hotel_stay_etiquette;
 pub mod indian_etiquette;
 pub mod international_conference;
 pub mod international_gift;
@@ -206,6 +207,7 @@ pub mod train;
 pub mod vegan_etiquette;
 pub mod vip_etiquette;
 pub mod volunteer_etiquette;
+pub mod waiting_room_etiquette;
 pub mod wedding;
 pub mod western_dining;
 pub mod wine_tasting;
@@ -304,6 +306,7 @@ pub use golf_etiquette::GolfEtiquetteRules;
 pub use greeting::GreetingEtiquette;
 pub use gym_etiquette::GymEtiquetteRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
+pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
 pub use indian_etiquette::IndianEtiquetteRules;
 pub use international_conference::InternationalConferenceRules;
 pub use international_gift::InternationalGiftRules;
@@ -370,6 +373,7 @@ pub use train::TrainEtiquette;
 pub use vegan_etiquette::VeganEtiquetteRules;
 pub use vip_etiquette::VipEtiquetteRules;
 pub use volunteer_etiquette::VolunteerEtiquetteRules;
+pub use waiting_room_etiquette::WaitingRoomEtiquetteRules;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
 pub use western_dining::WesternDiningRules;
 pub use wine_tasting::WineTastingRules;
@@ -386,6 +390,14 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WaitingRoomEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HotelStayEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CarpoolEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "hotel_stay_etiquette",
+  "struct": "HotelStayEtiquetteRules",
+  "name": "酒店住宿礼仪",
+  "desc": "酒店、宾馆入住住宿时的公共礼仪与自律规范",
+  "origin": "住宿",
+  "tags": ["社交", "礼仪", "酒店", "住宿", "出行"],
+  "category": "RuleCategory::social(\"hotel_stay\")",
+  "sections": [
+    {
+      "title": "入住登记",
+      "method": "checkin",
+      "items": [
+        "入住时出示有效证件登记",
+        "询问清楚退房与押金事宜",
+        "不虚报住宿人数",
+        "妥善保管房卡与钥匙"
+      ]
+    },
+    {
+      "title": "房间礼仪",
+      "method": "room_etiquette",
+      "items": [
+        "出入房间保持安静勿喧哗",
+        "减少走廊大声交谈",
+        "不向窗外丢弃物品",
+        "保持室内整洁有序"
+      ]
+    },
+    {
+      "title": "晚间行为",
+      "method": "nighttime",
+      "items": [
+        "深夜降低电视与说话音量",
+        "不外放音响打扰邻房",
+        "聚会娱乐注意时段",
+        "走廊走动轻缓"
+      ]
+    },
+    {
+      "title": "退房",
+      "method": "checkout",
+      "items": [
+        "按时办理退房",
+        "回顾房间有无遗漏随身物品",
+        "不乱损坏酒店财物",
+        "对提供的便利表达感谢"
+      ]
+    }
+  ]
+}
