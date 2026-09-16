@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "barbecue_etiquette",
+  "struct": "BarbecueEtiquetteRules",
+  "name": "烧烤聚会礼仪",
+  "desc": "野外烧烤、BBQ聚会中的分工、用火安全与共享礼仪",
+  "origin": "聚会",
+  "tags": ["社交", "礼仪", "烧烤", "聚会", "用火"],
+  "category": "RuleCategory::social(\"barbecue\")",
+  "sections": [
+    {
+      "title": "准备与分工",
+      "method": "preparation",
+      "items": [
+        "提前备好食材、炭火与工具",
+        "分工负责烤制、递盘与照顾火源",
+        "备好湿纸巾、洗手与灭火用品",
+        "考虑大家的饮食偏好与忌口"
+      ]
+    },
+    {
+      "title": "用火安全",
+      "method": "fire",
+      "items": [
+        "在允许生火的地点烤制",
+        "明火附近避免堆积易燃物",
+        "烤架旁不离人看管",
+        "结束后彻底熄灭火源清理灰烬"
+      ]
+    },
+    {
+      "title": "分享与照顾",
+      "method": "sharing",
+      "items": [
+        "烤熟食物依次分享给在场者",
+        "不独占或抢食",
+        "照顾食素者或忌口者的需求",
+        "喝酒适量不劝酒过度"
+      ]
+    },
+    {
+      "title": "场地整洁",
+      "method": "cleanup",
+      "items": [
+        "结束带走喝完的食物与垃圾",
+        "清洁烤架与桌面",
+        "不在禁烤区留下痕迹",
+        "归还场地整洁如初"
+      ]
+    }
+  ]
+}

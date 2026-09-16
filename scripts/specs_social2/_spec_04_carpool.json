@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "carpool_etiquette",
+  "struct": "CarpoolEtiquetteRules",
+  "name": "拼车与人乘车礼仪",
+  "desc": "拼车、搭车及车内的出行礼仪、分担与合作规范",
+  "origin": "出行",
+  "tags": ["社交", "礼仪", "拼车", "乘车", "出宿"],
+  "category": "RuleCategory::social(\"carpool\")",
+  "sections": [
+    {
+      "title": "预约与守时",
+      "method": "punctuality",
+      "items": [
+        "约定时间地点并守时",
+        "临时变动及时告知对方",
+        "不无故取消或迟到",
+        "确认路线与费用分担方式"
+      ]
+    },
+    {
+      "title": "行为自律",
+      "method": "behaviour",
+      "items": [
+        "系好安全带注意安全",
+        "不超载不超速",
+        "车内不在驾驶时干扰驾驶员",
+        "保持车内整洁不下向丢弃"
+      ]
+    },
+    {
+      "title": "分担与礼貌",
+      "method": "contributions",
+      "items": [
+        "主动分担油费高速费",
+        "对司机表达感谢",
+        "调整座位尊重其他乘客",
+        "不在车内大声喧哗"
+      ]
+    },
+    {
+      "title": "沟通与协调",
+      "method": "communication",
+      "items": [
+        "提前说明携带物品体积",
+        "有宠物或异味告知对方",
+        "协商好交接地点",
+        "尊重司机与同行者意见"
+      ]
+    }
+  ]
+}

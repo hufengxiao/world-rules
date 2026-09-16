@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "subway_etiquette",
+  "struct": "SubwayEtiquetteRules",
+  "name": "地铁搭乘与乘车礼仪",
+  "desc": "地铁、轨道交通等出入站与车厢内的礼仪与公共规则",
+  "origin": "公共交通",
+  "tags": ["社交", "礼仪", "地铁", "公共交通", "乘车"],
+  "category": "RuleCategory::social(\"subway\")",
+  "sections": [
+    {
+      "title": "候车与上下车",
+      "method": "boarding",
+      "items": [
+        "站在站台黄线外顺序排队",
+        "遵循先下后上原则",
+        "不抢门不推挤",
+        "让急于下车者先行通过"
+      ]
+    },
+    {
+      "title": "车厢内礼仪",
+      "method": "carriage",
+      "items": [
+        "主动为老幼病残孕让座",
+        "不倚靠或独占扶手栏杆",
+        "随身包物不占邻座",
+        "不长时间接听大声电话"
+      ]
+    },
+    {
+      "title": "公共卫生",
+      "method": "hygiene",
+      "items": [
+        "不在车厢内饮食",
+        "不随地吐痰丢物",
+        "咳嗽喷嚏用手肘遮挡",
+        "异味食物不带入车厢"
+      ]
+    },
+    {
+      "title": "安全常识",
+      "method": "safety",
+      "items": [
+        "站台候车不越过安全线",
+        "车门警示时不强挤",
+        "不倚靠护栏与车门",
+        "紧急时听从乘务人员引导"
+      ]
+    }
+  ]
+}

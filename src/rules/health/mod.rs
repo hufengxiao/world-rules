@@ -60,6 +60,7 @@ pub mod brain_health;
 pub mod cancer_prevention;
 pub mod children_health;
 pub mod chronic_disease;
+pub mod common_cold_care;
 pub mod dental_health;
 pub mod depression_awareness;
 pub mod detox_rules;
@@ -70,6 +71,7 @@ pub mod ergonomics;
 pub mod exercise;
 pub mod eye_health;
 pub mod eye_strain_rules;
+pub mod fever_care;
 pub mod first_aid;
 pub mod food_safety;
 pub mod gut_health;
@@ -115,6 +117,7 @@ pub use brain_health::BrainHealthRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use children_health::ChildrenHealthRules;
 pub use chronic_disease::ChronicDiseaseRules;
+pub use common_cold_care::CommonColdCareRules;
 pub use dental_health::DentalHealthRules;
 pub use depression_awareness::DepressionAwarenessRules;
 pub use detox_rules::DetoxRulesRules;
@@ -125,6 +128,7 @@ pub use ergonomics::ErgonomicsRules;
 pub use exercise::ExerciseRules;
 pub use eye_health::EyeHealthRules;
 pub use eye_strain_rules::EyeStrainRulesRules;
+pub use fever_care::FeverCareRules;
 pub use first_aid::FirstAidRules;
 pub use food_safety::FoodSafetyRules;
 pub use gut_health::GutHealthRules;
@@ -170,6 +174,14 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FeverCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CommonColdCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FoodSafetyRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

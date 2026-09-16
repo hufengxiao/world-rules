@@ -59,6 +59,7 @@ pub mod apology_etiquette;
 pub mod arbor_day;
 pub mod army_day;
 pub mod bar;
+pub mod barbecue_etiquette;
 pub mod beach_etiquette;
 pub mod boardroom_etiquette;
 pub mod brazilian_etiquette;
@@ -73,6 +74,7 @@ pub mod business_networking;
 pub mod business_phone;
 pub mod cafe;
 pub mod camping_etiquette;
+pub mod carpool_etiquette;
 pub mod childrens_day;
 pub mod chinese_ancestor_worship;
 pub mod chinese_antique_etiquette;
@@ -168,12 +170,14 @@ pub mod networking_etiquette;
 pub mod new_year_day;
 pub mod online;
 pub mod online_classes_etiquette;
+pub mod park_etiquette;
 pub mod partnership_etiquette;
 pub mod party;
 pub mod party_founding_day;
 pub mod pet_etiquette;
 pub mod phone;
 pub mod photography_etiquette;
+pub mod picnic_etiquette;
 pub mod presentation_etiquette;
 pub mod project_management_etiquette;
 pub mod qingming;
@@ -188,6 +192,7 @@ pub mod seating;
 pub mod shopping_etiquette;
 pub mod smoking;
 pub mod social_media_etiquette;
+pub mod subway_etiquette;
 pub mod supplier_relations_etiquette;
 pub mod sustainable_living;
 pub mod swimming_pool_etiquette;
@@ -218,6 +223,7 @@ pub use apology_etiquette::ApologyEtiquetteRules;
 pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
 pub use bar::BarRules;
+pub use barbecue_etiquette::BarbecueEtiquetteRules;
 pub use beach_etiquette::BeachEtiquetteRules;
 pub use boardroom_etiquette::BoardroomEtiquetteRules;
 pub use brazilian_etiquette::BrazilianEtiquetteRules;
@@ -232,6 +238,7 @@ pub use business_networking::BusinessNetworkingRules;
 pub use business_phone::BusinessPhoneRules;
 pub use cafe::CafeRules;
 pub use camping_etiquette::CampingEtiquetteRules;
+pub use carpool_etiquette::CarpoolEtiquetteRules;
 pub use childrens_day::ChildrensDayRules;
 pub use chinese_ancestor_worship::ChineseAncestorWorshipRules;
 pub use chinese_antique_etiquette::ChineseAntiqueEtiquetteRules;
@@ -327,12 +334,14 @@ pub use networking_etiquette::NetworkingEtiquetteRules;
 pub use new_year_day::NewYearDayRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
+pub use park_etiquette::ParkEtiquetteRules;
 pub use partnership_etiquette::PartnershipEtiquetteRules;
 pub use party::PartyRules;
 pub use party_founding_day::PartyFoundingDayRules;
 pub use pet_etiquette::PetEtiquetteRules;
 pub use phone::PhoneEtiquette;
 pub use photography_etiquette::PhotographyEtiquetteRules;
+pub use picnic_etiquette::PicnicEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
 pub use project_management_etiquette::ProjectManagementEtiquetteRules;
 pub use qingming::QingmingRules;
@@ -347,6 +356,7 @@ pub use seating::SeatingEtiquette;
 pub use shopping_etiquette::ShoppingEtiquetteRules;
 pub use smoking::SmokingRules;
 pub use social_media_etiquette::SocialMediaEtiquetteRules;
+pub use subway_etiquette::SubwayEtiquetteRules;
 pub use supplier_relations_etiquette::SupplierRelationsEtiquetteRules;
 pub use sustainable_living::SustainableLivingRules;
 pub use swimming_pool_etiquette::SwimmingPoolEtiquetteRules;
@@ -376,6 +386,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CarpoolEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PicnicEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BarbecueEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ParkEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SubwayEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = OnlineClassesEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
