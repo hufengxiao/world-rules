@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "heatstroke_prevention",
+  "struct": "HeatstrokePreventionRules",
+  "name": "中暑预防与处理",
+  "desc": "高温天气中暑的预防、识别与应急处理规则",
+  "origin": "医学",
+  "tags": ["健康", "中暑", "高温", "急救", "预防"],
+  "category": "RuleCategory::health(\"heatstroke\")",
+  "sections": [
+    {
+      "title": "预防原则",
+      "method": "prevention",
+      "items": [
+        "高温时段避免长时间在户外",
+        "及时补充水分与电解质",
+        "穿宽松透气浅色衣物",
+        "合理安排在日照强的时段外出"
+      ]
+    },
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "认识头晕、恶心、口渴等症状",
+        "大汗、皮肤湿冷提示中暑",
+        "高热、意识模糊视为重症",
+        "出现症状立即停下休息"
+      ]
+    },
+    {
+      "title": "应急处理",
+      "method": "first_aid",
+      "items": [
+        "移至阴凉通风处休息",
+        "解开衣领降温",
+        "用湿毛巾冷敷并适度补水",
+        "重症或昏迷立即拨打急救"
+      ]
+    },
+    {
+      "title": "特殊人群",
+      "method": "special",
+      "items": [
+        "老人儿童更易中暑需重点看护",
+        "慢性病者高温减少外出",
+        "孕妇避免酷热长时间活动",
+        "运动员在高温训练量力"
+      ]
+    }
+  ]
+}

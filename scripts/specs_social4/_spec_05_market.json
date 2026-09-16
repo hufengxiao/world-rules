@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "market_etiquette",
+  "struct": "MarketEtiquetteRules",
+  "name": "菜市场与集市礼仪",
+  "desc": "菜市场、农贸市场赶集中的购物、议价与公共礼仪",
+  "origin": "大众",
+  "tags": ["社交", "礼仪", "市场", "集市", "买菜"],
+  "category": "RuleCategory::social(\"market\")",
+  "sections": [
+    {
+      "title": "购物行为",
+      "method": "shopping",
+      "items": [
+        "遵守排队次序购买",
+        "挑选货物轻拿轻放",
+        "不大幅翻拣损坏商品",
+        "称重后不随意更换"
+      ]
+    },
+    {
+      "title": "议价分寸",
+      "method": "bargain",
+      "items": [
+        "议价友好不争执",
+        "尊重摊主定价",
+        "不故意贬低货品压价",
+        "成交后不与摊主纠缠"
+      ]
+    },
+    {
+      "title": "空间与通行",
+      "method": "space",
+      "items": [
+        "不长时间占用摊位前通道",
+        "便道让行推车与老人",
+        "不堵在路口讨价还价",
+        "雨天注意防滑"
+      ]
+    },
+    {
+      "title": "公平与卫生",
+      "method": "fair",
+      "items": [
+        "不偷拿顺带食材",
+        "确认计价透明",
+        "保持摊档前整洁",
+        "还原用过的秤盘"
+      ]
+    }
+  ]
+}

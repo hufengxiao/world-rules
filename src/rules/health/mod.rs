@@ -77,10 +77,12 @@ pub mod fever_care;
 pub mod first_aid;
 pub mod food_poisoning_care;
 pub mod food_safety;
+pub mod foot_blister_care;
 pub mod gut_health;
 pub mod hair_health;
 pub mod hearing_health;
 pub mod heart_health;
+pub mod heatstroke_prevention;
 pub mod hydration_rules;
 pub mod hypertension_lifestyle;
 pub mod hypertension_management;
@@ -141,10 +143,12 @@ pub use fever_care::FeverCareRules;
 pub use first_aid::FirstAidRules;
 pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
+pub use foot_blister_care::FootBlisterCareRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
+pub use heatstroke_prevention::HeatstrokePreventionRules;
 pub use hydration_rules::HydrationRulesRules;
 pub use hypertension_lifestyle::HypertensionLifestyleRules;
 pub use hypertension_management::HypertensionManagementRules;
@@ -188,6 +192,14 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FootBlisterCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HeatstrokePreventionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = VisionCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

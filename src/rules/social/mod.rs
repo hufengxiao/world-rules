@@ -139,6 +139,7 @@ pub mod gaming_etiquette;
 pub mod german_etiquette;
 pub mod gift;
 pub mod golf_etiquette;
+pub mod graduation_ceremony;
 pub mod greeting;
 pub mod guest_reception;
 pub mod gym_etiquette;
@@ -161,6 +162,7 @@ pub mod leadership_etiquette;
 pub mod library;
 pub mod live_streaming;
 pub mod mahjong_etiquette;
+pub mod market_etiquette;
 pub mod media_relations_etiquette;
 pub mod meeting_etiquette;
 pub mod mid_autumn;
@@ -179,6 +181,7 @@ pub mod partnership_etiquette;
 pub mod party;
 pub mod party_founding_day;
 pub mod pet_etiquette;
+pub mod pet_outdoor_etiquette;
 pub mod phone;
 pub mod photography_etiquette;
 pub mod picnic_etiquette;
@@ -309,6 +312,7 @@ pub use gaming_etiquette::GamingEtiquetteRules;
 pub use german_etiquette::GermanEtiquetteRules;
 pub use gift::GiftEtiquette;
 pub use golf_etiquette::GolfEtiquetteRules;
+pub use graduation_ceremony::GraduationCeremonyRules;
 pub use greeting::GreetingEtiquette;
 pub use guest_reception::GuestReceptionRules;
 pub use gym_etiquette::GymEtiquetteRules;
@@ -331,6 +335,7 @@ pub use leadership_etiquette::LeadershipEtiquetteRules;
 pub use library::LibraryEtiquette;
 pub use live_streaming::LiveStreamingRules;
 pub use mahjong_etiquette::MahjongEtiquetteRules;
+pub use market_etiquette::MarketEtiquetteRules;
 pub use media_relations_etiquette::MediaRelationsEtiquetteRules;
 pub use meeting_etiquette::MeetingEtiquetteRules;
 pub use mid_autumn::MidAutumnRules;
@@ -349,6 +354,7 @@ pub use partnership_etiquette::PartnershipEtiquetteRules;
 pub use party::PartyRules;
 pub use party_founding_day::PartyFoundingDayRules;
 pub use pet_etiquette::PetEtiquetteRules;
+pub use pet_outdoor_etiquette::PetOutdoorEtiquetteRules;
 pub use phone::PhoneEtiquette;
 pub use photography_etiquette::PhotographyEtiquetteRules;
 pub use picnic_etiquette::PicnicEtiquetteRules;
@@ -398,6 +404,18 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = GraduationCeremonyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MarketEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PetOutdoorEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FormalIntroductionRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

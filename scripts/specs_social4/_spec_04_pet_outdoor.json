@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "pet_outdoor_etiquette",
+  "struct": "PetOutdoorEtiquetteRules",
+  "name": "宠物户外礼仪",
+  "desc": "携带宠物外出、散步、入园时的公共礼仪与责任",
+  "origin": "大众",
+  "tags": ["社交", "礼仪", "宠物", "户外", "遛狗"],
+  "category": "RuleCategory::social(\"pet_outdoor\")",
+  "sections": [
+    {
+      "title": "牵引与束控",
+      "method": "leash",
+      "items": [
+        "外出始终牵绳束控宠物",
+        "大型或易惊犬带口笼",
+        "遇陌生人或他宠收紧牵绳",
+        "不交给缺乏控制的儿童牵引"
+      ]
+    },
+    {
+      "title": "清理粪便",
+      "method": "cleanup",
+      "items": [
+        "随身携带拾便袋",
+        "及时清理宠物粪便",
+        "不在他人草地随意排遗",
+        "保持公共环境整洁"
+      ]
+    },
+    {
+      "title": "与人相处",
+      "method": "with_people",
+      "items": [
+        "不惊吓或扑向路人",
+        "进入电梯等封闭空间先询问",
+        "不与怕狗者强迫接触",
+        "儿童宠物互不冒犯"
+      ]
+    },
+    {
+      "title": "场所文明",
+      "method": "places",
+      "items": [
+        "遵守场所能否携宠规定",
+        "不在禁止区域带入宠物",
+        "餐厅乘车等注意规定",
+        "遛宠避开高峰拥挤时段"
+      ]
+    }
+  ]
+}

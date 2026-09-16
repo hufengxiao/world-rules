@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "graduation_ceremony",
+  "struct": "GraduationCeremonyRules",
+  "name": "毕业典礼礼仪",
+  "desc": "毕业典礼、授证仪式中的着装、观礼与参与礼仪",
+  "origin": "校园",
+  "tags": ["社交", "礼仪", "毕业", "典礼", "校园"],
+  "category": "RuleCategory::social(\"graduation\")",
+  "sections": [
+    {
+      "title": "着装观礼",
+      "method": "attire",
+      "items": [
+        "穿着整洁庄重的正装或礼服",
+        "学位服规范佩戴",
+        "观礼准时入座保持安静",
+        "手机调静音"
+      ]
+    },
+    {
+      "title": "仪式参与",
+      "method": "ceremony",
+      "items": [
+        "听从司仪指挥起立及坐下",
+        "上台或领证时有序",
+        "对师长掌声致意",
+        "不打断他人发言"
+      ]
+    },
+    {
+      "title": "尊重氛围",
+      "method": "respect",
+      "items": [
+        "尊重每位毕业生在名单内",
+        "不高声喧哗打断流程",
+        "亲友观礼不喧闹扰邻",
+        "仪式结束遵守离场次序"
+      ]
+    },
+    {
+      "title": "结束互动",
+      "method": "after",
+      "items": [
+        "与师长友好道别致谢",
+        "合影秩序当礼让",
+        "收拾好现场垃圾",
+        "与亲友简短合影不占时长"
+      ]
+    }
+  ]
+}
