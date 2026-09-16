@@ -108,6 +108,7 @@ pub mod chongyang;
 pub mod cinema;
 pub mod cocktail_party;
 pub mod coffee_house;
+pub mod concert_etiquette;
 pub mod confucian_etiquette;
 pub mod contract_signing_etiquette;
 pub mod corporate_event_etiquette;
@@ -131,6 +132,7 @@ pub mod german_etiquette;
 pub mod gift;
 pub mod golf_etiquette;
 pub mod greeting;
+pub mod gym_etiquette;
 pub mod hospital_etiquette;
 pub mod indian_etiquette;
 pub mod international_conference;
@@ -154,6 +156,7 @@ pub mod meeting_etiquette;
 pub mod mid_autumn;
 pub mod middle_east_etiquette;
 pub mod minimalism;
+pub mod museum_etiquette;
 pub mod national_day;
 pub mod negotiation_etiquette;
 pub mod neighbor;
@@ -257,6 +260,7 @@ pub use chongyang::ChongyangRules;
 pub use cinema::CinemaEtiquette;
 pub use cocktail_party::CocktailPartyRules;
 pub use coffee_house::CoffeeHouseRules;
+pub use concert_etiquette::ConcertEtiquetteRules;
 pub use confucian_etiquette::ConfucianEtiquetteRules;
 pub use contract_signing_etiquette::ContractSigningEtiquetteRules;
 pub use corporate_event_etiquette::CorporateEventEtiquetteRules;
@@ -280,6 +284,7 @@ pub use german_etiquette::GermanEtiquetteRules;
 pub use gift::GiftEtiquette;
 pub use golf_etiquette::GolfEtiquetteRules;
 pub use greeting::GreetingEtiquette;
+pub use gym_etiquette::GymEtiquetteRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
 pub use indian_etiquette::IndianEtiquetteRules;
 pub use international_conference::InternationalConferenceRules;
@@ -303,6 +308,7 @@ pub use meeting_etiquette::MeetingEtiquetteRules;
 pub use mid_autumn::MidAutumnRules;
 pub use middle_east_etiquette::MiddleEastEtiquetteRules;
 pub use minimalism::MinimalismRules;
+pub use museum_etiquette::MuseumEtiquetteRules;
 pub use national_day::NationalDayRules;
 pub use negotiation_etiquette::NegotiationEtiquetteRules;
 pub use neighbor::NeighborRules;
@@ -356,6 +362,18 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ConcertEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MuseumEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GymEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AirplaneEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
