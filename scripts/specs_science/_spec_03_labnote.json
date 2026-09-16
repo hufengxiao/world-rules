@@ -1,0 +1,51 @@
+{
+  "cat": "science",
+  "file": "lab_notebook_etiquette",
+  "struct": "LabNotebookEtiquetteRules",
+  "name": "实验记录规范",
+  "desc": "科学实验记录本规范记录、可复现与诚信原则",
+  "tags": ["科学", "实验", "记录", "可复现", "诚信"],
+  "category": "RuleCategory::science(\"lab_notebook\")",
+  "sections": [
+    {
+      "title": "及时记录",
+      "method": "timely",
+      "items": [
+        "实验当日即记录",
+        "按时间顺序详实记载",
+        "记录条件与步骤",
+        "不依赖事后回忆补记"
+      ]
+    },
+    {
+      "title": "内容完整",
+      "method": "detail",
+      "items": [
+        "写明原料仪器与用量",
+        "记录环境温度湿度",
+        "标注观察现象与数据",
+        "记录异常与偏差"
+      ]
+    },
+    {
+      "title": "可复现性",
+      "method": "reproducible",
+      "items": [
+        "写得他人可重复操作",
+        "标注每次改动处",
+        "保留原始数据的来源",
+        "图文并茂清楚易读"
+      ]
+    },
+    {
+      "title": "诚信原则",
+      "method": "honesty",
+      "items": [
+        "不编造或篡改数据",
+        "如实记录失败实验",
+        "标注他人贡献与引用",
+        "不把参考当自己的结果"
+      ]
+    }
+  ]
+}

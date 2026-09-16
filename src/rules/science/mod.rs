@@ -226,6 +226,7 @@ pub mod information_theory_detailed;
 pub mod inorganic_chemistry;
 pub mod internal_medicine;
 pub mod kinematics;
+pub mod lab_notebook_etiquette;
 pub mod lab_safety;
 pub mod linear_algebra;
 pub mod linguistics;
@@ -730,6 +731,7 @@ pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
 pub use hydrology_detailed::HydrologyDetailedRules;
+pub use lab_notebook_etiquette::LabNotebookEtiquetteRules;
 pub use lab_safety::LabSafetyRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
@@ -745,6 +747,10 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = LabNotebookEtiquetteRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = StatisticsEthicsRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

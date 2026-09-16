@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "community_meeting",
+  "struct": "CommunityMeetingRules",
+  "name": "社区与会议礼仪",
+  "desc": "业主会、社区会议等参会的倾听与发言礼仪",
+  "tags": ["社交", "礼仪", "会议", "社区", "参与"],
+  "category": "RuleCategory::social(\"community_meeting\")",
+  "sections": [
+    {
+      "title": "准时参会",
+      "method": "punctual",
+      "items": [
+        "准时到达会议地点",
+        "了解议题提前准备",
+        "登记或落座有序",
+        "不因个人私事占队变为焦点"
+      ]
+    },
+    {
+      "title": "认真倾听",
+      "method": "listening",
+      "items": [
+        "听取他人意见不随意插话",
+        "尊重主持人引导",
+        "手机静音",
+        "不明之处事后请教"
+      ]
+    },
+    {
+      "title": "文明发言",
+      "method": "speech",
+      "items": [
+        "按顺序或相机获得发言",
+        "就有议题提具体意见",
+        "不人身攻击或大声争吵",
+        "控制时长勿独占话题"
+      ]
+    },
+    {
+      "title": "结果尊重",
+      "method": "outcome",
+      "items": [
+        "尊重集体与表决结果",
+        "与会决议后续配合执行",
+        "分歧以沟通化解",
+        "会后按分工跟进"
+      ]
+    }
+  ]
+}

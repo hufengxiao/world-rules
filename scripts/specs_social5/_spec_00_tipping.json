@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "restaurant_tipping",
+  "struct": "RestaurantTippingRules",
+  "name": "餐饮小费与服务礼仪",
+  "desc": "餐厅用餐时对小费、找零与服务的得体处理",
+  "tags": ["社交", "礼仪", "小费", "餐饮", "服务"],
+  "category": "RuleCategory::social(\"restaurant_tipping\")",
+  "sections": [
+    {
+      "title": "了解当地习惯",
+      "method": "local_custom",
+      "items": [
+        "了解当地是否采用小费制",
+        "明察优秀服务可适度打赏",
+        "不清楚时询问或查看账单",
+        "不因不懂礼仪造成尴尬"
+      ]
+    },
+    {
+      "title": "给小费方式",
+      "method": "method",
+      "items": [
+        "可当面给或留在账单处",
+        "按服务内容合理支付",
+        "刷卡时留意附加比例",
+        "以现金留小费时明确讲"
+      ]
+    },
+    {
+      "title": "对待服务生",
+      "method": "waiters",
+      "items": [
+        "尊重店员不呼来喝去",
+        "表达感谢与善意",
+        "有不满礼貌沟通而非发火",
+        "体谅服务生忙碌"
+      ]
+    },
+    {
+      "title": "结账礼仪",
+      "method": "checkout",
+      "items": [
+        "适时买单不拖延",
+        "核对账单避免多付",
+        "接受找零及时答谢",
+        "不懂的更规范适时询问"
+      ]
+    }
+  ]
+}

@@ -114,6 +114,7 @@ pub mod chongyang;
 pub mod cinema;
 pub mod cocktail_party;
 pub mod coffee_house;
+pub mod community_meeting;
 pub mod concert_etiquette;
 pub mod confucian_etiquette;
 pub mod contract_signing_etiquette;
@@ -187,16 +188,19 @@ pub mod party_founding_day;
 pub mod pet_etiquette;
 pub mod pet_outdoor_etiquette;
 pub mod phone;
+pub mod phone_answering_etiquette;
 pub mod photography_etiquette;
 pub mod picnic_etiquette;
 pub mod presentation_etiquette;
 pub mod project_management_etiquette;
+pub mod public_speaking_etiquette;
 pub mod qingming;
 pub mod qixi_festival;
 pub mod queue;
 pub mod reception_etiquette;
 pub mod remote_work_etiquette;
 pub mod resignation_etiquette;
+pub mod restaurant_tipping;
 pub mod russian_etiquette;
 pub mod sales_etiquette;
 pub mod seating;
@@ -291,6 +295,7 @@ pub use chongyang::ChongyangRules;
 pub use cinema::CinemaEtiquette;
 pub use cocktail_party::CocktailPartyRules;
 pub use coffee_house::CoffeeHouseRules;
+pub use community_meeting::CommunityMeetingRules;
 pub use concert_etiquette::ConcertEtiquetteRules;
 pub use confucian_etiquette::ConfucianEtiquetteRules;
 pub use contract_signing_etiquette::ContractSigningEtiquetteRules;
@@ -364,16 +369,19 @@ pub use party_founding_day::PartyFoundingDayRules;
 pub use pet_etiquette::PetEtiquetteRules;
 pub use pet_outdoor_etiquette::PetOutdoorEtiquetteRules;
 pub use phone::PhoneEtiquette;
+pub use phone_answering_etiquette::PhoneAnsweringEtiquetteRules;
 pub use photography_etiquette::PhotographyEtiquetteRules;
 pub use picnic_etiquette::PicnicEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
 pub use project_management_etiquette::ProjectManagementEtiquetteRules;
+pub use public_speaking_etiquette::PublicSpeakingEtiquetteRules;
 pub use qingming::QingmingRules;
 pub use qixi_festival::QixiFestivalRules;
 pub use queue::QueueRules;
 pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
 pub use resignation_etiquette::ResignationEtiquetteRules;
+pub use restaurant_tipping::RestaurantTippingRules;
 pub use russian_etiquette::RussianEtiquetteRules;
 pub use sales_etiquette::SalesEtiquetteRules;
 pub use seating::SeatingEtiquette;
@@ -412,6 +420,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CommunityMeetingRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PublicSpeakingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PhoneAnsweringEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RestaurantTippingRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DeafAccessibilityEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

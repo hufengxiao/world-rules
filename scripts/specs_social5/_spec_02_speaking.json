@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "public_speaking_etiquette",
+  "struct": "PublicSpeakingEtiquetteRules",
+  "name": "公开演讲礼仪",
+  "desc": "会议、致辞等公开发言中的准备、表达与听众礼仪",
+  "tags": ["社交", "礼仪", "演讲", "发言", "表达"],
+  "category": "RuleCategory::social(\"public_speaking\")",
+  "sections": [
+    {
+      "title": "会前准备",
+      "method": "preparation",
+      "items": [
+        "明确听众与场合基调",
+        "精心准备讲稿与要旨",
+        "掌握发言时长",
+        "提前熟悉设备讲台"
+      ]
+    },
+    {
+      "title": "表达呈现",
+      "method": "delivery",
+      "items": [
+        "开场问候与自我介绍",
+        "语速适中吐字清晰",
+        "目光与人交流",
+        "内容条理紧扣主题"
+      ]
+    },
+    {
+      "title": "结尾致谢",
+      "method": "closing",
+      "items": [
+        "总结要点收束发言",
+        "真诚感谢听众与主办",
+        "回应提问得体",
+        "不随意超时拖沓"
+      ]
+    },
+    {
+      "title": "听众礼仪",
+      "method": "audience",
+      "items": [
+        "安静聆听不交头接耳",
+        "手机静音不影响",
+        "适时鼓掌",
+        "提问遵循次序先举手"
+      ]
+    }
+  ]
+}

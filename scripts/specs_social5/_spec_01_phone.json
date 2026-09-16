@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "phone_answering_etiquette",
+  "struct": "PhoneAnsweringEtiquetteRules",
+  "name": "接听电话的礼仪",
+  "desc": "接打工作与私人电话时的应答、措辞与时机礼仪",
+  "tags": ["社交", "礼仪", "电话", "沟通"],
+  "category": "RuleCategory::social(\"phone_answering\")",
+  "sections": [
+    {
+      "title": "接听时机",
+      "method": "timing",
+      "items": [
+        "在适宜场所接听电话",
+        "公共场合尽量简短",
+        "重要会议用餐时先示意可否接",
+        "无人接听时及时回电"
+      ]
+    },
+    {
+      "title": "应答措辞",
+      "method": "greeting",
+      "items": [
+        "接起先自报身份或问候",
+        "语速清晰表达友善",
+        "公共场合压低音量",
+        "使用敬语与收尾礼貌"
+      ]
+    },
+    {
+      "title": "转接与留言",
+      "method": "handoff",
+      "items": [
+        "转接时说明转接原因",
+        "代接记录并准确转达",
+        "对方不在时询问是否留言",
+        "按时回拨约好的来电"
+      ]
+    },
+    {
+      "title": "结束通话",
+      "method": "ending",
+      "items": [
+        "提及重点后示意道别",
+        "确认重要信息电话复述",
+        "礼貌告别再挂断",
+        "事后及时跟进未尽事宜"
+      ]
+    }
+  ]
+}
