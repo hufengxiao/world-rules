@@ -57,6 +57,7 @@
 pub mod civil;
 pub mod constitution;
 pub mod consumer;
+pub mod consumer_rights_basics;
 pub mod contract;
 pub mod criminal;
 pub mod inheritance;
@@ -533,6 +534,7 @@ pub use consumer_detailed::ConsumerDetailedRules;
 pub use consumer_detailed2::ConsumerDetailed2Rules;
 pub use consumer_protection_deep::ConsumerProtectionDeepRules;
 pub use consumer_protection_intl::ConsumerProtectionIntlRules;
+pub use consumer_rights_basics::ConsumerRightsBasicsRules;
 pub use contract_detailed::ContractDetailedRules;
 pub use contract_detailed2::ContractDetailed2Rules;
 pub use corporate_governance::CorporateGovernanceRules;
@@ -696,6 +698,10 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ConsumerRightsBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AdministrativeDetailed2Rules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

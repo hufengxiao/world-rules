@@ -1,0 +1,51 @@
+{
+  "cat": "science",
+  "file": "statistics_ethics",
+  "struct": "StatisticsEthicsRules",
+  "name": "统计与数据伦理",
+  "desc": "数据搜集、呈现与传播中的统计与科学伦理规则",
+  "tags": ["科学", "统计", "伦理", "数据", "严谨"],
+  "category": "RuleCategory::science(\"statistics_ethics\")",
+  "sections": [
+    {
+      "title": "样本与收集",
+      "method": "sampling",
+      "items": [
+        "样本应具代表性避免偏倚",
+        "调查过程遵守知情与隐私",
+        "不擅自截取有利数据",
+        "如实记录收集环境"
+      ]
+    },
+    {
+      "title": "分析与呈现",
+      "method": "analysis",
+      "items": [
+        "审慎解释相关性",
+        "不混淆因果与相关",
+        "图表真实不误导",
+        "标注数据来源与误差"
+      ]
+    },
+    {
+      "title": "结论与发布",
+      "method": "reporting",
+      "items": [
+        "结论要有统计支撑",
+        "不以个别异常泛化",
+        "如实说明局限性",
+        "不操纵语义误导读者"
+      ]
+    },
+    {
+      "title": "严谨自律",
+      "method": "rigor",
+      "items": [
+        "尊重数据原始性与完整性",
+        "不篡改清理掉反证数据",
+        "复现他人方法时尊重真实性",
+        "不伪造或编造数据"
+      ]
+    }
+  ]
+}

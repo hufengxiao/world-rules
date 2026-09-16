@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "consumer_rights_basics",
+  "struct": "ConsumerRightsBasicsRules",
+  "name": "消费者权益保护",
+  "desc": "消费者购物、退换货、维权时应当知晓的权益基础规则",
+  "origin": "中国",
+  "tags": ["法律", "消费者", "权益", "维权", "合同"],
+  "category": "RuleCategory::law(\"consumer_rights\")",
+  "sections": [
+    {
+      "title": "知悉权与自主权",
+      "method": "knowing",
+      "items": [
+        "有权了解商品真实信息",
+        "自愿公平购买不被迫消费",
+        "索要并保存购物凭证",
+        "不盲目签不平等的格式条款"
+      ]
+    },
+    {
+      "title": "质量保障",
+      "method": "quality",
+      "items": [
+        "商品应符合质量承诺",
+        "明确三包与保修范围",
+        "发现问题及时在期限内反馈",
+        "保存宣传页与订单记录"
+      ]
+    },
+    {
+      "title": "退换与售后",
+      "method": "return_policy",
+      "items": [
+        "依规定行使退换货权利",
+        "新业态(网购)依消法七日退",
+        "保留开箱、售后过程证据",
+        "超保留期限说明沟通"
+      ]
+    },
+    {
+      "title": "维权途径",
+      "method": "resolution",
+      "items": [
+        "先与商家协商解决",
+        "协商不成可向消协或投诉",
+        "依合同或法律主张",
+        "情形严重保留法律追诉权"
+      ]
+    }
+  ]
+}

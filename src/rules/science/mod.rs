@@ -154,6 +154,7 @@ pub mod devops_theory;
 pub mod diagnostics;
 pub mod differential_equations;
 pub mod differential_geometry;
+pub mod digital_literacy;
 pub mod discrete_math;
 pub mod distributed_systems;
 pub mod distributed_systems_detailed;
@@ -225,6 +226,7 @@ pub mod information_theory_detailed;
 pub mod inorganic_chemistry;
 pub mod internal_medicine;
 pub mod kinematics;
+pub mod lab_safety;
 pub mod linear_algebra;
 pub mod linguistics;
 pub mod literature;
@@ -355,6 +357,7 @@ pub mod statistical_mechanics;
 pub mod statistical_physics;
 pub mod statistical_physics_detailed;
 pub mod statistics;
+pub mod statistics_ethics;
 pub mod stratigraphy;
 pub mod structural_biology;
 pub mod surgery;
@@ -722,13 +725,16 @@ pub use stem_cell_biology::StemCellBiologyRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
+pub use digital_literacy::DigitalLiteracyRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
 pub use hydrology_detailed::HydrologyDetailedRules;
+pub use lab_safety::LabSafetyRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use soil_geography::SoilGeographyRules;
+pub use statistics_ethics::StatisticsEthicsRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
 
 pub fn all_rules() -> Vec<(
@@ -739,6 +745,18 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = StatisticsEthicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DigitalLiteracyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LabSafetyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AcousticsRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

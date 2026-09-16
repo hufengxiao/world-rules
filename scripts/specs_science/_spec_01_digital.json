@@ -1,0 +1,51 @@
+{
+  "cat": "science",
+  "file": "digital_literacy",
+  "struct": "DigitalLiteracyRules",
+  "name": "数字素养与事实核查",
+  "desc": "辨识网络信息真伪、保护个人信息的数据素养规则",
+  "tags": ["科学", "数字素养", "信息核查", "网络安全"],
+  "category": "RuleCategory::science(\"digital_literacy\")",
+  "sections": [
+    {
+      "title": "信息辨析",
+      "method": "verification",
+      "items": [
+        "对夸张标题保持警惕",
+        "多方核对权威来源",
+        "留意信息发布时间",
+        "识别营销与软文内容"
+      ]
+    },
+    {
+      "title": "隐私保护",
+      "method": "privacy",
+      "items": [
+        "不轻易传播个人敏感信息",
+        "设置复杂且独立的密码",
+        "谨慎同意应用权限",
+        "警惕钓鱼链接与诈骗"
+      ]
+    },
+    {
+      "title": "网络分享",
+      "method": "sharing",
+      "items": [
+        "转载信息注明来源",
+        "不传播未验证的谣言",
+        "尊重他人隐私与肖像",
+        "理性表达避免网络暴力"
+      ]
+    },
+    {
+      "title": "批判思维",
+      "method": "critical",
+      "items": [
+        "质疑信息背后的动机",
+        "区分事实与观点",
+        "辨别数据与照片的操纵",
+        "用证据支撑判断"
+      ]
+    }
+  ]
+}
