@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "lumbar_spine_protection",
+  "struct": "LumbarSpineProtectionRules",
+  "name": "腰部腰椎保养",
+  "desc": "正确搬抬、坐姿与家常护腰锻炼",
+  "origin": "医学",
+  "tags": ["健康", "腰椎", "护腰", "坐姿"],
+  "category": "RuleCategory::health(\"lumbar\")",
+  "sections": [
+    {
+      "title": "正确搬抬",
+      "method": "lift",
+      "items": [
+        "屈膝弯腰用腿力",
+        "重物贴近身体",
+        "不扭腰猛然起",
+        "搬不动找人帮"
+      ]
+    },
+    {
+      "title": "久坐护腰",
+      "method": "sitting",
+      "items": [
+        "挺直腰背坐姿",
+        "常起身活动",
+        "腰后加靠垫",
+        "不塌坐软沙发"
+      ]
+    },
+    {
+      "title": "锻炼强腰",
+      "method": "strong",
+      "items": [
+        "练核心腰腹",
+        "腰肌轻柔拉伸",
+        "游泳骑车护腰",
+        "量力而行"
+      ]
+    },
+    {
+      "title": "警示就医",
+      "method": "care",
+      "items": [
+        "腰痛伴下肢麻就医",
+        "闪腰缓养休息",
+        "不擅自猛力复位",
+        "持续腰痛检查"
+      ]
+    }
+  ]
+}

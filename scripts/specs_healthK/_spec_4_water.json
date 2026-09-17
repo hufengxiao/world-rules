@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "daily_hydration",
+  "struct": "DailyHydrationRules",
+  "name": "日常补水",
+  "desc": "每日饮水量、时机与补水习惯",
+  "origin": "医学",
+  "tags": ["健康", "补水", "喝水", "饮水"],
+  "category": "RuleCategory::health(\"hydration\")",
+  "sections": [
+    {
+      "title": "饮水量",
+      "method": "amount",
+      "items": [
+        "成年人约每日适量水",
+        "按活动天气调整",
+        "少量多次补",
+        "口渴及时喝"
+      ]
+    },
+    {
+      "title": "喝水时机",
+      "method": "timing",
+      "items": [
+        "晨起先喝温水",
+        "餐前后适当",
+        "运动后补充",
+        "不等到口渴才喝"
+      ]
+    },
+    {
+      "title": "正确饮水",
+      "method": "manner",
+      "items": [
+        "温水为宜",
+        "小口慢饮",
+        "不用高糖饮料替代",
+        "淡茶果饮亦可"
+      ]
+    },
+    {
+      "title": "注意人群",
+      "method": "special",
+      "items": [
+        "心肾功能异常遵医嘱",
+        "儿童勤提醒",
+        "老人提醒饮水",
+        "高温户外补盐补水"
+      ]
+    }
+  ]
+}

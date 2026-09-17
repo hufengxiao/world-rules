@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "sit_briefly_daily",
+  "struct": "SitBreaksDailyRules",
+  "name": "久坐小憩活动",
+  "desc": "办公久坐的定时起身与微活动",
+  "origin": "医学",
+  "tags": ["健康", "久坐", "活动", "办公"],
+  "category": "RuleCategory::health(\"sit_break\")",
+  "sections": [
+    {
+      "title": "定时起身",
+      "method": "stand",
+      "items": [
+        "约四十分起身一次",
+        "站起来走动几下",
+        "提高桌面站立办公",
+        "缓身不僵硬"
+      ]
+    },
+    {
+      "title": "微活动",
+      "method": "micro",
+      "items": [
+        "活动肩颈手腕",
+        "转动腰胯松松",
+        "原地踏步几圈",
+        "伸个懒腰"
+      ]
+    },
+    {
+      "title": "姿势调整",
+      "method": "posture",
+      "items": [
+        "坐直背靠腰",
+        "双脚平放地面",
+        "屏幕与眼平",
+        "换姿缓解僵硬"
+      ]
+    },
+    {
+      "title": "生活补动",
+      "method": "life",
+      "items": [
+        "上下多走楼梯",
+        "午间散步走动",
+        "周末运动补足",
+        "动静结合"
+      ]
+    }
+  ]
+}

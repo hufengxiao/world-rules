@@ -59,6 +59,7 @@ pub mod anemia_nutrition;
 pub mod anger_management;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
+pub mod balanced_breakfast;
 pub mod balanced_diet_plan;
 pub mod bedtime_ritual;
 pub mod bleeding_control_bandage;
@@ -75,12 +76,14 @@ pub mod common_cold_care;
 pub mod constipation_relief;
 pub mod cpr_and_emergency;
 pub mod cut_wound_care;
+pub mod daily_hydration;
 pub mod dental_health;
 pub mod depression_awareness;
 pub mod depression_support;
 pub mod detox_rules;
 pub mod diabetes_management;
 pub mod digestive_health;
+pub mod digital_eye_rest;
 pub mod drowning_rescue;
 pub mod ear_ache_care;
 pub mod early_morning_routine;
@@ -126,6 +129,7 @@ pub mod knee_care;
 pub mod leg_cramp_relief;
 pub mod liver_health;
 pub mod loneliness_connection;
+pub mod lumbar_spine_protection;
 pub mod memory_brain_training;
 pub mod men_health;
 pub mod menopause_health;
@@ -162,6 +166,7 @@ pub mod seasonal_allergy_relief;
 pub mod seasonal_health;
 pub mod seizure_response;
 pub mod self_compassion;
+pub mod sit_briefly_daily;
 pub mod skin_care_rules;
 pub mod skin_health;
 pub mod skin_itch_soothing;
@@ -194,6 +199,7 @@ pub use anemia_nutrition::AnemiaNutritionRules;
 pub use anger_management::AngerManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
+pub use balanced_breakfast::BalancedBreakfastRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
 pub use bedtime_ritual::BedtimeRitualRules;
 pub use bleeding_control_bandage::BleedingControlBandageRules;
@@ -210,12 +216,14 @@ pub use common_cold_care::CommonColdCareRules;
 pub use constipation_relief::ConstipationReliefRules;
 pub use cpr_and_emergency::CprEmergencyRules;
 pub use cut_wound_care::CutWoundCareRules;
+pub use daily_hydration::DailyHydrationRules;
 pub use dental_health::DentalHealthRules;
 pub use depression_awareness::DepressionAwarenessRules;
 pub use depression_support::DepressionSupportRules;
 pub use detox_rules::DetoxRulesRules;
 pub use diabetes_management::DiabetesManagementRules;
 pub use digestive_health::DigestiveHealthRules;
+pub use digital_eye_rest::DigitalEyeRestRules;
 pub use drowning_rescue::DrowningRescueRules;
 pub use ear_ache_care::EarAcheCareRules;
 pub use early_morning_routine::EarlyMorningRoutineRules;
@@ -261,6 +269,7 @@ pub use knee_care::KneeCareRules;
 pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
 pub use loneliness_connection::LonelinessConnectionRules;
+pub use lumbar_spine_protection::LumbarSpineProtectionRules;
 pub use memory_brain_training::MemoryBrainTrainingRules;
 pub use men_health::MenHealthRules;
 pub use menopause_health::MenopauseHealthRules;
@@ -297,6 +306,7 @@ pub use seasonal_allergy_relief::SeasonalAllergyReliefRules;
 pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
 pub use self_compassion::SelfCompassionRules;
+pub use sit_briefly_daily::SitBreaksDailyRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
 pub use skin_itch_soothing::SkinItchSoothingRules;
@@ -330,6 +340,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DailyHydrationRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BalancedBreakfastRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SitBreaksDailyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DigitalEyeRestRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LumbarSpineProtectionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FootCareBasicsRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

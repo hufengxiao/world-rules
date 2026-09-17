@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "digital_eye_rest",
+  "struct": "DigitalEyeRestRules",
+  "name": "屏幕护眼休息",
+  "desc": "久对屏幕的眼部休息与护眼习惯",
+  "origin": "医学",
+  "tags": ["健康", "护眼", "屏幕", "视疲劳"],
+  "category": "RuleCategory::health(\"eye_rest\")",
+  "sections": [
+    {
+      "title": "屏幕操作",
+      "method": "screen",
+      "items": [
+        "调整屏幕亮度适当",
+        "距离在臂长左右",
+        "视线稍向下",
+        "防屏幕眩光"
+      ]
+    },
+    {
+      "title": "定时休息",
+      "method": "breaks",
+      "items": [
+        "每段远眺放松",
+        "眨眼湿润眼睛",
+        "久看起身活动",
+        "遵循休息法缓解"
+      ]
+    },
+    {
+      "title": "分泌湿润",
+      "method": "moist",
+      "items": [
+        "干涩可滴用人工泪液",
+        "不揉搓眼睛",
+        "空调房注意润",
+        "眨眼充分清晰"
+      ]
+    },
+    {
+      "title": "警示就医",
+      "method": "care",
+      "items": [
+        "视力骤降就医",
+        "眼痛明显就医",
+        "红痛畏光检查",
+        "不拖延"
+      ]
+    }
+  ]
+}

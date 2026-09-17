@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "balanced_breakfast",
+  "struct": "BalancedBreakfastRules",
+  "name": "均衡早餐搭配",
+  "desc": "早餐主食、蛋白、蔬果搭配与肠胃呵护",
+  "origin": "营养学",
+  "tags": ["健康", "早餐", "均衡", "营养"],
+  "category": "RuleCategory::health(\"breakfast\")",
+  "sections": [
+    {
+      "title": "营养搭配",
+      "method": "mix",
+      "items": [
+        "含主食全谷",
+        "配蛋白质蛋奶",
+        "加点蔬果",
+        "少油腻少糖"
+      ]
+    },
+    {
+      "title": "早餐原件",
+      "method": "component",
+      "items": [
+        "全麦面包或粥",
+        "鸡蛋牛奶酸奶",
+        "水果或凉菜",
+        "营养全面"
+      ]
+    },
+    {
+      "title": "按时吃",
+      "method": "timing",
+      "items": [
+        "起床后适时吃",
+        "不空腹太久",
+        "早餐不宜跳过",
+        "细嚼慢咽"
+      ]
+    },
+    {
+      "title": "长幼兼顾",
+      "method": "habit",
+      "items": [
+        "家人一起用餐",
+        "为儿童保证营养",
+        "老人软食易消化",
+        "培养健康晨序"
+      ]
+    }
+  ]
+}
