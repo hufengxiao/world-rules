@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "prolonged_sitting_safety",
+  "struct": "ProlongedSittingSafetyRules",
+  "name": "久坐健康防护",
+  "desc": "减少久坐危害的间歇活动与体态调整规则",
+  "origin": "医学",
+  "tags": ["健康", "久坐", "体态", "活动"],
+  "category": "RuleCategory::health(\"prolonged_sitting\")",
+  "sections": [
+    {
+      "title": "定时起身",
+      "method": "break_time",
+      "items": [
+        "每约一小时起身活动",
+        "短暂站立伸伸腰背",
+        "走动促循环",
+        "避免连续久坐数小时"
+      ]
+    },
+    {
+      "title": "体态调整",
+      "method": "posture",
+      "items": [
+        "保持腰背挺直坐姿",
+        "屏幕与视线平齐",
+        "双手自然承托",
+        "适时站立工作"
+      ]
+    },
+    {
+      "title": "活动锻炼",
+      "method": "activity",
+      "items": [
+        "每日坚持适度运动",
+        "拉伸放松肩颈腰",
+        "穿插站立与走动",
+        "善用肢体锻炼"
+      ]
+    },
+    {
+      "title": "风险关注",
+      "method": "risk",
+      "items": [
+        "留意下肢肿胀不适",
+        "重视腰椎久痛",
+        "久坐人群定期活动",
+        "不良反应就医评估"
+      ]
+    }
+  ]
+}

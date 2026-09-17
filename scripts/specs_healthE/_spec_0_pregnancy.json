@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "pregnancy_prenatal",
+  "struct": "PregnancyPrenatalRules",
+  "name": "孕期保健",
+  "desc": "孕期产检、营养、运动与安全的生活方式规则",
+  "origin": "医学",
+  "tags": ["健康", "孕期", "产检", "营养", "孕妇"],
+  "category": "RuleCategory::health(\"pregnancy\")",
+  "sections": [
+    {
+      "title": "规律产检",
+      "method": "checkup",
+      "items": [
+        "按时进行产前检查",
+        "遵循医嘱各期筛查",
+        "记录孕期身体状况",
+        "异常及时就医"
+      ]
+    },
+    {
+      "title": "营养饮食",
+      "method": "nutrition",
+      "items": [
+        "均衡补充叶酸钙铁",
+        "多样化饮食保证营养",
+        "控糖限盐",
+        "避免生食含酒精"
+      ]
+    },
+    {
+      "title": "适度活动",
+      "method": "activity",
+      "items": [
+        "遵医嘱适度散步",
+        "避免剧烈对抗运动",
+        "留意身体信号",
+        "多休息不劳累"
+      ]
+    },
+    {
+      "title": "安全用药",
+      "method": "medication",
+      "items": [
+        "用药须经医生评估",
+        "不擅自吃任何药物",
+        "避开有害物质环境",
+        "出现见红或剧痛急诊"
+      ]
+    }
+  ]
+}

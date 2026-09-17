@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "menopause_health",
+  "struct": "MenopauseHealthRules",
+  "name": "更年期健康",
+  "desc": "更年期症状应对、内分泌与生活方式调理",
+  "origin": "医学",
+  "tags": ["健康", "更年期", "内分泌", "女性"],
+  "category": "RuleCategory::health(\"menopause\")",
+  "sections": [
+    {
+      "title": "认识改变",
+      "method": "understand",
+      "items": [
+        "了解潮热盗汗等常见症状",
+        "正视情绪与睡眠变化",
+        "月经周期变化为自然",
+        "不因症状而困扰自卑"
+      ]
+    },
+    {
+      "title": "骨钙与运动",
+      "method": "bone",
+      "items": [
+        "重视补钙与维D",
+        "负重锻炼护骨密度",
+        "适度力量运动",
+        "规律活动减少跌倒"
+      ]
+    },
+    {
+      "title": "情绪饮食",
+      "method": "lifestyle",
+      "items": [
+        "均衡饮食控脂限糖",
+        "缓解压力调节情绪",
+        "保证充足睡眠",
+        "规律作息稳定状态"
+      ]
+    },
+    {
+      "title": "就医调理",
+      "method": "care",
+      "items": [
+        "症状明显影响生活就医",
+        "遵医嘱考虑规范干预",
+        "定期体检关注心脏骨密度",
+        "用药须经专业评估"
+      ]
+    }
+  ]
+}

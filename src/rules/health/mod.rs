@@ -106,6 +106,7 @@ pub mod hypertension_lifestyle;
 pub mod hypertension_management;
 pub mod immune_health;
 pub mod immune_support_lifestyle;
+pub mod infant_care_basics;
 pub mod infant_health;
 pub mod insect_bite_care;
 pub mod joint_health;
@@ -114,6 +115,7 @@ pub mod knee_care;
 pub mod leg_cramp_relief;
 pub mod liver_health;
 pub mod men_health;
+pub mod menopause_health;
 pub mod mental_health;
 pub mod mental_wellness;
 pub mod migraine_management;
@@ -127,9 +129,12 @@ pub mod office_ergonomics;
 pub mod oral_health;
 pub mod oral_ulcer_care;
 pub mod postpartum_health;
+pub mod postpartum_recovery;
 pub mod posture_rules;
+pub mod pregnancy_prenatal;
 pub mod premenstrual_syndrome_care;
 pub mod prenatal_health;
+pub mod prolonged_sitting_safety;
 pub mod respiratory_health;
 pub mod scalds_burns;
 pub mod seasonal_health;
@@ -211,6 +216,7 @@ pub use hypertension_lifestyle::HypertensionLifestyleRules;
 pub use hypertension_management::HypertensionManagementRules;
 pub use immune_health::ImmuneHealthRules;
 pub use immune_support_lifestyle::ImmuneSupportLifestyleRules;
+pub use infant_care_basics::InfantCareBasicsRules;
 pub use infant_health::InfantHealthRules;
 pub use insect_bite_care::InsectBiteCareRules;
 pub use joint_health::JointHealthRules;
@@ -219,6 +225,7 @@ pub use knee_care::KneeCareRules;
 pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
 pub use men_health::MenHealthRules;
+pub use menopause_health::MenopauseHealthRules;
 pub use mental_health::MentalHealthRules;
 pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
@@ -232,9 +239,12 @@ pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
 pub use oral_ulcer_care::OralUlcerCareRules;
 pub use postpartum_health::PostpartumHealthRules;
+pub use postpartum_recovery::PostpartumRecoveryRules;
 pub use posture_rules::PostureRulesRules;
+pub use pregnancy_prenatal::PregnancyPrenatalRules;
 pub use premenstrual_syndrome_care::PremenstrualSyndromeCareRules;
 pub use prenatal_health::PrenatalHealthRules;
+pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use scalds_burns::ScaldBurnCareRules;
 pub use seasonal_health::SeasonalHealthRules;
@@ -270,6 +280,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ProlongedSittingSafetyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = InfantCareBasicsRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PostpartumRecoveryRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MenopauseHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PregnancyPrenatalRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = BurnoutPreventionRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

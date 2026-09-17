@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "postpartum_recovery",
+  "struct": "PostpartumRecoveryRules",
+  "name": "产后恢复保健",
+  "desc": "产妇产后身体恢复、营养、情绪与照护规则",
+  "origin": "医学",
+  "tags": ["健康", "产后", "恢复", "产妇"],
+  "category": "RuleCategory::health(\"postpartum\")",
+  "sections": [
+    {
+      "title": "身体恢复",
+      "method": "recovery",
+      "items": [
+        "产后充分休息",
+        "循序渐进行活动",
+        "留意恶露与伤口情况",
+        "避免过早重体力"
+      ]
+    },
+    {
+      "title": "营养饮食",
+      "method": "nutrition",
+      "items": [
+        "均衡营养支持恢复",
+        "保证蛋白质与水分",
+        "适量蔬果防便秘",
+        "哺乳者营养充足"
+      ]
+    },
+    {
+      "title": "情绪支持",
+      "method": "mood",
+      "items": [
+        "关注产后情绪变化",
+        "坦诚表达疲惫感受",
+        "家人给予理解陪伴",
+        "情绪持续低落及时求助"
+      ]
+    },
+    {
+      "title": "安全就医",
+      "method": "care",
+      "items": [
+        "异常出血或红肿就医",
+        "发热伤口感染及时处理",
+        "按时产后复查",
+        "遵医嘱恢复运动"
+      ]
+    }
+  ]
+}

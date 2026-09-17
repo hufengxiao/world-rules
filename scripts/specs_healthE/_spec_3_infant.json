@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "infant_care_basics",
+  "struct": "InfantCareBasicsRules",
+  "name": "婴儿基础护理",
+  "desc": "新生儿喂养、安抚、睡眠与常见照护要点",
+  "origin": "医学",
+  "tags": ["健康", "婴儿", "护理", "喂养"],
+  "category": "RuleCategory::health(\"infant_care\")",
+  "sections": [
+    {
+      "title": "喂养要点",
+      "method": "feeding",
+      "items": [
+        "按需母乳或配方喂养",
+        "观察吞咽与饱足信号",
+        "正确拍嗝防溢奶",
+        "关注体重增长"
+      ]
+    },
+    {
+      "title": "安抚睡眠",
+      "method": "sleep",
+      "items": [
+        "让婴儿仰卧睡眠",
+        "床上不放多余软物",
+        "识别哭闹是否饥饿不适",
+        "安抚时有规律有耐心"
+      ]
+    },
+    {
+      "title": "清洁护理",
+      "method": "hygiene",
+      "items": [
+        "按时更换尿布",
+        "正确清洁脐带臀部",
+        "剪指甲防抓伤",
+        "适宜温度衣着松适"
+      ]
+    },
+    {
+      "title": "安全警示",
+      "method": "safety",
+      "items": [
+        "发热等异常就医",
+        "抱婴护住头颈",
+        "防摔落防误吞",
+        "遵循接种与儿保"
+      ]
+    }
+  ]
+}
