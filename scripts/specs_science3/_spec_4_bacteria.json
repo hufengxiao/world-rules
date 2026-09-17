@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "bacteria_hygiene",
+  "struct": "BacteriaHygieneRules",
+  "name": "微生物卫生常识",
+  "desc": "细菌传播途径、清洁消毒与食品安全科学常识",
+  "origin": "国际",
+  "tags": ["科学", "细菌", "卫生", "微生物"],
+  "category": "RuleCategory::science(\"bacteria_hygiene\")",
+  "sections": [
+    {
+      "title": "传播途径",
+      "method": "transmission",
+      "items": [
+        "细菌经接触与飞沫传播",
+        "双手常成传播媒介",
+        "食物污染引发疾病",
+        "共用餐具增加风险"
+      ]
+    },
+    {
+      "title": "清洁消毒",
+      "method": "cleaning",
+      "items": [
+        "勤洗手是关键措施",
+        "正确清洁食物表面",
+        "餐具餐具高温消毒",
+        "定期清洁环境"
+      ]
+    },
+    {
+      "title": "食品卫生",
+      "method": "food",
+      "items": [
+        "生熟分离防交叉",
+        "食物彻底加工熟透",
+        "冷藏保存及时",
+        "过期食品不食用"
+      ]
+    },
+    {
+      "title": "科学认知",
+      "method": "science",
+      "items": [
+        "不必谈菌色变",
+        "多数细菌无害或有利",
+        "抗生素不治病毒感染",
+        "遵医嘱规范使用抗菌药"
+      ]
+    }
+  ]
+}

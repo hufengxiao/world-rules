@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "electric_circuit_basics",
+  "struct": "ElectricCircuitBasicsRules",
+  "name": "电路基础安全",
+  "desc": "欧姆定律、串联并联与用电安全基础",
+  "origin": "国际",
+  "tags": ["科学", "电路", "电学", "安全"],
+  "category": "RuleCategory::science(\"electric_circuit\")",
+  "sections": [
+    {
+      "title": "基本定律",
+      "method": "ohms",
+      "items": [
+        "电压电流电阻关系",
+        "欧姆定律是基础",
+        "串联分压电流相同",
+        "并联分电流电压相同"
+      ]
+    },
+    {
+      "title": "功率与能耗",
+      "method": "power",
+      "items": [
+        "功率等于电压乘电流",
+        "能耗是功率乘时间",
+        "合理节约用电",
+        "注意额定功率"
+      ]
+    },
+    {
+      "title": "用电安全",
+      "method": "safety",
+      "items": [
+        "不用湿手碰电器",
+        "避免插座过载",
+        "破损电线及时更换",
+        "不使用三无电器"
+      ]
+    },
+    {
+      "title": "规范操作",
+      "method": "practice",
+      "items": [
+        "断电后再检修电路",
+        "保护开关装设正确",
+        "了解漏电与短路风险",
+        "重大电气问题求助电工"
+      ]
+    }
+  ]
+}

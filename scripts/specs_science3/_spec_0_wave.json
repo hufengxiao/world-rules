@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "wave_optics_basics",
+  "struct": "WaveOpticsBasicsRules",
+  "name": "波动光学基础",
+  "desc": "光的干涉、衍射与偏振基础定律",
+  "origin": "国际",
+  "tags": ["科学", "光学", "波动", "物理"],
+  "category": "RuleCategory::science(\"wave_optics\")",
+  "sections": [
+    {
+      "title": "光的干涉",
+      "method": "interference",
+      "items": [
+        "同源相干产生干涉",
+        "双缝实验明暗相间",
+        "光程差决定相位",
+        "相干光源须同频相干"
+      ]
+    },
+    {
+      "title": "光的衍射",
+      "method": "diffraction",
+      "items": [
+        "光绕过障碍扩展传播",
+        "缝宽与波长相当才明显",
+        "夫琅禾费衍射条纹分布",
+        "小孔成像含衍射效应"
+      ]
+    },
+    {
+      "title": "偏振与色散",
+      "method": "polarization",
+      "items": [
+        "光振动方向聚集为偏振",
+        "偏振片使光偏振",
+        "色散使白光分解色彩",
+        "雨虹与棱镜皆色散"
+      ]
+    },
+    {
+      "title": "应用观察",
+      "method": "application",
+      "items": [
+        "衍射光栅用于光谱",
+        "薄膜干涉产生彩色",
+        "偏振眼镜减眩光",
+        "理解光学仪器成像"
+      ]
+    }
+  ]
+}

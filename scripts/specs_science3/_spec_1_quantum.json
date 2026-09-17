@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "quantum_basics",
+  "struct": "QuantumBasicsRules",
+  "name": "量子物理基础",
+  "desc": "波粒二象性、不确定性等量子概念基础",
+  "origin": "国际",
+  "tags": ["科学", "量子", "物理"],
+  "category": "RuleCategory::science(\"quantum_basics\")",
+  "sections": [
+    {
+      "title": "波粒二象性",
+      "method": "duality",
+      "items": [
+        "光既显波动又显粒子",
+        "电子有波动性",
+        "微观粒子具概率性",
+        "观测影响微观行为"
+      ]
+    },
+    {
+      "title": "不确定性",
+      "method": "uncertainty",
+      "items": [
+        "位置与动量不可同时精确",
+        "量子测量有一定概率",
+        "不确定关系为基本原理",
+        "不影响日常宏观应用"
+      ]
+    },
+    {
+      "title": "量子态",
+      "method": "states",
+      "items": [
+        "微观系统处于量子态",
+        "测量后坍缩到本征态",
+        "叠加态可同时存在",
+        "理解概率幅"
+      ]
+    },
+    {
+      "title": "应用与发展",
+      "method": "application",
+      "items": [
+        "解释原子能级与光谱",
+        "支撑半导体激光等",
+        "量子计算与通信前沿",
+        "警惕把量子概念神秘化"
+      ]
+    }
+  ]
+}

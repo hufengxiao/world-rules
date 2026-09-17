@@ -78,6 +78,7 @@ pub mod astrophysics;
 pub mod astrophysics_detailed;
 pub mod atomic_physics;
 pub mod aviation_meteorology;
+pub mod bacteria_hygiene;
 pub mod behavioral_economics;
 pub mod bilinear_algebra;
 pub mod biochemistry;
@@ -166,6 +167,7 @@ pub mod ecology_detailed2;
 pub mod economic_geography_detailed;
 pub mod economics;
 pub mod education;
+pub mod electric_circuit_basics;
 pub mod electrical_engineering;
 pub mod electrical_engineering_detailed;
 pub mod electrochemistry;
@@ -232,6 +234,7 @@ pub mod lab_safety;
 pub mod linear_algebra;
 pub mod linguistics;
 pub mod literature;
+pub mod logic_mistakes_avoid;
 pub mod machine_learning_detailed;
 pub mod magnetostatics;
 pub mod management_science;
@@ -324,6 +327,7 @@ pub mod probability_theory;
 pub mod proteomics;
 pub mod psychiatry;
 pub mod psychology;
+pub mod quantum_basics;
 pub mod quantum_computing;
 pub mod quantum_computing_detailed;
 pub mod quantum_field_theory;
@@ -384,6 +388,7 @@ pub mod volcanology;
 pub mod volcanology_detailed;
 pub mod waste_management;
 pub mod water_resources;
+pub mod wave_optics_basics;
 pub mod zoology;
 pub mod zoology_detailed;
 
@@ -725,23 +730,28 @@ pub use regenerative_biology::RegenerativeBiologyRules;
 pub use stem_cell_biology::StemCellBiologyRules;
 
 // Phase 31-01: 新增地理规则导出
+pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
+pub use electric_circuit_basics::ElectricCircuitBasicsRules;
 pub use experimental_method::ExperimentalMethodRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
 pub use hydrology_detailed::HydrologyDetailedRules;
 pub use lab_notebook_etiquette::LabNotebookEtiquetteRules;
 pub use lab_safety::LabSafetyRules;
+pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
+pub use quantum_basics::QuantumBasicsRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use soil_geography::SoilGeographyRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use survey_design::SurveyDesignRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
+pub use wave_optics_basics::WaveOpticsBasicsRules;
 
 pub fn all_rules() -> Vec<(
     &'static str,
@@ -751,6 +761,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = BacteriaHygieneRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LogicMistakesAvoidRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElectricCircuitBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = QuantumBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaveOpticsBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SurveyDesignRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

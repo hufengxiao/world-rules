@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "logic_mistakes_avoid",
+  "struct": "LogicMistakesAvoidRules",
+  "name": "逻辑谬误识别",
+  "desc": "识别常见推理错误、避免以偏概全与诉诸情感",
+  "origin": "国际",
+  "tags": ["科学", "逻辑", "推理", "谬误"],
+  "category": "RuleCategory::science(\"logic_mistakes\")",
+  "sections": [
+    {
+      "title": "常见谬误",
+      "method": "fallacies",
+      "items": [
+        "警惕人身攻击论证",
+        "识别诉诸情感压制",
+        "防止稻草人曲解",
+        "不以个别特例概全"
+      ]
+    },
+    {
+      "title": "因果辨析",
+      "method": "causation",
+      "items": [
+        "不把相关当因果",
+        "警惕引申因果倒置",
+        "寻找干扰变量",
+        "谨慎做条件推理"
+      ]
+    },
+    {
+      "title": "论证严谨",
+      "method": "rigor",
+      "items": [
+        "关注前提是否成立",
+        "推理是否有效",
+        "结论是否被证据支持",
+        "区分事实与意见"
+      ]
+    },
+    {
+      "title": "开放求证",
+      "method": "open",
+      "items": [
+        "欢迎反驳与检验",
+        "承认自身认知局限",
+        "依据证据更新观点",
+        "不固守偏见"
+      ]
+    }
+  ]
+}
