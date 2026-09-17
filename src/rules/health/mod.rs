@@ -55,6 +55,7 @@
 pub mod addiction_recovery;
 pub mod allergy_management;
 pub mod anemia_nutrition;
+pub mod anger_management;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
 pub mod balanced_diet_plan;
@@ -94,6 +95,7 @@ pub mod food_poisoning_care;
 pub mod food_safety;
 pub mod foot_blister_care;
 pub mod gout_management;
+pub mod gratitude_practice;
 pub mod gut_health;
 pub mod hair_health;
 pub mod hand_washing_hygiene;
@@ -116,6 +118,7 @@ pub mod kidney_health;
 pub mod knee_care;
 pub mod leg_cramp_relief;
 pub mod liver_health;
+pub mod loneliness_connection;
 pub mod men_health;
 pub mod menopause_health;
 pub mod mental_health;
@@ -137,12 +140,14 @@ pub mod posture_rules;
 pub mod pregnancy_prenatal;
 pub mod premenstrual_syndrome_care;
 pub mod prenatal_health;
+pub mod procrastination_manage;
 pub mod prolonged_sitting_safety;
 pub mod respiratory_health;
 pub mod scalds_burns;
 pub mod screen_eye_strain_care;
 pub mod seasonal_health;
 pub mod seizure_response;
+pub mod self_compassion;
 pub mod skin_care_rules;
 pub mod skin_health;
 pub mod skin_itch_soothing;
@@ -170,6 +175,7 @@ pub mod women_health;
 pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
 pub use anemia_nutrition::AnemiaNutritionRules;
+pub use anger_management::AngerManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
@@ -209,6 +215,7 @@ pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
 pub use foot_blister_care::FootBlisterCareRules;
 pub use gout_management::GoutManagementRules;
+pub use gratitude_practice::GratitudePracticeRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
 pub use hand_washing_hygiene::HandWashingHygieneRules;
@@ -231,6 +238,7 @@ pub use kidney_health::KidneyHealthRules;
 pub use knee_care::KneeCareRules;
 pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
+pub use loneliness_connection::LonelinessConnectionRules;
 pub use men_health::MenHealthRules;
 pub use menopause_health::MenopauseHealthRules;
 pub use mental_health::MentalHealthRules;
@@ -252,12 +260,14 @@ pub use posture_rules::PostureRulesRules;
 pub use pregnancy_prenatal::PregnancyPrenatalRules;
 pub use premenstrual_syndrome_care::PremenstrualSyndromeCareRules;
 pub use prenatal_health::PrenatalHealthRules;
+pub use procrastination_manage::ProcrastinationManageRules;
 pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use scalds_burns::ScaldBurnCareRules;
 pub use screen_eye_strain_care::ScreenEyeStrainCareRules;
 pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
+pub use self_compassion::SelfCompassionRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
 pub use skin_itch_soothing::SkinItchSoothingRules;
@@ -290,6 +300,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = GratitudePracticeRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ProcrastinationManageRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LonelinessConnectionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AngerManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SelfCompassionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = TinnitusRingingReliefRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

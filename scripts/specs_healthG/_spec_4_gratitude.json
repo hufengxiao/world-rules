@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "gratitude_practice",
+  "struct": "GratitudePracticeRules",
+  "name": "感恩练习",
+  "desc": "培养感恩心态、发现美好与提升幸福感",
+  "origin": "心理学",
+  "tags": ["健康", "感恩", "心态", "幸福感"],
+  "category": "RuleCategory::health(\"gratitude\")",
+  "sections": [
+    {
+      "title": "记录感恩",
+      "method": "journal",
+      "items": [
+        "每日记下值得感恩的事",
+        "感谢具体的人与事",
+        "不流于表面罗列",
+        "细品当下的小确幸"
+      ]
+    },
+    {
+      "title": "表达感激",
+      "method": "express",
+      "items": [
+        "及时向他人道谢",
+        "真诚表达欣赏",
+        "不吝惜夸奖",
+        "感谢身边支持"
+      ]
+    },
+    {
+      "title": "视角转换",
+      "method": "reframe",
+      "items": [
+        "多看拥有的部分",
+        "从困境找成长",
+        "不与他人一味攀比",
+        "珍惜眼前与当下"
+      ]
+    },
+    {
+      "title": "养成习惯",
+      "method": "habit",
+      "items": [
+        "固定时间练习",
+        "融入生活点滴",
+        "成效不需立见",
+        "坚持自会沉淀"
+      ]
+    }
+  ]
+}

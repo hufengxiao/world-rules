@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "anger_management",
+  "struct": "AngerManagementRules",
+  "name": "愤怒管理",
+  "desc": "识别愤怒信号、冷静调节与健康表达方法",
+  "origin": "心理学",
+  "tags": ["健康", "愤怒", "情绪", "调节"],
+  "category": "RuleCategory::health(\"anger\")",
+  "sections": [
+    {
+      "title": "觉察信号",
+      "method": "signal",
+      "items": [
+        "注意心跳加快脸红",
+        "识别想发怒的身体信号",
+        "及时察觉情绪升级",
+        "不等到爆发才处理"
+      ]
+    },
+    {
+      "title": "冷静调节",
+      "method": "calm",
+      "items": [
+        "深呼吸平复激动",
+        "暂时离开冲突现场",
+        "数数或喝口水降温",
+        "转移注意舒缓"
+      ]
+    },
+    {
+      "title": "健康表达",
+      "method": "express",
+      "items": [
+        "用我开头说感受",
+        "对事不对人指责",
+        "选时机说清楚",
+        "不辱骂不破坏"
+      ]
+    },
+    {
+      "title": "长期成长",
+      "method": "growth",
+      "items": [
+        "识别愤怒背后的需求",
+        "练习换位体谅",
+        "必要时寻求疏导",
+        "规律运动纾解"
+      ]
+    }
+  ]
+}

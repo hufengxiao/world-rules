@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "procrastination_manage",
+  "struct": "ProcrastinationManageRules",
+  "name": "克服拖延",
+  "desc": "认识拖延成因、任务拆解与行动的方法",
+  "origin": "心理学",
+  "tags": ["健康", "拖延", "行动", "效率"],
+  "category": "RuleCategory::health(\"procrastination\")",
+  "sections": [
+    {
+      "title": "认识拖延",
+      "method": "understand",
+      "items": [
+        "识别拖延背后的畏惧",
+        "分清任务轻重缓急",
+        "不因追求完美卡壳",
+        "承认拖延并不丢人"
+      ]
+    },
+    {
+      "title": "拆解任务",
+      "method": "breakdown",
+      "items": [
+        "把大任务分成小步",
+        "先做最容易的一步",
+        "设定明确小目标",
+        "完成的就及时肯定"
+      ]
+    },
+    {
+      "title": "启动行动",
+      "method": "start",
+      "items": [
+        "用定时专注法开启",
+        "不被杂念分心",
+        "先做五分钟再说",
+        "减少手机干扰"
+      ]
+    },
+    {
+      "title": "长期坚持",
+      "method": "sustain",
+      "items": [
+        "计划现实有弹性",
+        "复盘改进不苛责",
+        "寻求督促支持",
+        "习惯养成需时间"
+      ]
+    }
+  ]
+}

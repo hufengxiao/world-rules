@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "self_compassion",
+  "struct": "SelfCompassionRules",
+  "name": "自我慈悲与接纳",
+  "desc": "接纳自我、善待自己的成长心态与情绪调节",
+  "origin": "心理学",
+  "tags": ["健康", "自我慈悲", "接纳", "心理"],
+  "category": "RuleCategory::health(\"self_compassion\")",
+  "sections": [
+    {
+      "title": "善待自己",
+      "method": "kindness",
+      "items": [
+        "犯错时对自己温和",
+        "以朋友口吻鼓励",
+        "不过度自我苛责",
+        "肯定自己的努力"
+      ]
+    },
+    {
+      "title": "接纳不足",
+      "method": "accept",
+      "items": [
+        "承认人无完人",
+        "接纳情绪与失误",
+        "把挫折当学习",
+        "不因瑕疵否定自我"
+      ]
+    },
+    {
+      "title": "共通人性",
+      "method": "common_humanity",
+      "items": [
+        "认识到人人会犯错",
+        "不独自背负羞耻",
+        "把困难视为普遍",
+        "减少孤独与自责"
+      ]
+    },
+    {
+      "title": "平衡心态",
+      "method": "balance",
+      "items": [
+        "理性看待赞扬批评",
+        "设定现实目标",
+        "适度自我照顾",
+        "成长离不开接纳"
+      ]
+    }
+  ]
+}

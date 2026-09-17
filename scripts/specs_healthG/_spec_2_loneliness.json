@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "loneliness_connection",
+  "struct": "LonelinessConnectionRules",
+  "name": "应对孤独感",
+  "desc": "认识孤独、主动联结与人际支持的调节方法",
+  "origin": "心理学",
+  "tags": ["健康", "孤独", "联结", "心理"],
+  "category": "RuleCategory::health(\"loneliness\")",
+  "sections": [
+    {
+      "title": "认识孤独",
+      "method": "understand",
+      "items": [
+        "孤独是常见情绪",
+        "关注长期孤立感受",
+        "区分独处与孤独",
+        "不因孤独自责"
+      ]
+    },
+    {
+      "title": "主动联结",
+      "method": "connect",
+      "items": [
+        "主动联系家人朋友",
+        "参与社交活动",
+        "加入兴趣社群",
+        "向他人表达关心"
+      ]
+    },
+    {
+      "title": "自我充实",
+      "method": "self_care",
+      "items": [
+        "培养爱好丰富日常",
+        "练习与自己相处",
+        "保持生活节奏",
+        "适度运动户外"
+      ]
+    },
+    {
+      "title": "寻求支持",
+      "method": "support",
+      "items": [
+        "需要时倾诉求助",
+        "向信任的人敞开心",
+        "长期困扰寻求专业",
+        "不把自己隔离太久"
+      ]
+    }
+  ]
+}
