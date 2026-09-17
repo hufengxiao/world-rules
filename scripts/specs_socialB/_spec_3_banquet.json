@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "banquet_seating",
+  "struct": "BanquetSeatingRules",
+  "name": "宴席座次礼仪",
+  "desc": "宴请座次安排与按座入席的中西礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "座次", "宴席"],
+  "category": "RuleCategory::social(\"banquet_seating\")",
+  "sections": [
+    {
+      "title": "主宾位",
+      "method": "mainseat",
+      "items": [
+        "面门之座为主宾位",
+        "主人为主位相对门",
+        "重要宾客请上座",
+        "尊长者安排显要位置"
+      ]
+    },
+    {
+      "title": "按位入座",
+      "method": "seating",
+      "items": [
+        "按名牌或引导入座",
+        "不抢占他人座位",
+        "先请宾长入座",
+        "落座轻拉椅子"
+      ]
+    },
+    {
+      "title": "男女搭配",
+      "method": "arrangement",
+      "items": [
+        "宴会常男女交叉就座",
+        "正式场合依礼安排",
+        "亲近者靠近便于交谈",
+        "避免背对主宾"
+      ]
+    },
+    {
+      "title": "起身礼节",
+      "method": "manner",
+      "items": [
+        "敬酒起身致意",
+        "离席向主人示意",
+        "入座离座轻缓",
+        "尊重当地座次习惯"
+      ]
+    }
+  ]
+}

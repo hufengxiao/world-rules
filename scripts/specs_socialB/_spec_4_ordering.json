@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "restaurant_ordering_etiquette",
+  "struct": "RestaurantOrderingEtiquetteRules",
+  "name": "餐厅点菜礼仪",
+  "desc": "餐厅点菜、考虑他人与招呼服务生的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "点菜", "餐厅"],
+  "category": "RuleCategory::social(\"restaurant_ordering\")",
+  "sections": [
+    {
+      "title": "点菜原则",
+      "method": "ordering",
+      "items": [
+        "考虑在场人的饮食禁忌",
+        "荤素搭配营养均衡",
+        "数量按人数适度",
+        "价格合理不铺张"
+      ]
+    },
+    {
+      "title": "尊重偏好",
+      "method": "respect",
+      "items": [
+        "先询问过敏与忌口",
+        "尊重素食与宗教限制",
+        "不替他人强制点菜",
+        "让长者先点"
+      ]
+    },
+    {
+      "title": "招呼服务",
+      "method": "service",
+      "items": [
+        "礼貌称呼服务员",
+        "说明清楚需求",
+        "有疑问委婉询问",
+        "不呵斥或不耐烦"
+      ]
+    },
+    {
+      "title": "结账体面",
+      "method": "checkout",
+      "items": [
+        "明确由谁请客或AA",
+        "适时提出结账",
+        "核对账单无异议",
+        "以小费表达谢意(按习俗)"
+      ]
+    }
+  ]
+}

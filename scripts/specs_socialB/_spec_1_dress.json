@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "dining_dress_code",
+  "struct": "DiningDressCodeRules",
+  "name": "用餐着装礼仪",
+  "desc": "不同餐饮场合的着装规范与得体装扮礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "着装", "用餐"],
+  "category": "RuleCategory::social(\"dining_dress\")",
+  "sections": [
+    {
+      "title": "场合区分",
+      "method": "occasions",
+      "items": [
+        "日常随便可穿休闲装",
+        "正式晚宴需着正式装",
+        "商务聚餐着装庄重得体",
+        "留意主办方的着装提示"
+      ]
+    },
+    {
+      "title": "得体准则",
+      "method": "tidiness",
+      "items": [
+        "衣物整洁无破损",
+        "避免过于暴露随意",
+        "鞋袜齐整不乱",
+        "妆容香水适度"
+      ]
+    },
+    {
+      "title": "西装细节",
+      "method": "suit",
+      "items": [
+        "正式场合注意衣领整洁",
+        "领带与场合相配",
+        "避免用餐时衣物凌乱",
+        "室内及时脱下帽子"
+      ]
+    },
+    {
+      "title": "明智判断",
+      "method": "judgment",
+      "items": [
+        "不确定场合询问主办",
+        "宁可稍正式不随便",
+        "餐具摆放体现礼节",
+        "吃饭不脱鞋不随便给人添乱"
+      ]
+    }
+  ]
+}

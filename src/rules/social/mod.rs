@@ -62,6 +62,7 @@ pub mod arbor_day;
 pub mod army_day;
 pub mod awards_ceremony_etiquette;
 pub mod baby_shower_etiquette;
+pub mod banquet_seating;
 pub mod banquet_toast_etiquette;
 pub mod bar;
 pub mod barbecue_etiquette;
@@ -133,6 +134,7 @@ pub mod dating_etiquette;
 pub mod deaf_accessibility;
 pub mod digital_detox;
 pub mod dining;
+pub mod dining_dress_code;
 pub mod diplomatic_etiquette;
 pub mod dragon_boat_festival;
 pub mod elevator;
@@ -151,6 +153,7 @@ pub mod funeral;
 pub mod gaming_etiquette;
 pub mod german_etiquette;
 pub mod gift;
+pub mod gift_unwrapping_etiquette;
 pub mod golf_etiquette;
 pub mod graduation_ceremony;
 pub mod greeting;
@@ -206,6 +209,7 @@ pub mod phone;
 pub mod phone_answering_etiquette;
 pub mod photography_etiquette;
 pub mod picnic_etiquette;
+pub mod potluck_etiquette;
 pub mod praise_compliment_etiquette;
 pub mod presentation_etiquette;
 pub mod project_management_etiquette;
@@ -217,6 +221,7 @@ pub mod reading_room_etiquette;
 pub mod reception_etiquette;
 pub mod remote_work_etiquette;
 pub mod resignation_etiquette;
+pub mod restaurant_ordering_etiquette;
 pub mod restaurant_tipping;
 pub mod retirement_party_etiquette;
 pub mod russian_etiquette;
@@ -266,6 +271,7 @@ pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
 pub use awards_ceremony_etiquette::AwardsCeremonyEtiquetteRules;
 pub use baby_shower_etiquette::BabyShowerEtiquetteRules;
+pub use banquet_seating::BanquetSeatingRules;
 pub use banquet_toast_etiquette::BanquetToastEtiquetteRules;
 pub use bar::BarRules;
 pub use barbecue_etiquette::BarbecueEtiquetteRules;
@@ -337,6 +343,7 @@ pub use dating_etiquette::DatingEtiquetteRules;
 pub use deaf_accessibility::DeafAccessibilityEtiquetteRules;
 pub use digital_detox::DigitalDetoxRules;
 pub use dining::{DiningCulture, DiningEtiquette};
+pub use dining_dress_code::DiningDressCodeRules;
 pub use diplomatic_etiquette::DiplomaticEtiquetteRules;
 pub use dragon_boat_festival::DragonBoatFestivalRules;
 pub use elevator::ElevatorEtiquette;
@@ -355,6 +362,7 @@ pub use funeral::{FuneralCulture, FuneralEtiquette};
 pub use gaming_etiquette::GamingEtiquetteRules;
 pub use german_etiquette::GermanEtiquetteRules;
 pub use gift::GiftEtiquette;
+pub use gift_unwrapping_etiquette::GiftUnwrappingEtiquetteRules;
 pub use golf_etiquette::GolfEtiquetteRules;
 pub use graduation_ceremony::GraduationCeremonyRules;
 pub use greeting::GreetingEtiquette;
@@ -410,6 +418,7 @@ pub use phone::PhoneEtiquette;
 pub use phone_answering_etiquette::PhoneAnsweringEtiquetteRules;
 pub use photography_etiquette::PhotographyEtiquetteRules;
 pub use picnic_etiquette::PicnicEtiquetteRules;
+pub use potluck_etiquette::PotluckEtiquetteRules;
 pub use praise_compliment_etiquette::PraiseComplimentEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
 pub use project_management_etiquette::ProjectManagementEtiquetteRules;
@@ -421,6 +430,7 @@ pub use reading_room_etiquette::ReadingRoomEtiquetteRules;
 pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
 pub use resignation_etiquette::ResignationEtiquetteRules;
+pub use restaurant_ordering_etiquette::RestaurantOrderingEtiquetteRules;
 pub use restaurant_tipping::RestaurantTippingRules;
 pub use retirement_party_etiquette::RetirementPartyEtiquetteRules;
 pub use russian_etiquette::RussianEtiquetteRules;
@@ -466,6 +476,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = RestaurantOrderingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BanquetSeatingRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GiftUnwrappingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiningDressCodeRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PotluckEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ConstructiveCriticismRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

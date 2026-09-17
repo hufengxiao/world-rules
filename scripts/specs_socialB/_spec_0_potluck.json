@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "potluck_etiquette",
+  "struct": "PotluckEtiquetteRules",
+  "name": "家常聚餐礼仪",
+  "desc": "自带菜式聚餐、分工与共享的礼貌规则",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "聚餐", "分享"],
+  "category": "RuleCategory::social(\"potluck\")",
+  "sections": [
+    {
+      "title": "携物约定",
+      "method": "bring",
+      "items": [
+        "按分工带足分量",
+        "携带符合主题的菜式",
+        "标注特殊成分过敏原",
+        "不清楚时先问主办"
+      ]
+    },
+    {
+      "title": "共享礼仪",
+      "method": "share",
+      "items": [
+        "取餐适量不哄抢",
+        "用公用餐具分取",
+        "品尝多种不挑食",
+        "让长辈优先取用"
+      ]
+    },
+    {
+      "title": "参与协助",
+      "method": "help",
+      "items": [
+        "主动帮忙摆放收拾",
+        "不只顾清空美食",
+        "协助清理桌面",
+        "感谢主人与厨艺"
+      ]
+    },
+    {
+      "title": "氛围和谐",
+      "method": "atmosphere",
+      "items": [
+        "控制量不浪费",
+        "宾主互相尊重",
+        "适合食品分流余食",
+        "愉快闲聊融洽气氛"
+      ]
+    }
+  ]
+}

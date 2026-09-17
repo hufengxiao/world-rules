@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "gift_unwrapping_etiquette",
+  "struct": "GiftUnwrappingEtiquetteRules",
+  "name": "拆收礼物礼仪",
+  "desc": "收受礼物时开启、致谢与体面的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "礼物", "致谢"],
+  "category": "RuleCategory::social(\"gift_unwrapping\")",
+  "sections": [
+    {
+      "title": "致谢表达",
+      "method": "thanks",
+      "items": [
+        "收到礼物当场致谢",
+        "由衷感谢对方的用心",
+        "提及具体的喜爱之处",
+        "赞美可选真诚不夸张"
+      ]
+    },
+    {
+      "title": "拆礼方式",
+      "method": "open",
+      "items": [
+        "视场合当场或会后拆",
+        "小心拆开不撕坏包装",
+        "贴好卡片与包装",
+        "开封后妥善收纳礼物"
+      ]
+    },
+    {
+      "title": "体谅回应",
+      "method": "respond",
+      "items": [
+        "不合适礼物仍婉言致谢",
+        "不直接表达失望",
+        "后续可礼貌沟通偏好",
+        "不辜负赠送者的心意"
+      ]
+    },
+    {
+      "title": "礼尚往来",
+      "method": "reciprocity",
+      "items": [
+        "记得回礼或答谢",
+        "心意重于价值",
+        "把握时机回赠",
+        "珍惜彼此情谊"
+      ]
+    }
+  ]
+}
