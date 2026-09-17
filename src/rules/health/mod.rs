@@ -56,6 +56,7 @@ pub mod addiction_recovery;
 pub mod allergy_management;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
+pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
 pub mod cancer_prevention;
@@ -73,6 +74,7 @@ pub mod elderly_health;
 pub mod ergonomics;
 pub mod exercise;
 pub mod eye_health;
+pub mod eye_health_general;
 pub mod eye_strain_rules;
 pub mod fever_care;
 pub mod first_aid;
@@ -93,6 +95,7 @@ pub mod infant_health;
 pub mod insect_bite_care;
 pub mod joint_health;
 pub mod kidney_health;
+pub mod knee_care;
 pub mod liver_health;
 pub mod men_health;
 pub mod mental_health;
@@ -112,11 +115,13 @@ pub mod seasonal_health;
 pub mod skin_care_rules;
 pub mod skin_health;
 pub mod sleep;
+pub mod sleep_apnea;
 pub mod sleep_hygiene;
 pub mod sleep_quality;
 pub mod stress_management;
 pub mod sun_protection;
 pub mod teen_health;
+pub mod thyroid_care;
 pub mod toddler_health;
 pub mod travel_health;
 pub mod vaccination_rules;
@@ -128,6 +133,7 @@ pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
+pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
 pub use cancer_prevention::CancerPreventionRules;
@@ -145,6 +151,7 @@ pub use elderly_health::ElderlyHealthRules;
 pub use ergonomics::ErgonomicsRules;
 pub use exercise::ExerciseRules;
 pub use eye_health::EyeHealthRules;
+pub use eye_health_general::EyeHealthGeneralRules;
 pub use eye_strain_rules::EyeStrainRulesRules;
 pub use fever_care::FeverCareRules;
 pub use first_aid::FirstAidRules;
@@ -165,6 +172,7 @@ pub use infant_health::InfantHealthRules;
 pub use insect_bite_care::InsectBiteCareRules;
 pub use joint_health::JointHealthRules;
 pub use kidney_health::KidneyHealthRules;
+pub use knee_care::KneeCareRules;
 pub use liver_health::LiverHealthRules;
 pub use men_health::MenHealthRules;
 pub use mental_health::MentalHealthRules;
@@ -184,11 +192,13 @@ pub use seasonal_health::SeasonalHealthRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
 pub use sleep::SleepRules;
+pub use sleep_apnea::SleepApneaRules;
 pub use sleep_hygiene::SleepHygieneRules;
 pub use sleep_quality::SleepQualityRules;
 pub use stress_management::StressManagementRules;
 pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
+pub use thyroid_care::ThyroidCareRules;
 pub use toddler_health::ToddlerHealthRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
@@ -204,6 +214,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = EyeHealthGeneralRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SleepApneaRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ThyroidCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KneeCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BloodLipidManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = HandWashingHygieneRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

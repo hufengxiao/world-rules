@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "eye_health_general",
+  "struct": "EyeHealthGeneralRules",
+  "name": "眼部疲劳与眼保健",
+  "desc": "缓解视疲劳、科学用眼与眼保健的习惯规则",
+  "tags": ["健康", "眼睛", "视疲劳", "干眼"],
+  "category": "RuleCategory::health(\"eye_health\")",
+  "sections": [
+    {
+      "title": "视疲劳缓解",
+      "method": "fatigue",
+      "items": [
+        "长时间用眼后远眺放松",
+        "遵循20-20-20法则休息",
+        "短暂闭眼或热敷舒缓",
+        "不持续强光下用眼"
+      ]
+    },
+    {
+      "title": "环境护眼",
+      "method": "environment",
+      "items": [
+        "保持用眼光线充足舒适",
+        "屏幕亮度与环境协调",
+        "减少长时间盯着同一处",
+        "避免光线直射眼睛"
+      ]
+    },
+    {
+      "title": "干眼应对",
+      "method": "dry_eye",
+      "items": [
+        "多眨眼保持泪液湿润",
+        "干涩明显可适度人工泪液",
+        "室内注意加湿",
+        "长期干涩就医评估"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek_care",
+      "items": [
+        "视物变形或黑影增多就医",
+        "眼突然疼痛或视力下降急诊",
+        "近视者定期检查度数",
+        "儿童护眼重视早期筛查"
+      ]
+    }
+  ]
+}

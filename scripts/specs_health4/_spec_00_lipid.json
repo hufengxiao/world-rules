@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "blood_lipid_management",
+  "struct": "BloodLipidManagementRules",
+  "name": "血脂管理",
+  "desc": "血脂异常的饮食、运动与监测管理规则",
+  "tags": ["健康", "血脂", "胆固醇", "心血管", "慢病"],
+  "category": "RuleCategory::health(\"blood_lipid\")",
+  "sections": [
+    {
+      "title": "饮食调理",
+      "method": "diet",
+      "items": [
+        "减少饱和脂肪与反式脂肪",
+        "多摄入可溶性膳食纤维",
+        "控制红肉与油炸食品",
+        "选择优质植物油脂"
+      ]
+    },
+    {
+      "title": "运动体重",
+      "method": "exercise",
+      "items": [
+        "坚持规律有氧运动",
+        "控制体重与腰围",
+        "每周多天适度活动",
+        "减重有助于改善血脂"
+      ]
+    },
+    {
+      "title": "监测用药",
+      "method": "medication",
+      "items": [
+        "定期复查血脂四项",
+        "遵医嘱规范服用降脂药",
+        "不自行停药或改量",
+        "关注药物相关不适"
+      ]
+    },
+    {
+      "title": "生活习惯",
+      "method": "lifestyle",
+      "items": [
+        "戒烟并限制饮酒",
+        "规律作息控制压力",
+        "坚持均衡饮食长期管理",
+        "注意与医生沟通个体目标"
+      ]
+    }
+  ]
+}
