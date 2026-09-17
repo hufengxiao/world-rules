@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "dou_di_zhu_basics",
+  "struct": "DouDiZhuBasicsRules",
+  "name": "斗地主基本规则",
+  "desc": "斗地主叫地主、牌型与胜负的基本规则",
+  "origin": "中国",
+  "tags": ["游戏", "斗地主", "纸牌"],
+  "category": "RuleCategory::games(\"dou_di_zhu\")",
+  "sections": [
+    {
+      "title": "发牌叫分",
+      "method": "deal",
+      "items": [
+        "三人游戏一副牌",
+        "留三张底牌",
+        "抢叫地主",
+        "叫分高者当地主"
+      ]
+    },
+    {
+      "title": "牌型",
+      "method": "patterns",
+      "items": [
+        "单张对子三张",
+        "顺子需至少五张",
+        "连对三顺",
+        "飞机带翅膀"
+      ]
+    },
+    {
+      "title": "炸弹王炸",
+      "method": "bomb",
+      "items": [
+        "四张同点可炸",
+        "双王为王炸最大",
+        "炸弹大过普通牌",
+        "慎重使用炸弹"
+      ]
+    },
+    {
+      "title": "胜负出牌",
+      "method": "finish",
+      "items": [
+        "先出完手牌者胜",
+        "地主一人对两家",
+        "农民齐心协力",
+        "一波清完或倍数计分"
+      ]
+    }
+  ]
+}

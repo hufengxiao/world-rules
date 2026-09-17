@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "uno_house_rules",
+  "struct": "UnoHouseRules",
+  "name": "UNO牌通用规则",
+  "desc": "UNO出牌、功能牌与计分的通用规则",
+  "origin": "国际",
+  "tags": ["游戏", "UNO", "纸牌"],
+  "category": "RuleCategory::games(\"uno\")",
+  "sections": [
+    {
+      "title": "出牌原则",
+      "method": "play",
+      "items": [
+        "轮到自己出牌",
+        "匹配颜色或数字",
+        "无法出牌抓一张",
+        "抽到能出则出"
+      ]
+    },
+    {
+      "title": "功能牌",
+      "method": "action",
+      "items": [
+        "反转改变出牌方向",
+        "跳过令下家失去回合",
+        "罚二抽两张",
+        "万能牌任挑颜色"
+      ]
+    },
+    {
+      "title": "叫UNO",
+      "method": "call_uno",
+      "items": [
+        "剩最后一张喊UNO",
+        "忘喊被罚抽牌",
+        "喊出声清晰响亮",
+        "规则事先约定"
+      ]
+    },
+    {
+      "title": "计分结算",
+      "method": "scoring",
+      "items": [
+        "先出完手牌者胜轮",
+        "数字牌记面值",
+        "功能牌赋分值",
+        "多轮累计定胜负"
+      ]
+    }
+  ]
+}

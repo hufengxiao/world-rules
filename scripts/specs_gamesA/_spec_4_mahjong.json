@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "mahjong_hand_analysis",
+  "struct": "MahjongHandAnalysisRules",
+  "name": "麻将手牌判断基础",
+  "desc": "麻将听牌、番数计算与手牌分析的基础",
+  "origin": "中国",
+  "tags": ["游戏", "麻将", "手牌", "听牌"],
+  "category": "RuleCategory::games(\"mahjong_hand\")",
+  "sections": [
+    {
+      "title": "牌组构成",
+      "method": "structure",
+      "items": [
+        "顺子是相邻三张",
+        "刻子是相同三张",
+        "将牌是成对两张",
+        "和牌需基本牌型"
+      ]
+    },
+    {
+      "title": "听牌判断",
+      "method": "waiting",
+      "items": [
+        "寻找可和牌张",
+        "计算听牌数量",
+        "权衡安全牌选择",
+        "统筹取舍听口"
+      ]
+    },
+    {
+      "title": "番数计算",
+      "method": "scoring",
+      "items": [
+        "牌型决定番种",
+        "累计番数定分数",
+        "役种各不相同",
+        "依规则计分算番"
+      ]
+    },
+    {
+      "title": "和牌流程",
+      "method": "winning",
+      "items": [
+        "正确报听喊和",
+        "亮牌供验牌",
+        "点炮与否定胜负",
+        "遵守顺位规则"
+      ]
+    }
+  ]
+}

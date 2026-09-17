@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "trick_taking_cards",
+  "struct": "TrickTakingCardsRules",
+  "name": "吃墩牌类基础",
+  "desc": "桥牌等吃墩游戏的叫牌、跟牌与赢墩规则",
+  "origin": "国际",
+  "tags": ["游戏", "吃墩", "桥牌", "纸牌"],
+  "category": "RuleCategory::games(\"trick_taking\")",
+  "sections": [
+    {
+      "title": "领牌跟牌",
+      "method": "lead",
+      "items": [
+        "首出者领花色",
+        "其他人须跟同花色",
+        "无同花色可垫牌",
+        "可出王牌抢墩"
+      ]
+    },
+    {
+      "title": "赢墩判定",
+      "method": "win_trick",
+      "items": [
+        "牌面最大者赢墩",
+        "王牌通常是最大",
+        "同花色比大小",
+        "领主花色须优先"
+      ]
+    },
+    {
+      "title": "叫牌约定",
+      "method": "bidding",
+      "items": [
+        "叫牌定主与目标",
+        "合约规定赢墩数",
+        "按叫牌顺序加码",
+        "默契配合记分"
+      ]
+    },
+    {
+      "title": "策略配合",
+      "method": "strategy",
+      "items": [
+        "计算庄家余牌",
+        "不说暗语交流",
+        "伙伴间默契出牌",
+        "遵守出牌节奏"
+      ]
+    }
+  ]
+}

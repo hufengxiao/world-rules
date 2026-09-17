@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "script_kill_game",
+  "struct": "ScriptKillGameRules",
+  "name": "剧本杀桌游规范",
+  "desc": "剧本杀角色扮演、推理与游戏礼仪规范",
+  "origin": "中国",
+  "tags": ["游戏", "剧本杀", "桌游", "推理"],
+  "category": "RuleCategory::games(\"script_kill\")",
+  "sections": [
+    {
+      "title": "角色带入",
+      "method": "roleplay",
+      "items": [
+        "认真阅读剧本",
+        "按角色设定演绎",
+        "不剧透他人",
+        "守好自己秘密"
+      ]
+    },
+    {
+      "title": "推理协作",
+      "method": "deduction",
+      "items": [
+        "围绕线索推理",
+        "分享发现合乎逻辑",
+        "不跳车偷看线索",
+        "配合推进剧情"
+      ]
+    },
+    {
+      "title": "复盘交流",
+      "method": "reveal",
+      "items": [
+        "结局揭晓客观看待",
+        "不指控针对个人",
+        "复盘客观友好",
+        "体验重于胜负"
+      ]
+    },
+    {
+      "title": "桌游礼仪",
+      "method": "manner",
+      "items": [
+        "守时不迟到",
+        "不中途离场",
+        "尊重主持人",
+        "保持友好氛围"
+      ]
+    }
+  ]
+}

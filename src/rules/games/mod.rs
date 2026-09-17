@@ -112,6 +112,7 @@ pub mod dominion;
 pub mod domino;
 pub mod domino_detailed;
 pub mod dots_and_boxes;
+pub mod dou_di_zhu_basics;
 pub mod doudizhu;
 pub mod euchre;
 pub mod euchre_detailed;
@@ -137,6 +138,7 @@ pub mod mahjong_blood_battle;
 pub mod mahjong_cantonese_detailed;
 pub mod mahjong_changsha_detailed;
 pub mod mahjong_filipino;
+pub mod mahjong_hand_analysis;
 pub mod mahjong_hangzhou_detailed;
 pub mod mahjong_hongkong;
 pub mod mahjong_japanese_detailed;
@@ -181,6 +183,7 @@ pub mod rpg;
 pub mod rubiks_cube;
 pub mod rummy_detailed;
 pub mod scrabble;
+pub mod script_kill_game;
 pub mod seven_wonders;
 pub mod sheng_ji;
 pub mod shogi;
@@ -200,10 +203,12 @@ pub mod three_card_poker;
 pub mod tic_tac_toe;
 pub mod ticket_to_ride;
 pub mod total_war;
+pub mod trick_taking_cards;
 pub mod trivia_game;
 pub mod twenty_four_point;
 pub mod two_player_mahjong;
 pub mod uno;
+pub mod uno_house_rules;
 pub mod war_card;
 pub mod wargames;
 pub mod werewolf;
@@ -264,6 +269,7 @@ pub use dominion::DominionRules;
 pub use domino::DominoRules;
 pub use domino_detailed::DominoDetailedRules;
 pub use dots_and_boxes::DotsAndBoxesRules;
+pub use dou_di_zhu_basics::DouDiZhuBasicsRules;
 pub use doudizhu::DouDiZhuRules;
 pub use euchre::EuchreRules;
 pub use euchre_detailed::EuchreDetailedRules;
@@ -289,6 +295,7 @@ pub use mahjong_blood_battle::MahjongBloodBattleRules;
 pub use mahjong_cantonese_detailed::MahjongCantoneseDetailedRules;
 pub use mahjong_changsha_detailed::MahjongChangshaDetailedRules;
 pub use mahjong_filipino::MahjongFilipinoRules;
+pub use mahjong_hand_analysis::MahjongHandAnalysisRules;
 pub use mahjong_hangzhou_detailed::MahjongHangzhouDetailedRules;
 pub use mahjong_hongkong::MahjongHongkongRules;
 pub use mahjong_japanese_detailed::MahjongJapaneseDetailedRules;
@@ -332,6 +339,7 @@ pub use risk::RiskRules;
 pub use rubiks_cube::{CubeType, RubiksCubeRules};
 pub use rummy_detailed::RummyDetailedRules;
 pub use scrabble::ScrabbleRules;
+pub use script_kill_game::ScriptKillGameRules;
 pub use seven_wonders::SevenWondersRules;
 pub use sheng_ji::ShengJiRules;
 pub use shogi::ShogiRules;
@@ -351,10 +359,12 @@ pub use three_card_poker::ThreeCardPokerRules;
 pub use tic_tac_toe::TicTacToeRules;
 pub use ticket_to_ride::TicketToRideRules;
 pub use total_war::TotalWarRules;
+pub use trick_taking_cards::TrickTakingCardsRules;
 pub use trivia_game::TriviaGameRules;
 pub use twenty_four_point::TwentyFourPointRules;
 pub use two_player_mahjong::TwoPlayerMahjongRules;
 pub use uno::UnoRules;
+pub use uno_house_rules::UnoHouseRules;
 pub use war_card::WarCardRules;
 pub use wargames::{AgeOfSigmarRules, GenericWargameRules, MiniatureGameRules, Warhammer40KRules};
 pub use werewolf::WerewolfRules;
@@ -409,6 +419,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = MahjongHandAnalysisRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ScriptKillGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TrickTakingCardsRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DouDiZhuBasicsRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = UnoHouseRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AeroplaneChessRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
