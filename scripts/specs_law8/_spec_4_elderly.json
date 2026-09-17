@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "elderly_support_obligation",
+  "struct": "ElderlySupportObligationRules",
+  "name": "赡养义务",
+  "desc": "成年子女赡养父母的经济、生活与精神义务",
+  "origin": "中国",
+  "tags": ["法律", "赡养", "父母", "家庭"],
+  "category": "RuleCategory::law(\"elderly_support\")",
+  "sections": [
+    {
+      "title": "法定义务",
+      "method": "duty",
+      "items": [
+        "成年子女赡养父母",
+        "提供必要经济扶助",
+        "生活照料",
+        "给予精神慰藉"
+      ]
+    },
+    {
+      "title": "照护内容",
+      "method": "care",
+      "items": [
+        "保障基本生活所需",
+        "疾病照护尽责任",
+        "尊重父母意愿",
+        "常回家看看陪伴"
+      ]
+    },
+    {
+      "title": "共同责任",
+      "method": "share",
+      "items": [
+        "多子女合理分担",
+        "可与父母协商赡养方式",
+        "经济困难依能力",
+        "夫妻共同承担对双方父母"
+      ]
+    },
+    {
+      "title": "维权与履行",
+      "method": "perform",
+      "items": [
+        "遗弃拒绝赡养违法",
+        "父母可依法主张",
+        "倡导敬老爱老",
+        "保障老人晚年"
+      ]
+    }
+  ]
+}

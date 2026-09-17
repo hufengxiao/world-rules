@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "child_custody_rights",
+  "struct": "ChildCustodyRightsRules",
+  "name": "子女抚养权要点",
+  "desc": "离婚时子女抚养权归属、探视与抚养费",
+  "origin": "中国",
+  "tags": ["法律", "抚养权", "子女", "探视"],
+  "category": "RuleCategory::law(\"custody\")",
+  "sections": [
+    {
+      "title": "归属原则",
+      "method": "principle",
+      "items": [
+        "以子女利益为重",
+        "考虑双方抚养能力",
+        "年幼子女常随母或酌情",
+        "尊重较大子女意愿"
+      ]
+    },
+    {
+      "title": "抚养费",
+      "method": "support_fee",
+      "items": [
+        "不抚养方付抚养费",
+        "金额兼顾所需与能力",
+        "可协议或依法确定",
+        "可依情况变更"
+      ]
+    },
+    {
+      "title": "探视权利",
+      "method": "visitation",
+      "items": [
+        "不抚养方有探视权",
+        "另一方应配合",
+        "探视方式可约定",
+        "保障亲子联系"
+      ]
+    },
+    {
+      "title": "变更与维权",
+      "method": "change",
+      "items": [
+        "情形变化可申请变更",
+        "不配合可依法主张",
+        "损害子女利益可争取",
+        "以子女健康成长为先"
+      ]
+    }
+  ]
+}

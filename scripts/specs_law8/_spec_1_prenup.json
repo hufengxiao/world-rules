@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "prenuptial_agreement",
+  "struct": "PrenuptialAgreementRules",
+  "name": "婚前财产约定",
+  "desc": "婚前财产协议的内容、必要性与效力",
+  "origin": "中国",
+  "tags": ["法律", "婚前财产", "协议"],
+  "category": "RuleCategory::law(\"prenuptial\")",
+  "sections": [
+    {
+      "title": "协议范围",
+      "method": "scope",
+      "items": [
+        "约定婚前财产归属",
+        "约定婚后所得归属",
+        "可约定债权债务",
+        "内容合法不违背公序"
+      ]
+    },
+    {
+      "title": "形式要求",
+      "method": "form",
+      "items": [
+        "采用书面形式",
+        "双方真实自愿",
+        "可办理公证",
+        "内容明确具体"
+      ]
+    },
+    {
+      "title": "开诚协商",
+      "method": "discuss",
+      "items": [
+        "婚前坦诚沟通",
+        "不损害他人利益",
+        "兼顾情感与保护",
+        "获得共同认可"
+      ]
+    },
+    {
+      "title": "执行注意",
+      "method": "perform",
+      "items": [
+        "按约定履行",
+        "涉及房产依法变更",
+        "离婚时依约分割",
+        "争议依法认定"
+      ]
+    }
+  ]
+}

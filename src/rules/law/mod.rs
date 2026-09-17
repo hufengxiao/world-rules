@@ -54,6 +54,7 @@
 //! - 20+ 条知识产权规则
 //! - 40+ 条国际法律规则
 
+pub mod child_custody_rights;
 pub mod civil;
 pub mod constitution;
 pub mod consumer;
@@ -61,6 +62,8 @@ pub mod consumer_rights_basics;
 pub mod contract;
 pub mod criminal;
 pub mod deposit_refund_basics;
+pub mod domestic_violence_guard;
+pub mod elderly_support_obligation;
 pub mod emergency_call_110;
 pub mod evidence_preservation;
 pub mod fraud_prevention_basics;
@@ -73,6 +76,7 @@ pub mod labor;
 pub mod labor_contract_basics;
 pub mod marriage;
 pub mod marriage_property_basics;
+pub mod marriage_registration;
 pub mod mortgage_loan_basics;
 pub mod neighbor_dispute_handling;
 pub mod neighborhood_noise_dispute;
@@ -81,6 +85,7 @@ pub mod online_shopping_rights;
 pub mod overtime_compensation;
 pub mod personal_tax_basics;
 pub mod power_of_attorney_basics;
+pub mod prenuptial_agreement;
 pub mod probation_period_rules;
 pub mod property_management_fee;
 pub mod rental_lease_basics;
@@ -529,6 +534,7 @@ pub use banking_law_detailed::BankingLawDetailedRules;
 pub use bankruptcy_detailed::BankruptcyDetailedRules;
 pub use bankruptcy_law_deep::BankruptcyLawDeepRules;
 pub use biometric_law::BiometricLawRules;
+pub use child_custody_rights::ChildCustodyRightsRules;
 pub use children_rights::ChildrenRightsRules;
 pub use civil_act_deep::{
     ActEstablishmentStatus, ActValidityStatus, CapacityLevel, CivilActDeepRules, InvalidReason,
@@ -591,6 +597,7 @@ pub use deepfake_law::DeepfakeLawRules;
 pub use deposit_refund_basics::DepositRefundBasicsRules;
 pub use digital_evidence::DigitalEvidenceRules;
 pub use disability_rights::DisabilityRightsRules;
+pub use domestic_violence_guard::DomesticViolenceGuardRules;
 pub use drone_law::DroneLawRules;
 pub use drug_mgmt_detailed::DrugMgmtDetailedRules;
 pub use ecommerce_detailed_law::EcommerceDetailedLawRules;
@@ -598,6 +605,7 @@ pub use ecommerce_law::EcommerceLawRules;
 pub use economic_crime_deep::EconomicCrimeDeepRules;
 pub use education_detailed::EducationDetailedRules;
 pub use elderly_rights::ElderlyRightsRules;
+pub use elderly_support_obligation::ElderlySupportObligationRules;
 pub use electricity_detailed::ElectricityDetailedRules;
 pub use emergency_call_110::EmergencyCall110Rules;
 pub use environmental_detailed::EnvironmentalDetailedRules;
@@ -674,6 +682,7 @@ pub use maritime_law_intl::MaritimeLawIntlRules;
 pub use marriage_detailed::MarriageDetailedRules;
 pub use marriage_detailed2::MarriageDetailed2Rules;
 pub use marriage_property_basics::MarriagePropertyBasicsRules;
+pub use marriage_registration::MarriageRegistrationRules;
 pub use mediation_law::MediationLawRules;
 pub use mental_health_law::MentalHealthLawRules;
 pub use metaverse_law::MetaverseLawRules;
@@ -695,6 +704,7 @@ pub use personal_info_protection::PersonalInfoProtectionRules;
 pub use personal_tax_basics::PersonalTaxBasicsRules;
 pub use plea_bargaining::PleaBargainingRules;
 pub use power_of_attorney_basics::PowerOfAttorneyBasicsRules;
+pub use prenuptial_agreement::PrenuptialAgreementRules;
 pub use privacy_rights::PrivacyRightsRules;
 pub use probation_law::ProbationLawRules;
 pub use probation_period_rules::ProbationPeriodRules;
@@ -752,6 +762,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ElderlySupportObligationRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DomesticViolenceGuardRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChildCustodyRightsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PrenuptialAgreementRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MarriageRegistrationRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FraudPreventionBasicsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

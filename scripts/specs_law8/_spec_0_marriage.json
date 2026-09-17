@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "marriage_registration",
+  "struct": "MarriageRegistrationRules",
+  "name": "婚姻登记与法定婚龄",
+  "desc": "结婚登记、法定婚龄与婚姻关系成立要点",
+  "origin": "中国",
+  "tags": ["法律", "婚姻", "登记", "结婚"],
+  "category": "RuleCategory::law(\"marriage\")",
+  "sections": [
+    {
+      "title": "法定条件",
+      "method": "condition",
+      "items": [
+        "达到法定结婚年龄",
+        "双方自愿结婚",
+        "无近亲或禁止情形",
+        "具备完全民事行为能力"
+      ]
+    },
+    {
+      "title": "登记程序",
+      "method": "process",
+      "items": [
+        "携证件前往登记机关",
+        "本人到场申请",
+        "填写结婚登记申请",
+        "领取结婚证"
+      ]
+    },
+    {
+      "title": "婚姻效力",
+      "method": "effect",
+      "items": [
+        "登记日起婚姻成立",
+        "确立财产与权利义务",
+        "诚实忠诚义务",
+        "依法缔结受保护"
+      ]
+    },
+    {
+      "title": "特殊情况",
+      "method": "special",
+      "items": [
+        "无效婚姻如实了解",
+        "可撤销情形依法主张",
+        "虚假登记不受保护",
+        "复杂情形咨询法律"
+      ]
+    }
+  ]
+}

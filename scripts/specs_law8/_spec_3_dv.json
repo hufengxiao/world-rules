@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "domestic_violence_guard",
+  "struct": "DomesticViolenceGuardRules",
+  "name": "家庭暴力防护",
+  "desc": "识别家庭暴力、求助保护与依法维权要点",
+  "origin": "中国",
+  "tags": ["法律", "家暴", "防护", "维权"],
+  "category": "RuleCategory::law(\"domestic_violence\")",
+  "sections": [
+    {
+      "title": "识别家暴",
+      "method": "identify",
+      "items": [
+        "身体暴力是伤害",
+        "精神冷暴力也属暴力",
+        "经济控制亦属",
+        "反复伤害须重视"
+      ]
+    },
+    {
+      "title": "保护自己",
+      "method": "protect",
+      "items": [
+        "遭遇侵害立即脱离",
+        "向亲友或机构求助",
+        "可申请人身保护令",
+        "必要时报警"
+      ]
+    },
+    {
+      "title": "证据保留",
+      "method": "evidence",
+      "items": [
+        "保留伤情照片",
+        "就医记录佐证",
+        "保存相关沟通记录",
+        "目击者证言"
+      ]
+    },
+    {
+      "title": "法律维权",
+      "method": "rights",
+      "items": [
+        "家暴应受法律制裁",
+        "可依情离婚追责",
+        "保护令具强制力",
+        "寻求专业法律扶助"
+      ]
+    }
+  ]
+}
