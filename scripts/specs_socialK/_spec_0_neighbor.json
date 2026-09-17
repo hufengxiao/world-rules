@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "neighbor_relations",
+  "struct": "NeighborRelationsRules",
+  "name": "邻里相处",
+  "desc": "邻里见面、互助与保持合适距离的相处之道",
+  "tags": ["社交", "邻里", "相处", "和睦"],
+  "origin": "中国",
+  "category": "RuleCategory::social(\"neighbor\")",
+  "sections": [
+    {
+      "title": "友好招呼",
+      "method": "greeting",
+      "items": [
+        "见面主动问好",
+        "微笑点头示意",
+        "不冷眼相对",
+        "长久和睦"
+      ]
+    },
+    {
+      "title": "互相帮助",
+      "method": "help",
+      "items": [
+        "有难处可搭把手",
+        "取快递顺帮带",
+        "借东西及时还",
+        "感恩回礼"
+      ]
+    },
+    {
+      "title": "保持距离",
+      "method": "boundary",
+      "items": [
+        "不探问私事",
+        "不随便串门",
+        "不评论家事",
+        "尊重界限"
+      ]
+    },
+    {
+      "title": "遇事商量",
+      "method": "reconcile",
+      "items": [
+        "有摩擦好好说",
+        "不争吵动手",
+        "物业可协调",
+        "和为贵"
+      ]
+    }
+  ]
+}

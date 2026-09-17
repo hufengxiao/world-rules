@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "doorman_greeting_courtesy",
+  "struct": "DoormanGreetingCourtesyRules",
+  "name": "与门卫保安相处",
+  "desc": "出入小区对保安、门卫的礼貌",
+  "tags": ["社交", "门卫", "保安", "礼貌"],
+  "origin": "中国",
+  "category": "RuleCategory::social(\"doorman\")",
+  "sections": [
+    {
+      "title": "出入问候",
+      "method": "greeting",
+      "items": [
+        "进出点头问好",
+        "微笑打招呼",
+        "不甩脸无礼",
+        "尊重劳动"
+      ]
+    },
+    {
+      "title": "配合门禁",
+      "method": "entry",
+      "items": [
+        "配合刷门禁",
+        "访客如实说明",
+        "不麻烦照样",
+        "理解查验"
+      ]
+    },
+    {
+      "title": "求助帮忙",
+      "method": "help",
+      "items": [
+        "提重物可求助",
+        "代取快递道谢",
+        "请求讲清楚",
+        "谢谢辛勤"
+      ]
+    },
+    {
+      "title": "体恤值守",
+      "method": "considerate",
+      "items": [
+        "夜间出入轻些",
+        "不苛责盘问",
+        "互相体谅",
+        "和谐门卫关系"
+      ]
+    }
+  ]
+}

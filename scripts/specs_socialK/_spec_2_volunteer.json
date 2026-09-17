@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "community_volunteer_activity",
+  "struct": "CommunityVolunteerActivityRules",
+  "name": "社区活动参与",
+  "desc": "参加社区活动、志愿服务的礼仪与配合",
+  "tags": ["社交", "社区", "志愿", "活动"],
+  "origin": "中国",
+  "category": "RuleCategory::social(\"community\")",
+  "sections": [
+    {
+      "title": "活动参与",
+      "method": "participate",
+      "items": [
+        "关注社区通知",
+        "报名按时参加",
+        "带好所需物",
+        "尊重组织者"
+      ]
+    },
+    {
+      "title": "志愿服务",
+      "method": "volunteer",
+      "items": [
+        "热忱报名志愿",
+        "尽责守岗",
+        "服从安排",
+        "乐于奉献"
+      ]
+    },
+    {
+      "title": "配合和谐",
+      "method": "cooperate",
+      "items": [
+        "不拥挤争抢",
+        "照看老人小孩",
+        "保持场地整洁",
+        "礼貌参与"
+      ]
+    },
+    {
+      "title": "回馈社区",
+      "method": "reciprocity",
+      "items": [
+        "分享经验心得",
+        "带动邻里",
+        "感谢组织方",
+        "共建温暖"
+      ]
+    }
+  ]
+}

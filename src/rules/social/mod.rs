@@ -58,6 +58,7 @@ pub mod airplane_manner;
 pub mod airport_etiquette;
 pub mod alcohol_etiquette;
 pub mod american_etiquette;
+pub mod apartment_noise_considerate;
 pub mod apology_etiquette;
 pub mod arbor_day;
 pub mod army_day;
@@ -128,6 +129,7 @@ pub mod cinema;
 pub mod cocktail_party;
 pub mod coffee_house;
 pub mod community_meeting;
+pub mod community_volunteer_activity;
 pub mod concert_etiquette;
 pub mod condolence_mourning;
 pub mod condolence_visit;
@@ -145,6 +147,7 @@ pub mod dining;
 pub mod dining_dress_code;
 pub mod dinner_seating_order;
 pub mod diplomatic_etiquette;
+pub mod doorman_greeting_courtesy;
 pub mod dragon_boat_festival;
 pub mod elevator;
 pub mod elevator_detailed;
@@ -211,6 +214,7 @@ pub mod museum_etiquette;
 pub mod national_day;
 pub mod negotiation_etiquette;
 pub mod neighbor;
+pub mod neighbor_relations;
 pub mod networking_etiquette;
 pub mod new_year_day;
 pub mod nursing_home_visit;
@@ -234,6 +238,7 @@ pub mod potluck_etiquette;
 pub mod praise_compliment_etiquette;
 pub mod presentation_etiquette;
 pub mod project_management_etiquette;
+pub mod property_management_service;
 pub mod public_speaking_etiquette;
 pub mod public_washroom_manner;
 pub mod qingming;
@@ -307,6 +312,7 @@ pub use airplane_manner::AirplaneMannerRules;
 pub use airport_etiquette::AirportEtiquetteRules;
 pub use alcohol_etiquette::AlcoholEtiquetteRules;
 pub use american_etiquette::AmericanEtiquetteRules;
+pub use apartment_noise_considerate::ApartmentNoiseConsiderateRules;
 pub use apology_etiquette::ApologyEtiquetteRules;
 pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
@@ -377,6 +383,7 @@ pub use cinema::CinemaEtiquette;
 pub use cocktail_party::CocktailPartyRules;
 pub use coffee_house::CoffeeHouseRules;
 pub use community_meeting::CommunityMeetingRules;
+pub use community_volunteer_activity::CommunityVolunteerActivityRules;
 pub use concert_etiquette::ConcertEtiquetteRules;
 pub use condolence_mourning::CondolenceMourningRules;
 pub use condolence_visit::CondolenceVisitRules;
@@ -394,6 +401,7 @@ pub use dining::{DiningCulture, DiningEtiquette};
 pub use dining_dress_code::DiningDressCodeRules;
 pub use dinner_seating_order::DinnerSeatingOrderRules;
 pub use diplomatic_etiquette::DiplomaticEtiquetteRules;
+pub use doorman_greeting_courtesy::DoormanGreetingCourtesyRules;
 pub use dragon_boat_festival::DragonBoatFestivalRules;
 pub use elevator::ElevatorEtiquette;
 pub use elevator_detailed::ElevatorDetailedRules;
@@ -460,6 +468,7 @@ pub use museum_etiquette::MuseumEtiquetteRules;
 pub use national_day::NationalDayRules;
 pub use negotiation_etiquette::NegotiationEtiquetteRules;
 pub use neighbor::NeighborRules;
+pub use neighbor_relations::NeighborRelationsRules;
 pub use networking_etiquette::NetworkingEtiquetteRules;
 pub use new_year_day::NewYearDayRules;
 pub use nursing_home_visit::NursingHomeVisitRules;
@@ -483,6 +492,7 @@ pub use potluck_etiquette::PotluckEtiquetteRules;
 pub use praise_compliment_etiquette::PraiseComplimentEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
 pub use project_management_etiquette::ProjectManagementEtiquetteRules;
+pub use property_management_service::PropertyManagementServiceRules;
 pub use public_speaking_etiquette::PublicSpeakingEtiquetteRules;
 pub use public_washroom_manner::PublicWashroomMannerRules;
 pub use qingming::QingmingRules;
@@ -556,6 +566,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DoormanGreetingCourtesyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ApartmentNoiseConsiderateRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CommunityVolunteerActivityRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PropertyManagementServiceRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NeighborRelationsRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = QuietWardMannerRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
