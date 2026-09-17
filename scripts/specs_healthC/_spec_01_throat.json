@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "sore_throat_relief",
+  "struct": "SoreThroatReliefRules",
+  "name": "喉咙痛缓解",
+  "desc": "咽痛喉咙不适的缓解护理与就医提示",
+  "origin": "医学",
+  "tags": ["健康", "喉咙", "咽痛", "护理"],
+  "category": "RuleCategory::health(\"sore_throat\")",
+  "sections": [
+    {
+      "title": "日常缓解",
+      "method": "relief",
+      "items": [
+        "多饮温水润喉",
+        "用温盐水漱口",
+        "温润食物减轻刺激",
+        "保持口鼻湿润"
+      ]
+    },
+    {
+      "title": "护嗓习惯",
+      "method": "voice_care",
+      "items": [
+        "避免大声喊叫伤咽",
+        "减少烟酒刺激",
+        "少食辛辣过烫",
+        "不强行清嗓"
+      ]
+    },
+    {
+      "title": "休息调养",
+      "method": "rest",
+      "items": [
+        "保证充足休息睡眠",
+        "注意防寒保暖",
+        "多喝水助恢复",
+        "观察体温变化"
+      ]
+    },
+    {
+      "title": "何时就医",
+      "method": "seek",
+      "items": [
+        "吞咽困难或气促就医",
+        "高热或颈部肿痛需检查",
+        "声音嘶哑持续超过两周就诊",
+        "怀疑链球菌感染就医评估"
+      ]
+    }
+  ]
+}

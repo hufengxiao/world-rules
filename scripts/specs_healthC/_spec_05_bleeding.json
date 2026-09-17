@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "bleeding_control_bandage",
+  "struct": "BleedingControlBandageRules",
+  "name": "止血与包扎",
+  "desc": "小伤口出血的处理、止血方法与包扎技术",
+  "origin": "医学",
+  "tags": ["健康", "止血", "包扎", "伤口", "急救"],
+  "category": "RuleCategory::health(\"bleeding_control\")",
+  "sections": [
+    {
+      "title": "初步处理",
+      "method": "initial",
+      "items": [
+        "先洗净双手查看伤口",
+        "用清洁敷料按压止血",
+        "抬高伤口高于心脏",
+        "保持按压稳定数分钟"
+      ]
+    },
+    {
+      "title": "持续止血",
+      "method": "hemostasis",
+      "items": [
+        "严重出血持续加压",
+        "敷料浸透在原基础上叠加",
+        "不盲目移除已嵌敷料",
+        "遵医嘱必要时用止血带"
+      ]
+    },
+    {
+      "title": "正确包扎",
+      "method": "bandage",
+      "items": [
+        "包扎松紧适度不过紧",
+        "露出指趾末端观察血运",
+        "固定端稳妥不打滑",
+        "保持敷料清洁干燥"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek",
+      "items": [
+        "动脉喷血或深大伤口就医",
+        "按压无效仍不止血尽快就医",
+        "有异物嵌入不硬取送医",
+        "破伤风风险咨询处理"
+      ]
+    }
+  ]
+}

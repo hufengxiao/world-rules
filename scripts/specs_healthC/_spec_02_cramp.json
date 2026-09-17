@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "leg_cramp_relief",
+  "struct": "LegCrampReliefRules",
+  "name": "腿部抽筋与痉挛",
+  "desc": "夜间腿抽筋等痉挛的缓解拉伸与预防",
+  "origin": "医学",
+  "tags": ["健康", "抽筋", "小腿", "痉挛"],
+  "category": "RuleCategory::health(\"leg_cramp\")",
+  "sections": [
+    {
+      "title": "急性缓解",
+      "method": "relief",
+      "items": [
+        "抽筋时立即伸展该侧肌肉",
+        "脚趾向身体方向扳拉",
+        "按摩或热敷小腿",
+        "走动借助重量帮助拉伸"
+      ]
+    },
+    {
+      "title": "夜间预防",
+      "method": "night",
+      "items": [
+        "睡前适度拉伸小腿",
+        "保持舒适睡姿",
+        "被子不要过压脚尖",
+        "睡前适度补水"
+      ]
+    },
+    {
+      "title": "日常调养",
+      "method": "lifestyle",
+      "items": [
+        "补充水分与电解质",
+        "摄入含镁钾钙食物",
+        "规律运动不过度疲劳",
+        "穿合适鞋子站立"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek",
+      "items": [
+        "频繁抽筋或伴肿胀就医",
+        "伴走路痛或变色检查",
+        "孕妇频繁痉挛咨询",
+        "伴随药物副作用评估"
+      ]
+    }
+  ]
+}

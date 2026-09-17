@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "motion_sickness_relief",
+  "struct": "MotionSicknessReliefRules",
+  "name": "晕车晕船缓解",
+  "desc": "乘车乘船晕动症的预防、座位与缓解方法",
+  "origin": "医学",
+  "tags": ["健康", "晕车", "晕船", "晕动症"],
+  "category": "RuleCategory::health(\"motion_sickness\")",
+  "sections": [
+    {
+      "title": "乘前预防",
+      "method": "before",
+      "items": [
+        "出行前避免空腹或过饱",
+        "选择靠前平稳座位",
+        "坐车前少食油腻",
+        "必要时遵医嘱用晕车药"
+      ]
+    },
+    {
+      "title": "乘车姿势",
+      "method": "during",
+      "items": [
+        "目视远前方固定物",
+        "减少低头看手机",
+        "开窗透风适度",
+        "保持头部稳定"
+      ]
+    },
+    {
+      "title": "不适应对",
+      "method": "cope",
+      "items": [
+        "出现恶心欲吐及时停车",
+        "闭目休息放松呼吸",
+        "含生姜或薄荷缓解",
+        "按压合谷内关穴"
+      ]
+    },
+    {
+      "title": "特殊人群",
+      "method": "special",
+      "items": [
+        "老人儿童更易晕动需照护",
+        "孕妇用药需遵医嘱",
+        "反复严重晕动就医评估",
+        "加强前庭适应锻炼"
+      ]
+    }
+  ]
+}

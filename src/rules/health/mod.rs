@@ -58,6 +58,7 @@ pub mod anemia_nutrition;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
 pub mod balanced_diet_plan;
+pub mod bleeding_control_bandage;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
@@ -107,17 +108,20 @@ pub mod insect_bite_care;
 pub mod joint_health;
 pub mod kidney_health;
 pub mod knee_care;
+pub mod leg_cramp_relief;
 pub mod liver_health;
 pub mod men_health;
 pub mod mental_health;
 pub mod mental_wellness;
 pub mod migraine_management;
+pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nutrition;
 pub mod nutrition_basics;
 pub mod occupational_health;
 pub mod office_ergonomics;
 pub mod oral_health;
+pub mod oral_ulcer_care;
 pub mod postpartum_health;
 pub mod posture_rules;
 pub mod premenstrual_syndrome_care;
@@ -128,11 +132,13 @@ pub mod seasonal_health;
 pub mod seizure_response;
 pub mod skin_care_rules;
 pub mod skin_health;
+pub mod skin_itch_soothing;
 pub mod sleep;
 pub mod sleep_apnea;
 pub mod sleep_hygiene;
 pub mod sleep_quality;
 pub mod smoking_cessation;
+pub mod sore_throat_relief;
 pub mod stress_management;
 pub mod sun_protection;
 pub mod teen_health;
@@ -152,6 +158,7 @@ pub use anemia_nutrition::AnemiaNutritionRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
+pub use bleeding_control_bandage::BleedingControlBandageRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
@@ -201,17 +208,20 @@ pub use insect_bite_care::InsectBiteCareRules;
 pub use joint_health::JointHealthRules;
 pub use kidney_health::KidneyHealthRules;
 pub use knee_care::KneeCareRules;
+pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
 pub use men_health::MenHealthRules;
 pub use mental_health::MentalHealthRules;
 pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
+pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nutrition::NutritionRules;
 pub use nutrition_basics::NutritionBasicsRules;
 pub use occupational_health::OccupationalHealthRules;
 pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
+pub use oral_ulcer_care::OralUlcerCareRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use posture_rules::PostureRulesRules;
 pub use premenstrual_syndrome_care::PremenstrualSyndromeCareRules;
@@ -222,11 +232,13 @@ pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
+pub use skin_itch_soothing::SkinItchSoothingRules;
 pub use sleep::SleepRules;
 pub use sleep_apnea::SleepApneaRules;
 pub use sleep_hygiene::SleepHygieneRules;
 pub use sleep_quality::SleepQualityRules;
 pub use smoking_cessation::SmokingCessationRules;
+pub use sore_throat_relief::SoreThroatReliefRules;
 pub use stress_management::StressManagementRules;
 pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
@@ -248,6 +260,30 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = BleedingControlBandageRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MotionSicknessReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkinItchSoothingRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LegCrampReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SoreThroatReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OralUlcerCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = PremenstrualSyndromeCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

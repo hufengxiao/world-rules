@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "oral_ulcer_care",
+  "struct": "OralUlcerCareRules",
+  "name": "口腔溃疡护理",
+  "desc": "口腔溃疡的缓解、饮食与预防护理规则",
+  "origin": "医学",
+  "tags": ["健康", "口腔", "溃疡", "护理"],
+  "category": "RuleCategory::health(\"oral_ulcer\")",
+  "sections": [
+    {
+      "title": "缓解不适",
+      "method": "relief",
+      "items": [
+        "保持口腔清洁温和漱口",
+        "用温热淡盐水漱口",
+        "可遵医嘱局部用药",
+        "避免舌头反复舔舐"
+      ]
+    },
+    {
+      "title": "饮食注意",
+      "method": "diet",
+      "items": [
+        "清淡饮食减少辛辣刺激",
+                "避免过烫过硬食物",
+        "少吃硬物咀嚼易伤",
+        "多饮水促进恢复"
+      ]
+    },
+    {
+      "title": "预防复发",
+      "method": "prevent",
+      "items": [
+        "保证规律作息少熬夜",
+        "缓解压力保持心情",
+        "补充维生素与均衡营养",
+        "避免损伤口腔黏膜"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek",
+      "items": [
+        "溃疡超过两周不愈就医",
+        "反复多发性溃疡检查",
+        "伴发热或明显疼痛加重就医",
+        "疑有感染及时诊治"
+      ]
+    }
+  ]
+}

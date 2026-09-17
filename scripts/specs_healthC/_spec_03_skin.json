@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "skin_itch_soothing",
+  "struct": "SkinItchSoothingRules",
+  "name": "皮肤瘙痒舒缓",
+  "desc": "皮肤发痒的舒缓护理、避免抓伤与健康护理由",
+  "origin": "医学",
+  "tags": ["健康", "皮肤", "瘙痒", "护理"],
+  "category": "RuleCategory::health(\"skin_itch\")",
+  "sections": [
+    {
+      "title": "舒缓瘙痒",
+      "method": "soothe",
+      "items": [
+        "冷敷或用温水轻洗",
+        "保持皮肤清润保湿",
+        "遵医嘱使用止痒软膏",
+        "尽量不挠抓皮肤"
+      ]
+    },
+    {
+      "title": "避免刺激",
+      "method": "avoid",
+      "items": [
+        "选温和无香清洁用品",
+        "穿宽松棉质透气衣物",
+        "热水澡少泡过久",
+        "减少过敏原接触"
+      ]
+    },
+    {
+      "title": "日常保湿",
+      "method": "moisturize",
+      "items": [
+        "洗澡后及时涂保湿乳",
+        "保持室内湿度适宜",
+        "手部勤用护手乳",
+        "注意防晒减少损伤"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek",
+      "items": [
+        "瘙痒伴明显皮疹就医",
+        "抓破感染红肿需处理",
+        "影响睡眠或持续加重就医",
+        "全身性或长期瘙痒评估"
+      ]
+    }
+  ]
+}
