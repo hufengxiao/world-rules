@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "asking_directions",
+  "struct": "AskingDirectionsRules",
+  "name": "问路礼貌",
+  "desc": "向陌生人问路、指路与致谢的礼貌表达",
+  "tags": ["社交", "问路", "指路", "礼貌"],
+  "origin": "中国",
+  "category": "RuleCategory::social(\"directions\")",
+  "sections": [
+    {
+      "title": "礼貌开口",
+      "method": "ask",
+      "items": [
+        "选合适的人问",
+        "礼貌打招呼",
+        "说明想去哪",
+        "态度诚恳"
+      ]
+    },
+    {
+      "title": "指路清晰",
+      "method": "show",
+      "items": [
+        "耐心说明方向",
+        "可说标志地标",
+        "不确定不硬说",
+        "必要时画图"
+      ]
+    },
+    {
+      "title": "以防误解",
+      "method": "confirm",
+      "items": [
+        "复疑问清",
+        "关键岔路再确认",
+        "不轻信模糊", 
+        "不懂再问"
+      ]
+    },
+    {
+      "title": "真诚致谢",
+      "method": "thanks",
+      "items": [
+        "答谢对方时间",
+        "礼貌道别",
+        "被问也热心答",
+        "将心比心"
+      ]
+    }
+  ]
+}

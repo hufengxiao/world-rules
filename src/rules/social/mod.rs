@@ -61,6 +61,7 @@ pub mod american_etiquette;
 pub mod apology_etiquette;
 pub mod arbor_day;
 pub mod army_day;
+pub mod asking_directions;
 pub mod awards_ceremony_etiquette;
 pub mod baby_shower_etiquette;
 pub mod banquet_ceremony;
@@ -76,6 +77,7 @@ pub mod brazilian_etiquette;
 pub mod british_etiquette;
 pub mod buffet_dining;
 pub mod bus_rider_etiquette;
+pub mod bus_travel_protocol;
 pub mod business;
 pub mod business_card;
 pub mod business_dress_code;
@@ -170,6 +172,7 @@ pub mod group_chat_netiquette;
 pub mod guest_reception;
 pub mod gym_etiquette;
 pub mod gym_shared_etiquette;
+pub mod high_speed_rail_manner;
 pub mod hospital_etiquette;
 pub mod hosting_dinner_party;
 pub mod hotel_stay_etiquette;
@@ -198,6 +201,7 @@ pub mod market_etiquette;
 pub mod media_relations_etiquette;
 pub mod meeting_etiquette;
 pub mod meeting_speech_politeness;
+pub mod metro_etiquette;
 pub mod mid_autumn;
 pub mod middle_east_etiquette;
 pub mod minimalism;
@@ -269,6 +273,7 @@ pub mod toasting;
 pub mod trade_show_etiquette;
 pub mod train;
 pub mod travel_buddy_manners;
+pub mod travel_companion;
 pub mod umbrella_etiquette;
 pub mod vegan_etiquette;
 pub mod vip_etiquette;
@@ -300,6 +305,7 @@ pub use american_etiquette::AmericanEtiquetteRules;
 pub use apology_etiquette::ApologyEtiquetteRules;
 pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
+pub use asking_directions::AskingDirectionsRules;
 pub use awards_ceremony_etiquette::AwardsCeremonyEtiquetteRules;
 pub use baby_shower_etiquette::BabyShowerEtiquetteRules;
 pub use banquet_ceremony::BanquetCeremonyRules;
@@ -315,6 +321,7 @@ pub use brazilian_etiquette::BrazilianEtiquetteRules;
 pub use british_etiquette::BritishEtiquetteRules;
 pub use buffet_dining::BuffetDiningRules;
 pub use bus_rider_etiquette::BusRiderEtiquetteRules;
+pub use bus_travel_protocol::BusTravelProtocolRules;
 pub use business::BusinessEtiquette;
 pub use business_card::BusinessCardRules;
 pub use business_dress_code::BusinessDressCodeRules;
@@ -409,6 +416,7 @@ pub use group_chat_netiquette::GroupChatNetiquetteRules;
 pub use guest_reception::GuestReceptionRules;
 pub use gym_etiquette::GymEtiquetteRules;
 pub use gym_shared_etiquette::GymSharedEtiquetteRules;
+pub use high_speed_rail_manner::HighSpeedRailMannerRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
 pub use hosting_dinner_party::HostingDinnerPartyRules;
 pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
@@ -437,6 +445,7 @@ pub use market_etiquette::MarketEtiquetteRules;
 pub use media_relations_etiquette::MediaRelationsEtiquetteRules;
 pub use meeting_etiquette::MeetingEtiquetteRules;
 pub use meeting_speech_politeness::MeetingSpeechPolitenessRules;
+pub use metro_etiquette::MetroEtiquetteRules;
 pub use mid_autumn::MidAutumnRules;
 pub use middle_east_etiquette::MiddleEastEtiquetteRules;
 pub use minimalism::MinimalismRules;
@@ -508,6 +517,7 @@ pub use toasting::ToastingEtiquette;
 pub use trade_show_etiquette::TradeShowEtiquetteRules;
 pub use train::TrainEtiquette;
 pub use travel_buddy_manners::TravelBuddyMannersRules;
+pub use travel_companion::TravelCompanionRules;
 pub use umbrella_etiquette::UmbrellaEtiquetteRules;
 pub use vegan_etiquette::VeganEtiquetteRules;
 pub use vip_etiquette::VipEtiquetteRules;
@@ -536,6 +546,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = AskingDirectionsRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TravelCompanionRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BusTravelProtocolRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HighSpeedRailMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MetroEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WorkplaceRespectRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

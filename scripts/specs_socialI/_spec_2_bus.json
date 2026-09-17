@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "bus_travel_protocol",
+  "struct": "BusTravelProtocolRules",
+  "name": "公交出行礼仪",
+  "desc": "公交车上下门、让座与乘车的礼仪",
+  "origin": "中国",
+  "tags": ["社交", "公交", "出行", "礼仪"],
+  "category": "RuleCategory::social(\"bus_protocol\")",
+  "sections": [
+    {
+      "title": "候车守规",
+      "method": "waiting",
+      "items": [
+        "站台有序等候",
+        "先下后上",
+        "排队依次",
+        "不追逼车"
+      ]
+    },
+    {
+      "title": "刷卡上车",
+      "method": "boarding",
+      "items": [
+        "从前门刷卡上车",
+        "备好零钱或卡",
+        "往里挪不挤门",
+        "拉好扶手"
+      ]
+    },
+    {
+      "title": "让座互助",
+      "method": "yielding",
+      "items": [
+        "老弱孕残让座",
+        "他人让座致谢",
+        "背包放下不占地",
+        "不一人占多位"
+      ]
+    },
+    {
+      "title": "礼貌乘车",
+      "method": "quiet",
+      "items": [
+        "车厢内安静",
+        "接电话低声",
+        "不倚靠贴人",
+        "到站前按铃"
+      ]
+    }
+  ]
+}

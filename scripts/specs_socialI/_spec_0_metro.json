@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "metro_etiquette",
+  "struct": "MetroEtiquetteRules",
+  "name": "地铁乘行礼仪",
+  "desc": "地铁候车、让座与上下车的公共礼仪",
+  "origin": "中国",
+  "tags": ["社交", "地铁", "礼仪", "候车"],
+  "category": "RuleCategory::social(\"metro\")",
+  "sections": [
+    {
+      "title": "候车有序",
+      "method": "waiting",
+      "items": [
+        "站台黄线外候车",
+        "先下后上",
+        "不抢门不推挤",
+        "依秩序排队"
+      ]
+    },
+    {
+      "title": "上下车厢",
+      "method": "boarding",
+      "items": [
+        "门开侧身进出",
+        "往里走让门",
+        "不堵门口",
+        "随身物品不占位"
+      ]
+    },
+    {
+      "title": "车厢礼仪",
+      "method": "manner",
+            "items": [
+              "安静不喧哗",
+              "耳机不外放",
+              "不跷腿乱放",
+              "女士优先轻声"
+      ]
+    },
+    {
+      "title": "主动让座",
+      "method": "yielding",
+      "items": [
+        "给老弱让座",
+        "孕妇残障优先",
+        "凭需要真诚",
+        "受让致谢"
+      ]
+    }
+  ]
+}

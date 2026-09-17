@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "travel_companion",
+  "struct": "TravelCompanionRules",
+  "name": "结伴出行相处",
+  "desc": "结伴旅行的事前商量、互相体谅与行程配合",
+  "tags": ["社交", "旅行", "结伴", "相处"],
+  "origin": "中国",
+  "category": "RuleCategory::social(\"travel\")",
+  "sections": [
+    {
+      "title": "行前商量",
+      "method": "plan",
+      "items": [
+        "行程共同商量",
+        "预算事先讲清",
+        "目的地求同存异",
+        "分工分担任务"
+      ]
+    },
+    {
+      "title": "途中配合",
+      "method": "cooperate",
+      "items": [
+        "照顾彼此节奏",
+        "遇分歧好商量",
+        "不各顾各难",
+        "互相体谅"
+      ]
+    },
+    {
+      "title": "费用坦诚",
+      "method": "expense",
+      "items": [
+        "费用透明分担",
+        "不斤斤计较",
+        "提前定分摊",
+        "少占人便宜"
+      ]
+    },
+    {
+      "title": "愉快相陪",
+      "method": "joy",
+      "items": [
+        "分享见闻乐趣",
+        "旅途互相帮助",
+        "不抱怨不扫兴",
+        "结伴欢乐"
+      ]
+    }
+  ]
+}

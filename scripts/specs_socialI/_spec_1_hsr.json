@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "high_speed_rail_manner",
+  "struct": "HighSpeedRailMannerRules",
+  "name": "高铁乘车礼仪",
+  "desc": "高铁进站、乘车与座位的规则礼仪",
+  "tags": ["社交", "高铁", "乘车", "礼仪"],
+  "origin": "中国",
+  "category": "RuleCategory::social(\"hsr\")",
+  "sections": [
+    {
+      "title": "检票进站",
+      "method": "boarding",
+      "items": [
+        "提前取票过检",
+        "按标识进站台",
+        "排队有序上车",
+        "行李先放好"
+      ]
+    },
+    {
+      "title": "座内礼仪",
+      "method": "seat",
+      "items": [
+        "对号入座",
+        "合理调靠背",
+        "放置行李贴稳",
+        "不占他人位"
+      ]
+    },
+    {
+      "title": "安静乘车",
+      "method": "quiet",
+      "items": [
+        "不大声喧哗",
+        "打电话低声",
+        "耳机不外放",
+        "保持安静"
+      ]
+    },
+    {
+      "title": "下车有序",
+      "method": "alight",
+      "items": [
+        "到站提前准备",
+        "依序下车",
+        "不拥挤",
+        "垃圾带走"
+      ]
+    }
+  ]
+}
