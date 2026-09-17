@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "unemployment_benefit",
+  "struct": "UnemploymentBenefitRules",
+  "name": "失业保险",
+  "desc": "失业保险领取条件、金额与程序要点",
+  "origin": "中国",
+  "tags": ["社保", "失业", "保险", "救济"],
+  "category": "RuleCategory::law(\"unemployment\")",
+  "sections": [
+    {
+      "title": "申领条件",
+      "method": "condition",
+      "items": [
+        "依法参保一定年限",
+        "非自愿失业",
+        "已办失业登记",
+        "有意愿求职"
+      ]
+    },
+    {
+      "title": "领取标准",
+      "method": "amount",
+      "items": [
+        "按当地标准领取",
+        "领取期限按月计",
+        "不高于缴费年限限",
+        "失业补助应急"
+      ]
+    },
+    {
+      "title": "申领程序",
+      "method": "process",
+      "items": [
+        "及时办失业登记",
+        "带齐身份材料",
+        "依规提交申请",
+        "按流程申领"
+      ]
+    },
+    {
+      "title": "享受再就业",
+      "method": "rejob",
+      "items": [
+        "领取期间积极求职",
+        "参加培训可享",
+        "重新就业衔接",
+        "保障过渡生活"
+      ]
+    }
+  ]
+}

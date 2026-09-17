@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "pension_insurance",
+  "struct": "PensionInsuranceRules",
+  "name": "养老保险",
+  "desc": "养老保险缴纳、领取与补缴的基本要点",
+  "origin": "中国",
+  "tags": ["社保", "养老", "保险"],
+  "category": "RuleCategory::law(\"pension\")",
+  "sections": [
+    {
+      "title": "参保缴费",
+      "method": "contribute",
+      "items": [
+        "在职单位代缴",
+        "按比例单位个人缴费",
+        "缴满年限可领",
+        "个人账户积累"
+      ]
+    },
+    {
+      "title": "账户积累",
+      "method": "account",
+      "items": [
+        "个人账户随缴累计",
+        "缴费基数核定",
+        "跨地可转移",
+        "查对每年记录"
+      ]
+    },
+    {
+      "title": "领取条件",
+      "method": "receive",
+      "items": [
+        "达到法定退休年龄",
+        "缴费满规定年限",
+        "按月领取养老金",
+        "多缴多得"
+      ]
+    },
+    {
+      "title": "权益关注",
+      "method": "care",
+      "items": [
+        "核对自己参保",
+        "单位漏缴主张",
+        "领取有保障",
+        "合理规划晚年"
+      ]
+    }
+  ]
+}

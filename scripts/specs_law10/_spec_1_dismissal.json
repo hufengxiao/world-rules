@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "worker_dismissal_pay",
+  "struct": "WorkerDismissalPayRules",
+  "name": "经济补偿与解雇",
+  "desc": "解除劳动关系时的经济补偿与工龄计算",
+  "origin": "中国",
+  "tags": ["劳动", "补偿", "解雇", "赔偿金"],
+  "category": "RuleCategory::law(\"dismissal_pay\")",
+  "sections": [
+    {
+      "title": "补偿情形",
+      "method": "condition",
+      "items": [
+        "非本人过错被解雇有补偿",
+        "协商解除依法补偿",
+        "单位违法解除需赔偿",
+        "问清解除理由"
+      ]
+    },
+    {
+      "title": "补偿计算",
+      "method": "formula",
+      "items": [
+        "按工作年限计",
+        "每年约一个月工资",
+        "月薪按前十二月平均",
+        "按法定上限计算"
+      ]
+    },
+    {
+      "title": "程序权利",
+      "method": "right",
+      "items": [
+        "要求书面解除说明",
+        "核对补偿数目",
+        "一次性结清",
+        "保留工资记录"
+      ]
+    },
+    {
+      "title": "争议处理",
+      "method": "dispute",
+      "items": [
+        "协商不成仲裁",
+        "及时工伤等主张",
+        "法定期限内维权",
+        "懂法不慌"
+      ]
+    }
+  ]
+}

@@ -76,6 +76,7 @@ pub mod insurance_claims_basics;
 pub mod intellectual_property;
 pub mod labor;
 pub mod labor_contract_basics;
+pub mod labor_contract_write;
 pub mod marriage;
 pub mod marriage_property_basics;
 pub mod marriage_registration;
@@ -86,6 +87,8 @@ pub mod noncompete_agreement;
 pub mod notary_public;
 pub mod online_shopping_rights;
 pub mod overtime_compensation;
+pub mod overtime_reduction_rights;
+pub mod pension_insurance;
 pub mod personal_tax_basics;
 pub mod power_of_attorney_basics;
 pub mod prenuptial_agreement;
@@ -140,6 +143,7 @@ pub mod statistics;
 pub mod traffic_accident_handling;
 pub mod traffic_points_demerit;
 pub mod traffic_violation_handling;
+pub mod unemployment_benefit;
 pub mod warranty_claims;
 pub mod water;
 
@@ -413,6 +417,7 @@ pub mod whistleblower_protection;
 pub mod wildlife_protection_law;
 pub mod witness_protection;
 pub mod women_rights;
+pub mod worker_dismissal_pay;
 pub mod wto_law;
 
 pub use civil::CivilLawRules;
@@ -678,6 +683,7 @@ pub use japan_company_law::JapanCompanyLawRules;
 pub use juvenile_justice::JuvenileJusticeRules;
 pub use labor_contract_basics::LaborContractBasicsRules;
 pub use labor_contract_law::LaborContractLawRules;
+pub use labor_contract_write::LaborContractWriteRules;
 pub use labor_detailed::LaborDetailedRules;
 pub use labor_detailed2::LaborDetailed2Rules;
 pub use labor_dispute_law::LaborDisputeLawRules;
@@ -706,7 +712,9 @@ pub use notary_public::NotaryPublicRules;
 pub use online_dispute::OnlineDisputeRules;
 pub use online_shopping_rights::OnlineShoppingRightsRules;
 pub use overtime_compensation::OvertimeCompensationRules;
+pub use overtime_reduction_rights::OvertimeReductionRightsRules;
 pub use parole_law::ParoleLawRules;
+pub use pension_insurance::PensionInsuranceRules;
 pub use personal_info_detailed::PersonalInfoDetailedRules;
 pub use personal_info_protection::PersonalInfoProtectionRules;
 pub use personal_tax_basics::PersonalTaxBasicsRules;
@@ -752,6 +760,7 @@ pub use traffic_violation_handling::TrafficViolationHandlingRules;
 pub use uk_company_law::UkCompanyLawRules;
 pub use un_charter::UnCharterRules;
 pub use uncitral_law::UncitralLawRules;
+pub use unemployment_benefit::UnemploymentBenefitRules;
 pub use us_antitrust::UsAntitrustRules;
 pub use victim_protection_deep::VictimProtectionDeepRules;
 pub use victim_rights::VictimRightsRules;
@@ -762,6 +771,7 @@ pub use wildlife_protection_law::WildlifeProtectionLawRules;
 pub use will_estate_planning::WillEstatePlanningRules;
 pub use witness_protection::WitnessProtectionRules;
 pub use women_rights::WomenRightsRules;
+pub use worker_dismissal_pay::WorkerDismissalPayRules;
 pub use wto_law::WtoLawRules;
 
 pub fn all_rules() -> Vec<(
@@ -772,6 +782,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = UnemploymentBenefitRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PensionInsuranceRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OvertimeReductionRightsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorkerDismissalPayRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LaborContractWriteRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = NotaryPublicRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

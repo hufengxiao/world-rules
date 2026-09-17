@@ -1,0 +1,51 @@
+{
+  "cat": "law",
+  "file": "overtime_reduction_rights",
+  "struct": "OvertimeReductionRightsRules",
+  "name": "加班与休息权益",
+  "desc": "加班安排、控制时间与休息休假的权利",
+  "origin": "中国",
+  "tags": ["劳动", "加班", "休息", "权益"],
+  "category": "RuleCategory::law(\"overtime_rights\")",
+  "sections": [
+    {
+      "title": "工作时间",
+      "method": "hours",
+      "items": [
+        "标准工作时间八小时",
+        "每周不超四十小时",
+        "加班需依法协商",
+        "保持合理作息"
+      ]
+    },
+    {
+      "title": "加班限制",
+      "method": "limit",
+      "items": [
+        "加班时长有限制",
+        "不得强制加班",
+        "特殊岗位从规",
+        "休息日依法补休"
+      ]
+    },
+    {
+      "title": "加班报酬",
+      "method": "overtime_pay",
+      "items": [
+        "工作日加班有加班费","休息日补休或加钱",
+        "法定假日加班加倍",
+        "核对工资条"
+      ]
+    },
+    {
+      "title": "维权路径",
+      "method": "protect",
+      "items": [
+        "保留加班记录",
+        "证据包括日志",
+        "协商不成可仲裁",
+        "依法维护休息"
+      ]
+    }
+  ]
+}
