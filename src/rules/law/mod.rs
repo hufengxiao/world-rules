@@ -54,6 +54,8 @@
 //! - 20+ 条知识产权规则
 //! - 40+ 条国际法律规则
 
+pub mod administrative_penalty;
+pub mod administrative_reconsideration;
 pub mod child_custody_rights;
 pub mod civil;
 pub mod constitution;
@@ -81,6 +83,7 @@ pub mod mortgage_loan_basics;
 pub mod neighbor_dispute_handling;
 pub mod neighborhood_noise_dispute;
 pub mod noncompete_agreement;
+pub mod notary_public;
 pub mod online_shopping_rights;
 pub mod overtime_compensation;
 pub mod personal_tax_basics;
@@ -88,6 +91,7 @@ pub mod power_of_attorney_basics;
 pub mod prenuptial_agreement;
 pub mod probation_period_rules;
 pub mod property_management_fee;
+pub mod public_info_disclosure;
 pub mod rental_lease_basics;
 pub mod resignation_procedure;
 pub mod road_safety;
@@ -134,6 +138,7 @@ pub mod meteorology;
 pub mod safety_production;
 pub mod statistics;
 pub mod traffic_accident_handling;
+pub mod traffic_points_demerit;
 pub mod traffic_violation_handling;
 pub mod warranty_claims;
 pub mod water;
@@ -517,6 +522,8 @@ pub use admin_penalty::AdminPenaltyRules;
 pub use admin_reconsideration::AdminReconsiderationRules;
 pub use administrative_detailed::AdministrativeDetailedRules;
 pub use administrative_detailed2::AdministrativeDetailed2Rules;
+pub use administrative_penalty::AdministrativePenaltyRules;
+pub use administrative_reconsideration::AdministrativeReconsiderationRules;
 pub use advertising_detailed_law::AdvertisingDetailedLawRules;
 pub use ai_regulation::AiRegulationRules;
 pub use anti_corruption::AntiCorruptionRules;
@@ -695,6 +702,7 @@ pub use neighborhood_noise_dispute::NeighborhoodNoiseDisputeRules;
 pub use new_york_convention::NewYorkConventionRules;
 pub use noise_pollution_law::NoisePollutionLawRules;
 pub use noncompete_agreement::NoncompeteAgreementRules;
+pub use notary_public::NotaryPublicRules;
 pub use online_dispute::OnlineDisputeRules;
 pub use online_shopping_rights::OnlineShoppingRightsRules;
 pub use overtime_compensation::OvertimeCompensationRules;
@@ -710,6 +718,7 @@ pub use probation_law::ProbationLawRules;
 pub use probation_period_rules::ProbationPeriodRules;
 pub use product_quality_deep::ProductQualityDeepRules;
 pub use property_management_fee::PropertyManagementFeeRules;
+pub use public_info_disclosure::PublicInfoDisclosureRules;
 pub use public_interest_litigation::PublicInterestLitigationRules;
 pub use real_estate_detailed::RealEstateDetailedRules;
 pub use real_estate_law_detailed::RealEstateLawDetailedRules;
@@ -738,6 +747,7 @@ pub use tax_law_detailed_law::TaxLawDetailedLawRules;
 pub use tcm_law::TcmLawRules;
 pub use telecom_detailed::TelecomDetailedRules;
 pub use traffic_accident_handling::TrafficAccidentHandlingRules;
+pub use traffic_points_demerit::TrafficPointsDemeritRules;
 pub use traffic_violation_handling::TrafficViolationHandlingRules;
 pub use uk_company_law::UkCompanyLawRules;
 pub use un_charter::UnCharterRules;
@@ -762,6 +772,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = NotaryPublicRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PublicInfoDisclosureRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AdministrativeReconsiderationRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TrafficPointsDemeritRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AdministrativePenaltyRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ElderlySupportObligationRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

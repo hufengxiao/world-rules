@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "administrative_penalty",
+  "struct": "AdministrativePenaltyRules",
+  "name": "行政处罚救济",
+  "desc": "行政处罚的异议、复议与依法救济要点",
+  "origin": "中国",
+  "tags": ["法律", "行政处罚", "复议"],
+  "category": "RuleCategory::law(\"admin_penalty\")",
+  "sections": [
+    {
+      "title": "处罚了解",
+      "method": "understand",
+      "items": [
+        "了解处罚种类",
+        "了解处罚决定书",
+        "有权知悉查处依据",
+        "程序依规"
+      ]
+    },
+    {
+      "title": "不服救济",
+      "method": "remedy",
+      "items": [
+        "不服可申请复议",
+        "可提起行政诉讼",
+        "有法定期限",
+        "按程序申请"
+      ]
+    },
+    {
+      "title": "证据与主张",
+      "method": "evidence",
+      "items": [
+        "保留处罚决定书",
+        "收集事实证据",
+        "理性说明申辩",
+        "不无端抗拒执法"
+      ]
+    },
+    {
+      "title": "合法处理",
+      "method": "proper",
+      "items": [
+        "依法接受合法处罚",
+        "对不合法处理依法异议",
+        "不暴力抗拒执法",
+        "尊重程序正义"
+      ]
+    }
+  ]
+}

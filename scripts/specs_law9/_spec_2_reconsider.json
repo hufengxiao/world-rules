@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "administrative_reconsideration",
+  "struct": "AdministrativeReconsiderationRules",
+  "name": "行政复议流程",
+  "desc": "申请行政复议的条件、期限与流程要点",
+  "origin": "中国",
+  "tags": ["法律", "复议", "行政", "维权"],
+  "category": "RuleCategory::law(\"reconsideration\")",
+  "sections": [
+    {
+      "title": "复议前提",
+      "method": "premise",
+      "items": [
+        "对行政行为不服可复议",
+        "有明确的请求理由",
+        "在法定期限内申请",
+        "主体适格"
+      ]
+    },
+    {
+      "title": "申请材料",
+      "method": "apply",
+      "items": [
+        "提交复议申请书",
+        "附事实与理由",
+        "提供初步证据",
+        "写明被申请机关"
+      ]
+    },
+    {
+      "title": "程序时限",
+      "method": "deadline",
+      "items": [
+        "规定内提交",
+        "复议有一定期限",
+        "期间依法计算",
+        "及时跟进结果"
+      ]
+    },
+    {
+      "title": "结果处理",
+      "method": "outcome",
+      "items": [
+        "服从复议决定",
+        "不服可再诉讼",
+        "尊重复议程序",
+        "维护自身合法权利"
+      ]
+    }
+  ]
+}

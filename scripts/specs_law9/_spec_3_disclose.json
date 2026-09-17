@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "public_info_disclosure",
+  "struct": "PublicInfoDisclosureRules",
+  "name": "信息公开申请",
+  "desc": "企事业单位信息公开的申请、范围与使用要点",
+  "origin": "中国",
+  "tags": ["法律", "信息公开", "申请"],
+  "category": "RuleCategory::law(\"info_disclosure\")",
+  "sections": [
+    {
+      "title": "申请前提",
+      "method": "premise",
+      "items": [
+        "了解依法应公开范围",
+        "公开有利于知情",
+        "有下列正当需求申请",
+        "依法提出请求"
+      ]
+    },
+    {
+      "title": "申请方式",
+      "method": "apply",
+      "items": [
+        "书面申请清楚",
+        "写明所需信息",
+        "留下联系方式",
+        "按程序递交"
+      ]
+    },
+    {
+      "title": "办理回应",
+      "method": "response",
+      "items": [
+        "机关应予回复",
+        "依时限答复",
+        "不全或不清告知补正",
+        "公开与否有依据"
+      ]
+    },
+    {
+      "title": "救济与使用",
+      "method": "remedy",
+      "items": [
+        "无正当不公开可异议",
+        "用于正当目的",
+        "不凭信息扰",
+        "依规获取信息"
+      ]
+    }
+  ]
+}

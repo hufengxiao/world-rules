@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "notary_public",
+  "struct": "NotaryPublicRules",
+  "name": "公证办理要点",
+  "desc": "公证的作用、申请材料与证明使用要点",
+  "origin": "中国",
+  "tags": ["法律", "公证", "证明"],
+  "category": "RuleCategory::law(\"notary\")",
+  "sections": [
+    {
+      "title": "公证作用",
+      "method": "benefit",
+      "items": [
+        "公证是法定证明",
+        "增强文书证据力",
+        "用于涉外继承等",
+        "审查真实性"
+      ]
+    },
+    {
+      "title": "申请准备",
+      "method": "apply",
+      "items": [
+        "携带身份证明",
+        "提交相关证据文件",
+        "如实陈述",
+        "按规定填写申请"
+      ]
+    },
+    {
+      "title": "办理流程",
+      "method": "process",
+      "items": [
+        "向公证机构申请",
+        "配合审查核实",
+        "领取公证书",
+        "如需可加急"
+      ]
+    },
+    {
+      "title": "使用注意",
+      "method": "usage",
+      "items": [
+        "公证书依法使用",
+        "保管妥善",
+        "不伪造冒用",
+        "需要时申请副本"
+      ]
+    }
+  ]
+}
