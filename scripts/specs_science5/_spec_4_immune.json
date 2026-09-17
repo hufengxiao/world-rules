@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "immune_system_basics",
+  "struct": "ImmuneSystemBasicsRules",
+  "name": "免疫系统基础",
+  "desc": "免疫防御、免疫力维持的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "免疫", "防御", "生理"],
+  "category": "RuleCategory::science(\"immune_system\")",
+  "sections": [
+    {
+      "title": "免疫防御",
+      "method": "defense",
+      "items": [
+        "免疫识别病原入侵",
+        "先天免疫快速应对",
+        "获得性免疫有记忆",
+        "发热是防御反应"
+      ]
+    },
+    {
+      "title": "维持免疫",
+      "method": "maintain",
+      "items": [
+        "规律作息支持机能",
+        "均衡营养增强防御",
+        "适度运动助免疫",
+        "良好心态有益"
+      ]
+    },
+    {
+      "title": "科学认知",
+      "method": "science",
+      "items": [
+        "疫苗训练免疫应答",
+        "抗生素不治病毒",
+        "不迷信免疫补品",
+        "免疫过强过弱皆不利"
+      ]
+    },
+    {
+      "title": "健康促进",
+      "method": "health",
+      "items": [
+        "充足睡眠恢复力",
+        "勤洗手防感染",
+        "遵医嘱规范用药",
+        "慢性病者依计划管理"
+      ]
+    }
+  ]
+}

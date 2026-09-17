@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "respiratory_system_basics",
+  "struct": "RespiratorySystemBasicsRules",
+  "name": "呼吸系统基础",
+  "desc": "肺呼吸、气体交换与呼吸道健康的基础常识",
+  "origin": "国际",
+  "tags": ["科学", "呼吸", "肺", "生理"],
+  "category": "RuleCategory::science(\"respiratory\")",
+  "sections": [
+    {
+      "title": "呼吸机制",
+      "method": "mechanism",
+      "items": [
+        "吸气送氧呼气排碳",
+        "膈肌运动助呼吸",
+        "肺泡进行气体交换",
+        "呼吸深浅可调节"
+      ]
+    },
+    {
+      "title": "呼吸道防护",
+      "method": "protect",
+      "items": [
+        "保持呼吸道清洁",
+        "远离烟尘污染",
+        "避免长时间深呼吸有害气体",
+        "锻炼利好肺功能"
+      ]
+    },
+    {
+      "title": "健康促进",
+      "method": "health",
+      "items": [
+        "规律运动助呼吸",
+        "充足睡眠修复",
+        "良好姿势利呼吸",
+        "保持湿润通风"
+      ]
+    },
+    {
+      "title": "注意信号",
+      "method": "care",
+      "items": [
+        "持续咳嗽气促就医",
+        "胸闷喘重检查",
+        "儿童呼吸异常重视",
+        "规范护肺不吸烟"
+      ]
+    }
+  ]
+}

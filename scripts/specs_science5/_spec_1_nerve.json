@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "nervous_system_basics",
+  "struct": "NervousSystemBasicsRules",
+  "name": "神经系统基础",
+  "desc": "神经细胞、脑与感觉传导的基础科学常识",
+  "origin": "国际",
+  "tags": ["科学", "神经", "大脑", "生物"],
+  "category": "RuleCategory::science(\"nervous_system\")",
+  "sections": [
+    {
+      "title": "神经细胞",
+      "method": "neurons",
+      "items": [
+        "神经元传递电信号",
+        "神经元间靠突触连接",
+        "信号有兴奋抑制",
+        "网络处理信息"
+      ]
+    },
+    {
+      "title": "脑功能分区",
+      "method": "brain",
+      "items": [
+        "大脑分左右半球",
+        "不同脑区各司其职",
+        "感觉运动与认知",
+        "脑具可塑适应"
+      ]
+    },
+    {
+      "title": "反射与协调",
+      "method": "reflex",
+      "items": [
+        "反射是迅速的自动反应",
+        "小脑协调平衡",
+        "睡眠休息助神经恢复",
+        "长期压力影响神经"
+      ]
+    },
+    {
+      "title": "保护神经",
+      "method": "protect",
+      "items": [
+        "充足睡眠保护神经",
+        "良好营养支持脑功能",
+        "避免头部损伤",
+        "神经症状就医"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "human_organ_systems",
+  "struct": "HumanOrganSystemsRules",
+  "name": "人体器官系统",
+  "desc": "循环、呼吸、消化等主要器官系统的基础常识",
+  "origin": "国际",
+  "tags": ["科学", "人体", "器官", "生理"],
+  "category": "RuleCategory::science(\"human_organs\")",
+  "sections": [
+    {
+      "title": "循环系统",
+      "method": "circulatory",
+      "items": [
+        "心脏泵血推动循环",
+        "血管输送血液",
+        "血液输送氧与养分",
+        "心肺劳逸皆关联"
+      ]
+    },
+    {
+      "title": "呼吸消化",
+      "method": "respira_digest",
+      "items": [
+        "肺进行气体交换",
+        "胃肠消化吸收营养",
+        "各系统相互配合",
+        "肝肾代谢过滤"
+      ]
+    },
+    {
+      "title": "内分泌与免疫",
+      "method": "endo_immun",
+      "items": [
+        "内分泌调节身体活动",
+        "免疫防御抵抗病原",
+        "系统失衡影响健康",
+        "睡眠营养支持机能"
+      ]
+    },
+    {
+      "title": "保养与就医",
+      "method": "care",
+      "items": [
+        "规律运动强健器官",
+        "均衡营养护系统",
+        "异常症状及时就医",
+        "定期体检了解机能"
+      ]
+    }
+  ]
+}

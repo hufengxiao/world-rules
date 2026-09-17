@@ -160,6 +160,7 @@ pub mod digital_literacy;
 pub mod discrete_math;
 pub mod distributed_systems;
 pub mod distributed_systems_detailed;
+pub mod dna_genetics_basics;
 pub mod dynamic_meteorology;
 pub mod dynamics;
 pub mod ecology;
@@ -221,8 +222,10 @@ pub mod gis_detailed;
 pub mod graph_theory;
 pub mod group_theory;
 pub mod history;
+pub mod human_organ_systems;
 pub mod hydrology;
 pub mod hydrology_detailed;
+pub mod immune_system_basics;
 pub mod immunology;
 pub mod immunology_detailed;
 pub mod information_science;
@@ -273,6 +276,7 @@ pub mod music_theory;
 pub mod musicology;
 pub mod nanotechnology;
 pub mod nanotechnology_detailed;
+pub mod nervous_system_basics;
 pub mod network_science;
 pub mod neuroscience;
 pub mod neuroscience_detailed;
@@ -345,6 +349,7 @@ pub mod remote_sensing_detailed;
 pub mod renewable_energy;
 pub mod renewable_energy_basics;
 pub mod research_ethics;
+pub mod respiratory_system_basics;
 pub mod rigid_body_dynamics;
 pub mod ring_theory;
 pub mod robotics_detailed;
@@ -741,20 +746,25 @@ pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
+pub use dna_genetics_basics::DnaGeneticsBasicsRules;
 pub use ecology_balance::EcologyBalanceRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use electric_circuit_basics::ElectricCircuitBasicsRules;
 pub use experimental_method::ExperimentalMethodRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
+pub use human_organ_systems::HumanOrganSystemsRules;
 pub use hydrology_detailed::HydrologyDetailedRules;
+pub use immune_system_basics::ImmuneSystemBasicsRules;
 pub use lab_notebook_etiquette::LabNotebookEtiquetteRules;
 pub use lab_safety::LabSafetyRules;
 pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
+pub use nervous_system_basics::NervousSystemBasicsRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use quantum_basics::QuantumBasicsRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use renewable_energy_basics::RenewableEnergyBasicsRules;
+pub use respiratory_system_basics::RespiratorySystemBasicsRules;
 pub use soil_geography::SoilGeographyRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use survey_design::SurveyDesignRules;
@@ -771,6 +781,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ImmuneSystemBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RespiratorySystemBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HumanOrganSystemsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NervousSystemBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DnaGeneticsBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = EcologyBalanceRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "dna_genetics_basics",
+  "struct": "DnaGeneticsBasicsRules",
+  "name": "遗传与DNA基础",
+  "desc": "DNA、基因、遗传规律与遗传信息科学常识",
+  "origin": "国际",
+  "tags": ["科学", "DNA", "遗传", "基因"],
+  "category": "RuleCategory::science(\"dna_genetics\")",
+  "sections": [
+    {
+      "title": "DNA与基因",
+      "method": "structure",
+      "items": [
+        "DNA承载遗传信息",
+        "基因是功能片段",
+        "DNA双螺旋结构性",
+        "基因决定性状趋向"
+      ]
+    },
+    {
+      "title": "遗传规律",
+      "method": "inheritance",
+      "items": [
+        "亲代基因传给子代",
+        "显隐性状有规律",
+        "遗传各占一半来源",
+        "环境共同影响表现"
+      ]
+    },
+    {
+      "title": "染色体与突变",
+      "method": "mutation",
+      "items": [
+        "染色体携带基因",
+        "突变可能改变性状",
+        "多数突变中性或微小",
+        "突变是演化素材"
+      ]
+    },
+    {
+      "title": "科学生活",
+      "method": "science",
+      "items": [
+        "基因检测结果谨慎解读",
+        "勿迷信宿命论",
+        "健康受多因素影响",
+        "尊重基因科学研究"
+      ]
+    }
+  ]
+}
