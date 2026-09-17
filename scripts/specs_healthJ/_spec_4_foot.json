@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "foot_care_basics",
+  "struct": "FootCareBasicsRules",
+  "name": "足部护理基础",
+  "desc": "日常足部清洁、保湿与护足注意事项",
+  "origin": "医学",
+  "tags": ["健康", "足部", "护理"],
+  "category": "RuleCategory::health(\"foot_care\")",
+  "sections": [
+    {
+      "title": "清洁保湿",
+      "method": "clean",
+      "items": [
+        "每日温水洗足",
+        "足趾缝擦干",
+        "涂抹保湿霜",
+        "保持干爽"
+      ]
+    },
+    {
+      "title": "剪甲护足",
+      "method": "nails",
+      "items": [
+        "指甲平剪防扎",
+        "不剪过深",
+        "防甲沟炎",
+        "选合脚鞋袜"
+      ]
+    },
+    {
+      "title": "护足防病",
+      "method": "prevent",
+      "items": [
+        "留意足部破损",
+        "脚趾缝发痒注意",
+        "及时处理茧鸡眼",
+        "糖尿病患者常检"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "care",
+      "items": [
+        "足部红肿感染就医",
+        "伤口不愈合检查",
+        "麻木不适评估",
+        "规范护足"
+      ]
+    }
+  ]
+}

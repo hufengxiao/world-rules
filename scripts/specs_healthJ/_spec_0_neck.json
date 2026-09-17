@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "neck_shoulder_stretch",
+  "struct": "NeckShoulderStretchRules",
+  "name": "肩颈拉伸放松",
+  "desc": "久坐办公肩颈僵硬的拉伸与放松运动",
+  "origin": "医学",
+  "tags": ["健康", "肩颈", "拉伸", "舒缓"],
+  "category": "RuleCategory::health(\"neck_stretch\")",
+  "sections": [
+    {
+      "title": "拉伸热身",
+      "method": "warmup",
+      "items": [
+        "先轻柔活动肩颈",
+        "微微左右转颈",
+        "耸肩放松",
+        "避免猛劲硬拉"
+      ]
+    },
+    {
+      "title": "舒缓动作",
+      "method": "stretch",
+      "items": [
+        "缓慢转头至觉拉伸",
+        "侧头轻拉",
+        "转肩绕环",
+        "保持缓慢深呼"
+      ]
+    },
+    {
+      "title": "办公间隙",
+      "method": "break",
+      "items": [
+        "每隔一段起身活动",
+        "改变坐姿缓解",
+        "抬头远望",
+        "避免久低头"
+      ]
+    },
+    {
+      "title": "注意信号",
+      "method": "care",
+      "items": [
+        "无力麻木立即停",
+        "痛感强烈勿强拉",
+        "继不适就医",
+        "保养颈肩"
+      ]
+    }
+  ]
+}

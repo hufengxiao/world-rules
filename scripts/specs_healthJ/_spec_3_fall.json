@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "elderly_fall_prevention",
+  "struct": "ElderlyFallPreventionRules",
+  "name": "老人防跌倒",
+  "desc": "老人环境防跌、步态与骨骼保护措施",
+  "origin": "医学",
+  "tags": ["健康", "防跌倒", "老人", "安全"],
+  "category": "RuleCategory::health(\"fall_prevention\")",
+  "sections": [
+    {
+      "title": "环境安全",
+      "method": "home",
+      "items": [
+        "保持地面干燥防滑",
+        "清除通道障碍",
+        "床边夜灯充足",
+        "扶手浴卫增设"
+      ]
+    },
+    {
+      "title": "步态增强",
+      "method": "walk",
+      "items": [
+        "适度运动强肌力",
+        "扶稳慢走少急",
+        "穿防滑鞋",
+        "起身放缓站立"
+      ]
+    },
+    {
+      "title": "视力与用药",
+      "method": "vision",
+      "items": [
+        "视力障碍配镜",
+        "防血压血糖波动",
+        "遵医嘱用药防眩晕",
+        "眩晕时暂别独行"
+      ]
+    },
+    {
+      "title": "跌倒应对",
+      "method": "response",
+      "items": [
+        "跌倒后不勉强起身",
+        "呼救求助",
+        "受伤立即就医",
+        "排查骨疏松"
+      ]
+    }
+  ]
+}

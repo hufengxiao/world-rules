@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "hand_hygiene_wash",
+  "struct": "HandHygieneWashRules",
+  "name": "规范洗手卫生",
+  "desc": "正确洗手、除菌与传染病预防的卫生习惯",
+  "origin": "医学",
+  "tags": ["健康", "洗手", "卫生", "预防"],
+  "category": "RuleCategory::health(\"hand_hygiene\")",
+  "sections": [
+    {
+      "title": "洗手时机",
+      "method": "timing",
+      "items": [
+        "饭前便后洗手",
+        "接触脏物后洗手",
+        "外出回家洗手",
+        "生病前后洗手"
+      ]
+    },
+    {
+      "title": "正确手法",
+      "method": "washing",
+      "items": [
+        "流水冲湿加皂",
+        "搓洗指缝掌心",
+        "揉搓指甲指背",
+        "冲洗后擦干"
+      ]
+    },
+    {
+      "title": "消毒辅助",
+      "method": "sanitize",
+      "items": [
+        "无水处用免洗",
+        "消毒液搓揉",
+        "接触公共物后",
+        "肥皂最稳"
+      ]
+    },
+    {
+      "title": "习惯培养",
+      "method": "habit",
+      "items": [
+        "减少触摸面部",
+        "不共用毛巾",
+        "勤洗护健康",
+        "全家养成习惯"
+      ]
+    }
+  ]
+}

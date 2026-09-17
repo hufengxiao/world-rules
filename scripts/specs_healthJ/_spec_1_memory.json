@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "memory_brain_training",
+  "struct": "MemoryBrainTrainingRules",
+  "name": "记忆力与健脑",
+  "desc": "健脑活动、记忆技巧与大脑保健方法",
+  "tags": ["健康", "记忆", "健脑", "认知"],
+  "origin": "心理学",
+  "category": "RuleCategory::health(\"memory\")",
+  "sections": [
+    {
+      "title": "记忆技巧",
+      "method": "method",
+      "items": [
+        "联想助记",
+        "分段记忆",
+        "重复巩固",
+        "理解后再记"
+      ]
+    },
+    {
+      "title": "健脑活动",
+      "method": "brain",
+      "items": [
+        "读书学习新知",
+        "玩益智游戏",
+        "练习新技能",
+        "社交健脑"
+      ]
+    },
+    {
+      "title": "作息护脑",
+      "method": "rest",
+      "items": [
+        "充足睡眠助记忆巩固",
+        "规律作息",
+        "适度运动增血流",
+        "管理压力"
+      ]
+    },
+    {
+      "title": "注意信号",
+      "method": "care",
+      "items": [
+        "健忘明显影响生活就医",
+        "遗忘进度骤变检查",
+        "不轻视认知变化",
+        "定期脑力关怀"
+      ]
+    }
+  ]
+}
