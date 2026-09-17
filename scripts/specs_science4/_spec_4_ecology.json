@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "ecology_balance",
+  "struct": "EcologyBalanceRules",
+  "name": "生态平衡基础",
+  "desc": "食物链、生态系统与生物多样性的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "生态", "生物多样性", "环境"],
+  "category": "RuleCategory::science(\"ecology\")",
+  "sections": [
+    {
+      "title": "生态系统",
+      "method": "ecosystem",
+      "items": [
+        "生产者消费者分解者并存",
+        "物质与能量在系统流动",
+        "食物链环环相扣",
+        "生态各组分相互依存"
+      ]
+    },
+    {
+      "title": "生物多样",
+      "method": "biodiversity",
+      "items": [
+        "物种多样性支撑稳定",
+        "遗传多样性增强适应",
+        "生境多样庇护物种",
+        "多样性是宝贵财富"
+      ]
+    },
+    {
+      "title": "平衡受扰",
+      "method": "disturbance",
+      "items": [
+        "外来物种入侵威胁",
+        "过度开发破坏栖息地",
+        "污染伤及生态系统",
+        "人类活动影响平衡"
+      ]
+    },
+    {
+      "title": "保护行动",
+      "method": "protect",
+      "items": [
+        "保护自然栖息地",
+        "不随意放生外来种",
+        "减少过度捕捞猎捕",
+        "支持生态保护举措"
+      ]
+    }
+  ]
+}

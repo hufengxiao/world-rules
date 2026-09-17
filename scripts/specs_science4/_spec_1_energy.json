@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "renewable_energy_basics",
+  "struct": "RenewableEnergyBasicsRules",
+  "name": "可再生能源常识",
+  "desc": "太阳能风能水能等可再生能源的原理与优势",
+  "origin": "国际",
+  "tags": ["科学", "能源", "可再生", "环保"],
+  "category": "RuleCategory::science(\"renewable_energy\")",
+  "sections": [
+    {
+      "title": "常见类型",
+      "method": "types",
+      "items": [
+        "太阳能光伏与热利用",
+        "风力涡轮发电",
+        "水力电站发电",
+        "生物质与地热也是资源"
+      ]
+    },
+    {
+      "title": "工作原理",
+      "method": "principle",
+      "items": [
+        "光伏将光能转电能",
+        "风机转动能发电",
+        "水位落差转化为电能",
+        "地热利用地下热能"
+      ]
+    },
+    {
+      "title": "优势与挑战",
+      "method": "pros_cons",
+      "items": [
+        "资源可再生碳排放低",
+        "天气与地理限制影响",
+        "储能需要配套",
+        "成本随技术进步下降"
+      ]
+    },
+    {
+      "title": "科学生活",
+      "method": "daily",
+      "items": [
+        "日常节约能源",
+        "关注用能结构与效率",
+        "合理使用家用电器",
+        "支持绿色低碳方式"
+      ]
+    }
+  ]
+}

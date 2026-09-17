@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "sustainable_living_science",
+  "struct": "SustainableLivingScienceRules",
+  "name": "可持续生活方式",
+  "desc": "资源节约、循环再利用的可持续生活常识",
+  "origin": "国际",
+  "tags": ["科学", "可持续", "环保", "循环"],
+  "category": "RuleCategory::science(\"sustainable\")",
+  "sections": [
+    {
+      "title": "减少消耗",
+      "method": "reduce",
+      "items": [
+        "购物按需不冲动",
+        "减少一次性用品",
+        "节约用水用电",
+        "修旧利废减少浪费"
+      ]
+    },
+    {
+      "title": "循环再用",
+      "method": "reuse",
+      "items": [
+        "物尽其用再利用",
+        "闲置物品转赠他人",
+        "分门别类回收",
+        "选择可循环包装"
+      ]
+    },
+    {
+      "title": "理性消费",
+      "method": "consume",
+      "items": [
+        "选择耐用产品",
+        "关注健康环保材质",
+        "不盲目跟风消费",
+        "重视使用价值"
+      ]
+    },
+    {
+      "title": "共担责任",
+      "method": "responsibility",
+      "items": [
+        "关心环境与社区",
+        "宣传低碳意识",
+        "参与环保活动",
+        "长远眼光看待自然"
+      ]
+    }
+  ]
+}

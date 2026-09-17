@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "weather_science_basics",
+  "struct": "WeatherScienceBasicsRules",
+  "name": "天气与气象常识",
+  "desc": "认识天气系统、云雨循环与气象安全常识",
+  "origin": "国际",
+  "tags": ["科学", "天气", "气象", "气候"],
+  "category": "RuleCategory::science(\"weather\")",
+  "sections": [
+    {
+      "title": "天气系统",
+      "method": "systems",
+      "items": [
+        "低压高压系统影响天气",
+        "锋面过境带来天气变化",
+        "气团性质决定冷暖",
+        "气压梯度力驱动风"
+      ]
+    },
+    {
+      "title": "云与降水",
+      "method": "cloud_rain",
+      "items": [
+        "积云对流产生雷雨",
+        "层云带来持续阴雨",
+        "云滴凝结成雨雪",
+        "地形抬升促成降水"
+      ]
+    },
+    {
+      "title": "气象安全",
+      "method": "safety",
+      "items": [
+        "雷暴时避免户外空旷",
+        "雷雨天远离高处与金属",
+        "寒潮大风注意防护",
+        "暴雨洪涝低洼处避险"
+      ]
+    },
+    {
+      "title": "观测预判",
+      "method": "observe",
+      "items": [
+        "关注气象预警信号",
+        "按气象预报安排出行",
+        "理解风力等级",
+        "关注极端天气提醒"
+      ]
+    }
+  ]
+}

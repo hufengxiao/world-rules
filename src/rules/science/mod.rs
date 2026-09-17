@@ -100,6 +100,7 @@ pub mod botany_detailed;
 pub mod calculus;
 pub mod cancer_biology;
 pub mod carbon_cycle;
+pub mod carbon_footprint_low_carbon;
 pub mod category_theory;
 pub mod celestial_mechanics;
 pub mod cell_biology;
@@ -162,6 +163,7 @@ pub mod distributed_systems_detailed;
 pub mod dynamic_meteorology;
 pub mod dynamics;
 pub mod ecology;
+pub mod ecology_balance;
 pub mod ecology_detailed;
 pub mod ecology_detailed2;
 pub mod economic_geography_detailed;
@@ -341,6 +343,7 @@ pub mod relativity_special;
 pub mod remote_sensing;
 pub mod remote_sensing_detailed;
 pub mod renewable_energy;
+pub mod renewable_energy_basics;
 pub mod research_ethics;
 pub mod rigid_body_dynamics;
 pub mod ring_theory;
@@ -369,6 +372,7 @@ pub mod structural_biology;
 pub mod surgery;
 pub mod survey_design;
 pub mod sustainability_science;
+pub mod sustainable_living_science;
 pub mod synoptic_meteorology;
 pub mod synthetic_biology;
 pub mod systems_biology;
@@ -389,6 +393,7 @@ pub mod volcanology_detailed;
 pub mod waste_management;
 pub mod water_resources;
 pub mod wave_optics_basics;
+pub mod weather_science_basics;
 pub mod zoology;
 pub mod zoology_detailed;
 
@@ -732,9 +737,11 @@ pub use stem_cell_biology::StemCellBiologyRules;
 // Phase 31-01: 新增地理规则导出
 pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
+pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
+pub use ecology_balance::EcologyBalanceRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use electric_circuit_basics::ElectricCircuitBasicsRules;
 pub use experimental_method::ExperimentalMethodRules;
@@ -747,11 +754,14 @@ pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use quantum_basics::QuantumBasicsRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
+pub use renewable_energy_basics::RenewableEnergyBasicsRules;
 pub use soil_geography::SoilGeographyRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use survey_design::SurveyDesignRules;
+pub use sustainable_living_science::SustainableLivingScienceRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
 pub use wave_optics_basics::WaveOpticsBasicsRules;
+pub use weather_science_basics::WeatherScienceBasicsRules;
 
 pub fn all_rules() -> Vec<(
     &'static str,
@@ -761,6 +771,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = EcologyBalanceRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SustainableLivingScienceRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CarbonFootprintLowCarbonRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RenewableEnergyBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WeatherScienceBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = BacteriaHygieneRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "carbon_footprint_low_carbon",
+  "struct": "CarbonFootprintLowCarbonRules",
+  "name": "碳足迹与低碳生活",
+  "desc": "认识碳排放来源与日常减排的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "碳足迹", "低碳", "环保"],
+  "category": "RuleCategory::science(\"carbon_footprint\")",
+  "sections": [
+    {
+      "title": "理解碳足迹",
+      "method": "understand",
+      "items": [
+        "碳足迹衡量活动排放",
+        "交通用电饮食都含碳",
+        "化石燃料是主要来源",
+        "个体选择影响总量"
+      ]
+    },
+    {
+      "title": "交通减排",
+      "method": "transport",
+      "items": [
+        "多步行骑车乘公交",
+        "减少不必要的出行",
+        "拼车提高效率",
+        "选择绿色交通方式"
+      ]
+    },
+    {
+      "title": "能源与饮食",
+      "method": "home",
+      "items": [
+        "节约用电随手关",
+        "合理设定空调温度",
+        "减少食物浪费",
+        "多选本地应季食材"
+      ]
+    },
+    {
+      "title": "持续参与",
+      "method": "participate",
+      "items": [
+        "理性看待个体贡献",
+        "支持环保产品与服务",
+        "不迷信无意义噱头",
+        "长期坚持低碳习惯"
+      ]
+    }
+  ]
+}
