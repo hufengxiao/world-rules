@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "stress_relief_life",
+  "struct": "StressReliefRules",
+  "name": "压力纾解技巧",
+  "desc": "应对生活与工作压力、放松身心的方法",
+  "origin": "心理学",
+  "tags": ["健康", "压力", "纾解", "放松"],
+  "category": "RuleCategory::health(\"stress_relief\")",
+  "sections": [
+    {
+      "title": "深呼吸放松",
+      "method": "breathing",
+      "items": [
+        "压力来袭时先深呼吸",
+        "用腹式呼吸放慢节奏",
+        "吸气默数呼气更长",
+        "重复多次稳定情绪"
+      ]
+    },
+    {
+      "title": "压力管理",
+      "method": "manage",
+      "items": [
+        "把大任务拆成小步",
+        "合理设定优先次序",
+        "安排好时间不积压",
+        "学会适度说不"
+      ]
+    },
+    {
+      "title": "身心调节",
+      "method": "physical_activity",
+      "items": [
+        "坚持适度运动宣泄",
+        "保证充足睡眠",
+        "培养放松爱好的间隔",
+        "适度亲近自然"
+      ]
+    },
+    {
+      "title": "社会支持",
+      "method": "social",
+      "items": [
+        "向信任的人倾诉",
+        "主动寻求家人朋友陪伴",
+        "必要时寻求专业帮助",
+        "不独自硬扛过久"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "emotional_regulation",
+  "struct": "EmotionalRegulationRules",
+  "name": "情绪调节方法",
+  "desc": "觉察与调节情绪的日常方法与表达规则",
+  "origin": "心理学",
+  "tags": ["健康", "情绪", "调节", "心理健康"],
+  "category": "RuleCategory::health(\"emotional_regulation\")",
+  "sections": [
+    {
+      "title": "觉察情绪",
+      "method": "awareness",
+      "items": [
+        "先识别当下的情绪名称",
+        "不急于压制或否定",
+        "观察情绪引发的身体反应",
+        "给情绪适当的空间"
+      ]
+    },
+    {
+      "title": "健康表达",
+      "method": "expression",
+      "items": [
+        "用语言描述自己的感受",
+        "以我开头表达而非指责",
+        "不压抑也不情绪化发泄",
+        "选择合适时机沟通"
+      ]
+    },
+    {
+      "title": "调节策略",
+      "method": "strategies",
+      "items": [
+        "暂停争执先冷静片刻",
+        "转移注意做感兴趣的事",
+        "用腹式呼吸平复激动",
+        "适度运动释放负能"
+      ]
+    },
+    {
+      "title": "长期培养",
+      "method": "growth",
+      "items": [
+        "练习感恩与正念",
+        "建立稳定支持关系",
+        "接纳情绪波动是正常",
+        "严重的情绪困扰及时求助"
+      ]
+    }
+  ]
+}

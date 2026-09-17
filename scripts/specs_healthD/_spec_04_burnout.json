@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "burnout_prevention",
+  "struct": "BurnoutPreventionRules",
+  "name": "职业倦怠预防",
+  "desc": "识别职场倦怠、恢复精力与平衡生活的规则",
+  "origin": "心理学",
+  "tags": ["健康", "倦怠", "职业", "工作", "平衡"],
+  "category": "RuleCategory::health(\"burnout_prevention\")",
+  "sections": [
+    {
+      "title": "识别倦怠",
+      "method": "signs",
+      "items": [
+        "留意过度疲惫难恢复",
+        "关注对工作冷漠疏离",
+        "注意效率下降抱怨增多",
+        "承认累并重视休息"
+      ]
+    },
+    {
+      "title": "设定边界",
+      "method": "boundary",
+      "items": [
+        "合理管理工作时间",
+        "学会婉拒不合理的过度",
+        "保证休息与假期",
+        "工作与生活区分开"
+      ]
+    },
+    {
+      "title": "恢复精力",
+      "method": "recharge",
+      "items": [
+        "规律充足睡眠",
+        "适度运动与放松",
+        "培养工作外爱好",
+        "亲近人际支持"
+      ]
+    },
+    {
+      "title": "寻求调整",
+      "method": "adjust",
+      "items": [
+        "与上级沟通工作量",
+        "适当调整任务分配",
+        "严重时寻求专业帮助",
+        "必要时考虑工作调整"
+      ]
+    }
+  ]
+}

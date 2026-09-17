@@ -62,6 +62,7 @@ pub mod bleeding_control_bandage;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
+pub mod burnout_prevention;
 pub mod cancer_prevention;
 pub mod children_health;
 pub mod choking_airway_relief;
@@ -72,6 +73,7 @@ pub mod cpr_and_emergency;
 pub mod cut_wound_care;
 pub mod dental_health;
 pub mod depression_awareness;
+pub mod depression_support;
 pub mod detox_rules;
 pub mod diabetes_management;
 pub mod digestive_health;
@@ -79,6 +81,7 @@ pub mod drowning_rescue;
 pub mod earthquake_safety;
 pub mod elder_fall_prevention;
 pub mod elderly_health;
+pub mod emotional_regulation;
 pub mod ergonomics;
 pub mod exercise;
 pub mod eye_health;
@@ -114,6 +117,7 @@ pub mod men_health;
 pub mod mental_health;
 pub mod mental_wellness;
 pub mod migraine_management;
+pub mod mindfulness_basics;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nutrition;
@@ -140,6 +144,7 @@ pub mod sleep_quality;
 pub mod smoking_cessation;
 pub mod sore_throat_relief;
 pub mod stress_management;
+pub mod stress_relief_life;
 pub mod sun_protection;
 pub mod teen_health;
 pub mod thyroid_care;
@@ -162,6 +167,7 @@ pub use bleeding_control_bandage::BleedingControlBandageRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
+pub use burnout_prevention::BurnoutPreventionRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use children_health::ChildrenHealthRules;
 pub use choking_airway_relief::ChokingAirwayReliefRules;
@@ -172,6 +178,7 @@ pub use cpr_and_emergency::CprEmergencyRules;
 pub use cut_wound_care::CutWoundCareRules;
 pub use dental_health::DentalHealthRules;
 pub use depression_awareness::DepressionAwarenessRules;
+pub use depression_support::DepressionSupportRules;
 pub use detox_rules::DetoxRulesRules;
 pub use diabetes_management::DiabetesManagementRules;
 pub use digestive_health::DigestiveHealthRules;
@@ -179,6 +186,7 @@ pub use drowning_rescue::DrowningRescueRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
 pub use elder_fall_prevention::ElderFallPreventionRules;
 pub use elderly_health::ElderlyHealthRules;
+pub use emotional_regulation::EmotionalRegulationRules;
 pub use ergonomics::ErgonomicsRules;
 pub use exercise::ExerciseRules;
 pub use eye_health::EyeHealthRules;
@@ -214,6 +222,7 @@ pub use men_health::MenHealthRules;
 pub use mental_health::MentalHealthRules;
 pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
+pub use mindfulness_basics::MindfulnessBasicsRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nutrition::NutritionRules;
@@ -240,6 +249,7 @@ pub use sleep_quality::SleepQualityRules;
 pub use smoking_cessation::SmokingCessationRules;
 pub use sore_throat_relief::SoreThroatReliefRules;
 pub use stress_management::StressManagementRules;
+pub use stress_relief_life::StressReliefRules;
 pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
 pub use thyroid_care::ThyroidCareRules;
@@ -260,6 +270,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = BurnoutPreventionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MindfulnessBasicsRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EmotionalRegulationRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DepressionSupportRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = StressReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = BleedingControlBandageRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

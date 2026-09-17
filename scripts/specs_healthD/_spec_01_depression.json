@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "depression_support",
+  "struct": "DepressionSupportRules",
+  "name": "情绪低落与抑郁求助",
+  "desc": "识别抑郁信号、自我关怀与及时求助的支持规则",
+  "origin": "心理学",
+  "tags": ["健康", "抑郁", "情绪", "求助", "支持"],
+  "category": "RuleCategory::health(\"depression_support\")",
+  "sections": [
+    {
+      "title": "识别信号",
+      "method": "signs",
+      "items": [
+        "关注持续情绪低落",
+        "留意兴趣减退与疲乏",
+        "注意睡眠食欲变化",
+        "留意自我贬低念头"
+      ]
+    },
+    {
+      "title": "自我关怀",
+      "method": "self_care",
+      "items": [
+        "不苛责自己情绪",
+        "保持基本作息与进食",
+        "做较小的可完成之事",
+        "避免自我孤立"
+      ]
+    },
+    {
+      "title": "寻求支持",
+      "method": "seek",
+      "items": [
+        "向信任的人诉说",
+        "主动寻求专业咨询",
+        "不因羞耻而拖延就医",
+        "家人朋友给予理解和陪伴"
+      ]
+    },
+    {
+      "title": "紧急求助",
+      "method": "crisis",
+      "items": [
+        "有伤害自己念头立即求助",
+        "拨打心理求助热线",
+        "告知身边人陪伴",
+        "寻求危机干预或就医"
+      ]
+    }
+  ]
+}

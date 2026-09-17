@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "mindfulness_basics",
+  "struct": "MindfulnessBasicsRules",
+  "name": "正念冥想入门",
+  "desc": "正念冥想的基础练习、注意力与放松方法",
+  "origin": "心理学",
+  "tags": ["健康", "正念", "冥想", "放松", "专注"],
+  "category": "RuleCategory::health(\"mindfulness\")",
+  "sections": [
+    {
+      "title": "基础姿势",
+      "method": "posture",
+      "items": [
+        "选择安静舒适坐位",
+        "挺直但放松脊背",
+        "双手自然放松",
+        "微闭眼或垂视"
+      ]
+    },
+    {
+      "title": "呼吸正念",
+      "method": "breath",
+      "items": [
+        "专注观察自然呼吸",
+        "觉察吸与呼的流动",
+        "走神时温和拉回",
+        "不强迫连续"
+      ]
+    },
+    {
+      "title": "觉察练习",
+      "method": "awareness",
+      "items": [
+        "以旁观态度审视念头",
+        "不去评判好坏",
+        "让念头自然来去",
+        "保持温和好奇"
+      ]
+    },
+    {
+      "title": "习惯培养",
+      "method": "routine",
+      "items": [
+        "循序渐进从几分钟开始",
+        "固定时间坚持练习",
+        "把正念融入生活片刻",
+        "不追求即刻效果"
+      ]
+    }
+  ]
+}
