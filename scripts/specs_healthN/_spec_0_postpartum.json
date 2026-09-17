@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "postpartum_mother_care",
+  "struct": "PostpartumMotherCareRules",
+  "name": "产后产妇照护",
+  "desc": "产妇产后的休息、营养与恢复照护",
+  "tags": ["健康", "产后", "产妇", "坐月子"],
+  "origin": "医学",
+  "category": "RuleCategory::health(\"postpartum\")",
+  "sections": [
+    {
+      "title": "充分休息",
+      "method": "rest",
+      "items": [
+        "产后多休息",
+        "随宝宝作息",
+        "不劳累操劳",
+        "家人分担帮忙"
+      ]
+    },
+    {
+      "title": "营养补充",
+      "method": "nutrition",
+      "items": [
+        "高蛋白易消化",
+        "蔬果足量",
+        "清淡不油腻",
+        "多汤助乳"
+      ]
+    },
+    {
+      "title": "伤口护理",
+      "method": "wound",
+      "items": [
+        "保持伤口清洁",
+        "按医嘱复查",
+        "恶露异常就医",
+        "不坐浴泡盆"
+      ]
+    },
+    {
+      "title": "情绪关照",
+      "method": "mood",
+      "items": [
+        "产后情绪波动正常",
+        "家人多理解",
+        "严重抑郁求助",
+        "关爱产妇"
+      ]
+    }
+  ]
+}

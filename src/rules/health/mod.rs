@@ -59,6 +59,7 @@ pub mod anemia_nutrition;
 pub mod anger_management;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
+pub mod baby_sleep_safety;
 pub mod balanced_breakfast;
 pub mod balanced_diet_plan;
 pub mod balanced_diet_plate;
@@ -72,6 +73,7 @@ pub mod burn_scalding_aid;
 pub mod burnout_prevention;
 pub mod calcium_bone_health;
 pub mod cancer_prevention;
+pub mod child_vaccination_schedule;
 pub mod children_health;
 pub mod choking_airway_relief;
 pub mod choking_relief;
@@ -128,6 +130,7 @@ pub mod hypertension_management;
 pub mod immune_health;
 pub mod immune_support_lifestyle;
 pub mod infant_care_basics;
+pub mod infant_feeding_breast;
 pub mod infant_health;
 pub mod insect_bite_care;
 pub mod joint_health;
@@ -158,6 +161,7 @@ pub mod office_ergonomics;
 pub mod oral_health;
 pub mod oral_ulcer_care;
 pub mod postpartum_health;
+pub mod postpartum_mother_care;
 pub mod postpartum_recovery;
 pub mod posture_rules;
 pub mod pregnancy_prenatal;
@@ -192,6 +196,7 @@ pub mod teen_health;
 pub mod thyroid_care;
 pub mod tinnitus_ringing_relief;
 pub mod toddler_health;
+pub mod toddler_introducing_solids;
 pub mod tooth_ache_care;
 pub mod travel_health;
 pub mod vaccination_rules;
@@ -209,6 +214,7 @@ pub use anemia_nutrition::AnemiaNutritionRules;
 pub use anger_management::AngerManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
+pub use baby_sleep_safety::BabySleepSafetyRules;
 pub use balanced_breakfast::BalancedBreakfastRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
 pub use balanced_diet_plate::BalancedDietPlateRules;
@@ -222,6 +228,7 @@ pub use burn_scalding_aid::BurnScaldingAidRules;
 pub use burnout_prevention::BurnoutPreventionRules;
 pub use calcium_bone_health::CalciumBoneHealthRules;
 pub use cancer_prevention::CancerPreventionRules;
+pub use child_vaccination_schedule::ChildVaccinationScheduleRules;
 pub use children_health::ChildrenHealthRules;
 pub use choking_airway_relief::ChokingAirwayReliefRules;
 pub use choking_relief::ChokingReliefRules;
@@ -278,6 +285,7 @@ pub use hypertension_management::HypertensionManagementRules;
 pub use immune_health::ImmuneHealthRules;
 pub use immune_support_lifestyle::ImmuneSupportLifestyleRules;
 pub use infant_care_basics::InfantCareBasicsRules;
+pub use infant_feeding_breast::InfantFeedingBreastRules;
 pub use infant_health::InfantHealthRules;
 pub use insect_bite_care::InsectBiteCareRules;
 pub use joint_health::JointHealthRules;
@@ -308,6 +316,7 @@ pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
 pub use oral_ulcer_care::OralUlcerCareRules;
 pub use postpartum_health::PostpartumHealthRules;
+pub use postpartum_mother_care::PostpartumMotherCareRules;
 pub use postpartum_recovery::PostpartumRecoveryRules;
 pub use posture_rules::PostureRulesRules;
 pub use pregnancy_prenatal::PregnancyPrenatalRules;
@@ -342,6 +351,7 @@ pub use teen_health::TeenHealthRules;
 pub use thyroid_care::ThyroidCareRules;
 pub use tinnitus_ringing_relief::TinnitusRingingReliefRules;
 pub use toddler_health::ToddlerHealthRules;
+pub use toddler_introducing_solids::ToddlerIntroducingSolidsRules;
 pub use tooth_ache_care::ToothAcheCareRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
@@ -360,6 +370,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ToddlerIntroducingSolidsRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChildVaccinationScheduleRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BabySleepSafetyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = InfantFeedingBreastRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PostpartumMotherCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DietaryFiberVegetableRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
