@@ -149,6 +149,7 @@ pub mod capoeira;
 pub mod capoeira_roda;
 pub mod chess_boxing;
 pub mod climbing;
+pub mod climbing_etiquette;
 pub mod climbing_ifsc_detailed;
 pub mod combat_sport_generic;
 pub mod combat_sports_detailed;
@@ -163,6 +164,7 @@ pub mod crossfit_games;
 pub mod curling;
 pub mod curling_detailed;
 pub mod cycling;
+pub mod dance_class_etiquette;
 pub mod darts;
 pub mod darts_detailed;
 pub mod darts_pdc;
@@ -254,6 +256,7 @@ pub mod free_diving;
 pub mod free_diving_aida_detailed;
 pub mod freestyle_fis_detailed;
 pub mod freestyle_skiing;
+pub mod frisbee_ultimate;
 pub mod futsal;
 pub mod gaelic_football;
 pub mod gateball;
@@ -277,6 +280,7 @@ pub mod hema;
 pub mod heptathlon;
 pub mod high_diving;
 pub mod high_jump;
+pub mod hiking_group_leadership;
 pub mod hockey;
 pub mod hockey_nhl;
 pub mod horseshoes;
@@ -663,6 +667,7 @@ pub use capoeira::CapoeiraRules;
 pub use capoeira_roda::CapoeiraRodaRules;
 pub use chess_boxing::ChessBoxingRules;
 pub use climbing::ClimbingRules;
+pub use climbing_etiquette::ClimbingEtiquetteRules;
 pub use climbing_ifsc_detailed::ClimbingIfscDetailedRules;
 pub use combat_sport_generic::CombatSportGenericRules;
 pub use combat_sports_detailed::CombatSportsDetailedRules;
@@ -677,6 +682,7 @@ pub use crossfit_games::CrossfitGamesRules;
 pub use curling::CurlingRules;
 pub use curling_detailed::CurlingDetailedRules;
 pub use cycling::{CyclingRules, CyclingType};
+pub use dance_class_etiquette::DanceClassEtiquetteRules;
 pub use darts::DartsRules;
 pub use darts_detailed::DartsDetailedRules;
 pub use darts_pdc::DartsPdcRules;
@@ -776,6 +782,7 @@ pub use free_diving::FreeDivingRules;
 pub use free_diving_aida_detailed::FreeDivingAidaDetailedRules;
 pub use freestyle_fis_detailed::FreestyleFisDetailedRules;
 pub use freestyle_skiing::FreestyleSkiingRules;
+pub use frisbee_ultimate::FrisbeeUltimateRules;
 pub use futsal::FutsalRules;
 pub use gaelic_football::GaelicFootballRules;
 pub use gateball::GateballRules;
@@ -801,6 +808,7 @@ pub use hema::HemaRules;
 pub use heptathlon::HeptathlonRules;
 pub use high_diving::HighDivingRules;
 pub use high_jump::HighJumpRules;
+pub use hiking_group_leadership::HikingGroupLeadershipRules;
 pub use hockey::HockeyRules;
 pub use hockey_nhl::HockeyNhlRules;
 pub use horseshoes::HorseshoesRules;
@@ -1124,6 +1132,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = HikingGroupLeadershipRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DanceClassEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ClimbingEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FrisbeeUltimateRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = EquipmentEtiquetteRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));

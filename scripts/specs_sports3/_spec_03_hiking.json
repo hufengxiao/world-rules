@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "hiking_group_leadership",
+  "struct": "HikingGroupLeadershipRules",
+  "name": "徒步团带队协作",
+  "desc": "户外徒步队伍中领队与队员的意识与协作规则",
+  "origin": "国际",
+  "tags": ["体育", "徒步", "领队", "团队", "户外"],
+  "category": "RuleCategory::sports(\"hiking_leadership\")",
+  "sections": [
+    {
+      "title": "线路规划",
+      "method": "route",
+      "items": [
+        "勘察路线与难易程度",
+        "评估队伍整体体能",
+        "告知行程与注意事项",
+        "掌握基本信息与应急"
+      ]
+    },
+    {
+      "title": "队伍组织",
+      "method": "organization",
+      "items": [
+        "安排经验者前后照应",
+        "保持队形与沟通",
+        "定期清点人数",
+        "速度以最慢者为准"
+      ]
+    },
+    {
+      "title": "领队责任",
+      "method": "responsibility",
+      "items": [
+        "及时调整节奏",
+        "关注队员状态",
+        "遇险果断处置",
+        "确保安全第一"
+      ]
+    },
+    {
+      "title": "队员配合",
+      "method": "members",
+      "items": [
+        "听从领队安排",
+        "不擅自离队",
+        "如实报告自身状况",
+        "互相扶持照应"
+      ]
+    }
+  ]
+}

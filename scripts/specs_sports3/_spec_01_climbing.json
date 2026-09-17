@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "climbing_etiquette",
+  "struct": "ClimbingEtiquetteRules",
+  "name": "攀岩礼仪与安全",
+  "desc": "攀岩馆攀爬、保护与器材使用的礼仪与安全",
+  "origin": "国际",
+  "tags": ["体育", "攀岩", "户外", "礼仪", "安全"],
+  "category": "RuleCategory::sports(\"climbing\")",
+  "sections": [
+    {
+      "title": "入馆须知",
+      "method": "entry",
+      "items": [
+        "穿合脚的攀岩鞋入馆",
+        "遵守场馆与线路规定",
+        "新手先接受指导",
+        "个人物品妥善放好"
+      ]
+    },
+    {
+      "title": "保护与搭档",
+      "method": "belay",
+      "items": [
+        "攀爬前互相检查保护器材",
+        "听清保护口令再行动",
+        "保护者专注不分散",
+        "沟通确认再向下撤"
+      ]
+    },
+    {
+      "title": "排队轮流",
+      "method": "queue",
+      "items": [
+        "同一线排队轮流攀",
+        "攀完让给下一位",
+        "不插队或抢先",
+        "休息不在线路下停留"
+      ]
+    },
+    {
+      "title": "安全互敬",
+      "method": "safety",
+      "items": [
+        "遵守岩馆安全守则",
+        "不冒险逃规动作",
+        "感到不适及时停下",
+        "尊重其他攀爬者"
+      ]
+    }
+  ]
+}

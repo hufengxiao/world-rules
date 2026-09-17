@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "dance_class_etiquette",
+  "struct": "DanceClassEtiquetteRules",
+  "name": "舞蹈与舞会礼仪",
+  "desc": "舞蹈课程与社交舞会中的邀舞、体态与合作礼仪",
+  "origin": "国际",
+  "tags": ["体育", "舞蹈", "舞会", "礼仪", "社交"],
+  "category": "RuleCategory::sports(\"dance_class\")",
+  "sections": [
+    {
+      "title": "课堂秩序",
+      "method": "class",
+      "items": [
+        "准时到课着舞服舞鞋",
+        "观察老师示范再跟上",
+        "不擅自中断课堂",
+        "课后整理舞区"
+      ]
+    },
+    {
+      "title": "邀舞礼仪",
+      "method": "invite",
+      "items": [
+        "向舞伴礼貌邀请",
+        "尊重受邀者拒绝",
+        "舞好后致谢",
+        "不勉强不熟识者"
+      ]
+    },
+    {
+      "title": "舞动配合",
+      "method": "dancing",
+      "items": [
+        "保持适当间距体态",
+        "跟随音乐与节奏",
+        "失误不过多埋怨",
+        "频率适时轮流"
+      ]
+    },
+    {
+      "title": "风度修身",
+      "method": "grace",
+      "items": [
+        "学会领舞与跟舞兼顾",
+        "穿着得体恰当",
+        "眼神与礼貌交流",
+        "散场致谢彼此"
+      ]
+    }
+  ]
+}

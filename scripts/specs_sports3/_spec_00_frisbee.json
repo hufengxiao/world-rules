@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "frisbee_ultimate",
+  "struct": "FrisbeeUltimateRules",
+  "name": "极限飞盘规则",
+  "desc": "极限飞盘的基本规则、自裁精神与团队配合",
+  "origin": "国际",
+  "tags": ["体育", "飞盘", "极限飞盘", "团队", "自裁"],
+  "category": "RuleCategory::sports(\"ultimate_frisbee\")",
+  "sections": [
+    {
+      "title": "基本规则",
+      "method": "basics",
+      "items": [
+        "通过传递飞盘推进得分",
+        "持盘者在原地停顿",
+        "传球越过防守者得分",
+        "飞盘落地权属合理判夺"
+      ]
+    },
+    {
+      "title": "自裁精神",
+      "method": "spirit",
+      "items": [
+        "由选手自行判读犯规",
+        "争执友好协商解决",
+        "坚持公平与尊重",
+        "自评与承认失误"
+      ]
+    },
+    {
+      "title": "团队配合",
+      "method": "teamwork",
+      "items": [
+        "无肢体接触",
+        "跑动配合拉开空档",
+        "传递与切入协调",
+        "轮流贡献团队"
+      ]
+    },
+    {
+      "title": "安全注意",
+      "method": "safety",
+      "items": [
+        "留意场地与周边",
+        "避免危险冲撞",
+        "跑动时刻注意脚下",
+        "出现伤痛立即停"
+      ]
+    }
+  ]
+}
