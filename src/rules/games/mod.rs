@@ -78,6 +78,7 @@ pub mod big_two;
 pub mod blackjack;
 pub mod blind_chess;
 pub mod blind_go;
+pub mod board_game_etiquette;
 pub mod board_games;
 pub mod brain_teaser_quiz;
 pub mod bridge;
@@ -112,6 +113,7 @@ pub mod cribbage;
 pub mod crossword_fill_in;
 pub mod dark_chess;
 pub mod dice_game;
+pub mod dice_game_quantum;
 pub mod dominion;
 pub mod domino;
 pub mod domino_detailed;
@@ -160,6 +162,7 @@ pub mod mahjong_vietnamese;
 pub mod mahjong_wuhan_detailed;
 pub mod makruk;
 pub mod mancala;
+pub mod memory_match;
 pub mod military_chess;
 pub mod mini_chess;
 pub mod mini_shogi;
@@ -176,6 +179,7 @@ pub mod pao_de_kuai;
 pub mod party_game;
 pub mod pictionary;
 pub mod pinochle;
+pub mod poker_bluffing;
 pub mod poker_chinese;
 pub mod poker_five_card;
 pub mod poker_omaha;
@@ -221,6 +225,7 @@ pub mod uno_house_rules;
 pub mod war_card;
 pub mod wargames;
 pub mod werewolf;
+pub mod werewolf_murder;
 pub mod who_is_spy;
 pub mod word_game;
 pub mod word_guessing_puzzle;
@@ -243,6 +248,7 @@ pub use big_two::BigTwoRules;
 pub use blackjack::BlackjackRules;
 pub use blind_chess::BlindChessRules;
 pub use blind_go::BlindGoRules;
+pub use board_game_etiquette::BoardGameEtiquetteRules;
 pub use board_games::{
     ChessRules, ChessVariant, ChessVariantsRules, ChineseChessRules, GoRules, GomokuRules,
     InternationalChessRules, JanggiVariantRules, ShogiVariantRules,
@@ -279,6 +285,7 @@ pub use cribbage::CribbageRules;
 pub use crossword_fill_in::CrosswordFillInRules;
 pub use dark_chess::DarkChessRules;
 pub use dice_game::DiceGameRules;
+pub use dice_game_quantum::DiceGameQuantumRules;
 pub use dominion::DominionRules;
 pub use domino::DominoRules;
 pub use domino_detailed::DominoDetailedRules;
@@ -327,6 +334,7 @@ pub use mahjong_vietnamese::MahjongVietnameseRules;
 pub use mahjong_wuhan_detailed::MahjongWuhanDetailedRules;
 pub use makruk::MakrukRules;
 pub use mancala::MancalaRules;
+pub use memory_match::MemoryMatchRules;
 pub use military_chess::MilitaryChessRules;
 pub use mini_chess::MiniChessRules;
 pub use mini_shogi::MiniShogiRules;
@@ -343,6 +351,7 @@ pub use pao_de_kuai::PaoDeKuaiRules;
 pub use party_game::PartyGameRules;
 pub use pictionary::PictionaryRules;
 pub use pinochle::PinochleRules;
+pub use poker_bluffing::PokerBluffingRules;
 pub use poker_chinese::PokerChineseRules;
 pub use poker_five_card::PokerFiveCardRules;
 pub use poker_omaha::PokerOmahaRules;
@@ -387,6 +396,7 @@ pub use uno_house_rules::UnoHouseRules;
 pub use war_card::WarCardRules;
 pub use wargames::{AgeOfSigmarRules, GenericWargameRules, MiniatureGameRules, Warhammer40KRules};
 pub use werewolf::WerewolfRules;
+pub use werewolf_murder::WerewolfMurderRules;
 pub use who_is_spy::WhoIsSpyRules;
 pub use word_game::WordGameRules;
 pub use word_guessing_puzzle::WordGuessingPuzzleRules;
@@ -439,6 +449,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = MemoryMatchRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BoardGameEtiquetteRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PokerBluffingRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiceGameQuantumRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WerewolfMurderRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CrosswordFillInRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));

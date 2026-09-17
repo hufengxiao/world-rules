@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "dice_game_quantum",
+  "struct": "DiceGameQuantumRules",
+  "name": "骰子游戏规则",
+  "desc": "骰子点数、轮流投掷与游戏公平",
+  "origin": "国际",
+  "tags": ["游戏", "骰子", "随机"],
+  "category": "RuleCategory::games(\"dice_game\")",
+  "sections": [
+    {
+      "title": "掷骰规则",
+      "method": "throw",
+      "items": [
+        "公平掷骰",
+        "一次掷定",
+        "不重掷赖皮",
+        "按协商约定"
+      ]
+    },
+    {
+      "title": "点数判断",
+      "method": "judge",
+      "items": [
+        "计总和比点",
+        "大小单双玩法",
+        "按约定规则",
+        "结果辨明"
+      ]
+    },
+    {
+      "title": "轮流顺序",
+      "method": "turn",
+      "items": [
+        "轮流掷骰",
+        "顺次序进行",
+        "不抢不催",
+        "公平交替"
+      ]
+    },
+    {
+      "title": "游戏伦理",
+      "method": "ethics",
+      "items": [
+        "靠运不靠诈",
+        "不偷换骰子",
+        "愉快玩耍",
+        "输赢看开"
+      ]
+    }
+  ]
+}

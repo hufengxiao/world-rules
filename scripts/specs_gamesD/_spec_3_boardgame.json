@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "board_game_etiquette",
+  "struct": "BoardGameEtiquetteRules",
+  "name": "桌游游戏礼仪",
+  "desc": "桌游的读牌、轮流与合作礼仪",
+  "origin": "国际",
+  "tags": ["游戏", "桌游", "礼仪"],
+  "category": "RuleCategory::games(\"board_etiquette\")",
+  "sections": [
+    {
+      "title": "读规参与",
+      "method": "read",
+      "items": [
+        "先了解规则",
+        "不懂就问",
+        "参与不只观望",
+        "欢迎新手加入"
+      ]
+    },
+    {
+      "title": "轮流操作",
+      "method": "turn_taking",
+      "items": [
+        "按顺序行动",
+        "不抢他人步",
+        "耐心等自己",
+        "节奏合理通过"
+      ]
+    },
+    {
+      "title": "输赢心态",
+      "method": "sportsmanship",
+      "items": [
+        "不因输生气",
+        "不悔棋改步",
+        "输赢皆游戏",
+        "重在乐趣"
+      ]
+    },
+    {
+      "title": "场合友好",
+      "method": "friendly",
+      "items": [
+        "语言和善",
+        "不嘲讽新手",
+        "照顾旁观",
+        "开心共聚"
+      ]
+    }
+  ]
+}

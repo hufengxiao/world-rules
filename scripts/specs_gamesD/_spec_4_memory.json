@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "memory_match",
+  "struct": "MemoryMatchRules",
+  "name": "记忆配对牌游戏",
+  "desc": "翻牌配对、记忆与轮流的记忆游戏",
+  "origin": "国际",
+  "tags": ["游戏", "记忆牌", "翻牌", "益智"],
+  "category": "RuleCategory::games(\"memory_match\")",
+  "sections": [
+    {
+      "title": "排牌准备",
+      "method": "setup",
+      "items": [
+        "卡片背面朝上",
+        "成对排列整齐",
+        "随机打乱",
+        "布置围桌"
+      ]
+    },
+    {
+      "title": "翻牌配对",
+      "method": "flip",
+      "items": [
+        "每次翻两张",
+        "相同则配对收起",
+        "不同盖回",
+        "记忆位置"
+      ]
+    },
+    {
+      "title": "轮流进行",
+      "method": "turns",
+      "items": [
+        "配对成功可续翻",
+        "不同则换下一人",
+        "不偷看背面",
+        "轮流公平"
+      ]
+    },
+    {
+      "title": "胜利判定",
+      "method": "win",
+      "items": [
+        "配完收起最多胜",
+        "也可计时间",
+        "累计成对多赢",
+        "锻炼记忆"
+      ]
+    }
+  ]
+}

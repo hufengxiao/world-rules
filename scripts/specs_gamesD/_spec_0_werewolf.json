@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "werewolf_murder",
+  "struct": "WerewolfMurderRules",
+  "name": "狼人杀桌游规范",
+  "desc": "狼人杀角色、发言与胜负流程规则",
+  "origin": "中国",
+  "tags": ["游戏", "狼人杀", "桌游", "角色"],
+  "category": "RuleCategory::games(\"werewolf\")",
+  "sections": [
+    {
+      "title": "角色配置",
+      "method": "roles",
+      "items": [
+        "村民狼人先知",
+        "按人数配置",
+        "闭眼睁眼轮流",
+        "身份保密"
+      ]
+    },
+    {
+      "title": "轮流发言",
+      "method": "speaking",
+      "items": [
+        "按顺序发言",
+        "不插话抢辩",
+        "合理推理",
+        "听清他人"
+      ]
+    },
+    {
+      "title": "投票出局",
+      "method": "voting",
+      "items": [
+        "发言后投票",
+        "票多者出局",
+        "首夜被杀等",
+        "公平记录"
+      ]
+    },
+    {
+      "title": "胜负裁定",
+      "method": "outcome",
+      "items": [
+        "狼全出局好人赢",
+        "好人灭狼或神判",
+        "法官公正",
+        "尊重结果"
+      ]
+    }
+  ]
+}

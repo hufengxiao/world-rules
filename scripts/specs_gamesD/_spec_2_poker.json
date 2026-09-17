@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "poker_bluffing",
+  "struct": "PokerBluffingRules",
+  "name": "扑克诈唬博弈",
+  "desc": "扑克牌诈唬、看牌与牌桌心理",
+  "origin": "国际",
+  "tags": ["游戏", "扑克", "诈唬", "博弈"],
+  "category": "RuleCategory::games(\"poker_bluff\")",
+  "sections": [
+    {
+      "title": "看牌手牌",
+      "method": "cards",
+      "items": [
+        "看清自己手牌",
+        "心里估算大小",
+        "按牌行下注",
+        "不显牌型"
+      ]
+    },
+    {
+      "title": "诈唬玩法",
+      "method": "bluff",
+      "items": [
+        "薄牌可虚张声势",
+        "表情保持平常",
+        "看对手反应",
+        "不无度诈"
+      ]
+    },
+    {
+      "title": "下注顺序",
+      "method": "betting",
+      "items": [
+        "按序跟注加注",
+        "筹码结算准确",
+        "开牌确定",
+        "不耍赖犯规"
+      ]
+    },
+    {
+      "title": "风度输赢",
+      "method": "grace",
+      "items": [
+        "赢不炫耀",
+        "输不失态",
+        "不沉赌上头",
+        "小玩怡情"
+      ]
+    }
+  ]
+}
