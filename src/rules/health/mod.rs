@@ -73,6 +73,7 @@ pub mod burn_scalding_aid;
 pub mod burnout_prevention;
 pub mod calcium_bone_health;
 pub mod cancer_prevention;
+pub mod caregiver_stress_manage;
 pub mod child_vaccination_schedule;
 pub mod children_health;
 pub mod choking_airway_relief;
@@ -83,6 +84,7 @@ pub mod constipation_relief;
 pub mod cpr_and_emergency;
 pub mod cut_wound_care;
 pub mod daily_hydration;
+pub mod dementia_care_basic;
 pub mod dental_health;
 pub mod depression_awareness;
 pub mod depression_support;
@@ -96,6 +98,7 @@ pub mod ear_ache_care;
 pub mod early_morning_routine;
 pub mod earthquake_safety;
 pub mod elder_fall_prevention;
+pub mod elder_medication_remind;
 pub mod elderly_fall_prevention;
 pub mod elderly_health;
 pub mod emotional_regulation;
@@ -122,6 +125,7 @@ pub mod heatstroke_prevention;
 pub mod heatstroke_response;
 pub mod hiccup_relief;
 pub mod home_first_aid_kit;
+pub mod home_medical_alert_senior;
 pub mod home_medicine_kit;
 pub mod hydration_rules;
 pub mod hydration_strategy;
@@ -148,6 +152,7 @@ pub mod mental_wellness;
 pub mod migraine_management;
 pub mod mindful_eating;
 pub mod mindfulness_basics;
+pub mod mobility_aid_walker;
 pub mod mood_diary;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
@@ -228,6 +233,7 @@ pub use burn_scalding_aid::BurnScaldingAidRules;
 pub use burnout_prevention::BurnoutPreventionRules;
 pub use calcium_bone_health::CalciumBoneHealthRules;
 pub use cancer_prevention::CancerPreventionRules;
+pub use caregiver_stress_manage::CaregiverStressManageRules;
 pub use child_vaccination_schedule::ChildVaccinationScheduleRules;
 pub use children_health::ChildrenHealthRules;
 pub use choking_airway_relief::ChokingAirwayReliefRules;
@@ -238,6 +244,7 @@ pub use constipation_relief::ConstipationReliefRules;
 pub use cpr_and_emergency::CprEmergencyRules;
 pub use cut_wound_care::CutWoundCareRules;
 pub use daily_hydration::DailyHydrationRules;
+pub use dementia_care_basic::DementiaCareBasicRules;
 pub use dental_health::DentalHealthRules;
 pub use depression_awareness::DepressionAwarenessRules;
 pub use depression_support::DepressionSupportRules;
@@ -251,6 +258,7 @@ pub use ear_ache_care::EarAcheCareRules;
 pub use early_morning_routine::EarlyMorningRoutineRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
 pub use elder_fall_prevention::ElderFallPreventionRules;
+pub use elder_medication_remind::ElderMedicationRemindRules;
 pub use elderly_fall_prevention::ElderlyFallPreventionRules;
 pub use elderly_health::ElderlyHealthRules;
 pub use emotional_regulation::EmotionalRegulationRules;
@@ -277,6 +285,7 @@ pub use heatstroke_prevention::HeatstrokePreventionRules;
 pub use heatstroke_response::HeatstrokeResponseRules;
 pub use hiccup_relief::HiccupReliefRules;
 pub use home_first_aid_kit::HomeFirstAidKitRules;
+pub use home_medical_alert_senior::HomeMedicalAlertSeniorRules;
 pub use home_medicine_kit::HomeMedicineKitRules;
 pub use hydration_rules::HydrationRulesRules;
 pub use hydration_strategy::HydrationStrategyRules;
@@ -303,6 +312,7 @@ pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
 pub use mindful_eating::MindfulEatingRules;
 pub use mindfulness_basics::MindfulnessBasicsRules;
+pub use mobility_aid_walker::MobilityAidWalkerRules;
 pub use mood_diary::MoodDiaryRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
@@ -370,6 +380,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = HomeMedicalAlertSeniorRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DementiaCareBasicRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MobilityAidWalkerRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElderMedicationRemindRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CaregiverStressManageRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ToddlerIntroducingSolidsRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

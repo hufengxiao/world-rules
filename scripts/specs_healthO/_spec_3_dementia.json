@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "dementia_care_basic",
+  "struct": "DementiaCareBasicRules",
+  "name": "失智症照护",
+  "desc": "失智老人的照护、沟通与安全要点",
+  "origin": "医学",
+  "tags": ["健康", "失智", "照护", "老年"],
+  "category": "RuleCategory::health(\"dementia\")",
+  "sections": [
+    {
+      "title": "及时就医",
+      "method": "diagnosis",
+      "items": [
+        "健忘影响生活就医",
+        "家属早关注",
+        "家属记录症状",
+        "配合诊治"
+      ]
+    },
+    {
+      "title": "耐心沟通",
+      "method": "communicate",
+      "items": [
+        "放慢语速耐心讲",
+        "不纠正不责怪",
+        "用简单句子",
+        "顺应情绪"
+      ]
+    },
+    {
+      "title": "安全环境",
+      "method": "safety",
+      "items": [
+        "防走失带铭牌",
+        "明确家庭布置",
+        "防跌倒防烫",
+        "看护同伴"
+      ]
+    },
+    {
+      "title": "生活陪伴",
+      "method": "companion",
+      "items": [
+        "规律作息活动",
+        "回忆往事陪伴",
+        "适量锻炼",
+        "家属关爱"
+      ]
+    }
+  ]
+}

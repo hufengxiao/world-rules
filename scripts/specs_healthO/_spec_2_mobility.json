@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "mobility_aid_walker",
+  "struct": "MobilityAidWalkerRules",
+  "name": "助行器正确使用",
+  "desc": "拐杖助行架的正确调高、迈步与安全",
+  "origin": "医学",
+  "tags": ["健康", "助行器", "拐杖", "老人"],
+  "category": "RuleCategory::health(\"mobility_aid\")",
+  "sections": [
+    {
+      "title": "选械合适",
+      "method": "choose",
+      "items": [
+        "按需选拐杖或助行架",
+        "高度合适",
+        "握把舒适",
+        "胶垫防滑"
+      ]
+    },
+    {
+      "title": "正确迈步",
+      "method": "walking",
+      "items": [
+        "先迈助行器再迈脚",
+        "重心移动平稳",
+        "慢行不赶",
+        "上下台阶留意"
+      ]
+    },
+    {
+      "title": "安全维护",
+      "method": "maintain",
+      "items": [
+        "检查胶垫磨损",
+        "松动及时修",
+        "不超负荷",
+        "存放稳固"
+      ]
+    },
+    {
+      "title": "用前评估",
+      "method": "evaluate",
+      "items": [
+        "医生评估需要",
+        "平衡差者用围架","不擅自改用",
+        "安全第一"
+      ]
+    }
+  ]
+}
