@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "banquet_ceremony",
+  "struct": "BanquetCeremonyRules",
+  "name": "宴席礼节",
+  "desc": "赴宴时间、入座、用餐与主客互动的礼节",
+  "origin": "中国",
+  "tags": ["社交", "宴席", "礼节", "用餐"],
+  "category": "RuleCategory::social(\"banquet\")",
+  "sections": [
+    {
+      "title": "赴宴准时",
+      "method": "punctual",
+      "items": [
+        "按请柬时间准时到",
+        "迟到不影响席",
+        "提前到场帮忙",
+        "不确定先问清"
+      ]
+    },
+    {
+      "title": "入座得体",
+      "method": "seating",
+      "items": [
+        "按主位安排就座",
+        "长幼主客有序",
+        "不抢先占主位",
+        "听从主人引导"
+      ]
+    },
+    {
+      "title": "用餐文雅",
+      "method": "dining",
+      "items": [
+        "夹菜适量不翻挑",
+        "咀嚼不吧唧出声",
+        "不在餐桌玩手机",
+        "菜先请长辈动"
+      ]
+    },
+    {
+      "title": "致词谢意",
+      "method": "thanks",
+      "items": [
+        "举杯敬长辈主人",
+        "适时致谢",
+        "餐毕道别",
+        "回味不宜久"
+      ]
+    }
+  ]
+}

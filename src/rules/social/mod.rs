@@ -63,12 +63,14 @@ pub mod arbor_day;
 pub mod army_day;
 pub mod awards_ceremony_etiquette;
 pub mod baby_shower_etiquette;
+pub mod banquet_ceremony;
 pub mod banquet_seating;
 pub mod banquet_toast_etiquette;
 pub mod bar;
 pub mod barbecue_etiquette;
 pub mod beach_etiquette;
 pub mod birthday_celebration;
+pub mod birthday_senior_feast;
 pub mod boardroom_etiquette;
 pub mod brazilian_etiquette;
 pub mod british_etiquette;
@@ -138,6 +140,7 @@ pub mod deaf_accessibility;
 pub mod digital_detox;
 pub mod dining;
 pub mod dining_dress_code;
+pub mod dinner_seating_order;
 pub mod diplomatic_etiquette;
 pub mod dragon_boat_festival;
 pub mod elevator;
@@ -172,6 +175,7 @@ pub mod hosting_dinner_party;
 pub mod hotel_stay_etiquette;
 pub mod hotel_stay_manner;
 pub mod housewarming_etiquette;
+pub mod housewarming_gift;
 pub mod indian_etiquette;
 pub mod international_conference;
 pub mod international_gift;
@@ -274,6 +278,7 @@ pub mod wechat_chat_manner;
 pub mod wedding;
 pub mod western_dining;
 pub mod wine_tasting;
+pub mod wine_toast_etiquette;
 pub mod womens_day;
 pub mod work_from_home;
 pub mod workplace;
@@ -292,12 +297,14 @@ pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
 pub use awards_ceremony_etiquette::AwardsCeremonyEtiquetteRules;
 pub use baby_shower_etiquette::BabyShowerEtiquetteRules;
+pub use banquet_ceremony::BanquetCeremonyRules;
 pub use banquet_seating::BanquetSeatingRules;
 pub use banquet_toast_etiquette::BanquetToastEtiquetteRules;
 pub use bar::BarRules;
 pub use barbecue_etiquette::BarbecueEtiquetteRules;
 pub use beach_etiquette::BeachEtiquetteRules;
 pub use birthday_celebration::BirthdayCelebrationRules;
+pub use birthday_senior_feast::BirthdaySeniorFeastRules;
 pub use boardroom_etiquette::BoardroomEtiquetteRules;
 pub use brazilian_etiquette::BrazilianEtiquetteRules;
 pub use british_etiquette::BritishEtiquetteRules;
@@ -367,6 +374,7 @@ pub use deaf_accessibility::DeafAccessibilityEtiquetteRules;
 pub use digital_detox::DigitalDetoxRules;
 pub use dining::{DiningCulture, DiningEtiquette};
 pub use dining_dress_code::DiningDressCodeRules;
+pub use dinner_seating_order::DinnerSeatingOrderRules;
 pub use diplomatic_etiquette::DiplomaticEtiquetteRules;
 pub use dragon_boat_festival::DragonBoatFestivalRules;
 pub use elevator::ElevatorEtiquette;
@@ -401,6 +409,7 @@ pub use hosting_dinner_party::HostingDinnerPartyRules;
 pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
 pub use hotel_stay_manner::HotelStayMannerRules;
 pub use housewarming_etiquette::HousewarmingEtiquetteRules;
+pub use housewarming_gift::HousewarmingGiftRules;
 pub use indian_etiquette::IndianEtiquetteRules;
 pub use international_conference::InternationalConferenceRules;
 pub use international_gift::InternationalGiftRules;
@@ -503,6 +512,7 @@ pub use wechat_chat_manner::WechatChatMannerRules;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
 pub use western_dining::WesternDiningRules;
 pub use wine_tasting::WineTastingRules;
+pub use wine_toast_etiquette::WineToastEtiquetteRules;
 pub use womens_day::WomensDayRules;
 pub use work_from_home::WorkFromHomeRules;
 pub use workplace::WorkplaceRules;
@@ -516,6 +526,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DinnerSeatingOrderRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HousewarmingGiftRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BirthdaySeniorFeastRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WineToastEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BanquetCeremonyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ReplyPromptnessRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "housewarming_gift",
+  "struct": "HousewarmingGiftRules",
+  "name": "乔迁送礼",
+  "desc": "乔迁之喜的贺礼、祝福与到访礼仪",
+  "origin": "中国",
+  "tags": ["社交", "乔迁", "送礼", "到访"],
+  "category": "RuleCategory::social(\"housewarming\")",
+  "sections": [
+    {
+      "title": "贺礼相宜",
+      "method": "gift",
+      "items": [
+        "送实用新家居",
+        "寓意兴旺礼品",
+        "按亲近程度选",
+        "不空手登门"
+      ]
+    },
+    {
+      "title": "进门礼节",
+      "method": "arrive",
+      "items": [
+        "先敲门礼貌问候",
+        "换鞋进室",
+        "先称赞新居",
+        "不多评点"
+      ]
+    },
+    {
+      "title": "参访有度",
+      "method": "visit",
+      "items": [
+        "欣赏布置有分寸",
+        "不随意开柜",
+        "帮忙不添乱",
+        "适当时告辞"
+      ]
+    },
+    {
+      "title": "祝福暖意",
+      "method": "bless",
+      "items": [
+        "道福迁新居",
+        "祝新宅和睦",
+        "问是否需要帮忙",
+        "情谊往来"
+      ]
+    }
+  ]
+}

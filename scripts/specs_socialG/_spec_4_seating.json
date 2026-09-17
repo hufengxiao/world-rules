@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "dinner_seating_order",
+  "struct": "DinnerSeatingOrderRules",
+  "name": "用餐座次",
+  "desc": "中式宴席主宾、长幼的座次安排礼仪",
+  "origin": "中国",
+  "tags": ["社交", "座次", "宴席", "礼仪"],
+  "category": "RuleCategory::social(\"seating_order\")",
+  "sections": [
+    {
+      "title": "主宾之位",
+      "method": "honor",
+      "items": [
+        "主位面向门口方向",
+        "主宾坐主位旁",
+        "次宾相对方位",
+        "主人主陪全场"
+      ]
+    },
+    {
+      "title": "长幼有序",
+      "method": "order",
+      "items": [
+        "长辈坐上首",
+        "晚辈主动让座",
+        "夫妻可相邻",
+        "身份相近相邻"
+      ]
+    },
+    {
+      "title": "入座礼让",
+      "method": "politeness",
+      "items": [
+        "请长辈先坐",
+        "不抢位不占",
+        "主人让座再坐",
+        "起座轻扶椅"
+      ]
+    },
+    {
+      "title": "圆桌规矩",
+      "method": "round",
+      "items": [
+        "主位在背靠墙这端",
+        "左右两侧有序",
+        "转盘先供客",
+        "转动转盘礼貌"
+      ]
+    }
+  ]
+}

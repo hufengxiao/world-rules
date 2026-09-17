@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "wine_toast_etiquette",
+  "struct": "WineToastEtiquetteRules",
+  "name": "敬酒与酒桌礼仪",
+  "desc": "宴饮敬酒、挡酒与酒桌分寸的礼仪",
+  "origin": "中国",
+  "tags": ["社交", "敬酒", "酒桌", "礼仪"],
+  "category": "RuleCategory::social(\"wine_toast\")",
+  "sections": [
+    {
+      "title": "举杯示意",
+      "method": "gesture",
+      "items": [
+        "酒杯低于长辈的杯",
+        "双手端杯敬人",
+        "眼神真诚交流",
+        "碰杯轻不碰撞"
+      ]
+    },
+    {
+      "title": "敬酒顺序",
+      "method": "order",
+      "items": [
+        "先敬长辈主人",
+        "尊长者先后依次",
+        "宾客有序敬",
+        "祝词得体"
+      ]
+    },
+    {
+      "title": "挡酒自量",
+      "method": "decline",
+      "items": [
+        "不胜酒力如实说",
+        "以茶代酒致意",
+        "不劝酒强灌",
+        "尊重他人酒量"
+      ]
+    },
+    {
+      "title": "节制不贪",
+      "method": "moderate",
+      "items": [
+        "适量健康饮酒",
+        "不醉驾",
+        "醉失态不雅",
+        "酒桌欢乐有度"
+      ]
+    }
+  ]
+}

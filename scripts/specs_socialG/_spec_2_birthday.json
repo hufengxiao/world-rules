@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "birthday_senior_feast",
+  "struct": "BirthdaySeniorFeastRules",
+  "name": "寿宴礼仪",
+  "desc": "长辈寿宴的祝寿、礼物与席间礼仪",
+  "origin": "中国",
+  "tags": ["社交", "寿宴", "祝寿", "长辈"],
+  "category": "RuleCategory::social(\"birthday_feast\")",
+  "sections": [
+    {
+      "title": "祝寿心意",
+      "method": "blessing",
+      "items": [
+        "真诚表达祝福",
+        "祝健康长寿",
+        "问候长辈身体",
+        "祝福发自内心"
+      ]
+    },
+    {
+      "title": "贺礼得当",
+      "method": "gift",
+      "items": [
+        "送实用心意礼",
+        "选健康吉祥意",
+        "礼轻情意重",
+        "不攀比排场"
+      ]
+    },
+    {
+      "title": "席间尊长",
+      "method": "seat",
+      "items": [
+        "长辈居上座",
+        "敬酒敬寿星",
+        "耐心听长谈",
+        "不喧宾夺主"
+      ]
+    },
+    {
+      "title": "珍惜团聚",
+      "method": "reunion",
+      "items": [
+        "陪伴多于礼物",
+        "多听长辈往事",
+        "合影留念",
+        "孝在平常相处"
+      ]
+    }
+  ]
+}
