@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "seasonal_cycle",
+  "struct": "SeasonalCycleRules",
+  "name": "四季更替知识",
+  "desc": "地球公转与四季成因、节气知识的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "四季", "节气", "地球"],
+  "category": "RuleCategory::science(\"seasonal\")",
+  "sections": [
+    {
+      "title": "四季成因",
+      "method": "cause",
+      "items": [
+        "地球绕日公转",
+        "地轴倾斜造成季节",
+        "阳光直射点北移南移",
+        "四季交替循环"
+      ]
+    },
+    {
+      "title": "昼夜变化",
+      "method": "day_night",
+      "items": [
+        "昼夜由自转决定",
+        "夏至白昼最长",
+        "冬至白昼最短",
+        "春秋分昼夜等长"
+      ]
+    },
+    {
+      "title": "节气民俗",
+      "method": "solar_term",
+      "items": [
+        "二十四节气划分时令",
+        "反映气候变化",
+        "指导农事生活",
+        "传统智慧科学印证"
+      ]
+    },
+    {
+      "title": "季节适应",
+      "method": "adapt",
+      "items": [
+        "随季节调整作息",
+        "季节变化注意健康",
+        "合理应对温差",
+        "尊重自然规律"
+      ]
+    }
+  ]
+}

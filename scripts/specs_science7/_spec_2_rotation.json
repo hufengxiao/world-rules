@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "earth_rotation_facts",
+  "struct": "EarthRotationFactsRules",
+  "name": "地球自转与昼夜",
+  "desc": "地球自转、昼夜交替与时区的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "地球", "自转", "时区"],
+  "category": "RuleCategory::science(\"earth_rotation\")",
+  "sections": [
+    {
+      "title": "自转原理",
+      "method": "principle",
+      "items": [
+        "地球绕自身轴自转",
+        "自西向东旋转",
+        "周期约一天",
+        "自转产生昼夜交替"
+      ]
+    },
+    {
+      "title": "昼夜分界",
+      "method": "day_night",
+      "items": [
+        "阳光照亮半球为白昼",
+        "另一半为黑夜",
+        "晨昏线移动",
+        "自转使昼夜循环"
+      ]
+    },
+    {
+      "title": "时区概念",
+      "method": "timezone",
+      "items": [
+        "经度划分时区",
+        "东西有时差",
+        "标准时间协调",
+        "跨时区需调整"
+      ]
+    },
+    {
+      "title": "科学生活",
+      "method": "life",
+      "items": [
+        "理解日出日落规律",
+        "提醒时差调整",
+        "不因目视误解自转",
+        "尊重时间科学"
+      ]
+    }
+  ]
+}

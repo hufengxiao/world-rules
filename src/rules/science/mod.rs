@@ -166,6 +166,7 @@ pub mod distributed_systems_detailed;
 pub mod dna_genetics_basics;
 pub mod dynamic_meteorology;
 pub mod dynamics;
+pub mod earth_rotation_facts;
 pub mod ecology;
 pub mod ecology_balance;
 pub mod ecology_detailed;
@@ -243,6 +244,7 @@ pub mod linear_algebra;
 pub mod linguistics;
 pub mod literature;
 pub mod logic_mistakes_avoid;
+pub mod lunar_phases;
 pub mod machine_learning_detailed;
 pub mod magnetostatics;
 pub mod management_science;
@@ -297,6 +299,7 @@ pub mod numerical_analysis;
 pub mod nutrition_science_detailed;
 pub mod obstetrics;
 pub mod obstetrics_gynecology;
+pub mod ocean_waves;
 pub mod oceanography;
 pub mod oceanography_detailed;
 pub mod operating_systems;
@@ -360,6 +363,7 @@ pub mod ring_theory;
 pub mod robotics_detailed;
 pub mod robotics_theory;
 pub mod satellite_meteorology;
+pub mod seasonal_cycle;
 pub mod seismology;
 pub mod seismology_detailed;
 pub mod signal_processing;
@@ -398,6 +402,7 @@ pub mod urban_geography_detailed;
 pub mod vector_space;
 pub mod vibration_wave;
 pub mod virology;
+pub mod volcano_safety;
 pub mod volcanology;
 pub mod volcanology_detailed;
 pub mod waste_management;
@@ -755,6 +760,7 @@ pub use cooking_chemistry::CookingChemistryRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use dna_genetics_basics::DnaGeneticsBasicsRules;
+pub use earth_rotation_facts::EarthRotationFactsRules;
 pub use ecology_balance::EcologyBalanceRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use electric_circuit_basics::ElectricCircuitBasicsRules;
@@ -767,19 +773,23 @@ pub use immune_system_basics::ImmuneSystemBasicsRules;
 pub use lab_notebook_etiquette::LabNotebookEtiquetteRules;
 pub use lab_safety::LabSafetyRules;
 pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
+pub use lunar_phases::LunarPhasesRules;
 pub use material_properties::MaterialPropertiesRules;
 pub use mold_food_safety::MoldFoodSafetyRules;
 pub use nervous_system_basics::NervousSystemBasicsRules;
+pub use ocean_waves::OceanWavesRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use quantum_basics::QuantumBasicsRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use renewable_energy_basics::RenewableEnergyBasicsRules;
 pub use respiratory_system_basics::RespiratorySystemBasicsRules;
+pub use seasonal_cycle::SeasonalCycleRules;
 pub use soil_geography::SoilGeographyRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use survey_design::SurveyDesignRules;
 pub use sustainable_living_science::SustainableLivingScienceRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
+pub use volcano_safety::VolcanoSafetyRules;
 pub use wave_optics_basics::WaveOpticsBasicsRules;
 pub use weather_science_basics::WeatherScienceBasicsRules;
 
@@ -791,6 +801,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = VolcanoSafetyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OceanWavesRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EarthRotationFactsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LunarPhasesRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SeasonalCycleRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CookingBoilingScienceRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

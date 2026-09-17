@@ -1,0 +1,51 @@
+{
+  "cat": "science",
+  "file": "lunar_phases",
+  "struct": "LunarPhasesRules",
+  "name": "月相变化",
+  "desc": "月球绕地、月相周期与潮汐的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "月亮", "月相", "天文"],
+  "category": "RuleCategory::science(\"lunar\")",
+  "sections": [
+    {
+      "title": "月相周期",
+      "method": "phases",
+      "items": [
+        "月亮绕地球运行",
+        "新月望月交替",
+        "上弦下弦可见半轮",
+        "满月最亮圆面"
+      ]
+    },
+    {
+      "title": "成因",
+      "method": "cause",
+      "items": [
+        "月相由反射日光角度",
+        "地球观察位置变化",
+        "不因月自转引起","相对位置决定形状"
+      ]
+    },
+    {
+      "title": "潮汐联系",
+      "method": "tide",
+      "items": [
+        "潮汐受月引力影响",
+        "农历月初大潮",
+        "满月新月潮差大",
+        "沿海注意潮汐安全"
+      ]
+    },
+    {
+      "title": "观月常识",
+      "method": "observe",
+      "items": [
+        "用望远镜安全观测",
+        "辨别月相形状",
+        "记录日期与可见",
+        "不迷信月相禁忌散事"
+      ]
+    }
+  ]
+}
