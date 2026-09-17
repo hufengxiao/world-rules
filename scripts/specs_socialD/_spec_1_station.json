@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "station_hall_manner",
+  "struct": "StationHallMannerRules",
+  "name": "车站候车礼仪",
+  "desc": "车站候车商圈、出行与公共秩序礼仪",
+  "tags": ["社交", "礼仪", "车站", "候车"],
+  "origin": "国际",
+  "category": "RuleCategory::social(\"station_hall\")",
+  "sections": [
+    {
+      "title": "候车规范",
+      "method": "wait",
+      "items": [
+        "在候车区有序等候",
+        "不越过安全黄线",
+        "列车到达先下后上",
+        "有序排队登车"
+      ]
+    },
+    {
+      "title": "行李礼节",
+      "method": "luggage",
+      "items": [
+        "随身行李归置好",
+        "不占通道座位",
+        "行李不碰他人",
+        "大件托运依规"
+      ]
+    },
+    {
+      "title": "安静文明",
+      "method": "quiet",
+      "items": [
+        "不大声喧哗播放",
+        "保持区域整洁",
+        "不乱扔垃圾",
+        "垃圾归置妥当"
+      ]
+    },
+    {
+      "title": "帮助他人",
+      "method": "help",
+      "items": [
+        "帮助有困难旅客",
+        "为紧赶者让行",
+        "答疑友善",
+        "体谅他人匆匆"
+      ]
+    }
+  ]
+}

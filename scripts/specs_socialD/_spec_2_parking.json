@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "parking_courtesy",
+  "struct": "ParkingCourtesyRules",
+  "name": "停车礼让规范",
+  "desc": "停车入位、让行与公共停车秩序礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "停车", "秩序"],
+  "category": "RuleCategory::social(\"parking\")",
+  "sections": [
+    {
+      "title": "规范停车",
+      "method": "park",
+      "items": [
+        "停入划定车位线内",
+        "不占他人专属车位",
+        "不挡通道出入",
+        "按方向有序停放"
+      ]
+    },
+    {
+      "title": "让行礼让",
+      "method": "yielding",
+      "items": [
+        "进出车位注意行人与车辆",
+        "到点让出车位",
+        "不抢他人车位",
+        "狭小空间友善协商"
+      ]
+    },
+    {
+      "title": "特殊车辆",
+      "method": "special",
+      "items": [
+        "不占无障碍车位",
+        "为应急车辆让路",
+        "孩童老人车位礼让",
+        "依规使用专用位"
+      ]
+    },
+    {
+      "title": "公共秩序",
+      "method": "order",
+      "items": [
+        "不乱停乱放",
+        "遵守场所停车规定",
+        "不与守规争吵",
+        "共同维护秩序"
+      ]
+    }
+  ]
+}

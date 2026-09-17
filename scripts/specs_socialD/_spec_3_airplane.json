@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "airplane_manner",
+  "struct": "AirplaneMannerRules",
+  "name": "乘机礼貌规范",
+  "desc": "登机就座、机舱安静与体谅邻座的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "乘机", "机舱"],
+  "category": "RuleCategory::social(\"airplane_manner\")",
+  "sections": [
+    {
+      "title": "登机就座",
+      "method": "boarding",
+      "items": [
+        "有序排队登机",
+        "快速入座不堵机舱",
+        "行李依规摆放",
+        "礼让老人儿童"
+      ]
+    },
+    {
+      "title": "机舱安静",
+      "method": "quiet",
+      "items": [
+        "压低音量交谈",
+        "不喧哗手机外放",
+        "娱乐戴耳机",
+        "照顾婴儿尽力安抚"
+      ]
+    },
+    {
+      "title": "体谅邻座",
+      "method": "considerate",
+      "items": [
+        "起身让邻座方便",
+        "不放腿进邻座空间",
+        "开合遮光板顾及他人",
+        "不抢占扶手过度"
+      ]
+    },
+    {
+      "title": "整洁守规",
+      "method": "manner",
+      "items": [
+        "废弃物放置得当",
+        "尊重乘务与广播",
+        "系好安全带遵规",
+        "礼貌道谢告别"
+      ]
+    }
+  ]
+}

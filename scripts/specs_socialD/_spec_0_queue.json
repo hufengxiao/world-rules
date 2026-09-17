@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "line_queue_etiquette",
+  "struct": "LineQueueEtiquetteRules",
+  "name": "排队秩序礼仪",
+  "desc": "公共场所排队、守序与让行的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "排队", "秩序"],
+  "category": "RuleCategory::social(\"line_queue\")",
+  "sections": [
+    {
+      "title": "自觉排队",
+      "method": "wait",
+      "items": [
+        "按先后顺序排队",
+        "认清队尾不插队",
+        "不挤占他人位置",
+        "耐心等待不催促"
+      ]
+    },
+    {
+      "title": "礼让老幼",
+      "method": "care",
+      "items": [
+        "让老人孕妇先行",
+        "体谅行动不便者",
+        "有急事礼貌说明",
+        "得照顾要道谢"
+      ]
+    },
+    {
+      "title": "守规有序",
+      "method": "order",
+      "items": [
+        "遵守一人一位",
+        "不代排请托乱序",
+        "保持间隔不贴靠",
+        "离开队伍重排或说明"
+      ]
+    },
+    {
+      "title": "文明氛围",
+      "method": "manner",
+      "items": [
+        "不乱穿队扰乱",
+        "不大声喧哗",
+        "维护公共秩序",
+        "互相体谅礼让"
+      ]
+    }
+  ]
+}

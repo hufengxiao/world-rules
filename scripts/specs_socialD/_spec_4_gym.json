@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "gym_shared_etiquette",
+  "struct": "GymSharedEtiquetteRules",
+  "name": "健身房共享礼仪",
+  "desc": "健身房器材共享、卫生与互助的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "健身房", "共享"],
+  "category": "RuleCategory::social(\"gym_shared\")",
+  "sections": [
+    {
+      "title": "器材共享",
+      "method": "equip",
+      "items": [
+        "用完器材及时让出",
+        "与他人共用排好队",
+        "不长时间霸占",
+        "有急用礼貌协商"
+      ]
+    },
+    {
+      "title": "卫生整洁",
+      "method": "clean",
+      "items": [
+        "运动后用毛巾擦垫",
+        "归还器械归位",
+        "保持更衣整洁",
+        "不遗留个人物品"
+      ]
+    },
+    {
+      "title": "安静礼貌",
+      "method": "quiet",
+      "items": [
+        "练习适量不大吵",
+        "手机不外放",
+        "交谈不过分喧闹",
+        "注重个人清洁"
+      ]
+    },
+    {
+      "title": "互助尊重",
+      "method": "respect",
+      "items": [
+        "不评判他人身材",
+        "指导需征得同意",
+        "礼让新手与长辈",
+        "营造友好氛围"
+      ]
+    }
+  ]
+}
