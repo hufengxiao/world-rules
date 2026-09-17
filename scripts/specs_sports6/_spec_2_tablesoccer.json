@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "table_soccer_rules",
+  "struct": "TableSoccerRules",
+  "name": "桌上足球规则",
+  "desc": "桌上足球的操作、进球与轮流规则",
+  "origin": "国际",
+  "tags": ["体育", "桌上足球", "规则"],
+  "category": "RuleCategory::sports(\"table_soccer\")",
+  "sections": [
+    {
+      "title": "操作方式",
+      "method": "control",
+      "items": [
+        "转动操纵杆控球",
+        "控制己方球员",
+        "射门传球配合",
+        "不转杆过猛"
+      ]
+    },
+    {
+      "title": "发球与死球",
+      "method": "restart",
+      "items": [
+        "进球后重新开球",
+        "出界发球恢复",
+        "死球时按规矩发",
+        "公平轮流开球"
+      ]
+    },
+    {
+      "title": "记分胜负",
+      "method": "scoring",
+      "items": [
+        "球入对方门得分",
+        "先达规定分获胜",
+        "某些计三局两胜",
+        "比分公开记录"
+      ]
+    },
+    {
+      "title": "场边礼仪",
+      "method": "manner",
+      "items": [
+        "不拍击球台",
+        "轮流不抢杆",
+        "尊重队手动作",
+        "绅士比赛"
+      ]
+    }
+  ]
+}

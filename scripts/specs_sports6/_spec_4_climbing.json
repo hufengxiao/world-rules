@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "rock_climbing_gym",
+  "struct": "RockClimbingGymRules",
+  "name": "攀岩馆练习规范",
+  "desc": "室内攀岩的安全、路线与共练礼仪",
+  "origin": "国际",
+  "tags": ["体育", "攀岩", "室内", "安全"],
+  "category": "RuleCategory::sports(\"rock_climbing\")",
+  "sections": [
+    {
+      "title": "安全准备",
+      "method": "gear",
+      "items": [
+        "用合格的装备",
+        "检查绳索安全带",
+        "热身充分再攀",
+        "确保保险正确"
+      ]
+    },
+    {
+      "title": "攀登路线",
+      "method": "route",
+      "items": [
+        "选定难度合适路线",
+        "使用岩点借力",
+        "下落稳妥控身",
+        "量力逐级挑战"
+      ]
+    },
+    {
+      "title": "搭档保障",
+      "method": "belay",
+      "items": [
+        "攀爬时有人保护",
+        "沟通喊话清楚",
+        "不随便解扣",
+        "认真负责保护"
+      ]
+    },
+    {
+      "title": "场地礼仪",
+      "method": "manner",
+      "items": [
+        "不占线路长久",
+        "落点确认安全",
+        "不劝扰他人",
+        "遵守场馆规章"
+      ]
+    }
+  ]
+}

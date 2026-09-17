@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "snooker_basics",
+  "struct": "SnookerBasicsRules",
+  "name": "斯诺克基本规则",
+  "desc": "斯诺克台球的开球、击球与计分规则",
+  "origin": "国际",
+  "tags": ["体育", "斯诺克", "台球"],
+  "category": "RuleCategory::sports(\"snooker\")",
+  "sections": [
+    {
+      "title": "台面与球",
+      "method": "table_balls",
+      "items": [
+        "台面有彩球布局",
+        "红球与彩球分值不同",
+        "开球击红球",
+        "交替击红与彩球"
+      ]
+    },
+    {
+      "title": "击球规则",
+      "method": "shot",
+      "items": [
+        "先击目标红球",
+        "进红球后击彩球",
+        "未得分则换对方",
+        "犯规对方获自由球"
+      ]
+    },
+    {
+      "title": "计分方式",
+      "method": "scoring",
+      "items": [
+        "红球一分一球",
+        "彩球按分值",
+        "最后清彩球",
+        "分数高者获胜"
+      ]
+    },
+    {
+      "title": "礼仪", 
+      "method": "manner",
+      "items": [
+        "对方击球时安静",
+        "不击打对方球",
+        "保持球台整洁",
+        "尊重裁判与对手"
+      ]
+    }
+  ]
+}

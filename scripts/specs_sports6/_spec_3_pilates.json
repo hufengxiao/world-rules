@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "pilates_basics",
+  "struct": "PilatesBasicsRules",
+  "name": "普拉提基础",
+  "desc": "普拉提呼吸、核心控制与安全练习规范",
+  "origin": "国际",
+  "tags": ["体育", "普拉提", "核心", "健身"],
+  "category": "RuleCategory::sports(\"pilates\")",
+  "sections": [
+    {
+      "title": "呼吸配合",
+      "method": "breath",
+      "items": [
+        "鼻息协调动作",
+        "呼气收紧核心",
+        "节奏均匀不过呼",
+        "配合动作起伏"
+      ]
+    },
+    {
+      "title": "核心控制",
+      "method": "core",
+      "items": [
+        "激活核心腹肌",
+        "保持脊柱中立位",
+        "缓慢流畅转动",
+        "减少代偿发力"
+      ]
+    },
+    {
+      "title": "循序渐进",
+      "method": "progression",
+      "items": [
+        "从基础动作学起",
+        "量力而行不硬撑",
+        "有伤痛调整动作",
+        "配合垫上器械"
+      ]
+    },
+    {
+      "title": "安全规范",
+      "method": "safety",
+      "items": [
+        "练习前充分热身",
+        "呼吸不畅停止",
+        "腰背伤咨询教练",
+        "场地防滑稳"
+      ]
+    }
+  ]
+}

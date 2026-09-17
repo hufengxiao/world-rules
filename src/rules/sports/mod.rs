@@ -130,6 +130,7 @@ pub mod bodybuilding_detailed;
 pub mod bokator;
 pub mod bowling;
 pub mod bowling_detailed;
+pub mod bowling_etiquette;
 pub mod boxing;
 pub mod boxing_amateur;
 pub mod boxing_british;
@@ -404,6 +405,7 @@ pub mod petanque;
 pub mod petanque_fipjp_detailed;
 pub mod pickleball_ifp;
 pub mod pickleball_rules;
+pub mod pilates_basics;
 pub mod pole_vault;
 pub mod polo;
 pub mod powerlifting;
@@ -416,6 +418,7 @@ pub mod referee_respect;
 pub mod relay;
 pub mod relay_race_basics;
 pub mod rhythmic_gymnastics;
+pub mod rock_climbing_gym;
 pub mod roller_skating;
 pub mod rowing;
 pub mod rowing_olympic;
@@ -464,6 +467,7 @@ pub mod skiing_alpine_world_cup;
 pub mod skydiving;
 pub mod skydiving_ippc;
 pub mod slalom_kayaking;
+pub mod snooker_basics;
 pub mod snooker_detailed;
 pub mod snowboard_fis_detailed;
 pub mod snowboarding;
@@ -505,6 +509,7 @@ pub mod swimming_short_course;
 pub mod swimming_stroke_basics;
 pub mod swimming_world_championship;
 pub mod synchronized_swimming;
+pub mod table_soccer_rules;
 pub mod table_tennis;
 pub mod table_tennis_detailed;
 pub mod table_tennis_olympic;
@@ -658,6 +663,7 @@ pub use bodybuilding_detailed::BodybuildingDetailedRules;
 pub use bokator::BokatorRules;
 pub use bowling::BowlingRules;
 pub use bowling_detailed::BowlingDetailedRules;
+pub use bowling_etiquette::BowlingEtiquetteRules;
 pub use boxing::BoxingRules;
 pub use boxing_amateur::BoxingAmateurRules;
 pub use boxing_british::BoxingBritishRules;
@@ -947,6 +953,7 @@ pub use petanque::PetanqueRules;
 pub use petanque_fipjp_detailed::PetanqueFipjpDetailedRules;
 pub use pickleball_ifp::PickleballIfpRules;
 pub use pickleball_rules::PickleballRules;
+pub use pilates_basics::PilatesBasicsRules;
 pub use pole_vault::PoleVaultRules;
 pub use polo::PoloRules;
 pub use powerlifting::PowerliftingRules;
@@ -958,6 +965,7 @@ pub use referee_respect::RefereeRespectRules;
 pub use relay::RelayRules;
 pub use relay_race_basics::RelayRaceBasicsRules;
 pub use rhythmic_gymnastics::RhythmicGymnasticsRules;
+pub use rock_climbing_gym::RockClimbingGymRules;
 pub use roller_skating::RollerSkatingRules;
 pub use rowing::RowingRules;
 pub use rowing_olympic::RowingOlympicRules;
@@ -1006,6 +1014,7 @@ pub use skiing_alpine_world_cup::SkiingAlpineWorldCupRules;
 pub use skydiving::SkydivingRules;
 pub use skydiving_ippc::SkydivingIppcRules;
 pub use slalom_kayaking::SlalomKayakingRules;
+pub use snooker_basics::SnookerBasicsRules;
 pub use snooker_detailed::SnookerDetailedRules;
 pub use snowboard_fis_detailed::SnowboardFisDetailedRules;
 pub use snowboarding::SnowboardingRules;
@@ -1062,6 +1071,7 @@ pub use swimming_short_course::SwimmingShortCourseRules;
 pub use swimming_stroke_basics::SwimmingStrokeBasicsRules;
 pub use swimming_world_championship::SwimmingWorldChampionshipRules;
 pub use synchronized_swimming::SynchronizedSwimmingRules;
+pub use table_soccer_rules::TableSoccerRules;
 pub use table_tennis::TableTennisRules;
 pub use table_tennis_detailed::TableTennisDetailedRules;
 pub use table_tennis_olympic::TableTennisOlympicRules;
@@ -1152,6 +1162,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = RockClimbingGymRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PilatesBasicsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TableSoccerRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BowlingEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SnookerBasicsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = JumpRopeFitnessRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));

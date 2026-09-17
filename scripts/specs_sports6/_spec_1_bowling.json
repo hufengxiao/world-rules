@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "bowling_etiquette",
+  "struct": "BowlingEtiquetteRules",
+  "name": "保龄球礼仪与规则",
+  "desc": "保龄球记分、轮流与场地礼仪",
+  "origin": "国际",
+  "tags": ["体育", "保龄球", "礼仪"],
+  "category": "RuleCategory::sports(\"bowling\")",
+  "sections": [
+    {
+      "title": "轮流投球",
+      "method": "taking",
+      "items": [
+        "按球道顺序依次投球",
+        "前一人投完再上",
+        "每轮记录两次机会",
+        "尊重他人节奏"
+      ]
+    },
+    {
+      "title": "投球要领",
+      "method": "throw",
+      "items": [
+        "从发球线助跑投球",
+        "瞄准球瓶稳准发力",
+        "不越线不干扰",
+        "控制球速适顺"
+      ]
+    },
+    {
+      "title": "计分常识",
+      "method": "scoring",
+      "items": [
+        "每次击倒的瓶记分",
+        "补中加下一投奖励",
+        "全倒加后两次奖励",
+        "总分竞高者胜"
+      ]
+    },
+    {
+      "title": "场地礼仪",
+      "method": "manner",
+      "items": [
+        "换专用球鞋上场",
+        "不占他人球道",
+        "投后令退避让",
+        "尊重他人发挥"
+      ]
+    }
+  ]
+}
