@@ -53,6 +53,7 @@
 pub mod accompany_etiquette;
 pub mod african_etiquette;
 pub mod airplane_etiquette;
+pub mod airport_etiquette;
 pub mod alcohol_etiquette;
 pub mod american_etiquette;
 pub mod apology_etiquette;
@@ -69,6 +70,7 @@ pub mod boardroom_etiquette;
 pub mod brazilian_etiquette;
 pub mod british_etiquette;
 pub mod buffet_dining;
+pub mod bus_rider_etiquette;
 pub mod business;
 pub mod business_card;
 pub mod business_dress_code;
@@ -134,6 +136,7 @@ pub mod dragon_boat_festival;
 pub mod elevator;
 pub mod elevator_detailed;
 pub mod email;
+pub mod escalator_etiquette;
 pub mod festival;
 pub mod fishing_etiquette;
 pub mod flight;
@@ -192,6 +195,7 @@ pub mod park_etiquette;
 pub mod partnership_etiquette;
 pub mod party;
 pub mod party_founding_day;
+pub mod pedestrian_street_etiquette;
 pub mod pet_etiquette;
 pub mod pet_outdoor_etiquette;
 pub mod pharmacy_etiquette;
@@ -222,6 +226,7 @@ pub mod subway_etiquette;
 pub mod supplier_relations_etiquette;
 pub mod sustainable_living;
 pub mod swimming_pool_etiquette;
+pub mod taxi_ride_etiquette;
 pub mod tea;
 pub mod tea_house;
 pub mod tea_serving_etiquette;
@@ -247,6 +252,7 @@ pub mod yuanxiao;
 pub use accompany_etiquette::AccompanyEtiquetteRules;
 pub use african_etiquette::AfricanEtiquetteRules;
 pub use airplane_etiquette::AirplaneEtiquetteRules;
+pub use airport_etiquette::AirportEtiquetteRules;
 pub use alcohol_etiquette::AlcoholEtiquetteRules;
 pub use american_etiquette::AmericanEtiquetteRules;
 pub use apology_etiquette::ApologyEtiquetteRules;
@@ -263,6 +269,7 @@ pub use boardroom_etiquette::BoardroomEtiquetteRules;
 pub use brazilian_etiquette::BrazilianEtiquetteRules;
 pub use british_etiquette::BritishEtiquetteRules;
 pub use buffet_dining::BuffetDiningRules;
+pub use bus_rider_etiquette::BusRiderEtiquetteRules;
 pub use business::BusinessEtiquette;
 pub use business_card::BusinessCardRules;
 pub use business_dress_code::BusinessDressCodeRules;
@@ -328,6 +335,7 @@ pub use dragon_boat_festival::DragonBoatFestivalRules;
 pub use elevator::ElevatorEtiquette;
 pub use elevator_detailed::ElevatorDetailedRules;
 pub use email::EmailEtiquette;
+pub use escalator_etiquette::EscalatorEtiquetteRules;
 pub use festival::{ChineseFestival, FestivalEtiquette};
 pub use fishing_etiquette::FishingEtiquetteRules;
 pub use flight::FlightEtiquette;
@@ -386,6 +394,7 @@ pub use park_etiquette::ParkEtiquetteRules;
 pub use partnership_etiquette::PartnershipEtiquetteRules;
 pub use party::PartyRules;
 pub use party_founding_day::PartyFoundingDayRules;
+pub use pedestrian_street_etiquette::PedestrianStreetEtiquetteRules;
 pub use pet_etiquette::PetEtiquetteRules;
 pub use pet_outdoor_etiquette::PetOutdoorEtiquetteRules;
 pub use pharmacy_etiquette::PharmacyEtiquetteRules;
@@ -416,6 +425,7 @@ pub use subway_etiquette::SubwayEtiquetteRules;
 pub use supplier_relations_etiquette::SupplierRelationsEtiquetteRules;
 pub use sustainable_living::SustainableLivingRules;
 pub use swimming_pool_etiquette::SwimmingPoolEtiquetteRules;
+pub use taxi_ride_etiquette::TaxiRideEtiquetteRules;
 pub use tea::{TeaCulture, TeaEtiquette};
 pub use tea_house::TeaHouseRules;
 pub use tea_serving_etiquette::TeaServingEtiquetteRules;
@@ -446,6 +456,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = PedestrianStreetEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EscalatorEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TaxiRideEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AirportEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BusRiderEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = GrocerySupermarketEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

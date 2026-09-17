@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "taxi_ride_etiquette",
+  "struct": "TaxiRideEtiquetteRules",
+  "name": "出租车网约车乘车礼仪",
+  "desc": "乘出租或网约车时的礼仪、沟通与评价",
+  "tags": ["社交", "礼仪", "出租车", "网约车", "乘车"],
+  "category": "RuleCategory::social(\"taxi_ride\")",
+  "sections": [
+    {
+      "title": "叫车认知",
+      "method": "booking",
+      "items": [
+        "在允许招手的地段叫车",
+        "核对车牌与订单",
+        "确认目的地与费用",
+        "礼貌道谢协调"
+      ]
+    },
+    {
+      "title": "乘车礼仪",
+      "method": "riding",
+      "items": [
+        "系好安全带",
+        "不要求司机危险驾驶",
+        "车内不乱丢弃",
+        "行李放妥不挡视线"
+      ]
+    },
+    {
+      "title": "沟通边界",
+      "method": "communication",
+      "items": [
+        "尊重司机劳动与隐私",
+        "不无端催促或投诉",
+        "有意见平和表达",
+        "不强迫司机违规"
+      ]
+    },
+    {
+      "title": "评价反馈",
+      "method": "rating",
+      "items": [
+        "按实际体验客观评价",
+        "好服务可给好评",
+        "问题如实反映",
+        "不恶意差评恐吓"
+      ]
+    }
+  ]
+}

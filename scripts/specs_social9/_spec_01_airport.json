@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "airport_etiquette",
+  "struct": "AirportEtiquetteRules",
+  "name": "机场出行礼仪",
+  "desc": "机场值机、安检、候机与登机的秩序礼仪",
+  "tags": ["社交", "礼仪", "机场", "候机", "登机"],
+  "category": "RuleCategory::social(\"airport\")",
+  "sections": [
+    {
+      "title": "值机与安检",
+      "method": "checkin",
+      "items": [
+        "预留足够时间到机场",
+        "按提示有序办理值机",
+        "配合安检顺序",
+        "取回行李不落失"
+      ]
+    },
+    {
+      "title": "候机大厅",
+      "method": "lounge",
+      "items": [
+        "不大声喧哗影响他人",
+        "不占座躺卧",
+        "手机保持静音接听",
+        "整理随行物品不散落"
+      ]
+    },
+    {
+      "title": "登机秩序",
+      "method": "boarding",
+      "items": [
+        "按舱位与顺序登机",
+        "登机时有序不挤",
+        "就座后放好随身行李",
+        "不霸占头顶空间"
+      ]
+    },
+    {
+      "title": "同行乘客",
+      "method": "passenger",
+      "items": [
+        "遵守工作人员引导",
+        "尊重同机旅客",
+        "飞行中守纪律听从指示",
+        "机上礼貌沟通"
+      ]
+    }
+  ]
+}

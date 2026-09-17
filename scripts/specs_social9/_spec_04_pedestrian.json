@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "pedestrian_street_etiquette",
+  "struct": "PedestrianStreetEtiquetteRules",
+  "name": "步行街道礼仪",
+  "desc": "人行道步行时的让行、并行与行为礼仪",
+  "tags": ["社交", "礼仪", "行人", "步行", "街道"],
+  "category": "RuleCategory::social(\"pedestrian\")",
+  "sections": [
+    {
+      "title": "行走规则",
+      "method": "walking",
+      "items": [
+        "靠右行走不逆向逆行",
+        "红绿灯处依信号通行",
+        "人行横道过马路",
+        "不闯红灯横穿"
+      ]
+    },
+    {
+      "title": "让行大局",
+      "method": "yielding",
+      "items": [
+        "遇迎面让出空间",
+        "老人儿童放慢等待",
+        "转弯路口留意方向",
+        "不带耳机完全隔绝路面"
+      ]
+    },
+    {
+      "title": "公共空间",
+      "method": "public",
+      "items": [
+        "不占用盲道停车",
+        "不随地吐痰丢屑",
+        "雨伞收放在窄处",
+        "音响避免干扰他人"
+      ]
+    },
+    {
+      "title": "安全细节",
+      "method": "safety",
+      "items": [
+        "过马路不看手机",
+        "夜间浅色衣更安全",
+        "孩童拉好过街",
+        "紧急时为警车让行"
+      ]
+    }
+  ]
+}

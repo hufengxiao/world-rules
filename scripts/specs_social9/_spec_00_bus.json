@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "bus_rider_etiquette",
+  "struct": "BusRiderEtiquetteRules",
+  "name": "公交乘车礼仪",
+  "desc": "公交上下、让座与车厢内的公共礼仪",
+  "tags": ["社交", "礼仪", "公交", "乘车", "公共交通"],
+  "category": "RuleCategory::social(\"bus_rider\")",
+  "sections": [
+    {
+      "title": "候车与上落",
+      "method": "boarding",
+      "items": [
+        "在站点排队候车",
+        "先下后上不拥挤",
+        "有序刷卡投币",
+        "停稳再上下车"
+      ]
+    },
+    {
+      "title": "车厢礼仪",
+      "method": "carriage",
+      "items": [
+        "主动让座老弱病残孕",
+        "控制随身物品不占道",
+        "不高声喧哗或看外音",
+        "站好扶稳注意安全"
+      ]
+    },
+    {
+      "title": "文明举止",
+      "method": "manners",
+      "items": [
+        "不随地吐痰丢物",
+        "饮食注意气味",
+        "接听电话压低音量",
+        "雨天收伞不滴水"
+      ]
+    },
+    {
+      "title": "下车引导",
+      "method": "alighting",
+      "items": [
+        "到站前按铃提示",
+        "下车前行提前移向门口",
+        "不堵在门口堵塞",
+        "下车礼让行动不便者"
+      ]
+    }
+  ]
+}

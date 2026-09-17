@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "escalator_etiquette",
+  "struct": "EscalatorEtiquetteRules",
+  "name": "扶梯与楼梯礼仪",
+  "desc": "乘坐扶梯、走楼梯时的让行与安全礼仪",
+  "tags": ["社交", "礼仪", "扶梯", "楼梯", "安全"],
+  "category": "RuleCategory::social(\"escalator\")",
+  "sections": [
+    {
+      "title": "扶梯站立",
+      "method": "standing",
+      "items": [
+        "站稳扶手靠一侧",
+        "如需行走走另一侧",
+        "老人儿童抓紧扶手",
+        "不占两侧挡道"
+      ]
+    },
+    {
+      "title": "通行有序",
+      "method": "passing",
+      "items": [
+        "不迎面上行逆行",
+        "通行时轻让不急跑",
+        "照顾行李与推车",
+        "不行人并排阻挡"
+      ]
+    },
+    {
+      "title": "上下安全",
+      "method": "safety",
+      "items": [
+        "进出时观察来向",
+        "不嬉戏追跑",
+        "严扶扶手防跌倒",
+        "携带重物轻慢行"
+      ]
+    },
+    {
+      "title": "楼梯让行",
+      "method": "stair",
+      "items": [
+        "靠右行走留左侧通行",
+        "遇老人放慢让行",
+        "不拥挤争道",
+        "注意脚下灯昏暗"
+      ]
+    }
+  ]
+}
