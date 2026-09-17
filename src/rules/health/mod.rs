@@ -78,6 +78,7 @@ pub mod detox_rules;
 pub mod diabetes_management;
 pub mod digestive_health;
 pub mod drowning_rescue;
+pub mod ear_ache_care;
 pub mod earthquake_safety;
 pub mod elder_fall_prevention;
 pub mod elderly_health;
@@ -99,6 +100,7 @@ pub mod hand_washing_hygiene;
 pub mod hearing_health;
 pub mod heart_health;
 pub mod heatstroke_prevention;
+pub mod hiccup_relief;
 pub mod home_first_aid_kit;
 pub mod hydration_rules;
 pub mod hydration_strategy;
@@ -122,6 +124,7 @@ pub mod migraine_management;
 pub mod mindfulness_basics;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
+pub mod nasal_congestion_relief;
 pub mod nutrition;
 pub mod nutrition_basics;
 pub mod occupational_health;
@@ -137,6 +140,7 @@ pub mod prenatal_health;
 pub mod prolonged_sitting_safety;
 pub mod respiratory_health;
 pub mod scalds_burns;
+pub mod screen_eye_strain_care;
 pub mod seasonal_health;
 pub mod seizure_response;
 pub mod skin_care_rules;
@@ -153,6 +157,7 @@ pub mod stress_relief_life;
 pub mod sun_protection;
 pub mod teen_health;
 pub mod thyroid_care;
+pub mod tinnitus_ringing_relief;
 pub mod toddler_health;
 pub mod travel_health;
 pub mod vaccination_rules;
@@ -188,6 +193,7 @@ pub use detox_rules::DetoxRulesRules;
 pub use diabetes_management::DiabetesManagementRules;
 pub use digestive_health::DigestiveHealthRules;
 pub use drowning_rescue::DrowningRescueRules;
+pub use ear_ache_care::EarAcheCareRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
 pub use elder_fall_prevention::ElderFallPreventionRules;
 pub use elderly_health::ElderlyHealthRules;
@@ -209,6 +215,7 @@ pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
+pub use hiccup_relief::HiccupReliefRules;
 pub use home_first_aid_kit::HomeFirstAidKitRules;
 pub use hydration_rules::HydrationRulesRules;
 pub use hydration_strategy::HydrationStrategyRules;
@@ -232,6 +239,7 @@ pub use migraine_management::MigraineManagementRules;
 pub use mindfulness_basics::MindfulnessBasicsRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
+pub use nasal_congestion_relief::NasalCongestionReliefRules;
 pub use nutrition::NutritionRules;
 pub use nutrition_basics::NutritionBasicsRules;
 pub use occupational_health::OccupationalHealthRules;
@@ -247,6 +255,7 @@ pub use prenatal_health::PrenatalHealthRules;
 pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use scalds_burns::ScaldBurnCareRules;
+pub use screen_eye_strain_care::ScreenEyeStrainCareRules;
 pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
 pub use skin_care_rules::SkinCareRulesRules;
@@ -263,6 +272,7 @@ pub use stress_relief_life::StressReliefRules;
 pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
 pub use thyroid_care::ThyroidCareRules;
+pub use tinnitus_ringing_relief::TinnitusRingingReliefRules;
 pub use toddler_health::ToddlerHealthRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
@@ -280,6 +290,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = TinnitusRingingReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ScreenEyeStrainCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NasalCongestionReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HiccupReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EarAcheCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ProlongedSittingSafetyRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

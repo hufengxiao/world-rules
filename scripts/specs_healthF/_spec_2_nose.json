@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "nasal_congestion_relief",
+  "struct": "NasalCongestionReliefRules",
+  "name": "鼻塞鼻堵缓解",
+  "desc": "感冒过敏等所致鼻塞的缓解与护理规则",
+  "origin": "医学",
+  "tags": ["健康", "鼻塞", "鼻子", "护理"],
+  "category": "RuleCategory::health(\"nasal_stuffy\")",
+  "sections": [
+    {
+      "title": "日常缓解",
+      "method": "relief",
+      "items": [
+        "用生理盐水洗鼻",
+        "热蒸汽湿润鼻腔",
+        "保持室内空气湿润",
+        "按需睡时稍稍抬高头部"
+      ]
+    },
+    {
+      "title": "通气技巧",
+      "method": "breathe",
+      "items": [
+        "交替按压鼻翼通流",
+        "避免反复猛烈擤鼻",
+        "用纸巾轻擦",
+        "保证通风换气"
+      ]
+    },
+    {
+      "title": "用药注意",
+      "method": "medication",
+      "items": [
+        "不长期滥用滴鼻药",
+        "感冒鼻塞遵医嘱",
+        "过敏鼻塞找过敏原",
+        "连续用药别超建议天"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek",
+      "items": [
+        "鼻塞伴发热头痛就医",
+        "单侧脓涕或血涕检查",
+        "鼻塞影响睡眠多日就诊",
+        "儿童鼻塞奶注意"
+      ]
+    }
+  ]
+}

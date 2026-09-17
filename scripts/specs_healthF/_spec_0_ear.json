@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "ear_ache_care",
+  "struct": "EarAcheCareRules",
+  "name": "耳痛与护耳",
+  "desc": "耳痛耳炎的识别、止护与就医护理规则",
+  "origin": "医学",
+  "tags": ["健康", "耳朵", "耳痛", "护理"],
+  "category": "RuleCategory::health(\"ear_ache\")",
+  "sections": [
+    {
+      "title": "识别表症",
+      "method": "signs",
+      "items": [
+        "关注耳痛耳闷不适",
+        "留意是否有分泌物",
+        "注意听力变化",
+        "儿童耳痛及时留意"
+      ]
+    },
+    {
+      "title": "居家安抚",
+      "method": "relief",
+      "items": [
+        "避免用硬物掏耳",
+        "保持耳道干燥清洁",
+        "洗头游泳防进水",
+        "疼痛可温热敷外耳"
+      ]
+    },
+    {
+      "title": "用药谨慎",
+      "method": "medication",
+      "items": [
+        "不擅自滴入不明药水",
+        "耳部用药遵医嘱",
+        "勿用力擤鼻加重",
+        "症状明显就医"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek",
+      "items": [
+        "耳痛持续或加重就医",
+        "流脓血速就医",
+        "听力明显下降检查",
+        "儿童或老人耳痛重视"
+      ]
+    }
+  ]
+}

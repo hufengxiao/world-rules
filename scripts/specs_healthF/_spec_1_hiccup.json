@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "hiccup_relief",
+  "struct": "HiccupReliefRules",
+  "name": "打嗝缓解",
+  "desc": "打嗝诱因、缓解方法与持续打嗝就医提示",
+  "origin": "医学",
+  "tags": ["健康", "打嗝", "膈肌", "缓解"],
+  "category": "RuleCategory::health(\"hiccup\")",
+  "sections": [
+    {
+      "title": "常见诱因",
+      "method": "causes",
+      "items": [
+        "过快进食或吞咽气",
+        "吃得过饱或喝碳酸",
+        "情绪激动诱嗝",
+        "温度骤变刺激膈肌"
+      ]
+    },
+    {
+      "title": "缓解方法",
+      "method": "relief",
+      "items": [
+        "暂停进食缓慢呼吸",
+        "小口饮水缓吞",
+        "屏息片刻或轻呼",
+        "弯腰缓慢伸展放松"
+      ]
+    },
+    {
+      "title": "预防",
+      "method": "prevent",
+      "items": [
+        "细嚼慢咽不狼吞",
+        "少饮用碳酸饮料",
+        "避免过快大量进食",
+        "餐后不立即奔跳"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek",
+      "items": [
+        "打嗝持续超过一天就医",
+        "伴随吞咽困难或反酸检查",
+        "伴胸痛腹胀明显就医",
+        "影响进食睡眠需诊治"
+      ]
+    }
+  ]
+}

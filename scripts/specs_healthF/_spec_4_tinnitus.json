@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "tinnitus_ringing_relief",
+  "struct": "TinnitusRingingReliefRules",
+  "name": "耳鸣护听",
+  "desc": "耳鸣的诱因、缓解与护听注意事项",
+  "origin": "医学",
+  "tags": ["健康", "耳鸣", "听力", "护耳"],
+  "category": "RuleCategory::health(\"tinnitus\")",
+  "sections": [
+    {
+      "title": "认知诱因",
+      "method": "causes",
+      "items": [
+        "噪音暴露可致耳鸣",
+        "疲劳压力易诱发",
+        "药物或耳疾相关",
+        "血压异常可能相关"
+      ]
+    },
+    {
+      "title": "护听习惯",
+      "method": "protect",
+      "items": [
+        "远离持续高分贝环境",
+        "必要时佩戴护听器",
+        "控制耳机音量和时长",
+        "避免用硬物掏耳"
+      ]
+    },
+    {
+      "title": "缓解应对",
+      "method": "relief",
+      "items": [
+        "放松身心减轻紧张",
+        "白噪音轻放掩盖",
+        "规律作息充足睡眠",
+        "不因耳鸣过度焦虑"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek",
+      "items": [
+        "突发或单侧耳鸣就医",
+        "伴眩晕听力下降检查",
+        "耳鸣持续影响生活就诊",
+        "规范检查排除耳疾"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "screen_eye_strain_care",
+  "struct": "ScreenEyeStrainCareRules",
+  "name": "屏幕护眼与用眼休息",
+  "desc": "看屏久视导致眼疲劳、干涩的护眼方法",
+  "origin": "医学",
+  "tags": ["健康", "护眼", "屏幕", "眼睛", "用眼休息"],
+  "category": "RuleCategory::health(\"blue_light_eye\")",
+  "sections": [
+    {
+      "title": "合理用屏",
+      "method": "screen",
+      "items": [
+        "保持屏幕一臂距离",
+        "视线略低于屏幕",
+        "调整亮度不刺眼",
+        "适时休息减少连续看屏"
+      ]
+    },
+    {
+      "title": "眨眼休息",
+      "method": "blink",
+      "items": [
+        "有意识地多眨眼",
+        "遵循用眼20-20-20",
+        "远望放松调节肌",
+        "避免久盯不眨眼"
+      ]
+    },
+    {
+      "title": "环境光线",
+      "method": "lighting",
+      "items": [
+        "环境光不过强过暗",
+        "避开直射反光",
+        "可轻微调低高亮",
+        "夜间减少蓝光刺激"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek",
+      "items": [
+        "眼红痛持续就医",
+        "视力模糊加重检查",
+        "干涩明显用人工泪液遵医嘱",
+        "定期检查排除眼疾"
+      ]
+    }
+  ]
+}
