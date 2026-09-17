@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "online_shopping_rights",
+  "struct": "OnlineShoppingRightsRules",
+  "name": "网购消费者权利",
+  "desc": "网购下单、退换货、维权时的消费者权利要点",
+  "origin": "中国",
+  "tags": ["法律", "网购", "消费者", "退换货"],
+  "category": "RuleCategory::law(\"online_shopping\")",
+  "sections": [
+    {
+      "title": "下单明辨",
+      "method": "ordering",
+      "items": [
+        "核对商品描述与价格",
+        "看清运费与促销规则",
+        "留意商家资质与评价",
+        "保留订单与聊天记录"
+      ]
+    },
+    {
+      "title": "七日无理由",
+      "method": "returns",
+      "items": [
+        "了解七日无理由退货",
+        "不影响二次销售可退",
+        "特定商品另有规定",
+        "退货运费依约定"
+      ]
+    },
+    {
+      "title": "质量保障",
+      "method": "quality",
+      "items": [
+        "商品与描述不符可主张",
+        "依三包享受保修",
+        "虚假宣传可投诉",
+        "注意开箱验收核对凭证"
+      ]
+    },
+    {
+      "title": "维权渠道",
+      "method": "remedy",
+      "items": [
+        "先与商家协商",
+        "协商不成向平台投诉",
+        "可向消协或监管反映",
+        "严重情况依法处理"
+      ]
+    }
+  ]
+}

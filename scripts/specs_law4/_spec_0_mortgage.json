@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "mortgage_loan_basics",
+  "struct": "MortgageLoanBasicsRules",
+  "name": "房贷注意事项",
+  "desc": "申请房贷、审阅条款与还款履约的要点",
+  "origin": "中国",
+  "tags": ["法律", "房贷", "贷款", "合同"],
+  "category": "RuleCategory::law(\"mortgage_loan\")",
+  "sections": [
+    {
+      "title": "贷前准备",
+      "method": "prepare",
+      "items": [
+        "评估自身还款能力",
+        "比较多家贷款方案",
+        "了解利率与期限",
+        "预留备用资金"
+      ]
+    },
+    {
+      "title": "条款审阅",
+      "method": "terms",
+      "items": [
+        "细读贷款与担保条款",
+        "确认利率计息方式",
+        "留意提前还款规定",
+        "看清违约金与费用"
+      ]
+    },
+    {
+      "title": "按时履约",
+      "method": "repay",
+      "items": [
+        "按时足额偿还月供",
+        "收入变化及时沟通",
+        "保留还款凭证",
+        "不消费超负荷"
+      ]
+    },
+    {
+      "title": "风险应对",
+      "method": "risk",
+      "items": [
+        "遇还款困难主动协商",
+        "不逃避逾期债务",
+        "警惕中介乱收费",
+        "依法依规处理抵押物"
+      ]
+    }
+  ]
+}

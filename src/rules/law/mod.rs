@@ -60,6 +60,7 @@ pub mod consumer;
 pub mod consumer_rights_basics;
 pub mod contract;
 pub mod criminal;
+pub mod identity_fraud_protection;
 pub mod inheritance;
 pub mod inheritance_basics;
 pub mod insurance_claims_basics;
@@ -68,7 +69,10 @@ pub mod labor;
 pub mod labor_contract_basics;
 pub mod marriage;
 pub mod marriage_property_basics;
+pub mod mortgage_loan_basics;
 pub mod neighbor_dispute_handling;
+pub mod online_shopping_rights;
+pub mod personal_tax_basics;
 pub mod rental_lease_basics;
 pub mod road_safety;
 pub mod traffic;
@@ -112,6 +116,7 @@ pub mod meteorology;
 pub mod safety_production;
 pub mod statistics;
 pub mod traffic_accident_handling;
+pub mod warranty_claims;
 pub mod water;
 
 // 社会法类
@@ -601,6 +606,7 @@ pub use humanitarian_law::HumanitarianLawRules;
 pub use icc_law::IccLawRules;
 pub use icj_law::IcjLawRules;
 pub use icsid_law::IcsidLawRules;
+pub use identity_fraud_protection::IdentityFraudProtectionRules;
 pub use indigenous_rights::IndigenousRightsRules;
 pub use infectious_disease_law::InfectiousDiseaseLawRules;
 pub use inheritance_basics::InheritanceBasicsRules;
@@ -654,14 +660,17 @@ pub use mental_health_law::MentalHealthLawRules;
 pub use metaverse_law::MetaverseLawRules;
 pub use mineral_detailed::MineralDetailedRules;
 pub use mineral_resources::MineralResourcesLawRules;
+pub use mortgage_loan_basics::MortgageLoanBasicsRules;
 pub use negotiable_instruments_law_deep::NegotiableInstrumentsLawDeepRules;
 pub use neighbor_dispute_handling::NeighborDisputeHandlingRules;
 pub use new_york_convention::NewYorkConventionRules;
 pub use noise_pollution_law::NoisePollutionLawRules;
 pub use online_dispute::OnlineDisputeRules;
+pub use online_shopping_rights::OnlineShoppingRightsRules;
 pub use parole_law::ParoleLawRules;
 pub use personal_info_detailed::PersonalInfoDetailedRules;
 pub use personal_info_protection::PersonalInfoProtectionRules;
+pub use personal_tax_basics::PersonalTaxBasicsRules;
 pub use plea_bargaining::PleaBargainingRules;
 pub use privacy_rights::PrivacyRightsRules;
 pub use probation_law::ProbationLawRules;
@@ -697,6 +706,7 @@ pub use uncitral_law::UncitralLawRules;
 pub use us_antitrust::UsAntitrustRules;
 pub use victim_protection_deep::VictimProtectionDeepRules;
 pub use victim_rights::VictimRightsRules;
+pub use warranty_claims::WarrantyClaimsRules;
 pub use water_detailed::WaterDetailedRules;
 pub use whistleblower_protection::WhistleblowerProtectionRules;
 pub use wildlife_protection_law::WildlifeProtectionLawRules;
@@ -712,6 +722,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WarrantyClaimsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OnlineShoppingRightsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IdentityFraudProtectionRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PersonalTaxBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MortgageLoanBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = InsuranceClaimsBasicsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

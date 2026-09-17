@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "identity_fraud_protection",
+  "struct": "IdentityFraudProtectionRules",
+  "name": "身份信息防骗",
+  "desc": "保护个人身份信息、识别身份盗用与应对",
+  "origin": "中国",
+  "tags": ["法律", "身份", "防骗", "信息安全"],
+  "category": "RuleCategory::law(\"identity_fraud\")",
+  "sections": [
+    {
+      "title": "信息保护",
+      "method": "protect",
+      "items": [
+        "不随意透露身份信息",
+        "谨慎填写银行卡号",
+        "重要单据妥善保管",
+        "设置强密码不共用"
+      ]
+    },
+    {
+      "title": "识别骗局",
+      "method": "detect",
+      "items": [
+        "警惕索要验证码电话",
+        "不轻信中奖转账要求",
+        "辨别伪造公文链接",
+        "不接不明来源转账指令"
+      ]
+    },
+    {
+      "title": "发现盗用",
+      "method": "response",
+      "items": [
+        "发现异常交易立即挂失",
+        "查询征信报告监控",
+        "向银行或机构反馈",
+        "保留交易记录证据"
+      ]
+    },
+    {
+      "title": "依法处理",
+      "method": "legal",
+      "items": [
+        "身份盗用及时报警",
+        "向金融机构投诉",
+        "依据事实主张权利",
+        "不卷入或不参与洗卡"
+      ]
+    }
+  ]
+}

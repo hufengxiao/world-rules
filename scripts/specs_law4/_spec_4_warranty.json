@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "warranty_claims",
+  "struct": "WarrantyClaimsRules",
+  "name": "三包保修索赔",
+  "desc": "家用电器等商品的七日、十五日与三包修理退还",
+  "origin": "中国",
+  "tags": ["法律", "三包", "保修", "商品"],
+  "category": "RuleCategory::law(\"warranty\")",
+  "sections": [
+    {
+      "title": "三包保修",
+      "method": "warranty",
+      "items": [
+        "了解商品三包范围",
+        "确认保修卡与凭证",
+        "查明保修有效期限",
+        "保留购买与维修记录"
+      ]
+    },
+    {
+      "title": "报修处理",
+      "method": "service",
+      "items": [
+        "出现质量故障及时申报",
+        "按厂家指定渠道报修",
+        "如实描述故障",
+        "妥善保管维修回执"
+      ]
+    },
+    {
+      "title": "换货退货",
+      "method": "replace",
+      "items": [
+        "符合条件可依规换新",
+        "严重质量可主张退货",
+        "依规定承担时限责任",
+        "不与商家虚耗推扯"
+      ]
+    },
+    {
+      "title": "维权途径",
+      "method": "remedy",
+      "items": [
+        "经销商商家先行沟通",
+        "符条件可向监管投诉",
+        "依消法主张权利",
+        "证据齐全利于维权"
+      ]
+    }
+  ]
+}

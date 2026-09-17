@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "personal_tax_basics",
+  "struct": "PersonalTaxBasicsRules",
+  "name": "个人所得税基础",
+  "desc": "应税所得、专项扣除与主动纳税的常识要点",
+  "origin": "中国",
+  "tags": ["法律", "个税", "税务", "纳税"],
+  "category": "RuleCategory::law(\"personal_tax\")",
+  "sections": [
+    {
+      "title": "纳税义务",
+      "method": "obligation",
+      "items": [
+        "了解应税所得范围",
+        "工资劳务经营所得多属应税",
+        "收入达到标准需申报",
+        "依法如实申报"
+      ]
+    },
+    {
+      "title": "扣除项",
+      "method": "deduction",
+      "items": [
+        "熟悉专项附加扣除",
+        "如实申报符合的扣除",
+        "保存相关凭证",
+        "规范享受政策"
+      ]
+    },
+    {
+      "title": "合规申报",
+      "method": "filing",
+      "items": [
+        "按期限完成申报",
+        "保留收入与凭证",
+        "正确适用税率",
+        "不虚报瞒报收入"
+      ]
+    },
+    {
+      "title": "异议维权",
+      "method": "remedy",
+      "items": [
+        "对申报有疑主动核对",
+        "遇错误申请更正",
+        "不明规定咨询税务",
+        "诚信纳税受保护"
+      ]
+    }
+  ]
+}
