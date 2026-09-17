@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "rock_cycle_basics",
+  "struct": "RockCycleBasicsRules",
+  "name": "岩石循环",
+  "desc": "岩石三类型与成岩演化的基础知识",
+  "tags": ["科学", "岩石", "地质"],
+  "origin": "国际",
+  "category": "RuleCategory::science(\"rock_cycle\")",
+  "sections": [
+    {
+      "title": "岩石类型",
+      "method": "types",
+      "items": [
+        "岩浆岩火山成",
+        "沉积岩层层压",
+        "变质岩热压变",
+        "三类岩石"
+      ]
+    },
+    {
+      "title": "岩浆岩",
+      "method": "igneous",
+      "items": [
+        "熔岩冷却成",
+        "侵入喷出有别",
+        "花岗岩即此",
+        "常见成岩"
+      ]
+    },
+    {
+      "title": "沉积与变质",
+      "method": "sediment",
+      "items": [
+        "风化搬运沉积成",
+        "层理常可辨",
+        "变质经高温压",
+        "改造成新岩"
+      ]
+    },
+    {
+      "title": "循环演化",
+      "method": "cycle",
+      "items": [
+        "三类可互相转化",
+        "风化再成新",
+        "范围变化漫长",
+        "地壳演化"
+      ]
+    }
+  ]
+}

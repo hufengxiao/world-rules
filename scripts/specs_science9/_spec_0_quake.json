@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "earthquake_magnitude_scale",
+  "struct": "EarthquakeMagnitudeScaleRules",
+  "name": "地震震级烈度",
+  "desc": "地震震级、烈度与避险知识的理解",
+  "tags": ["科学", "地震", "震级", "安全"],
+  "origin": "国际",
+  "category": "RuleCategory::science(\"earthquake\")",
+  "sections": [
+    {
+      "title": "震级概念",
+      "method": "magnitude",
+      "items": [
+        "震级衡量地震能量",
+        "每差一级差几十倍",
+        "数值越高越强",
+        "如实记录"
+      ]
+    },
+    {
+      "title": "烈度区别",
+      "method": "intensity",
+      "items": [
+        "烈度衡量破坏程度",
+        "同一地震各地不同",
+        "离震中远近不同",
+        "有感差异"
+      ]
+    },
+    {
+      "title": "减少误传",
+      "method": "avoid",
+      "items": [
+        "认准官方消息",
+        "不传夸张谣言",
+        "了解逃生避险",
+        "科学认识"
+      ]
+    },
+    {
+      "title": "应急避险",
+      "method": "prepare",
+      "items": [
+        "震时找结实地",
+        "室内蔽身桌下",
+        "远离玻璃重物",
+        "震后有序撤离"
+      ]
+    }
+  ]
+}

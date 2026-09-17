@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "air_pressure_weather",
+  "struct": "AirPressureWeatherRules",
+  "name": "气压与天气",
+  "desc": "大气压、高气压低压与天气变化",
+  "tags": ["科学", "气压", "天气", "气象"],
+  "origin": "国际",
+  "category": "RuleCategory::science(\"air_pressure\")",
+  "sections": [
+    {
+      "title": "气压概念",
+      "method": "concept",
+      "items": [
+        "空气有重量产生气压",
+        "高空气压低",
+        "地面气压高",
+        "随温度变化"
+      ]
+    },
+    {
+      "title": "高低压影响",
+      "method": "pressure",
+      "items": [
+        "高压气沉天气晴",
+        "低压气升易阴雨",
+        "气压差生风",
+        "气象与此相关"
+      ]
+    },
+    {
+      "title": "体验气压",
+      "method": "experience",
+      "items": [
+        "高原升高易缺氧",
+        "机上耳腔有胀感",
+        "气压变化可感知",
+        "科学解释即可"
+      ]
+    },
+    {
+      "title": "看气压测天",
+      "method": "predict",
+      "items": [
+        "气压计看走势",
+        "压降预示变天",
+        "升平天气较晴",
+        "搭配天气预报"
+      ]
+    }
+  ]
+}

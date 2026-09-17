@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "mountain_formation",
+  "struct": "MountainFormationRules",
+  "name": "山脉形成",
+  "desc": "地壳运动、板块挤压与山脉形成",
+  "tags": ["科学", "山", "地质", "板块"],
+  "origin": "国际",
+  "category": "RuleCategory::science(\"mountain\")",
+  "sections": [
+    {
+      "title": "板块运动",
+      "method": "plate",
+      "items": [
+        "地球表层分板块",
+        "板块缓慢移动",
+        "碰撞与挤压",
+        "断裂带形成"
+      ]
+    },
+    {
+      "title": "造山机制",
+      "method": "fold",
+      "items": [
+        "板块碰撞地层褶皱",
+        "抬升形成山脉",
+        "喜马拉雅为实例",
+        "缓慢持续隆升"
+      ]
+    },
+    {
+      "title": "火山成山",
+      "method": "volcano",
+      "items": [
+        "岩浆上涌喷发成山",
+        "火山线带分布",
+        "熔岩堆积",
+        "成锥形山"
+      ]
+    },
+    {
+      "title": "侵蚀演替",
+      "method": "erosion",
+      "items": [
+        "风雨水流侵蚀",
+        "山形渐改变",
+        "河谷形成",
+        "地貌演化"
+      ]
+    }
+  ]
+}

@@ -60,6 +60,7 @@ pub mod aerospace_engineering_detailed;
 pub mod aesthetics;
 pub mod aging_biology;
 pub mod ai_ethics;
+pub mod air_pressure_weather;
 pub mod air_quality;
 pub mod algebra_math;
 pub mod algorithms;
@@ -168,6 +169,7 @@ pub mod dna_genetics_basics;
 pub mod dynamic_meteorology;
 pub mod dynamics;
 pub mod earth_rotation_facts;
+pub mod earthquake_magnitude_scale;
 pub mod ecology;
 pub mod ecology_balance;
 pub mod ecology_detailed;
@@ -281,6 +283,7 @@ pub mod ml_theory;
 pub mod module_theory;
 pub mod mold_food_safety;
 pub mod molecular_biology;
+pub mod mountain_formation;
 pub mod music_theory;
 pub mod musicology;
 pub mod nanotechnology;
@@ -365,6 +368,7 @@ pub mod rigid_body_dynamics;
 pub mod ring_theory;
 pub mod robotics_detailed;
 pub mod robotics_theory;
+pub mod rock_cycle_basics;
 pub mod satellite_meteorology;
 pub mod seasonal_cycle;
 pub mod seismology;
@@ -377,6 +381,7 @@ pub mod soil_geography;
 pub mod soil_science;
 pub mod soil_science_detailed;
 pub mod solar_panel_green;
+pub mod solar_system_planets;
 pub mod solid_mechanics;
 pub mod solid_mechanics_detailed;
 pub mod statics;
@@ -755,6 +760,7 @@ pub use regenerative_biology::RegenerativeBiologyRules;
 pub use stem_cell_biology::StemCellBiologyRules;
 
 // Phase 31-01: 新增地理规则导出
+pub use air_pressure_weather::AirPressureWeatherRules;
 pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
@@ -767,6 +773,7 @@ pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use dna_genetics_basics::DnaGeneticsBasicsRules;
 pub use earth_rotation_facts::EarthRotationFactsRules;
+pub use earthquake_magnitude_scale::EarthquakeMagnitudeScaleRules;
 pub use ecology_balance::EcologyBalanceRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use electric_circuit_basics::ElectricCircuitBasicsRules;
@@ -783,6 +790,7 @@ pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use lunar_phases::LunarPhasesRules;
 pub use material_properties::MaterialPropertiesRules;
 pub use mold_food_safety::MoldFoodSafetyRules;
+pub use mountain_formation::MountainFormationRules;
 pub use nervous_system_basics::NervousSystemBasicsRules;
 pub use ocean_waves::OceanWavesRules;
 pub use plastic_recycling_basics::PlasticRecyclingBasicsRules;
@@ -791,9 +799,11 @@ pub use quantum_basics::QuantumBasicsRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use renewable_energy_basics::RenewableEnergyBasicsRules;
 pub use respiratory_system_basics::RespiratorySystemBasicsRules;
+pub use rock_cycle_basics::RockCycleBasicsRules;
 pub use seasonal_cycle::SeasonalCycleRules;
 pub use soil_geography::SoilGeographyRules;
 pub use solar_panel_green::SolarPanelGreenRules;
+pub use solar_system_planets::SolarSystemPlanetsRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use survey_design::SurveyDesignRules;
 pub use sustainable_living_science::SustainableLivingScienceRules;
@@ -811,6 +821,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = MountainFormationRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AirPressureWeatherRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SolarSystemPlanetsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RockCycleBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EarthquakeMagnitudeScaleRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = PlasticRecyclingBasicsRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
