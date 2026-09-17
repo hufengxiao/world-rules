@@ -185,6 +185,7 @@ pub mod dragon_boat_world_championship;
 pub mod drift_fia;
 pub mod drone_racing;
 pub mod equestrian;
+pub mod equipment_etiquette;
 pub mod escrima;
 pub mod esports;
 pub mod esports_detailed;
@@ -401,6 +402,7 @@ pub mod pubg;
 pub mod race_walking;
 pub mod rally_cross_fia;
 pub mod rally_racing;
+pub mod referee_respect;
 pub mod relay;
 pub mod rhythmic_gymnastics;
 pub mod roller_skating;
@@ -456,6 +458,7 @@ pub mod snowboard_fis_detailed;
 pub mod snowboarding;
 pub mod softball;
 pub mod softball_detailed;
+pub mod spectator_behavior;
 pub mod speed_skating;
 pub mod speed_skating_detailed;
 pub mod speed_skating_isu;
@@ -464,6 +467,7 @@ pub mod sports_facility;
 pub mod sports_injury;
 pub mod sports_organization;
 pub mod sports_rehabilitation;
+pub mod sportsmanship;
 pub mod squash;
 pub mod squash_psa;
 pub mod stand_up_paddle_racing;
@@ -695,6 +699,7 @@ pub use dragon_boat_world_championship::DragonBoatWorldChampionshipRules;
 pub use drift_fia::DriftFiaRules;
 pub use drone_racing::DroneRacingRules;
 pub use equestrian::EquestrianRules;
+pub use equipment_etiquette::EquipmentEtiquetteRules;
 pub use escrima::EscrimaRules;
 pub use esports::EsportsRules;
 pub use esports_detailed::EsportsDetailedRules;
@@ -925,6 +930,7 @@ pub use powerlifting_detailed::PowerliftingDetailedRules;
 pub use race_walking::RaceWalkingRules;
 pub use rally_cross_fia::RallyCrossFiaRules;
 pub use rally_racing::RallyRacingRules;
+pub use referee_respect::RefereeRespectRules;
 pub use relay::RelayRules;
 pub use rhythmic_gymnastics::RhythmicGymnasticsRules;
 pub use roller_skating::RollerSkatingRules;
@@ -980,6 +986,7 @@ pub use snowboard_fis_detailed::SnowboardFisDetailedRules;
 pub use snowboarding::SnowboardingRules;
 pub use softball::SoftballRules;
 pub use softball_detailed::SoftballDetailedRules;
+pub use spectator_behavior::SpectatorBehaviorRules;
 pub use speed_skating::SpeedSkatingRules;
 pub use speed_skating_detailed::SpeedSkatingDetailedRules;
 pub use speed_skating_isu::SpeedSkatingIsuRules;
@@ -1003,6 +1010,7 @@ pub use sports_rehabilitation::{
     RehabilitationAssessmentMetric, RehabilitationExerciseType, RehabilitationPhase,
     RehabilitationPrinciple, ReturnToActivityCriteria, SportsRehabilitationRules,
 };
+pub use sportsmanship::SportsmanshipRules;
 pub use squash::SquashRules;
 pub use squash_psa::SquashPsaRules;
 pub use stand_up_paddle_racing::StandUpPaddleRacingRules;
@@ -1116,6 +1124,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = EquipmentEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SportsmanshipRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SpectatorBehaviorRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RefereeRespectRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = YogaEtiquetteRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));

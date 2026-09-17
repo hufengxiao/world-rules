@@ -1,0 +1,51 @@
+{
+  "cat": "sports",
+  "file": "spectator_behavior",
+  "struct": "SpectatorBehaviorRules",
+  "name": "观赛观众礼仪",
+  "desc": "现场观赛时的鼓掌、秩序与尊重对手观众的礼仪",
+  "tags": ["体育", "观众", "观赛", "礼仪", "现场"],
+  "category": "RuleCategory::sports(\"spectator_behavior\")",
+  "sections": [
+    {
+      "title": "观赛秩序",
+      "method": "order",
+      "items": [
+        "按票入座有序观赛",
+        "不喧哗影响他人观赛",
+        "入场退场听从引导",
+        "保住整洁不留垃圾"
+      ]
+    },
+    {
+      "title": "加油有度",
+      "method": "cheering",
+      "items": [
+        "加油鼓掌文明有度",
+        "不辱骂对手与球员",
+        "不朝场内投掷物品",
+        "尊重每一支参赛队伍"
+      ]
+    },
+    {
+      "title": "文明互动",
+      "method": "interaction",
+      "items": [
+        "尊重客场球迷",
+        "不挑衅引发冲突",
+        "配合安保与现场管理",
+        "遵守场馆观赛须知"
+      ]
+    },
+    {
+      "title": "特殊情况",
+      "method": "special",
+      "items": [
+        "比赛中断保持安静配合",
+        "伤病球员出现给予尊重掌声",
+        "尊重颁奖礼仪",
+        "避免干扰判罚现场"
+      ]
+    }
+  ]
+}

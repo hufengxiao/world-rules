@@ -1,0 +1,51 @@
+{
+  "cat": "sports",
+  "file": "equipment_etiquette",
+  "struct": "EquipmentEtiquetteRules",
+  "name": "运动器材使用礼仪",
+  "desc": "共用运动器材、场地时的轮流使用与爱护礼仪",
+  "tags": ["体育", "器材", "礼仪", "分享", "场地"],
+  "category": "RuleCategory::sports(\"equipment\")",
+  "sections": [
+    {
+      "title": "轮流使用",
+      "method": "rotation",
+      "items": [
+        "公共器材轮流使用不霸占",
+        "练完及时让出",
+        "高峰期缩短个人用时",
+        "尊重先来后到的次序"
+      ]
+    },
+    {
+      "title": "爱护器材",
+      "method": "care",
+      "items": [
+        "使用规范避免损坏",
+        "用后归还原位",
+        "发现损坏及时报备",
+        "不私自拆卸器材"
+      ]
+    },
+    {
+      "title": "场地卫生",
+      "method": "cleanliness",
+      "items": [
+        "器材用后擦拭干净",
+        "不在场地遗留物品",
+        "汗渍毛巾等及时清理",
+        "爱护共同健身环境"
+      ]
+    },
+    {
+      "title": "安全共享",
+      "method": "safety",
+      "items": [
+        "运动前检查器材安全",
+        "不与他人抢争同一器材距离",
+        "重的器材注意搬运安全",
+        "手与器材不扰他人"
+      ]
+    }
+  ]
+}

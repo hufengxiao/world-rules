@@ -1,0 +1,51 @@
+{
+  "cat": "sports",
+  "file": "sportsmanship",
+  "struct": "SportsmanshipRules",
+  "name": "运动精神与风度",
+  "desc": "体育竞技中胜不骄败不馁、尊重对手的风度",
+  "tags": ["体育", "运动精神", "风度", "竞技", "体育精神"],
+  "category": "RuleCategory::sports(\"sportsmanship\")",
+  "sections": [
+    {
+      "title": "胜败态度",
+      "method": "win_loss",
+      "items": [
+        "赢球不炫耀奚落",
+        "输球不找借口抱怨",
+        "尊重对手努力",
+        "庆祝有节制有分寸"
+      ]
+    },
+    {
+      "title": "尊重对手",
+      "method": "respect",
+      "items": [
+        "赛前赛后握手致意",
+        "不与对手发生肢体冲突",
+        "承认对方优势与发挥",
+        "有风度地赏识精彩的对抗"
+      ]
+    },
+    {
+      "title": "公平竞争",
+      "method": "fairness",
+      "items": [
+        "遵守赛规不自认占便宜",
+        "不使用违规辅助或手段",
+        "诚实面对判罚",
+        "维护比赛公平公正"
+      ]
+    },
+    {
+      "title": "团队情谊",
+      "method": "team",
+      "items": [
+        "鼓励发挥欠佳的同伴",
+        "失利不指责队友",
+        "共享荣誉也共担责任",
+        "尊重教练与团队"
+      ]
+    }
+  ]
+}

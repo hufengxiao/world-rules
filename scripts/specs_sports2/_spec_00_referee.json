@@ -1,0 +1,51 @@
+{
+  "cat": "sports",
+  "file": "referee_respect",
+  "struct": "RefereeRespectRules",
+  "name": "尊重裁判与判罚",
+  "desc": "比赛中对裁判、判罚的尊重与正确沟通礼仪",
+  "tags": ["体育", "裁判", "判罚", "尊重", "竞技"],
+  "category": "RuleCategory::sports(\"referee_respect\")",
+  "sections": [
+    {
+      "title": "服从判罚",
+      "method": "accept_ruling",
+      "items": [
+        "尊重裁判的最终判罚",
+        "不围攻或威胁裁判",
+        "用合规方式提出异议",
+        "情绪激动先保持距离冷却"
+      ]
+    },
+    {
+      "title": "沟通方式",
+      "method": "communication",
+      "items": [
+        "有问题规则允许时有序反映",
+        "队长或代表提出异议",
+        "不使用过激言语",
+        "尊重换位理解裁判视角"
+      ]
+    },
+    {
+      "title": "赛后态度",
+      "method": "after_game",
+      "items": [
+        "与裁判友好握手致意",
+        "对争议判罚赛后理性复盘",
+        "不公开贴标签诽谤裁判",
+        "尊重裁判是尊重比赛"
+      ]
+    },
+    {
+      "title": "执裁自律",
+      "method": "referee_self",
+      "items": [
+        "裁判履职保持公正",
+        "如实执裁不偏袒",
+        "判罚依据规则清晰说明",
+        "遇冲突维持秩序及时处理"
+      ]
+    }
+  ]
+}
