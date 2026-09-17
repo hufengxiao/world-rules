@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "musical_chairs_play",
+  "struct": "MusicalChairsPlayRules",
+  "name": "抢椅子游戏",
+  "desc": "抢椅子的音乐、停椅与淘汰规则",
+  "origin": "国际",
+  "tags": ["游戏", "抢椅子", "派对"],
+  "category": "RuleCategory::games(\"musical_chairs\")",
+  "sections": [
+    {
+      "title": "布置规则",
+      "method": "setup",
+      "items": [
+        "椅子比人数少一",
+        "围圈摆放",
+        "音乐响起绕行",
+        "停乐即抢坐"
+      ]
+    },
+    {
+      "title": "抢坐公平",
+      "method": "play",
+      "items": [
+        "停乐立刻找座",
+        "无座即刻淘汰",
+        "撤椅继续",
+        "直到剩一人"
+      ]
+    },
+    {
+      "title": "安全提醒",
+      "method": "safety",
+      "items": [
+        "不推挤不抢撞",
+        "椅子放平稳",
+        "跌倒互让",
+        "安全第一"
+      ]
+    },
+    {
+      "title": "欢乐进行",
+      "method": "fun",
+      "items": [
+        "淘汰不气馁",
+        "旁观鼓掌",
+        "轮流当裁判",
+        "乐在其中"
+      ]
+    }
+  ]
+}

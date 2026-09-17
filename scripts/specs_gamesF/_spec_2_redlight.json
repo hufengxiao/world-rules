@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "red_light_green",
+  "struct": "RedLightGreenRules",
+  "name": "红绿灯木头人",
+  "desc": "红绿灯口令前进停止的规则",
+  "origin": "国际",
+  "tags": ["游戏", "红绿灯", "户外", "儿童"],
+  "category": "RuleCategory::games(\"red_light\")",
+  "sections": [
+    {
+      "title": "游戏设定",
+      "method": "setup",
+      "items": [
+        "一人当发号者",
+        "他人从端线出发",
+        "念绿灯可前进",
+        "红灯须停住"
+      ]
+    },
+    {
+      "title": "前进停止",
+      "method": "motion",
+      "items": [
+        "绿灯前进快",
+        "红灯立刻立定",
+        "动者回起点",
+        "依次到达"
+      ]
+    },
+    {
+      "title": "公平有趣",
+      "method": "fun",
+      "items": [
+        "不抢跑不赖",
+        "发号清楚",
+        "输赢无所谓",
+        "重在嬉戏"
+      ]
+    },
+    {
+      "title": "安全场地",
+      "method": "safety",
+      "items": [
+        "选开阔场地",
+        "避开车辆",
+        "照看幼儿",
+        "安全玩游戏"
+      ]
+    }
+  ]
+}

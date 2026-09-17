@@ -97,6 +97,7 @@ pub mod caribbean_stud;
 pub mod cassino;
 pub mod catan;
 pub mod charades_drawing_guess;
+pub mod charades_wordless;
 pub mod chaturanga;
 pub mod checkers;
 pub mod chess960;
@@ -138,6 +139,7 @@ pub mod gongzhu;
 pub mod guandan;
 pub mod hearts;
 pub mod hearts_detailed;
+pub mod hide_and_seek;
 pub mod hive;
 pub mod janggi;
 pub mod jump_chess_rules;
@@ -170,6 +172,8 @@ pub mod military_chess;
 pub mod mini_chess;
 pub mod mini_shogi;
 pub mod monopoly;
+pub mod monopoly_board_trade;
+pub mod musical_chairs_play;
 pub mod mystery_card;
 pub mod niuniu;
 pub mod old_maid;
@@ -191,6 +195,7 @@ pub mod puerto_rico;
 pub mod pyramid_solitaire;
 pub mod quarto;
 pub mod railway_tycoon;
+pub mod red_light_green;
 pub mod reversi;
 pub mod reversi_othello;
 pub mod riddle_lantern_festival;
@@ -274,6 +279,7 @@ pub use caribbean_stud::CaribbeanStudRules;
 pub use cassino::CassinoRules;
 pub use catan::CatanRules;
 pub use charades_drawing_guess::CharadesDrawingGuessRules;
+pub use charades_wordless::CharadesWordlessRules;
 pub use chaturanga::ChaturangaRules;
 pub use checkers::CheckersRules;
 pub use chess960::Chess960Rules;
@@ -315,6 +321,7 @@ pub use gongzhu::GongzhuRules;
 pub use guandan::GuanDanRules;
 pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
+pub use hide_and_seek::HideAndSeekRules;
 pub use hive::HiveRules;
 pub use janggi::JanggiRules;
 pub use jump_chess_rules::JumpChessRules;
@@ -347,6 +354,8 @@ pub use military_chess::MilitaryChessRules;
 pub use mini_chess::MiniChessRules;
 pub use mini_shogi::MiniShogiRules;
 pub use monopoly::MonopolyRules;
+pub use monopoly_board_trade::MonopolyBoardTradeRules;
+pub use musical_chairs_play::MusicalChairsPlayRules;
 pub use mystery_card::MysteryCardRules;
 pub use niuniu::NiuniuRules;
 pub use old_maid::OldMaidRules;
@@ -368,6 +377,7 @@ pub use puerto_rico::PuertoRicoRules;
 pub use pyramid_solitaire::PyramidSolitaireRules;
 pub use quarto::QuartoRules;
 pub use railway_tycoon::RailwayTycoonRules;
+pub use red_light_green::RedLightGreenRules;
 pub use reversi::ReversiRules;
 pub use reversi_othello::ReversiOthelloRules;
 pub use riddle_lantern_festival::RiddleLanternFestivalRules;
@@ -459,6 +469,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = HideAndSeekRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CharadesWordlessRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RedLightGreenRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MusicalChairsPlayRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MonopolyBoardTradeRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = KlotskiHuarongRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));

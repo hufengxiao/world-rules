@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "charades_wordless",
+  "struct": "CharadesWordlessRules",
+  "name": "你比划我猜",
+  "desc": "比手画脚猜词、肢体猜谜的规则",
+  "origin": "国际",
+  "tags": ["游戏", "比划", "猜词", "派对"],
+  "category": "RuleCategory::games(\"charades\")",
+  "sections": [
+    {
+      "title": "猜词设定",
+      "method": "setup",
+      "items": [
+        "写词条分两队",
+        "一人比划",
+        "队友猜词",
+        "限时猜对得分"
+      ]
+    },
+    {
+      "title": "比划限制",
+      "method": "acting",
+      "items": [
+        "不得说话",
+        "可用于势身体",
+        "比划形象",
+        "不能写字"
+      ]
+    },
+    {
+      "title": "猜对计分",
+      "method": "scoring",
+      "items": [
+        "猜对得一分",
+        "守时间限制",
+        "换人轮流",
+        "计分定胜"
+      ]
+    },
+    {
+      "title": "热闹进行",
+      "method": "fun",
+      "items": [
+        "比划清楚有趣",
+        "答错不嘲笑",
+        "提醒用暗号",
+        "乐在其中"
+      ]
+    }
+  ]
+}
