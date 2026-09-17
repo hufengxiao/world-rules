@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "badminton_basics",
+  "struct": "BadmintonBasicsRules",
+  "name": "羽毛球基本规则",
+  "desc": "羽毛球场馆、发球、得分与单双打基本规则",
+  "origin": "国际",
+  "tags": ["体育", "羽毛球", "规则"],
+  "category": "RuleCategory::sports(\"badminton\")",
+  "sections": [
+    {
+      "title": "发球规则",
+      "method": "serve",
+      "items": [
+        "发球须过对角线区域",
+        "发球者脚不过发球线",
+        "球须过网落入对方区",
+        "发球时球低于腰际击出"
+      ]
+    },
+    {
+      "title": "回合得分",
+      "method": "rally",
+      "items": [
+        "球落地或出界定胜负",
+        "触网挂网界内算落点",
+        "每球得分制",
+        "一方失误对方得分"
+      ]
+    },
+    {
+      "title": "单双打",
+      "method": "singles_doubles",
+      "items": [
+        "单打边线与发球有区分",
+        "双打注意连击规则",
+        "发球换位依得分奇偶",
+        "站位兼顾配合"
+      ]
+    },
+    {
+      "title": "赛制",
+      "method": "format",
+      "items": [
+        "每局21分制",
+        "20平需领先2分",
+        "赛点29平时先得30胜",
+        "三局两胜常见"
+      ]
+    }
+  ]
+}

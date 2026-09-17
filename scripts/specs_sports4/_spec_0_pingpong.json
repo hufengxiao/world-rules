@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "table_tennis_rules",
+  "struct": "TableTennisPlayRules",
+  "name": "乒乓球基本规则",
+  "desc": "乒乓球发球、得分、赛制与器材的基本规则",
+  "origin": "国际",
+  "tags": ["体育", "乒乓球", "规则"],
+  "category": "RuleCategory::sports(\"table_tennis\")",
+  "sections": [
+    {
+      "title": "发球规则",
+      "method": "serve",
+      "items": [
+        "发球须垂直抛球",
+        "抛球不低于16厘米",
+        "球须越过球网上方",
+        "发球时球在台面外"
+      ]
+    },
+    {
+      "title": "回合与得分",
+      "method": "rally",
+      "items": [
+        "球触对方台面得分",
+        "未过网或出界丢分",
+        "擦边算有效",
+        "每球定胜负得1分"
+      ]
+    },
+    {
+      "title": "赛制",
+      "method": "format",
+      "items": [
+        "每局先得11分者胜",
+        "十平后领先两分得胜",
+        "五局三胜或七局四胜",
+        "轮流发球每两分交换"
+      ]
+    },
+    {
+      "title": "器材场地",
+      "method": "equipment",
+      "items": [
+        "球台长2米74宽1米52",
+        "球拍两面不同色",
+        "胶皮不得涂改",
+        "比赛用白或橙球"
+      ]
+    }
+  ]
+}

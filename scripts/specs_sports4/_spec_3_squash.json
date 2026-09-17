@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "squash_basics",
+  "struct": "SquashBasicsRules",
+  "name": "壁球基本规则",
+  "desc": "壁球打法、发球、计分与安全的基本规则",
+  "origin": "国际",
+  "tags": ["体育", "壁球", "规则", "球类"],
+  "category": "RuleCategory::sports(\"squash\")",
+  "sections": [
+    {
+      "title": "场地与击球",
+      "method": "court",
+      "items": [
+        "球击前墙有效区",
+        "击球须先触前墙",
+        "落点须在有效界内",
+        "球出界或击地墙界判失分"
+      ]
+    },
+    {
+      "title": "发球",
+      "method": "serve",
+      "items": [
+        "发球区任一侧开球",
+        "球须达前墙上部",
+        "发球须过头顶区",
+        "发球失误对方得分"
+      ]
+    },
+    {
+      "title": "计分赛制",
+      "method": "scoring",
+      "items": [
+        "每球得分多点制",
+        "先到11分或9分取决赛制",
+        "10平领先2分",
+        "换发制或不换发制"
+      ]
+    },
+    {
+      "title": "安全礼让",
+      "method": "safety",
+      "items": [
+        "注意挥拍空间防碰撞",
+        "阻挡击球判干扰",
+        "眼部护具建议戴",
+        "受伤立即停赛"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "gymnastics_etiquette",
+  "struct": "GymnasticsEtiquetteRules",
+  "name": "体操观赛与礼仪",
+  "desc": "观赏体操比赛、评价与竞技风度礼仪",
+  "origin": "国际",
+  "tags": ["体育", "体操", "观赛", "礼仪"],
+  "category": "RuleCategory::sports(\"gymnastics\")",
+  "sections": [
+    {
+      "title": "观赛守则",
+      "method": "watch",
+      "items": [
+        "保持安静关注动作",
+        "起评分等专业术语尊重",
+        "不在旋转时闪光打扰",
+        "动作结束鼓掌鼓励"
+      ]
+    },
+    {
+      "title": "尊重选手",
+      "method": "respect",
+      "items": [
+        "不以失误落井下石",
+        "尊重每位选手努力",
+        "不喧哗干扰起评",
+        "公平看待裁判评定"
+      ]
+    },
+    {
+      "title": "竞技风范",
+      "method": "spirit",
+      "items": [
+        "尊重评判结果",
+        "赢者谦逊败者坦然",
+        "不指责对手或裁判",
+        "喝彩得体"
+      ]
+    },
+    {
+      "title": "安全理解",
+      "method": "safety",
+      "items": [
+        "理解高难度动作风险",
+        "受伤时给予掌声鼓励",
+        "不在未设区练习危险动作",
+        "场馆遵循教练指导"
+      ]
+    }
+  ]
+}

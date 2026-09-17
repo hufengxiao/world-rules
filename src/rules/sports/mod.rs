@@ -77,6 +77,7 @@ pub mod athletics;
 pub mod athletics_detailed;
 pub mod australian_football;
 pub mod badminton;
+pub mod badminton_basics;
 pub mod badminton_bwf_world_championship;
 pub mod badminton_detailed;
 pub mod badminton_olympic;
@@ -268,6 +269,7 @@ pub mod golf_pga;
 pub mod golf_ryder_cup;
 pub mod gymnastics;
 pub mod gymnastics_detailed;
+pub mod gymnastics_etiquette;
 pub mod hammer_throw;
 pub mod handball;
 pub mod handball_champions;
@@ -473,6 +475,7 @@ pub mod sports_organization;
 pub mod sports_rehabilitation;
 pub mod sportsmanship;
 pub mod squash;
+pub mod squash_basics;
 pub mod squash_psa;
 pub mod stand_up_paddle_racing;
 pub mod stand_up_paddle_surf;
@@ -494,11 +497,13 @@ pub mod swimming_olympic;
 pub mod swimming_open_water;
 pub mod swimming_paralympic;
 pub mod swimming_short_course;
+pub mod swimming_stroke_basics;
 pub mod swimming_world_championship;
 pub mod synchronized_swimming;
 pub mod table_tennis;
 pub mod table_tennis_detailed;
 pub mod table_tennis_olympic;
+pub mod table_tennis_rules;
 pub mod table_tennis_world_cup;
 pub mod taekwondo;
 pub mod taekwondo_detailed;
@@ -595,6 +600,7 @@ pub use athletics::{AthleticsEvent, AthleticsRules};
 pub use athletics_detailed::AthleticsDetailedRules;
 pub use australian_football::AustralianFootballRules;
 pub use badminton::BadmintonRules;
+pub use badminton_basics::BadmintonBasicsRules;
 pub use badminton_bwf_world_championship::BadmintonBwfWorldChampionshipRules;
 pub use badminton_detailed::BadmintonDetailedRules;
 pub use badminton_olympic::BadmintonOlympicRules;
@@ -794,6 +800,7 @@ pub use golf_pga::GolfPgaRules;
 pub use golf_ryder_cup::GolfRyderCupRules;
 pub use gymnastics::{GymnasticsRules, GymnasticsType};
 pub use gymnastics_detailed::GymnasticsDetailedRules;
+pub use gymnastics_etiquette::GymnasticsEtiquetteRules;
 pub use hammer_throw::HammerThrowRules;
 pub use handball::HandballRules;
 pub use handball_champions::HandballChampionsRules;
@@ -1020,6 +1027,7 @@ pub use sports_rehabilitation::{
 };
 pub use sportsmanship::SportsmanshipRules;
 pub use squash::SquashRules;
+pub use squash_basics::SquashBasicsRules;
 pub use squash_psa::SquashPsaRules;
 pub use stand_up_paddle_racing::StandUpPaddleRacingRules;
 pub use stand_up_paddle_surf::StandUpPaddleSurfRules;
@@ -1041,11 +1049,13 @@ pub use swimming_olympic::SwimmingOlympicRules;
 pub use swimming_open_water::SwimmingOpenWaterRules;
 pub use swimming_paralympic::SwimmingParalympicRules;
 pub use swimming_short_course::SwimmingShortCourseRules;
+pub use swimming_stroke_basics::SwimmingStrokeBasicsRules;
 pub use swimming_world_championship::SwimmingWorldChampionshipRules;
 pub use synchronized_swimming::SynchronizedSwimmingRules;
 pub use table_tennis::TableTennisRules;
 pub use table_tennis_detailed::TableTennisDetailedRules;
 pub use table_tennis_olympic::TableTennisOlympicRules;
+pub use table_tennis_rules::TableTennisPlayRules;
 pub use table_tennis_world_cup::{TableTennisWorldCupFormat, TableTennisWorldCupRules};
 pub use taekwondo::TaekwondoRules;
 pub use taekwondo_detailed::TaekwondoDetailedRules;
@@ -1132,6 +1142,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SwimmingStrokeBasicsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GymnasticsEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SquashBasicsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BadmintonBasicsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TableTennisPlayRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = HikingGroupLeadershipRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
