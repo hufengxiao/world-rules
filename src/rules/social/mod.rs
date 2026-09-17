@@ -129,6 +129,7 @@ pub mod cocktail_party;
 pub mod coffee_house;
 pub mod community_meeting;
 pub mod concert_etiquette;
+pub mod condolence_mourning;
 pub mod condolence_visit;
 pub mod confucian_etiquette;
 pub mod constructive_criticism;
@@ -238,6 +239,7 @@ pub mod public_washroom_manner;
 pub mod qingming;
 pub mod qixi_festival;
 pub mod queue;
+pub mod quiet_ward_manner;
 pub mod reading_room_etiquette;
 pub mod reception_etiquette;
 pub mod red_envelope_etiquette;
@@ -254,6 +256,7 @@ pub mod salon_etiquette;
 pub mod seating;
 pub mod shared_office_courtesy;
 pub mod shopping_etiquette;
+pub mod sick_visit_gift_note;
 pub mod smoking;
 pub mod social_media_etiquette;
 pub mod spring_festival_visit;
@@ -262,6 +265,7 @@ pub mod subway_etiquette;
 pub mod supplier_relations_etiquette;
 pub mod sustainable_living;
 pub mod swimming_pool_etiquette;
+pub mod sympathy_message_guide;
 pub mod taxi_ride_etiquette;
 pub mod tea;
 pub mod tea_house;
@@ -277,6 +281,7 @@ pub mod travel_companion;
 pub mod umbrella_etiquette;
 pub mod vegan_etiquette;
 pub mod vip_etiquette;
+pub mod visit_patient_hospital;
 pub mod voice_call_courtesy;
 pub mod volunteer_etiquette;
 pub mod volunteer_service_etiquette;
@@ -373,6 +378,7 @@ pub use cocktail_party::CocktailPartyRules;
 pub use coffee_house::CoffeeHouseRules;
 pub use community_meeting::CommunityMeetingRules;
 pub use concert_etiquette::ConcertEtiquetteRules;
+pub use condolence_mourning::CondolenceMourningRules;
 pub use condolence_visit::CondolenceVisitRules;
 pub use confucian_etiquette::ConfucianEtiquetteRules;
 pub use constructive_criticism::ConstructiveCriticismRules;
@@ -482,6 +488,7 @@ pub use public_washroom_manner::PublicWashroomMannerRules;
 pub use qingming::QingmingRules;
 pub use qixi_festival::QixiFestivalRules;
 pub use queue::QueueRules;
+pub use quiet_ward_manner::QuietWardMannerRules;
 pub use reading_room_etiquette::ReadingRoomEtiquetteRules;
 pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use red_envelope_etiquette::RedEnvelopeEtiquetteRules;
@@ -498,6 +505,7 @@ pub use salon_etiquette::SalonEtiquetteRules;
 pub use seating::SeatingEtiquette;
 pub use shared_office_courtesy::SharedOfficeCourtesyRules;
 pub use shopping_etiquette::ShoppingEtiquetteRules;
+pub use sick_visit_gift_note::SickVisitGiftNoteRules;
 pub use smoking::SmokingRules;
 pub use social_media_etiquette::SocialMediaEtiquetteRules;
 pub use spring_festival_visit::SpringFestivalVisitRules;
@@ -506,6 +514,7 @@ pub use subway_etiquette::SubwayEtiquetteRules;
 pub use supplier_relations_etiquette::SupplierRelationsEtiquetteRules;
 pub use sustainable_living::SustainableLivingRules;
 pub use swimming_pool_etiquette::SwimmingPoolEtiquetteRules;
+pub use sympathy_message_guide::SympathyMessageGuideRules;
 pub use taxi_ride_etiquette::TaxiRideEtiquetteRules;
 pub use tea::{TeaCulture, TeaEtiquette};
 pub use tea_house::TeaHouseRules;
@@ -521,6 +530,7 @@ pub use travel_companion::TravelCompanionRules;
 pub use umbrella_etiquette::UmbrellaEtiquetteRules;
 pub use vegan_etiquette::VeganEtiquetteRules;
 pub use vip_etiquette::VipEtiquetteRules;
+pub use visit_patient_hospital::VisitPatientHospitalRules;
 pub use voice_call_courtesy::VoiceCallCourtesyRules;
 pub use volunteer_etiquette::VolunteerEtiquetteRules;
 pub use volunteer_service_etiquette::VolunteerServiceEtiquetteRules;
@@ -546,6 +556,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = QuietWardMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SickVisitGiftNoteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SympathyMessageGuideRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CondolenceMourningRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VisitPatientHospitalRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AskingDirectionsRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
