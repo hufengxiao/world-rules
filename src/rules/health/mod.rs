@@ -54,6 +54,7 @@
 
 pub mod addiction_recovery;
 pub mod allergy_management;
+pub mod anemia_nutrition;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
 pub mod balanced_diet_plan;
@@ -62,14 +63,19 @@ pub mod bone_health;
 pub mod brain_health;
 pub mod cancer_prevention;
 pub mod children_health;
+pub mod choking_airway_relief;
 pub mod chronic_disease;
 pub mod common_cold_care;
+pub mod constipation_relief;
+pub mod cpr_and_emergency;
 pub mod cut_wound_care;
 pub mod dental_health;
 pub mod depression_awareness;
 pub mod detox_rules;
 pub mod diabetes_management;
 pub mod digestive_health;
+pub mod drowning_rescue;
+pub mod earthquake_safety;
 pub mod elder_fall_prevention;
 pub mod elderly_health;
 pub mod ergonomics;
@@ -82,12 +88,14 @@ pub mod first_aid;
 pub mod food_poisoning_care;
 pub mod food_safety;
 pub mod foot_blister_care;
+pub mod gout_management;
 pub mod gut_health;
 pub mod hair_health;
 pub mod hand_washing_hygiene;
 pub mod hearing_health;
 pub mod heart_health;
 pub mod heatstroke_prevention;
+pub mod home_first_aid_kit;
 pub mod hydration_rules;
 pub mod hydration_strategy;
 pub mod hypertension_lifestyle;
@@ -112,16 +120,19 @@ pub mod office_ergonomics;
 pub mod oral_health;
 pub mod postpartum_health;
 pub mod posture_rules;
+pub mod premenstrual_syndrome_care;
 pub mod prenatal_health;
 pub mod respiratory_health;
 pub mod scalds_burns;
 pub mod seasonal_health;
+pub mod seizure_response;
 pub mod skin_care_rules;
 pub mod skin_health;
 pub mod sleep;
 pub mod sleep_apnea;
 pub mod sleep_hygiene;
 pub mod sleep_quality;
+pub mod smoking_cessation;
 pub mod stress_management;
 pub mod sun_protection;
 pub mod teen_health;
@@ -130,12 +141,14 @@ pub mod toddler_health;
 pub mod travel_health;
 pub mod vaccination_rules;
 pub mod vegetarian_balanced_nutrition;
+pub mod vertigo_balance_care;
 pub mod vision_care;
 pub mod weight_management;
 pub mod women_health;
 
 pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
+pub use anemia_nutrition::AnemiaNutritionRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
@@ -144,14 +157,19 @@ pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use children_health::ChildrenHealthRules;
+pub use choking_airway_relief::ChokingAirwayReliefRules;
 pub use chronic_disease::ChronicDiseaseRules;
 pub use common_cold_care::CommonColdCareRules;
+pub use constipation_relief::ConstipationReliefRules;
+pub use cpr_and_emergency::CprEmergencyRules;
 pub use cut_wound_care::CutWoundCareRules;
 pub use dental_health::DentalHealthRules;
 pub use depression_awareness::DepressionAwarenessRules;
 pub use detox_rules::DetoxRulesRules;
 pub use diabetes_management::DiabetesManagementRules;
 pub use digestive_health::DigestiveHealthRules;
+pub use drowning_rescue::DrowningRescueRules;
+pub use earthquake_safety::EarthquakeSafetyRules;
 pub use elder_fall_prevention::ElderFallPreventionRules;
 pub use elderly_health::ElderlyHealthRules;
 pub use ergonomics::ErgonomicsRules;
@@ -164,12 +182,14 @@ pub use first_aid::FirstAidRules;
 pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
 pub use foot_blister_care::FootBlisterCareRules;
+pub use gout_management::GoutManagementRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
 pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
+pub use home_first_aid_kit::HomeFirstAidKitRules;
 pub use hydration_rules::HydrationRulesRules;
 pub use hydration_strategy::HydrationStrategyRules;
 pub use hypertension_lifestyle::HypertensionLifestyleRules;
@@ -194,16 +214,19 @@ pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use posture_rules::PostureRulesRules;
+pub use premenstrual_syndrome_care::PremenstrualSyndromeCareRules;
 pub use prenatal_health::PrenatalHealthRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use scalds_burns::ScaldBurnCareRules;
 pub use seasonal_health::SeasonalHealthRules;
+pub use seizure_response::SeizureResponseRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
 pub use sleep::SleepRules;
 pub use sleep_apnea::SleepApneaRules;
 pub use sleep_hygiene::SleepHygieneRules;
 pub use sleep_quality::SleepQualityRules;
+pub use smoking_cessation::SmokingCessationRules;
 pub use stress_management::StressManagementRules;
 pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
@@ -212,6 +235,7 @@ pub use toddler_health::ToddlerHealthRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
 pub use vegetarian_balanced_nutrition::VegetarianBalancedNutritionRules;
+pub use vertigo_balance_care::VertigoBalanceCareRules;
 pub use vision_care::VisionCareRules;
 pub use weight_management::WeightManagementRules;
 pub use women_health::WomenHealthRules;
@@ -224,6 +248,54 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = PremenstrualSyndromeCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VertigoBalanceCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SmokingCessationRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AnemiaNutritionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GoutManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ConstipationReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EarthquakeSafetyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HomeFirstAidKitRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DrowningRescueRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SeizureResponseRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChokingAirwayReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CprEmergencyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ImmuneSupportLifestyleRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "anemia_nutrition",
+  "struct": "AnemiaNutritionRules",
+  "name": "贫血营养与调理",
+  "desc": "缺铁等原因所致贫血的营养饮食与就医提示",
+  "origin": "医学",
+  "tags": ["健康", "贫血", "铁", "营养"],
+  "category": "RuleCategory::health(\"anemia_nutrition\")",
+  "sections": [
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "识别面色苍白易疲乏力",
+        "注意心悸气短与头晕",
+        "留意指甲苍白易昏",
+        "持续不明贫血就医"
+      ]
+    },
+    {
+      "title": "补铁营养",
+      "method": "iron",
+      "items": [
+        "摄取富含铁的食物",
+        "红肉动物血肝适量",
+        "深绿蔬菜配合",
+        "补铁搭配维C促吸收"
+      ]
+    },
+    {
+      "title": "预防因素",
+      "method": "causes",
+      "items": [
+        "女性经期失血需关注营养",
+        "慢性出血应查明原因",
+        "素食者注意植物铁与维B12",
+        "药物治疗遵医嘱"
+      ]
+    },
+    {
+      "title": "就医检测",
+      "method": "seek_care",
+      "items": [
+        "确诊进行血常规检查",
+        "不擅自大量补铁剂",
+        "区分缺铁与叶酸等原因",
+        "长期贫血由医生评估"
+      ]
+    }
+  ]
+}

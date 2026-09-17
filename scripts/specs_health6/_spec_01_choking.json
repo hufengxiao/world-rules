@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "choking_airway_relief",
+  "struct": "ChokingAirwayReliefRules",
+  "name": "气道异物窒息急救",
+  "desc": "气道被食物或异物阻塞时的识别与海姆立克急救规则",
+  "origin": "医学",
+  "tags": ["健康", "急救", "海姆立克", "窒息", "气道"],
+  "category": "RuleCategory::health(\"choking_airway\")",
+  "sections": [
+    {
+      "title": "识别窒息",
+      "method": "signs",
+      "items": [
+        "识别用手抓喉咙紧憋不出声",
+        "能咳嗽说话则鼓励继续咳",
+        "无法呼吸说话提示阻塞",
+        "观察面色发青唇紫"
+      ]
+    },
+    {
+      "title": "成人海姆立克",
+      "method": "heimlich",
+      "items": [
+        "站于患者背后环抱其腰部",
+        "拳心置于脐上胸腹之间",
+        "向内向上快速冲击",
+        "反复直到异物排出或苏醒"
+      ]
+    },
+    {
+      "title": "自救与儿童",
+      "method": "self_child",
+      "items": [
+        "无他人时借椅背自救冲击",
+        "儿童用适宜力量拍背",
+        "婴幼儿薄垫拍背压胸",
+        "不盲目掏取可观察到异物"
+      ]
+    },
+    {
+      "title": "后续处理",
+      "method": "follow",
+      "items": [
+        "排出后仍建议就医复检",
+        "昏迷者平放并呼急救",
+        "持续无改善立即送医",
+        "急救后心理安抚"
+      ]
+    }
+  ]
+}

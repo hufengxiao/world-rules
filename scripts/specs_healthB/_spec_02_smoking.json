@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "smoking_cessation",
+  "struct": "SmokingCessationRules",
+  "name": "戒烟与远离烟草",
+  "desc": "制定戒烟计划、应对烟瘾与无烟生活规则",
+  "origin": "医学",
+  "tags": ["健康", "戒烟", "烟草", "肺部", "习惯"],
+  "category": "RuleCategory::health(\"smoking_cessation\")",
+  "sections": [
+    {
+      "title": "戒断准备",
+      "method": "prepare",
+      "items": [
+        "明确戒烟原因与目标",
+        "设定戒烟日期",
+        "告知亲友取得支持",
+        "清除身边烟具烟草"
+      ]
+    },
+    {
+      "title": "应对烟瘾",
+      "method": "craving",
+      "items": [
+        "烟瘾上来时转移注意",
+        "嚼无糖口香糖或喝水",
+        "短暂散步或深呼吸",
+        "避免诱发场景与饮酒"
+      ]
+    },
+    {
+      "title": "戒后调适",
+      "method": "adjust",
+      "items": [
+        "管理情绪波动与睡眠",
+        "坚持运动释放压力",
+        "记录自己的进步",
+        "稍有复吸时不必放弃"
+      ]
+    },
+    {
+      "title": "借助帮助",
+      "method": "help",
+      "items": [
+        "可寻求戒烟门诊支持",
+        "遵医嘱考虑替代疗法",
+        "家人互相监督鼓励",
+        "戒烟有困难不羞于求助"
+      ]
+    }
+  ]
+}

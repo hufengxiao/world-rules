@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "earthquake_safety",
+  "struct": "EarthquakeSafetyRules",
+  "name": "地震避险与逃生",
+  "desc": "地震时的避险、自我保护与震后安全要点",
+  "tags": ["健康", "地震", "避险", "逃生"],
+  "origin": "安全",
+  "category": "RuleCategory::health(\"earthquake_safety\")",
+  "sections": [
+    {
+      "title": "地震应急",
+      "method": "during",
+      "items": [
+        "闻到强震信号立即避险",
+        "采取伏地遮挡抓牢姿势",
+        "就近躲在桌下或结实屋角",
+        "避开玻璃窗悬挂物重家具"
+      ]
+    },
+    {
+      "title": "室内避险",
+      "method": "indoor",
+      "items": [
+        "不贸然冲出门或乘电梯",
+        "护住头部保持镇定",
+        "等震动减轻再评估撤离",
+        "远离外墙与门窗"
+      ]
+    },
+    {
+      "title": "室外注意",
+      "method": "outdoor",
+      "items": [
+        "远离建筑物电线杆树木",
+        "避开山体滑坡与危树危石",
+        "停车远离高压设施",
+        "海边警惕海啸风险"
+      ]
+    },
+    {
+      "title": "震后处置",
+      "method": "after",
+      "items": [
+        "检查燃气水电受损",
+        "关闭危险管线",
+        "预防余震保持警觉",
+        "听从应急通知与救援引导"
+      ]
+    }
+  ]
+}

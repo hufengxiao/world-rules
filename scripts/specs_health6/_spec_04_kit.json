@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "home_first_aid_kit",
+  "struct": "HomeFirstAidKitRules",
+  "name": "家庭急救箱配置",
+  "desc": "配置家庭急救箱的用品清单、检查与正确使用规则",
+  "tags": ["健康", "急救箱", "家庭", "应急"],
+  "origin": "安全",
+  "category": "RuleCategory::health(\"first_aid_kit\")",
+  "sections": [
+    {
+      "title": "常备用品",
+      "method": "supplies",
+      "items": [
+        "备齐无菌纱布绷带与胶布",
+        "备消毒棉签与碘伏酒精",
+        "准备一次性手套与剪刀",
+        "备体温计与常用药(遵医嘱)"
+      ]
+    },
+    {
+      "title": "放置保管",
+      "method": "storage",
+      "items": [
+        "放置在儿童不易触到处",
+        "放在通风干燥阴凉处",
+        "标记清楚摆为何物",
+        "让家人知晓位置"
+      ]
+    },
+    {
+      "title": "检查维护",
+      "method": "maintain",
+      "items": [
+        "定期检查药品保质期",
+        "及时补充消耗品",
+        "核对器械是否完好",
+        "过期药物妥善处理"
+      ]
+    },
+    {
+      "title": "正确使用",
+      "method": "usage",
+      "items": [
+        "按说明正确使用器材药品",
+        "不确定时求助专业",
+        "大规模伤情先就医",
+        "急救后及时记录备查"
+      ]
+    }
+  ]
+}

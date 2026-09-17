@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "premenstrual_syndrome_care",
+  "struct": "PremenstrualSyndromeCareRules",
+  "name": "经前综合征调理",
+  "desc": "经前综合征的饮食、情绪与症状缓解调理",
+  "origin": "医学",
+  "tags": ["健康", "经前综合征", "女性", "调理"],
+  "category": "RuleCategory::health(\"pms_care\")",
+  "sections": [
+    {
+      "title": "饮食调整",
+      "method": "diet",
+      "items": [
+        "摄入充足复合碳水",
+        "限盐限咖啡因降肿",
+        "富含钙镁蔬果",
+        "少甜食与精致"
+      ]
+    },
+    {
+      "title": "情绪关照",
+      "method": "mood",
+      "items": [
+        "承认情绪波动正常",
+        "适度倾诉与人分享",
+        "练习放松与深呼吸",
+        "充足睡眠稳定情绪"
+      ]
+    },
+    {
+      "title": "运动舒缓",
+      "method": "exercise",
+      "items": [
+        "中低强度规律运动",
+        "舒缓拉伸减轻不适",
+        "散步有氧改善疲劳",
+        "量力而行不过度"
+      ]
+    },
+    {
+      "title": "求助就医",
+      "method": "seek_care",
+      "items": [
+        "症状影响生活就医",
+        "疼痛剧烈及时评估",
+        "情绪异常重就医",
+        "遵医嘱规范调理"
+      ]
+    }
+  ]
+}

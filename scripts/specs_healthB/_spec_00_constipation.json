@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "constipation_relief",
+  "struct": "ConstipationReliefRules",
+  "name": "便秘调理与预防",
+  "desc": "改善便秘的饮食纤维、水分与排便习惯调理",
+  "origin": "医学",
+  "tags": ["健康", "便秘", "饮食", "排便"],
+  "category": "RuleCategory::health(\"constipation\")",
+  "sections": [
+    {
+      "title": "饮食纤维",
+      "method": "fiber",
+      "items": [
+        "多摄取膳食纤维",
+        "食用全谷物蔬菜水果",
+        "足量粗粮与豆类",
+        "忌过度精细单一"
+      ]
+    },
+    {
+      "title": "水分活动",
+      "method": "water_activity",
+      "items": [
+        "每天充足饮水",
+        "规律进行适度运动",
+        "腹式深呼吸助肠动",
+        "揉腹促进运化"
+      ]
+    },
+    {
+      "title": "排便习惯",
+      "method": "habit",
+      "items": [
+        "养成定时如厕习惯",
+        "有便意不憋忍",
+        "如厕不刷手机过度",
+        "保持轻松不紧张"
+      ]
+    },
+    {
+      "title": "就医警示",
+      "method": "seek_care",
+      "items": [
+        "长期便秘或突然改变就医",
+        "伴出血腹痛消瘦注意",
+        "老人儿童便秘谨慎去中",
+        "不长期依赖泻药"
+      ]
+    }
+  ]
+}

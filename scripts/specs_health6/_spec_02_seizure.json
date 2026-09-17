@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "seizure_response",
+  "struct": "SeizureResponseRules",
+  "name": "癫痫发作应对",
+  "desc": "癫痫等抽搐发作时的保护、观察与急救要点",
+  "origin": "医学",
+  "tags": ["健康", "癫痫", "抽搐", "急救", "照护"],
+  "category": "RuleCategory::health(\"seizure_response\")",
+    "sections": [
+    {
+      "title": "保护患者",
+      "method": "protect",
+      "items": [
+        "保持冷静不强行按压",
+        "移开周围硬物和锐器",
+        "垫护头部减少磕碰",
+        "保持周围空间通畅"
+      ]
+    },
+    {
+      "title": "观察记录",
+      "method": "observe",
+      "items": [
+        "记录发作开始与持续时间",
+        "观察身体哪部分抽搐",
+        "留意意识与肤色变化",
+        "勿把物品塞入患者口中"
+      ]
+    },
+    {
+      "title": "体位安全",
+      "method": "position",
+      "items": [
+        "将患者侧卧利于呼吸道",
+        "解开紧身衣物颈部",
+        "勿过度束缚肢体",
+        "抽搐停止后仍观察呼吸"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek_care",
+      "items": [
+        "首次发作应就医",
+        "发作超5分钟需急救",
+        "连续发作或意识不恢复就医",
+        "发作后头部受伤需评估"
+      ]
+    }
+  ]
+}

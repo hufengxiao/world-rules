@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "vertigo_balance_care",
+  "struct": "VertigoBalanceCareRules",
+  "name": "眩晕与平衡调理",
+  "desc": "头晕眩晕的成因识别、应对与安全注意",
+  "origin": "医学",
+  "tags": ["健康", "眩晕", "头晕", "平衡"],
+  "category": "RuleCategory::health(\"vertigo_balance\")",
+  "sections": [
+    {
+      "title": "识别表现",
+      "method": "symptoms",
+      "items": [
+        "分清旋转性眩晕与头晕",
+        "关注伴随恶心耳鸣",
+        "注意是否与体位相关",
+        "评估有无耳部感染迹象"
+      ]
+    },
+    {
+      "title": "发作应对",
+      "method": "response",
+      "items": [
+        "发作时立即坐下扶稳",
+        "保持固定姿势减少移动",
+        "闭目休息缓解眩晕",
+        "避免猛然起身转头"
+      ]
+    },
+    {
+      "title": "安全防护",
+      "method": "safety",
+      "items": [
+        "危险活动时留意先兆",
+        "不驾驶或操作精密器械",
+        "居家防跌倒防磕碰",
+        "身边放扶手便于扶"
+      ]
+    },
+    {
+      "title": "何时就医",
+      "method": "seek_care",
+      "items": [
+        "持续或反复眩晕就医",
+        "伴剧烈头痛或言语不灵急诊",
+        "单侧听力下降需评估",
+        "通过听力与神经科检查"
+      ]
+    }
+  ]
+}

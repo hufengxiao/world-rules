@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "cpr_and_emergency",
+  "struct": "CprEmergencyRules",
+  "name": "心肺复苏CPR应急",
+  "desc": "发现心跳骤停等紧急情况时识别、呼救与实施CPR的规则",
+  "origin": "医学",
+  "tags": ["健康", "急救", "CPR", "心肺", "人工呼吸"],
+  "category": "RuleCategory::health(\"cpr_emergency\")",
+  "sections": [
+    {
+      "title": "识别判断",
+      "method": "assess",
+      "items": [
+        "先确认环境安全",
+        "轻拍肩部大声呼唤",
+        "观察有无呼吸",
+        "判断是否为晕厥危象"
+      ]
+    },
+    {
+      "title": "呼救施救位",
+      "method": "call",
+      "items": [
+        "立即拨打急救电话",
+        "清楚说明地点与情况",
+        "呼救他人协助取AED",
+        "将患者放平仰卧于硬地"
+      ]
+    },
+    {
+      "title": "实施按压",
+      "method": "compress",
+      "items": [
+        "双手交叠于胸骨下半",
+        "成人按压深度约5-6厘米",
+        "频率每分钟100-120次",
+        "充分回弹保持连贯"
+      ]
+    },
+    {
+      "title": "配合呼吸",
+      "method": "airway",
+      "items": [
+        "熟练者进行按压与人工呼吸",
+        "非专业可专注按压",
+        "使用AED按提示操作",
+        "患者苏醒或救援到达再停"
+      ]
+    }
+  ]
+}

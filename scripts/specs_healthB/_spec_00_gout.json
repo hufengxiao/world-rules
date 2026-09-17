@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "gout_management",
+  "struct": "GoutManagementRules",
+  "name": "痛风管理与尿酸",
+  "desc": "高尿酸与痛风的饮食、监测与发作应对规则",
+  "origin": "医学",
+  "tags": ["健康", "痛风", "尿酸", "关节", "饮食"],
+  "category": "RuleCategory::health(\"gout_management\")",
+  "sections": [
+    {
+      "title": "饮食控制",
+      "method": "diet",
+      "items": [
+        "限制高嘌呤食物摄入",
+        "减少海鲜内脏浓汤等",
+        "限制酒精尤其啤酒",
+        "多饮水促尿酸排出"
+      ]
+    },
+    {
+      "title": "监测认知",
+      "method": "monitor",
+      "items": [
+        "定期检测血尿酸水平",
+        "识别脚趾关节红肿热痛",
+        "区分只是高尿酸还是痛风",
+        "遵医嘱管理目标值"
+      ]
+    },
+    {
+      "title": "发作应对",
+      "method": "flare",
+      "items": [
+        "发作期减少行走负重",
+        "抬高患肢并冷敷",
+        "遵医嘱用药缓解",
+        "不自行乱吃降酸药加重发作"
+      ]
+    },
+    {
+      "title": "长期管理",
+      "method": "long_term",
+      "items": [
+        "控制体重与合理饮食",
+        "坚持规范用药遵医嘱",
+        "规律运动但不过度",
+        "定期随访评估肾功能"
+      ]
+    }
+  ]
+}
