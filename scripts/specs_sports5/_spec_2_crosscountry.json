@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "cross_country_running",
+  "struct": "CrossCountryRunningRules",
+  "name": "越野跑步基础",
+  "desc": "山地越野跑的体能、补给与安全基础",
+  "origin": "国际",
+  "tags": ["体育", "越野", "跑步", "户外"],
+  "category": "RuleCategory::sports(\"cross_country\")",
+  "sections": [
+    {
+      "title": "赛前准备",
+      "method": "prepare",
+      "items": [
+        "了解路线地形",
+        "准备适宜鞋服",
+        "携带足量饮水补给",
+        "告知行程做好热身"
+      ]
+    },
+    {
+      "title": "途中节奏",
+      "method": "pace",
+      "items": [
+        "合理分配体力",
+        "上下坡调节步伐",
+        "注意落脚安全",
+        "按自身配速不怕慢"
+      ]
+    },
+    {
+      "title": "补给安全",
+      "method": "supply",
+      "items": [
+        "及时补水补充能量",
+        "留意中暑失温信号",
+        "不独自野练",
+        "紧急情况求助"
+      ]
+    },
+    {
+      "title": "环保礼仪",
+      "method": "etiquette",
+      "items": [
+        "不随意丢弃垃圾",
+        "礼让其他赛友",
+        "注意脚下生态",
+        "赛后良好恢复"
+      ]
+    }
+  ]
+}

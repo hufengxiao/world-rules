@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "jump_rope_fitness",
+  "struct": "JumpRopeFitnessRules",
+  "name": "跳绳健身规范",
+  "desc": "跳绳热身、动作要领与安全量力锻炼规则",
+  "origin": "国际",
+  "tags": ["体育", "跳绳", "健身"],
+  "category": "RuleCategory::sports(\"jump_rope\")",
+  "sections": [
+    {
+      "title": "动作要领",
+      "method": "form",
+      "items": [
+        "手腕转动摇绳",
+        "蹬踏轻跳着地",
+        "身体挺直微屈膝",
+        "节奏均匀"
+      ]
+    },
+    {
+      "title": "合理规划",
+      "method": "plan",
+      "items": [
+        "循序渐进增加时长",
+        "穿着合适的鞋",
+        "地面平整避震荡",
+        "量力而行"
+      ]
+    },
+    {
+      "title": "热身放松",
+      "method": "warmup",
+      "items": [
+        "运动前充分热身",
+        "踝膝腕活动开",
+        "结束后拉伸放松",
+        "身体不适停止"
+      ]
+    },
+    {
+      "title": "场地礼仪",
+      "method": "etiquette",
+      "items": [
+        "宽敞空间防甩绳",
+        "避开他人衣物",
+        "不扰户安静区",
+        "爱护公共场地"
+      ]
+    }
+  ]
+}

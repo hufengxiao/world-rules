@@ -159,6 +159,7 @@ pub mod cornhole_acl_detailed;
 pub mod cricket;
 pub mod cricket_detailed;
 pub mod cricket_ipl;
+pub mod cross_country_running;
 pub mod cross_country_skiing;
 pub mod cross_country_world_cup;
 pub mod crossfit_games;
@@ -308,6 +309,7 @@ pub mod jogging_etiquette;
 pub mod judo;
 pub mod judo_detailed;
 pub mod judo_ijf_detailed;
+pub mod jump_rope_fitness;
 pub mod k1;
 pub mod kabaddi;
 pub mod kabaddi_pro;
@@ -333,6 +335,7 @@ pub mod latin_dance;
 pub mod lethwei;
 pub mod lethwei_myanmar;
 pub mod long_jump;
+pub mod long_jump_technique;
 pub mod luge;
 pub mod luge_fil_detailed;
 pub mod luta_livre;
@@ -395,6 +398,7 @@ pub mod paragliding;
 pub mod paragliding_ww;
 pub mod paratriathlon;
 pub mod parkour;
+pub mod parkour_court_etiquette;
 pub mod parkour_fig;
 pub mod petanque;
 pub mod petanque_fipjp_detailed;
@@ -410,6 +414,7 @@ pub mod rally_cross_fia;
 pub mod rally_racing;
 pub mod referee_respect;
 pub mod relay;
+pub mod relay_race_basics;
 pub mod rhythmic_gymnastics;
 pub mod roller_skating;
 pub mod rowing;
@@ -682,6 +687,7 @@ pub use cornhole_acl_detailed::CornholeAclDetailedRules;
 pub use cricket::CricketRules;
 pub use cricket_detailed::CricketDetailedRules;
 pub use cricket_ipl::CricketIplRules;
+pub use cross_country_running::CrossCountryRunningRules;
 pub use cross_country_skiing::CrossCountrySkiingRules;
 pub use cross_country_world_cup::CrossCountryWorldCupRules;
 pub use crossfit_games::CrossfitGamesRules;
@@ -841,6 +847,7 @@ pub use jogging_etiquette::JoggingEtiquetteRules;
 pub use judo::JudoRules;
 pub use judo_detailed::JudoDetailedRules;
 pub use judo_ijf_detailed::JudoIjfDetailedRules;
+pub use jump_rope_fitness::JumpRopeFitnessRules;
 pub use k1::K1Rules;
 pub use kabaddi::KabaddiRules;
 pub use kabaddi_pro::KabaddiProRules;
@@ -866,6 +873,7 @@ pub use latin_dance::LatinDanceRules;
 pub use lethwei::LethweiRules;
 pub use lethwei_myanmar::LethweiMyanmarRules;
 pub use long_jump::LongJumpRules;
+pub use long_jump_technique::LongJumpTechniqueRules;
 pub use luge::LugeRules;
 pub use luge_fil_detailed::LugeFilDetailedRules;
 pub use luta_livre::LutaLivreRules;
@@ -933,6 +941,7 @@ pub use paragliding::ParaglidingRules;
 pub use paragliding_ww::ParaglidingWwRules;
 pub use paratriathlon::ParatriathlonRules;
 pub use parkour::ParkourRules;
+pub use parkour_court_etiquette::ParkourCourtEtiquetteRules;
 pub use parkour_fig::ParkourFigRules;
 pub use petanque::PetanqueRules;
 pub use petanque_fipjp_detailed::PetanqueFipjpDetailedRules;
@@ -947,6 +956,7 @@ pub use rally_cross_fia::RallyCrossFiaRules;
 pub use rally_racing::RallyRacingRules;
 pub use referee_respect::RefereeRespectRules;
 pub use relay::RelayRules;
+pub use relay_race_basics::RelayRaceBasicsRules;
 pub use rhythmic_gymnastics::RhythmicGymnasticsRules;
 pub use roller_skating::RollerSkatingRules;
 pub use rowing::RowingRules;
@@ -1142,6 +1152,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = JumpRopeFitnessRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ParkourCourtEtiquetteRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CrossCountryRunningRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LongJumpTechniqueRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RelayRaceBasicsRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SwimmingStrokeBasicsRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));

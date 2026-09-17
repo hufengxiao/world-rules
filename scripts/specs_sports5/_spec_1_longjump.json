@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "long_jump_technique",
+  "struct": "LongJumpTechniqueRules",
+  "name": "跳远技术与规则",
+  "desc": "急行跳远的助跑、起跳、腾空与落地规则",
+  "origin": "国际",
+  "tags": ["体育", "跳远", "田径"],
+  "category": "RuleCategory::sports(\"long_jump\")",
+  "sections": [
+    {
+      "title": "助跑起跳",
+      "method": "run_takeoff",
+      "items": [
+        "助跑节奏稳定",
+        "踏板准确不犯规",
+        "起跳迅速有力",
+        "重心略降再跃起"
+      ]
+    },
+    {
+      "title": "腾空着陆",
+      "method": "flight",
+      "items": [
+        "腾空保持合理姿势",
+        "收腿前伸远润",
+        "落地缓冲防伤",
+        "落地痕迹从近点算"
+      ]
+    },
+    {
+      "title": "犯规判定",
+      "method": "foul",
+      "items": [
+        "踏板越线犯规",
+        "触及沙坑外判无效",
+        "落地后后倒量最近点",
+        "连续犯规成绩受限"
+      ]
+    },
+    {
+      "title": "训练安全",
+      "method": "safety",
+      "items": [
+        "充分热身防拉伤",
+        "沙坑平整松软",
+        "起跳板完好",
+        "量力进阶不蛮练"
+      ]
+    }
+  ]
+}

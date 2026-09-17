@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "relay_race_basics",
+  "struct": "RelayRaceBasicsRules",
+  "name": "接力赛基本规则",
+  "desc": "田径接力棒的传递、区域与交接规则",
+  "origin": "国际",
+  "tags": ["体育", "接力", "田径"],
+  "category": "RuleCategory::sports(\"relay\")",
+  "sections": [
+    {
+      "title": "交接棒",
+      "method": "baton",
+      "items": [
+        "在接力区完成交接",
+        "接棒者起跑配合",
+        "传递不掉棒",
+        "换手交接须熟练"
+      ]
+    },
+    {
+      "title": "区域规则",
+      "method": "zone",
+      "items": [
+        "接力区有明确长度",
+        "交棒须在区内完成",
+        "超出区域判违例",
+        "越区借力不允许"
+      ]
+    },
+    {
+      "title": "团队配合",
+      "method": "team",
+      "items": [
+        "按速度排棒次",
+        "呼应起跑时机",
+        "默契减少失误",
+        "全队协作完赛"
+      ]
+    },
+    {
+      "title": "竞逐礼仪",
+      "method": "manner",
+      "items": [
+        "不在跑道妨碍他人",
+        "赛后回棒交接",
+        "尊重判罚",
+        "拼搏友谊并重"
+      ]
+    }
+  ]
+}

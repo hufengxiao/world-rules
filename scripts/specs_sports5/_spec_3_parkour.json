@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "parkour_court_etiquette",
+  "struct": "ParkourCourtEtiquetteRules",
+  "name": "跑酷锻炼规范",
+  "desc": "跑酷场地训练的安全、规范与公共空间礼仪",
+  "origin": "国际",
+  "tags": ["体育", "跑酷", "训练", "安全"],
+  "category": "RuleCategory::sports(\"parkour\")",
+  "sections": [
+    {
+      "title": "安全第一",
+      "method": "safety",
+      "items": [
+        "先从基础动作练起",
+        "穿戴护具防受伤",
+        "热身充分再练",
+        "不攀危险高处"
+      ]
+    },
+    {
+      "title": "场地尊重",
+      "method": "court",
+      "items": [
+        "选择适宜场地",
+        "不破坏公共设施",
+        "避开人流车辆",
+        "不占他人锻炼空间"
+      ]
+    },
+    {
+      "title": "循序渐进",
+      "method": "progression",
+      "items": [
+        "由易到难逐步提升",
+        "有教练指导更稳妥",
+        "不盲目尝试高难",
+        "量力而行勿逞强"
+      ]
+    },
+    {
+      "title": "社区规范",
+      "method": "etiquette",
+      "items": [
+        "不惊扰他人",
+        "未经许可翻越区域",
+        "爱护环境不破坏",
+        "传递正面形象"
+      ]
+    }
+  ]
+}
