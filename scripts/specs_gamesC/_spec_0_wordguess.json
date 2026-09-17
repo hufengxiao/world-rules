@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "word_guessing_puzzle",
+  "struct": "WordGuessingPuzzleRules",
+  "name": "猜字词游戏",
+  "desc": "猜字、猜词的规则与提示分寸",
+  "origin": "中国",
+  "tags": ["游戏", "猜字", "字谜", "益智"],
+  "category": "RuleCategory::games(\"word_guess\")",
+  "sections": [
+    {
+      "title": "选题有度",
+      "method": "choose",
+      "items": [
+        "出题难易适当",
+        "主题大家懂",
+        "不偏冷门",
+        "兼顾参与度"
+      ]
+    },
+    {
+      "title": "给提示",
+      "method": "hint",
+      "items": [
+        "逐步给线索",
+        "不一口气道破",
+        "由范围到细节",
+        "鼓励思考"
+      ]
+    },
+    {
+      "title": "抢答规则",
+      "method": "answer",
+      "items": [
+        "轮答或抢答事先约定",
+        "答对得分",
+        "答错换下家",
+        "公平记录"
+      ]
+    },
+    {
+      "title": "氛围",
+      "method": "atmosphere",
+      "items": [
+        "不嘲笑答错",
+        "留时间思考",
+        "揭晓讲丹妙",
+        "娱乐优先"
+      ]
+    }
+  ]
+}

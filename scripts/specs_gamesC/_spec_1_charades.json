@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "charades_drawing_guess",
+  "struct": "CharadesDrawingGuessRules",
+  "name": "猜画你画我猜",
+  "desc": "你画我猜、比划猜词的配合与规则",
+  "origin": "中国",
+  "tags": ["游戏", "你画我猜", "猜词", "益智"],
+  "category": "RuleCategory::games(\"charades\")",
+  "sections": [
+    {
+      "title": "选题",
+      "method": "topics",
+      "items": [
+        "选常见易画词",
+        "难易可调",
+        "主题分组",
+        "限制答题时间"
+      ]
+    },
+    {
+      "title": "比划规则",
+      "method": "acting",
+      "items": [
+        "只能用动作比划",
+        "不能说话拼音",
+        "可拆字可示意",
+        "不写答案"
+      ]
+    },
+    {
+      "title": "猜答技巧",
+      "method": "guessing",
+      "items": [
+        "由粗到细猜",
+        "追问个别字",
+        "配合默契",
+        "说话提示要少"
+      ]
+    },
+    {
+      "title": "计分公平",
+      "method": "scoring",
+      "items": [
+        "限时猜中得分",
+        "轮流上场",
+        "分数公开",
+        "愉快为主"
+      ]
+    }
+  ]
+}

@@ -79,6 +79,7 @@ pub mod blackjack;
 pub mod blind_chess;
 pub mod blind_go;
 pub mod board_games;
+pub mod brain_teaser_quiz;
 pub mod bridge;
 pub mod bridge_chicago;
 pub mod bridge_detailed;
@@ -94,6 +95,7 @@ pub mod card_games;
 pub mod caribbean_stud;
 pub mod cassino;
 pub mod catan;
+pub mod charades_drawing_guess;
 pub mod chaturanga;
 pub mod checkers;
 pub mod chess960;
@@ -107,6 +109,7 @@ pub mod connect_four;
 pub mod craps;
 pub mod crazy_eights;
 pub mod cribbage;
+pub mod crossword_fill_in;
 pub mod dark_chess;
 pub mod dice_game;
 pub mod dominion;
@@ -182,6 +185,7 @@ pub mod pyramid_solitaire;
 pub mod quarto;
 pub mod railway_tycoon;
 pub mod reversi;
+pub mod riddle_lantern_festival;
 pub mod risk;
 pub mod rpg;
 pub mod rubiks_cube;
@@ -219,6 +223,7 @@ pub mod wargames;
 pub mod werewolf;
 pub mod who_is_spy;
 pub mod word_game;
+pub mod word_guessing_puzzle;
 pub mod xiangqi960;
 pub mod xiangqi_detailed;
 pub mod yahtzee;
@@ -242,6 +247,7 @@ pub use board_games::{
     ChessRules, ChessVariant, ChessVariantsRules, ChineseChessRules, GoRules, GomokuRules,
     InternationalChessRules, JanggiVariantRules, ShogiVariantRules,
 };
+pub use brain_teaser_quiz::BrainTeaserQuizRules;
 pub use bridge::BridgeRules;
 pub use bridge_chicago::BridgeChicagoRules;
 pub use bridge_detailed::BridgeDetailedRules;
@@ -256,6 +262,7 @@ pub use card_game_generic::CardGameGenericRules;
 pub use caribbean_stud::CaribbeanStudRules;
 pub use cassino::CassinoRules;
 pub use catan::CatanRules;
+pub use charades_drawing_guess::CharadesDrawingGuessRules;
 pub use chaturanga::ChaturangaRules;
 pub use checkers::CheckersRules;
 pub use chess960::Chess960Rules;
@@ -269,6 +276,7 @@ pub use connect_four::ConnectFourRules;
 pub use craps::CrapsRules;
 pub use crazy_eights::CrazyEightsRules;
 pub use cribbage::CribbageRules;
+pub use crossword_fill_in::CrosswordFillInRules;
 pub use dark_chess::DarkChessRules;
 pub use dice_game::DiceGameRules;
 pub use dominion::DominionRules;
@@ -344,6 +352,7 @@ pub use pyramid_solitaire::PyramidSolitaireRules;
 pub use quarto::QuartoRules;
 pub use railway_tycoon::RailwayTycoonRules;
 pub use reversi::ReversiRules;
+pub use riddle_lantern_festival::RiddleLanternFestivalRules;
 pub use risk::RiskRules;
 pub use rubiks_cube::{CubeType, RubiksCubeRules};
 pub use rummy_detailed::RummyDetailedRules;
@@ -380,6 +389,7 @@ pub use wargames::{AgeOfSigmarRules, GenericWargameRules, MiniatureGameRules, Wa
 pub use werewolf::WerewolfRules;
 pub use who_is_spy::WhoIsSpyRules;
 pub use word_game::WordGameRules;
+pub use word_guessing_puzzle::WordGuessingPuzzleRules;
 pub use xiangqi960::Xiangqi960Rules;
 pub use xiangqi_detailed::XiangqiDetailedRules;
 pub use yahtzee::YahtzeeRules;
@@ -429,6 +439,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CrosswordFillInRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RiddleLanternFestivalRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BrainTeaserQuizRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CharadesDrawingGuessRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WordGuessingPuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FlyingChessRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));

@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "crossword_fill_in",
+  "struct": "CrosswordFillInRules",
+  "name": "填字游戏",
+  "desc": "纵横填字的规则、提示与解题技巧",
+  "origin": "国际",
+  "tags": ["游戏", "填字", "字谜", "益智"],
+  "category": "RuleCategory::games(\"crossword\")",
+  "sections": [
+    {
+      "title": "规则",
+      "method": "rule",
+      "items": [
+        "横竖格交叉填字",
+        "每格一字",
+        "提示给线索",
+        "答案相互印证"
+      ]
+    },
+    {
+      "title": "填法",
+      "method": "filling",
+      "items": [
+        "先填有把握的",
+        "借交叉字推断",
+        "多猜易错复核",
+        "由浅容易入手"
+      ]
+    },
+    {
+      "title": "提示运用",
+      "method": "clues",
+      "items": [
+        "细读提示含义",
+        "注意词性字数",
+        "查字典辅助",
+        "不急于求成"
+      ]
+    },
+    {
+      "title": "完成乐趣",
+      "method": "enjoy",
+      "items": [
+        "填完有成就感",
+        "可多查阅积累",
+        "人多合作更快",
+        "乐在锻炼"
+      ]
+    }
+  ]
+}

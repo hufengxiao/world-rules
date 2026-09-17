@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "brain_teaser_quiz",
+  "struct": "BrainTeaserQuizRules",
+  "name": "脑筋急转弯",
+  "desc": "脑筋急转弯的思维反常识与问答乐趣",
+  "origin": "中国",
+  "tags": ["游戏", "脑筋急转弯", "益智"],
+  "category": "RuleCategory::games(\"brain_teaser\")",
+  "sections": [
+    {
+      "title": "出题",
+      "method": "ask",
+      "items": [
+        "题目清晰不绕弄",
+        "答案合理有趣",
+        "难度适中",
+        "不冷门刁钻"
+      ]
+    },
+    {
+      "title": "换思维",
+      "method": "think",
+      "items": [
+        "跳出常规联想",
+        "多角度想",
+        "注意字面陷阱",
+        "放松头脑灵活"
+      ]
+    },
+    {
+      "title": "答问规则",
+      "method": "answer",
+      "items": [
+        "猜中即答对",
+        "给提示再答",
+        "无人猜由揭晓",
+        "不抢不催"
+      ]
+    },
+    {
+      "title": "趣味氛围",
+      "method": "fun",
+      "items": [
+        "天真轻松快乐",
+        "不骂笨",
+        "一起开怀",
+        "智商不指责"
+      ]
+    }
+  ]
+}

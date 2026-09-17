@@ -1,0 +1,51 @@
+{
+  "cat": "games",
+  "file": "riddle_lantern_festival",
+  "struct": "RiddleLanternFestivalRules",
+  "name": "灯谜猜谜",
+  "desc": "元宵灯谜的谜面、猜法与传统趣味",
+  "origin": "中国",
+  "tags": ["游戏", "灯谜", "正月十五", "传统"],
+  "category": "RuleCategory::games(\"lantern_riddle\")",
+  "sections": [
+    {
+      "title": "灯谜特点",
+      "method": "style",
+      "items": [
+        "谜面短小精妙",
+        "谜底讲究对仗",
+        "常用拆字会意",
+        "传统文字魅力"
+      ]
+    },
+    {
+      "title": "猜谜方法",
+      "method": "guess",
+      "items": [
+        "细读谜面含义",
+        "会意联想拆字",
+        "谐音提示",
+        "多试多推理"
+      ]
+    },
+    {
+      "title": "猜中欢喜",
+      "method": "reward",
+      "items": [
+        "猜中自豪有礼","灯下围猜热闹",
+        "不抢撕灯谜",
+        "大家共享乐趣"
+      ]
+    },
+    {
+      "title": "节庆氛围",
+      "method": "festival",
+      "items": [
+        "赏灯猜谜应景",
+        "阖家共乐",
+        "传承文化雅趣",
+        "猜谜不止一时"
+      ]
+    }
+  ]
+}
