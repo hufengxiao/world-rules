@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "calcium_bone_health",
+  "struct": "CalciumBoneHealthRules",
+  "name": "补钙健骨",
+  "desc": "钙摄入、维生素D与骨骼健康",
+  "origin": "营养学",
+  "tags": ["健康", "钙", "骨骼", "营养"],
+  "category": "RuleCategory::health(\"calcium\")",
+  "sections": [
+    {
+      "title": "补钙来源",
+      "method": "source",
+      "items": [
+        "奶制品富钙",
+        "豆制品豆腐",
+        "深绿叶菜含钙",
+        "可适量虾皮"
+      ]
+    },
+    {
+      "title": "促进吸收",
+      "method": "absorb",
+      "items": [
+        "维生素D助吸收",
+        "晒太阳补维D",
+        "适量运动强骨",
+        "避免过量咖啡因"
+      ]
+    },
+    {
+      "title": "多阶段",
+      "method": "stages",
+      "items": [
+        "儿童期打基础",
+        "青春期关键",
+        "老年防疏松",
+        "各期足量"
+      ]
+    },
+    {
+      "title": "合理补充",
+      "method": "supplement",
+      "items": [
+        "食补为主",
+        "不足可补充剂",
+        "遵医嘱用",
+        "不过量钙剂"
+      ]
+    }
+  ]
+}

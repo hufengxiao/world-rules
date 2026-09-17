@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "protein_intake_estimation",
+  "struct": "ProteinIntakeEstimationRules",
+  "name": "蛋白质摄入",
+  "desc": "每日蛋白质需要、来源与适量摄入",
+  "origin": "营养学",
+  "tags": ["健康", "蛋白质", "营养"],
+  "category": "RuleCategory::health(\"protein\")",
+  "sections": [
+    {
+      "title": "生理需要",
+      "method": "need",
+      "items": [
+        "优质蛋白助修复",
+        "支持肌肉免疫",
+        "按体重估算",
+        "成人适量摄入"
+      ]
+    },
+    {
+      "title": "食物来源",
+      "method": "source",
+      "items": [
+        "鱼禽蛋奶富含",
+        "豆类植物蛋白",
+        "瘦肉适量",
+        "搭配互补"
+      ]
+    },
+    {
+      "title": "不过量",
+      "method": "moderate",
+      "items": [
+        "不必大量补蛋白",
+        "有过量负担",
+        "分配各餐",
+        "按需摄入"
+      ]
+    },
+    {
+      "title": "特殊情况",
+      "method": "special",
+      "items": [
+        "病患健身按需增",
+        "肝肾问题问医",
+        "儿童老人关注",
+        "均衡为准"
+      ]
+    }
+  ]
+}

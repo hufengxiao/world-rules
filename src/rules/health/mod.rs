@@ -61,6 +61,7 @@ pub mod ankle_sprain_care;
 pub mod anxiety_management;
 pub mod balanced_breakfast;
 pub mod balanced_diet_plan;
+pub mod balanced_diet_plate;
 pub mod bedtime_ritual;
 pub mod bleeding_control_bandage;
 pub mod blister_care;
@@ -69,6 +70,7 @@ pub mod bone_health;
 pub mod brain_health;
 pub mod burn_scalding_aid;
 pub mod burnout_prevention;
+pub mod calcium_bone_health;
 pub mod cancer_prevention;
 pub mod children_health;
 pub mod choking_airway_relief;
@@ -84,6 +86,7 @@ pub mod depression_awareness;
 pub mod depression_support;
 pub mod detox_rules;
 pub mod diabetes_management;
+pub mod dietary_fiber_vegetable;
 pub mod digestive_health;
 pub mod digital_eye_rest;
 pub mod drowning_rescue;
@@ -163,7 +166,9 @@ pub mod prenatal_health;
 pub mod procrastination_manage;
 pub mod progressive_relaxation;
 pub mod prolonged_sitting_safety;
+pub mod protein_intake_estimation;
 pub mod respiratory_health;
+pub mod salt_control_daily;
 pub mod scalds_burns;
 pub mod screen_eye_strain_care;
 pub mod seasonal_allergy_relief;
@@ -206,6 +211,7 @@ pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use balanced_breakfast::BalancedBreakfastRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
+pub use balanced_diet_plate::BalancedDietPlateRules;
 pub use bedtime_ritual::BedtimeRitualRules;
 pub use bleeding_control_bandage::BleedingControlBandageRules;
 pub use blister_care::BlisterCareRules;
@@ -214,6 +220,7 @@ pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
 pub use burn_scalding_aid::BurnScaldingAidRules;
 pub use burnout_prevention::BurnoutPreventionRules;
+pub use calcium_bone_health::CalciumBoneHealthRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use children_health::ChildrenHealthRules;
 pub use choking_airway_relief::ChokingAirwayReliefRules;
@@ -229,6 +236,7 @@ pub use depression_awareness::DepressionAwarenessRules;
 pub use depression_support::DepressionSupportRules;
 pub use detox_rules::DetoxRulesRules;
 pub use diabetes_management::DiabetesManagementRules;
+pub use dietary_fiber_vegetable::DietaryFiberVegetableRules;
 pub use digestive_health::DigestiveHealthRules;
 pub use digital_eye_rest::DigitalEyeRestRules;
 pub use drowning_rescue::DrowningRescueRules;
@@ -308,7 +316,9 @@ pub use prenatal_health::PrenatalHealthRules;
 pub use procrastination_manage::ProcrastinationManageRules;
 pub use progressive_relaxation::ProgressiveRelaxationRules;
 pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
+pub use protein_intake_estimation::ProteinIntakeEstimationRules;
 pub use respiratory_health::RespiratoryHealthRules;
+pub use salt_control_daily::SaltControlDailyRules;
 pub use scalds_burns::ScaldBurnCareRules;
 pub use screen_eye_strain_care::ScreenEyeStrainCareRules;
 pub use seasonal_allergy_relief::SeasonalAllergyReliefRules;
@@ -350,6 +360,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DietaryFiberVegetableRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SaltControlDailyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CalciumBoneHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ProteinIntakeEstimationRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BalancedDietPlateRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = HomeMedicineKitRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

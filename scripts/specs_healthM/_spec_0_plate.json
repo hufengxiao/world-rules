@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "balanced_diet_plate",
+  "struct": "BalancedDietPlateRules",
+  "name": "均衡餐盘搭配",
+  "desc": "每餐主食、蔬菜、蛋白的比例搭配",
+  "tags": ["健康", "饮食", "均衡", "餐盘"],
+  "origin": "营养学",
+  "category": "RuleCategory::health(\"diet_plate\")",
+  "sections": [
+    {
+      "title": "餐盘比例",
+      "method": "ratio",
+      "items": [
+        "半盘蔬菜水果",
+        "四分之一主食",
+        "四分之一蛋白质",
+        "少量健康油"
+      ]
+    },
+    {
+      "title": "主食多样",
+      "method": "staple",
+      "items": [
+        "多选全谷物",
+        "粗细搭配",
+        "少精糖白面",
+        "适量薯类"
+      ]
+    },
+    {
+      "title": "蔬菜为主",
+      "method": "vegetable",
+      "items": [
+        "多种颜色蔬菜",
+        "每餐有绿叶",
+        "果蔬充足",
+        "种类多样"
+      ]
+    },
+    {
+      "title": "蛋白适量",
+      "method": "protein",
+      "items": [
+        "鱼禽蛋奶适量",
+        "豆类与瘦肉",
+        "不偏不废",
+        "量按体重"
+      ]
+    }
+  ]
+}

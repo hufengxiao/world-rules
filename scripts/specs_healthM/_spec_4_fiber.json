@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "dietary_fiber_vegetable",
+  "struct": "DietaryFiberVegetableRules",
+  "name": "膳食纤维膳食",
+  "desc": "膳食纤维作用、来源与足量蔬菜摄入",
+  "origin": "营养学",
+  "tags": ["健康", "膳食纤维", "蔬菜", "肠道"],
+  "category": "RuleCategory::health(\"fiber\")",
+  "sections": [
+    {
+      "title": "纤维作用",
+      "method": "benefit",
+      "items": [
+        "促进肠道蠕动",
+        "稳定血糖血脂",
+        "增加饱腹感",
+        "维护肠道健康"
+      ]
+    },
+    {
+      "title": "足量蔬菜",
+      "method": "vegetable",
+      "items": [
+        "每天多种蔬菜",
+        "少油清炒保纤维",
+        "深色菜多吃",
+        "不熬制过烂"
+      ]
+    },
+    {
+      "title": "谷薯坚果",
+      "method": "extra",
+      "items": [
+        "全谷物含纤维",
+        "薯类豆类要多",
+        "坚果适量",
+        "粗粮搭配"
+      ]
+    },
+    {
+      "title": "循序渐进",
+      "method": "gradual",
+      "items": [
+        "逐步增加纤维",
+        "配合足够饮水",
+        "肠胃不适调整",
+        "均衡不偏废"
+      ]
+    }
+  ]
+}
