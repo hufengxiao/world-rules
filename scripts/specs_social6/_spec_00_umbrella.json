@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "umbrella_etiquette",
+  "struct": "UmbrellaEtiquetteRules",
+  "name": "雨天共伞与通勤礼仪",
+  "desc": "雨天撑伞、借伞、通行的公共礼仪与体谅规则",
+  "tags": ["社交", "礼仪", "雨天", "伞", "公共"],
+  "category": "RuleCategory::social(\"umbrella\")",
+  "sections": [
+    {
+      "title": "撑伞通行",
+      "method": "walking",
+      "items": [
+        "与他人并行时伞尖朝外避免戳碰",
+        "经过窄道时收拢一侧伞",
+        "进出建筑前先收伞",
+        "甩水时注意不溅到他人"
+      ]
+    },
+    {
+      "title": "公共空间",
+      "method": "public_space",
+      "items": [
+        "不在门口或通道撑伞挡路",
+        "湿伞存放于沥水处",
+        "不把湿伞靠他人座位",
+        "湿伞收进袋中减少滴水"
+      ]
+    },
+    {
+      "title": "共伞与借伞",
+      "method": "sharing",
+      "items": [
+        "主动邀请无伞者同撑",
+        "借伞及时归还",
+        "归还时致谢对方",
+        "不无故长时间占用他人伞"
+      ]
+    },
+    {
+      "title": "骑车与行车",
+      "method": "riding",
+      "items": [
+        "骑车尽量穿戴雨衣而非单手撑伞",
+        "打伞行走注意来往车辆视线",
+        "雨天减速留意防滑",
+        "避免在窄道撑伞缓阻人群"
+      ]
+    }
+  ]
+}

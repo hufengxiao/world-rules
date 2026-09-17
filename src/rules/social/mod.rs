@@ -77,6 +77,7 @@ pub mod business_phone;
 pub mod cafe;
 pub mod camping_etiquette;
 pub mod carpool_etiquette;
+pub mod charity_donation_etiquette;
 pub mod childrens_day;
 pub mod chinese_ancestor_worship;
 pub mod chinese_antique_etiquette;
@@ -179,6 +180,7 @@ pub mod negotiation_etiquette;
 pub mod neighbor;
 pub mod networking_etiquette;
 pub mod new_year_day;
+pub mod nursing_home_visit;
 pub mod online;
 pub mod online_classes_etiquette;
 pub mod park_etiquette;
@@ -219,9 +221,11 @@ pub mod thai_etiquette;
 pub mod toasting;
 pub mod trade_show_etiquette;
 pub mod train;
+pub mod umbrella_etiquette;
 pub mod vegan_etiquette;
 pub mod vip_etiquette;
 pub mod volunteer_etiquette;
+pub mod volunteer_service_etiquette;
 pub mod waiting_room_etiquette;
 pub mod wedding;
 pub mod western_dining;
@@ -258,6 +262,7 @@ pub use business_phone::BusinessPhoneRules;
 pub use cafe::CafeRules;
 pub use camping_etiquette::CampingEtiquetteRules;
 pub use carpool_etiquette::CarpoolEtiquetteRules;
+pub use charity_donation_etiquette::CharityDonationEtiquetteRules;
 pub use childrens_day::ChildrensDayRules;
 pub use chinese_ancestor_worship::ChineseAncestorWorshipRules;
 pub use chinese_antique_etiquette::ChineseAntiqueEtiquetteRules;
@@ -360,6 +365,7 @@ pub use negotiation_etiquette::NegotiationEtiquetteRules;
 pub use neighbor::NeighborRules;
 pub use networking_etiquette::NetworkingEtiquetteRules;
 pub use new_year_day::NewYearDayRules;
+pub use nursing_home_visit::NursingHomeVisitRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
 pub use park_etiquette::ParkEtiquetteRules;
@@ -400,9 +406,11 @@ pub use thai_etiquette::ThaiEtiquetteRules;
 pub use toasting::ToastingEtiquette;
 pub use trade_show_etiquette::TradeShowEtiquetteRules;
 pub use train::TrainEtiquette;
+pub use umbrella_etiquette::UmbrellaEtiquetteRules;
 pub use vegan_etiquette::VeganEtiquetteRules;
 pub use vip_etiquette::VipEtiquetteRules;
 pub use volunteer_etiquette::VolunteerEtiquetteRules;
+pub use volunteer_service_etiquette::VolunteerServiceEtiquetteRules;
 pub use waiting_room_etiquette::WaitingRoomEtiquetteRules;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
 pub use western_dining::WesternDiningRules;
@@ -420,6 +428,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = VolunteerServiceEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CharityDonationEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NursingHomeVisitRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = UmbrellaEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CommunityMeetingRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

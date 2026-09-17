@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "volunteer_service_etiquette",
+  "struct": "VolunteerServiceEtiquetteRules",
+  "name": "志愿服务礼仪",
+  "desc": "公益活动志愿服务中的守时、周到与协作礼仪",
+  "tags": ["社交", "礼仪", "志愿", "服务", "公益"],
+  "category": "RuleCategory::social(\"volunteer_service\")",
+  "sections": [
+    {
+      "title": "守时尽责",
+      "method": "punctuality",
+      "items": [
+        "按约定时间到岗",
+        "请假提前告知负责人",
+        "忠实履行交代的任务",
+        "不半途随意退出"
+      ]
+    },
+    {
+      "title": "服务周到",
+      "method": "service",
+      "items": [
+        "以受助者需求为重",
+        "态度温和耐心引导",
+        "说明清楚所提供帮助",
+        "不越权承诺无法兑现"
+      ]
+    },
+    {
+      "title": "团队协作",
+      "method": "team",
+      "items": [
+        "服从分工互相补位",
+        "主动沟通协调安排",
+        "尊重工作人员与其他志愿者",
+        "合理承担不过度揽活"
+      ]
+    },
+    {
+      "title": "职业操守",
+      "method": "ethics",
+      "items": [
+        "保护受助者隐私",
+        "不收取或索取报酬",
+        "如实反馈志愿服务情况",
+        "着装得体树立良好形象"
+      ]
+    }
+  ]
+}

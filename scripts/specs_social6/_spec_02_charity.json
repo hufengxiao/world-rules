@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "charity_donation_etiquette",
+  "struct": "CharityDonationEtiquetteRules",
+  "name": "捐赠与义卖礼仪",
+  "desc": "公益捐赠、义卖、募捐中的诚意与规范礼仪",
+  "tags": ["社交", "礼仪", "捐赠", "公益", "义卖"],
+  "category": "RuleCategory::social(\"charity_donation\")",
+  "sections": [
+    {
+      "title": "诚意捐赠",
+      "method": "sincerity",
+      "items": [
+        "出于善意量力而为",
+        "选正规的受助渠道",
+        "不借捐赠抬高炫耀",
+        "尊重受助者的尊严"
+      ]
+    },
+    {
+      "title": "物捐清洁",
+      "method": "goods",
+      "items": [
+        "收拾干净的用旧衣物",
+        "破损严重的物件预览说明",
+        "食品注意保质期",
+        "写明物品用途与原状"
+      ]
+    },
+    {
+      "title": "参与活动",
+      "method": "event",
+      "items": [
+        "遵守义卖集会的秩序",
+        "自愿参与不强制摊派",
+        "关注善款用途透明",
+        "传播公益理性不夸大"
+      ]
+    },
+    {
+      "title": "善用资源",
+      "method": "accountability",
+      "items": [
+        "了解款项去向",
+        "合理分配有限的精力",
+        "尊重自愿参与者的选择",
+        "不道德绑架他人捐助"
+      ]
+    }
+  ]
+}

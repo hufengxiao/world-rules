@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "nursing_home_visit",
+  "struct": "NursingHomeVisitRules",
+  "name": "养老院探访礼仪",
+  "desc": "探访养老院、敬老院长者时的尊重与关怀礼仪",
+  "tags": ["社交", "礼仪", "养老院", "探访", "长者"],
+  "category": "RuleCategory::social(\"nursing_home\")",
+  "sections": [
+    {
+      "title": "探访准备",
+      "method": "preparation",
+      "items": [
+        "提前与机构约定探访时间",
+        "了解机构探访与聚集规定",
+        "准备合适的关怀礼物",
+        "避免在长者休息时段打扰"
+      ]
+    },
+    {
+      "title": "交流方式",
+      "method": "communication",
+      "items": [
+        "耐心聆听长者说话",
+        "语速放慢配合对方节奏",
+        "不打断并及时回应",
+        "称呼得体不过分高高在上"
+      ]
+    },
+    {
+      "title": "尊重关怀",
+      "method": "care",
+      "items": [
+        "陪伴多于带来礼物",
+        "尊重长者拒绝或不愿",
+        "协助须先征得同意",
+        "不越界翻动物品或隐私"
+      ]
+    },
+    {
+      "title": "告别致谢",
+      "method": "farewell",
+      "items": [
+        "临别礼貌道再见",
+        "约定下次探访时间",
+        "向护理人员致谢",
+        "离开不打扰其他长者"
+      ]
+    }
+  ]
+}
