@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "climate_change_facts",
+  "struct": "ClimateChangeFactsRules",
+  "name": "气候变化常识",
+  "desc": "气候变化成因、影响与节能减排行动",
+  "origin": "国际",
+  "tags": ["科学", "气候", "环保", "温室"],
+  "category": "RuleCategory::science(\"climate\")",
+  "sections": [
+    {
+      "title": "成因认识",
+      "method": "cause",
+      "items": [
+        "温室气体增多",
+        "人类活动排放",
+        "气温上升",
+        "称全球变暖"
+      ]
+    },
+    {
+      "title": "影响",
+      "method": "impact",
+      "items": [
+        "极端天气增多",
+        "海平面上升",
+        "冰川融化",
+        "生态受影响"
+      ]
+    },
+    {
+      "title": "节能减排",
+      "method": "action",
+      "items": [
+        "节约用电用水",
+        "减少开车步行",
+        "少用一次性",
+        "多绿色出行"
+      ]
+    },
+    {
+      "title": "珍爱地球",
+      "method": "care",
+      "items": [
+        "植树护绿",
+        "支持可再生",
+        "从小行动起",
+        "低碳生活"
+      ]
+    }
+  ]
+}

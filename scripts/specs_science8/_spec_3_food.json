@@ -1,0 +1,50 @@
+{
+  "cat": "science",
+  "file": "food_preservation_refrig",
+  "struct": "FoodPreservationRefrigRules",
+  "name": "食物保鲜冷藏",
+  "desc": "冰箱冷藏冷冻、食物保鲜与操作",
+  "tags": ["科学", "保鲜", "冷藏", "食物"],
+  "origin": "生活",
+  "category": "RuleCategory::science(\"preservation\")",
+  "sections": [
+    {
+      "title": "冷藏分区",
+      "method": "zone",
+      "items": [
+        "易腐放冷藏",
+        "肉蛋下层安全",
+        "蔬果保鲜盒","生熟分开"
+      ]
+    },
+    {
+      "title": "冷冻保存",
+      "method": "freeze",
+      "items": [
+        "肉禽分装冷冻",
+        "标注日期",
+        "解冻用冷藏","勿反复冻"
+      ]
+    },
+    {
+      "title": "保味道",
+      "method": "fresh",
+      "items": [
+        "剩菜及时冷藏",
+        "不用旧盒串味",
+        "蔬果保鲜",
+        "及时食用"
+      ]
+    },
+    {
+      "title": "卫生操作",
+      "method": "hygiene",
+      "items": [
+        "取放后盖紧",
+        "定期清理冰箱",
+        "变质食品丢弃",
+        "生熟案板分开"
+      ]
+    }
+  ]
+}

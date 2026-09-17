@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "water_purification",
+  "struct": "WaterPurificationRules",
+  "name": "净水与水质",
+  "desc": "饮用水净化、烧开与水质安全常识",
+  "origin": "国际",
+  "tags": ["科学", "净水", "水质", "生活"],
+  "category": "RuleCategory::science(\"water_quality\")",
+  "sections": [
+    {
+      "title": "安全饮水",
+      "method": "safe",
+      "items": [
+        "白开水最放心",
+        "烧开杀菌",
+        "不喝生水",
+        "水源有保障"
+      ]
+    },
+    {
+      "title": "净水设备",
+      "method": "purifier",
+      "items": [
+        "滤水壶过滤杂质",
+        "净水器去菌",
+        "定期换滤芯",
+        "按需选择"
+      ]
+    },
+    {
+      "title": "水质判断",
+      "method": "quality",
+      "items": [
+        "观察色浊气味",
+        "异常不饮用",
+        "用烧开饮用",
+        "不安可检测"
+      ]
+    },
+    {
+      "title": "节约用水",
+      "method": "save",
+      "items": [
+        "用水勿浪费",
+        "一水多用",
+        "滴漏早修",
+        "珍惜水资源"
+      ]
+    }
+  ]
+}

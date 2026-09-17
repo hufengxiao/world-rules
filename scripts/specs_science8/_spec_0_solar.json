@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "solar_panel_green",
+  "struct": "SolarPanelGreenRules",
+  "name": "太阳能发电",
+  "desc": "太阳能利用、光伏组件与绿色能源常识",
+  "tags": ["科学", "太阳能", "光伏", "能源"],
+  "origin": "国际",
+  "category": "RuleCategory::science(\"solar\")",
+  "sections": [
+    {
+      "title": "太阳能原理",
+      "method": "principle",
+      "items": [
+        "阳光能转电能",
+        "光伏组件发电",
+        "光热也可利用",
+        "可再生无限"
+      ]
+    },
+    {
+      "title": "光伏运用",
+      "method": "solar_use",
+      "items": [
+        "屋顶安装光伏板",
+        "分布式并网发电",
+        "储能配合使用",
+        "可家用供电"
+      ]
+    },
+    {
+      "title": "环保价值",
+      "method": "green",
+      "items": [
+        "清洁无排放",
+        "减碳环保",
+        "可持续能源",
+        "利国利家"
+      ]
+    },
+    {
+      "title": "效益考量",
+      "method": "benefit",
+      "items": [
+        "初期投入成本",
+        "日照地区效益好",
+        "维护需合理",
+        "按情况选择"
+      ]
+    }
+  ]
+}

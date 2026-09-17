@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "plastic_recycling_basics",
+  "struct": "PlasticRecyclingBasicsRules",
+  "name": "塑料分类回收",
+  "desc": "塑料类型辨识、分类回收与减塑常识",
+  "origin": "环保",
+  "tags": ["科学", "塑料", "回收", "环保"],
+  "category": "RuleCategory::science(\"plastic\")",
+  "sections": [
+    {
+      "title": "塑料类型",
+      "method": "types",
+      "items": [
+        "三角形标数字",
+        "标号种类不同",
+        "用途各有别",
+        "辨清再回收"
+      ]
+    },
+    {
+      "title": "分类投放",
+      "method": "sort",
+      "items": [
+        "洗净晾干再投",
+        "按回收箱分类",
+        "不混其他垃圾",
+        "减少污染"
+      ]
+    },
+    {
+      "title": "减塑生活",
+      "method": "reduce",
+      "items": [
+        "少用一次性",
+        "自带购物袋",
+        "重复利用容器",
+        "减碳环保"
+      ]
+    },
+    {
+      "title": "回收价值",
+      "method": "benefit",
+      "items": [
+        "废塑料可再造",
+        "节约石油资源",
+        "减少白色污染",
+        "资源再生"
+      ]
+    }
+  ]
+}

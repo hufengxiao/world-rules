@@ -113,6 +113,7 @@ pub mod circuit_theory;
 pub mod civil_engineering;
 pub mod civil_engineering_detailed;
 pub mod cleaning_agent_safety;
+pub mod climate_change_facts;
 pub mod climate_science;
 pub mod climatology;
 pub mod climatology_detailed;
@@ -204,6 +205,7 @@ pub mod financial_economics;
 pub mod fluid_dynamics;
 pub mod fluid_mechanics;
 pub mod fluid_mechanics_detailed;
+pub mod food_preservation_refrig;
 pub mod functional_analysis;
 pub mod game_theory;
 pub mod general_relativity;
@@ -331,6 +333,7 @@ pub mod physiology;
 pub mod plant_physiology;
 pub mod plasma_physics;
 pub mod plasma_physics_detailed;
+pub mod plastic_recycling_basics;
 pub mod political_geography_detailed;
 pub mod political_science;
 pub mod polymer_chemistry;
@@ -373,6 +376,7 @@ pub mod software_engineering;
 pub mod soil_geography;
 pub mod soil_science;
 pub mod soil_science_detailed;
+pub mod solar_panel_green;
 pub mod solid_mechanics;
 pub mod solid_mechanics_detailed;
 pub mod statics;
@@ -406,6 +410,7 @@ pub mod volcano_safety;
 pub mod volcanology;
 pub mod volcanology_detailed;
 pub mod waste_management;
+pub mod water_purification;
 pub mod water_resources;
 pub mod wave_optics_basics;
 pub mod weather_science_basics;
@@ -754,6 +759,7 @@ pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
 pub use cleaning_agent_safety::CleaningAgentSafetyRules;
+pub use climate_change_facts::ClimateChangeFactsRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
 pub use cooking_boiling_science::CookingBoilingScienceRules;
 pub use cooking_chemistry::CookingChemistryRules;
@@ -765,6 +771,7 @@ pub use ecology_balance::EcologyBalanceRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use electric_circuit_basics::ElectricCircuitBasicsRules;
 pub use experimental_method::ExperimentalMethodRules;
+pub use food_preservation_refrig::FoodPreservationRefrigRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
 pub use human_organ_systems::HumanOrganSystemsRules;
@@ -778,6 +785,7 @@ pub use material_properties::MaterialPropertiesRules;
 pub use mold_food_safety::MoldFoodSafetyRules;
 pub use nervous_system_basics::NervousSystemBasicsRules;
 pub use ocean_waves::OceanWavesRules;
+pub use plastic_recycling_basics::PlasticRecyclingBasicsRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use quantum_basics::QuantumBasicsRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
@@ -785,11 +793,13 @@ pub use renewable_energy_basics::RenewableEnergyBasicsRules;
 pub use respiratory_system_basics::RespiratorySystemBasicsRules;
 pub use seasonal_cycle::SeasonalCycleRules;
 pub use soil_geography::SoilGeographyRules;
+pub use solar_panel_green::SolarPanelGreenRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use survey_design::SurveyDesignRules;
 pub use sustainable_living_science::SustainableLivingScienceRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
 pub use volcano_safety::VolcanoSafetyRules;
+pub use water_purification::WaterPurificationRules;
 pub use wave_optics_basics::WaveOpticsBasicsRules;
 pub use weather_science_basics::WeatherScienceBasicsRules;
 
@@ -801,6 +811,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = PlasticRecyclingBasicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FoodPreservationRefrigRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ClimateChangeFactsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterPurificationRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SolarPanelGreenRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = VolcanoSafetyRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
