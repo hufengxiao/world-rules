@@ -197,6 +197,7 @@ pub mod mahjong_etiquette;
 pub mod market_etiquette;
 pub mod media_relations_etiquette;
 pub mod meeting_etiquette;
+pub mod meeting_speech_politeness;
 pub mod mid_autumn;
 pub mod middle_east_etiquette;
 pub mod minimalism;
@@ -208,6 +209,7 @@ pub mod neighbor;
 pub mod networking_etiquette;
 pub mod new_year_day;
 pub mod nursing_home_visit;
+pub mod office_cooperation;
 pub mod online;
 pub mod online_classes_etiquette;
 pub mod park_etiquette;
@@ -237,6 +239,7 @@ pub mod reception_etiquette;
 pub mod red_envelope_etiquette;
 pub mod remote_work_etiquette;
 pub mod reply_promptness;
+pub mod report_to_superior;
 pub mod resignation_etiquette;
 pub mod restaurant_ordering_etiquette;
 pub mod restaurant_tipping;
@@ -280,8 +283,10 @@ pub mod western_dining;
 pub mod wine_tasting;
 pub mod wine_toast_etiquette;
 pub mod womens_day;
+pub mod work_email_protocol;
 pub mod work_from_home;
 pub mod workplace;
+pub mod workplace_respect;
 pub mod yuanxiao;
 
 pub use accepting_feedback::AcceptingFeedbackRules;
@@ -431,6 +436,7 @@ pub use mahjong_etiquette::MahjongEtiquetteRules;
 pub use market_etiquette::MarketEtiquetteRules;
 pub use media_relations_etiquette::MediaRelationsEtiquetteRules;
 pub use meeting_etiquette::MeetingEtiquetteRules;
+pub use meeting_speech_politeness::MeetingSpeechPolitenessRules;
 pub use mid_autumn::MidAutumnRules;
 pub use middle_east_etiquette::MiddleEastEtiquetteRules;
 pub use minimalism::MinimalismRules;
@@ -442,6 +448,7 @@ pub use neighbor::NeighborRules;
 pub use networking_etiquette::NetworkingEtiquetteRules;
 pub use new_year_day::NewYearDayRules;
 pub use nursing_home_visit::NursingHomeVisitRules;
+pub use office_cooperation::OfficeCooperationRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
 pub use park_etiquette::ParkEtiquetteRules;
@@ -471,6 +478,7 @@ pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use red_envelope_etiquette::RedEnvelopeEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
 pub use reply_promptness::ReplyPromptnessRules;
+pub use report_to_superior::ReportToSuperiorRules;
 pub use resignation_etiquette::ResignationEtiquetteRules;
 pub use restaurant_ordering_etiquette::RestaurantOrderingEtiquetteRules;
 pub use restaurant_tipping::RestaurantTippingRules;
@@ -514,8 +522,10 @@ pub use western_dining::WesternDiningRules;
 pub use wine_tasting::WineTastingRules;
 pub use wine_toast_etiquette::WineToastEtiquetteRules;
 pub use womens_day::WomensDayRules;
+pub use work_email_protocol::WorkEmailProtocolRules;
 pub use work_from_home::WorkFromHomeRules;
 pub use workplace::WorkplaceRules;
+pub use workplace_respect::WorkplaceRespectRules;
 pub use yuanxiao::YuanxiaoRules;
 
 pub fn all_rules() -> Vec<(
@@ -526,6 +536,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WorkplaceRespectRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorkEmailProtocolRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ReportToSuperiorRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MeetingSpeechPolitenessRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OfficeCooperationRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DinnerSeatingOrderRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

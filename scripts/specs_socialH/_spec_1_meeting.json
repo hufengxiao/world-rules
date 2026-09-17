@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "meeting_speech_politeness",
+  "struct": "MeetingSpeechPolitenessRules",
+  "name": "开会发言礼貌",
+  "desc": "会议发言、倾听与表达的职场礼貌",
+  "origin": "国际",
+  "tags": ["职场", "会议", "发言", "礼貌"],
+  "category": "RuleCategory::social(\"meeting_politeness\")",
+  "sections": [
+    {
+      "title": "会前准备",
+      "method": "prepare",
+      "items": [
+        "准时到会",
+        "备好材料",
+        "手机静音",
+        "不迟到不闲聊"
+      ]
+    },
+    {
+      "title": "表达观点",
+      "method": "speak",
+      "items": [
+        "简明扼要说要点",
+        "按议程发言",
+        "等他人说完再讲",
+        "不跑题不抢话"
+      ]
+    },
+    {
+      "title": "倾听尊重",
+      "method": "listen",
+      "items": [
+        "认真听他人意见",
+        "不打断别人",
+        "记下要点",
+        "尊重不同观点"
+      ]
+    },
+    {
+      "title": "会后执行",
+      "method": "follow",
+      "items": [
+        "明确分工落实",
+        "及时反馈",
+        "不拖延",
+        "让会议有成效"
+      ]
+    }
+  ]
+}

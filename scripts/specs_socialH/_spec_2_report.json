@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "report_to_superior",
+  "struct": "ReportToSuperiorRules",
+  "name": "向上汇报",
+  "desc": "向领导汇报工作的条理、时机与表达",
+  "origin": "国际",
+  "tags": ["职场", "汇报", "工作"],
+  "category": "RuleCategory::social(\"report\")",
+  "sections": [
+    {
+      "title": "汇报时机",
+      "method": "timing",
+      "items": [
+        "按节点做汇报",
+        "重大事项及时说",
+        "遇阻尽快沟通",
+        "不刻意隐瞒"
+      ]
+    },
+    {
+      "title": "条理清楚",
+      "method": "structure",
+      "items": [
+        "先结论后细节",
+        "讲重点和进展",
+        "数字事实说话",
+        "简明扼要"
+      ]
+    },
+    {
+      "title": "听取反馈",
+      "method": "feedback",
+      "items": [
+        "认真听指示",
+        "不懂就问清",
+        "接受合理建议",
+        "不辩不顶撞"
+      ]
+    },
+    {
+      "title": "跟进落实",
+      "method": "follow",
+      "items": [
+        "把指示记下来",
+        "按时推进",
+        "完成情况反馈",
+        "担当尽责"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "workplace_respect",
+  "struct": "WorkplaceRespectRules",
+  "name": "职场尊敬人际",
+  "desc": "职场中长幼、上下级与同事相处的尊重",
+  "origin": "国际",
+  "tags": ["职场", "尊敬", "人际"],
+  "category": "RuleCategory::social(\"workplace_respect\")",
+  "sections": [
+    {
+      "title": "称呼得体",
+      "method": "addressing",
+      "items": [
+        "按职位称呼",
+        "初次见面客客气",
+        "不用轻浮称呼",
+        "见人主动问好"
+      ]
+    },
+    {
+      "title": "守时守信",
+      "method": "reliability",
+      "items": [
+        "上班约谈守时",
+        "答应的事做到",
+        "做不到需早说",
+        "讲信用立身"
+      ]
+    },
+    {
+      "title": "界限礼貌",
+      "method": "boundary",
+      "items": [
+        "不打听私人隐私",
+        "不背后说闲话",
+        "不打断人工作",
+        "尊重他人空间"
+      ]
+    },
+    {
+      "title": "团队氛围",
+      "method": "team",
+      "items": [
+        "多赞美少指责",
+        "有帮助先伸",
+        "不抢功邀功",
+        "和谐共处"
+      ]
+    }
+  ]
+}

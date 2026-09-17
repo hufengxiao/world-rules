@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "work_email_protocol",
+  "struct": "WorkEmailProtocolRules",
+  "name": "工作邮件礼仪",
+  "desc": "工作邮件的主题、格式与回复礼仪",
+  "origin": "国际",
+  "tags": ["职场", "邮件", "礼仪"],
+  "category": "RuleCategory::social(\"work_email\")",
+  "sections": [
+    {
+      "title": "主题清楚",
+      "method": "subject",
+      "items": [
+        "主题简洁达意",
+        "写明事由",
+        "紧急标注紧急",
+        "不空白主题"
+      ]
+    },
+    {
+      "title": "内容规范",
+      "method": "content",
+      "items": [
+        "称呼对象得体",
+        "正文有条理",
+        "表达清楚",
+        "结尾落款礼貌"
+      ]
+    },
+    {
+      "title": "及时回复",
+      "method": "reply",
+      "items": [
+        "收到邮件及时回",
+        "询问细节答清",
+        "不能及时说明",
+        "礼貌委婉"
+      ]
+    },
+    {
+      "title": "转发分寸",
+      "method": "forward",
+      "items": [
+        "抄送范围恰当",
+        "不随便转发他人",
+        "附件命名清楚",
+        "保护隐私"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "office_cooperation",
+  "struct": "OfficeCooperationRules",
+  "name": "同事协作",
+  "desc": "同事间配合、沟通与合作的职场关系",
+  "origin": "国际",
+  "tags": ["职场", "协作", "合作", "同事"],
+  "category": "RuleCategory::social(\"office_coop\")",
+  "sections": [
+    {
+      "title": "主动分担",
+      "method": "share",
+      "items": [
+        "任务分工明确",
+        "主动协助队友",
+        "不推诿拖延",
+        "责任心担当"
+      ]
+    },
+    {
+      "title": "沟通清楚",
+      "method": "communicate",
+      "items": [
+        "需求要讲明白",
+        "及时同步进度",
+        "问题尽早提",
+        "换位理解"
+      ]
+    },
+    {
+      "title": "意见协作",
+      "method": "opinion",
+      "items": [
+        "尊重不同观点",
+        "和谐讨论",
+        "说服还是协商",
+        "不独断专行"
+      ]
+    },
+    {
+      "title": "共同成长",
+      "method": "grow",
+      "items": [
+        "分享经验数据",
+        "互相鼓励",
+        "成果归功团队",
+        "团结合作"
+      ]
+    }
+  ]
+}
