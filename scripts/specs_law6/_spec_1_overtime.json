@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "overtime_compensation",
+  "struct": "OvertimeCompensationRules",
+  "name": "加班与加班费",
+  "desc": "加班安排、加班费计算与加班权益要点",
+  "origin": "中国",
+  "tags": ["法律", "加班", "加班费", "劳动"],
+  "category": "RuleCategory::law(\"overtime\")",
+  "sections": [
+    {
+      "title": "加班安排",
+      "method": "schedule",
+      "items": [
+        "加班有工作需要的约定",
+        "了解单位加班流程",
+        "不强迫超时加班",
+        "保障合理休息"
+      ]
+    },
+    {
+      "title": "加班费计算",
+      "method": "pay",
+      "items": [
+        "平时加班有加班工资",
+        "休息日加班安排补助",
+        "法定节日加班有补助",
+        "按时足额领取"
+      ]
+    },
+    {
+      "title": "记录证据",
+      "method": "evidence",
+      "items": [
+        "保留加班记录凭证",
+        "留存加班通知",
+        "记录工作时长",
+        "维权时有据可依"
+      ]
+    },
+    {
+      "title": "维权主张",
+      "method": "remedy",
+      "items": [
+        "有异议先沟通",
+        "可向劳动部门反映",
+        "依法主张补偿",
+        "举证责任依规"
+      ]
+    }
+  ]
+}

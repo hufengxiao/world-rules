@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "probation_period_rules",
+  "struct": "ProbationPeriodRules",
+  "name": "试用期劳动权益",
+  "desc": "劳动合同试用期的期限、工资与权利要点",
+  "origin": "中国",
+  "tags": ["法律", "试用期", "劳动合同"],
+  "category": "RuleCategory::law(\"probation\")",
+  "sections": [
+    {
+      "title": "期限合规",
+      "method": "duration",
+      "items": [
+        "试用期有法定期限限制",
+        "期限与合同相配",
+        "不得随意延长",
+        "试用期须签订在合同内"
+      ]
+    },
+    {
+      "title": "工资待遇",
+      "method": "wage",
+      "items": [
+        "试用期工资不得低于法定",
+        "工资按其约定发放",
+        "知悉社保缴纳义务",
+        "不得无故压低待遇"
+      ]
+    },
+    {
+      "title": "权利保障",
+      "method": "rights",
+      "items": [
+        "依法享受休息休假",
+        "有权获得劳动保护",
+        "试用可依规解除",
+        "被解除可依法核实"
+      ]
+    },
+    {
+      "title": "纠纷处理",
+      "method": "remedy",
+      "items": [
+        "试用期满依约定转正",
+        "有争议先协商",
+        "可依法申请仲裁",
+        "保留劳动合同证据"
+      ]
+    }
+  ]
+}

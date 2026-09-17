@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "noncompete_agreement",
+  "struct": "NoncompeteAgreementRules",
+  "name": "竞业限制条款",
+  "desc": "劳动合同竞业限制的义务、期限与补偿要点",
+  "origin": "中国",
+  "tags": ["法律", "竞业限制", "保密"],
+  "category": "RuleCategory::law(\"noncompete\")",
+  "sections": [
+    {
+      "title": "约定范围",
+      "method": "scope",
+      "items": [
+        "竞业限制书面约定",
+        "范围限于同类竞争",
+        "期限约定在法定上限内",
+        "针对确实涉及机密岗位"
+      ]
+    },
+    {
+      "title": "竞业义务",
+      "method": "duty",
+      "items": [
+        "离职后遵守竞业约定",
+        "不从事竞争业务",
+        "不挖角泄露客户",
+        "遵守期间诚信"
+      ]
+    },
+    {
+      "title": "经济补偿",
+      "method": "compensation",
+      "items": [
+        "竞业限制应有补偿",
+        "补偿按月支付",
+        "未依约付偿可主张",
+        "不了解补偿先协商"
+      ]
+    },
+    {
+      "title": "争议处理",
+      "method": "remedy",
+      "items": [
+        "有争议先看是否适用",
+        "依约依规处理",
+        "泄密致损或担责",
+        "保留协议与记录"
+      ]
+    }
+  ]
+}

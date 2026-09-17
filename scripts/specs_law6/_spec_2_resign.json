@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "resignation_procedure",
+  "struct": "ResignationProcedureRules",
+  "name": "离职程序与交接",
+  "desc": "劳动者主动离职的程序、通知与交接要点",
+  "origin": "中国",
+  "tags": ["法律", "离职", "辞职", "交接"],
+  "category": "RuleCategory::law(\"resignation\")",
+  "sections": [
+    {
+      "title": "提前通知",
+      "method": "notice",
+      "items": [
+        "劳动者依法提前通知",
+        "试用期提前适当天",
+        "正式期提前三十日书面",
+        "办理好离职手续"
+      ]
+    },
+    {
+      "title": "工作交接",
+      "method": "handover",
+      "items": [
+        "完成工作交接",
+        "归还单位财物证件",
+        "做好资料移交",
+        "配合单位依规办理"
+      ]
+    },
+    {
+      "title": "结清待遇",
+      "method": "settlement",
+      "items": [
+        "依法结清工资",
+        "办理社保关系转移",
+        "领取离职证明",
+        "核对应得款项"
+      ]
+    },
+    {
+      "title": "离职善后",
+      "method": "follow",
+      "items": [
+        "遵守保密约定",
+        "竞业限制依法履行",
+        "保留离职证明凭证",
+        "友好告别维护关系"
+      ]
+    }
+  ]
+}

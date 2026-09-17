@@ -73,12 +73,17 @@ pub mod marriage_property_basics;
 pub mod mortgage_loan_basics;
 pub mod neighbor_dispute_handling;
 pub mod neighborhood_noise_dispute;
+pub mod noncompete_agreement;
 pub mod online_shopping_rights;
+pub mod overtime_compensation;
 pub mod personal_tax_basics;
 pub mod power_of_attorney_basics;
+pub mod probation_period_rules;
 pub mod property_management_fee;
 pub mod rental_lease_basics;
+pub mod resignation_procedure;
 pub mod road_safety;
+pub mod social_security_basics;
 pub mod traffic;
 
 // 商法类
@@ -672,8 +677,10 @@ pub use neighbor_dispute_handling::NeighborDisputeHandlingRules;
 pub use neighborhood_noise_dispute::NeighborhoodNoiseDisputeRules;
 pub use new_york_convention::NewYorkConventionRules;
 pub use noise_pollution_law::NoisePollutionLawRules;
+pub use noncompete_agreement::NoncompeteAgreementRules;
 pub use online_dispute::OnlineDisputeRules;
 pub use online_shopping_rights::OnlineShoppingRightsRules;
+pub use overtime_compensation::OvertimeCompensationRules;
 pub use parole_law::ParoleLawRules;
 pub use personal_info_detailed::PersonalInfoDetailedRules;
 pub use personal_info_protection::PersonalInfoProtectionRules;
@@ -682,12 +689,14 @@ pub use plea_bargaining::PleaBargainingRules;
 pub use power_of_attorney_basics::PowerOfAttorneyBasicsRules;
 pub use privacy_rights::PrivacyRightsRules;
 pub use probation_law::ProbationLawRules;
+pub use probation_period_rules::ProbationPeriodRules;
 pub use product_quality_deep::ProductQualityDeepRules;
 pub use property_management_fee::PropertyManagementFeeRules;
 pub use public_interest_litigation::PublicInterestLitigationRules;
 pub use real_estate_detailed::RealEstateDetailedRules;
 pub use real_estate_law_detailed::RealEstateLawDetailedRules;
 pub use rental_lease_basics::RentalLeaseBasicsRules;
+pub use resignation_procedure::ResignationProcedureRules;
 pub use right_to_education::RightToEducationRules;
 pub use right_to_health::RightToHealthRules;
 pub use right_to_housing::RightToHousingRules;
@@ -699,6 +708,7 @@ pub use securities_law_detailed::SecuritiesLawDetailedRules;
 pub use sentencing_guideline_deep::SentencingGuidelineDeepRules;
 pub use smart_contract_law::SmartContractLawRules;
 pub use social_insurance_law_detailed::SocialInsuranceLawDetailedRules;
+pub use social_security_basics::SocialSecurityBasicsRules;
 pub use social_security_intl::SocialSecurityIntlRules;
 pub use soil_pollution_law::SoilPollutionLawRules;
 pub use space_law::SpaceLawRules;
@@ -732,6 +742,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SocialSecurityBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NoncompeteAgreementRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ResignationProcedureRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OvertimeCompensationRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ProbationPeriodRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DepositRefundBasicsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
