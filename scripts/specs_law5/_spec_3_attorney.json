@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "power_of_attorney_basics",
+  "struct": "PowerOfAttorneyBasicsRules",
+  "name": "授权委托常识",
+  "desc": "出具授权委托书、代理权限与授权风险的要点",
+  "origin": "中国",
+  "tags": ["法律", "授权", "委托", "代理"],
+  "category": "RuleCategory::law(\"power_of_attorney\")",
+  "sections": [
+    {
+      "title": "授权内容",
+      "method": "content",
+      "items": [
+        "明确授权事项与范围",
+        "写明代理人信息",
+        "界定权限与时限",
+        "书面形式更稳妥"
+      ]
+    },
+    {
+      "title": "权限谨慎",
+      "method": "scope",
+      "items": [
+        "不授予无限权限",
+        "重大事项签署审慎",
+        "可限定金额与事项",
+        "遇变更及时调整"
+      ]
+    },
+    {
+      "title": "风险控制",
+      "method": "risk",
+      "items": [
+        "选择可信赖的代理人",
+        "用过的授权及时撤回",
+        "妥善保管授权文件",
+        "遇滥用及时处理"
+      ]
+    },
+    {
+      "title": "终止代理",
+      "method": "terminate",
+      "items": [
+        "委托结束书面告知",
+        "撤销授权须通知相关方",
+        "核对代理有无遗留",
+        "依规结束代理关系"
+      ]
+    }
+  ]
+}

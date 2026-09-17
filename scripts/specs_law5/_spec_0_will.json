@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "will_estate_planning",
+  "struct": "WillEstatePlanningRules",
+  "name": "遗嘱与遗产规划",
+  "desc": "立遗嘱、遗产分配与法定继承的常识要点",
+  "origin": "中国",
+  "tags": ["法律", "遗嘱", "遗产", "继承"],
+  "category": "RuleCategory::law(\"will_estate\")",
+  "sections": [
+    {
+      "title": "法定继承",
+      "method": "statutory",
+      "items": [
+        "了解法定继承人顺序",
+        "配偶子女父母等属第一顺序",
+        "无遗嘱时按法定分配",
+        "遗赠扶养另有规定"
+      ]
+    },
+    {
+      "title": "遗嘱形式",
+      "method": "form",
+      "items": [
+        "遗嘱形式须符合法律规定",
+        "自书遗嘱亲笔签名等",
+        "代书见证等按规办理",
+        "遗嘱内容应真实自愿"
+      ]
+    },
+    {
+      "title": "合理规划",
+      "method": "plan",
+      "items": [
+        "适时订立明确遗嘱",
+        "妥善保管遗嘱文件",
+        "可附个人安排说明",
+        "避免无法定形式争议"
+      ]
+    },
+    {
+      "title": "善后处理",
+      "method": "after",
+      "items": [
+        "依法处理遗产分割",
+        "尊重被继承人意愿",
+        "必要时请法律评估",
+        "遵从遗嘱公平解决"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "property_management_fee",
+  "struct": "PropertyManagementFeeRules",
+  "name": "物业费与物业纠纷",
+  "desc": "缴纳物业费、物业服务与业主纠纷处理要点",
+  "origin": "中国",
+  "tags": ["法律", "物业", "物业费", "业主"],
+  "category": "RuleCategory::law(\"property_fee\")",
+  "sections": [
+    {
+      "title": "交费义务",
+      "method": "obligation",
+      "items": [
+        "按时缴纳物业服务费",
+        "了解收费项目与标准",
+        "业委会议商定代收费",
+        "不按时缴费有责任"
+      ]
+    },
+    {
+      "title": "服务内容",
+      "method": "service",
+      "items": [
+        "物业服务有约定范围",
+        "保洁安保维修等依约",
+        "了解服务标准与投诉",
+        "服务不达标积极反映"
+      ]
+    },
+    {
+      "title": "纠纷处理",
+      "method": "dispute",
+      "items": [
+        "先与物业沟通协商",
+        "向业委会或街道反映",
+        "有依据可投诉监管",
+        "依法定缓交或抗辩"
+      ]
+    },
+    {
+      "title": "理性维权",
+      "method": "rights",
+      "items": [
+        "不拖欠无据拒绝缴费",
+        "保留服务凭证证据",
+        "合理维护业主权益",
+        "通过正当途径解决"
+      ]
+    }
+  ]
+}

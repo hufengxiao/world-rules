@@ -60,6 +60,7 @@ pub mod consumer;
 pub mod consumer_rights_basics;
 pub mod contract;
 pub mod criminal;
+pub mod deposit_refund_basics;
 pub mod identity_fraud_protection;
 pub mod inheritance;
 pub mod inheritance_basics;
@@ -71,8 +72,11 @@ pub mod marriage;
 pub mod marriage_property_basics;
 pub mod mortgage_loan_basics;
 pub mod neighbor_dispute_handling;
+pub mod neighborhood_noise_dispute;
 pub mod online_shopping_rights;
 pub mod personal_tax_basics;
+pub mod power_of_attorney_basics;
+pub mod property_management_fee;
 pub mod rental_lease_basics;
 pub mod road_safety;
 pub mod traffic;
@@ -150,6 +154,7 @@ pub mod foreign_investment;
 pub mod children_protection;
 pub mod disability_protection;
 pub mod elderly_protection;
+pub mod will_estate_planning;
 pub mod women_protection;
 
 // 慈善法类
@@ -573,6 +578,7 @@ pub use data_security_detailed::DataSecurityDetailedRules;
 pub use data_security_detailed_law::DataSecurityDetailedLawRules;
 pub use death_penalty::DeathPenaltyRules;
 pub use deepfake_law::DeepfakeLawRules;
+pub use deposit_refund_basics::DepositRefundBasicsRules;
 pub use digital_evidence::DigitalEvidenceRules;
 pub use disability_rights::DisabilityRightsRules;
 pub use drone_law::DroneLawRules;
@@ -663,6 +669,7 @@ pub use mineral_resources::MineralResourcesLawRules;
 pub use mortgage_loan_basics::MortgageLoanBasicsRules;
 pub use negotiable_instruments_law_deep::NegotiableInstrumentsLawDeepRules;
 pub use neighbor_dispute_handling::NeighborDisputeHandlingRules;
+pub use neighborhood_noise_dispute::NeighborhoodNoiseDisputeRules;
 pub use new_york_convention::NewYorkConventionRules;
 pub use noise_pollution_law::NoisePollutionLawRules;
 pub use online_dispute::OnlineDisputeRules;
@@ -672,9 +679,11 @@ pub use personal_info_detailed::PersonalInfoDetailedRules;
 pub use personal_info_protection::PersonalInfoProtectionRules;
 pub use personal_tax_basics::PersonalTaxBasicsRules;
 pub use plea_bargaining::PleaBargainingRules;
+pub use power_of_attorney_basics::PowerOfAttorneyBasicsRules;
 pub use privacy_rights::PrivacyRightsRules;
 pub use probation_law::ProbationLawRules;
 pub use product_quality_deep::ProductQualityDeepRules;
+pub use property_management_fee::PropertyManagementFeeRules;
 pub use public_interest_litigation::PublicInterestLitigationRules;
 pub use real_estate_detailed::RealEstateDetailedRules;
 pub use real_estate_law_detailed::RealEstateLawDetailedRules;
@@ -710,6 +719,7 @@ pub use warranty_claims::WarrantyClaimsRules;
 pub use water_detailed::WaterDetailedRules;
 pub use whistleblower_protection::WhistleblowerProtectionRules;
 pub use wildlife_protection_law::WildlifeProtectionLawRules;
+pub use will_estate_planning::WillEstatePlanningRules;
 pub use witness_protection::WitnessProtectionRules;
 pub use women_rights::WomenRightsRules;
 pub use wto_law::WtoLawRules;
@@ -722,6 +732,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DepositRefundBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PowerOfAttorneyBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NeighborhoodNoiseDisputeRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PropertyManagementFeeRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WillEstatePlanningRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WarrantyClaimsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

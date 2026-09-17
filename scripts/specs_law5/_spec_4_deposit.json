@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "deposit_refund_basics",
+  "struct": "DepositRefundBasicsRules",
+  "name": "押金退还要点",
+  "desc": "租房押金归还、扣款争议与退还的要点",
+  "origin": "中国",
+  "tags": ["法律", "押金", "租房", "退还"],
+  "category": "RuleCategory::law(\"deposit_refund\")",
+  "sections": [
+    {
+      "title": "押金约定",
+      "method": "deposit",
+      "items": [
+        "签约明确押金数额",
+        "注明退押条件与时限",
+        "保留押金凭证",
+        "金额符合约定"
+      ]
+    },
+    {
+      "title": "退租交代",
+      "method": "moveout",
+      "items": [
+        "按约清理房屋物品",
+        "固定设施损坏如实说明",
+        "结清水电物业费用",
+        "做好房屋交接"
+      ]
+    },
+    {
+      "title": "退还主张",
+      "method": "refund",
+      "items": [
+        "符合条件要求退还",
+        "无合理扣减应全额退",
+        "保留沟通与凭证",
+        "不无谓拖延"
+      ]
+    },
+    {
+      "title": "争议处理",
+      "method": "dispute",
+      "items": [
+        "先协商解决扣减争议",
+        "约定不明依交易习惯",
+        "有依据可投诉或依法主张",
+                "贵在依法依约处理押金"
+      ]
+    }
+  ]
+}
