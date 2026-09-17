@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "early_morning_routine",
+  "struct": "EarlyMorningRoutineRules",
+  "name": "早起晨间习惯",
+  "desc": "晨间起床、光亮与规律作息的调整方法",
+  "origin": "医学",
+  "tags": ["健康", "早起", "晨间", "习惯"],
+  "category": "RuleCategory::health(\"morning_routine\")",
+  "sections": [
+    {
+      "title": "按时起床",
+      "method": "wake",
+      "items": [
+        "定时起床固定时间",
+        "睡醒即起不赖床",
+        "渐进调整早起",
+        "不过度用闹钟赖"
+      ]
+    },
+    {
+      "title": "晨光唤醒",
+      "method": "light",
+      "items": [
+        "起床拉开窗帘见光",
+        "自然光调节节律",
+        "不长时间躺刷",
+        "活动舒展身体"
+      ]
+    },
+    {
+      "title": "启动晨间",
+      "method": "morning",
+      "items": [
+        "简单洗漱饮水",
+        "可做轻度拉伸",
+        "规划今日要事",
+        "轻松用早餐"
+      ]
+    },
+    {
+      "title": "调整节律",
+      "method": "rhythm",
+      "items": [
+        "保持睡眠充足",
+        "睡前不兴奋",
+        "规律作息利早起",
+        "循序渐进最稳"
+      ]
+    }
+  ]
+}

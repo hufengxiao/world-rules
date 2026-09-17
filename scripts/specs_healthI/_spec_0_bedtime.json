@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "bedtime_ritual",
+  "struct": "BedtimeRitualRules",
+  "name": "睡前仪式助眠",
+  "desc": "稳定睡前仪式、放松身心促进入睡的规则",
+  "origin": "医学",
+  "tags": ["健康", "睡眠", "睡前", "仪式"],
+  "category": "RuleCategory::health(\"bedtime\")",
+  "sections": [
+    {
+      "title": "固定时间",
+      "method": "schedule",
+      "items": [
+        "保持规律就寝时间",
+        "避免熬夜打乱节律",
+        "醒时定时起床",
+        "周末也少颠倒"
+      ]
+    },
+    {
+      "title": "睡前准备",
+      "method": "prepare",
+      "items": [
+        "睡前一小时放松",
+        "调暗灯光",
+        "远离屏幕强光",
+        "环境安静舒适"
+      ]
+    },
+    {
+      "title": "仪式放松",
+      "method": "relax",
+      "items": [
+        "温水泡脚助眠",
+        "轻度拉伸放松",
+        "听舒缓音乐",
+        "写写待办释念"
+      ]
+    },
+    {
+      "title": "避免刺激",
+      "method": "avoid",
+      "items": [
+        "睡前不喝浓茶咖啡",
+        "不剧烈运动",
+        "不长时间看屏",
+        "不过饱用餐"
+      ]
+    }
+  ]
+}

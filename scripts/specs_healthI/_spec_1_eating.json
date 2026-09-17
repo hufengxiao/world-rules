@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "mindful_eating",
+  "struct": "MindfulEatingRules",
+  "name": "正念饮食",
+  "desc": "细嚼慢咽、品味食物与觉察饱足的正念饮食",
+  "origin": "心理学",
+  "tags": ["健康", "正念", "饮食", "减重"],
+  "category": "RuleCategory::health(\"mindful_eating\")",
+  "sections": [
+    {
+      "title": "专心进食",
+      "method": "focus",
+      "items": [
+        "吃饭不看电视手机",
+        "专心品味食物",
+        "感知色香口感",
+        "减少分心进食"
+      ]
+    },
+    {
+      "title": "细嚼慢咽",
+      "method": "slow",
+      "items": [
+        "放慢用餐速度",
+        "充分咀嚼",
+        "放下筷子稍停",
+        "与身体节奏同步"
+      ]
+    },
+    {
+      "title": "觉察饱腹",
+      "method": "full",
+      "items": [
+        "留意吃饱信号",
+        "不硬撑不过量",
+        "区分嘴馋与饥饿",
+        "吃到适可而止"
+      ]
+    },
+    {
+      "title": "情绪进食",
+      "method": "emotion",
+      "items": [
+        "识别焦躁时进食",
+        "不以食物解压",
+        "情绪波动另找出口",
+        "健康享受每一餐"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "mood_diary",
+  "struct": "MoodDiaryRules",
+  "name": "情绪日记",
+  "desc": "记录情绪、觉察诱因与促进自我调节的方法",
+  "origin": "心理学",
+  "tags": ["健康", "情绪日记", "书写", "心理"],
+  "category": "RuleCategory::health(\"mood_diary\")",
+  "sections": [
+    {
+      "title": "定期记录",
+      "method": "record",
+      "items": [
+        "固定时间写几句",
+        "记下当时情绪",
+        "伴随时长程度",
+        "简单不设限"
+      ]
+    },
+    {
+      "title": "觉察诱因",
+      "method": "trigger",
+      "items": [
+        "回顾情绪前事件",
+        "识别触发点",
+        "思考身体反应",
+        "发现情绪规律"
+      ]
+    },
+    {
+      "title": "表达梳理",
+      "method": "express",
+      "items": [
+        "如实写内心感受",
+        "不压抑不评判",
+        "梳理混乱思绪",
+        "疏导郁结"
+      ]
+    },
+    {
+      "title": "指导改变",
+      "method": "insight",
+      "items": [
+        "从记录找模式",
+        "运用觉察调整",
+        "感恩正面记录",
+        "必要时求专业"
+      ]
+    }
+  ]
+}

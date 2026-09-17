@@ -60,6 +60,7 @@ pub mod anger_management;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
 pub mod balanced_diet_plan;
+pub mod bedtime_ritual;
 pub mod bleeding_control_bandage;
 pub mod blister_care;
 pub mod blood_lipid_management;
@@ -82,6 +83,7 @@ pub mod diabetes_management;
 pub mod digestive_health;
 pub mod drowning_rescue;
 pub mod ear_ache_care;
+pub mod early_morning_routine;
 pub mod earthquake_safety;
 pub mod elder_fall_prevention;
 pub mod elderly_health;
@@ -126,7 +128,9 @@ pub mod menopause_health;
 pub mod mental_health;
 pub mod mental_wellness;
 pub mod migraine_management;
+pub mod mindful_eating;
 pub mod mindfulness_basics;
+pub mod mood_diary;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nasal_congestion_relief;
@@ -144,6 +148,7 @@ pub mod pregnancy_prenatal;
 pub mod premenstrual_syndrome_care;
 pub mod prenatal_health;
 pub mod procrastination_manage;
+pub mod progressive_relaxation;
 pub mod prolonged_sitting_safety;
 pub mod respiratory_health;
 pub mod scalds_burns;
@@ -185,6 +190,7 @@ pub use anger_management::AngerManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
+pub use bedtime_ritual::BedtimeRitualRules;
 pub use bleeding_control_bandage::BleedingControlBandageRules;
 pub use blister_care::BlisterCareRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
@@ -207,6 +213,7 @@ pub use diabetes_management::DiabetesManagementRules;
 pub use digestive_health::DigestiveHealthRules;
 pub use drowning_rescue::DrowningRescueRules;
 pub use ear_ache_care::EarAcheCareRules;
+pub use early_morning_routine::EarlyMorningRoutineRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
 pub use elder_fall_prevention::ElderFallPreventionRules;
 pub use elderly_health::ElderlyHealthRules;
@@ -251,7 +258,9 @@ pub use menopause_health::MenopauseHealthRules;
 pub use mental_health::MentalHealthRules;
 pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
+pub use mindful_eating::MindfulEatingRules;
 pub use mindfulness_basics::MindfulnessBasicsRules;
+pub use mood_diary::MoodDiaryRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nasal_congestion_relief::NasalCongestionReliefRules;
@@ -269,6 +278,7 @@ pub use pregnancy_prenatal::PregnancyPrenatalRules;
 pub use premenstrual_syndrome_care::PremenstrualSyndromeCareRules;
 pub use prenatal_health::PrenatalHealthRules;
 pub use procrastination_manage::ProcrastinationManageRules;
+pub use progressive_relaxation::ProgressiveRelaxationRules;
 pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use scalds_burns::ScaldBurnCareRules;
@@ -310,6 +320,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ProgressiveRelaxationRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EarlyMorningRoutineRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MoodDiaryRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MindfulEatingRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BedtimeRitualRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = NosebleedManagementRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

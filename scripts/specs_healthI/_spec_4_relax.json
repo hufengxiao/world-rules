@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "progressive_relaxation",
+  "struct": "ProgressiveRelaxationRules",
+  "name": "渐进式肌肉放松",
+  "desc": "逐部位绷紧放松以减压助眠的练习方法",
+  "origin": "心理学",
+  "tags": ["健康", "放松", "减压", "肌肉"],
+  "category": "RuleCategory::health(\"relaxation\")",
+  "sections": [
+    {
+      "title": "练习准备",
+      "method": "prepare",
+      "items": [
+        "找安静舒适处",
+        "取放松姿势",
+        "深呼深吸",
+        "放下杂念"
+      ]
+    },
+    {
+      "title": "逐部绷紧",
+      "method": "progress",
+      "items": [
+        "从脚到脸逐部",
+        "绷紧肌群数秒",
+        "感受紧张感",
+        "再彻底放松"
+      ]
+    },
+    {
+      "title": "呼吸配合",
+      "method": "breathe",
+      "items": [
+        "绷紧时吸气",
+        "放松时呼气",
+        "节奏均匀",
+        "加深放松"
+      ]
+    },
+    {
+      "title": "规律练习",
+      "method": "practice",
+      "items": [
+        "每天练几分钟",
+        "睡前放松助眠",
+        "压力时随时用",
+        "长期坚持有效"
+      ]
+    }
+  ]
+}
