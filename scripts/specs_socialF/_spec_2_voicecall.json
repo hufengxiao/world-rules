@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "voice_call_courtesy",
+  "struct": "VoiceCallCourtesyRules",
+  "name": "语音通话礼仪",
+  "desc": "语音通话的时机、开场与长篇通话分寸",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "通话", "语音"],
+  "category": "RuleCategory::social(\"voice_call\")",
+  "sections": [
+    {
+      "title": "来电时机",
+      "method": "timing",
+      "items": [
+        "白天合理时段通电话",
+        "避免深夜清晨打扰",
+        "开会休息前先请示",
+        "紧急情况例外"
+      ]
+    },
+    {
+      "title": "开场问候",
+      "method": "greet",
+      "items": [
+        "接通先自报姓名",
+        "询问对方是否方便",
+        "简洁说明来电目的",
+        "音量语调适度"
+      ]
+    },
+    {
+      "title": "通话分寸",
+      "method": "measure",
+      "items": [
+        "说话简洁含礼",
+        "不长时间占线啰嗦",
+        "重要内容复述确认",
+        "环境安静不嘈杂"
+      ]
+    },
+    {
+      "title": "结束道别",
+      "method": "end",
+      "items": [
+        "确认说完再挂机",
+        "说声谢谢/再见",
+        "礼貌结束通话",
+        "挂前留机会让对方先说"
+      ]
+    }
+  ]
+}

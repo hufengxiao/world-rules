@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "emoji_sticker_use",
+  "struct": "EmojiStickerUseRules",
+  "name": "表情包与表情符号使用礼仪",
+  "desc": "使用表情、颜文字和贴图的分寸与场合",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "表情", "贴图"],
+  "category": "RuleCategory::social(\"emoji\")",
+  "sections": [
+    {
+      "title": "场合分寸",
+      "method": "occasion",
+      "items": [
+        "正式场合少用表情",
+        "轻松聊天随意用",
+        "配合语气不曲解",
+        "尊重对方接受度"
+      ]
+    },
+    {
+      "title": "适度表达",
+      "method": "moderation",
+      "items": [
+        "表情辅助不替代",
+        "不连发大量表情",
+        "不随意用争吵性图标",
+        "含义清楚不误读"
+      ]
+    },
+    {
+      "title": "贴图使用",
+      "method": "sticker",
+      "items": [
+        "用符合语境的贴图",
+        "避免冒犯性内容",
+        "不发含敏感图",
+        "不随意转发他人表情"
+      ]
+    },
+    {
+      "title": "善用沟通",
+      "method": "communicate",
+      "items": [
+        "重要信息不靠表情",
+        "需说明当用文字",
+        "多表达真诚",
+        "表情增进温度"
+      ]
+    }
+  ]
+}

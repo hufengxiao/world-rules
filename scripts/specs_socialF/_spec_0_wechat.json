@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "wechat_chat_manner",
+  "struct": "WechatChatMannerRules",
+  "name": "微信聊天礼仪",
+  "desc": "微信通讯的文字、问候与及时回复礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "聊天", "即时通讯"],
+  "category": "RuleCategory::social(\"wechat\")",
+  "sections": [
+    {
+      "title": "开场得体",
+      "method": "greet",
+      "items": [
+        "初聊先问候",
+        "称呼恰当",
+        "说明来意清楚",
+        "避免一上来连发语音"
+      ]
+    },
+    {
+      "title": "文字表达",
+      "method": "text",
+      "items": [
+        "表达清晰不简短生硬",
+        "恰当使用标点",
+        "不群发骚扰",
+        "不随意修改他人消息"
+      ]
+    },
+    {
+      "title": "语音使用",
+      "method": "voice",
+      "items": [
+        "重要信息用文字",
+        "语音适中不连发",
+        "考虑对方场景",
+        "不深夜打扰"
+      ]
+    },
+    {
+      "title": "回复尺度",
+      "method": "reply",
+      "items": [
+        "看到及时回复",
+        "缺席说明原因",
+        "收到通知恰当回应",
+        "不敷衍冷漠"
+      ]
+    }
+  ]
+}

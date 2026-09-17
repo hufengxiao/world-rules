@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "group_chat_netiquette",
+  "struct": "GroupChatNetiquetteRules",
+  "name": "群聊礼仪",
+  "desc": "微信群聊的信息适量、有序与不打扰礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "群聊", "信息"],
+  "category": "RuleCategory::social(\"group_chat\")",
+  "sections": [
+    {
+      "title": "发帖适度",
+      "method": "post",
+      "items": [
+        "不发无关刷屏",
+        "一次只说要点",
+        "避免连发多图",
+        "不传播不实信息"
+      ]
+    },
+    {
+      "title": "有序交流",
+      "method": "order",
+      "items": [
+        "回复相关对话",
+        "避免歪楼偏题",
+        "有序讨论不争吵",
+        "尊重他人意见"
+      ]
+    },
+    {
+      "title": "成员尊重",
+      "method": "respect",
+      "items": [
+        "不@骚扰无关人",
+        "不发隐私内容",
+        "不贬低讥笑他人",
+        "友善互动"
+      ]
+    },
+    {
+      "title": "功能规范",
+      "method": "function",
+      "items": [
+        "公众号提醒适度",
+        "待改事项确认",
+        "退群得体说明",
+        "维护群内秩序"
+      ]
+    }
+  ]
+}

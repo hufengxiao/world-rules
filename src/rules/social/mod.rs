@@ -144,6 +144,7 @@ pub mod elevator;
 pub mod elevator_detailed;
 pub mod elevator_luggage_etiquette;
 pub mod email;
+pub mod emoji_sticker_use;
 pub mod escalator_etiquette;
 pub mod festival;
 pub mod festival_family_gathering;
@@ -162,6 +163,7 @@ pub mod golf_etiquette;
 pub mod graduation_ceremony;
 pub mod greeting;
 pub mod grocery_supermarket_etiquette;
+pub mod group_chat_netiquette;
 pub mod guest_reception;
 pub mod gym_etiquette;
 pub mod gym_shared_etiquette;
@@ -230,6 +232,7 @@ pub mod reading_room_etiquette;
 pub mod reception_etiquette;
 pub mod red_envelope_etiquette;
 pub mod remote_work_etiquette;
+pub mod reply_promptness;
 pub mod resignation_etiquette;
 pub mod restaurant_ordering_etiquette;
 pub mod restaurant_tipping;
@@ -262,10 +265,12 @@ pub mod travel_buddy_manners;
 pub mod umbrella_etiquette;
 pub mod vegan_etiquette;
 pub mod vip_etiquette;
+pub mod voice_call_courtesy;
 pub mod volunteer_etiquette;
 pub mod volunteer_service_etiquette;
 pub mod volunteer_service_manner;
 pub mod waiting_room_etiquette;
+pub mod wechat_chat_manner;
 pub mod wedding;
 pub mod western_dining;
 pub mod wine_tasting;
@@ -368,6 +373,7 @@ pub use elevator::ElevatorEtiquette;
 pub use elevator_detailed::ElevatorDetailedRules;
 pub use elevator_luggage_etiquette::ElevatorLuggageEtiquetteRules;
 pub use email::EmailEtiquette;
+pub use emoji_sticker_use::EmojiStickerUseRules;
 pub use escalator_etiquette::EscalatorEtiquetteRules;
 pub use festival::{ChineseFestival, FestivalEtiquette};
 pub use festival_family_gathering::FestivalFamilyGatheringRules;
@@ -386,6 +392,7 @@ pub use golf_etiquette::GolfEtiquetteRules;
 pub use graduation_ceremony::GraduationCeremonyRules;
 pub use greeting::GreetingEtiquette;
 pub use grocery_supermarket_etiquette::GrocerySupermarketEtiquetteRules;
+pub use group_chat_netiquette::GroupChatNetiquetteRules;
 pub use guest_reception::GuestReceptionRules;
 pub use gym_etiquette::GymEtiquetteRules;
 pub use gym_shared_etiquette::GymSharedEtiquetteRules;
@@ -454,6 +461,7 @@ pub use reading_room_etiquette::ReadingRoomEtiquetteRules;
 pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use red_envelope_etiquette::RedEnvelopeEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
+pub use reply_promptness::ReplyPromptnessRules;
 pub use resignation_etiquette::ResignationEtiquetteRules;
 pub use restaurant_ordering_etiquette::RestaurantOrderingEtiquetteRules;
 pub use restaurant_tipping::RestaurantTippingRules;
@@ -486,10 +494,12 @@ pub use travel_buddy_manners::TravelBuddyMannersRules;
 pub use umbrella_etiquette::UmbrellaEtiquetteRules;
 pub use vegan_etiquette::VeganEtiquetteRules;
 pub use vip_etiquette::VipEtiquetteRules;
+pub use voice_call_courtesy::VoiceCallCourtesyRules;
 pub use volunteer_etiquette::VolunteerEtiquetteRules;
 pub use volunteer_service_etiquette::VolunteerServiceEtiquetteRules;
 pub use volunteer_service_manner::VolunteerServiceMannerRules;
 pub use waiting_room_etiquette::WaitingRoomEtiquetteRules;
+pub use wechat_chat_manner::WechatChatMannerRules;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
 pub use western_dining::WesternDiningRules;
 pub use wine_tasting::WineTastingRules;
@@ -506,6 +516,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ReplyPromptnessRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EmojiStickerUseRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VoiceCallCourtesyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GroupChatNetiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WechatChatMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = VolunteerServiceMannerRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

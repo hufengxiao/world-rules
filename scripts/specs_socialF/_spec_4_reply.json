@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "reply_promptness",
+  "struct": "ReplyPromptnessRules",
+  "name": "及时回复礼仪",
+  "desc": "收到信息及时回应与忙碌时如何交代的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "回复", "及时"],
+  "category": "RuleCategory::social(\"reply_prompt\")",
+  "sections": [
+    {
+      "title": "及时回应",
+      "method": "prompt",
+      "items": [
+        "重要消息尽早回复",
+        "简短确认已收到",
+        "暂忙可说明",
+        "不无端沉默"
+      ]
+    },
+    {
+      "title": "务实表达",
+      "method": "express",
+      "items": [
+        "回复明确不回避",
+        "需时间承办说明",
+        "办成告知结果",
+        "不敷衍虚假承诺"
+      ]
+    },
+    {
+      "title": "特殊情况",
+      "method": "special",
+      "items": [
+        "忙碌无法即回可稍后",
+        "未覆盖信息补回",
+        "遗漏解释不敷衍",
+        "尊重双方时机"
+      ]
+    },
+    {
+      "title": "度与分寸",
+      "method": "balance",
+      "items": [
+        "不过度焦虑盯消息",
+        "不被无意义打扰缠身",
+        "重要消息优先",
+        "体谅他人等待"
+      ]
+    }
+  ]
+}
