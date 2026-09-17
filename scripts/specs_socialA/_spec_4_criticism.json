@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "constructive_criticism",
+  "struct": "ConstructiveCriticismRules",
+  "name": "建设性批评表达",
+  "desc": "提出批评建议时给对方自尊与可操作的表达",
+  "tags": ["社交", "礼仪", "批评", "表达", "建设性"],
+  "origin": "国际",
+  "category": "RuleCategory::social(\"constructive\")",
+  "sections": [
+    {
+      "title": "对象与时机",
+      "method": "timing",
+      "items": [
+        "私下沟通优于当众批评",
+        "选择情绪平稳时提出",
+        "对事不对人",
+        "考虑对方能接受的节奏"
+      ]
+    },
+    {
+      "title": "表达分寸",
+      "method": "tone",
+      "items": [
+        "先肯定可取之处",
+        "用我表达的观察感受",
+        "描述具体行为而非人身",
+        "语气平和避免指责"
+      ]
+    },
+    {
+      "title": "给出建议",
+      "method": "suggestion",
+      "items": [
+        "提供可行的改进方向",
+        "征询对方想法与困难",
+        "共同探讨解决",
+        "不强迫立即服从"
+      ]
+    },
+    {
+      "title": "维护关系",
+      "method": "care",
+      "items": [
+        "表达愿意支持协助",
+        "保持尊重与信任",
+        "后续给予积极反馈",
+        "不翻旧账或标签"
+      ]
+    }
+  ]
+}

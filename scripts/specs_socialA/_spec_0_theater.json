@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "theater_performance_etiquette",
+  "struct": "TheaterPerformanceEtiquetteRules",
+  "name": "剧场观演礼仪",
+  "desc": "音乐厅、剧院观演时的安静、鼓掌与秩序礼仪",
+  "tags": ["社交", "礼仪", "剧场", "观演", "演出"],
+  "origin": "国际",
+  "category": "RuleCategory::social(\"theater\")",
+  "sections": [
+    {
+      "title": "入场就座",
+      "method": "seating",
+      "items": [
+        "准时入场开场前就座",
+        "迟到在幕间再入内",
+        "按号就座不占位",
+        "随身物品放脚边"
+      ]
+    },
+    {
+      "title": "演出安静",
+      "method": "quiet",
+      "items": [
+        "手机保持关机或静音",
+        "不交头接耳议论",
+        "不打开闪光灯拍照",
+        "不在座席间走动"
+      ]
+    },
+    {
+      "title": "鼓掌时机",
+      "method": "applause",
+      "items": [
+        "演出段落结束再鼓掌",
+        "乐章之间避免鼓掌",
+        "谢幕时热烈鼓掌",
+        "尊重演员谢幕"
+      ]
+    },
+    {
+      "title": "剧场行为",
+      "method": "manner",
+      "items": [
+        "不进食爆米花有声食品",
+        "不翘脚挡后排视线",
+        "散场有序不拥挤",
+        "保持座位整洁"
+      ]
+    }
+  ]
+}

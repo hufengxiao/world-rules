@@ -50,6 +50,7 @@
 //! - 10+ 种职场礼仪
 //! - 10+ 种现代礼仪
 
+pub mod accepting_feedback;
 pub mod accompany_etiquette;
 pub mod african_etiquette;
 pub mod airplane_etiquette;
@@ -122,6 +123,7 @@ pub mod coffee_house;
 pub mod community_meeting;
 pub mod concert_etiquette;
 pub mod confucian_etiquette;
+pub mod constructive_criticism;
 pub mod contract_signing_etiquette;
 pub mod corporate_event_etiquette;
 pub mod cross_cultural;
@@ -135,6 +137,7 @@ pub mod diplomatic_etiquette;
 pub mod dragon_boat_festival;
 pub mod elevator;
 pub mod elevator_detailed;
+pub mod elevator_luggage_etiquette;
 pub mod email;
 pub mod escalator_etiquette;
 pub mod festival;
@@ -203,6 +206,7 @@ pub mod phone;
 pub mod phone_answering_etiquette;
 pub mod photography_etiquette;
 pub mod picnic_etiquette;
+pub mod praise_compliment_etiquette;
 pub mod presentation_etiquette;
 pub mod project_management_etiquette;
 pub mod public_speaking_etiquette;
@@ -232,6 +236,7 @@ pub mod tea_house;
 pub mod tea_serving_etiquette;
 pub mod teachers_day;
 pub mod thai_etiquette;
+pub mod theater_performance_etiquette;
 pub mod toasting;
 pub mod trade_show_etiquette;
 pub mod train;
@@ -249,6 +254,7 @@ pub mod work_from_home;
 pub mod workplace;
 pub mod yuanxiao;
 
+pub use accepting_feedback::AcceptingFeedbackRules;
 pub use accompany_etiquette::AccompanyEtiquetteRules;
 pub use african_etiquette::AfricanEtiquetteRules;
 pub use airplane_etiquette::AirplaneEtiquetteRules;
@@ -321,6 +327,7 @@ pub use coffee_house::CoffeeHouseRules;
 pub use community_meeting::CommunityMeetingRules;
 pub use concert_etiquette::ConcertEtiquetteRules;
 pub use confucian_etiquette::ConfucianEtiquetteRules;
+pub use constructive_criticism::ConstructiveCriticismRules;
 pub use contract_signing_etiquette::ContractSigningEtiquetteRules;
 pub use corporate_event_etiquette::CorporateEventEtiquetteRules;
 pub use cross_cultural::CrossCulturalRules;
@@ -334,6 +341,7 @@ pub use diplomatic_etiquette::DiplomaticEtiquetteRules;
 pub use dragon_boat_festival::DragonBoatFestivalRules;
 pub use elevator::ElevatorEtiquette;
 pub use elevator_detailed::ElevatorDetailedRules;
+pub use elevator_luggage_etiquette::ElevatorLuggageEtiquetteRules;
 pub use email::EmailEtiquette;
 pub use escalator_etiquette::EscalatorEtiquetteRules;
 pub use festival::{ChineseFestival, FestivalEtiquette};
@@ -402,6 +410,7 @@ pub use phone::PhoneEtiquette;
 pub use phone_answering_etiquette::PhoneAnsweringEtiquetteRules;
 pub use photography_etiquette::PhotographyEtiquetteRules;
 pub use picnic_etiquette::PicnicEtiquetteRules;
+pub use praise_compliment_etiquette::PraiseComplimentEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
 pub use project_management_etiquette::ProjectManagementEtiquetteRules;
 pub use public_speaking_etiquette::PublicSpeakingEtiquetteRules;
@@ -431,6 +440,7 @@ pub use tea_house::TeaHouseRules;
 pub use tea_serving_etiquette::TeaServingEtiquetteRules;
 pub use teachers_day::TeachersDayRules;
 pub use thai_etiquette::ThaiEtiquetteRules;
+pub use theater_performance_etiquette::TheaterPerformanceEtiquetteRules;
 pub use toasting::ToastingEtiquette;
 pub use trade_show_etiquette::TradeShowEtiquetteRules;
 pub use train::TrainEtiquette;
@@ -456,6 +466,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ConstructiveCriticismRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElevatorLuggageEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AcceptingFeedbackRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PraiseComplimentEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TheaterPerformanceEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = PedestrianStreetEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

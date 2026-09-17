@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "praise_compliment_etiquette",
+  "struct": "PraiseComplimentEtiquetteRules",
+  "name": "赞美与褒扬礼仪",
+  "desc": "恰当表达赞美、接受赞美与赞美分寸的礼仪",
+  "tags": ["社交", "礼仪", "赞美", "夸奖", "表达"],
+  "origin": "国际",
+  "category": "RuleCategory::social(\"praise\")",
+  "sections": [
+    {
+      "title": "真诚赞美",
+      "method": "sincere",
+      "items": [
+        "由衷表达具体欣赏",
+        "针对实际行为与努力",
+        "措辞真诚不夸张",
+        "适时恰当不过分"
+      ]
+    },
+    {
+      "title": "赞美场合",
+      "method": "context",
+      "items": [
+        "公开赞美注意分寸",
+        "私下表达更贴心",
+        "不借夸人暗贬他人",
+        "符合场合与文化"
+      ]
+    },
+    {
+      "title": "接受赞美",
+      "method": "receive",
+      "items": [
+        "大方道谢不扭捏",
+        "礼尚也能回敬",
+        "不过度自谦否定",
+        "诚实分享团队功劳"
+      ]
+    },
+    {
+      "title": "善意反馈",
+      "method": "feedback",
+      "items": [
+        "把赞美转化为鼓励",
+        "对他人优点予以认可",
+        "避免场面假捧",
+        "真诚有助关系融洽"
+      ]
+    }
+  ]
+}

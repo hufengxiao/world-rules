@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "accepting_feedback",
+  "struct": "AcceptingFeedbackRules",
+  "name": "接受批评与反馈",
+  "desc": "面对他人批评与反馈时的倾听、反思与成长",
+  "tags": ["社交", "礼仪", "批评", "反馈", "成长"],
+  "origin": "国际",
+  "category": "RuleCategory::social(\"feedback\")",
+  "sections": [
+    {
+      "title": "倾听态度",
+      "method": "listen",
+      "items": [
+        "保持开放不急于反驳",
+        "专注听完对方表达",
+        "示意理解对方的观点",
+        "不打断或情绪反弹"
+      ]
+    },
+    {
+      "title": "理性回应",
+      "method": "respond",
+      "items": [
+        "先感谢对方的指正",
+        "针对事情本身讨论",
+        "表达自己的侧不辩解",
+        "不过分自责或指责"
+      ]
+    },
+    {
+      "title": "反思改进",
+      "method": "improve",
+      "items": [
+        "客观评估反馈的价值",
+        "重要的是吸取有用部分",
+        "制定可行的改进",
+        "持续实践并反馈"
+      ]
+    },
+    {
+      "title": "关系维护",
+      "method": "relationship",
+      "items": [
+        "不记恨给予反馈者",
+        "把反馈视为进步机会",
+        "后续表达进展",
+        "尊重不同意见"
+      ]
+    }
+  ]
+}

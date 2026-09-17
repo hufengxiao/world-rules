@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "elevator_luggage_etiquette",
+  "struct": "ElevatorLuggageEtiquetteRules",
+  "name": "电梯与行李礼仪",
+  "desc": "乘电梯与携带行李时的礼让与有序礼仪",
+  "tags": ["社交", "礼仪", "电梯", "行李", "礼让"],
+  "origin": "国际",
+  "category": "RuleCategory::social(\"elevator_luggage\")",
+  "sections": [
+    {
+      "title": "进出电梯",
+      "method": "boarding",
+      "items": [
+        "先下后上按次序进出",
+        "不拥挤抢门禁",
+        "靠近门口者先出",
+        "让有急事者先行"
+      ]
+    },
+    {
+      "title": "电梯行为",
+      "method": "inside",
+      "items": [
+        "压低音量轻交谈",
+        "不霸占按键区",
+        "手机保持安静",
+        "不大声嬉闹"
+      ]
+    },
+    {
+      "title": "行李物品",
+      "method": "luggage",
+      "items": [
+        "行李靠边不占通道",
+        "大件尽量避开高峰",
+        "推车进出注意他人",
+        "不使行李碰触他人"
+      ]
+    },
+    {
+      "title": "体谅礼让",
+      "method": "consider",
+      "items": [
+        "主动为长者扶门",
+        "助有困难者按层",
+        "避免站位挡出口",
+        "保持空间不挤他人"
+      ]
+    }
+  ]
+}
