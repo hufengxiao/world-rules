@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "volunteer_service_manner",
+  "struct": "VolunteerServiceMannerRules",
+  "name": "志愿服务礼仪",
+  "desc": "参与志愿服务的尊重、服务与协作礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "志愿", "服务"],
+  "category": "RuleCategory::social(\"volunteer\")",
+  "sections": [
+    {
+      "title": "服务初心",
+      "method": "serve",
+      "items": [
+        "以服务他人为乐",
+        "不计较得失",
+        "尊重受助对象",
+        "真诚投入尽责"
+      ]
+    },
+    {
+      "title": "尊重沟通",
+      "method": "respect",
+      "items": [
+        "平等与受助者沟通",
+        "不自作主张",
+        "倾听需要",
+        "保护隐私"
+      ]
+    },
+    {
+      "title": "协作守序",
+      "method": "cooperate",
+      "items": [
+        "服从组织安排",
+        "与同伴协同",
+        "注意自身安全",
+        "守时守信"
+      ]
+    },
+    {
+      "title": "持续参与",
+      "method": "sustain",
+      "items": [
+        "活动后反馈总结",
+        "传递正能量",
+        "长期坚持公益",
+        "扩大善行影响"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "public_washroom_manner",
+  "struct": "PublicWashroomMannerRules",
+  "name": "公共厕所礼仪",
+  "desc": "公共厕所使用、卫生与文明礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "公共厕所", "卫生"],
+  "category": "RuleCategory::social(\"washroom\")",
+  "sections": [
+    {
+      "title": "有序使用",
+      "method": "queue",
+      "items": [
+        "排队依次入内",
+        "开门前先敲门",
+        "按标识男女",
+        "不乱闯占用"
+      ]
+    },
+    {
+      "title": "爱护卫生",
+      "method": "clean",
+      "items": [
+        "用完冲水",
+        "手纸归专用",
+        "不留污渍",
+        "保持地面整洁"
+      ]
+    },
+    {
+      "title": "体谅他人",
+      "method": "consider",
+      "items": [
+        "不在内大声交谈",
+        "快速使用不占用",
+        "礼让残障与儿童设施",
+        "洗手龙头轻关"
+      ]
+    },
+    {
+      "title": "公德守序",
+      "method": "manner",
+      "items": [
+        "不涂鸦破坏",
+        "节约用水",
+        "文明用厕",
+        "共同维护干净"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "shared_office_courtesy",
+  "struct": "SharedOfficeCourtesyRules",
+  "name": "共用办公与茶水间礼仪",
+  "desc": "共用办公环境、茶水间与邻里协作礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "办公室", "茶水间"],
+  "category": "RuleCategory::social(\"shared_office\")",
+  "sections": [
+    {
+      "title": "公共使用",
+      "method": "common",
+      "items": [
+        "公共设备轮流用",
+        "用完归位整洁",
+        "节约耗材",
+        "保持工位整洁"
+      ]
+    },
+    {
+      "title": "茶水间礼仪",
+      "method": "kitchen",
+      "items": [
+        "用了餐具及时清洁",
+        "食物集中分享或标注",
+        "冰箱私物标注",
+        "保持台面干净"
+      ]
+    },
+    {
+      "title": "安静专注",
+      "method": "quiet",
+      "items": [
+        "低声交谈少打扰",
+        "电话到走廊",
+        "尊重他人专注",
+        "避免制造噪音"
+      ]
+    },
+    {
+      "title": "邻里协作",
+      "method": "team",
+      "items": [
+        "互相支持问候",
+        "主动协助分担",
+        "经验乐于分享",
+        "营造和睦氛围"
+      ]
+    }
+  ]
+}

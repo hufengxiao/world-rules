@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "travel_buddy_manners",
+  "struct": "TravelBuddyMannersRules",
+  "name": "旅伴相处礼仪",
+  "desc": "结伴出行时互相体谅、分工与相处的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "旅行", "旅伴"],
+  "category": "RuleCategory::social(\"travel_buddy\")",
+  "sections": [
+    {
+      "title": "计划协商",
+      "method": "plan",
+      "items": [
+        "共同商议行程安排",
+        "尊重彼此偏好",
+        "分工明确众人参与",
+        "行程留有余地"
+      ]
+    },
+    {
+      "title": "互相体谅",
+      "method": "consider",
+      "items": [
+        "作息彼此迁就",
+        "消费观互相理解",
+        "拍照等互相帮忙",
+        "有矛盾平和沟通"
+      ]
+    },
+    {
+      "title": "责任分担",
+      "method": "share",
+      "items": [
+        "费用账目及时结清",
+        "重担轮流承担",
+        "守时不拖累团队",
+        "彼此照顾安全"
+      ]
+    },
+    {
+      "title": "愉快共处",
+      "method": "enjoy",
+      "items": [
+        "分享见闻其乐",
+        "尊重独立时间",
+        "不搞小团体",
+        "留下美好回忆"
+      ]
+    }
+  ]
+}

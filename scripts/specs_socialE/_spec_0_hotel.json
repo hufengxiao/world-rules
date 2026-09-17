@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "hotel_stay_manner",
+  "struct": "HotelStayMannerRules",
+  "name": "酒店住宿礼仪",
+  "desc": "酒店入住、安静卫生与退房的礼仪",
+  "origin": "国际",
+  "tags": ["社交", "礼仪", "酒店", "住宿"],
+  "category": "RuleCategory::social(\"hotel\")",
+  "sections": [
+    {
+      "title": "入住有序",
+      "method": "checkin",
+      "items": [
+        "礼貌登记办理入住",
+        "妥善保管房卡",
+        "按约定入住",
+        "贵重物品注意"
+      ]
+    },
+    {
+      "title": "安静卫生",
+      "method": "quiet",
+      "items": [
+        "控制音量不扰邻",
+        "镜面保整洁",
+        "不吸烟按规定",
+        "垃圾放置得当"
+      ]
+    },
+    {
+      "title": "公共区域",
+      "method": "lobby",
+      "items": [
+        "大厅勿喧哗",
+        "泳池餐厅守规",
+        "礼让他人",
+        "衣着得体"
+      ]
+    },
+    {
+      "title": "退房结算",
+      "method": "checkout",
+      "items": [
+        "按时退房结账",
+        "核对账单",
+        "遗留物品及时处理",
+        "感谢服务人员"
+      ]
+    }
+  ]
+}

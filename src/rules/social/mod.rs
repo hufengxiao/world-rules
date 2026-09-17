@@ -168,6 +168,7 @@ pub mod gym_shared_etiquette;
 pub mod hospital_etiquette;
 pub mod hosting_dinner_party;
 pub mod hotel_stay_etiquette;
+pub mod hotel_stay_manner;
 pub mod housewarming_etiquette;
 pub mod indian_etiquette;
 pub mod international_conference;
@@ -221,6 +222,7 @@ pub mod praise_compliment_etiquette;
 pub mod presentation_etiquette;
 pub mod project_management_etiquette;
 pub mod public_speaking_etiquette;
+pub mod public_washroom_manner;
 pub mod qingming;
 pub mod qixi_festival;
 pub mod queue;
@@ -236,6 +238,7 @@ pub mod russian_etiquette;
 pub mod sales_etiquette;
 pub mod salon_etiquette;
 pub mod seating;
+pub mod shared_office_courtesy;
 pub mod shopping_etiquette;
 pub mod smoking;
 pub mod social_media_etiquette;
@@ -255,11 +258,13 @@ pub mod theater_performance_etiquette;
 pub mod toasting;
 pub mod trade_show_etiquette;
 pub mod train;
+pub mod travel_buddy_manners;
 pub mod umbrella_etiquette;
 pub mod vegan_etiquette;
 pub mod vip_etiquette;
 pub mod volunteer_etiquette;
 pub mod volunteer_service_etiquette;
+pub mod volunteer_service_manner;
 pub mod waiting_room_etiquette;
 pub mod wedding;
 pub mod western_dining;
@@ -387,6 +392,7 @@ pub use gym_shared_etiquette::GymSharedEtiquetteRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
 pub use hosting_dinner_party::HostingDinnerPartyRules;
 pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
+pub use hotel_stay_manner::HotelStayMannerRules;
 pub use housewarming_etiquette::HousewarmingEtiquetteRules;
 pub use indian_etiquette::IndianEtiquetteRules;
 pub use international_conference::InternationalConferenceRules;
@@ -440,6 +446,7 @@ pub use praise_compliment_etiquette::PraiseComplimentEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
 pub use project_management_etiquette::ProjectManagementEtiquetteRules;
 pub use public_speaking_etiquette::PublicSpeakingEtiquetteRules;
+pub use public_washroom_manner::PublicWashroomMannerRules;
 pub use qingming::QingmingRules;
 pub use qixi_festival::QixiFestivalRules;
 pub use queue::QueueRules;
@@ -455,6 +462,7 @@ pub use russian_etiquette::RussianEtiquetteRules;
 pub use sales_etiquette::SalesEtiquetteRules;
 pub use salon_etiquette::SalonEtiquetteRules;
 pub use seating::SeatingEtiquette;
+pub use shared_office_courtesy::SharedOfficeCourtesyRules;
 pub use shopping_etiquette::ShoppingEtiquetteRules;
 pub use smoking::SmokingRules;
 pub use social_media_etiquette::SocialMediaEtiquetteRules;
@@ -474,11 +482,13 @@ pub use theater_performance_etiquette::TheaterPerformanceEtiquetteRules;
 pub use toasting::ToastingEtiquette;
 pub use trade_show_etiquette::TradeShowEtiquetteRules;
 pub use train::TrainEtiquette;
+pub use travel_buddy_manners::TravelBuddyMannersRules;
 pub use umbrella_etiquette::UmbrellaEtiquetteRules;
 pub use vegan_etiquette::VeganEtiquetteRules;
 pub use vip_etiquette::VipEtiquetteRules;
 pub use volunteer_etiquette::VolunteerEtiquetteRules;
 pub use volunteer_service_etiquette::VolunteerServiceEtiquetteRules;
+pub use volunteer_service_manner::VolunteerServiceMannerRules;
 pub use waiting_room_etiquette::WaitingRoomEtiquetteRules;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
 pub use western_dining::WesternDiningRules;
@@ -496,6 +506,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = VolunteerServiceMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SharedOfficeCourtesyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PublicWashroomMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TravelBuddyMannersRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HotelStayMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = GymSharedEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
