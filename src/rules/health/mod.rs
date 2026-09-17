@@ -86,6 +86,7 @@ pub mod ear_ache_care;
 pub mod early_morning_routine;
 pub mod earthquake_safety;
 pub mod elder_fall_prevention;
+pub mod elderly_fall_prevention;
 pub mod elderly_health;
 pub mod emotional_regulation;
 pub mod ergonomics;
@@ -98,10 +99,12 @@ pub mod first_aid;
 pub mod food_poisoning_care;
 pub mod food_safety;
 pub mod foot_blister_care;
+pub mod foot_care_basics;
 pub mod gout_management;
 pub mod gratitude_practice;
 pub mod gut_health;
 pub mod hair_health;
+pub mod hand_hygiene_wash;
 pub mod hand_washing_hygiene;
 pub mod hearing_health;
 pub mod heart_health;
@@ -123,6 +126,7 @@ pub mod knee_care;
 pub mod leg_cramp_relief;
 pub mod liver_health;
 pub mod loneliness_connection;
+pub mod memory_brain_training;
 pub mod men_health;
 pub mod menopause_health;
 pub mod mental_health;
@@ -134,6 +138,7 @@ pub mod mood_diary;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nasal_congestion_relief;
+pub mod neck_shoulder_stretch;
 pub mod nosebleed_management;
 pub mod nutrition;
 pub mod nutrition_basics;
@@ -216,6 +221,7 @@ pub use ear_ache_care::EarAcheCareRules;
 pub use early_morning_routine::EarlyMorningRoutineRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
 pub use elder_fall_prevention::ElderFallPreventionRules;
+pub use elderly_fall_prevention::ElderlyFallPreventionRules;
 pub use elderly_health::ElderlyHealthRules;
 pub use emotional_regulation::EmotionalRegulationRules;
 pub use ergonomics::ErgonomicsRules;
@@ -228,10 +234,12 @@ pub use first_aid::FirstAidRules;
 pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
 pub use foot_blister_care::FootBlisterCareRules;
+pub use foot_care_basics::FootCareBasicsRules;
 pub use gout_management::GoutManagementRules;
 pub use gratitude_practice::GratitudePracticeRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
+pub use hand_hygiene_wash::HandHygieneWashRules;
 pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
@@ -253,6 +261,7 @@ pub use knee_care::KneeCareRules;
 pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
 pub use loneliness_connection::LonelinessConnectionRules;
+pub use memory_brain_training::MemoryBrainTrainingRules;
 pub use men_health::MenHealthRules;
 pub use menopause_health::MenopauseHealthRules;
 pub use mental_health::MentalHealthRules;
@@ -264,6 +273,7 @@ pub use mood_diary::MoodDiaryRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nasal_congestion_relief::NasalCongestionReliefRules;
+pub use neck_shoulder_stretch::NeckShoulderStretchRules;
 pub use nosebleed_management::NosebleedManagementRules;
 pub use nutrition::NutritionRules;
 pub use nutrition_basics::NutritionBasicsRules;
@@ -320,6 +330,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FootCareBasicsRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElderlyFallPreventionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HandHygieneWashRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MemoryBrainTrainingRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NeckShoulderStretchRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ProgressiveRelaxationRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
