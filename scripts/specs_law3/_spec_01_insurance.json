@@ -1,0 +1,51 @@
+{
+  "cat": "law",
+  "file": "insurance_claims_basics",
+  "struct": "InsuranceClaimsBasicsRules",
+  "name": "保险理赔基础",
+  "desc": "购买保险与主张理赔时应知晓的诚信与程序要点",
+  "tags": ["法律", "保险", "理赔", "合同", "权益"],
+  "category": "RuleCategory::law(\"insurance_claims\")",
+  "sections": [
+    {
+      "title": "投保如实",
+      "method": "honesty",
+      "items": [
+        "投保时如实告知健康与财产状况",
+        "不隐瞒重要事项",
+        "仔细阅读保险条款",
+        "确认保障范围与免责"
+      ]
+    },
+    {
+      "title": "风险管理",
+      "method": "risk",
+      "items": [
+        "按约定履行抵御风险义务",
+        "发生风险及时止损",
+        "配合保险公司调查",
+        "不可故意制造事故骗保"
+      ]
+    },
+    {
+      "title": "理赔程序",
+      "method": "claim",
+      "items": [
+        "事故后按要求报备",
+        "提交完整材料与凭证",
+        "确认理赔时效",
+        "对拒赔有异议可复核"
+      ]
+    },
+    {
+      "title": "依法维权",
+      "method": "remedy",
+      "items": [
+        "理赔争议先协商",
+        "可向监管反映或仲裁诉讼",
+        "警惕以逐利相诱的违规行为",
+        "合理主张合法权益"
+      ]
+    }
+  ]
+}

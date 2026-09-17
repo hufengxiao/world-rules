@@ -1,0 +1,51 @@
+{
+  "cat": "science",
+  "file": "experimental_method",
+  "struct": "ExperimentalMethodRules",
+  "name": "科学实验方法",
+  "desc": "设计实验、控制变量与得出可靠结论的方法规则",
+  "tags": ["科学", "实验", "方法", "变量", "严谨"],
+  "category": "RuleCategory::science(\"experimental_method\")",
+  "sections": [
+    {
+      "title": "提出假设",
+      "method": "hypothesis",
+      "items": [
+        "明确待检验的问题",
+        "提出可验证的假设",
+        "界定自变量与因变量",
+        "预期结果可度量"
+      ]
+    },
+    {
+      "title": "控制变量",
+      "method": "control",
+      "items": [
+        "只改变一个自变量",
+        "其余变量保持恒定",
+        "设置对照组",
+        "重复实验避免偶然"
+      ]
+    },
+    {
+      "title": "规范数据",
+      "method": "data",
+      "items": [
+        "如实记录观察数据",
+        "标注测量工具与误差",
+        "保留原始记录",
+        "采用合适统计方法"
+      ]
+    },
+    {
+      "title": "结论审慎",
+      "method": "conclusion",
+      "items": [
+        "结论与数据一致",
+        "不夸大适用范围",
+        "承认局限与不足",
+        "可复现支持结论"
+      ]
+    }
+  ]
+}

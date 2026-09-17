@@ -1,0 +1,51 @@
+{
+  "cat": "law",
+  "file": "marriage_property_basics",
+  "struct": "MarriagePropertyBasicsRules",
+  "name": "夫妻财产关系要点",
+  "desc": "婚姻关系中的共同财产、债务与约定的常识要点",
+  "tags": ["法律", "婚姻", "财产", "家庭", "权益"],
+  "category": "RuleCategory::law(\"marriage_property\")",
+  "sections": [
+    {
+      "title": "共同财产",
+      "method": "community",
+      "items": [
+        "了解法定共同财产范围",
+        "婚后工资收入常属共同",
+        "个人财产与共有产分开看",
+        "涉重大资产咨询专业人士"
+      ]
+    },
+    {
+      "title": "财产约定",
+      "method": "agreement",
+      "items": [
+        "可依法约定财产归属",
+        "约定须书面并真实自愿",
+        "婚前财产可经约定归属",
+        "保留约定的书面记录"
+      ]
+    },
+    {
+      "title": "债务承担",
+      "method": "debt",
+      "items": [
+        "区分共同债务与个人债务",
+        "共同签字或用于家计多为共同",
+        "个人债务属个人承担",
+        "夫妻共同举债共同负担"
+      ]
+    },
+    {
+      "title": "权利保障",
+      "method": "rights",
+      "items": [
+        "尊重彼此财产知情权",
+        "处分共同财产需协商",
+        "遇到争议依法沟通解决",
+        "涉及大额或房产要谨慎并合法合规"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cat": "science",
+  "file": "survey_design",
+  "struct": "SurveyDesignRules",
+  "name": "调查问卷设计",
+  "desc": "设计科学调查问卷、抽样与分析的原则",
+  "tags": ["科学", "调查", "问卷", "抽样", "统计"],
+  "category": "RuleCategory::science(\"survey_design\")",
+  "sections": [
+    {
+      "title": "明确目标",
+      "method": "objective",
+      "items": [
+        "明确调查的问题与对象",
+        "确定测量的概念",
+        "设计可操作的题项",
+        "预先设定分析方向"
+      ]
+    },
+    {
+      "title": "题项设计",
+      "method": "items",
+      "items": [
+        "用清晰易懂的表述",
+        "避免诱导或双重问题",
+        "选项互斥且齐全",
+        "题目用语中性"
+      ]
+    },
+    {
+      "title": "抽样方法",
+      "method": "sampling",
+      "items": [
+        "采用具有代表性的抽样",
+        "界定目标总体",
+        "样本量合适",
+        "说明抽样方法"
+      ]
+    },
+    {
+      "title": "结果分析",
+      "method": "analysis",
+      "items": [
+        "描述样本特征",
+        "关注回复率与偏差",
+        "审慎外推总体",
+        "如实呈现限制与不确定性"
+      ]
+    }
+  ]
+}

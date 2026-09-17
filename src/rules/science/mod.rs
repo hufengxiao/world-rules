@@ -189,6 +189,7 @@ pub mod evolution_detailed;
 pub mod evolutionary_biology;
 pub mod exercise_physiology;
 pub mod exercise_science;
+pub mod experimental_method;
 pub mod field_theory;
 pub mod financial_economics;
 pub mod fluid_dynamics;
@@ -362,6 +363,7 @@ pub mod statistics_ethics;
 pub mod stratigraphy;
 pub mod structural_biology;
 pub mod surgery;
+pub mod survey_design;
 pub mod sustainability_science;
 pub mod synoptic_meteorology;
 pub mod synthetic_biology;
@@ -728,6 +730,7 @@ pub use climatology_detailed::ClimatologyDetailedRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
+pub use experimental_method::ExperimentalMethodRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
 pub use hydrology_detailed::HydrologyDetailedRules;
@@ -737,6 +740,7 @@ pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use soil_geography::SoilGeographyRules;
 pub use statistics_ethics::StatisticsEthicsRules;
+pub use survey_design::SurveyDesignRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
 
 pub fn all_rules() -> Vec<(
@@ -747,6 +751,14 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SurveyDesignRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ExperimentalMethodRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = LabNotebookEtiquetteRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

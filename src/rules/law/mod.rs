@@ -62,10 +62,12 @@ pub mod contract;
 pub mod criminal;
 pub mod inheritance;
 pub mod inheritance_basics;
+pub mod insurance_claims_basics;
 pub mod intellectual_property;
 pub mod labor;
 pub mod labor_contract_basics;
 pub mod marriage;
+pub mod marriage_property_basics;
 pub mod neighbor_dispute_handling;
 pub mod rental_lease_basics;
 pub mod road_safety;
@@ -603,6 +605,7 @@ pub use indigenous_rights::IndigenousRightsRules;
 pub use infectious_disease_law::InfectiousDiseaseLawRules;
 pub use inheritance_basics::InheritanceBasicsRules;
 pub use inheritance_detailed::InheritanceDetailedRules;
+pub use insurance_claims_basics::InsuranceClaimsBasicsRules;
 pub use insurance_detailed::InsuranceDetailedRules;
 pub use insurance_law_deep::InsuranceLawDeepRules;
 pub use insurance_law_detailed::InsuranceLawDetailedRules;
@@ -645,6 +648,7 @@ pub use maritime_detailed::MaritimeDetailedRules;
 pub use maritime_law_intl::MaritimeLawIntlRules;
 pub use marriage_detailed::MarriageDetailedRules;
 pub use marriage_detailed2::MarriageDetailed2Rules;
+pub use marriage_property_basics::MarriagePropertyBasicsRules;
 pub use mediation_law::MediationLawRules;
 pub use mental_health_law::MentalHealthLawRules;
 pub use metaverse_law::MetaverseLawRules;
@@ -708,6 +712,14 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = InsuranceClaimsBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MarriagePropertyBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = InheritanceBasicsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
