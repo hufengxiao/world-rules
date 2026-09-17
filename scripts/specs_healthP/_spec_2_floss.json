@@ -1,0 +1,50 @@
+{
+  "cat": "health",
+  "file": "interdental_floss_tips",
+  "struct": "InterdentalFlossTipsRules",
+  "name": "牙缝清理与牙线",
+  "desc": "用牙线清理牙缝、齿间护理的方法",
+  "origin": "牙科",
+  "tags": ["健康", "牙线", "牙缝", "口腔"],
+  "category": "RuleCategory::health(\"floss\")",
+  "sections": [
+    {
+      "title": "正确牙线",
+      "method": "floss",
+      "items": [
+        "取一段牙线",
+        "缠绕指上",
+        "轻缓滑入牙缝",
+        "上下刮面"
+      ]
+    },
+    {
+      "title": "空心清洁",
+      "method": "clean",
+      "items": [
+        "不自碎不过用力","逐缝清洁",
+        "不忽视后牙",
+        "用后清水漱"
+      ]
+    },
+    {
+      "title": "牙龈温和",
+      "method": "gently",
+      "items": [
+        "轻柔不扎伤",
+        "牙龈出血正常初","坚持会好转",
+        "出血持续就医"
+      ]
+    },
+    {
+      "title": "辅助工具",
+      "method": "tools",
+      "items": [
+        "牙缝刷可用",
+        "冲牙器辅助",
+        "配合刷牙",
+        "全面清洁"
+      ]
+    }
+  ]
+}

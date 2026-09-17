@@ -69,6 +69,7 @@ pub mod blister_care;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
+pub mod brushing_technique_bass;
 pub mod burn_scalding_aid;
 pub mod burnout_prevention;
 pub mod calcium_bone_health;
@@ -113,8 +114,10 @@ pub mod food_poisoning_care;
 pub mod food_safety;
 pub mod foot_blister_care;
 pub mod foot_care_basics;
+pub mod fresh_breath_habit;
 pub mod gout_management;
 pub mod gratitude_practice;
+pub mod gum_bleeding_concern;
 pub mod gut_health;
 pub mod hair_health;
 pub mod hand_hygiene_wash;
@@ -137,6 +140,7 @@ pub mod infant_care_basics;
 pub mod infant_feeding_breast;
 pub mod infant_health;
 pub mod insect_bite_care;
+pub mod interdental_floss_tips;
 pub mod joint_health;
 pub mod kidney_health;
 pub mod knee_care;
@@ -158,6 +162,7 @@ pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nasal_congestion_relief;
 pub mod neck_shoulder_stretch;
+pub mod nightly_oral_care;
 pub mod nosebleed_management;
 pub mod nutrition;
 pub mod nutrition_basics;
@@ -229,6 +234,7 @@ pub use blister_care::BlisterCareRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
+pub use brushing_technique_bass::BrushingTechniqueBassRules;
 pub use burn_scalding_aid::BurnScaldingAidRules;
 pub use burnout_prevention::BurnoutPreventionRules;
 pub use calcium_bone_health::CalciumBoneHealthRules;
@@ -273,8 +279,10 @@ pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
 pub use foot_blister_care::FootBlisterCareRules;
 pub use foot_care_basics::FootCareBasicsRules;
+pub use fresh_breath_habit::FreshBreathHabitRules;
 pub use gout_management::GoutManagementRules;
 pub use gratitude_practice::GratitudePracticeRules;
+pub use gum_bleeding_concern::GumBleedingConcernRules;
 pub use gut_health::GutHealthRules;
 pub use hair_health::HairHealthRules;
 pub use hand_hygiene_wash::HandHygieneWashRules;
@@ -297,6 +305,7 @@ pub use infant_care_basics::InfantCareBasicsRules;
 pub use infant_feeding_breast::InfantFeedingBreastRules;
 pub use infant_health::InfantHealthRules;
 pub use insect_bite_care::InsectBiteCareRules;
+pub use interdental_floss_tips::InterdentalFlossTipsRules;
 pub use joint_health::JointHealthRules;
 pub use kidney_health::KidneyHealthRules;
 pub use knee_care::KneeCareRules;
@@ -318,6 +327,7 @@ pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nasal_congestion_relief::NasalCongestionReliefRules;
 pub use neck_shoulder_stretch::NeckShoulderStretchRules;
+pub use nightly_oral_care::NightlyOralCareRules;
 pub use nosebleed_management::NosebleedManagementRules;
 pub use nutrition::NutritionRules;
 pub use nutrition_basics::NutritionBasicsRules;
@@ -380,6 +390,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FreshBreathHabitRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GumBleedingConcernRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = InterdentalFlossTipsRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NightlyOralCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BrushingTechniqueBassRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = HomeMedicalAlertSeniorRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

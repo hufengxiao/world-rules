@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "nightly_oral_care",
+  "struct": "NightlyOralCareRules",
+  "name": "睡前口腔护理",
+  "desc": "睡前刷牙、清舌与避免夜间伤牙习惯",
+  "origin": "牙科",
+  "tags": ["健康", "口腔", "睡前", "护理"],
+  "category": "RuleCategory::health(\"nightly_oral\")",
+  "sections": [
+    {
+      "title": "睡前刷牙",
+      "method": "brush",
+      "items": [
+        "睡前认真刷牙",
+        "餐后清水漱",
+        "不带着食渣睡",
+        "逐面清理"
+      ]
+    },
+    {
+      "title": "清洁舌面",
+      "method": "tongue",
+      "items": [
+        "软刷刷舌面",
+        "轻刮不伤",
+        "减少口臭",
+        "保持洁净"
+      ]
+    },
+    {
+      "title": "夜宵注意",
+      "method": "snack",
+      "items": [
+        "晚食后刷牙",
+        "吃完再刷",
+        "少甜食饮品",
+        "护牙防蛀"
+      ]
+    },
+    {
+      "title": "养成习惯",
+      "method": "habit",
+      "items": [
+        "固定睡前流程",
+        "孩子家长帮刷",
+        "定期检查",
+        "护牙好习惯"
+      ]
+    }
+  ]
+}
