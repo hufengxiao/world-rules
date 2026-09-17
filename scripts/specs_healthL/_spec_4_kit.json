@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "home_medicine_kit",
+  "struct": "HomeMedicineKitRules",
+  "name": "家庭药箱",
+  "desc": "家庭常备药、管理用药与安全存放",
+  "origin": "医学",
+  "tags": ["健康", "药箱", "常备药", "用药"],
+  "category": "RuleCategory::health(\"medicine_kit\")",
+  "sections": [
+    {
+      "title": "常备药",
+      "method": "stock",
+      "items": [
+        "备退烧止痛药",
+        "备肠胃药",
+        "外伤消毒敷料",
+        "按需备慢性药"
+      ]
+    },
+    {
+      "title": "合理用药",
+      "method": "usage",
+      "items": [
+        "按说明书服用",
+        "不超量不过频",
+        "不擅配抗生素",
+        "留意过敏史"
+      ]
+    },
+    {
+      "title": "存放管理",
+      "method": "storage",
+      "items": [
+        "阴凉干燥存放",
+        "远离小孩",
+        "定期查效期",
+        "过期药处理"
+      ]
+    },
+    {
+      "title": "安全警示",
+      "method": "safety",
+      "items": [
+        "儿童防误服",
+        "用药异常就医",
+        "慢性病遵嘱",
+        "配方清晰"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "choking_relief",
+  "struct": "ChokingReliefRules",
+  "name": "气道梗阻急救",
+  "desc": "异物卡喉的海姆立克、轻拍与急救要领",
+  "origin": "医学",
+  "tags": ["健康", "窒息", "卡喉", "急救"],
+  "category": "RuleCategory::health(\"choking\")",
+  "sections": [
+    {
+      "title": "识别窒息",
+      "method": "identify",
+      "items": [
+        "突然不能说话",
+        "捂颈手型示意",
+        "呼吸费力发青",
+        "无法咳嗽"
+      ]
+    },
+    {
+      "title": "成人急救",
+      "method": "adult",
+      "items": [
+        "站其身后抱腰",
+        "握拳内上冲压",
+        "海姆立克法",
+        "反复至排出"
+      ]
+    },
+    {
+      "title": "儿童婴儿",
+      "method": "child",
+      "items": [
+        "婴儿俯卧拍背",
+        "轻压胸部",
+        "儿童用较小力",
+        "勿用力过猛"
+      ]
+    },
+    {
+      "title": "后续就医",
+      "method": "after",
+      "items": [
+        "立即呼救拨打急救",
+        "昏迷做胸外按压",
+        "气道排出仍就医",
+        "防二次窒息"
+      ]
+    }
+  ]
+}

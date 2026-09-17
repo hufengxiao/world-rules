@@ -67,10 +67,12 @@ pub mod blister_care;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
+pub mod burn_scalding_aid;
 pub mod burnout_prevention;
 pub mod cancer_prevention;
 pub mod children_health;
 pub mod choking_airway_relief;
+pub mod choking_relief;
 pub mod chronic_disease;
 pub mod common_cold_care;
 pub mod constipation_relief;
@@ -112,8 +114,10 @@ pub mod hand_washing_hygiene;
 pub mod hearing_health;
 pub mod heart_health;
 pub mod heatstroke_prevention;
+pub mod heatstroke_response;
 pub mod hiccup_relief;
 pub mod home_first_aid_kit;
+pub mod home_medicine_kit;
 pub mod hydration_rules;
 pub mod hydration_strategy;
 pub mod hypertension_lifestyle;
@@ -192,6 +196,7 @@ pub mod vision_care;
 pub mod weight_management;
 pub mod women_health;
 
+pub mod wound_dressing;
 pub use acid_reflux_care::AcidRefluxCareRules;
 pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
@@ -207,10 +212,12 @@ pub use blister_care::BlisterCareRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
+pub use burn_scalding_aid::BurnScaldingAidRules;
 pub use burnout_prevention::BurnoutPreventionRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use children_health::ChildrenHealthRules;
 pub use choking_airway_relief::ChokingAirwayReliefRules;
+pub use choking_relief::ChokingReliefRules;
 pub use chronic_disease::ChronicDiseaseRules;
 pub use common_cold_care::CommonColdCareRules;
 pub use constipation_relief::ConstipationReliefRules;
@@ -252,8 +259,10 @@ pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
+pub use heatstroke_response::HeatstrokeResponseRules;
 pub use hiccup_relief::HiccupReliefRules;
 pub use home_first_aid_kit::HomeFirstAidKitRules;
+pub use home_medicine_kit::HomeMedicineKitRules;
 pub use hydration_rules::HydrationRulesRules;
 pub use hydration_strategy::HydrationStrategyRules;
 pub use hypertension_lifestyle::HypertensionLifestyleRules;
@@ -331,6 +340,7 @@ pub use vertigo_balance_care::VertigoBalanceCareRules;
 pub use vision_care::VisionCareRules;
 pub use weight_management::WeightManagementRules;
 pub use women_health::WomenHealthRules;
+pub use wound_dressing::WoundDressingRules;
 
 pub fn all_rules() -> Vec<(
     &'static str,
@@ -340,6 +350,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = HomeMedicineKitRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChokingReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WoundDressingRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HeatstrokeResponseRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BurnScaldingAidRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DailyHydrationRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

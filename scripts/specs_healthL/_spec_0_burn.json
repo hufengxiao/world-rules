@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "burn_scalding_aid",
+  "struct": "BurnScaldingAidRules",
+  "name": "烫伤烧伤急救",
+  "desc": "烫烧伤的降温、处理与就医判断",
+  "origin": "医学",
+  "tags": ["健康", "烫伤", "急救", "烧伤"],
+  "category": "RuleCategory::health(\"burn_aid\")",
+  "sections": [
+    {
+      "title": "立即降温",
+      "method": "cool",
+      "items": [
+        "冷水冲洗伤口",
+        "持续流动水降温",
+        "时长足够缓解",
+        "勿冰敷直贴"
+      ]
+    },
+    {
+      "title": "正确护理",
+      "method": "care",
+      "items": [
+        "不弄破水泡",
+        "不涂牙膏酱",
+        "盖无菌纱布",
+        "保持清洁"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "visit",
+      "items": [
+        "面积大及时就医",
+        "深度烧伤就医",
+        "面部手踝就医",
+        "感染迹象就医"
+      ]
+    },
+    {
+      "title": "预防烫伤",
+      "method": "prevent",
+      "items": [
+        "热液远离儿童",
+        "餐具防滑稳",
+        "厨房小心热油",
+        "热水试温再动"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "heatstroke_response",
+  "struct": "HeatstrokeResponseRules",
+  "name": "中暑处理",
+  "desc": "中暑识别、降温处理与预防",
+  "origin": "医学",
+  "tags": ["健康", "中暑", "降温", "处理"],
+  "category": "RuleCategory::health(\"heatstroke\")",
+  "sections": [
+    {
+      "title": "识别症状",
+      "method": "symptom",
+      "items": [
+        "头昏恶心心慌",
+        "大汗面色潮红",
+        "体温升高",
+        "意识模糊警惕"
+      ]
+    },
+    {
+      "title": "就地处理",
+      "method": "treat",
+      "items": [
+        "移到阴凉通风处",
+        "解开衣物散热",
+        "补水适量少盐",
+        "湿毛巾敷冷"
+      ]
+    },
+    {
+      "title": "重度就医",
+      "method": "visit",
+      "items": [
+        "高热不退就医",
+        "意识不清急送",
+        "抽搐及时处置",
+        "不拖延"
+      ]
+    },
+    {
+      "title": "预防中暑",
+      "method": "prevent",
+      "items": [
+        "高温少出门",
+        "外出遮阳喝水",
+        "老人儿童注意",
+        "热天避暴晒"
+      ]
+    }
+  ]
+}
