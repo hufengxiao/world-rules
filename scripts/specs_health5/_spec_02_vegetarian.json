@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "vegetarian_balanced_nutrition",
+  "struct": "VegetarianBalancedNutritionRules",
+  "name": "素食均衡营养",
+  "desc": "纯素或其他素食者的营养搭配与补充原则",
+  "tags": ["健康", "素食", "营养", "蛋白", "规律"],
+  "category": "RuleCategory::health(\"vegetarian_nutrition\")",
+  "sections": [
+    {
+      "title": "蛋白质来源",
+      "method": "protein",
+      "items": [
+        "摄取豆类坚果豆腐等植物蛋白",
+        "兼顾不同来源提供完整氨基酸",
+        "注意份量充足",
+        "混合谷物提高蛋白质量"
+      ]
+    },
+    {
+      "title": "关键营养",
+      "method": "nutrients",
+      "items": [
+        "关注维生素B12来源",
+        "素食者注意铁与锌补充",
+        "关注钙与维D",
+        "可能需要适量相关补剂"
+      ]
+    },
+    {
+      "title": "饮食多样",
+      "method": "variety",
+      "items": [
+        "多样化植物性食物",
+        "蔬果全谷豆类坚果搭配",
+        "注意脂肪质量不过量",
+        "保留足够能量摄入"
+      ]
+    },
+    {
+      "title": "个体咨询",
+      "method": "guidance",
+      "items": [
+        "儿童孕产妇素食需专业指导",
+        "特殊情况下就医评估",
+        "不盲信极端素食",
+        "据身体反馈调整"
+      ]
+    }
+  ]
+}

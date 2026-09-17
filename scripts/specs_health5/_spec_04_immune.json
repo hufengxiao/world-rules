@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "immune_support_lifestyle",
+  "struct": "ImmuneSupportLifestyleRules",
+  "name": "增强免疫生活方式",
+  "desc": "通过作息、营养与运动支持免疫功能的健康规则",
+  "tags": ["健康", "免疫", "生活方式", "增强"],
+  "category": "RuleCategory::health(\"immune_support\")",
+  "sections": [
+    {
+      "title": "作息睡眠",
+      "method": "rest",
+      "items": [
+        "保证充足规律的睡眠",
+        "睡眠不足会削弱免疫",
+        "规律作息稳定节律",
+        "适量小憩不误夜间"
+      ]
+    },
+    {
+      "title": "营养支持",
+      "method": "nutrition",
+      "items": [
+        "均衡摄取各类营养素",
+        "足量果蔬补充抗氧化",
+        "确保蛋白与锌摄入",
+        "充足水分"
+      ]
+    },
+    {
+      "title": "适度运动",
+      "method": "exercise",
+      "items": [
+        "坚持适度规律运动",
+        "不过度训练损害免疫",
+        "运动后注意恢复",
+        "结合个人体能循序渐进"
+      ]
+    },
+    {
+      "title": "压力与习惯",
+      "method": "lifestyle",
+      "items": [
+        "管理压力与情绪",
+        "戒烟少酒",
+        "保持良好卫生习惯",
+        "必要时接种并遵医嘱"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "hydration_strategy",
+  "struct": "HydrationStrategyRules",
+  "name": "合理补水策略",
+  "desc": "日常与运动时合理补水的原则与电解质平衡",
+  "tags": ["健康", "补水", "水分", "电解质", "运动"],
+  "category": "RuleCategory::health(\"hydration\")",
+  "sections": [
+    {
+      "title": "日常补水",
+      "method": "daily",
+      "items": [
+        "按身体状况适量饮水",
+        "不能等口渴才饮",
+        "分散在一天中少量多次",
+        "观察尿液颜色判断水分"
+      ]
+    },
+    {
+      "title": "运动补水",
+      "method": "exercise",
+      "items": [
+        "运动前后补充水分",
+        "长时间运动适度补电解质",
+        "不要一次性大量猛灌",
+        "结合环境温度判断"
+      ]
+    },
+    {
+      "title": "特殊情况",
+      "method": "special",
+      "items": [
+        "炎热运动注意防脱水",
+        "呕吐腹泻及时补液",
+        "饮水量受疾病影响者遵医嘱",
+        "老人儿童注意主动补水"
+      ]
+    },
+    {
+      "title": "平衡原则",
+      "method": "balance",
+      "items": [
+        "过度饮水同样不适",
+        "注意电解质均衡",
+        "以白开水为主",
+        "减少高糖饮品摄取"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "nutrition_basics",
+  "struct": "NutritionBasicsRules",
+  "name": "营养素基础知识",
+  "desc": "宏量与微量营养素、食物选择的基础知识规则",
+  "tags": ["健康", "营养", "营养素", "膳食"],
+  "category": "RuleCategory::health(\"nutrition_basics\")",
+  "sections": [
+    {
+      "title": "宏量营养素",
+      "method": "macros",
+      "items": [
+        "碳水提供主要能量",
+        "蛋白质支持修复与免疫",
+        "脂肪帮助吸收功能",
+        "合理搭配三者的比例"
+      ]
+    },
+    {
+      "title": "微量营养素",
+      "method": "micros",
+      "items": [
+        "关注维他命与矿物质",
+        "摄取富含维C铁的蔬果",
+        "钙与维D利于骨骼",
+        "适度获取含锌含B族食物"
+      ]
+    },
+    {
+      "title": "读食品标签",
+      "method": "labels",
+      "items": [
+        "关注热量与营养素表",
+        "留意配料排列顺序",
+        "警惕高糖高钠隐藏值",
+        "比较同类可选更优"
+      ]
+    },
+    {
+      "title": "均衡获取",
+      "method": "range",
+      "items": [
+        "从多样天然食物获取营养",
+        "避免过度依赖补剂",
+        "不盲目忌口偏食",
+        "有疑虑征询专业人士"
+      ]
+    }
+  ]
+}

@@ -56,6 +56,7 @@ pub mod addiction_recovery;
 pub mod allergy_management;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
+pub mod balanced_diet_plan;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
@@ -88,9 +89,11 @@ pub mod hearing_health;
 pub mod heart_health;
 pub mod heatstroke_prevention;
 pub mod hydration_rules;
+pub mod hydration_strategy;
 pub mod hypertension_lifestyle;
 pub mod hypertension_management;
 pub mod immune_health;
+pub mod immune_support_lifestyle;
 pub mod infant_health;
 pub mod insect_bite_care;
 pub mod joint_health;
@@ -103,6 +106,7 @@ pub mod mental_wellness;
 pub mod migraine_management;
 pub mod muscle_stretch_routine;
 pub mod nutrition;
+pub mod nutrition_basics;
 pub mod occupational_health;
 pub mod office_ergonomics;
 pub mod oral_health;
@@ -125,6 +129,7 @@ pub mod thyroid_care;
 pub mod toddler_health;
 pub mod travel_health;
 pub mod vaccination_rules;
+pub mod vegetarian_balanced_nutrition;
 pub mod vision_care;
 pub mod weight_management;
 pub mod women_health;
@@ -133,6 +138,7 @@ pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
+pub use balanced_diet_plan::BalancedDietPlanRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
@@ -165,9 +171,11 @@ pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
 pub use hydration_rules::HydrationRulesRules;
+pub use hydration_strategy::HydrationStrategyRules;
 pub use hypertension_lifestyle::HypertensionLifestyleRules;
 pub use hypertension_management::HypertensionManagementRules;
 pub use immune_health::ImmuneHealthRules;
+pub use immune_support_lifestyle::ImmuneSupportLifestyleRules;
 pub use infant_health::InfantHealthRules;
 pub use insect_bite_care::InsectBiteCareRules;
 pub use joint_health::JointHealthRules;
@@ -180,6 +188,7 @@ pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nutrition::NutritionRules;
+pub use nutrition_basics::NutritionBasicsRules;
 pub use occupational_health::OccupationalHealthRules;
 pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
@@ -202,6 +211,7 @@ pub use thyroid_care::ThyroidCareRules;
 pub use toddler_health::ToddlerHealthRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
+pub use vegetarian_balanced_nutrition::VegetarianBalancedNutritionRules;
 pub use vision_care::VisionCareRules;
 pub use weight_management::WeightManagementRules;
 pub use women_health::WomenHealthRules;
@@ -214,6 +224,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ImmuneSupportLifestyleRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HydrationStrategyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VegetarianBalancedNutritionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NutritionBasicsRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BalancedDietPlanRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = EyeHealthGeneralRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

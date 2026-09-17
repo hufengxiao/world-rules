@@ -1,0 +1,51 @@
+{
+  "cat": "health",
+  "file": "balanced_diet_plan",
+  "struct": "BalancedDietPlanRules",
+  "name": "均衡膳食计划",
+  "desc": "安排均衡三餐、控量多样的健康膳食规则",
+  "tags": ["健康", "膳食", "均衡", "营养", "饮食"],
+  "category": "RuleCategory::health(\"balanced_diet\")",
+  "sections": [
+    {
+      "title": "饮食结构",
+      "method": "structure",
+      "items": [
+        "谷物蔬菜蛋白油脂均衡搭配",
+        "每天进食多种类的食物",
+        "以全谷物代替部分精制主食",
+        "摄入足量蔬果与优质蛋白"
+      ]
+    },
+    {
+      "title": "餐次安排",
+      "method": "meals",
+      "items": [
+        "规律三餐不过度饥饿",
+        "两餐之间适量加餐",
+        "早餐不省略营养充足",
+        "晚上减少过饱进食"
+      ]
+    },
+    {
+      "title": "控量原则",
+      "method": "portion",
+      "items": [
+        "使用适量份量进餐",
+        "限制油脂糖与盐",
+        "减少含糖饮料",
+        "注重咀嚼细嚼慢咽"
+      ]
+    },
+    {
+      "title": "顺应个体",
+      "method": "individual",
+      "items": [
+        "依据年龄活动量调整",
+        "特殊人群遵医嘱安排",
+        "结合文化饮食习惯",
+        "可持续坚持避免短期极端"
+      ]
+    }
+  ]
+}
