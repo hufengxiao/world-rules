@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "grocery_supermarket_etiquette",
+  "struct": "GrocerySupermarketEtiquetteRules",
+  "name": "超市购物礼仪",
+  "desc": "超市选品、购物车、结账时的公共礼仪",
+  "tags": ["社交", "礼仪", "超市", "购物", "结账"],
+  "category": "RuleCategory::social(\"grocery\")",
+  "sections": [
+    {
+      "title": "选品文明",
+      "method": "selecting",
+      "items": [
+        "挑选后归放原位的食物",
+        "不挤压弄碎货品",
+        "不随意拆封品尝",
+        "放回不买注意卫生"
+      ]
+    },
+    {
+      "title": "购物车空间",
+      "method": "cart",
+      "items": [
+        "靠边行走不挡通道",
+        "不推车去挤窄道",
+        "儿童坐车注意安全",
+        "放回推车于指定处"
+      ]
+    },
+    {
+      "title": "排队结账",
+      "method": "checkout",
+      "items": [
+        "有序排队结账",
+        "轮到再上前",
+        "准备付款顺畅",
+        "不大声争执插队"
+      ]
+    },
+    {
+      "title": "与员工相处",
+      "method": "staff",
+      "items": [
+        "询问客服礼貌客气",
+        "对补货员工让步",
+        "尊重收银与工作人员",
+        "有异议友好解决"
+      ]
+    }
+  ]
+}

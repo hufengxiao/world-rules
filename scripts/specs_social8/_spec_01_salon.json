@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "salon_etiquette",
+  "struct": "SalonEtiquetteRules",
+  "name": "理发店与美容院礼仪",
+  "desc": "理发、美容服务中预约、沟通与互动的礼仪",
+  "tags": ["社交", "礼仪", "理发", "美容", "预约"],
+  "category": "RuleCategory::social(\"salon\")",
+  "sections": [
+    {
+      "title": "预约守时",
+      "method": "appointment",
+      "items": [
+        "提前预约并准时到店",
+        "临时前往先问等待时长",
+        "改期早通知店家",
+        "了解服务与价格"
+      ]
+    },
+    {
+      "title": "清晰沟通",
+      "method": "brief",
+      "items": [
+        "说明期望的发型风格",
+        "提供参考图片更直观",
+        "说出不能接受的细节",
+        "有异议及时反馈"
+      ]
+    },
+    {
+      "title": "店内行为",
+      "method": "store",
+      "items": [
+        "保持安静不霸占座位闲聊",
+        "手机静音少接听",
+        "不同意未消费升级推销",
+        "不影响其他顾客"
+      ]
+    },
+    {
+      "title": "结束致谢",
+      "method": "finish",
+      "items": [
+        "先检查效果再离开",
+        "不满意礼貌沟通调整",
+        "对小费或感谢适度表达",
+        "下次记住偏好"
+      ]
+    }
+  ]
+}

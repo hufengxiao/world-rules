@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "reading_room_etiquette",
+  "struct": "ReadingRoomEtiquetteRules",
+  "name": "图书馆自习室礼仪",
+  "desc": "图书馆、自习室阅读与自习时的安静与礼仪",
+  "tags": ["社交", "礼仪", "图书馆", "自习", "安静"],
+  "category": "RuleCategory::social(\"reading_room\")",
+  "sections": [
+    {
+      "title": "保持安静",
+      "method": "quiet",
+      "items": [
+        "不大声交谈或接打电话",
+        "手机静音震动",
+        "搬动椅器物轻放",
+        "需要接听走到室外"
+      ]
+    },
+    {
+      "title": "占位自律",
+      "method": "seating",
+      "items": [
+        "不长期空占座位",
+        "离开较久避免占位",
+        "尊重先到者的位置",
+        "用餐时到休息区"
+      ]
+    },
+    {
+      "title": "公共秩序",
+      "method": "order",
+      "items": [
+        "书籍阅后归位",
+        "排队借还书",
+        "遵守开放时间",
+        "饿了到指定区域进食"
+      ]
+    },
+    {
+      "title": "彼此体谅",
+      "method": "consideration",
+      "items": [
+        "使用设备戴耳机",
+        "避免频繁进出",
+        "带资料轻拿轻放",
+        "尊重他人专注学习"
+      ]
+    }
+  ]
+}

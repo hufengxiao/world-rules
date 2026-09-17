@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "pharmacy_etiquette",
+  "struct": "PharmacyEtiquetteRules",
+  "name": "药店购药礼仪",
+  "desc": "药店咨询、购药与用药咨询时的秩序与礼貌",
+  "tags": ["社交", "礼仪", "药店", "购药", "用药"],
+  "category": "RuleCategory::social(\"pharmacy\")",
+  "sections": [
+    {
+      "title": "有序购药",
+      "method": "queue",
+      "items": [
+        "排队等待购药咨询",
+        "不高声插队",
+        "尊重工作人员按序接待",
+        "人多时耐心等候"
+      ]
+    },
+    {
+      "title": "清晰说明",
+      "method": "specify",
+      "items": [
+        "说明症状或用药需求",
+        "告知既往病史与药物过敏",
+        "说不清时咨询药师建议",
+        "核对药品名称与剂量"
+      ]
+    },
+    {
+      "title": "遵守用药建议",
+      "method": "follow",
+      "items": [
+        "尊重药师的专业建议",
+        "遵医嘱说明书中用量",
+        "不擅自超量使用",
+        "有疑问及时复询"
+      ]
+    },
+    {
+      "title": "心怀尊重",
+      "method": "respect",
+      "items": [
+        "尊重工作人员辛勤",
+        "不无理催促或责难",
+        "购药后致谢",
+        "特殊用药咨询医核实"
+      ]
+    }
+  ]
+}

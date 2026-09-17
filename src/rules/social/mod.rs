@@ -148,6 +148,7 @@ pub mod gift;
 pub mod golf_etiquette;
 pub mod graduation_ceremony;
 pub mod greeting;
+pub mod grocery_supermarket_etiquette;
 pub mod guest_reception;
 pub mod gym_etiquette;
 pub mod hospital_etiquette;
@@ -193,6 +194,7 @@ pub mod party;
 pub mod party_founding_day;
 pub mod pet_etiquette;
 pub mod pet_outdoor_etiquette;
+pub mod pharmacy_etiquette;
 pub mod phone;
 pub mod phone_answering_etiquette;
 pub mod photography_etiquette;
@@ -203,6 +205,7 @@ pub mod public_speaking_etiquette;
 pub mod qingming;
 pub mod qixi_festival;
 pub mod queue;
+pub mod reading_room_etiquette;
 pub mod reception_etiquette;
 pub mod remote_work_etiquette;
 pub mod resignation_etiquette;
@@ -210,6 +213,7 @@ pub mod restaurant_tipping;
 pub mod retirement_party_etiquette;
 pub mod russian_etiquette;
 pub mod sales_etiquette;
+pub mod salon_etiquette;
 pub mod seating;
 pub mod shopping_etiquette;
 pub mod smoking;
@@ -338,6 +342,7 @@ pub use gift::GiftEtiquette;
 pub use golf_etiquette::GolfEtiquetteRules;
 pub use graduation_ceremony::GraduationCeremonyRules;
 pub use greeting::GreetingEtiquette;
+pub use grocery_supermarket_etiquette::GrocerySupermarketEtiquetteRules;
 pub use guest_reception::GuestReceptionRules;
 pub use gym_etiquette::GymEtiquetteRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
@@ -383,6 +388,7 @@ pub use party::PartyRules;
 pub use party_founding_day::PartyFoundingDayRules;
 pub use pet_etiquette::PetEtiquetteRules;
 pub use pet_outdoor_etiquette::PetOutdoorEtiquetteRules;
+pub use pharmacy_etiquette::PharmacyEtiquetteRules;
 pub use phone::PhoneEtiquette;
 pub use phone_answering_etiquette::PhoneAnsweringEtiquetteRules;
 pub use photography_etiquette::PhotographyEtiquetteRules;
@@ -393,6 +399,7 @@ pub use public_speaking_etiquette::PublicSpeakingEtiquetteRules;
 pub use qingming::QingmingRules;
 pub use qixi_festival::QixiFestivalRules;
 pub use queue::QueueRules;
+pub use reading_room_etiquette::ReadingRoomEtiquetteRules;
 pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
 pub use resignation_etiquette::ResignationEtiquetteRules;
@@ -400,6 +407,7 @@ pub use restaurant_tipping::RestaurantTippingRules;
 pub use retirement_party_etiquette::RetirementPartyEtiquetteRules;
 pub use russian_etiquette::RussianEtiquetteRules;
 pub use sales_etiquette::SalesEtiquetteRules;
+pub use salon_etiquette::SalonEtiquetteRules;
 pub use seating::SeatingEtiquette;
 pub use shopping_etiquette::ShoppingEtiquetteRules;
 pub use smoking::SmokingRules;
@@ -438,6 +446,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = GrocerySupermarketEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ReadingRoomEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SalonEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PharmacyEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = BirthdayCelebrationRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
