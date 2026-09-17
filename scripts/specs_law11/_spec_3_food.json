@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "food_hygiene_safe",
+  "struct": "FoodHygieneSafeRules",
+  "name": "食品安全维权",
+  "desc": "食品变质、卫生问题的投诉与赔偿",
+  "origin": "中国",
+  "tags": ["消费", "食品", "安全", "维权"],
+  "category": "RuleCategory::law(\"food_hygiene\")",
+  "sections": [
+    {
+      "title": "发现问题",
+      "method": "identify",
+      "items": [
+        "留意异味异物",
+        "过期变质不食",
+        "保存问题食品",
+        "留取样品"
+      ]
+    },
+    {
+      "title": "即时处理",
+      "method": "respond",
+      "items": [
+        "停止食用不适就医",
+        "暂留票据",
+        "必要时报市场监管",
+        "保留记录"
+      ]
+    },
+    {
+      "title": "合理索赔",
+      "method": "claim",
+      "items": [
+        "向商家反映",
+        "依法要求赔偿",
+        "损失依证计算",
+        "不过分索赔"
+      ]
+    },
+    {
+      "title": "举报维权",
+      "method": "report",
+      "items": [
+        "向监管部门举报",
+        "拨打热线",
+        "依实举报",
+        "维护安全"
+      ]
+    }
+  ]
+}

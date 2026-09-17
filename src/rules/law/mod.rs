@@ -60,6 +60,7 @@ pub mod child_custody_rights;
 pub mod civil;
 pub mod constitution;
 pub mod consumer;
+pub mod consumer_complaint_platform;
 pub mod consumer_rights_basics;
 pub mod contract;
 pub mod criminal;
@@ -68,6 +69,7 @@ pub mod domestic_violence_guard;
 pub mod elderly_support_obligation;
 pub mod emergency_call_110;
 pub mod evidence_preservation;
+pub mod food_hygiene_safe;
 pub mod fraud_prevention_basics;
 pub mod identity_fraud_protection;
 pub mod inheritance;
@@ -92,14 +94,17 @@ pub mod pension_insurance;
 pub mod personal_tax_basics;
 pub mod power_of_attorney_basics;
 pub mod prenuptial_agreement;
+pub mod prepaid_card_risk;
 pub mod probation_period_rules;
 pub mod property_management_fee;
 pub mod public_info_disclosure;
 pub mod rental_lease_basics;
 pub mod resignation_procedure;
+pub mod return_exchange_warranty;
 pub mod road_safety;
 pub mod self_defense_law;
 pub mod social_security_basics;
+pub mod telecom_contract_order;
 pub mod traffic;
 
 // 商法类
@@ -575,6 +580,7 @@ pub use company_law_deep::CompanyLawDeepRules;
 pub use company_law_detailed::CompanyLawDetailedRules;
 pub use constitution_detailed::ConstitutionDetailedRules;
 pub use constitution_rights::ConstitutionRightsRules;
+pub use consumer_complaint_platform::ConsumerComplaintPlatformRules;
 pub use consumer_detailed::ConsumerDetailedRules;
 pub use consumer_detailed2::ConsumerDetailed2Rules;
 pub use consumer_protection_deep::ConsumerProtectionDeepRules;
@@ -629,6 +635,7 @@ pub use eu_gdpr::EuGdprRules;
 pub use evidence_preservation::EvidencePreservationRules;
 pub use family_violence::FamilyViolenceRules;
 pub use financial_regulation_deep::FinancialRegulationDeepRules;
+pub use food_hygiene_safe::FoodHygieneSafeRules;
 pub use food_safety_detailed::FoodSafetyDetailedRules;
 pub use food_safety_detailed2::FoodSafetyDetailed2Rules;
 pub use food_safety_detailed_law::FoodSafetyDetailedLawRules;
@@ -721,6 +728,7 @@ pub use personal_tax_basics::PersonalTaxBasicsRules;
 pub use plea_bargaining::PleaBargainingRules;
 pub use power_of_attorney_basics::PowerOfAttorneyBasicsRules;
 pub use prenuptial_agreement::PrenuptialAgreementRules;
+pub use prepaid_card_risk::PrepaidCardRiskRules;
 pub use privacy_rights::PrivacyRightsRules;
 pub use probation_law::ProbationLawRules;
 pub use probation_period_rules::ProbationPeriodRules;
@@ -732,6 +740,7 @@ pub use real_estate_detailed::RealEstateDetailedRules;
 pub use real_estate_law_detailed::RealEstateLawDetailedRules;
 pub use rental_lease_basics::RentalLeaseBasicsRules;
 pub use resignation_procedure::ResignationProcedureRules;
+pub use return_exchange_warranty::ReturnExchangeWarrantyRules;
 pub use right_to_education::RightToEducationRules;
 pub use right_to_health::RightToHealthRules;
 pub use right_to_housing::RightToHousingRules;
@@ -753,6 +762,7 @@ pub use tax_detailed::TaxDetailedRules;
 pub use tax_detailed2::TaxDetailed2Rules;
 pub use tax_law_detailed_law::TaxLawDetailedLawRules;
 pub use tcm_law::TcmLawRules;
+pub use telecom_contract_order::TelecomContractOrderRules;
 pub use telecom_detailed::TelecomDetailedRules;
 pub use traffic_accident_handling::TrafficAccidentHandlingRules;
 pub use traffic_points_demerit::TrafficPointsDemeritRules;
@@ -782,6 +792,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = TelecomContractOrderRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FoodHygieneSafeRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ReturnExchangeWarrantyRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ConsumerComplaintPlatformRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PrepaidCardRiskRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = UnemploymentBenefitRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
