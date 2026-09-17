@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "cooking_boiling_science",
+  "struct": "CookingBoilingScienceRules",
+  "name": "煮沸与冷却科学",
+  "desc": "水的沸点、食物煮熟与冷却保存的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "煮沸", "冷却", "烹饪"],
+  "category": "RuleCategory::science(\"boiling_cooling\")",
+  "sections": [
+    {
+      "title": "沸点常识",
+      "method": "boiling",
+      "items": [
+        "标准气压下沸点为百摄氏度",
+        "高海拔沸点降低",
+        "加盖可更快沸腾",
+        "持续沸腾温度稳定"
+      ]
+    },
+    {
+      "title": "煮熟要领",
+      "method": "cook",
+      "items": [
+        "肉类中心充分加热",
+        "蛋类煮制彻底",
+        "根茎煮软入味",
+        "一沸腾未必熟"
+      ]
+    },
+    {
+      "title": "冷却保存",
+      "method": "cool",
+      "items": [
+        "剩菜先放凉再冷藏",
+        "不长时间温热存放",
+        "密封防交叉污染",
+        "复热彻底再食用"
+      ]
+    },
+    {
+      "title": "科学安全",
+      "method": "safety",
+      "items": [
+        "防止烫伤防溢锅",
+        "恰当控温不闷煮",
+        "注意食材配比",
+        "科学烹饪保健康"
+      ]
+    }
+  ]
+}

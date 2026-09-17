@@ -112,6 +112,7 @@ pub mod chemistry;
 pub mod circuit_theory;
 pub mod civil_engineering;
 pub mod civil_engineering_detailed;
+pub mod cleaning_agent_safety;
 pub mod climate_science;
 pub mod climatology;
 pub mod climatology_detailed;
@@ -132,6 +133,8 @@ pub mod conservation_biology;
 pub mod control_engineering;
 pub mod control_engineering_detailed;
 pub mod control_theory;
+pub mod cooking_boiling_science;
+pub mod cooking_chemistry;
 pub mod cosmology;
 pub mod cosmology_detailed;
 pub mod cryptography;
@@ -247,6 +250,7 @@ pub mod marine_biology;
 pub mod marine_biology_detailed;
 pub mod marine_meteorology;
 pub mod marketing_theory;
+pub mod material_properties;
 pub mod material_science;
 pub mod materials_engineering;
 pub mod materials_mechanics;
@@ -271,6 +275,7 @@ pub mod mineralogy;
 pub mod mineralogy_detailed;
 pub mod ml_theory;
 pub mod module_theory;
+pub mod mold_food_safety;
 pub mod molecular_biology;
 pub mod music_theory;
 pub mod musicology;
@@ -743,7 +748,10 @@ pub use stem_cell_biology::StemCellBiologyRules;
 pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
+pub use cleaning_agent_safety::CleaningAgentSafetyRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
+pub use cooking_boiling_science::CookingBoilingScienceRules;
+pub use cooking_chemistry::CookingChemistryRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use dna_genetics_basics::DnaGeneticsBasicsRules;
@@ -759,6 +767,8 @@ pub use immune_system_basics::ImmuneSystemBasicsRules;
 pub use lab_notebook_etiquette::LabNotebookEtiquetteRules;
 pub use lab_safety::LabSafetyRules;
 pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
+pub use material_properties::MaterialPropertiesRules;
+pub use mold_food_safety::MoldFoodSafetyRules;
 pub use nervous_system_basics::NervousSystemBasicsRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use quantum_basics::QuantumBasicsRules;
@@ -781,6 +791,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CookingBoilingScienceRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MaterialPropertiesRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CleaningAgentSafetyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MoldFoodSafetyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CookingChemistryRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ImmuneSystemBasicsRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

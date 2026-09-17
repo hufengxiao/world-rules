@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "mold_food_safety",
+  "struct": "MoldFoodSafetyRules",
+  "name": "发霉食品科学常识",
+  "desc": "食物发霉变质的识别、保存与安全处理的科学常识",
+  "origin": "国际",
+  "tags": ["科学", "发霉", "食品", "安全"],
+  "category": "RuleCategory::science(\"mold_food\")",
+  "sections": [
+    {
+      "title": "识别发霉",
+      "method": "detect",
+      "items": [
+        "观察表面霉斑异味",
+        "霉菌在温湿生长",
+        "隐性毒素难去除",
+        "发霉多不可只切掉"
+      ]
+    },
+    {
+      "title": "变质判定",
+      "method": "spoil",
+      "items": [
+        "水分多的食物易变质",
+        "腐败气味即弃",
+        "变色粘滑谨慎",
+        "不冒险食用"
+      ]
+    },
+    {
+      "title": "正确保存",
+      "method": "store",
+      "items": [
+        "冷藏冷冻抑制霉变",
+        "密封防潮",
+        "及时食用保质",
+        "剩菜及时处理"
+      ]
+    },
+    {
+      "title": "安全处置",
+      "method": "dispose",
+      "items": [
+        "发霉食物丢弃",
+        "不削去霉点食用",
+        "清理器皿防残留",
+        "注意防误食"
+      ]
+    }
+  ]
+}

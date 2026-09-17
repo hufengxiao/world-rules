@@ -1,0 +1,53 @@
+{
+  "cat": "science",
+  "file": "cleaning_agent_safety",
+  "struct": "CleaningAgentSafetyRules",
+  "name": "清洁剂安全常识",
+  "desc": "清洁剂的分类、混合风险与安全使用常识",
+  "origin": "国际",
+  "tags": ["科学", "清洁剂", "安全", "化学"],
+  "category": "RuleCategory::science(\"cleaning_safety\")",
+  "sections": [
+    {
+      "title": "分类认识",
+      "method": "types",
+      "items": [
+        "洗涤剂去污日常",
+        "消毒剂针对病原",
+        "强酸碱有腐蚀性",
+        "挥发溶剂保持通风",
+        "存放于儿童不可及处"
+      ]
+    },
+    {
+      "title": "禁止混用",
+      "method": "donot_mix",
+      "items": [
+        "酸性与含氯不混用",
+        "混用可能产生毒气",
+        "按说明单独使用",
+        "不丢弃产品标签"
+      ]
+    },
+    {
+      "title": "安全使用",
+      "method": "usage",
+      "items": [
+        "佩戴手套护目",
+        "保持通风开窗",
+        "按说明稀释",
+        "远离食品儿童"
+      ]
+    },
+    {
+      "title": "应急处理",
+      "method": "emergency",
+      "items": [
+        "溅入眼睛立即清洗就医",
+        "误食勿催吐就医",
+        "皮肤接触冲水",
+        "有毒烟立即通风撤离"
+      ]
+    }
+  ]
+}

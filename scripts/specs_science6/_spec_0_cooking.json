@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "cooking_chemistry",
+  "struct": "CookingChemistryRules",
+  "name": "烹饪化学常识",
+  "desc": "烹饪中的美拉德反应、酸碱与食物化学常识",
+  "origin": "国际",
+  "tags": ["科学", "烹饪", "化学", "食品"],
+  "category": "RuleCategory::science(\"cooking_chemistry\")",
+  "sections": [
+    {
+      "title": "加热变化",
+      "method": "heat",
+      "items": [
+        "美拉德反应产生色泽风味",
+        "蛋白质高温变性凝固",
+        "淀粉糊化黏稠",
+        "油脂加热氧化变苦"
+      ]
+    },
+    {
+      "title": "酸碱应用",
+      "method": "acid",
+      "items": [
+        "酸能嫩化食材",
+        "碱可软化纤维",
+        "发酵靠微生物产酸",
+        "pH影响口感颜色"
+      ]
+    },
+    {
+      "title": "乳化与勾芡",
+      "method": "emulsion",
+      "items": [
+        "蛋黄乳化酱汁",
+        "油脂与水需乳化剂",
+        "勾芡让汤汁浓稠",
+        "不同油温影响口感"
+      ]
+    },
+    {
+      "title": "科学习惯",
+      "method": "habit",
+      "items": [
+        "掌握火候与调配",
+        "健康少油盐",
+        "不烹调过度损失营养",
+        "科学处理剩菜时限"
+      ]
+    }
+  ]
+}

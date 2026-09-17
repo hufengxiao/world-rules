@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "material_properties",
+  "struct": "MaterialPropertiesRules",
+  "name": "常见材料特性",
+  "desc": "金属塑料陶瓷等常见材料的性质与选用常识",
+  "origin": "国际",
+  "tags": ["科学", "材料", "性质"],
+  "category": "RuleCategory::science(\"material\")",
+  "sections": [
+    {
+      "title": "金属材料",
+      "method": "metal",
+      "items": [
+        "金属导电导热性强",
+        "铁易锈需防护",
+        "铝轻质耐腐蚀",
+        "合金增强性能"
+      ]
+    },
+    {
+      "title": "塑料与陶瓷",
+      "method": "plastics",
+      "items": [
+        "塑料多样轻便",
+        "分热塑热固性",
+        "陶瓷耐热硬脆",
+        "玻璃透明易碎"
+      ]
+    },
+    {
+      "title": "木材与织物",
+      "method": "wood",
+      "items": [
+        "木材隔热有质感",
+        "需防潮防腐",
+        "天然纤维透气",
+        "合成纤维耐磨"
+      ]
+    },
+    {
+      "title": "按需选用",
+      "method": "choose",
+      "items": [
+        "用途选合适材料",
+        "注意安全热危险",
+        "环保再生优先",
+        "识别标示再回收"
+      ]
+    }
+  ]
+}
