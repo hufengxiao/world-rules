@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "spring_festival_visit",
+  "struct": "SpringFestivalVisitRules",
+  "name": "春节拜年礼仪",
+  "desc": "春节串门拜年、礼品与问候的礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "春节", "拜年"],
+  "category": "RuleCategory::social(\"spring_festival\")",
+  "sections": [
+    {
+      "title": "拜年时机",
+      "method": "timing",
+      "items": [
+        "拜年选合适时间段",
+        "避免过早或过晚打扰",
+        "提前打个招呼",
+        "配合对方到访安排"
+      ]
+    },
+    {
+      "title": "礼物礼节",
+      "method": "gift",
+      "items": [
+        "带恰当节日礼品",
+        "贵重在心意",
+        "礼品简洁得体",
+        "不说服对方破费"
+      ]
+    },
+    {
+      "title": "问候交谈",
+      "method": "greet",
+      "items": [
+        "主动向长辈拜年",
+        "送上吉祥祝福",
+        "热情交谈融洽",
+        "不探人隐私"
+      ]
+    },
+    {
+      "title": "告别礼让",
+      "method": "depart",
+      "items": [
+        "适时告辞不恋战",
+        "感谢热情款待",
+        "出门口衷心道别",
+        "节日气氛其乐融融"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "red_envelope_etiquette",
+  "struct": "RedEnvelopeEtiquetteRules",
+  "name": "红包礼仪",
+  "desc": "逢年过节派发收受红包的分寸与礼节",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "红包", "节日"],
+  "category": "RuleCategory::social(\"red_envelope\")",
+  "sections": [
+    {
+      "title": "发派分寸",
+      "method": "give",
+      "items": [
+        "金额量力与关系相宜",
+        "祝福寓于红包",
+        "当着长辈恭敬送出",
+        "数额以吉利为主"
+      ]
+    },
+    {
+      "title": "收受礼貌",
+      "method": "receive",
+      "items": [
+        "双手接拿表谢意",
+        "当面感谢不推诿过度",
+        "不当众拆数",
+        "妥善装好"
+      ]
+    },
+    {
+      "title": "电子红包",
+      "method": "digital",
+      "items": [
+        "电子红包及时查收",
+        "抢到后随手道谢",
+        "不攀比数额",
+        "群发注意礼貌"
+      ]
+    },
+    {
+      "title": "分寸得体",
+      "method": "measure",
+      "items": [
+        "不过分攀比不炫富",
+        "视亲疏定亲厚",
+        "敬老基本祝福",
+        "不图红包失礼"
+      ]
+    }
+  ]
+}

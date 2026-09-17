@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "condolence_visit",
+  "struct": "CondolenceVisitRules",
+  "name": "吊唁慰问礼仪",
+  "desc": "遭丧事时的吊唁、慰问与表达哀思之礼",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "吊唁", "慰问"],
+  "category": "RuleCategory::social(\"condolence\")",
+  "sections": [
+    {
+      "title": "表达心意",
+      "method": "meaning",
+      "items": [
+        "适时表达诚挚哀悼",
+        "尊重家属情绪",
+        "以行动支持陪伴",
+        "提供需要帮助"
+      ]
+    },
+    {
+      "title": "吊唁方式",
+      "method": "manner",
+      "items": [
+        "依当地礼节致意",
+        "穿着庄重素净",
+        "言语简洁真挚",
+        "不喧哗高声"
+      ]
+    },
+    {
+      "title": "慰问言辞",
+      "method": "words",
+      "items": [
+        "多说陪伴与关心",
+        "避免空洞安慰与闲谈",
+        "少追问具体细节",
+        "尊重家属意愿"
+      ]
+    },
+    {
+      "title": "后续关怀",
+      "method": "follow",
+      "items": [
+        "事后给予持续支持",
+        "帮助处理实际事务",
+        "尊重悲伤周期",
+        "有需要稳定陪伴"
+      ]
+    }
+  ]
+}

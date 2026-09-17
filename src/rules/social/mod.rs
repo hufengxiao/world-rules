@@ -118,11 +118,13 @@ pub mod chinese_temple;
 pub mod chinese_traditional_dress;
 pub mod chinese_wedding;
 pub mod chongyang;
+pub mod chongyang_filial_etiquette;
 pub mod cinema;
 pub mod cocktail_party;
 pub mod coffee_house;
 pub mod community_meeting;
 pub mod concert_etiquette;
+pub mod condolence_visit;
 pub mod confucian_etiquette;
 pub mod constructive_criticism;
 pub mod contract_signing_etiquette;
@@ -143,6 +145,7 @@ pub mod elevator_luggage_etiquette;
 pub mod email;
 pub mod escalator_etiquette;
 pub mod festival;
+pub mod festival_family_gathering;
 pub mod fishing_etiquette;
 pub mod flight;
 pub mod food_festival;
@@ -219,6 +222,7 @@ pub mod qixi_festival;
 pub mod queue;
 pub mod reading_room_etiquette;
 pub mod reception_etiquette;
+pub mod red_envelope_etiquette;
 pub mod remote_work_etiquette;
 pub mod resignation_etiquette;
 pub mod restaurant_ordering_etiquette;
@@ -231,6 +235,7 @@ pub mod seating;
 pub mod shopping_etiquette;
 pub mod smoking;
 pub mod social_media_etiquette;
+pub mod spring_festival_visit;
 pub mod subway_etiquette;
 pub mod supplier_relations_etiquette;
 pub mod sustainable_living;
@@ -327,11 +332,13 @@ pub use chinese_temple::ChineseTempleRules;
 pub use chinese_traditional_dress::ChineseTraditionalDressRules;
 pub use chinese_wedding::ChineseWeddingRules;
 pub use chongyang::ChongyangRules;
+pub use chongyang_filial_etiquette::ChongyangFilialEtiquetteRules;
 pub use cinema::CinemaEtiquette;
 pub use cocktail_party::CocktailPartyRules;
 pub use coffee_house::CoffeeHouseRules;
 pub use community_meeting::CommunityMeetingRules;
 pub use concert_etiquette::ConcertEtiquetteRules;
+pub use condolence_visit::CondolenceVisitRules;
 pub use confucian_etiquette::ConfucianEtiquetteRules;
 pub use constructive_criticism::ConstructiveCriticismRules;
 pub use contract_signing_etiquette::ContractSigningEtiquetteRules;
@@ -352,6 +359,7 @@ pub use elevator_luggage_etiquette::ElevatorLuggageEtiquetteRules;
 pub use email::EmailEtiquette;
 pub use escalator_etiquette::EscalatorEtiquetteRules;
 pub use festival::{ChineseFestival, FestivalEtiquette};
+pub use festival_family_gathering::FestivalFamilyGatheringRules;
 pub use fishing_etiquette::FishingEtiquetteRules;
 pub use flight::FlightEtiquette;
 pub use food_festival::FoodFestivalRules;
@@ -428,6 +436,7 @@ pub use qixi_festival::QixiFestivalRules;
 pub use queue::QueueRules;
 pub use reading_room_etiquette::ReadingRoomEtiquetteRules;
 pub use reception_etiquette::ReceptionEtiquetteRules;
+pub use red_envelope_etiquette::RedEnvelopeEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
 pub use resignation_etiquette::ResignationEtiquetteRules;
 pub use restaurant_ordering_etiquette::RestaurantOrderingEtiquetteRules;
@@ -440,6 +449,7 @@ pub use seating::SeatingEtiquette;
 pub use shopping_etiquette::ShoppingEtiquetteRules;
 pub use smoking::SmokingRules;
 pub use social_media_etiquette::SocialMediaEtiquetteRules;
+pub use spring_festival_visit::SpringFestivalVisitRules;
 pub use subway_etiquette::SubwayEtiquetteRules;
 pub use supplier_relations_etiquette::SupplierRelationsEtiquetteRules;
 pub use sustainable_living::SustainableLivingRules;
@@ -476,6 +486,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FestivalFamilyGatheringRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChongyangFilialEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CondolenceVisitRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RedEnvelopeEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SpringFestivalVisitRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = RestaurantOrderingEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

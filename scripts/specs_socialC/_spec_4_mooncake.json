@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "festival_family_gathering",
+  "struct": "FestivalFamilyGatheringRules",
+  "name": "传统节日家庭团聚",
+  "desc": "中秋等传统节日家庭团聚赏月聚餐的礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "中秋", "团聚"],
+  "category": "RuleCategory::social(\"mooncake_gathering\")",
+  "sections": [
+    {
+      "title": "团聚安排",
+      "method": "plan",
+      "items": [
+        "提前安排团聚时间",
+        "体谅家庭成员忙闲",
+        "邀请长辈参与",
+        "辅以清洁布置"
+      ]
+    },
+    {
+      "title": "餐桌共享",
+      "method": "meal",
+      "items": [
+        "共同分享月饼佳肴",
+        "先礼让长辈开动",
+        "适量取食不浪费",
+        "欢聚谈论融洽"
+      ]
+    },
+    {
+      "title": "活动氛围",
+      "method": "activity",
+      "items": [
+        "赏月聊天添温馨",
+        "陪长辈多聊聊",
+        "拍照留念适时",
+        "体恤家人放松"
+      ]
+    },
+    {
+      "title": "礼尚往来",
+      "method": "gift",
+      "items": [
+        "带合适礼品拜访",
+        "体谅礼数适度",
+        "团聚重于形式",
+        "情意融融满载而归"
+      ]
+    }
+  ]
+}

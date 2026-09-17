@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "chongyang_filial_etiquette",
+  "struct": "ChongyangFilialEtiquetteRules",
+  "name": "重阳敬老礼仪",
+  "desc": "重阳节探望长辈、表达孝心与陪伴敬老的礼仪",
+  "origin": "中国",
+  "tags": ["社交", "礼仪", "重阳", "敬老"],
+  "category": "RuleCategory::social(\"chongyang\")",
+  "sections": [
+    {
+      "title": "探望陪伴",
+      "method": "visit",
+      "items": [
+        "节日主动探望长辈",
+        "陪伴聊天多听心事",
+        "关心身体健康生活",
+        "经常联系送关怀"
+      ]
+    },
+    {
+      "title": "孝心表达",
+      "method": "filial",
+      "items": [
+        "表达感恩与敬意",
+        "帮助解决实际困难",
+        "尊重长辈意愿",
+        "有耐心不嫌麻烦"
+      ]
+    },
+    {
+      "title": "敬老举止",
+      "method": "manner",
+      "items": [
+        "称谓礼貌敬语",
+        "让长辈先行先食",
+        "倾听不打断",
+        "关照腿脚安全"
+      ]
+    },
+    {
+      "title": "传承美德",
+      "method": "virtue",
+      "items": [
+        "带动后辈敬老",
+        "关怀孤寡老人",
+        "发扬孝老传统",
+        "让爱老成为日常"
+      ]
+    }
+  ]
+}
