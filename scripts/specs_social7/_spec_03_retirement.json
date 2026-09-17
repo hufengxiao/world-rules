@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "retirement_party_etiquette",
+  "struct": "RetirementPartyEtiquetteRules",
+  "name": "退休与送别礼仪",
+  "desc": "同事退休、离职欢送会的致谢、致辞与情谊礼仪",
+  "tags": ["社交", "礼仪", "退休", "欢送", "职场"],
+  "category": "RuleCategory::social(\"retirement\")",
+  "sections": [
+    {
+      "title": "组织准备",
+      "method": "organize",
+      "items": [
+        "以当事人意愿为主安排",
+        "约时间地点通知参与者",
+        "准备回忆与致谢环节",
+        "尊重退休者的低调选择"
+      ]
+    },
+    {
+      "title": "致辞祝福",
+      "method": "toast",
+      "items": [
+        "真诚回顾共事点滴",
+        "致谢多年付出协作",
+        "祝福退休后生活充实",
+        "言辞恳切不夸大"
+      ]
+    },
+    {
+      "title": "送礼纪念",
+      "method": "gifts",
+      "items": [
+        "集体送得体纪念品",
+        "有实用或纪念意义",
+        "不强求贵重",
+        "把功劳客气归给本人"
+      ]
+    },
+    {
+      "title": "收尾体面",
+      "method": "closing",
+      "items": [
+        "让当事人充分表达",
+        "活动时间张弛有度",
+        "拍照留念其乐融融",
+        "礼貌道别不再过度挽留"
+      ]
+    }
+  ]
+}

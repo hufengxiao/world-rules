@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "hosting_dinner_party",
+  "struct": "HostingDinnerPartyRules",
+  "name": "家宴款待",
+  "desc": "在家设宴款待客人的菜单安排、迎客与敬重礼仪",
+  "tags": ["社交", "礼仪", "家宴", "款待", "聚会"],
+  "category": "RuleCategory::social(\"hosting_dinner\")",
+  "sections": [
+    {
+      "title": "宴前准备",
+      "method": "preparation",
+      "items": [
+        "提前确认客人饮食偏好",
+        "备齐餐具座椅与布置",
+        "预排上菜与饮品顺序",
+        "预留足够备餐时间"
+      ]
+    },
+    {
+      "title": "迎客入席",
+      "method": "greeting",
+      "items": [
+        "门口迎候引导入座",
+        "介绍席间彼此认识",
+        "请贵宾长者居上座",
+        "照顾晚到者再续座"
+      ]
+    },
+    {
+      "title": "席间款待",
+      "method": "serving",
+      "items": [
+        "适时上菜并分餐",
+        "招呼客人夹菜不冷落",
+        "关注客人饮水需求",
+        "控制节奏照顾氛围"
+      ]
+    },
+    {
+      "title": "送客收尾",
+      "method": "farewell",
+      "items": [
+        "客人尽兴时得体收束",
+        "送客至门口致谢",
+        "次日或随后向宾客问候",
+        "妥善处理剩餐剩菜"
+      ]
+    }
+  ]
+}

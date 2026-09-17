@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "birthday_celebration",
+  "struct": "BirthdayCelebrationRules",
+  "name": "生日庆祝礼仪",
+  "desc": "生日聚会上的祝福、切蛋糕、送礼与参与礼仪",
+  "tags": ["社交", "礼仪", "生日", "聚会", "庆祝"],
+  "category": "RuleCategory::social(\"birthday_celeb\")",
+  "sections": [
+    {
+      "title": "主人筹备",
+      "method": "hosting",
+      "items": [
+        "提前邀请并确认名单",
+        "安排场地时间与主题",
+        "准备蛋糕与节目环节",
+        "照顾到场各年龄段"
+      ]
+    },
+    {
+      "title": "来宾参与",
+      "method": "guest",
+      "items": [
+        "准时到场并道贺",
+        "送合适的小礼物",
+        "融入活动响应氛围",
+        "不喧宾夺主抢风头"
+      ]
+    },
+    {
+      "title": "切蛋糕仪式",
+      "method": "cutting",
+      "items": [
+        "寿星许愿后进行切蛋糕",
+        "先请长辈或寿星开切",
+        "分设给各宾客",
+        "留第一份给寿星"
+      ]
+    },
+    {
+      "title": "互动祝福",
+      "method": "blessing",
+      "items": [
+        "齐唱生日歌带出气氛",
+        "真诚祝愿身体健康",
+        "拍照留念记录美好",
+        "散场致谢来宾"
+      ]
+    }
+  ]
+}

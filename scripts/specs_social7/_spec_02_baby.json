@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "baby_shower_etiquette",
+  "struct": "BabyShowerEtiquetteRules",
+  "name": "亲子宴与宝宝宴礼仪",
+  "desc": "迎接新生儿的庆祝聚会中送礼、观礼与参与礼仪",
+  "tags": ["社交", "礼仪", "宝宝", "亲子", "聚会"],
+  "category": "RuleCategory::social(\"baby_shower\")",
+  "sections": [
+    {
+      "title": "受邀请参与",
+      "method": "invitation",
+      "items": [
+        "收到邀请及时回复是否出席",
+        "尊重活动形式与主题",
+        "准时到场不影响流程",
+        "了解是否需要带礼物"
+      ]
+    },
+    {
+      "title": "礼物与心意",
+      "method": "gifts",
+      "items": [
+        "可按家庭需要挑选礼物",
+        "实用体贴为佳",
+        "金额量力不必攀比",
+        "写上祝福留言表达心意"
+      ]
+    },
+    {
+      "title": "与宝宝互动",
+      "method": "baby",
+      "items": [
+        "抱宝宝前保卫生并询问",
+        "不强抱不亲吻",
+        "不逗弄太过或惊吓",
+        "照顾刚做父母者的疲劳"
+      ]
+    },
+    {
+      "title": "气氛与祝福",
+      "method": "blessing",
+      "items": [
+        "送上真诚的祝福",
+        "拍照尊重隐私",
+        "礼让主场的新手父母",
+        "乐在工作氛围不喧宾夺主"
+      ]
+    }
+  ]
+}

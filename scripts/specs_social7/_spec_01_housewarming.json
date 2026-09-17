@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "housewarming_etiquette",
+  "struct": "HousewarmingEtiquetteRules",
+  "name": "乔迁之喜礼仪",
+  "desc": "乔迁新居的入住习俗、待客与送礼礼仪",
+  "tags": ["社交", "礼仪", "乔迁", "搬家", "家居"],
+  "category": "RuleCategory::social(\"housewarming\")",
+  "sections": [
+    {
+      "title": "乔迁准备",
+      "method": "preparation",
+      "items": [
+        "择日前完成搬迁整理",
+        "安排暖房活动时段",
+        "邀请亲近亲友同庆",
+        "准备待客点心饮品"
+      ]
+    },
+    {
+      "title": "待客迎宾",
+      "method": "hosting",
+      "items": [
+        "热情迎客引导参观",
+        "分享搬家喜悦过程",
+        "感谢来宾前来祝贺",
+        "照顾第一次到访的客人"
+      ]
+    },
+    {
+      "title": "随礼答谢",
+      "method": "gifts",
+      "items": [
+        "接受礼物真诚表达感谢",
+        "量力而为不必过于贵重",
+        "以点心或宴请等回礼",
+        "礼尚往来善待亲友"
+      ]
+    },
+    {
+      "title": "新居习俗",
+      "method": "custom",
+      "items": [
+        "尊重不同地区乔迁习俗",
+        "不讲晦气话语",
+        "注意邻里热情问候新邻居",
+        "爱护搬入的公共环境"
+      ]
+    }
+  ]
+}

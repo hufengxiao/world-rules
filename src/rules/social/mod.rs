@@ -59,10 +59,12 @@ pub mod apology_etiquette;
 pub mod arbor_day;
 pub mod army_day;
 pub mod awards_ceremony_etiquette;
+pub mod baby_shower_etiquette;
 pub mod banquet_toast_etiquette;
 pub mod bar;
 pub mod barbecue_etiquette;
 pub mod beach_etiquette;
+pub mod birthday_celebration;
 pub mod boardroom_etiquette;
 pub mod brazilian_etiquette;
 pub mod british_etiquette;
@@ -149,7 +151,9 @@ pub mod greeting;
 pub mod guest_reception;
 pub mod gym_etiquette;
 pub mod hospital_etiquette;
+pub mod hosting_dinner_party;
 pub mod hotel_stay_etiquette;
+pub mod housewarming_etiquette;
 pub mod indian_etiquette;
 pub mod international_conference;
 pub mod international_gift;
@@ -203,6 +207,7 @@ pub mod reception_etiquette;
 pub mod remote_work_etiquette;
 pub mod resignation_etiquette;
 pub mod restaurant_tipping;
+pub mod retirement_party_etiquette;
 pub mod russian_etiquette;
 pub mod sales_etiquette;
 pub mod seating;
@@ -244,10 +249,12 @@ pub use apology_etiquette::ApologyEtiquetteRules;
 pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
 pub use awards_ceremony_etiquette::AwardsCeremonyEtiquetteRules;
+pub use baby_shower_etiquette::BabyShowerEtiquetteRules;
 pub use banquet_toast_etiquette::BanquetToastEtiquetteRules;
 pub use bar::BarRules;
 pub use barbecue_etiquette::BarbecueEtiquetteRules;
 pub use beach_etiquette::BeachEtiquetteRules;
+pub use birthday_celebration::BirthdayCelebrationRules;
 pub use boardroom_etiquette::BoardroomEtiquetteRules;
 pub use brazilian_etiquette::BrazilianEtiquetteRules;
 pub use british_etiquette::BritishEtiquetteRules;
@@ -334,7 +341,9 @@ pub use greeting::GreetingEtiquette;
 pub use guest_reception::GuestReceptionRules;
 pub use gym_etiquette::GymEtiquetteRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
+pub use hosting_dinner_party::HostingDinnerPartyRules;
 pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
+pub use housewarming_etiquette::HousewarmingEtiquetteRules;
 pub use indian_etiquette::IndianEtiquetteRules;
 pub use international_conference::InternationalConferenceRules;
 pub use international_gift::InternationalGiftRules;
@@ -388,6 +397,7 @@ pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
 pub use resignation_etiquette::ResignationEtiquetteRules;
 pub use restaurant_tipping::RestaurantTippingRules;
+pub use retirement_party_etiquette::RetirementPartyEtiquetteRules;
 pub use russian_etiquette::RussianEtiquetteRules;
 pub use sales_etiquette::SalesEtiquetteRules;
 pub use seating::SeatingEtiquette;
@@ -428,6 +438,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = BirthdayCelebrationRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RetirementPartyEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BabyShowerEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HousewarmingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HostingDinnerPartyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = VolunteerServiceEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
