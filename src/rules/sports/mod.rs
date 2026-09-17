@@ -81,6 +81,7 @@ pub mod badminton_basics;
 pub mod badminton_bwf_world_championship;
 pub mod badminton_detailed;
 pub mod badminton_olympic;
+pub mod badminton_serve_singles;
 pub mod bagua;
 pub mod ball_games_detailed;
 pub mod ball_sport_generic;
@@ -507,6 +508,7 @@ pub mod swimming_open_water;
 pub mod swimming_paralympic;
 pub mod swimming_short_course;
 pub mod swimming_stroke_basics;
+pub mod swimming_turn_styles;
 pub mod swimming_world_championship;
 pub mod synchronized_swimming;
 pub mod table_soccer_rules;
@@ -514,6 +516,7 @@ pub mod table_tennis;
 pub mod table_tennis_detailed;
 pub mod table_tennis_olympic;
 pub mod table_tennis_rules;
+pub mod table_tennis_serve;
 pub mod table_tennis_world_cup;
 pub mod taekwondo;
 pub mod taekwondo_detailed;
@@ -526,6 +529,7 @@ pub mod tennis_atp_finals;
 pub mod tennis_davis_cup;
 pub mod tennis_detailed;
 pub mod tennis_grand_slam;
+pub mod tennis_serve_technique;
 pub mod thai_boxing;
 pub mod three_x_three_basketball;
 pub mod trampoline;
@@ -542,6 +546,7 @@ pub mod voivovam;
 pub mod volleyball;
 pub mod volleyball_beach_detailed;
 pub mod volleyball_detailed;
+pub mod volleyball_net_rules;
 pub mod volleyball_olympic;
 pub mod volleyball_world_championship;
 pub mod wakeboarding;
@@ -614,6 +619,7 @@ pub use badminton_basics::BadmintonBasicsRules;
 pub use badminton_bwf_world_championship::BadmintonBwfWorldChampionshipRules;
 pub use badminton_detailed::BadmintonDetailedRules;
 pub use badminton_olympic::BadmintonOlympicRules;
+pub use badminton_serve_singles::BadmintonServeSinglesRules;
 pub use bagua::BaguaRules;
 pub use ball_games_detailed::BallGamesDetailedRules;
 pub use ball_sport_generic::BallSportGenericRules;
@@ -1069,6 +1075,7 @@ pub use swimming_open_water::SwimmingOpenWaterRules;
 pub use swimming_paralympic::SwimmingParalympicRules;
 pub use swimming_short_course::SwimmingShortCourseRules;
 pub use swimming_stroke_basics::SwimmingStrokeBasicsRules;
+pub use swimming_turn_styles::SwimmingTurnStylesRules;
 pub use swimming_world_championship::SwimmingWorldChampionshipRules;
 pub use synchronized_swimming::SynchronizedSwimmingRules;
 pub use table_soccer_rules::TableSoccerRules;
@@ -1076,6 +1083,7 @@ pub use table_tennis::TableTennisRules;
 pub use table_tennis_detailed::TableTennisDetailedRules;
 pub use table_tennis_olympic::TableTennisOlympicRules;
 pub use table_tennis_rules::TableTennisPlayRules;
+pub use table_tennis_serve::TableTennisServeRules;
 pub use table_tennis_world_cup::{TableTennisWorldCupFormat, TableTennisWorldCupRules};
 pub use taekwondo::TaekwondoRules;
 pub use taekwondo_detailed::TaekwondoDetailedRules;
@@ -1088,6 +1096,7 @@ pub use tennis_atp_finals::TennisAtpFinalsRules;
 pub use tennis_davis_cup::{DavisCupStage, TennisDavisCupRules};
 pub use tennis_detailed::TennisDetailedRules;
 pub use tennis_grand_slam::TennisGrandSlamRules;
+pub use tennis_serve_technique::TennisServeTechniqueRules;
 pub use thai_boxing::ThaiBoxingRules;
 pub use three_x_three_basketball::ThreeXThreeBasketballRules;
 pub use trampoline::TrampolineRules;
@@ -1107,6 +1116,7 @@ pub use voivovam::VoivovamRules;
 pub use volleyball::VolleyballRules;
 pub use volleyball_beach_detailed::VolleyballBeachDetailedRules;
 pub use volleyball_detailed::VolleyballDetailedRules;
+pub use volleyball_net_rules::VolleyballNetRules;
 pub use volleyball_olympic::VolleyballOlympicRules;
 pub use volleyball_world_championship::VolleyballWorldChampionshipRules;
 pub use wakeboarding::WakeboardingRules;
@@ -1162,6 +1172,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SwimmingTurnStylesRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TennisServeTechniqueRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BadmintonServeSinglesRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VolleyballNetRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TableTennisServeRules::new();
+        rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = RockClimbingGymRules::new();
         rules.push(("sports", r.metadata().clone(), r.category(), r.explain()));

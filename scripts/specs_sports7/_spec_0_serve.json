@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "table_tennis_serve",
+  "struct": "TableTennisServeRules",
+  "name": "乒乓球发球",
+  "desc": "乒乓球发球规则、抛球与台内限制",
+  "origin": "国际",
+  "tags": ["体育", "乒乓球", "发球"],
+  "category": "RuleCategory::sports(\"pingpong_serve\")",
+  "sections": [
+    {
+      "title": "抛球规则",
+      "method": "toss",
+      "items": [
+        "手掌平摊抛球",
+        "垂直上抛",
+        "抛高过十六厘米",
+        "自由落体触球"
+      ]
+    },
+    {
+      "title": "击球合法",
+      "method": "legal",
+      "items": [
+        "球先落已台再落对方台",
+        "不得遮挡拍手",
+        "触网重发",
+        "出界犯规"
+      ]
+    },
+    {
+      "title": "轮流发球",
+      "method": "turns",
+      "items": [
+        "每两分换发球",
+        "双方各发轮流",
+        "接发失误",
+        "发球得分"
+      ]
+    },
+    {
+      "title": "球拍技术",
+      "method": "stroke",
+      "items": [
+        "把握抛击时机",
+        "控制旋转落点",
+        "变化发球",
+        "掌握先机"
+      ]
+    }
+  ]
+}

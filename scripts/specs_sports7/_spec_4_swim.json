@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "swimming_turn_styles",
+  "struct": "SwimmingTurnStylesRules",
+  "name": "游泳转身要领",
+  "desc": "自由泳蛙泳翻滚转身与规则技术",
+  "origin": "国际",
+  "tags": ["体育", "游泳", "转身"],
+  "category": "RuleCategory::sports(\"swim_turn\")",
+  "sections": [
+    {
+      "title": "自由泳滚翻",
+      "method": "flip",
+      "items": [
+        "接近池壁收身",
+        "前滚翻转身",
+        "双脚蹬壁",
+        "流线滑出"
+      ]
+    },
+    {
+      "title": "蛙泳转身",
+      "method": "breast",
+      "items": [
+        "双手触壁",
+        "转身蹬离",
+        "水面转头",
+        "保持节奏"
+      ]
+    },
+    {
+      "title": "蹬壁出发",
+      "method": "push",
+      "items": [
+        "蹬壁用力",
+        "身体伸直滑行",
+        "双臂前伸",
+        "减少阻力"
+      ]
+    },
+    {
+      "title": "比赛规则",
+      "method": "regulation",
+      "items": [
+        "必须触池壁转身",
+        "泳姿规范",
+        "不得越线借力",
+        "遵守泳规"
+      ]
+    }
+  ]
+}

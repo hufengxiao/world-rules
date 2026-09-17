@@ -1,0 +1,52 @@
+{
+  "cat": "sports",
+  "file": "tennis_serve_technique",
+  "struct": "TennisServeTechniqueRules",
+  "name": "网球发球技术",
+  "desc": "网球发球握拍、抛球与动作要领",
+  "origin": "国际",
+  "tags": ["体育", "网球", "发球", "技术"],
+  "category": "RuleCategory::sports(\"tennis_serve\")",
+  "sections": [
+    {
+      "title": "握拍姿势",
+      "method": "grip",
+      "items": [
+        "大陆式握拍",
+        "手腕放松",
+        "持球轻轻放",
+        "连贯击球"
+      ]
+    },
+    {
+      "title": "抛球要领",
+      "method": "toss",
+      "items": [
+        "稳定上抛",
+        "落点在前上方",
+        "不掉落不偏",
+        "节奏一致"
+      ]
+    },
+    {
+      "title": "发球动作",
+      "method": "swing",
+      "items": [
+        "蹬腿转身挥拍",
+        "拍面触球中上",
+        "随挥自然",
+        "发向对角区"
+      ]
+    },
+    {
+      "title": "失误处理",
+      "method": "fault",
+      "items": [
+        "一发失败二发稳",
+        "落点调整",
+        "脚跟勿踩线",
+        "稳中求攻"
+      ]
+    }
+  ]
+}
