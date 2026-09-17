@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "flying_chess",
+  "struct": "FlyingChessRules",
+  "name": "飞行棋规则",
+  "desc": "飞行棋掷骰、起飞与撞子回航规则",
+  "origin": "国际",
+  "tags": ["游戏", "飞行棋", "亲子"],
+  "category": "RuleCategory::games(\"flying_chess\")",
+  "sections": [
+    {
+      "title": "起飞出发",
+      "method": "takeoff",
+      "items": [
+        "掷到六才可起飞",
+        "掷六可再掷一次",
+        "起飞先占起点格",
+        "未起飞则待机会"
+      ]
+    },
+    {
+      "title": "行进规则",
+      "method": "moving",
+      "items": [
+        "依骰子数前进",
+        "落格依规则效果",
+        "格子有加有乘",
+        "沿轨道顺时针"
+      ]
+    },
+    {
+      "title": "撞子回家",
+      "method": "block",
+      "items": [
+        "落到对方子同格",
+        "对方回起点",
+        "安全区可暂保",
+        "终点须可恰好"
+      ]
+    },
+    {
+      "title": "胜利收尾",
+      "method": "finish",
+      "items": [
+        "齐到终点者胜",
+        "落点恰好走回",
+        "多人轮流公平",
+        "欢快游戏"
+      ]
+    }
+  ]
+}

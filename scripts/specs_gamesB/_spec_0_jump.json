@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "jump_chess_rules",
+  "struct": "JumpChessRules",
+  "name": "跳棋基本规则",
+  "desc": "跳棋的走子、跳跃与获胜规则",
+  "tags": ["游戏", "跳棋", "棋盘"],
+  "origin": "国际",
+  "category": "RuleCategory::games(\"jump_chess\")",
+  "sections": [
+    {
+      "title": "布局走子",
+      "method": "setup",
+      "items": [
+        "对角摆放己方棋子",
+        "轮流按步走子",
+        "可移动相邻格",
+        "目标占领对方起始区"
+      ]
+    },
+    {
+      "title": "跳跃规则",
+      "method": "jump",
+      "items": [
+        "跳过相邻对方子",
+        "跳越同样可连续",
+        "需空位可落",
+        "跳跃不可斜跳"
+      ]
+    },
+    {
+      "title": "胜负判定",
+      "method": "win",
+      "items": [
+        "先铺满对方区胜",
+        "可单人完成",
+        "团体按到位计",
+        "阻塞灵活应变"
+      ]
+    },
+    {
+      "title": "游戏礼仪",
+      "method": "manner",
+      "items": [
+        "轮到时再动子",
+        "不悔棋赖棋",
+        "出子干脆",
+        "友好对弈"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "chinese_chess_opening",
+  "struct": "ChineseChessOpeningRules",
+  "name": "中国象棋布局与规则",
+  "desc": "中国象棋布子、走法与开局要点",
+  "origin": "中国",
+  "tags": ["游戏", "象棋", "棋类"],
+  "category": "RuleCategory::games(\"xiangqi\")",
+  "sections": [
+    {
+      "title": "布子规则",
+      "method": "setup",
+      "items": [
+        "车马炮弹卒各就位",
+        "炮隔子吃子",
+        "马行日字",
+        "象走田受限"
+      ]
+    },
+    {
+      "title": "行棋走法",
+      "method": "moving",
+      "items": [
+        "兵卒过河前只能前",
+        "将帅不出九宫",
+        "士斜行护将",
+        "车直行吃子"
+      ]
+    },
+    {
+      "title": "开局要点",
+      "method": "opening",
+      "items": [
+        "先出车出动大子",
+        "炮配合抢中",
+        "尽早将阵",
+        "占要道多子力"
+      ]
+    },
+    {
+      "title": "胜负将死",
+      "method": "checkmate",
+      "items": [
+        "将死对方将帅胜",
+        "困毙亦判负",
+        "和棋有规则",
+        "遵守服棋规"
+      ]
+    }
+  ]
+}

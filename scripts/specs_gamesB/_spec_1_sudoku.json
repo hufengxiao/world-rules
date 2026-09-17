@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "sudoku_logic",
+  "struct": "SudokuLogicRules",
+  "name": "数独解题逻辑",
+  "desc": "数独规则、排除法推理与解题技巧",
+  "origin": "国际",
+  "tags": ["游戏", "数独", "逻辑"],
+  "category": "RuleCategory::games(\"sudoku\")",
+  "sections": [
+    {
+      "title": "基本规则",
+      "method": "rule",
+      "items": [
+        "九宫格填1到9",
+        "每行无重复数字",
+        "每列不重复",
+        "每宫也不重复"
+      ]
+    },
+    {
+      "title": "排除推理",
+      "method": "deduce",
+      "items": [
+        "根据已有数字排除",
+        "看行列宫交叉",
+        "唯一余数确定",
+        "由易到难"
+      ]
+    },
+    {
+      "title": "检查验证",
+      "method": "verify",
+      "items": [
+        "填完核对规则",
+        "不猜不硬试",
+        "利用提示缓冲",
+        "答案唯一"
+      ]
+    },
+    {
+      "title": "解题耐心",
+      "method": "habit",
+      "items": [
+        "按部就班不躁",
+        "多角度尝试",
+        "记录候选",
+        "享受逻辑乐趣"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "go_basics",
+  "struct": "GoBasicsRules",
+  "name": "围棋基本规则",
+  "desc": "围棋落子、气、提子与目数的基础规则",
+  "origin": "中国",
+  "tags": ["游戏", "围棋", "棋类"],
+  "category": "RuleCategory::games(\"go_basics\")",
+  "sections": [
+    {
+      "title": "棋盘落子",
+      "method": "placing",
+      "items": [
+        "黑先白后落子",
+        "落子于交叉点",
+        "落子不可悔",
+        "交替行棋"
+      ]
+    },
+    {
+      "title": "气与提子",
+      "method": "liberties",
+      "items": [
+        "邻接空点是气",
+        "无气之子被提",
+        "禁止自杀落点",
+        "围吃判断准确"
+      ]
+    },
+    {
+      "title": "目数与战斗",
+      "method": "capture",
+      "items": [
+        "围空多得目",
+        "战斗靠连接与气",
+        "打劫有规则",
+        "兼顾厚与空"
+      ]
+    },
+    {
+      "title": "行棋风范",
+      "method": "manner",
+      "items": [
+        "尊重对手思考",
+        "不悔子争闹",
+        "复盘学习",
+        "礼弈品格"
+      ]
+    }
+  ]
+}

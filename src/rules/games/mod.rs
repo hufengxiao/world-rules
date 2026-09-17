@@ -100,6 +100,7 @@ pub mod chess960;
 pub mod chess960_detailed;
 pub mod chess_detailed;
 pub mod chinese_checkers;
+pub mod chinese_chess_opening;
 pub mod civilization;
 pub mod codenames;
 pub mod connect_four;
@@ -116,11 +117,13 @@ pub mod dou_di_zhu_basics;
 pub mod doudizhu;
 pub mod euchre;
 pub mod euchre_detailed;
+pub mod flying_chess;
 pub mod four_player_chess;
 pub mod four_player_mahjong;
 pub mod gin_rummy;
 pub mod go_13x13;
 pub mod go_9x9;
+pub mod go_basics;
 pub mod go_detailed;
 pub mod go_fish;
 pub mod gomoku_detailed;
@@ -130,6 +133,7 @@ pub mod hearts;
 pub mod hearts_detailed;
 pub mod hive;
 pub mod janggi;
+pub mod jump_chess_rules;
 pub mod jungle;
 pub mod klondike_solitaire;
 pub mod mafia;
@@ -194,6 +198,7 @@ pub mod splendor;
 pub mod stratego;
 pub mod stud_poker;
 pub mod sudoku;
+pub mod sudoku_logic;
 pub mod sudoku_variant;
 pub mod tak;
 pub mod tarot_cards;
@@ -257,6 +262,7 @@ pub use chess960::Chess960Rules;
 pub use chess960_detailed::Chess960DetailedRules;
 pub use chess_detailed::ChessDetailedRules;
 pub use chinese_checkers::ChineseCheckersRules;
+pub use chinese_chess_opening::ChineseChessOpeningRules;
 pub use civilization::CivilizationRules;
 pub use codenames::CodenamesRules;
 pub use connect_four::ConnectFourRules;
@@ -273,11 +279,13 @@ pub use dou_di_zhu_basics::DouDiZhuBasicsRules;
 pub use doudizhu::DouDiZhuRules;
 pub use euchre::EuchreRules;
 pub use euchre_detailed::EuchreDetailedRules;
+pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
 pub use gin_rummy::GinRummyRules;
 pub use go_13x13::Go13x13Rules;
 pub use go_9x9::Go9x9Rules;
+pub use go_basics::GoBasicsRules;
 pub use go_detailed::GoDetailedRules;
 pub use go_fish::GoFishRules;
 pub use gomoku_detailed::GomokuDetailedRules;
@@ -287,6 +295,7 @@ pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
 pub use hive::HiveRules;
 pub use janggi::JanggiRules;
+pub use jump_chess_rules::JumpChessRules;
 pub use jungle::JungleRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use mafia::MafiaRules;
@@ -350,6 +359,7 @@ pub use splendor::SplendorRules;
 pub use stratego::StrategoRules;
 pub use stud_poker::StudPokerRules;
 pub use sudoku::SudokuRules;
+pub use sudoku_logic::SudokuLogicRules;
 pub use sudoku_variant::SudokuVariantRules;
 pub use tak::TakRules;
 pub use tarot_cards::TarotCardsRules;
@@ -419,6 +429,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FlyingChessRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChineseChessOpeningRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GoBasicsRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SudokuLogicRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JumpChessRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = MahjongHandAnalysisRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
