@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "traffic_accident_handling",
+  "struct": "TrafficAccidentHandlingRules",
+  "name": "交通事故处理",
+  "desc": "发生交通事故时的现场处置、取证与责任处理要点",
+  "origin": "中国",
+  "tags": ["法律", "交通", "事故", "处理", "维权"],
+  "category": "RuleCategory::law(\"traffic_accident\")",
+  "sections": [
+    {
+      "title": "现场处置",
+      "method": "on_scene",
+      "items": [
+        "立即靠边停车开启警示",
+        "有人受伤先救助并报警",
+        "轻微事故可拍照后撤离",
+        "设置警示标志防二次事故"
+      ]
+    },
+    {
+      "title": "固定证据",
+      "method": "evidence",
+      "items": [
+        "拍摄现场与车辆位置",
+        "记录对方车辆与信息",
+        "留存行车记录仪内容",
+        "保留责任认定书与单据"
+      ]
+    },
+    {
+      "title": "责任与理赔",
+      "method": "claims",
+      "items": [
+        "配合交警责任认定",
+        "联系保险公司报备",
+        "如实陈述事故经过",
+        "按程序提交理赔材料"
+      ]
+    },
+    {
+      "title": "法律途径",
+      "method": "law",
+      "items": [
+        "协商达不成责任一致的再依法处理",
+        "责任认定不符可申请复核",
+        "损失主张应留有票据证据",
+        "拒绝肇事逃逸等违法行为"
+      ]
+    }
+  ]
+}

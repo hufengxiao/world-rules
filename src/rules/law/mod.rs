@@ -61,9 +61,12 @@ pub mod consumer_rights_basics;
 pub mod contract;
 pub mod criminal;
 pub mod inheritance;
+pub mod inheritance_basics;
 pub mod intellectual_property;
 pub mod labor;
+pub mod labor_contract_basics;
 pub mod marriage;
+pub mod neighbor_dispute_handling;
 pub mod rental_lease_basics;
 pub mod road_safety;
 pub mod traffic;
@@ -106,6 +109,7 @@ pub mod land_administration;
 pub mod meteorology;
 pub mod safety_production;
 pub mod statistics;
+pub mod traffic_accident_handling;
 pub mod water;
 
 // 社会法类
@@ -597,6 +601,7 @@ pub use icj_law::IcjLawRules;
 pub use icsid_law::IcsidLawRules;
 pub use indigenous_rights::IndigenousRightsRules;
 pub use infectious_disease_law::InfectiousDiseaseLawRules;
+pub use inheritance_basics::InheritanceBasicsRules;
 pub use inheritance_detailed::InheritanceDetailedRules;
 pub use insurance_detailed::InsuranceDetailedRules;
 pub use insurance_law_deep::InsuranceLawDeepRules;
@@ -628,6 +633,7 @@ pub use ip_patent_detailed::IpPatentDetailedRules;
 pub use ip_trademark_detailed::IpTrademarkDetailedRules;
 pub use japan_company_law::JapanCompanyLawRules;
 pub use juvenile_justice::JuvenileJusticeRules;
+pub use labor_contract_basics::LaborContractBasicsRules;
 pub use labor_contract_law::LaborContractLawRules;
 pub use labor_detailed::LaborDetailedRules;
 pub use labor_detailed2::LaborDetailed2Rules;
@@ -645,6 +651,7 @@ pub use metaverse_law::MetaverseLawRules;
 pub use mineral_detailed::MineralDetailedRules;
 pub use mineral_resources::MineralResourcesLawRules;
 pub use negotiable_instruments_law_deep::NegotiableInstrumentsLawDeepRules;
+pub use neighbor_dispute_handling::NeighborDisputeHandlingRules;
 pub use new_york_convention::NewYorkConventionRules;
 pub use noise_pollution_law::NoisePollutionLawRules;
 pub use online_dispute::OnlineDisputeRules;
@@ -679,6 +686,7 @@ pub use tax_detailed2::TaxDetailed2Rules;
 pub use tax_law_detailed_law::TaxLawDetailedLawRules;
 pub use tcm_law::TcmLawRules;
 pub use telecom_detailed::TelecomDetailedRules;
+pub use traffic_accident_handling::TrafficAccidentHandlingRules;
 pub use uk_company_law::UkCompanyLawRules;
 pub use un_charter::UnCharterRules;
 pub use uncitral_law::UncitralLawRules;
@@ -700,6 +708,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = InheritanceBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TrafficAccidentHandlingRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LaborContractBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NeighborDisputeHandlingRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = RentalLeaseBasicsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

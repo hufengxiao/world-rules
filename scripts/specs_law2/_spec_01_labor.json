@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "labor_contract_basics",
+  "struct": "LaborContractBasicsRules",
+  "name": "劳动合同与劳动权益",
+  "desc": "签订劳动合同、工时工资与离职应知晓的权益要点",
+  "origin": "中国",
+  "tags": ["法律", "劳动", "合同", "权益", "工资"],
+  "category": "RuleCategory::law(\"labor_contract\")",
+  "sections": [
+    {
+      "title": "签约审阅",
+      "method": "contract",
+      "items": [
+        "入职应签订书面劳动合同",
+        "明确岗位、报酬与期限",
+        "留意试用期约定",
+        "保留合同与工资凭证"
+      ]
+    },
+    {
+      "title": "工时与工资",
+      "method": "wages",
+      "items": [
+        "关注工作日与加班规定",
+        "加班依法获得报酬",
+        "社保由单位按时足额缴纳",
+        "工资按月足额及时发放"
+      ]
+    },
+    {
+      "title": "休息与离职",
+      "method": "leave",
+      "items": [
+        "依法享有休息休假",
+        "离职按规定办理交接",
+        "依法主张经济补偿",
+        "不轻易被迫放弃合同权利"
+      ]
+    },
+    {
+      "title": "维权途径",
+      "method": "remedy",
+      "items": [
+        "缺证据先收集书证",
+        "权益受损可申请劳动仲裁",
+        "依法咨询劳动监察",
+        "严重情况可诉诸法院"
+      ]
+    }
+  ]
+}

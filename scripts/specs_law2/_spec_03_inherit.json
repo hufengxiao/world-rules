@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "inheritance_basics",
+  "struct": "InheritanceBasicsRules",
+  "name": "遗产继承基础",
+  "desc": "遗产继承顺序、遗嘱与家庭财产处理的常识要点",
+  "origin": "中国",
+  "tags": ["法律", "遗产", "继承", "遗嘱", "财产"],
+  "category": "RuleCategory::law(\"inheritance\")",
+  "sections": [
+    {
+      "title": "法定继承",
+      "method": "legal_order",
+      "items": [
+        "了解法定继承顺序",
+        "配偶子女父母为第一顺序",
+        "无遗嘱时按法定继承",
+        "清偿债务后按序分配遗产"
+      ]
+    },
+    {
+      "title": "遗嘱订立",
+      "method": "will",
+      "items": [
+        "遗嘱需符合法定形式",
+        "内容自主真实且有效",
+        "保留见证人要求",
+        "注明遗产范围与受益对象"
+      ]
+    },
+    {
+      "title": "程序办理",
+      "method": "procedure",
+      "items": [
+        "继承人可协商或依法分割",
+        "办理公证需准备相应文书",
+        "有争议可依法调解诉讼",
+        "注意办理时限与手续"
+      ]
+    },
+    {
+      "title": "家庭安排",
+      "method": "family",
+      "items": [
+        "尽量提前立嘱减少争执",
+        "尊重各继承人合法权益",
+        "不利用信息不对称侵占",
+        "重大处理请专业咨询"
+      ]
+    }
+  ]
+}

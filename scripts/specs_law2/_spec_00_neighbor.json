@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "neighbor_dispute_handling",
+  "struct": "NeighborDisputeHandlingRules",
+  "name": "邻里纠纷处理",
+  "desc": "住宅邻里纠纷的沟通、取证与依法处理原则",
+  "origin": "中国",
+  "tags": ["法律", "邻里", "纠纷", "处理", "维权"],
+  "category": "RuleCategory::law(\"neighbor_dispute\")",
+  "sections": [
+    {
+      "title": "优先协商",
+      "method": "negotiate",
+      "items": [
+        "先冷静理性沟通",
+        "就事论事不上升人身",
+        "约定合理解决方式",
+        "保留沟通记录"
+      ]
+    },
+    {
+      "title": "取证留存",
+      "method": "evidence",
+      "items": [
+        "保留时间地点人证",
+        "拍照录像记录侵害",
+        "保存书面往来与回执",
+        "记录物业或居委介入情况"
+      ]
+    },
+    {
+      "title": "寻求调解",
+      "method": "mediation",
+      "items": [
+        "请物业居委会参与调解",
+        "向人民调解组织申请",
+        "依法就噪音等扰民事宜反馈",
+        "调解不成再依法处理"
+      ]
+    },
+    {
+      "title": "依法处理",
+      "method": "law",
+      "items": [
+        "情节严重可依法投诉",
+        "涉及违法及时报警",
+        "必要时通过诉讼解决",
+        "不采取打架或报复方式"
+      ]
+    }
+  ]
+}
