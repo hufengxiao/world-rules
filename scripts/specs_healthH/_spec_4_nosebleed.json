@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "nosebleed_management",
+  "struct": "NosebleedManagementRules",
+  "name": "流鼻血处理",
+  "desc": "流鼻血的正确止血、护理与就医判断",
+  "origin": "医学",
+  "tags": ["健康", "流鼻血", "止血"],
+  "category": "RuleCategory::health(\"nosebleed\")",
+  "sections": [
+    {
+      "title": "正确止血",
+      "method": "stop",
+      "items": [
+        "身体前倾以防倒流",
+        "按压鼻翼下方",
+        "用口呼吸",
+        "持续按压几分钟"
+      ]
+    },
+    {
+      "title": "解除错误",
+      "method": "avoid",
+      "items": [
+        "不仰头以免血倒流",
+        "勿塞棉花堵紧",
+        "不频繁擤鼻",
+        "勿低头后猛抬头"
+      ]
+    },
+    {
+      "title": "后续护理",
+      "method": "after",
+      "items": [
+        "保持安静少活动",
+        "室内湿润防干",
+        "避免抠鼻挖鼻",
+        "观察是否止血"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek",
+      "items": [
+        "出血不止半小时就医",
+        "出血量大伴随不适",
+        "反复频繁鼻出血",
+        "儿童或老人重视"
+      ]
+    }
+  ]
+}

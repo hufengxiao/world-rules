@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "acid_reflux_care",
+  "struct": "AcidRefluxCareRules",
+  "name": "胃酸反流管理",
+  "desc": "烧心反酸的诱因、缓解与生活调理规则",
+  "origin": "医学",
+  "tags": ["健康", "胃酸", "反流", "烧心"],
+  "category": "RuleCategory::health(\"acid_reflux\")",
+  "sections": [
+    {
+      "title": "认识症状",
+      "method": "symptoms",
+      "items": [
+        "烧心胸骨后灼热",
+        "反酸口泛酸",
+        "进食或躺下加重",
+        "咽异物感需留意"
+      ]
+    },
+    {
+      "title": "饮食调理",
+      "method": "diet",
+      "items": [
+        "少食多餐不暴食",
+        "少油腻辛辣咖啡",
+        "饭后不立即躺卧",
+        "睡前避免进食"
+      ]
+    },
+    {
+      "title": "生活习惯",
+      "method": "lifestyle",
+      "items": [
+        "保持体重不肥胖",
+        "减少过量饮酒",
+        "戒烟少刺激",
+        "衣着宽松减压"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek",
+      "items": [
+        "频繁反酸就医",
+        "伴吞咽困难胸痛重视",
+        "长期反流检查",
+        "勿自行长期滥用胃药"
+      ]
+    }
+  ]
+}

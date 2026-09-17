@@ -52,6 +52,7 @@
 //! - 15+ 条疾病预防规则
 //! - 10+ 条特殊人群健康规则
 
+pub mod acid_reflux_care;
 pub mod addiction_recovery;
 pub mod allergy_management;
 pub mod anemia_nutrition;
@@ -60,6 +61,7 @@ pub mod ankle_sprain_care;
 pub mod anxiety_management;
 pub mod balanced_diet_plan;
 pub mod bleeding_control_bandage;
+pub mod blister_care;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
@@ -128,6 +130,7 @@ pub mod mindfulness_basics;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nasal_congestion_relief;
+pub mod nosebleed_management;
 pub mod nutrition;
 pub mod nutrition_basics;
 pub mod occupational_health;
@@ -145,6 +148,7 @@ pub mod prolonged_sitting_safety;
 pub mod respiratory_health;
 pub mod scalds_burns;
 pub mod screen_eye_strain_care;
+pub mod seasonal_allergy_relief;
 pub mod seasonal_health;
 pub mod seizure_response;
 pub mod self_compassion;
@@ -164,6 +168,7 @@ pub mod teen_health;
 pub mod thyroid_care;
 pub mod tinnitus_ringing_relief;
 pub mod toddler_health;
+pub mod tooth_ache_care;
 pub mod travel_health;
 pub mod vaccination_rules;
 pub mod vegetarian_balanced_nutrition;
@@ -172,6 +177,7 @@ pub mod vision_care;
 pub mod weight_management;
 pub mod women_health;
 
+pub use acid_reflux_care::AcidRefluxCareRules;
 pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
 pub use anemia_nutrition::AnemiaNutritionRules;
@@ -180,6 +186,7 @@ pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
 pub use bleeding_control_bandage::BleedingControlBandageRules;
+pub use blister_care::BlisterCareRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
@@ -248,6 +255,7 @@ pub use mindfulness_basics::MindfulnessBasicsRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nasal_congestion_relief::NasalCongestionReliefRules;
+pub use nosebleed_management::NosebleedManagementRules;
 pub use nutrition::NutritionRules;
 pub use nutrition_basics::NutritionBasicsRules;
 pub use occupational_health::OccupationalHealthRules;
@@ -265,6 +273,7 @@ pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use scalds_burns::ScaldBurnCareRules;
 pub use screen_eye_strain_care::ScreenEyeStrainCareRules;
+pub use seasonal_allergy_relief::SeasonalAllergyReliefRules;
 pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
 pub use self_compassion::SelfCompassionRules;
@@ -284,6 +293,7 @@ pub use teen_health::TeenHealthRules;
 pub use thyroid_care::ThyroidCareRules;
 pub use tinnitus_ringing_relief::TinnitusRingingReliefRules;
 pub use toddler_health::ToddlerHealthRules;
+pub use tooth_ache_care::ToothAcheCareRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
 pub use vegetarian_balanced_nutrition::VegetarianBalancedNutritionRules;
@@ -300,6 +310,22 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = NosebleedManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SeasonalAllergyReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AcidRefluxCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ToothAcheCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = GratitudePracticeRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

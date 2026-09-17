@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "blister_care",
+  "struct": "BlisterCareRules",
+  "name": "水泡护理",
+  "desc": "脚部摩擦水泡的处理、防感染与护理",
+  "origin": "医学",
+  "tags": ["健康", "水泡", "护理"],
+  "category": "RuleCategory::health(\"blister\")",
+  "sections": [
+    {
+      "title": "成因与防范",
+      "method": "avoid",
+      "items": [
+        "长时间摩擦产生水泡",
+        "穿合脚鞋袜减少摩擦",
+        "可贴防护垫",
+        "及时换干爽袜"
+      ]
+    },
+    {
+      "title": "正确处理",
+      "method": "care",
+      "items": [
+        "小水泡少挤压自行吸收",
+        "不随意挑破",
+        "如需排液注意消毒",
+        "保持患处清洁干燥"
+      ]
+    },
+    {
+      "title": "预防感染",
+      "method": "protect",
+      "items": [
+        "避免继续摩擦",
+        "用清洁敷料覆盖",
+        "红肿痛加重就医",
+        "有脓液或发热就诊"
+      ]
+    },
+    {
+      "title": "特殊情况",
+      "method": "special",
+      "items": [
+        "糖尿病患者注意足部",
+        "水泡伴感染速就医",
+        "足部溃疡勿自行处理",
+        "规范护足防并发"
+      ]
+    }
+  ]
+}

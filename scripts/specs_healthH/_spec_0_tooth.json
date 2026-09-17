@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "tooth_ache_care",
+  "struct": "ToothAcheCareRules",
+  "name": "牙痛缓解与护牙",
+  "desc": "牙痛诱因识别、临时缓解与就医护理规则",
+  "origin": "医学",
+  "tags": ["健康", "牙痛", "口腔", "护牙"],
+  "category": "RuleCategory::health(\"tooth_ache\")",
+  "sections": [
+    {
+      "title": "常见诱因",
+      "method": "causes",
+      "items": [
+        "龋齿受刺激酸痛",
+        "牙龈发炎肿胀",
+        "智齿问题疼痛",
+        "冷热刺激敏感"
+      ]
+    },
+    {
+      "title": "临时缓解",
+      "method": "relief",
+      "items": [
+        "用温水轻轻漱口",
+        "避免过冷过热食物",
+        "疼侧少咀嚼",
+        "必要时用止痛药遵说明"
+      ]
+    },
+    {
+      "title": "护牙习惯",
+      "method": "care",
+      "items": [
+        "早晚正确刷牙",
+        "使用牙线清洁",
+        "少吃甜黏食物",
+        "定期口腔检查"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "seek",
+      "items": [
+        "持续剧痛就医",
+        "肿扩散发热就医",
+        "松动或受伤检查",
+        "儿童牙痛及时看"
+      ]
+    }
+  ]
+}
