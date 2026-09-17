@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "evidence_preservation",
+  "struct": "EvidencePreservationRules",
+  "name": "证据保留要点",
+  "desc": "纠纷维权中保存证据、依法举证的要领",
+  "origin": "中国",
+  "tags": ["法律", "证据", "举证"],
+  "category": "RuleCategory::law(\"evidence\")",
+  "sections": [
+    {
+      "title": "常见证据",
+      "method": "types",
+      "items": [
+        "合同协议书面文件",
+        "转账记录发票",
+        "聊天与通话记录",
+        "现场照片视频"
+      ]
+    },
+    {
+      "title": "及时保存",
+      "method": "save",
+      "items": [
+        "纠纷发生及时固定",
+        "原件妥存备份",
+        "记录时间与情况",
+        "不删改证据"
+      ]
+    },
+    {
+      "title": "有效举证",
+      "method": "valid",
+      "items": [
+        "证据真实合法关联",
+        "保留原始载体",
+        "确认真实来源",
+        "必要时公证保全"
+      ]
+    },
+    {
+      "title": "维权应用",
+      "method": "usage",
+      "items": [
+        "依证据主张权利",
+        "不伪造变造证据",
+        "举证责任依规",
+        "疑难可咨询专业"
+      ]
+    }
+  ]
+}

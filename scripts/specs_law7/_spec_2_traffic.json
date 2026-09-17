@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "traffic_violation_handling",
+  "struct": "TrafficViolationHandlingRules",
+  "name": "交通事故与违章处理",
+  "desc": "发生交通事故或违章时的处理要点",
+  "origin": "中国",
+  "tags": ["法律", "交通", "事故", "违章"],
+  "category": "RuleCategory::law(\"traffic_violation\")",
+  "sections": [
+    {
+      "title": "事故处置",
+      "method": "accident",
+      "items": [
+        "发生事故先确保安全",
+        "及时停车开启警示",
+        "有人受伤立即求助",
+        "不逃逸不破坏现场"
+      ]
+    },
+    {
+      "title": "责任认定",
+      "method": "responsibility",
+      "items": [
+        "配合交警勘查",
+        "如实陈述经过",
+        "依据证据定责",
+        "有异议依法复核"
+      ]
+    },
+    {
+      "title": "违章处理",
+      "method": "violation",
+      "items": [
+        "查询处理违章记录",
+        "依规缴纳罚款",
+        "留意记分规则",
+        "不找代办逃避责任"
+      ]
+    },
+    {
+      "title": "理赔协商",
+      "method": "claim",
+      "items": [
+        "投保理赔依保险",
+        "保留事故现场凭证",
+        "协商不伤人和",
+        "疑难依法处理"
+      ]
+    }
+  ]
+}

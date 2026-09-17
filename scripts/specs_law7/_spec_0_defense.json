@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "self_defense_law",
+  "struct": "SelfDefenseLawRules",
+  "name": "正当防卫要点",
+  "desc": "遭遇不法侵害时的正当防卫限度与法律要件",
+  "origin": "中国",
+  "tags": ["法律", "正当防卫", "防卫"],
+  "category": "RuleCategory::law(\"self_defense\")",
+  "sections": [
+    {
+      "title": "防卫前提",
+      "method": "premise",
+      "items": [
+        "正在发生不法侵害",
+        "防卫针对侵害人",
+        "为保护合法权益",
+        "非挑拨或互殴"
+      ]
+    },
+    {
+      "title": "限度把握",
+      "method": "scope",
+      "items": [
+        "防卫制止侵害即可",
+        "避免明显超过必要限度",
+        "人身安全优先",
+        "不事后报复"
+      ]
+    },
+    {
+      "title": "事后处置",
+      "method": "after",
+      "items": [
+        "侵害停止即停手",
+        "及时报警求助",
+        "保留受伤证据",
+        "如实陈述经过"
+      ]
+    },
+    {
+      "title": "法律认识",
+      "method": "law",
+      "items": [
+        "正当防卫是免责事由",
+        "明显过当负相应责任",
+        "有疑问依法认定",
+        "情况复杂求助法律"
+      ]
+    }
+  ]
+}

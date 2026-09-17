@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "emergency_call_110",
+  "struct": "EmergencyCall110Rules",
+  "name": "紧急报警求助",
+  "desc": "报警求助的时机、讲清要点与配合处置",
+  "origin": "中国",
+  "tags": ["法律", "报警", "求助"],
+  "category": "RuleCategory::law(\"emergency_call\")",
+  "sections": [
+    {
+      "title": "何时报警",
+      "method": "when",
+      "items": [
+        "遇到违法犯罪可报警",
+        "紧急危险即时求助",
+        "目击违法行为可报告",
+        "不虚报警情"
+      ]
+    },
+    {
+      "title": "讲清要点",
+      "method": "details",
+      "items": [
+        "说清时间地点",
+        "简述经过与人身情况",
+        "留下联系电话",
+        "不夸大不隐瞒"
+      ]
+    },
+    {
+      "title": "现场配合",
+      "method": "cooperate",
+      "items": [
+        "听从接警指引",
+        "在安全处等待",
+        "保护好现场",
+        "如实配合调查"
+      ]
+    },
+    {
+      "title": "正确使用",
+      "method": "proper",
+      "items": [
+        "报警电话不随意乱拨",
+        "不报假警耗费资源",
+        "有疑问可咨询求助",
+        "文明配合处置"
+      ]
+    }
+  ]
+}

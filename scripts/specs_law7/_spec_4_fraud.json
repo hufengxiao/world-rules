@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "fraud_prevention_basics",
+  "struct": "FraudPreventionBasicsRules",
+  "name": "诈骗防范要点",
+  "desc": "识别常见骗局、保护财产与受骗后的补救",
+  "origin": "中国",
+  "tags": ["法律", "防骗", "诈骗", "安全"],
+  "category": "RuleCategory::law(\"fraud_prevention\")",
+  "sections": [
+    {
+      "title": "识别骗术",
+      "method": "detect",
+      "items": [
+        "警惕索要验证码密码",
+        "不轻信高收益投资",
+        "辨别冒充客服公检法",
+        "冷静不跟风转账"
+      ]
+    },
+    {
+      "title": "保护财产",
+      "method": "protect",
+      "items": [
+        "不向陌生账户转账",
+        "设置防护不乱点",
+        "电商退款走平台",
+        "重要信息不泄露"
+      ]
+    },
+    {
+      "title": "受骗应对",
+      "method": "respond",
+      "items": [
+        "发现受骗立即停止转账",
+        "速报平台或银行止付",
+        "保留聊天与转账凭证",
+        "必要时报警处理"
+      ]
+    },
+    {
+      "title": "家庭防护",
+      "method": "family",
+      "items": [
+        "提醒家中老人防骗",
+        "不独断大额转账",
+        "重要变动多核实",
+        "增强信息安全意识"
+      ]
+    }
+  ]
+}

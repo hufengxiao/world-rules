@@ -61,6 +61,9 @@ pub mod consumer_rights_basics;
 pub mod contract;
 pub mod criminal;
 pub mod deposit_refund_basics;
+pub mod emergency_call_110;
+pub mod evidence_preservation;
+pub mod fraud_prevention_basics;
 pub mod identity_fraud_protection;
 pub mod inheritance;
 pub mod inheritance_basics;
@@ -83,6 +86,7 @@ pub mod property_management_fee;
 pub mod rental_lease_basics;
 pub mod resignation_procedure;
 pub mod road_safety;
+pub mod self_defense_law;
 pub mod social_security_basics;
 pub mod traffic;
 
@@ -125,6 +129,7 @@ pub mod meteorology;
 pub mod safety_production;
 pub mod statistics;
 pub mod traffic_accident_handling;
+pub mod traffic_violation_handling;
 pub mod warranty_claims;
 pub mod water;
 
@@ -594,12 +599,14 @@ pub use economic_crime_deep::EconomicCrimeDeepRules;
 pub use education_detailed::EducationDetailedRules;
 pub use elderly_rights::ElderlyRightsRules;
 pub use electricity_detailed::ElectricityDetailedRules;
+pub use emergency_call_110::EmergencyCall110Rules;
 pub use environmental_detailed::EnvironmentalDetailedRules;
 pub use environmental_detailed2::EnvironmentalDetailed2Rules;
 pub use environmental_detailed_law3::EnvironmentalDetailedLaw3Rules;
 pub use environmental_impact_law::EnvironmentalImpactLawRules;
 pub use environmental_litigation::EnvironmentalLitigationRules;
 pub use eu_gdpr::EuGdprRules;
+pub use evidence_preservation::EvidencePreservationRules;
 pub use family_violence::FamilyViolenceRules;
 pub use financial_regulation_deep::FinancialRegulationDeepRules;
 pub use food_safety_detailed::FoodSafetyDetailedRules;
@@ -608,6 +615,7 @@ pub use food_safety_detailed_law::FoodSafetyDetailedLawRules;
 pub use forensic_evidence::ForensicEvidenceRules;
 pub use forest::ForestLawRules;
 pub use forest_detailed::ForestDetailedRules;
+pub use fraud_prevention_basics::FraudPreventionBasicsRules;
 pub use freedom_of_expression::FreedomOfExpressionRules;
 pub use gene_editing_law::GeneEditingLawRules;
 pub use german_company_law::GermanCompanyLawRules;
@@ -705,6 +713,7 @@ pub use securities_detailed::SecuritiesDetailedRules;
 pub use securities_detailed2::SecuritiesDetailed2Rules;
 pub use securities_law_deep::SecuritiesLawDeepRules;
 pub use securities_law_detailed::SecuritiesLawDetailedRules;
+pub use self_defense_law::SelfDefenseLawRules;
 pub use sentencing_guideline_deep::SentencingGuidelineDeepRules;
 pub use smart_contract_law::SmartContractLawRules;
 pub use social_insurance_law_detailed::SocialInsuranceLawDetailedRules;
@@ -719,6 +728,7 @@ pub use tax_law_detailed_law::TaxLawDetailedLawRules;
 pub use tcm_law::TcmLawRules;
 pub use telecom_detailed::TelecomDetailedRules;
 pub use traffic_accident_handling::TrafficAccidentHandlingRules;
+pub use traffic_violation_handling::TrafficViolationHandlingRules;
 pub use uk_company_law::UkCompanyLawRules;
 pub use un_charter::UnCharterRules;
 pub use uncitral_law::UncitralLawRules;
@@ -742,6 +752,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FraudPreventionBasicsRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EvidencePreservationRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TrafficViolationHandlingRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EmergencyCall110Rules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SelfDefenseLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SocialSecurityBasicsRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
