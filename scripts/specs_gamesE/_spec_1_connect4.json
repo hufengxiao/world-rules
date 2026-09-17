@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "connect_four_hour",
+  "struct": "ConnectFourHourRules",
+  "name": "四子连珠棋",
+  "desc": "四子棋竖放落子、连四获胜的规则",
+  "origin": "国际",
+  "tags": ["游戏", "四子棋", "棋类"],
+  "category": "RuleCategory::games(\"connect_four\")",
+  "sections": [
+    {
+      "title": "棋盘列落",
+      "method": "drop",
+      "items": [
+        "竖立网格棋盘",
+        "棋子从顶下落",
+        "选列置子",
+        "落底即停"
+      ]
+    },
+    {
+      "title": "连四获胜",
+      "method": "win",
+      "items": [
+        "四子直线相连",
+        "横竖斜皆算",
+        "先连先胜",
+        "防守对方连四"
+      ]
+    },
+    {
+      "title": "策略思考",
+      "method": "strategy",
+      "items": [
+        "占中列优势",
+        "威胁得分",
+        "兼顾防守敌",
+        "预判几步"
+      ]
+    },
+    {
+      "title": "平局终止",
+      "method": "draw",
+      "items": [
+        "盘满无人连四则和",
+        "重新开局",
+        "公平轮流",
+        "快乐对弈"
+      ]
+    }
+  ]
+}

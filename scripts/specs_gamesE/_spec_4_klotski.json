@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "klotski_huarong",
+  "struct": "KlotskiHuarongRules",
+  "name": "华容道滑块",
+  "desc": "华容道移块、出口与滑动的解法",
+  "origin": "中国",
+  "tags": ["游戏", "华容道", "滑块", "益智"],
+  "category": "RuleCategory::games(\"klotski\")",
+  "sections": [
+    {
+      "title": "棋盘布局",
+      "method": "board",
+      "items": [
+        "格子有大小狭块",
+        "大将块占多格",
+        "士兵小格",
+        "有出口"
+      ]
+    },
+    {
+      "title": "滑动规则",
+      "method": "slide",
+      "items": [
+        "每次移一块",
+        "沿空格滑动",
+        "块不重叠",
+        "不可跨格"
+      ]
+    },
+    {
+      "title": "目标解出",
+      "method": "goal",
+      "items": [
+        "把主将移出口",
+        "借空位腾挪",
+        "层层拆解",
+        "完成最优步"
+      ]
+    },
+    {
+      "title": "解谜心态",
+      "method": "patience",
+      "items": [
+        "失败重来不急",
+        "观察全局局面",
+        "先易后难",
+        "乐在动脑"
+      ]
+    }
+  ]
+}

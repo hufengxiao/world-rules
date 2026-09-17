@@ -1,0 +1,51 @@
+{
+  "cat": "games",
+  "file": "game_24_arithmetic_derive",
+  "struct": "Game24ArithmeticDeriveRules",
+  "name": "算24点",
+  "desc": "用四张牌四则运算凑24的规则",
+  "origin": "中国",
+  "tags": ["游戏", "24点", "算术", "益智"],
+  "category": "RuleCategory::games(\"game_24\")",
+  "sections": [
+    {
+      "title": "出牌",
+      "method": "cards",
+      "items": [
+        "随机翻四张牌",
+        "用加减乘除",
+        "每张用一次",
+        "组合括号"
+      ]
+    },
+    {
+      "title": "运算成24",
+      "method": "calculate",
+      "items": [
+        "结果恰好为24",
+        "可用加乘减除",
+        "合理运用括号",
+        "凑数运算到24"
+      ]
+    },
+    {
+      "title": "抢答规则",
+      "method": "answer",
+      "items": [
+        "先算出者亮法",
+        "展示算式",
+        "验对则得分",
+        "玩得开心"
+      ]
+    },
+    {
+      "title": "无解处理",
+      "method": "no_solution",
+      "items": [
+        "实在无解换牌","公认无解可过",
+        "锻炼心算",
+        "趣味益智"
+      ]
+    }
+  ]
+}

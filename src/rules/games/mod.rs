@@ -107,6 +107,7 @@ pub mod chinese_chess_opening;
 pub mod civilization;
 pub mod codenames;
 pub mod connect_four;
+pub mod connect_four_hour;
 pub mod craps;
 pub mod crazy_eights;
 pub mod cribbage;
@@ -125,6 +126,7 @@ pub mod euchre_detailed;
 pub mod flying_chess;
 pub mod four_player_chess;
 pub mod four_player_mahjong;
+pub mod game_24_arithmetic_derive;
 pub mod gin_rummy;
 pub mod go_13x13;
 pub mod go_9x9;
@@ -141,6 +143,7 @@ pub mod janggi;
 pub mod jump_chess_rules;
 pub mod jungle;
 pub mod klondike_solitaire;
+pub mod klotski_huarong;
 pub mod mafia;
 pub mod mahjong;
 pub mod mahjong_blood_battle;
@@ -189,6 +192,7 @@ pub mod pyramid_solitaire;
 pub mod quarto;
 pub mod railway_tycoon;
 pub mod reversi;
+pub mod reversi_othello;
 pub mod riddle_lantern_festival;
 pub mod risk;
 pub mod rpg;
@@ -216,6 +220,7 @@ pub mod three_card_poker;
 pub mod tic_tac_toe;
 pub mod ticket_to_ride;
 pub mod total_war;
+pub mod tower_of_hanoi;
 pub mod trick_taking_cards;
 pub mod trivia_game;
 pub mod twenty_four_point;
@@ -279,6 +284,7 @@ pub use chinese_chess_opening::ChineseChessOpeningRules;
 pub use civilization::CivilizationRules;
 pub use codenames::CodenamesRules;
 pub use connect_four::ConnectFourRules;
+pub use connect_four_hour::ConnectFourHourRules;
 pub use craps::CrapsRules;
 pub use crazy_eights::CrazyEightsRules;
 pub use cribbage::CribbageRules;
@@ -297,6 +303,7 @@ pub use euchre_detailed::EuchreDetailedRules;
 pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
+pub use game_24_arithmetic_derive::Game24ArithmeticDeriveRules;
 pub use gin_rummy::GinRummyRules;
 pub use go_13x13::Go13x13Rules;
 pub use go_9x9::Go9x9Rules;
@@ -313,6 +320,7 @@ pub use janggi::JanggiRules;
 pub use jump_chess_rules::JumpChessRules;
 pub use jungle::JungleRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
+pub use klotski_huarong::KlotskiHuarongRules;
 pub use mafia::MafiaRules;
 pub use mahjong::*;
 pub use mahjong_blood_battle::MahjongBloodBattleRules;
@@ -361,6 +369,7 @@ pub use pyramid_solitaire::PyramidSolitaireRules;
 pub use quarto::QuartoRules;
 pub use railway_tycoon::RailwayTycoonRules;
 pub use reversi::ReversiRules;
+pub use reversi_othello::ReversiOthelloRules;
 pub use riddle_lantern_festival::RiddleLanternFestivalRules;
 pub use risk::RiskRules;
 pub use rubiks_cube::{CubeType, RubiksCubeRules};
@@ -387,6 +396,7 @@ pub use three_card_poker::ThreeCardPokerRules;
 pub use tic_tac_toe::TicTacToeRules;
 pub use ticket_to_ride::TicketToRideRules;
 pub use total_war::TotalWarRules;
+pub use tower_of_hanoi::TowerOfHanoiRules;
 pub use trick_taking_cards::TrickTakingCardsRules;
 pub use trivia_game::TriviaGameRules;
 pub use twenty_four_point::TwentyFourPointRules;
@@ -449,6 +459,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = KlotskiHuarongRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = Game24ArithmeticDeriveRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TowerOfHanoiRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ConnectFourHourRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ReversiOthelloRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = MemoryMatchRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
