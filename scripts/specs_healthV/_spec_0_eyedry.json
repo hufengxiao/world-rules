@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "eye_dryness_comfort",
+  "name": "干眼症",
+  "struct": "EyeDrynessComfortRules",
+  "desc": "长时间用眼里干红涩等干眼不适的缓解方法",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "眼睛",
+    "干眼",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"eye_dryness\")",
+  "sections": [
+    {
+      "title": "干眼表现",
+      "method": "symptoms",
+      "items": [
+        "眼干酸涩",
+        "异物感畏光",
+        "视物模糊易累",
+        "眼红流泪"
+      ]
+    },
+    {
+      "title": "即时缓解",
+      "method": "relief",
+      "items": [
+        "适度眨眼",
+        "热敷眼睑",
+        "人工泪液滴眼",
+        "远眺放松"
+      ]
+    },
+    {
+      "title": "屏幕护眼",
+      "method": "screen",
+      "items": [
+        "屏幕在平视线",
+        "定时远眺",
+        "调整亮度",
+        "避免长时间盯屏"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek_help",
+      "items": [
+        "持续干涩加重",
+        "视力明显下降",
+        "眼痛红肿不消",
+        "及时眼科就诊"
+      ]
+    }
+  ]
+}

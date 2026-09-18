@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "hair_fall_prevention",
+  "name": "防脱发护理",
+  "struct": "HairFallPreventionRules",
+  "desc": "因人认因少掉发、保护头皮与毛发的日常护理",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "头发",
+    "脱发",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"hair_fall\")",
+  "sections": [
+    {
+      "title": "正常掉发",
+      "method": "know",
+      "items": [
+        "日掉百根属正常",
+        "季节性更替",
+        "洗护掉落正常",
+        "过多才需留意"
+      ]
+    },
+    {
+      "title": "头皮护理",
+      "method": "scalp",
+      "items": [
+        "温和洗发",
+        "适量按摩头皮",
+        "勿过频过猛",
+        "护养发根环境"
+      ]
+    },
+    {
+      "title": "习惯调整",
+      "method": "habit",
+      "items": [
+        "避网强力拉扯",
+        "少烫染",
+        "均衡营养",
+        "作息规律减压"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seek_help",
+      "items": [
+        "头发明显一片掉落",
+        "斑秃成片",
+        "伴随头皮疼痛",
+        "及早皮肤科查"
+      ]
+    }
+  ]
+}

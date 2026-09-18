@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "nail_trim_care",
+  "name": "指甲修剪保健",
+  "struct": "NailTrimCareRules",
+  "desc": "科学修剪指甲、预防嵌甲与保护甲周的日常方法",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "指甲",
+    "修剪",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"nail_care\")",
+  "sections": [
+    {
+      "title": "修剪要点",
+      "method": "trim",
+      "items": [
+        "泡软后剪",
+        "沿甲缘平剪",
+        "不过深剪入肉",
+        "留一点保护边缘"
+      ]
+    },
+    {
+      "title": "修形方法",
+      "method": "shape",
+      "items": [
+        "剪成平直",
+        "边角轻磨",
+        "不用力抠",
+        "圆润自然"
+      ]
+    },
+    {
+      "title": "防嵌甲",
+      "method": "prevent",
+      "items": [
+        "勿剪太短",
+        "勿剪两侧过深",
+        "穿合脚鞋",
+        "嵌甲痛早处理"
+      ]
+    },
+    {
+      "title": "指甲健康",
+      "method": "health",
+      "items": [
+        "均衡营养",
+        "勿咬指甲",
+        "甲面异常留意",
+        "红肿感染就医"
+      ]
+    }
+  ]
+}

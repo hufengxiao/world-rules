@@ -78,12 +78,14 @@ pub mod calcium_bone_health;
 pub mod callus_corn_foot;
 pub mod cancer_prevention;
 pub mod caregiver_stress_manage;
+pub mod chapped_lip_care;
 pub mod child_vaccination_schedule;
 pub mod children_health;
 pub mod choking_airway_relief;
 pub mod choking_relief;
 pub mod cholesterol_exercise_plan;
 pub mod chronic_disease;
+pub mod cold_hands_feet_warm;
 pub mod common_cold_care;
 pub mod constipation_relief;
 pub mod correct_sitting_posture;
@@ -114,6 +116,7 @@ pub mod elderly_health;
 pub mod emotional_regulation;
 pub mod ergonomics;
 pub mod exercise;
+pub mod eye_dryness_comfort;
 pub mod eye_health;
 pub mod eye_health_general;
 pub mod eye_strain_rules;
@@ -130,6 +133,7 @@ pub mod gout_management;
 pub mod gratitude_practice;
 pub mod gum_bleeding_concern;
 pub mod gut_health;
+pub mod hair_fall_prevention;
 pub mod hair_health;
 pub mod hand_hygiene_wash;
 pub mod hand_washing_hygiene;
@@ -175,6 +179,7 @@ pub mod mood_diary;
 pub mod motion_sickness_prevent;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
+pub mod nail_trim_care;
 pub mod nasal_congestion_relief;
 pub mod neck_shoulder_relief;
 pub mod neck_shoulder_stretch;
@@ -268,12 +273,14 @@ pub use calcium_bone_health::CalciumBoneHealthRules;
 pub use callus_corn_foot::CallusCornFootRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use caregiver_stress_manage::CaregiverStressManageRules;
+pub use chapped_lip_care::ChappedLipCareRules;
 pub use child_vaccination_schedule::ChildVaccinationScheduleRules;
 pub use children_health::ChildrenHealthRules;
 pub use choking_airway_relief::ChokingAirwayReliefRules;
 pub use choking_relief::ChokingReliefRules;
 pub use cholesterol_exercise_plan::CholesterolExercisePlanRules;
 pub use chronic_disease::ChronicDiseaseRules;
+pub use cold_hands_feet_warm::ColdHandsFeetWarmRules;
 pub use common_cold_care::CommonColdCareRules;
 pub use constipation_relief::ConstipationReliefRules;
 pub use correct_sitting_posture::CorrectSittingPostureRules;
@@ -304,6 +311,7 @@ pub use elderly_health::ElderlyHealthRules;
 pub use emotional_regulation::EmotionalRegulationRules;
 pub use ergonomics::ErgonomicsRules;
 pub use exercise::ExerciseRules;
+pub use eye_dryness_comfort::EyeDrynessComfortRules;
 pub use eye_health::EyeHealthRules;
 pub use eye_health_general::EyeHealthGeneralRules;
 pub use eye_strain_rules::EyeStrainRulesRules;
@@ -320,6 +328,7 @@ pub use gout_management::GoutManagementRules;
 pub use gratitude_practice::GratitudePracticeRules;
 pub use gum_bleeding_concern::GumBleedingConcernRules;
 pub use gut_health::GutHealthRules;
+pub use hair_fall_prevention::HairFallPreventionRules;
 pub use hair_health::HairHealthRules;
 pub use hand_hygiene_wash::HandHygieneWashRules;
 pub use hand_washing_hygiene::HandWashingHygieneRules;
@@ -365,6 +374,7 @@ pub use mood_diary::MoodDiaryRules;
 pub use motion_sickness_prevent::MotionSicknessPreventRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
+pub use nail_trim_care::NailTrimCareRules;
 pub use nasal_congestion_relief::NasalCongestionReliefRules;
 pub use neck_shoulder_relief::NeckShoulderReliefRules;
 pub use neck_shoulder_stretch::NeckShoulderStretchRules;
@@ -440,6 +450,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ChappedLipCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NailTrimCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HairFallPreventionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ColdHandsFeetWarmRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EyeDrynessComfortRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DryCrackedHeelCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
