@@ -1,0 +1,52 @@
+{
+  "cat": "social",
+  "file": "bridesmaid_bestman_duty",
+  "struct": "BridesmaidBestmanDutyRules",
+  "name": "伴郎伴娘职责",
+  "desc": "伴郎伴娘协助新人、打理仪式的职责",
+  "origin": "中国",
+  "tags": ["社交", "伴郎", "伴娘", "婚礼"],
+  "category": "RuleCategory::social(\"bridesmaid\")",
+  "sections": [
+    {
+      "title": "事前准备",
+      "method": "prepare",
+      "items": [
+        "帮忙筹备细节",
+        "熟悉流程",
+        "备好随身物",
+        "配合彩排"
+      ]
+    },
+    {
+      "title": "仪式协助",
+      "method": "assist",
+      "items": [
+        "递戒指引路",
+        "整理裙摆",
+        "稳住新人节奏",
+        "即时补位"
+      ]
+    },
+    {
+      "title": "应酬挡驾",
+      "method": "host",
+      "items": [
+        "替新人收红包",
+        "招呼宾客",
+        "挡酒适度",
+        "维护氛围"
+      ]
+    },
+    {
+      "title": "收尾善后",
+      "method": "wrap",
+      "items": [
+        "帮忙收拾物品",
+        "清点礼金物",
+        "护送交接",
+        "圆满落幕"
+      ]
+    }
+  ]
+}

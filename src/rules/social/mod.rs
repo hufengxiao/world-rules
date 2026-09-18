@@ -75,6 +75,7 @@ pub mod birthday_celebration;
 pub mod birthday_senior_feast;
 pub mod boardroom_etiquette;
 pub mod brazilian_etiquette;
+pub mod bridesmaid_bestman_duty;
 pub mod british_etiquette;
 pub mod buffet_dining;
 pub mod buffet_self_service;
@@ -297,6 +298,10 @@ pub mod volunteer_service_manner;
 pub mod waiting_room_etiquette;
 pub mod wechat_chat_manner;
 pub mod wedding;
+pub mod wedding_banquet_manner;
+pub mod wedding_ceremony_guest;
+pub mod wedding_gift_envelope;
+pub mod wedding_toast_speech;
 pub mod western_dining;
 pub mod western_meal_etiquette;
 pub mod wine_pouring_method;
@@ -334,6 +339,7 @@ pub use birthday_celebration::BirthdayCelebrationRules;
 pub use birthday_senior_feast::BirthdaySeniorFeastRules;
 pub use boardroom_etiquette::BoardroomEtiquetteRules;
 pub use brazilian_etiquette::BrazilianEtiquetteRules;
+pub use bridesmaid_bestman_duty::BridesmaidBestmanDutyRules;
 pub use british_etiquette::BritishEtiquetteRules;
 pub use buffet_dining::BuffetDiningRules;
 pub use buffet_self_service::BuffetSelfServiceRules;
@@ -556,6 +562,10 @@ pub use volunteer_service_manner::VolunteerServiceMannerRules;
 pub use waiting_room_etiquette::WaitingRoomEtiquetteRules;
 pub use wechat_chat_manner::WechatChatMannerRules;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
+pub use wedding_banquet_manner::WeddingBanquetMannerRules;
+pub use wedding_ceremony_guest::WeddingCeremonyGuestRules;
+pub use wedding_gift_envelope::WeddingGiftEnvelopeRules;
+pub use wedding_toast_speech::WeddingToastSpeechRules;
 pub use western_dining::WesternDiningRules;
 pub use western_meal_etiquette::WesternMealEtiquetteRules;
 pub use wine_pouring_method::WinePouringMethodRules;
@@ -576,6 +586,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WeddingBanquetMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WeddingToastSpeechRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WeddingGiftEnvelopeRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BridesmaidBestmanDutyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WeddingCeremonyGuestRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WinePouringMethodRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
