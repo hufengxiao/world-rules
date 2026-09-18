@@ -50,6 +50,7 @@
 //! - 10+ 种职场礼仪
 //! - 10+ 种现代礼仪
 
+pub mod accepting_compliment_grace;
 pub mod accepting_feedback;
 pub mod accompany_etiquette;
 pub mod african_etiquette;
@@ -92,6 +93,7 @@ pub mod business_phone;
 pub mod cafe;
 pub mod camping_etiquette;
 pub mod carpool_etiquette;
+pub mod casual_small_talk_start;
 pub mod charity_donation_etiquette;
 pub mod childrens_day;
 pub mod chinese_ancestor_worship;
@@ -151,6 +153,7 @@ pub mod dining;
 pub mod dining_dress_code;
 pub mod dinner_seating_order;
 pub mod diplomatic_etiquette;
+pub mod disagreement_politely_express;
 pub mod doorman_greeting_courtesy;
 pub mod dragon_boat_festival;
 pub mod elevator;
@@ -226,6 +229,7 @@ pub mod neighbor_relations;
 pub mod networking_etiquette;
 pub mod new_year_day;
 pub mod nursing_home_visit;
+pub mod offering_advice_tact;
 pub mod office_cooperation;
 pub mod online;
 pub mod online_classes_etiquette;
@@ -234,6 +238,7 @@ pub mod parking_courtesy;
 pub mod partnership_etiquette;
 pub mod party;
 pub mod party_founding_day;
+pub mod party_invitation_reply;
 pub mod pedestrian_street_etiquette;
 pub mod pet_etiquette;
 pub mod pet_outdoor_etiquette;
@@ -319,6 +324,7 @@ pub mod workplace;
 pub mod workplace_respect;
 pub mod yuanxiao;
 
+pub use accepting_compliment_grace::AcceptingComplimentGraceRules;
 pub use accepting_feedback::AcceptingFeedbackRules;
 pub use accompany_etiquette::AccompanyEtiquetteRules;
 pub use african_etiquette::AfricanEtiquetteRules;
@@ -361,6 +367,7 @@ pub use business_phone::BusinessPhoneRules;
 pub use cafe::CafeRules;
 pub use camping_etiquette::CampingEtiquetteRules;
 pub use carpool_etiquette::CarpoolEtiquetteRules;
+pub use casual_small_talk_start::CasualSmallTalkStartRules;
 pub use charity_donation_etiquette::CharityDonationEtiquetteRules;
 pub use childrens_day::ChildrensDayRules;
 pub use chinese_ancestor_worship::ChineseAncestorWorshipRules;
@@ -420,6 +427,7 @@ pub use dining::{DiningCulture, DiningEtiquette};
 pub use dining_dress_code::DiningDressCodeRules;
 pub use dinner_seating_order::DinnerSeatingOrderRules;
 pub use diplomatic_etiquette::DiplomaticEtiquetteRules;
+pub use disagreement_politely_express::DisagreementPolitelyExpressRules;
 pub use doorman_greeting_courtesy::DoormanGreetingCourtesyRules;
 pub use dragon_boat_festival::DragonBoatFestivalRules;
 pub use elevator::ElevatorEtiquette;
@@ -495,6 +503,7 @@ pub use neighbor_relations::NeighborRelationsRules;
 pub use networking_etiquette::NetworkingEtiquetteRules;
 pub use new_year_day::NewYearDayRules;
 pub use nursing_home_visit::NursingHomeVisitRules;
+pub use offering_advice_tact::OfferingAdviceTactRules;
 pub use office_cooperation::OfficeCooperationRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
@@ -503,6 +512,7 @@ pub use parking_courtesy::ParkingCourtesyRules;
 pub use partnership_etiquette::PartnershipEtiquetteRules;
 pub use party::PartyRules;
 pub use party_founding_day::PartyFoundingDayRules;
+pub use party_invitation_reply::PartyInvitationReplyRules;
 pub use pedestrian_street_etiquette::PedestrianStreetEtiquetteRules;
 pub use pet_etiquette::PetEtiquetteRules;
 pub use pet_outdoor_etiquette::PetOutdoorEtiquetteRules;
@@ -596,6 +606,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = OfferingAdviceTactRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CasualSmallTalkStartRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PartyInvitationReplyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DisagreementPolitelyExpressRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AcceptingComplimentGraceRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = LendingBorrowingMannerRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

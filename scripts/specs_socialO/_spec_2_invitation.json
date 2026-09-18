@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "party_invitation_reply",
+  "name": "回应聚会邀请",
+  "struct": "PartyInvitationReplyRules",
+  "desc": "收到邀约如何及时得体地答应或婉拒",
+  "origin": "中国",
+  "tags": [
+    "社交",
+    "邀请",
+    "回礼",
+    "聚会"
+  ],
+  "category": "RuleCategory::social(\"invitation_reply\")",
+  "sections": [
+    {
+      "title": "及时回应",
+      "method": "prompt",
+      "items": [
+        "尽早答复",
+        "不拖到最后",
+        "让主人早安排",
+        "回复要明确"
+      ]
+    },
+    {
+      "title": "答应出席",
+      "method": "accept",
+      "items": [
+        "欣然答应",
+        "问清时间地点",
+        "需要带什么提前问",
+        "如期而赴不缺席"
+      ]
+    },
+    {
+      "title": "婉拒不赴",
+      "method": "decline",
+      "items": [
+        "尽早告知抱歉",
+        "说明真正原因",
+        "真诚致谢邀请",
+        "不提他人替代"
+      ]
+    },
+    {
+      "title": "临时变故",
+      "method": "change",
+      "items": [
+        "临时有变早通知",
+        "诚恳道歉",
+        "改日再聚",
+        "不失信于人"
+      ]
+    }
+  ]
+}
