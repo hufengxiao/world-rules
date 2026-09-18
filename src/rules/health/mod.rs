@@ -53,6 +53,7 @@
 //! - 10+ 条特殊人群健康规则
 
 pub mod acid_reflux_care;
+pub mod acne_skin_care;
 pub mod addiction_recovery;
 pub mod allergy_management;
 pub mod anemia_nutrition;
@@ -74,6 +75,7 @@ pub mod brushing_technique_bass;
 pub mod burn_scalding_aid;
 pub mod burnout_prevention;
 pub mod calcium_bone_health;
+pub mod callus_corn_foot;
 pub mod cancer_prevention;
 pub mod caregiver_stress_manage;
 pub mod child_vaccination_schedule;
@@ -132,6 +134,7 @@ pub mod hearing_health;
 pub mod heart_health;
 pub mod heatstroke_prevention;
 pub mod heatstroke_response;
+pub mod hemorrhoid_care;
 pub mod hiccup_relief;
 pub mod home_first_aid_kit;
 pub mod home_medical_alert_senior;
@@ -140,6 +143,7 @@ pub mod hydration_rules;
 pub mod hydration_strategy;
 pub mod hypertension_lifestyle;
 pub mod hypertension_management;
+pub mod hypoglycemia_response;
 pub mod immune_health;
 pub mod immune_support_lifestyle;
 pub mod infant_care_basics;
@@ -225,6 +229,7 @@ pub mod toddler_introducing_solids;
 pub mod tooth_ache_care;
 pub mod travel_health;
 pub mod vaccination_rules;
+pub mod varicose_vein_relief;
 pub mod vegetarian_balanced_nutrition;
 pub mod vertigo_balance_care;
 pub mod vision_care;
@@ -233,6 +238,7 @@ pub mod women_health;
 
 pub mod wound_dressing;
 pub use acid_reflux_care::AcidRefluxCareRules;
+pub use acne_skin_care::AcneSkinCareRules;
 pub use addiction_recovery::AddictionRecoveryRules;
 pub use allergy_management::AllergyManagementRules;
 pub use anemia_nutrition::AnemiaNutritionRules;
@@ -254,6 +260,7 @@ pub use brushing_technique_bass::BrushingTechniqueBassRules;
 pub use burn_scalding_aid::BurnScaldingAidRules;
 pub use burnout_prevention::BurnoutPreventionRules;
 pub use calcium_bone_health::CalciumBoneHealthRules;
+pub use callus_corn_foot::CallusCornFootRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use caregiver_stress_manage::CaregiverStressManageRules;
 pub use child_vaccination_schedule::ChildVaccinationScheduleRules;
@@ -312,6 +319,7 @@ pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
 pub use heatstroke_response::HeatstrokeResponseRules;
+pub use hemorrhoid_care::HemorrhoidCareRules;
 pub use hiccup_relief::HiccupReliefRules;
 pub use home_first_aid_kit::HomeFirstAidKitRules;
 pub use home_medical_alert_senior::HomeMedicalAlertSeniorRules;
@@ -320,6 +328,7 @@ pub use hydration_rules::HydrationRulesRules;
 pub use hydration_strategy::HydrationStrategyRules;
 pub use hypertension_lifestyle::HypertensionLifestyleRules;
 pub use hypertension_management::HypertensionManagementRules;
+pub use hypoglycemia_response::HypoglycemiaResponseRules;
 pub use immune_health::ImmuneHealthRules;
 pub use immune_support_lifestyle::ImmuneSupportLifestyleRules;
 pub use infant_care_basics::InfantCareBasicsRules;
@@ -405,6 +414,7 @@ pub use toddler_introducing_solids::ToddlerIntroducingSolidsRules;
 pub use tooth_ache_care::ToothAcheCareRules;
 pub use travel_health::TravelHealthRules;
 pub use vaccination_rules::VaccinationRulesRules;
+pub use varicose_vein_relief::VaricoseVeinReliefRules;
 pub use vegetarian_balanced_nutrition::VegetarianBalancedNutritionRules;
 pub use vertigo_balance_care::VertigoBalanceCareRules;
 pub use vision_care::VisionCareRules;
@@ -420,6 +430,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CallusCornFootRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AcneSkinCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HemorrhoidCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VaricoseVeinReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HypoglycemiaResponseRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DryCoughSoothesRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

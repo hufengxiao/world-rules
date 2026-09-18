@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "varicose_vein_relief",
+  "struct": "VaricoseVeinReliefRules",
+  "name": "静脉曲张护理",
+  "desc": "腿部静脉曲张的症状观察与日常护理",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "静脉曲张",
+    "护理",
+    "腿部"
+  ],
+  "category": "RuleCategory::health(\"varicose_vein\")",
+  "sections": [
+    {
+      "title": "认识症状",
+      "method": "recognize",
+      "items": [
+        "腿部青筋凸起",
+        "久立后酸胀沉重",
+        "傍晚脚踝水肿",
+        "注意皮肤变化"
+      ]
+    },
+    {
+      "title": "日常缓解",
+      "method": "relieve",
+      "items": [
+        "久坐久立多走动",
+        "休息抬高双腿",
+        "穿医用弹力袜",
+        "避免长时间压迫"
+      ]
+    },
+    {
+      "title": "生活方式",
+      "method": "lifestyle",
+      "items": [
+        "控制体重",
+        "适当运动锻炼小腿",
+        "避免久坐久站",
+        "戒烟限酒"
+      ]
+    },
+    {
+      "title": "就医指征",
+      "method": "seek_help",
+      "items": [
+        "皮肤变硬发红",
+        "破溃渗液疼痛",
+        "突发红肿疼痛",
+        "及时看医生"
+      ]
+    }
+  ]
+}

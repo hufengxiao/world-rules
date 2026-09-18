@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "acne_skin_care",
+  "struct": "AcneSkinCareRules",
+  "name": "痤疮肌肤护理",
+  "desc": "青春痘痤疮的正确清洁与护理方法",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "护肤",
+    "痤疮",
+    "青春痘"
+  ],
+  "category": "RuleCategory::health(\"acne_care\")",
+  "sections": [
+    {
+      "title": "温和清洁",
+      "method": "clean",
+      "items": [
+        "每日温和洁面",
+        "温水勿过热",
+        "避免过度搓洗",
+        "选用温和产品"
+      ]
+    },
+    {
+      "title": "勿挤压",
+      "method": "avoid_pick",
+      "items": [
+        "不要用手挤痘",
+        "勿乱抠抓",
+        "挤痘易留疤",
+        "防感染扩散"
+      ]
+    },
+    {
+      "title": "日常护理",
+      "method": "care",
+      "items": [
+        "注意保湿",
+        "选用清爽护肤品",
+        "避免油腻厚重",
+        "防晒减色素沉着"
+      ]
+    },
+    {
+      "title": "生活习惯",
+      "method": "lifestyle",
+      "items": [
+        "规律作息少熬夜",
+        "饮食控油少甜食",
+        "勤换枕巾毛巾",
+        "严重及时就医"
+      ]
+    }
+  ]
+}

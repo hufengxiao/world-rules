@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "hypoglycemia_response",
+  "struct": "HypoglycemiaResponseRules",
+  "name": "低血糖应对",
+  "desc": "低血糖头晕心慌时的快速识别与处理",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "低血糖",
+    "急救",
+    "血糖"
+  ],
+  "category": "RuleCategory::health(\"hypoglycemia\")",
+  "sections": [
+    {
+      "title": "识别症状",
+      "method": "identify",
+      "items": [
+        "心悸出汗手抖",
+        "头晕乏力心慌",
+        "重者意识模糊",
+        "及时测血糖"
+      ]
+    },
+    {
+      "title": "快速补糖",
+      "method": "sugar",
+      "items": [
+        "进食糖果糖水",
+        "巧克力含糖饮料",
+        "十五分钟复测",
+        "未好转再补"
+      ]
+    },
+    {
+      "title": "严重处理",
+      "method": "severe",
+      "items": [
+        "意识不清快就医",
+        "勿强行喂食",
+        "呼叫家人急救",
+        "遵医嘱用药"
+      ]
+    },
+    {
+      "title": "日常预防",
+      "method": "prevent",
+      "items": [
+        "规律餐食定时",
+        "备零食应急",
+        "运动适量",
+        "用药按时"
+      ]
+    }
+  ]
+}
