@@ -119,6 +119,7 @@ pub mod climate_science;
 pub mod climatology;
 pub mod climatology_detailed;
 pub mod cognitive_psychology;
+pub mod combustion_conditions_triangle;
 pub mod communication;
 pub mod compiler_theory;
 pub mod complex_analysis;
@@ -177,6 +178,7 @@ pub mod ecology_detailed2;
 pub mod economic_geography_detailed;
 pub mod economics;
 pub mod education;
+pub mod electric_circuit_basic;
 pub mod electric_circuit_basics;
 pub mod electrical_engineering;
 pub mod electrical_engineering_detailed;
@@ -244,6 +246,7 @@ pub mod internal_medicine;
 pub mod kinematics;
 pub mod lab_notebook_etiquette;
 pub mod lab_safety;
+pub mod lever_principle_fulcrum;
 pub mod linear_algebra;
 pub mod linguistics;
 pub mod literature;
@@ -384,6 +387,7 @@ pub mod solar_panel_green;
 pub mod solar_system_planets;
 pub mod solid_mechanics;
 pub mod solid_mechanics_detailed;
+pub mod sound_wave_physics;
 pub mod statics;
 pub mod statistical_mechanics;
 pub mod statistical_physics;
@@ -417,6 +421,7 @@ pub mod volcanology_detailed;
 pub mod waste_management;
 pub mod water_purification;
 pub mod water_resources;
+pub mod water_triphase_change;
 pub mod wave_optics_basics;
 pub mod weather_science_basics;
 pub mod zoology;
@@ -767,6 +772,7 @@ pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
 pub use cleaning_agent_safety::CleaningAgentSafetyRules;
 pub use climate_change_facts::ClimateChangeFactsRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
+pub use combustion_conditions_triangle::CombustionConditionsTriangleRules;
 pub use cooking_boiling_science::CookingBoilingScienceRules;
 pub use cooking_chemistry::CookingChemistryRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
@@ -776,6 +782,7 @@ pub use earth_rotation_facts::EarthRotationFactsRules;
 pub use earthquake_magnitude_scale::EarthquakeMagnitudeScaleRules;
 pub use ecology_balance::EcologyBalanceRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
+pub use electric_circuit_basic::ElectricCircuitBasicRules;
 pub use electric_circuit_basics::ElectricCircuitBasicsRules;
 pub use experimental_method::ExperimentalMethodRules;
 pub use food_preservation_refrig::FoodPreservationRefrigRules;
@@ -786,6 +793,7 @@ pub use hydrology_detailed::HydrologyDetailedRules;
 pub use immune_system_basics::ImmuneSystemBasicsRules;
 pub use lab_notebook_etiquette::LabNotebookEtiquetteRules;
 pub use lab_safety::LabSafetyRules;
+pub use lever_principle_fulcrum::LeverPrincipleFulcrumRules;
 pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use lunar_phases::LunarPhasesRules;
 pub use material_properties::MaterialPropertiesRules;
@@ -804,12 +812,14 @@ pub use seasonal_cycle::SeasonalCycleRules;
 pub use soil_geography::SoilGeographyRules;
 pub use solar_panel_green::SolarPanelGreenRules;
 pub use solar_system_planets::SolarSystemPlanetsRules;
+pub use sound_wave_physics::SoundWavePhysicsRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use survey_design::SurveyDesignRules;
 pub use sustainable_living_science::SustainableLivingScienceRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
 pub use volcano_safety::VolcanoSafetyRules;
 pub use water_purification::WaterPurificationRules;
+pub use water_triphase_change::WaterTriphaseChangeRules;
 pub use wave_optics_basics::WaveOpticsBasicsRules;
 pub use weather_science_basics::WeatherScienceBasicsRules;
 
@@ -821,6 +831,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CombustionConditionsTriangleRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SoundWavePhysicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ElectricCircuitBasicRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LeverPrincipleFulcrumRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterTriphaseChangeRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = MountainFormationRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
