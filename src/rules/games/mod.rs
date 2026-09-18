@@ -130,6 +130,7 @@ pub mod flying_chess;
 pub mod four_player_chess;
 pub mod four_player_mahjong;
 pub mod frisbee_play_catch;
+pub mod game_2048_tile;
 pub mod game_24_arithmetic_derive;
 pub mod gin_rummy;
 pub mod go_13x13;
@@ -140,6 +141,7 @@ pub mod go_fish;
 pub mod gomoku_detailed;
 pub mod gongzhu;
 pub mod guandan;
+pub mod hanabi_coop_card;
 pub mod hearts;
 pub mod hearts_detailed;
 pub mod hide_and_seek;
@@ -177,12 +179,14 @@ pub mod mancala;
 pub mod marble_shooter;
 pub mod memory_match;
 pub mod military_chess;
+pub mod minesweeper_logic;
 pub mod mini_chess;
 pub mod mini_shogi;
 pub mod monopoly;
 pub mod monopoly_board_trade;
 pub mod musical_chairs_play;
 pub mod mystery_card;
+pub mod n_puzzle_sliding;
 pub mod n_queens_puzzle;
 pub mod niuniu;
 pub mod old_maid;
@@ -229,6 +233,7 @@ pub mod sudoku_logic;
 pub mod sudoku_variant;
 pub mod tak;
 pub mod tarot_cards;
+pub mod tetris_falling_blocks;
 pub mod texas_holdem;
 pub mod texas_holdem_detailed;
 pub mod three_card_poker;
@@ -322,6 +327,7 @@ pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
 pub use frisbee_play_catch::FrisbeePlayCatchRules;
+pub use game_2048_tile::Game2048TileRules;
 pub use game_24_arithmetic_derive::Game24ArithmeticDeriveRules;
 pub use gin_rummy::GinRummyRules;
 pub use go_13x13::Go13x13Rules;
@@ -332,6 +338,7 @@ pub use go_fish::GoFishRules;
 pub use gomoku_detailed::GomokuDetailedRules;
 pub use gongzhu::GongzhuRules;
 pub use guandan::GuanDanRules;
+pub use hanabi_coop_card::HanabiCoopCardRules;
 pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
 pub use hide_and_seek::HideAndSeekRules;
@@ -369,12 +376,14 @@ pub use mancala::MancalaRules;
 pub use marble_shooter::MarbleShooterRules;
 pub use memory_match::MemoryMatchRules;
 pub use military_chess::MilitaryChessRules;
+pub use minesweeper_logic::MinesweeperLogicRules;
 pub use mini_chess::MiniChessRules;
 pub use mini_shogi::MiniShogiRules;
 pub use monopoly::MonopolyRules;
 pub use monopoly_board_trade::MonopolyBoardTradeRules;
 pub use musical_chairs_play::MusicalChairsPlayRules;
 pub use mystery_card::MysteryCardRules;
+pub use n_puzzle_sliding::NPuzzleSlidingRules;
 pub use n_queens_puzzle::NQueensPuzzleRules;
 pub use niuniu::NiuniuRules;
 pub use old_maid::OldMaidRules;
@@ -420,6 +429,7 @@ pub use sudoku_logic::SudokuLogicRules;
 pub use sudoku_variant::SudokuVariantRules;
 pub use tak::TakRules;
 pub use tarot_cards::TarotCardsRules;
+pub use tetris_falling_blocks::TetrisFallingBlocksRules;
 pub use texas_holdem::TexasHoldemRules;
 pub use texas_holdem_detailed::TexasHoldemDetailedRules;
 pub use three_card_poker::ThreeCardPokerRules;
@@ -489,6 +499,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = HanabiCoopCardRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NPuzzleSlidingRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = Game2048TileRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TetrisFallingBlocksRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MinesweeperLogicRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = BubbleCatchingBlowRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
