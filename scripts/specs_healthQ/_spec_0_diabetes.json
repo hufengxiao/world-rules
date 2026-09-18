@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "diabetes_exercise_safety",
+  "struct": "DiabetesExerciseSafetyRules",
+  "name": "糖尿病患者安全运动",
+  "desc": "糖尿病运动时机、强度与低血糖预防",
+  "origin": "医学",
+  "tags": ["健康", "糖尿病", "运动", "安全"],
+  "category": "RuleCategory::health(\"diabetes_exercise\")",
+  "sections": [
+    {
+      "title": "宜选时机",
+      "method": "timing",
+      "items": [
+        "宜在餐后运动",
+        "饭后约一小时",
+        "避免空腹运动",
+        "有基础先咨询"
+      ]
+    },
+    {
+      "title": "强度适中",
+      "method": "intensity",
+      "items": [
+        "从温和运动起",
+        "以能交谈为度",
+        "循序渐进加量",
+        "不过度疲劳"
+      ]
+    },
+    {
+      "title": "防低血糖",
+      "method": "hypoglycemia",
+      "items": [
+        "运动前测血糖",
+        "随身备糖块",
+        "头晕心慌即停",
+        "及时补糖"
+      ]
+    },
+    {
+      "title": "血糖监测",
+      "method": "monitor",
+      "items": [
+        "运动前后对比",
+        "异常及时就医",
+        "结合用药方案",
+        "谨遵医嘱"
+      ]
+    }
+  ]
+}

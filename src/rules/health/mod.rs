@@ -59,6 +59,7 @@ pub mod anemia_nutrition;
 pub mod anger_management;
 pub mod ankle_sprain_care;
 pub mod anxiety_management;
+pub mod asthma_management_breathing;
 pub mod baby_sleep_safety;
 pub mod balanced_breakfast;
 pub mod balanced_diet_plan;
@@ -79,6 +80,7 @@ pub mod child_vaccination_schedule;
 pub mod children_health;
 pub mod choking_airway_relief;
 pub mod choking_relief;
+pub mod cholesterol_exercise_plan;
 pub mod chronic_disease;
 pub mod common_cold_care;
 pub mod constipation_relief;
@@ -90,6 +92,7 @@ pub mod dental_health;
 pub mod depression_awareness;
 pub mod depression_support;
 pub mod detox_rules;
+pub mod diabetes_exercise_safety;
 pub mod diabetes_management;
 pub mod dietary_fiber_vegetable;
 pub mod digestive_health;
@@ -161,6 +164,7 @@ pub mod mood_diary;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nasal_congestion_relief;
+pub mod neck_shoulder_relief;
 pub mod neck_shoulder_stretch;
 pub mod nightly_oral_care;
 pub mod nosebleed_management;
@@ -170,6 +174,7 @@ pub mod occupational_health;
 pub mod office_ergonomics;
 pub mod oral_health;
 pub mod oral_ulcer_care;
+pub mod osteoporosis_walking_safe;
 pub mod postpartum_health;
 pub mod postpartum_mother_care;
 pub mod postpartum_recovery;
@@ -224,6 +229,7 @@ pub use anemia_nutrition::AnemiaNutritionRules;
 pub use anger_management::AngerManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
 pub use anxiety_management::AnxietyManagementRules;
+pub use asthma_management_breathing::AsthmaManagementBreathingRules;
 pub use baby_sleep_safety::BabySleepSafetyRules;
 pub use balanced_breakfast::BalancedBreakfastRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
@@ -244,6 +250,7 @@ pub use child_vaccination_schedule::ChildVaccinationScheduleRules;
 pub use children_health::ChildrenHealthRules;
 pub use choking_airway_relief::ChokingAirwayReliefRules;
 pub use choking_relief::ChokingReliefRules;
+pub use cholesterol_exercise_plan::CholesterolExercisePlanRules;
 pub use chronic_disease::ChronicDiseaseRules;
 pub use common_cold_care::CommonColdCareRules;
 pub use constipation_relief::ConstipationReliefRules;
@@ -255,6 +262,7 @@ pub use dental_health::DentalHealthRules;
 pub use depression_awareness::DepressionAwarenessRules;
 pub use depression_support::DepressionSupportRules;
 pub use detox_rules::DetoxRulesRules;
+pub use diabetes_exercise_safety::DiabetesExerciseSafetyRules;
 pub use diabetes_management::DiabetesManagementRules;
 pub use dietary_fiber_vegetable::DietaryFiberVegetableRules;
 pub use digestive_health::DigestiveHealthRules;
@@ -326,6 +334,7 @@ pub use mood_diary::MoodDiaryRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nasal_congestion_relief::NasalCongestionReliefRules;
+pub use neck_shoulder_relief::NeckShoulderReliefRules;
 pub use neck_shoulder_stretch::NeckShoulderStretchRules;
 pub use nightly_oral_care::NightlyOralCareRules;
 pub use nosebleed_management::NosebleedManagementRules;
@@ -335,6 +344,7 @@ pub use occupational_health::OccupationalHealthRules;
 pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
 pub use oral_ulcer_care::OralUlcerCareRules;
+pub use osteoporosis_walking_safe::OsteoporosisWalkingSafeRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use postpartum_mother_care::PostpartumMotherCareRules;
 pub use postpartum_recovery::PostpartumRecoveryRules;
@@ -390,6 +400,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = NeckShoulderReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OsteoporosisWalkingSafeRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CholesterolExercisePlanRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AsthmaManagementBreathingRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DiabetesExerciseSafetyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FreshBreathHabitRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

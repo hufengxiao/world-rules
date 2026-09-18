@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "asthma_management_breathing",
+  "struct": "AsthmaManagementBreathingRules",
+  "name": "哮喘管理与呼吸",
+  "desc": "哮喘用药、诱发因素与呼吸训练",
+  "origin": "医学",
+  "tags": ["健康", "哮喘", "呼吸", "管理"],
+  "category": "RuleCategory::health(\"asthma\")",
+  "sections": [
+    {
+      "title": "规范用药",
+      "method": "medication",
+      "items": [
+        "按时使用吸入剂",
+        "遵医嘱调整",
+        "备用急救药",
+        "不擅自停药"
+      ]
+    },
+    {
+      "title": "避开诱因",
+      "method": "trigger",
+      "items": [
+        "远离花粉粉尘",
+        "防过敏原",
+        "冷空气保暖",
+        "少烟尘刺激"
+      ]
+    },
+    {
+      "title": "早期应对",
+      "method": "response",
+      "items": [
+        "胸闷气急早用药",
+        "学会腹式呼吸",
+        "发作仍不缓就医",
+        "记录发作"
+      ]
+    },
+    {
+      "title": "平稳练习",
+      "method": "breathing",
+      "items": [
+        "缓慢匀呼勿促",
+        "用鼻吸气",
+        "放松保持心态",
+        "规律运动"
+      ]
+    }
+  ]
+}

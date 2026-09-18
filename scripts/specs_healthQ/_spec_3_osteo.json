@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "osteoporosis_walking_safe",
+  "struct": "OsteoporosisWalkingSafeRules",
+  "name": "骨质疏松安全步行",
+  "desc": "骨质疏松者适度运动与防骨安全",
+  "origin": "医学",
+  "tags": ["健康", "骨质疏松", "步行", "安全"],
+  "category": "RuleCategory::health(\"osteoporosis\")",
+  "sections": [
+    {
+      "title": "适度运动",
+      "method": "moderate",
+      "items": [
+        "宜温和步行",
+        "适量晒太阳",
+        "补钙食物",
+        "不强负重"
+      ]
+    },
+    {
+      "title": "防跌倒",
+      "method": "fall_prevent",
+      "items": [
+        "选平坦路面",
+        "穿着防滑鞋",
+        "慢走不强求",
+        "扶手随时用"
+      ]
+    },
+    {
+      "title": "姿势正确",
+      "method": "posture",
+      "items": [
+        "挺胸收腹",
+        "避免弯腰搬重",
+        "护腰用力",
+        "站坐端正"
+      ]
+    },
+    {
+      "title": "监测复查",
+      "method": "monitor",
+      "items": [
+        "定期骨密度",
+        "遵医嘱治疗",
+        "不强颈转动",
+        "锻炼安全"
+      ]
+    }
+  ]
+}
