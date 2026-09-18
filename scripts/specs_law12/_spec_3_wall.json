@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "shared_wall_renovate",
+  "struct": "SharedWallRenovateRules",
+  "name": "共有墙体使用",
+  "desc": "装修不拆承重墙与共有部分的使用",
+  "origin": "中国",
+  "tags": ["法律", "装修", "承重墙", "共墙"],
+  "category": "RuleCategory::law(\"shared_wall\")",
+  "sections": [
+    {
+      "title": "不拆结构",
+      "method": "structure",
+      "items": [
+        "不拆承重墙",
+        "不改承重结构",
+        "动墙先报批",
+        "安全为先"
+      ]
+    },
+    {
+      "title": "装修报批",
+      "method": "approve",
+      "items": [
+        "装修向物业报",
+        "办备案",
+        "请专业施工",
+        "依规作业"
+      ]
+    },
+    {
+      "title": "共用互让",
+      "method": "shared",
+      "items": [
+        "外墙不擅自改造",
+        "公共区域不乱占",
+        "共用协商",
+        "邻里和谐"
+      ]
+    },
+    {
+      "title": "损害担责",
+      "method": "liability",
+      "items": [
+        "损坏他墙要赔",
+        "结构受损担责",
+        "及时修复",
+        "依法处理"
+      ]
+    }
+  ]
+}

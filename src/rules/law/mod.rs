@@ -67,6 +67,7 @@ pub mod criminal;
 pub mod deposit_refund_basics;
 pub mod domestic_violence_guard;
 pub mod elderly_support_obligation;
+pub mod elevator_fee_agree;
 pub mod emergency_call_110;
 pub mod evidence_preservation;
 pub mod food_hygiene_safe;
@@ -85,13 +86,16 @@ pub mod marriage_registration;
 pub mod mortgage_loan_basics;
 pub mod neighbor_dispute_handling;
 pub mod neighborhood_noise_dispute;
+pub mod noise_dispute_neighbor;
 pub mod noncompete_agreement;
 pub mod notary_public;
 pub mod online_shopping_rights;
 pub mod overtime_compensation;
 pub mod overtime_reduction_rights;
+pub mod parking_space_dispute;
 pub mod pension_insurance;
 pub mod personal_tax_basics;
+pub mod pet_keeping_standard;
 pub mod power_of_attorney_basics;
 pub mod prenuptial_agreement;
 pub mod prepaid_card_risk;
@@ -103,6 +107,7 @@ pub mod resignation_procedure;
 pub mod return_exchange_warranty;
 pub mod road_safety;
 pub mod self_defense_law;
+pub mod shared_wall_renovate;
 pub mod social_security_basics;
 pub mod telecom_contract_order;
 pub mod traffic;
@@ -625,6 +630,7 @@ pub use education_detailed::EducationDetailedRules;
 pub use elderly_rights::ElderlyRightsRules;
 pub use elderly_support_obligation::ElderlySupportObligationRules;
 pub use electricity_detailed::ElectricityDetailedRules;
+pub use elevator_fee_agree::ElevatorFeeAgreeRules;
 pub use emergency_call_110::EmergencyCall110Rules;
 pub use environmental_detailed::EnvironmentalDetailedRules;
 pub use environmental_detailed2::EnvironmentalDetailed2Rules;
@@ -713,6 +719,7 @@ pub use negotiable_instruments_law_deep::NegotiableInstrumentsLawDeepRules;
 pub use neighbor_dispute_handling::NeighborDisputeHandlingRules;
 pub use neighborhood_noise_dispute::NeighborhoodNoiseDisputeRules;
 pub use new_york_convention::NewYorkConventionRules;
+pub use noise_dispute_neighbor::NoiseDisputeNeighborRules;
 pub use noise_pollution_law::NoisePollutionLawRules;
 pub use noncompete_agreement::NoncompeteAgreementRules;
 pub use notary_public::NotaryPublicRules;
@@ -720,11 +727,13 @@ pub use online_dispute::OnlineDisputeRules;
 pub use online_shopping_rights::OnlineShoppingRightsRules;
 pub use overtime_compensation::OvertimeCompensationRules;
 pub use overtime_reduction_rights::OvertimeReductionRightsRules;
+pub use parking_space_dispute::ParkingSpaceDisputeRules;
 pub use parole_law::ParoleLawRules;
 pub use pension_insurance::PensionInsuranceRules;
 pub use personal_info_detailed::PersonalInfoDetailedRules;
 pub use personal_info_protection::PersonalInfoProtectionRules;
 pub use personal_tax_basics::PersonalTaxBasicsRules;
+pub use pet_keeping_standard::PetKeepingStandardRules;
 pub use plea_bargaining::PleaBargainingRules;
 pub use power_of_attorney_basics::PowerOfAttorneyBasicsRules;
 pub use prenuptial_agreement::PrenuptialAgreementRules;
@@ -751,6 +760,7 @@ pub use securities_law_deep::SecuritiesLawDeepRules;
 pub use securities_law_detailed::SecuritiesLawDetailedRules;
 pub use self_defense_law::SelfDefenseLawRules;
 pub use sentencing_guideline_deep::SentencingGuidelineDeepRules;
+pub use shared_wall_renovate::SharedWallRenovateRules;
 pub use smart_contract_law::SmartContractLawRules;
 pub use social_insurance_law_detailed::SocialInsuranceLawDetailedRules;
 pub use social_security_basics::SocialSecurityBasicsRules;
@@ -792,6 +802,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ElevatorFeeAgreeRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SharedWallRenovateRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ParkingSpaceDisputeRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PetKeepingStandardRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NoiseDisputeNeighborRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = TelecomContractOrderRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

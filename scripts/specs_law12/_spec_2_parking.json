@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "parking_space_dispute",
+  "struct": "ParkingSpaceDisputeRules",
+  "name": "停车位纠纷",
+  "desc": "车位占用、堵塞与物业协调处理",
+  "origin": "中国",
+  "tags": ["法律", "停车", "车位", "纠纷"],
+  "category": "RuleCategory::law(\"parking\")",
+  "sections": [
+    {
+      "title": "规范停车",
+      "method": "comply",
+      "items": [
+        "停入规定车位",
+        "不占他人位",
+        "不堵通道",
+        "线内停放"
+      ]
+    },
+    {
+      "title": "被占处理",
+      "method": "occupy",
+      "items": [
+        "找物业联系车主",
+        "打电话移车",
+        "不作报复",
+        "理性解决"
+      ]
+    },
+    {
+      "title": "堵塞处置",
+      "method": "block",
+      "items": [
+        "堵车出入口立移",
+        "打移车电话",
+        "记录证据",
+        "紧急可报警"
+      ]
+    },
+    {
+      "title": "协商解决",
+      "method": "resolve",
+      "items": [
+        "车位争议协商",
+        "依产权合同",
+        "调解或诉讼",
+        "依法而定"
+      ]
+    }
+  ]
+}

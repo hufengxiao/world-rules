@@ -1,0 +1,52 @@
+{
+  "cat": "law",
+  "file": "elevator_fee_agree",
+  "struct": "ElevatorFeeAgreeRules",
+  "name": "电梯费与维护",
+  "desc": "电梯维护、使用分摊与费用权利义务",
+  "origin": "中国",
+  "tags": ["法律", "电梯", "费用", "维护"],
+  "category": "RuleCategory::law(\"elevator_fee\")",
+  "sections": [
+    {
+      "title": "维保义务",
+      "method": "maintain",
+      "items": [
+        "电梯定期检修",
+        "物业负责维护",
+        "按时保养",
+        "安全运行"
+      ]
+    },
+    {
+      "title": "费用分摊",
+      "method": "share",
+      "items": [
+        "费用依规分摊",
+        "业主合理承担",
+        "明示账目",
+        "公开透明"
+      ]
+    },
+    {
+      "title": "文明使用",
+      "method": "usage",
+      "items": [
+        "乘梯不超载",
+        "不倚不蹦跳",
+        "礼让老幼",
+        "安全乘用"
+      ]
+    },
+    {
+      "title": "故障报修",
+      "method": "repair",
+      "items": [
+        "故障停梯立报修",
+        "困梯按铃求助",
+        "不私自维修",
+        "及时处理"
+      ]
+    }
+  ]
+}
