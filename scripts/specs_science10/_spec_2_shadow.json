@@ -1,0 +1,57 @@
+{
+  "cat": "science",
+  "file": "sun_shadow_position",
+  "struct": "SunShadowPositionRules",
+  "name": "影子与太阳位置",
+  "desc": "一天中太阳位置变化使影子长短方向随之改变",
+  "origin": "中国",
+  "tags": [
+    "科学",
+    "日影",
+    "天文",
+    "自然"
+  ],
+  "category": "RuleCategory::science(\"sun_shadow\")",
+  "sections": [
+    {
+      "title": "影子方向",
+      "method": "direction",
+      "items": [
+        "日出东影子向西",
+        "正午影子朝北或朝南",
+        "日落西影子向东",
+        "随太阳移动转向"
+      ]
+    },
+    {
+      "title": "影子长短",
+      "method": "length",
+      "items": [
+        "早晚影子最长",
+        "正午影子最短",
+        "太阳越低影越长",
+        "垂直照射影最短"
+      ]
+    },
+    {
+      "title": "日晷测时",
+      "method": "sundial",
+      "items": [
+        "立竿见影计时",
+        "影子指示时刻",
+        "针指时盘刻度",
+        "简单天文计时"
+      ]
+    },
+    {
+      "title": "应用观察",
+      "method": "apply",
+      "items": [
+        "正午影子定方位",
+        "影子知时刻",
+        "季节不同影长短异",
+        "北回归线有差异"
+      ]
+    }
+  ]
+}

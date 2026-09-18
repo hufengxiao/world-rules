@@ -1,0 +1,57 @@
+{
+  "cat": "science",
+  "file": "lightning_distance_calc",
+  "struct": "LightningDistanceCalcRules",
+  "name": "闪电测距",
+  "desc": "看闪电到听雷声的时间差估算雷电距离",
+  "origin": "中国",
+  "tags": [
+    "科学",
+    "雷电",
+    "测距",
+    "气象"
+  ],
+  "category": "RuleCategory::science(\"lightning_distance\")",
+  "sections": [
+    {
+      "title": "声光速度差",
+      "method": "principle",
+      "items": [
+        "光速极快近瞬达",
+        "声速每秒约340米",
+        "眼见闪电在雷声前",
+        "时间差定距离"
+      ]
+    },
+    {
+      "title": "估算方法",
+      "method": "estimate",
+      "items": [
+        "秒数乘以百米",
+        "每三秒约一公里",
+        "数数每次闪光",
+        "估出雷电远近"
+      ]
+    },
+    {
+      "title": "安全判断",
+      "method": "safety",
+      "items": [
+        "雷声紧贴闪电近",
+        "三秒内危险近",
+        "空旷处速避",
+        "找安全遮蔽"
+      ]
+    },
+    {
+      "title": "避险须知",
+      "method": "avoid",
+      "items": [
+        "勿站树下高台",
+        "勿近金属水体",
+        "进室内避雷",
+        "关掉电器插头"
+      ]
+    }
+  ]
+}

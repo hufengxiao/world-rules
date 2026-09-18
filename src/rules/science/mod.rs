@@ -161,6 +161,7 @@ pub mod dentistry;
 pub mod dermatology;
 pub mod developmental_biology;
 pub mod devops_theory;
+pub mod dew_frost_formation;
 pub mod diagnostics;
 pub mod differential_equations;
 pub mod differential_geometry;
@@ -249,6 +250,7 @@ pub mod kinematics;
 pub mod lab_notebook_etiquette;
 pub mod lab_safety;
 pub mod lever_principle_fulcrum;
+pub mod lightning_distance_calc;
 pub mod linear_algebra;
 pub mod linguistics;
 pub mod literature;
@@ -359,6 +361,7 @@ pub mod quantum_field_theory;
 pub mod quantum_mechanics;
 pub mod quantum_mechanics_detailed;
 pub mod radar_meteorology;
+pub mod rainbow_dispersion_light;
 pub mod real_analysis;
 pub mod relativity;
 pub mod relativity_general;
@@ -376,6 +379,7 @@ pub mod robotics_theory;
 pub mod rock_cycle_basics;
 pub mod salt_making_seawater;
 pub mod satellite_meteorology;
+pub mod season_solstice_equinox;
 pub mod seasonal_cycle;
 pub mod seismology;
 pub mod seismology_detailed;
@@ -400,6 +404,7 @@ pub mod statistics_ethics;
 pub mod steel_alloy_metal;
 pub mod stratigraphy;
 pub mod structural_biology;
+pub mod sun_shadow_position;
 pub mod surgery;
 pub mod survey_design;
 pub mod sustainability_science;
@@ -783,6 +788,7 @@ pub use cooking_boiling_science::CookingBoilingScienceRules;
 pub use cooking_chemistry::CookingChemistryRules;
 pub use crystallization_diamond_graphite::CrystallizationDiamondGraphiteRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
+pub use dew_frost_formation::DewFrostFormationRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use dna_genetics_basics::DnaGeneticsBasicsRules;
 pub use earth_rotation_facts::EarthRotationFactsRules;
@@ -801,6 +807,7 @@ pub use immune_system_basics::ImmuneSystemBasicsRules;
 pub use lab_notebook_etiquette::LabNotebookEtiquetteRules;
 pub use lab_safety::LabSafetyRules;
 pub use lever_principle_fulcrum::LeverPrincipleFulcrumRules;
+pub use lightning_distance_calc::LightningDistanceCalcRules;
 pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use lunar_phases::LunarPhasesRules;
 pub use material_properties::MaterialPropertiesRules;
@@ -811,11 +818,13 @@ pub use ocean_waves::OceanWavesRules;
 pub use plastic_recycling_basics::PlasticRecyclingBasicsRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use quantum_basics::QuantumBasicsRules;
+pub use rainbow_dispersion_light::RainbowDispersionLightRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use renewable_energy_basics::RenewableEnergyBasicsRules;
 pub use respiratory_system_basics::RespiratorySystemBasicsRules;
 pub use rock_cycle_basics::RockCycleBasicsRules;
 pub use salt_making_seawater::SaltMakingSeawaterRules;
+pub use season_solstice_equinox::SeasonSolsticeEquinoxRules;
 pub use seasonal_cycle::SeasonalCycleRules;
 pub use soil_geography::SoilGeographyRules;
 pub use solar_panel_green::SolarPanelGreenRules;
@@ -823,6 +832,7 @@ pub use solar_system_planets::SolarSystemPlanetsRules;
 pub use sound_wave_physics::SoundWavePhysicsRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use steel_alloy_metal::SteelAlloyMetalRules;
+pub use sun_shadow_position::SunShadowPositionRules;
 pub use survey_design::SurveyDesignRules;
 pub use sustainable_living_science::SustainableLivingScienceRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
@@ -841,6 +851,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = LightningDistanceCalcRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SeasonSolsticeEquinoxRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SunShadowPositionRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DewFrostFormationRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RainbowDispersionLightRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CrystallizationDiamondGraphiteRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
