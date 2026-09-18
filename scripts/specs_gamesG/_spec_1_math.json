@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "speed_mental_math",
+  "struct": "SpeedMentalMathRules",
+  "name": "心算速算",
+  "desc": "加减乘除心算技巧与简化方法",
+  "origin": "数学",
+  "tags": ["游戏", "心算", "速算", "数学"],
+  "category": "RuleCategory::games(\"mental_math\")",
+  "sections": [
+    {
+      "title": "凑整简便",
+      "method": "rounding",
+      "items": [
+        "先凑整再算",
+        "加减拆数成整",
+        "借位补数",
+        "化简运算"
+      ]
+    },
+    {
+      "title": "平方技巧",
+      "method": "square",
+      "items": [
+        "末位五数平方",
+        "两位平方可拆分",
+        "依位相加",
+        "简算口诀"
+      ]
+    },
+    {
+      "title": "快速乘除",
+      "method": "quick",
+      "items": [
+        "乘五除二处理",
+        "末位皆零简化",
+        "化整为零",
+        "善用倍数"
+      ]
+    },
+    {
+      "title": "勤练生巧",
+      "method": "practice",
+      "items": [
+        "常做题锻练脑力",
+        "由简单到复杂",
+        "不急躁",
+        "日积月累"
+      ]
+    }
+  ]
+}

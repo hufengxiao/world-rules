@@ -1,0 +1,51 @@
+{
+  "cat": "games",
+  "file": "magic_square_fill",
+  "struct": "MagicSquareFillRules",
+  "name": "幻方填数",
+  "desc": "幻方行、列、对线数字和相等的谜题",
+  "origin": "数学",
+  "tags": ["游戏", "幻方", "数学", "谜题"],
+  "category": "RuleCategory::games(\"magic_square\")",
+  "sections": [
+    {
+      "title": "幻方定义",
+      "method": "definition",
+      "items": [
+        "方格排于数字",
+        "每行每列各线数字和相等",
+        "不重复不省略数",
+        "常见三阶幻方"
+      ]
+    },
+    {
+      "title": "三阶填法",
+      "method": "three",
+      "items": [
+        "中间放五",
+        "对角一二三位置",
+        "飞码对称",
+        "和均为十五"
+      ]
+    },
+    {
+      "title": "奇数阶",
+      "method": "odd",
+      "items": [
+        "从中间行起",
+                "超出折回",
+                "遇格退下一格",
+                "依序填充"
+      ]
+    },
+    {
+      "title": "检验乐学",
+      "method": "verify",
+      "items": [
+        "计算各行检验",
+        "调整再算","锻炼算数",
+        "乐在其中"
+      ]
+    }
+  ]
+}

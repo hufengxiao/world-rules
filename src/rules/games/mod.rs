@@ -71,6 +71,7 @@
 pub mod abalone;
 pub mod aeroplane_chess;
 pub mod agricola;
+pub mod arithmetic_command_game;
 pub mod azul;
 pub mod baccarat;
 pub mod backgammon;
@@ -144,9 +145,11 @@ pub mod hive;
 pub mod janggi;
 pub mod jump_chess_rules;
 pub mod jungle;
+pub mod killer_sudoku_sum35;
 pub mod klondike_solitaire;
 pub mod klotski_huarong;
 pub mod mafia;
+pub mod magic_square_fill;
 pub mod mahjong;
 pub mod mahjong_blood_battle;
 pub mod mahjong_cantonese_detailed;
@@ -175,6 +178,7 @@ pub mod monopoly;
 pub mod monopoly_board_trade;
 pub mod musical_chairs_play;
 pub mod mystery_card;
+pub mod n_queens_puzzle;
 pub mod niuniu;
 pub mod old_maid;
 pub mod one_color_go;
@@ -211,6 +215,7 @@ pub mod shogi;
 pub mod snap;
 pub mod spades;
 pub mod speed_card;
+pub mod speed_mental_math;
 pub mod splendor;
 pub mod stratego;
 pub mod stud_poker;
@@ -251,6 +256,7 @@ pub mod version;
 pub use abalone::AbaloneRules;
 pub use aeroplane_chess::AeroplaneChessRules;
 pub use agricola::AgricolaRules;
+pub use arithmetic_command_game::ArithmeticCommandGameRules;
 pub use azul::AzulRules;
 pub use baccarat::BaccaratRules;
 pub use backgammon::BackgammonRules;
@@ -326,9 +332,11 @@ pub use hive::HiveRules;
 pub use janggi::JanggiRules;
 pub use jump_chess_rules::JumpChessRules;
 pub use jungle::JungleRules;
+pub use killer_sudoku_sum35::KillerSudokuSumRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use klotski_huarong::KlotskiHuarongRules;
 pub use mafia::MafiaRules;
+pub use magic_square_fill::MagicSquareFillRules;
 pub use mahjong::*;
 pub use mahjong_blood_battle::MahjongBloodBattleRules;
 pub use mahjong_cantonese_detailed::MahjongCantoneseDetailedRules;
@@ -357,6 +365,7 @@ pub use monopoly::MonopolyRules;
 pub use monopoly_board_trade::MonopolyBoardTradeRules;
 pub use musical_chairs_play::MusicalChairsPlayRules;
 pub use mystery_card::MysteryCardRules;
+pub use n_queens_puzzle::NQueensPuzzleRules;
 pub use niuniu::NiuniuRules;
 pub use old_maid::OldMaidRules;
 pub use one_color_go::OneColorGoRules;
@@ -392,6 +401,7 @@ pub use shogi::ShogiRules;
 pub use snap::SnapRules;
 pub use spades::SpadesRules;
 pub use speed_card::SpeedCardRules;
+pub use speed_mental_math::SpeedMentalMathRules;
 pub use splendor::SplendorRules;
 pub use stratego::StrategoRules;
 pub use stud_poker::StudPokerRules;
@@ -469,6 +479,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = NQueensPuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ArithmeticCommandGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MagicSquareFillRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SpeedMentalMathRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KillerSudokuSumRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = HideAndSeekRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
