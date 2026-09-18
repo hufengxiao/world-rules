@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "screen_eye_distance_rule",
+  "struct": "ScreenEyeDistanceRuleRules",
+  "name": "视屏用眼距离",
+  "desc": "看屏幕的距离、高度与护眼调节",
+  "origin": "医学",
+  "tags": ["健康", "屏幕", "用眼", "距离"],
+  "category": "RuleCategory::health(\"screen_eye\")",
+  "sections": [
+    {
+      "title": "合理距离",
+      "method": "distance",
+      "items": [
+        "屏幕距眼五十厘米",
+        "约一臂长",
+        "手机稍远",
+        "过近伤眼"
+      ]
+    },
+    {
+      "title": "高度角度",
+      "method": "angle",
+      "items": [
+        "屏幕略低于眼平",
+        "俯视约十度",
+        "不仰视",
+        "低头勿久"
+      ]
+    },
+    {
+      "title": "短暂调节",
+      "method": "rest",
+      "items": [
+        "注意频繁眨眼",
+        "20-20-20规则遵",
+        "勤远眺",
+        "防视疲劳"
+      ]
+    },
+    {
+      "title": "环境光亮",
+      "method": "light",
+      "items": [
+        "光线柔和免反光",
+        "不过暗过亮",
+        "屏幕调适",
+        "舒适用眼"
+      ]
+    }
+  ]
+}

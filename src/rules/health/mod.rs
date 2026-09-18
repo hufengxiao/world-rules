@@ -84,6 +84,7 @@ pub mod cholesterol_exercise_plan;
 pub mod chronic_disease;
 pub mod common_cold_care;
 pub mod constipation_relief;
+pub mod correct_sitting_posture;
 pub mod cpr_and_emergency;
 pub mod cut_wound_care;
 pub mod daily_hydration;
@@ -175,6 +176,7 @@ pub mod office_ergonomics;
 pub mod oral_health;
 pub mod oral_ulcer_care;
 pub mod osteoporosis_walking_safe;
+pub mod outdoor_time_eye_health;
 pub mod postpartum_health;
 pub mod postpartum_mother_care;
 pub mod postpartum_recovery;
@@ -186,9 +188,11 @@ pub mod procrastination_manage;
 pub mod progressive_relaxation;
 pub mod prolonged_sitting_safety;
 pub mod protein_intake_estimation;
+pub mod read_dim_light_avoid;
 pub mod respiratory_health;
 pub mod salt_control_daily;
 pub mod scalds_burns;
+pub mod screen_eye_distance_rule;
 pub mod screen_eye_strain_care;
 pub mod seasonal_allergy_relief;
 pub mod seasonal_health;
@@ -208,6 +212,7 @@ pub mod stress_management;
 pub mod stress_relief_life;
 pub mod sun_protection;
 pub mod teen_health;
+pub mod teenage_myopia_prevent;
 pub mod thyroid_care;
 pub mod tinnitus_ringing_relief;
 pub mod toddler_health;
@@ -254,6 +259,7 @@ pub use cholesterol_exercise_plan::CholesterolExercisePlanRules;
 pub use chronic_disease::ChronicDiseaseRules;
 pub use common_cold_care::CommonColdCareRules;
 pub use constipation_relief::ConstipationReliefRules;
+pub use correct_sitting_posture::CorrectSittingPostureRules;
 pub use cpr_and_emergency::CprEmergencyRules;
 pub use cut_wound_care::CutWoundCareRules;
 pub use daily_hydration::DailyHydrationRules;
@@ -345,6 +351,7 @@ pub use office_ergonomics::OfficeErgonomicsRules;
 pub use oral_health::OralHealthRules;
 pub use oral_ulcer_care::OralUlcerCareRules;
 pub use osteoporosis_walking_safe::OsteoporosisWalkingSafeRules;
+pub use outdoor_time_eye_health::OutdoorTimeEyeHealthRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use postpartum_mother_care::PostpartumMotherCareRules;
 pub use postpartum_recovery::PostpartumRecoveryRules;
@@ -356,9 +363,11 @@ pub use procrastination_manage::ProcrastinationManageRules;
 pub use progressive_relaxation::ProgressiveRelaxationRules;
 pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
 pub use protein_intake_estimation::ProteinIntakeEstimationRules;
+pub use read_dim_light_avoid::ReadDimLightAvoidRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use salt_control_daily::SaltControlDailyRules;
 pub use scalds_burns::ScaldBurnCareRules;
+pub use screen_eye_distance_rule::ScreenEyeDistanceRuleRules;
 pub use screen_eye_strain_care::ScreenEyeStrainCareRules;
 pub use seasonal_allergy_relief::SeasonalAllergyReliefRules;
 pub use seasonal_health::SeasonalHealthRules;
@@ -378,6 +387,7 @@ pub use stress_management::StressManagementRules;
 pub use stress_relief_life::StressReliefRules;
 pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
+pub use teenage_myopia_prevent::TeenageMyopiaPreventRules;
 pub use thyroid_care::ThyroidCareRules;
 pub use tinnitus_ringing_relief::TinnitusRingingReliefRules;
 pub use toddler_health::ToddlerHealthRules;
@@ -400,6 +410,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ReadDimLightAvoidRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OutdoorTimeEyeHealthRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ScreenEyeDistanceRuleRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CorrectSittingPostureRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TeenageMyopiaPreventRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = NeckShoulderReliefRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
