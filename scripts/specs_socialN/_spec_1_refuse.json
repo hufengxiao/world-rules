@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "politely_refusing",
+  "struct": "PolitelyRefusingRules",
+  "name": "委婉拒绝",
+  "desc": "不好意思直接答应时礼貌又不失体面的拒绝方式",
+  "origin": "中国",
+  "tags": [
+    "社交",
+    "拒绝",
+    "礼貌",
+    "边界"
+  ],
+  "category": "RuleCategory::social(\"politely_refuse\")",
+  "sections": [
+    {
+      "title": "拒绝态度",
+      "method": "attitude",
+      "items": [
+        "态度温和坚定",
+        "先谢对方好意",
+        "直说不绕圈子",
+        "不模棱两可"
+      ]
+    },
+    {
+      "title": "委婉说法",
+      "method": "wording",
+      "items": [
+        "这次恐怕不行",
+        "时间上安排不开",
+        "请理解我的难处",
+        "换个方式帮帮你"
+      ]
+    },
+    {
+      "title": "给个台阶",
+      "method": "soft",
+      "items": [
+        "解释但不过度",
+        "不扯谎找借口",
+        "可提替代方案",
+        "缓和关系不生硬"
+      ]
+    },
+    {
+      "title": "守住边界",
+      "method": "boundary",
+      "items": [
+        "对不合理要求说不",
+        "不委曲全答应",
+        "说开打消误会",
+        "保持互相尊重"
+      ]
+    }
+  ]
+}

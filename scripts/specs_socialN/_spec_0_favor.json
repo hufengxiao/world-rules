@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "asking_for_favor",
+  "struct": "AskingForFavorRules",
+  "name": "求人帮忙",
+  "desc": "开口请求他人帮助时的礼貌与分寸",
+  "origin": "中国",
+  "tags": [
+    "社交",
+    "请求",
+    "礼貌",
+    "人际"
+  ],
+  "category": "RuleCategory::social(\"ask_favor\")",
+  "sections": [
+    {
+      "title": "开口时机",
+      "method": "timing",
+      "items": [
+        "先看对方是否方便",
+        "别在人忙时强求",
+        "大小事分量更当",
+        "不把帮忙当义务"
+      ]
+    },
+    {
+      "title": "礼貌表达",
+      "method": "wording",
+      "items": [
+        "请字当头",
+        "说明具体请求",
+        "请问您方便吗",
+        "讲清来意与轻重"
+      ]
+    },
+    {
+      "title": "体谅对方",
+      "method": "considerate",
+      "items": [
+        "给对方拒绝空间",
+        "不强人所难",
+        "对方不便要理解",
+        "及时转换话题"
+      ]
+    },
+    {
+      "title": "事后致谢",
+      "method": "thanks",
+      "items": [
+        "帮忙后诚心道谢",
+        "记下人情要回礼",
+        "不理所当然",
+        "有来有往"
+      ]
+    }
+  ]
+}

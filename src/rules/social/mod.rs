@@ -63,6 +63,7 @@ pub mod apology_etiquette;
 pub mod arbor_day;
 pub mod army_day;
 pub mod asking_directions;
+pub mod asking_for_favor;
 pub mod awards_ceremony_etiquette;
 pub mod baby_shower_etiquette;
 pub mod banquet_ceremony;
@@ -158,6 +159,7 @@ pub mod elevator_luggage_etiquette;
 pub mod email;
 pub mod emoji_sticker_use;
 pub mod escalator_etiquette;
+pub mod farewell_leaving_party;
 pub mod festival;
 pub mod festival_family_gathering;
 pub mod fishing_etiquette;
@@ -193,6 +195,7 @@ pub mod international_gift;
 pub mod international_greeting;
 pub mod international_travel;
 pub mod internship_etiquette;
+pub mod interrupting_politely;
 pub mod interview;
 pub mod investor_relations_etiquette;
 pub mod japanese_cuisine;
@@ -201,6 +204,7 @@ pub mod korean_cuisine;
 pub mod korean_etiquette;
 pub mod labor_day;
 pub mod leadership_etiquette;
+pub mod lending_borrowing_manner;
 pub mod library;
 pub mod line_queue_etiquette;
 pub mod live_streaming;
@@ -238,6 +242,7 @@ pub mod phone;
 pub mod phone_answering_etiquette;
 pub mod photography_etiquette;
 pub mod picnic_etiquette;
+pub mod politely_refusing;
 pub mod potluck_etiquette;
 pub mod praise_compliment_etiquette;
 pub mod presentation_etiquette;
@@ -327,6 +332,7 @@ pub use apology_etiquette::ApologyEtiquetteRules;
 pub use arbor_day::ArborDayRules;
 pub use army_day::ArmyDayRules;
 pub use asking_directions::AskingDirectionsRules;
+pub use asking_for_favor::AskingForFavorRules;
 pub use awards_ceremony_etiquette::AwardsCeremonyEtiquetteRules;
 pub use baby_shower_etiquette::BabyShowerEtiquetteRules;
 pub use banquet_ceremony::BanquetCeremonyRules;
@@ -422,6 +428,7 @@ pub use elevator_luggage_etiquette::ElevatorLuggageEtiquetteRules;
 pub use email::EmailEtiquette;
 pub use emoji_sticker_use::EmojiStickerUseRules;
 pub use escalator_etiquette::EscalatorEtiquetteRules;
+pub use farewell_leaving_party::FarewellLeavingPartyRules;
 pub use festival::{ChineseFestival, FestivalEtiquette};
 pub use festival_family_gathering::FestivalFamilyGatheringRules;
 pub use fishing_etiquette::FishingEtiquetteRules;
@@ -457,6 +464,7 @@ pub use international_gift::InternationalGiftRules;
 pub use international_greeting::InternationalGreetingRules;
 pub use international_travel::InternationalTravelRules;
 pub use internship_etiquette::InternshipEtiquetteRules;
+pub use interrupting_politely::InterruptingPolitelyRules;
 pub use interview::InterviewEtiquette;
 pub use investor_relations_etiquette::InvestorRelationsEtiquetteRules;
 pub use japanese_cuisine::JapaneseCuisineRules;
@@ -465,6 +473,7 @@ pub use korean_cuisine::KoreanCuisineRules;
 pub use korean_etiquette::KoreanEtiquetteRules;
 pub use labor_day::LaborDayRules;
 pub use leadership_etiquette::LeadershipEtiquetteRules;
+pub use lending_borrowing_manner::LendingBorrowingMannerRules;
 pub use library::LibraryEtiquette;
 pub use line_queue_etiquette::LineQueueEtiquetteRules;
 pub use live_streaming::LiveStreamingRules;
@@ -502,6 +511,7 @@ pub use phone::PhoneEtiquette;
 pub use phone_answering_etiquette::PhoneAnsweringEtiquetteRules;
 pub use photography_etiquette::PhotographyEtiquetteRules;
 pub use picnic_etiquette::PicnicEtiquetteRules;
+pub use politely_refusing::PolitelyRefusingRules;
 pub use potluck_etiquette::PotluckEtiquetteRules;
 pub use praise_compliment_etiquette::PraiseComplimentEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
@@ -586,6 +596,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = LendingBorrowingMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FarewellLeavingPartyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = InterruptingPolitelyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PolitelyRefusingRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AskingForFavorRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WeddingBanquetMannerRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

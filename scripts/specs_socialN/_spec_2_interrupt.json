@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "interrupting_politely",
+  "name": "插话与接话",
+  "struct": "InterruptingPolitelyRules",
+  "desc": "有话要插时先礼后言不打断他人的分寸",
+  "origin": "中国",
+  "tags": [
+    "社交",
+    "插话",
+    "礼貌",
+    "沟通"
+  ],
+  "category": "RuleCategory::social(\"interrupt\")",
+  "sections": [
+    {
+      "title": "先等时机",
+      "method": "wait",
+      "items": [
+        "等对方告一段落",
+        "别抢话打断",
+        "认真听完再开口",
+        "留意停顿空隙"
+      ]
+    },
+    {
+      "title": "示意插言",
+      "method": "signal",
+      "items": [
+        "说打扰一下",
+        "不好意思插句嘴",
+        "举手示意",
+        "简短说明来意"
+      ]
+    },
+    {
+      "title": "插言方式",
+      "method": "manner",
+      "items": [
+        "简明扼要",
+        "不拉扯话题",
+        "不抢对方台词",
+        "说完回归原题"
+      ]
+    },
+    {
+      "title": "被插话时",
+      "method": "receive",
+      "items": [
+        "对方插话先停下来",
+        "礼貌接应",
+        "稍后再续原话",
+        "不发火不争抢"
+      ]
+    }
+  ]
+}
