@@ -77,6 +77,7 @@ pub mod boardroom_etiquette;
 pub mod brazilian_etiquette;
 pub mod british_etiquette;
 pub mod buffet_dining;
+pub mod buffet_self_service;
 pub mod bus_rider_etiquette;
 pub mod bus_travel_protocol;
 pub mod business;
@@ -117,6 +118,7 @@ pub mod chinese_medicine_etiquette;
 pub mod chinese_new_year;
 pub mod chinese_official_etiquette;
 pub mod chinese_ritual_sacrifice;
+pub mod chinese_round_table;
 pub mod chinese_seating;
 pub mod chinese_taboo;
 pub mod chinese_tea_ceremony;
@@ -169,6 +171,7 @@ pub mod german_etiquette;
 pub mod gift;
 pub mod gift_unwrapping_etiquette;
 pub mod golf_etiquette;
+pub mod gongfu_tea_etiquette;
 pub mod graduation_ceremony;
 pub mod greeting;
 pub mod grocery_supermarket_etiquette;
@@ -295,6 +298,8 @@ pub mod waiting_room_etiquette;
 pub mod wechat_chat_manner;
 pub mod wedding;
 pub mod western_dining;
+pub mod western_meal_etiquette;
+pub mod wine_pouring_method;
 pub mod wine_tasting;
 pub mod wine_toast_etiquette;
 pub mod womens_day;
@@ -331,6 +336,7 @@ pub use boardroom_etiquette::BoardroomEtiquetteRules;
 pub use brazilian_etiquette::BrazilianEtiquetteRules;
 pub use british_etiquette::BritishEtiquetteRules;
 pub use buffet_dining::BuffetDiningRules;
+pub use buffet_self_service::BuffetSelfServiceRules;
 pub use bus_rider_etiquette::BusRiderEtiquetteRules;
 pub use bus_travel_protocol::BusTravelProtocolRules;
 pub use business::BusinessEtiquette;
@@ -371,6 +377,7 @@ pub use chinese_medicine_etiquette::ChineseMedicineEtiquetteRules;
 pub use chinese_new_year::ChineseNewYearRules;
 pub use chinese_official_etiquette::ChineseOfficialEtiquetteRules;
 pub use chinese_ritual_sacrifice::ChineseRitualSacrificeRules;
+pub use chinese_round_table::ChineseRoundTableRules;
 pub use chinese_seating::ChineseSeatingRules;
 pub use chinese_taboo::ChineseTabooRules;
 pub use chinese_tea_ceremony::ChineseTeaCeremonyRules;
@@ -423,6 +430,7 @@ pub use german_etiquette::GermanEtiquetteRules;
 pub use gift::GiftEtiquette;
 pub use gift_unwrapping_etiquette::GiftUnwrappingEtiquetteRules;
 pub use golf_etiquette::GolfEtiquetteRules;
+pub use gongfu_tea_etiquette::GongfuTeaEtiquetteRules;
 pub use graduation_ceremony::GraduationCeremonyRules;
 pub use greeting::GreetingEtiquette;
 pub use grocery_supermarket_etiquette::GrocerySupermarketEtiquetteRules;
@@ -549,6 +557,8 @@ pub use waiting_room_etiquette::WaitingRoomEtiquetteRules;
 pub use wechat_chat_manner::WechatChatMannerRules;
 pub use wedding::{WeddingCulture, WeddingEtiquette};
 pub use western_dining::WesternDiningRules;
+pub use western_meal_etiquette::WesternMealEtiquetteRules;
+pub use wine_pouring_method::WinePouringMethodRules;
 pub use wine_tasting::WineTastingRules;
 pub use wine_toast_etiquette::WineToastEtiquetteRules;
 pub use womens_day::WomensDayRules;
@@ -566,6 +576,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WinePouringMethodRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GongfuTeaEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BuffetSelfServiceRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChineseRoundTableRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WesternMealEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DoormanGreetingCourtesyRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

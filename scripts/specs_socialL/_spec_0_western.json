@@ -1,0 +1,51 @@
+{
+  "cat": "social",
+  "file": "western_meal_etiquette",
+  "struct": "WesternMealEtiquetteRules",
+  "name": "西餐礼仪",
+  "desc": "西餐刀叉使用、用餐顺序与会谈礼节",
+  "origin": "国际",
+  "tags": ["社交", "西餐", "礼仪", "餐桌"],
+  "category": "RuleCategory::social(\"western_meal\")",
+  "sections": [
+    {
+      "title": "刀叉用法",
+      "method": "utensils",
+      "items": [
+        "左叉右刀",
+        "从外到内取用",
+        "切一小块吃一口",
+        "不叉举过高"
+      ]
+    },
+    {
+      "title": "用餐顺序",
+      "method": "courses",
+      "items": [
+        "前菜汤到主菜",
+        "甜点咖啡收尾",
+        "由外向内依次",
+        "按序享用"
+      ]
+    },
+    {
+      "title": "面包汤类",
+      "method": "details",
+      "items": [
+        "面包掰小块吃",
+        "勺汤向外舀",
+        "不吹气凉汤",
+        "轻持杯"
+      ]
+    },
+    {
+      "title": "礼貌交谈",
+      "method": "converse",
+      "items": [
+        "咀嚼不张口说",
+        "音量适中",
+        "等主客说话","尊重同桌"
+      ]
+    }
+  ]
+}
