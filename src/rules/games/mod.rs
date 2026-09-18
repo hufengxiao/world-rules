@@ -71,10 +71,12 @@
 pub mod abalone;
 pub mod aeroplane_chess;
 pub mod agricola;
+pub mod akari_light_grid_puzzle;
 pub mod arithmetic_command_game;
 pub mod azul;
 pub mod baccarat;
 pub mod backgammon;
+pub mod battleship_board_ship;
 pub mod big_two;
 pub mod blackjack;
 pub mod blind_chess;
@@ -189,6 +191,7 @@ pub mod mystery_card;
 pub mod n_puzzle_sliding;
 pub mod n_queens_puzzle;
 pub mod niuniu;
+pub mod nonogram_logic_art;
 pub mod old_maid;
 pub mod one_color_go;
 pub mod othello_detailed2;
@@ -226,6 +229,7 @@ pub mod spades;
 pub mod speed_card;
 pub mod speed_mental_math;
 pub mod splendor;
+pub mod spot_difference_visual;
 pub mod stratego;
 pub mod stud_poker;
 pub mod sudoku;
@@ -254,6 +258,7 @@ pub mod werewolf_murder;
 pub mod who_is_spy;
 pub mod word_game;
 pub mod word_guessing_puzzle;
+pub mod word_search_grid_find;
 pub mod xiangqi960;
 pub mod xiangqi_detailed;
 pub mod yahtzee;
@@ -266,10 +271,12 @@ pub mod version;
 pub use abalone::AbaloneRules;
 pub use aeroplane_chess::AeroplaneChessRules;
 pub use agricola::AgricolaRules;
+pub use akari_light_grid_puzzle::AkariLightGridPuzzleRules;
 pub use arithmetic_command_game::ArithmeticCommandGameRules;
 pub use azul::AzulRules;
 pub use baccarat::BaccaratRules;
 pub use backgammon::BackgammonRules;
+pub use battleship_board_ship::BattleshipBoardShipRules;
 pub use big_two::BigTwoRules;
 pub use blackjack::BlackjackRules;
 pub use blind_chess::BlindChessRules;
@@ -386,6 +393,7 @@ pub use mystery_card::MysteryCardRules;
 pub use n_puzzle_sliding::NPuzzleSlidingRules;
 pub use n_queens_puzzle::NQueensPuzzleRules;
 pub use niuniu::NiuniuRules;
+pub use nonogram_logic_art::NonogramLogicArtRules;
 pub use old_maid::OldMaidRules;
 pub use one_color_go::OneColorGoRules;
 pub use othello_detailed2::OthelloDetailed2Rules;
@@ -422,6 +430,7 @@ pub use spades::SpadesRules;
 pub use speed_card::SpeedCardRules;
 pub use speed_mental_math::SpeedMentalMathRules;
 pub use splendor::SplendorRules;
+pub use spot_difference_visual::SpotDifferenceVisualRules;
 pub use stratego::StrategoRules;
 pub use stud_poker::StudPokerRules;
 pub use sudoku::SudokuRules;
@@ -450,6 +459,7 @@ pub use werewolf_murder::WerewolfMurderRules;
 pub use who_is_spy::WhoIsSpyRules;
 pub use word_game::WordGameRules;
 pub use word_guessing_puzzle::WordGuessingPuzzleRules;
+pub use word_search_grid_find::WordSearchGridFindRules;
 pub use xiangqi960::Xiangqi960Rules;
 pub use xiangqi_detailed::XiangqiDetailedRules;
 pub use yahtzee::YahtzeeRules;
@@ -499,6 +509,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = AkariLightGridPuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BattleshipBoardShipRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WordSearchGridFindRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NonogramLogicArtRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SpotDifferenceVisualRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = HanabiCoopCardRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));

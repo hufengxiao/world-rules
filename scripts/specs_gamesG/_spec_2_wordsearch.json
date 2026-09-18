@@ -1,0 +1,57 @@
+{
+  "cat": "games",
+  "file": "word_search_grid_find",
+  "name": "字母网格找词",
+  "struct": "WordSearchGridFindRules",
+  "desc": "在字母方阵中沿方向找出隐藏单词的益智游戏",
+  "origin": "美国",
+  "tags": [
+    "游戏",
+    "找词",
+    "益智",
+    "字母"
+  ],
+  "category": "RuleCategory::games(\"word_search\")",
+  "sections": [
+    {
+      "title": "玩法规则",
+      "method": "basic",
+      "items": [
+        "字母填入网格",
+        "沿行或列或斜",
+        "按序找单词",
+        "找到划出词形"
+      ]
+    },
+    {
+      "title": "查找方法",
+      "method": "search",
+      "items": [
+        "先看词首字母",
+        "在网格寻首字符",
+        "再沿八个方向",
+        "核对后续字母"
+      ]
+    },
+    {
+      "title": "技巧提示",
+      "method": "technique",
+      "items": [
+        "从罕见字母入手",
+        "词长优先锁定",
+        "不重复跳过",
+        "标记已找词"
+      ]
+    },
+    {
+      "title": "收尾完成",
+      "method": "finish",
+      "items": [
+        "全部词找到",
+        "核对清单不漏",
+        "回查误找",
+        "完成后读完全部"
+      ]
+    }
+  ]
+}
