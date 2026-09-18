@@ -89,6 +89,7 @@ pub mod bridge_duplicate;
 pub mod bridge_imp;
 pub mod bridge_minibridge;
 pub mod bridge_rubber;
+pub mod bubble_catching_blow;
 pub mod canasta;
 pub mod canfield;
 pub mod carcassonne;
@@ -128,6 +129,7 @@ pub mod euchre_detailed;
 pub mod flying_chess;
 pub mod four_player_chess;
 pub mod four_player_mahjong;
+pub mod frisbee_play_catch;
 pub mod game_24_arithmetic_derive;
 pub mod gin_rummy;
 pub mod go_13x13;
@@ -142,8 +144,10 @@ pub mod hearts;
 pub mod hearts_detailed;
 pub mod hide_and_seek;
 pub mod hive;
+pub mod hopscotch_grounding_games;
 pub mod janggi;
 pub mod jump_chess_rules;
+pub mod jump_rope_skipping;
 pub mod jungle;
 pub mod killer_sudoku_sum35;
 pub mod klondike_solitaire;
@@ -170,6 +174,7 @@ pub mod mahjong_vietnamese;
 pub mod mahjong_wuhan_detailed;
 pub mod makruk;
 pub mod mancala;
+pub mod marble_shooter;
 pub mod memory_match;
 pub mod military_chess;
 pub mod mini_chess;
@@ -277,6 +282,7 @@ pub use bridge_duplicate::BridgeDuplicateRules;
 pub use bridge_imp::BridgeImpRules;
 pub use bridge_minibridge::BridgeMinibridgeRules;
 pub use bridge_rubber::BridgeRubberRules;
+pub use bubble_catching_blow::BubbleCatchingBlowRules;
 pub use canasta::CanastaRules;
 pub use canfield::CanfieldRules;
 pub use carcassonne::CarcassonneRules;
@@ -315,6 +321,7 @@ pub use euchre_detailed::EuchreDetailedRules;
 pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
+pub use frisbee_play_catch::FrisbeePlayCatchRules;
 pub use game_24_arithmetic_derive::Game24ArithmeticDeriveRules;
 pub use gin_rummy::GinRummyRules;
 pub use go_13x13::Go13x13Rules;
@@ -329,8 +336,10 @@ pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
 pub use hide_and_seek::HideAndSeekRules;
 pub use hive::HiveRules;
+pub use hopscotch_grounding_games::HopscotchGroundGamesRules;
 pub use janggi::JanggiRules;
 pub use jump_chess_rules::JumpChessRules;
+pub use jump_rope_skipping::JumpRopeSkippingRules;
 pub use jungle::JungleRules;
 pub use killer_sudoku_sum35::KillerSudokuSumRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
@@ -357,6 +366,7 @@ pub use mahjong_vietnamese::MahjongVietnameseRules;
 pub use mahjong_wuhan_detailed::MahjongWuhanDetailedRules;
 pub use makruk::MakrukRules;
 pub use mancala::MancalaRules;
+pub use marble_shooter::MarbleShooterRules;
 pub use memory_match::MemoryMatchRules;
 pub use military_chess::MilitaryChessRules;
 pub use mini_chess::MiniChessRules;
@@ -479,6 +489,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = BubbleCatchingBlowRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MarbleShooterRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HopscotchGroundGamesRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JumpRopeSkippingRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FrisbeePlayCatchRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = NQueensPuzzleRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));

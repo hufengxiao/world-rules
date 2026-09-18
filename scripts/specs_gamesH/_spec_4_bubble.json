@@ -1,0 +1,52 @@
+{
+  "cat": "games",
+  "file": "bubble_catching_blow",
+  "struct": "BubbleCatchingBlowRules",
+  "name": "吹泡泡",
+  "desc": "吹泡泡、接泡泡与户外趣味玩法",
+  "origin": "国际",
+  "tags": ["游戏", "泡泡", "儿童"],
+  "category": "RuleCategory::games(\"bubble\")",
+  "sections": [
+    {
+      "title": "吹泡方法",
+      "method": "blow",
+      "items": [
+        "蘸泡泡水",
+        "轻吹成泡",
+        "大小适度",
+        "飘在空中"
+      ]
+    },
+    {
+      "title": "接泡玩法",
+      "method": "catch",
+      "items": [
+        "手掌接泡",
+        "追泡泡跑",
+        "不落地面破",
+        "比谁接多"
+      ]
+    },
+    {
+      "title": "吹大泡泡",
+      "method": "big",
+      "items": [
+        "用吹泡棒吹大",
+        "缓缓拉出",
+        "风小泡泡圆",
+        "趣味多多"
+      ]
+    },
+    {
+      "title": "安全注意",
+      "method": "safety",
+      "items": [
+        "泡泡水勿入口",
+        "远离眼睛",
+        "幼儿看护",
+        "开心安全"
+      ]
+    }
+  ]
+}
