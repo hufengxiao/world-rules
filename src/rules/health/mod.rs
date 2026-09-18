@@ -92,6 +92,7 @@ pub mod cut_wound_care;
 pub mod daily_hydration;
 pub mod dementia_care_basic;
 pub mod dental_health;
+pub mod denture_care_cleaning;
 pub mod depression_awareness;
 pub mod depression_support;
 pub mod detox_rules;
@@ -102,6 +103,7 @@ pub mod digestive_health;
 pub mod digital_eye_rest;
 pub mod drowning_rescue;
 pub mod dry_cough_soothes;
+pub mod dry_cracked_heel;
 pub mod ear_ache_care;
 pub mod early_morning_routine;
 pub mod earthquake_safety;
@@ -122,6 +124,7 @@ pub mod food_poisoning_care;
 pub mod food_safety;
 pub mod foot_blister_care;
 pub mod foot_care_basics;
+pub mod foot_soak_wellness;
 pub mod fresh_breath_habit;
 pub mod gout_management;
 pub mod gratitude_practice;
@@ -176,6 +179,7 @@ pub mod nasal_congestion_relief;
 pub mod neck_shoulder_relief;
 pub mod neck_shoulder_stretch;
 pub mod nightly_oral_care;
+pub mod nocturia_frequent_urination;
 pub mod nosebleed_management;
 pub mod nutrition;
 pub mod nutrition_basics;
@@ -215,6 +219,7 @@ pub mod sleep_apnea;
 pub mod sleep_hygiene;
 pub mod sleep_quality;
 pub mod smoking_cessation;
+pub mod snoring_sleep_basic;
 pub mod sore_throat_relief;
 pub mod sore_throat_soothe;
 pub mod stress_management;
@@ -277,6 +282,7 @@ pub use cut_wound_care::CutWoundCareRules;
 pub use daily_hydration::DailyHydrationRules;
 pub use dementia_care_basic::DementiaCareBasicRules;
 pub use dental_health::DentalHealthRules;
+pub use denture_care_cleaning::DentureCareCleaningRules;
 pub use depression_awareness::DepressionAwarenessRules;
 pub use depression_support::DepressionSupportRules;
 pub use detox_rules::DetoxRulesRules;
@@ -287,6 +293,7 @@ pub use digestive_health::DigestiveHealthRules;
 pub use digital_eye_rest::DigitalEyeRestRules;
 pub use drowning_rescue::DrowningRescueRules;
 pub use dry_cough_soothes::DryCoughSoothesRules;
+pub use dry_cracked_heel::DryCrackedHeelCareRules;
 pub use ear_ache_care::EarAcheCareRules;
 pub use early_morning_routine::EarlyMorningRoutineRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
@@ -307,6 +314,7 @@ pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
 pub use foot_blister_care::FootBlisterCareRules;
 pub use foot_care_basics::FootCareBasicsRules;
+pub use foot_soak_wellness::FootSoakWellnessRules;
 pub use fresh_breath_habit::FreshBreathHabitRules;
 pub use gout_management::GoutManagementRules;
 pub use gratitude_practice::GratitudePracticeRules;
@@ -361,6 +369,7 @@ pub use nasal_congestion_relief::NasalCongestionReliefRules;
 pub use neck_shoulder_relief::NeckShoulderReliefRules;
 pub use neck_shoulder_stretch::NeckShoulderStretchRules;
 pub use nightly_oral_care::NightlyOralCareRules;
+pub use nocturia_frequent_urination::NocturiaFrequentUrinationRules;
 pub use nosebleed_management::NosebleedManagementRules;
 pub use nutrition::NutritionRules;
 pub use nutrition_basics::NutritionBasicsRules;
@@ -400,6 +409,7 @@ pub use sleep_apnea::SleepApneaRules;
 pub use sleep_hygiene::SleepHygieneRules;
 pub use sleep_quality::SleepQualityRules;
 pub use smoking_cessation::SmokingCessationRules;
+pub use snoring_sleep_basic::SnoringSleepBasicRules;
 pub use sore_throat_relief::SoreThroatReliefRules;
 pub use sore_throat_soothe::SoreThroatSootheRules;
 pub use stress_management::StressManagementRules;
@@ -430,6 +440,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DryCrackedHeelCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FootSoakWellnessRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DentureCareCleaningRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NocturiaFrequentUrinationRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SnoringSleepBasicRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CallusCornFootRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

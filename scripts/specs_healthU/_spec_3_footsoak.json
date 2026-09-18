@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "foot_soak_wellness",
+  "struct": "FootSoakWellnessRules",
+  "name": "泡脚养生",
+  "desc": "温水泡脚促进循环放松的好处与注意事项",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "泡脚",
+    "养生",
+    "循环"
+  ],
+  "category": "RuleCategory::health(\"foot_soak\")",
+  "sections": [
+    {
+      "title": "基本做法",
+      "method": "method",
+      "items": [
+        "温水泡脚约四十分钟内",
+        "水温适中勿过烫",
+        "水面过踝",
+        "可按摩足底"
+      ]
+    },
+    {
+      "title": "养生好处",
+      "method": "benefit",
+      "items": [
+        "促进下肢循环",
+        "缓解疲劳",
+        "助眠放松",
+        "暖和足部"
+      ]
+    },
+    {
+      "title": "注意禁忌",
+      "method": "caution",
+      "items": [
+        "饭后不就立刻泡",
+        "足部破损慎泡",
+        "水温过高伤皮肤",
+        "时间过长易久静"
+      ]
+    },
+    {
+      "title": "特殊人群",
+      "method": "special",
+      "items": [
+        "糖尿病者防烫伤",
+        "静脉曲张勿久泡",
+        "孕期询问医生",
+        "心脏病人适度"
+      ]
+    }
+  ]
+}

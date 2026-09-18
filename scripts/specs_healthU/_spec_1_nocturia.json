@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "nocturia_frequent_urination",
+  "struct": "NocturiaFrequentUrinationRules",
+  "name": "夜尿频繁护理",
+  "desc": "夜间排尿次数增多的原因与生活习惯调整",
+  "origin": "中国",
+  "tags": [
+    "健康",
+    "夜尿",
+    "泌尿",
+    "睡眠"
+  ],
+  "category": "RuleCategory::health(\"nocturia\")",
+  "sections": [
+    {
+      "title": "原因辨析",
+      "method": "cause",
+      "items": [
+        "睡前饮水过多",
+        "咖啡茶利尿",
+        "药物影响",
+        "前列腺或疾病因素"
+      ]
+    },
+    {
+      "title": "饮水调整",
+      "method": "fluid",
+      "items": [
+        "睡前减少饮水",
+        "不饮浓茶咖啡",
+        "白天合理补水",
+        "晚餐少咸食"
+      ]
+    },
+    {
+      "title": "睡前习惯",
+      "method": "routine",
+      "items": [
+        "睡前去一次厕所",
+        "避免憋尿入睡",
+        "睡前放松",
+        "保持规律作息"
+      ]
+    },
+    {
+      "title": "就医注意",
+      "method": "seek_help",
+      "items": [
+        "持续多尿消瘦",
+        "饮多尿多口渴",
+        "尿痛血尿",
+        "及时就医检查"
+      ]
+    }
+  ]
+}
