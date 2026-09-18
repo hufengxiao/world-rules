@@ -99,6 +99,7 @@ pub mod dietary_fiber_vegetable;
 pub mod digestive_health;
 pub mod digital_eye_rest;
 pub mod drowning_rescue;
+pub mod dry_cough_soothes;
 pub mod ear_ache_care;
 pub mod early_morning_routine;
 pub mod earthquake_safety;
@@ -113,6 +114,7 @@ pub mod eye_health;
 pub mod eye_health_general;
 pub mod eye_strain_rules;
 pub mod fever_care;
+pub mod fever_management_home;
 pub mod first_aid;
 pub mod food_poisoning_care;
 pub mod food_safety;
@@ -160,8 +162,10 @@ pub mod mental_wellness;
 pub mod migraine_management;
 pub mod mindful_eating;
 pub mod mindfulness_basics;
+pub mod minor_cut_disinfection;
 pub mod mobility_aid_walker;
 pub mod mood_diary;
+pub mod motion_sickness_prevent;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
 pub mod nasal_congestion_relief;
@@ -208,6 +212,7 @@ pub mod sleep_hygiene;
 pub mod sleep_quality;
 pub mod smoking_cessation;
 pub mod sore_throat_relief;
+pub mod sore_throat_soothe;
 pub mod stress_management;
 pub mod stress_relief_life;
 pub mod sun_protection;
@@ -274,6 +279,7 @@ pub use dietary_fiber_vegetable::DietaryFiberVegetableRules;
 pub use digestive_health::DigestiveHealthRules;
 pub use digital_eye_rest::DigitalEyeRestRules;
 pub use drowning_rescue::DrowningRescueRules;
+pub use dry_cough_soothes::DryCoughSoothesRules;
 pub use ear_ache_care::EarAcheCareRules;
 pub use early_morning_routine::EarlyMorningRoutineRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
@@ -288,6 +294,7 @@ pub use eye_health::EyeHealthRules;
 pub use eye_health_general::EyeHealthGeneralRules;
 pub use eye_strain_rules::EyeStrainRulesRules;
 pub use fever_care::FeverCareRules;
+pub use fever_management_home::FeverManagementHomeRules;
 pub use first_aid::FirstAidRules;
 pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
@@ -335,8 +342,10 @@ pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
 pub use mindful_eating::MindfulEatingRules;
 pub use mindfulness_basics::MindfulnessBasicsRules;
+pub use minor_cut_disinfection::MinorCutDisinfectionRules;
 pub use mobility_aid_walker::MobilityAidWalkerRules;
 pub use mood_diary::MoodDiaryRules;
+pub use motion_sickness_prevent::MotionSicknessPreventRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
 pub use nasal_congestion_relief::NasalCongestionReliefRules;
@@ -383,6 +392,7 @@ pub use sleep_hygiene::SleepHygieneRules;
 pub use sleep_quality::SleepQualityRules;
 pub use smoking_cessation::SmokingCessationRules;
 pub use sore_throat_relief::SoreThroatReliefRules;
+pub use sore_throat_soothe::SoreThroatSootheRules;
 pub use stress_management::StressManagementRules;
 pub use stress_relief_life::StressReliefRules;
 pub use sun_protection::SunProtectionRules;
@@ -410,6 +420,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DryCoughSoothesRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MinorCutDisinfectionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SoreThroatSootheRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MotionSicknessPreventRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FeverManagementHomeRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ReadDimLightAvoidRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

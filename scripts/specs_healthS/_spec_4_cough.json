@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "dry_cough_soothes",
+  "struct": "DryCoughSoothesRules",
+  "name": "干咳缓解护理",
+  "desc": "干咳无痰的缓解与就医护理",
+  "tags": ["健康", "咳嗽", "干咳", "护理"],
+  "origin": "医学",
+  "category": "RuleCategory::health(\"dry_cough\")",
+  "sections": [
+    {
+      "title": "滋润气道",
+      "method": "moisturize",
+      "items": [
+        "温水润喉",
+        "蜜柠檬茶",
+        "加湿空气",
+        "减少干痒"
+      ]
+    },
+    {
+      "title": "减少刺激",
+      "method": "avoid",
+      "items": [
+        "避烟尘异味",
+        "少冷刺激",
+        "咳嗽勿硬忍",
+        "缓深呼吸"
+      ]
+    },
+    {
+      "title": "注意补眠",
+      "method": "rest",
+      "items": [
+        "多休息少熬夜",
+        "枕头抬高",
+        "睡前润喉",
+        "缓解夜咳"
+      ]
+    },
+    {
+      "title": "就医判断",
+      "method": "visit",
+      "items": [
+        "久咳不愈就医",
+        "带痰血注意",
+        "胸痛发热就医",
+        "慎用止咳药"
+      ]
+    }
+  ]
+}

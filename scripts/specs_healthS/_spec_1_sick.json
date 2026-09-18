@@ -1,0 +1,52 @@
+{
+  "cat": "health",
+  "file": "motion_sickness_prevent",
+  "struct": "MotionSicknessPreventRules",
+  "name": "晕车晕船预防",
+  "desc": "预防晕动症、乘车坐位与缓解",
+  "origin": "医学",
+  "tags": ["健康", "晕车", "晕船", "预防"],
+  "category": "RuleCategory::health(\"motion_sickness\")",
+  "sections": [
+    {
+      "title": "出行选择",
+      "method": "seating",
+      "items": [
+        "坐车前部前排",
+                "顺行驶方向坐",
+                "靠窗视线放宽",
+                "少低头玩手机"
+      ]
+    },
+    {
+      "title": "饮食注意",
+      "method": "diet",
+      "items": [
+        "出行前清淡",
+        "勿空腹勿过饱",
+        "少油腻刺激",
+        "备生姜薄荷"
+      ]
+    },
+    {
+      "title": "缓解措施",
+      "method": "relieve",
+      "items": [
+        "远眺固定物",
+        "闭目休息",
+        "晕车药提前服",
+        "按压内关"
+      ]
+    },
+    {
+      "title": "及时处理",
+      "method": "handle",
+      "items": [
+        "不适开窗通气",
+        "恶心想吐停车歇",
+        "严重及时就医",
+        "减轻症状"
+      ]
+    }
+  ]
+}
