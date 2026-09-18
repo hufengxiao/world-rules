@@ -1,0 +1,57 @@
+{
+  "cat": "science",
+  "file": "magnet_polarity_basic",
+  "name": "磁铁与南北极",
+  "struct": "MagnetPolarityBasicRules",
+  "desc": "磁铁南北极相吸相斥的磁学基本规律",
+  "origin": "中国",
+  "tags": [
+    "科学",
+    "磁铁",
+    "磁性",
+    "物理"
+  ],
+  "category": "RuleCategory::science(\"magnet_polarity\")",
+  "sections": [
+    {
+      "title": "磁极认知",
+      "method": "polarity",
+      "items": [
+        "磁铁有南北两极",
+        "N极S极两端",
+        "断成两半仍有两极",
+        "地球亦是磁体"
+      ]
+    },
+    {
+      "title": "同斥异吸",
+      "method": "rule",
+      "items": [
+        "同名极相互排斥",
+        "异名极相互吸引",
+        "磁力隔空作用",
+        "力随距离渐弱"
+      ]
+    },
+    {
+      "title": "天然活用",
+      "method": "apply",
+      "items": [
+        "司南指方向",
+        "指南针极指北",
+        "磁铁吸铁钉",
+        "电磁铁变磁场"
+      ]
+    },
+    {
+      "title": "保存注意",
+      "method": "care",
+      "items": [
+        "勿摔高温去磁",
+        "成对相吸保存",
+        "远离银行卡手机",
+        "强磁留意损坏"
+      ]
+    }
+  ]
+}

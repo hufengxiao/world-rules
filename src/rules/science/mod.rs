@@ -99,6 +99,7 @@ pub mod blockchain_detailed;
 pub mod blockchain_theory;
 pub mod botany;
 pub mod botany_detailed;
+pub mod buoyancy_floating;
 pub mod calculus;
 pub mod cancer_biology;
 pub mod carbon_cycle;
@@ -174,6 +175,7 @@ pub mod dynamic_meteorology;
 pub mod dynamics;
 pub mod earth_rotation_facts;
 pub mod earthquake_magnitude_scale;
+pub mod echo_sound_reflection;
 pub mod ecology;
 pub mod ecology_balance;
 pub mod ecology_detailed;
@@ -202,6 +204,7 @@ pub mod epidemiology;
 pub mod epidemiology_detailed;
 pub mod epigenetics;
 pub mod equation_theory;
+pub mod evaporation_cooling_effect;
 pub mod evolution_detailed;
 pub mod evolutionary_biology;
 pub mod exercise_physiology;
@@ -234,6 +237,7 @@ pub mod gis;
 pub mod gis_detailed;
 pub mod graph_theory;
 pub mod group_theory;
+pub mod heat_transfer_three_ways;
 pub mod history;
 pub mod human_organ_systems;
 pub mod hydrology;
@@ -257,6 +261,7 @@ pub mod literature;
 pub mod logic_mistakes_avoid;
 pub mod lunar_phases;
 pub mod machine_learning_detailed;
+pub mod magnet_polarity_basic;
 pub mod magnetostatics;
 pub mod management_science;
 pub mod marine_biology;
@@ -779,6 +784,7 @@ pub use acid_base_ph_scale::AcidBasePhScaleRules;
 pub use air_pressure_weather::AirPressureWeatherRules;
 pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
+pub use buoyancy_floating::BuoyancyFloatingRules;
 pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
 pub use cleaning_agent_safety::CleaningAgentSafetyRules;
 pub use climate_change_facts::ClimateChangeFactsRules;
@@ -793,14 +799,17 @@ pub use digital_literacy::DigitalLiteracyRules;
 pub use dna_genetics_basics::DnaGeneticsBasicsRules;
 pub use earth_rotation_facts::EarthRotationFactsRules;
 pub use earthquake_magnitude_scale::EarthquakeMagnitudeScaleRules;
+pub use echo_sound_reflection::EchoSoundReflectionRules;
 pub use ecology_balance::EcologyBalanceRules;
 pub use economic_geography_detailed::EconomicGeographyDetailedRules;
 pub use electric_circuit_basic::ElectricCircuitBasicRules;
 pub use electric_circuit_basics::ElectricCircuitBasicsRules;
+pub use evaporation_cooling_effect::EvaporationCoolingEffectRules;
 pub use experimental_method::ExperimentalMethodRules;
 pub use food_preservation_refrig::FoodPreservationRefrigRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
+pub use heat_transfer_three_ways::HeatTransferThreeWaysRules;
 pub use human_organ_systems::HumanOrganSystemsRules;
 pub use hydrology_detailed::HydrologyDetailedRules;
 pub use immune_system_basics::ImmuneSystemBasicsRules;
@@ -810,6 +819,7 @@ pub use lever_principle_fulcrum::LeverPrincipleFulcrumRules;
 pub use lightning_distance_calc::LightningDistanceCalcRules;
 pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use lunar_phases::LunarPhasesRules;
+pub use magnet_polarity_basic::MagnetPolarityBasicRules;
 pub use material_properties::MaterialPropertiesRules;
 pub use mold_food_safety::MoldFoodSafetyRules;
 pub use mountain_formation::MountainFormationRules;
@@ -851,6 +861,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = EvaporationCoolingEffectRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HeatTransferThreeWaysRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MagnetPolarityBasicRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EchoSoundReflectionRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BuoyancyFloatingRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = LightningDistanceCalcRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

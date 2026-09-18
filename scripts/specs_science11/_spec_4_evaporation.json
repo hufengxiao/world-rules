@@ -1,0 +1,57 @@
+{
+  "cat": "science",
+  "file": "evaporation_cooling_effect",
+  "name": "蒸发吸热致冷",
+  "struct": "EvaporationCoolingEffectRules",
+  "desc": "液体蒸发吸热使温度下降的物理现象",
+  "origin": "中国",
+  "tags": [
+    "科学",
+    "蒸发",
+    "物态",
+    "制冷"
+  ],
+  "category": "RuleCategory::science(\"evaporation_cool\")",
+  "sections": [
+    {
+      "title": "原理现象",
+      "method": "principle",
+      "items": [
+        "液体蒸发变气",
+        "蒸发吸走热量",
+        "周围温度下降",
+        "水干了手发凉"
+      ]
+    },
+    {
+      "title": "日常体验",
+      "method": "experience",
+      "items": [
+        "温水酒精拭身",
+        "酒精挥发凉",
+        "出汗后吹风更凉",
+        "湿衣风干手凉"
+      ]
+    },
+    {
+      "title": "致冷应用",
+      "method": "apply",
+      "items": [
+        "湿巾降温",
+        "蒸发式冷风扇",
+        "汗液散热降温",
+        "烧水水汽带走热量"
+      ]
+    },
+    {
+      "title": "相关注意",
+      "method": "note",
+      "items": [
+        "风速加快蒸发",
+        "通风促进降温",
+        "冬天易干燥",
+        "湿冷体感更冷"
+      ]
+    }
+  ]
+}
