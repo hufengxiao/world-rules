@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "water_boiling_altitude",
+  "struct": "WaterBoilingAltitudeRules",
+  "name": "水的沸点与海拔",
+  "desc": "海拔越高水沸点越低的气压原理",
+  "origin": "物理",
+  "tags": ["科学", "水", "沸点", "气压"],
+  "category": "RuleCategory::science(\"water_boiling\")",
+  "sections": [
+    {
+      "title": "沸点真相",
+      "method": "fact",
+      "items": [
+        "标准气压前提",
+        "海平面百摄氏度沸",
+        "气压高沸点高",
+        "气压低沸点低"
+      ]
+    },
+    {
+      "title": "海拔影响",
+      "method": "altitude",
+      "items": [
+        "高山气压低",
+        "水不到百度即沸",
+        "高原煮饭欠熟",
+        "用高压锅补"
+      ]
+    },
+    {
+      "title": "高压锅原理",
+      "method": "pressure_cooker",
+      "items": [
+        "密闭增气压",
+        "沸点升高",
+        "更快煮熟",
+        "高原适用"
+      ]
+    },
+    {
+      "title": "生活常识",
+      "method": "life",
+      "items": [
+        "山上烧水会早沸",
+        "烹饪时间调整",
+        "理解原理",
+        "科学应对"
+      ]
+    }
+  ]
+}

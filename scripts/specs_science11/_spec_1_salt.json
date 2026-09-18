@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "salt_making_seawater",
+  "struct": "SaltMakingSeawaterRules",
+  "name": "海水晒盐",
+  "desc": "海水晒盐蒸发结晶的原理",
+  "tags": ["科学", "盐", "海水", "结晶"],
+  "origin": "化学",
+  "category": "RuleCategory::science(\"salt_making\")",
+  "sections": [
+    {
+      "title": "晒盐原理",
+      "method": "principle",
+      "items": [
+        "海水含盐分",
+        "阳光风蒸发水分",
+        "盐分浓度渐高",
+        "过饱和析盐"
+      ]
+    },
+    {
+      "title": "蒸发结晶",
+      "method": "crystallize",
+      "items": [
+        "盐田浅水蒸发",
+        "水分跑出",
+        "盐固体析出",
+        "收盐晒干"
+      ]
+    },
+    {
+      "title": "应用生活",
+      "method": "life",
+      "items": [
+        "食盐调味",
+        "腌制保鲜",
+        "海水淡化另法",
+        "资源利用"
+      ]
+    },
+    {
+      "title": "保护资源",
+      "method": "awareness",
+      "items": [
+        "海盐取用适量",
+        "不浪费",
+        "环境可持续",
+        "循环利用"
+      ]
+    }
+  ]
+}

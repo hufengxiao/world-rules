@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "acid_base_ph_scale",
+  "struct": "AcidBasePhScaleRules",
+  "name": "酸碱指示pH",
+  "desc": "pH值表示酸碱、测试与生活应用",
+  "origin": "化学",
+  "tags": ["科学", "酸碱", "pH", "化学"],
+  "category": "RuleCategory::science(\"acid_base\")",
+  "sections": [
+    {
+      "title": "pH含义",
+      "method": "ph",
+      "items": [
+        "pH衡量酸碱性强弱",
+        "七为中性",
+        "小于七偏酸",
+        "大于七偏碱"
+      ]
+    },
+    {
+      "title": "指示剂",
+      "method": "indicator",
+      "items": [
+        "石蕊遇酸红",
+        "酚酞遇碱红",
+        "试纸变色判定",
+        "范围对照"
+      ]
+    },
+    {
+      "title": "生活酸碱",
+      "method": "life",
+      "items": [
+        "柠檬醋属酸",
+        "肥皂水偏碱",
+        "平常饮食多样",
+        "自然协调"
+      ]
+    },
+    {
+      "title": "安全使用",
+      "method": "safety",
+      "items": [
+        "强酸碱勿沾手",
+        "稀释沿壁倒",
+        "实验戴防护",
+        "谨慎操作"
+      ]
+    }
+  ]
+}

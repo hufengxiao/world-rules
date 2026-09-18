@@ -1,0 +1,52 @@
+{
+  "cat": "science",
+  "file": "steel_alloy_metal",
+  "struct": "SteelAlloyMetalRules",
+  "name": "钢与合金",
+  "desc": "钢、合金的性能优势与常见金属",
+  "origin": "化学",
+  "tags": ["科学", "钢", "合金", "金属"],
+  "category": "RuleCategory::science(\"steel_alloy\")",
+  "sections": [
+    {
+      "title": "钢的组成",
+      "method": "steel",
+      "items": [
+        "钢是铁碳合金",
+        "含碳少量",
+        "强度硬度高",
+        "广泛用于建筑"
+      ]
+    },
+    {
+      "title": "合金优势",
+      "method": "alloy",
+      "items": [
+        "合金强度高",
+        "耐蚀抗磨",
+        "可塑可控",
+        "性能优良"
+      ]
+    },
+    {
+      "title": "常见合金",
+      "method": "examples",
+      "items": [
+        "不锈钢耐锈",
+        "铝合金轻",
+        "青铜为铜锡合金",
+        "应用广泛"
+      ]
+    },
+    {
+      "title": "选用合理",
+      "method": "usage",
+      "items": [
+        "按需选材",
+        "金属回收",
+        "合理开采",
+        "珍惜资源"
+      ]
+    }
+  ]
+}

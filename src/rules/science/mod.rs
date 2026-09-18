@@ -53,6 +53,7 @@
 //! - 20+ 条医学科学规则
 //! - 20+ 条社会科学规则
 
+pub mod acid_base_ph_scale;
 pub mod acoustics;
 pub mod acoustics_detailed;
 pub mod aerospace_engineering;
@@ -142,6 +143,7 @@ pub mod cosmology;
 pub mod cosmology_detailed;
 pub mod cryptography;
 pub mod cryptography_detailed;
+pub mod crystallization_diamond_graphite;
 pub mod crystallography;
 pub mod cultural_geography_detailed;
 pub mod cv_detailed;
@@ -372,6 +374,7 @@ pub mod ring_theory;
 pub mod robotics_detailed;
 pub mod robotics_theory;
 pub mod rock_cycle_basics;
+pub mod salt_making_seawater;
 pub mod satellite_meteorology;
 pub mod seasonal_cycle;
 pub mod seismology;
@@ -394,6 +397,7 @@ pub mod statistical_physics;
 pub mod statistical_physics_detailed;
 pub mod statistics;
 pub mod statistics_ethics;
+pub mod steel_alloy_metal;
 pub mod stratigraphy;
 pub mod structural_biology;
 pub mod surgery;
@@ -419,6 +423,7 @@ pub mod volcano_safety;
 pub mod volcanology;
 pub mod volcanology_detailed;
 pub mod waste_management;
+pub mod water_boiling_altitude;
 pub mod water_purification;
 pub mod water_resources;
 pub mod water_triphase_change;
@@ -765,6 +770,7 @@ pub use regenerative_biology::RegenerativeBiologyRules;
 pub use stem_cell_biology::StemCellBiologyRules;
 
 // Phase 31-01: 新增地理规则导出
+pub use acid_base_ph_scale::AcidBasePhScaleRules;
 pub use air_pressure_weather::AirPressureWeatherRules;
 pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
@@ -775,6 +781,7 @@ pub use climatology_detailed::ClimatologyDetailedRules;
 pub use combustion_conditions_triangle::CombustionConditionsTriangleRules;
 pub use cooking_boiling_science::CookingBoilingScienceRules;
 pub use cooking_chemistry::CookingChemistryRules;
+pub use crystallization_diamond_graphite::CrystallizationDiamondGraphiteRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use dna_genetics_basics::DnaGeneticsBasicsRules;
@@ -808,16 +815,19 @@ pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use renewable_energy_basics::RenewableEnergyBasicsRules;
 pub use respiratory_system_basics::RespiratorySystemBasicsRules;
 pub use rock_cycle_basics::RockCycleBasicsRules;
+pub use salt_making_seawater::SaltMakingSeawaterRules;
 pub use seasonal_cycle::SeasonalCycleRules;
 pub use soil_geography::SoilGeographyRules;
 pub use solar_panel_green::SolarPanelGreenRules;
 pub use solar_system_planets::SolarSystemPlanetsRules;
 pub use sound_wave_physics::SoundWavePhysicsRules;
 pub use statistics_ethics::StatisticsEthicsRules;
+pub use steel_alloy_metal::SteelAlloyMetalRules;
 pub use survey_design::SurveyDesignRules;
 pub use sustainable_living_science::SustainableLivingScienceRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
 pub use volcano_safety::VolcanoSafetyRules;
+pub use water_boiling_altitude::WaterBoilingAltitudeRules;
 pub use water_purification::WaterPurificationRules;
 pub use water_triphase_change::WaterTriphaseChangeRules;
 pub use wave_optics_basics::WaveOpticsBasicsRules;
@@ -831,6 +841,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CrystallizationDiamondGraphiteRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterBoilingAltitudeRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SteelAlloyMetalRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SaltMakingSeawaterRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AcidBasePhScaleRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CombustionConditionsTriangleRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
