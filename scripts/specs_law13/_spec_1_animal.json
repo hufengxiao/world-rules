@@ -1,0 +1,57 @@
+{
+  "cat": "law",
+  "file": "animal_raising_damage",
+  "name": "饲养动物致害责任",
+  "struct": "AnimalRaisingDamageRules",
+  "desc": "饲养动物伤人毁物时的赔偿责任与维权要点",
+  "origin": "中国",
+  "tags": [
+    "法律",
+    "宠物",
+    "侵权",
+    "责任"
+  ],
+  "category": "RuleCategory::law(\"animal_raising\")",
+  "sections": [
+    {
+      "title": "责任主体",
+      "method": "subject",
+      "items": [
+        "饲养人管理人担责",
+        "动物伤人造损失",
+        "拴养尽看护义务",
+        "逃逸后仍负责"
+      ]
+    },
+    {
+      "title": "免责情形",
+      "method": "defense",
+      "items": [
+        "被侵权人故意引发",
+        "重大过失可减责",
+        "违规逗惹折减",
+        "第三方过错另论"
+      ]
+    },
+    {
+      "title": "赔偿内容",
+      "method": "damages",
+      "items": [
+        "医疗费用",
+        "误工损失",
+        "财产受损赔偿",
+        "精神损害酌定"
+      ]
+    },
+    {
+      "title": "举证维权",
+      "method": "evidence",
+      "items": [
+        "保留现场照片",
+        "医疗票据",
+        "报警或调解记录",
+        "及时协商或诉讼"
+      ]
+    }
+  ]
+}

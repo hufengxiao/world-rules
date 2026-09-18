@@ -56,13 +56,16 @@
 
 pub mod administrative_penalty;
 pub mod administrative_reconsideration;
+pub mod animal_raising_damage;
 pub mod child_custody_rights;
 pub mod civil;
+pub mod civil_dispute_mediation;
 pub mod constitution;
 pub mod consumer;
 pub mod consumer_complaint_platform;
 pub mod consumer_rights_basics;
 pub mod contract;
+pub mod contract_breach_remedy;
 pub mod criminal;
 pub mod deposit_refund_basics;
 pub mod domestic_violence_guard;
@@ -70,6 +73,7 @@ pub mod elderly_support_obligation;
 pub mod elevator_fee_agree;
 pub mod emergency_call_110;
 pub mod evidence_preservation;
+pub mod evidence_retention_claim;
 pub mod food_hygiene_safe;
 pub mod fraud_prevention_basics;
 pub mod identity_fraud_protection;
@@ -100,6 +104,7 @@ pub mod power_of_attorney_basics;
 pub mod prenuptial_agreement;
 pub mod prepaid_card_risk;
 pub mod probation_period_rules;
+pub mod product_defect_recall;
 pub mod property_management_fee;
 pub mod public_info_disclosure;
 pub mod rental_lease_basics;
@@ -541,6 +546,7 @@ pub use administrative_penalty::AdministrativePenaltyRules;
 pub use administrative_reconsideration::AdministrativeReconsiderationRules;
 pub use advertising_detailed_law::AdvertisingDetailedLawRules;
 pub use ai_regulation::AiRegulationRules;
+pub use animal_raising_damage::AnimalRaisingDamageRules;
 pub use anti_corruption::AntiCorruptionRules;
 pub use anti_money_laundering::AntiMoneyLaunderingRules;
 pub use anti_monopoly_detailed_law::AntiMonopolyDetailedLawRules;
@@ -576,6 +582,7 @@ pub use civil_code_property_deep::CivilCodePropertyDeepRules;
 pub use civil_code_tort::CivilCodeTortRules;
 pub use civil_code_tort_deep::CivilCodeTortDeepRules;
 pub use civil_detailed2::CivilDetailed2Rules;
+pub use civil_dispute_mediation::CivilDisputeMediationRules;
 pub use civil_procedure_deep::CivilProcedureDeepRules;
 pub use civil_procedure_detailed::CivilProcedureDetailedRules;
 pub use civil_procedure_detailed2::CivilProcedureDetailed2Rules;
@@ -591,6 +598,7 @@ pub use consumer_detailed2::ConsumerDetailed2Rules;
 pub use consumer_protection_deep::ConsumerProtectionDeepRules;
 pub use consumer_protection_intl::ConsumerProtectionIntlRules;
 pub use consumer_rights_basics::ConsumerRightsBasicsRules;
+pub use contract_breach_remedy::ContractBreachRemedyRules;
 pub use contract_detailed::ContractDetailedRules;
 pub use contract_detailed2::ContractDetailed2Rules;
 pub use corporate_governance::CorporateGovernanceRules;
@@ -639,6 +647,7 @@ pub use environmental_impact_law::EnvironmentalImpactLawRules;
 pub use environmental_litigation::EnvironmentalLitigationRules;
 pub use eu_gdpr::EuGdprRules;
 pub use evidence_preservation::EvidencePreservationRules;
+pub use evidence_retention_claim::EvidenceRetentionClaimRules;
 pub use family_violence::FamilyViolenceRules;
 pub use financial_regulation_deep::FinancialRegulationDeepRules;
 pub use food_hygiene_safe::FoodHygieneSafeRules;
@@ -741,6 +750,7 @@ pub use prepaid_card_risk::PrepaidCardRiskRules;
 pub use privacy_rights::PrivacyRightsRules;
 pub use probation_law::ProbationLawRules;
 pub use probation_period_rules::ProbationPeriodRules;
+pub use product_defect_recall::ProductDefectRecallRules;
 pub use product_quality_deep::ProductQualityDeepRules;
 pub use property_management_fee::PropertyManagementFeeRules;
 pub use public_info_disclosure::PublicInfoDisclosureRules;
@@ -802,6 +812,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = EvidenceRetentionClaimRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CivilDisputeMediationRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ProductDefectRecallRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AnimalRaisingDamageRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ContractBreachRemedyRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ElevatorFeeAgreeRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

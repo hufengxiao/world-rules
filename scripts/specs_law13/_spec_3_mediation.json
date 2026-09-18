@@ -1,0 +1,57 @@
+{
+  "cat": "law",
+  "file": "civil_dispute_mediation",
+  "name": "民事纠纷调解",
+  "struct": "CivilDisputeMediationRules",
+  "desc": "通过协商、人民调解解决民事纠纷的途径与要点",
+  "origin": "中国",
+  "tags": [
+    "法律",
+    "纠纷",
+    "调解",
+    "协商"
+  ],
+  "category": "RuleCategory::law(\"civil_mediation\")",
+  "sections": [
+    {
+      "title": "调解优先",
+      "method": "first",
+      "items": [
+        "先友好协商",
+        "讲事实摆证据",
+        "互谅互让",
+        "低成本化矛盾"
+      ]
+    },
+    {
+      "title": "调解主体",
+      "method": "subject",
+      "items": [
+        "人民调解委员会",
+        "居委会村委会",
+        "仲裁调解",
+        "法院诉前调解"
+      ]
+    },
+    {
+      "title": "协议效力",
+      "method": "effect",
+      "items": [
+        "达成书面调解协议",
+        "双方自愿签字",
+        "有约束力履行",
+        "可申请司法确认"
+      ]
+    },
+    {
+      "title": "不成再诉",
+      "method": "litigation",
+      "items": [
+        "调解不成可起诉",
+        "保留证据",
+        "诉讼时效注意",
+        "按管辖法院起诉"
+      ]
+    }
+  ]
+}

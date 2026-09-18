@@ -1,0 +1,57 @@
+{
+  "cat": "law",
+  "file": "product_defect_recall",
+  "name": "缺陷产品召回与赔偿",
+  "struct": "ProductDefectRecallRules",
+  "desc": "有安全缺陷的产品须召回并赔偿消费者的法律规定",
+  "origin": "中国",
+  "tags": [
+    "法律",
+    "产品",
+    "召回",
+    "消费者"
+  ],
+  "category": "RuleCategory::law(\"product_defect\")",
+  "sections": [
+    {
+      "title": "缺陷定义",
+      "method": "identify",
+      "items": [
+        "存在不安全风险",
+        "设计或制造缺陷",
+        "警示不足",
+        "危及人身财产"
+      ]
+    },
+    {
+      "title": "召回义务",
+      "method": "recall",
+      "items": [
+        "生产者须召回",
+        "停止销售问题产品",
+        "免费更换或退",
+        "及时公告警示"
+      ]
+    },
+    {
+      "title": "赔偿责任",
+      "method": "liability",
+      "items": [
+        "因缺陷致损可索赔",
+        "赔偿实际损失",
+        "销售者先行负责",
+        "可向生产者追偿"
+      ]
+    },
+    {
+      "title": "维权途径",
+      "method": "remedy",
+      "items": [
+        "保留购买凭证",
+        "找商家反映",
+        "投诉市场监管",
+        "诉讼或仲裁"
+      ]
+    }
+  ]
+}
