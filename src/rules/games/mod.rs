@@ -145,6 +145,7 @@ pub mod farkle_dice;
 pub mod flying_chess;
 pub mod four_player_chess;
 pub mod four_player_mahjong;
+pub mod four_square;
 pub mod fox_and_geese;
 pub mod frisbee_play_catch;
 pub mod game_2048_tile;
@@ -166,6 +167,7 @@ pub mod hearts_detailed;
 pub mod hide_and_seek;
 pub mod hive;
 pub mod hopscotch_grounding_games;
+pub mod jacks_game;
 pub mod janggi;
 pub mod jump_chess_rules;
 pub mod jump_rope_skipping;
@@ -212,6 +214,7 @@ pub mod mini_shogi;
 pub mod monopoly;
 pub mod monopoly_board_trade;
 pub mod musical_chairs_play;
+pub mod musical_statue;
 pub mod mystery_card;
 pub mod n_puzzle_sliding;
 pub mod n_queens_puzzle;
@@ -242,6 +245,7 @@ pub mod quarto;
 pub mod quoridor_maze_race;
 pub mod railway_tycoon;
 pub mod red_light_green;
+pub mod red_rover;
 pub mod reversi;
 pub mod reversi_othello;
 pub mod riddle_lantern_festival;
@@ -259,6 +263,7 @@ pub mod seven_wonders;
 pub mod sheng_ji;
 pub mod shogi;
 pub mod shut_the_box;
+pub mod simon_says_game;
 pub mod slitherlink_loop;
 pub mod snap;
 pub mod spades;
@@ -387,6 +392,7 @@ pub use farkle_dice::FarkleDiceRules;
 pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
+pub use four_square::FourSquareRules;
 pub use fox_and_geese::FoxAndGeeseRules;
 pub use frisbee_play_catch::FrisbeePlayCatchRules;
 pub use game_2048_tile::Game2048TileRules;
@@ -408,6 +414,7 @@ pub use hearts_detailed::HeartsDetailedRules;
 pub use hide_and_seek::HideAndSeekRules;
 pub use hive::HiveRules;
 pub use hopscotch_grounding_games::HopscotchGroundGamesRules;
+pub use jacks_game::JacksGameRules;
 pub use janggi::JanggiRules;
 pub use jump_chess_rules::JumpChessRules;
 pub use jump_rope_skipping::JumpRopeSkippingRules;
@@ -454,6 +461,7 @@ pub use mini_shogi::MiniShogiRules;
 pub use monopoly::MonopolyRules;
 pub use monopoly_board_trade::MonopolyBoardTradeRules;
 pub use musical_chairs_play::MusicalChairsPlayRules;
+pub use musical_statue::MusicalStatueRules;
 pub use mystery_card::MysteryCardRules;
 pub use n_puzzle_sliding::NPuzzleSlidingRules;
 pub use n_queens_puzzle::NQueensPuzzleRules;
@@ -484,6 +492,7 @@ pub use quarto::QuartoRules;
 pub use quoridor_maze_race::QuoridorMazeRaceRules;
 pub use railway_tycoon::RailwayTycoonRules;
 pub use red_light_green::RedLightGreenRules;
+pub use red_rover::RedRoverRules;
 pub use reversi::ReversiRules;
 pub use reversi_othello::ReversiOthelloRules;
 pub use riddle_lantern_festival::RiddleLanternFestivalRules;
@@ -500,6 +509,7 @@ pub use seven_wonders::SevenWondersRules;
 pub use sheng_ji::ShengJiRules;
 pub use shogi::ShogiRules;
 pub use shut_the_box::ShutTheBoxRules;
+pub use simon_says_game::SimonSaysGameRules;
 pub use slitherlink_loop::SlitherlinkLoopRules;
 pub use snap::SnapRules;
 pub use spades::SpadesRules;
@@ -589,6 +599,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = JacksGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FourSquareRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MusicalStatueRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SimonSaysGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RedRoverRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DoushouqiRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
