@@ -98,6 +98,7 @@ pub mod carcassonne;
 pub mod card_game_generic;
 pub mod card_games;
 pub mod caribbean_stud;
+pub mod carrom_board_flick;
 pub mod cassino;
 pub mod catan;
 pub mod charades_drawing_guess;
@@ -144,6 +145,7 @@ pub mod gomoku_detailed;
 pub mod gongzhu;
 pub mod guandan;
 pub mod hanabi_coop_card;
+pub mod hashi_bridge_puzzle;
 pub mod hearts;
 pub mod hearts_detailed;
 pub mod hide_and_seek;
@@ -153,6 +155,7 @@ pub mod janggi;
 pub mod jump_chess_rules;
 pub mod jump_rope_skipping;
 pub mod jungle;
+pub mod kakuro_cross_sum;
 pub mod killer_sudoku_sum35;
 pub mod klondike_solitaire;
 pub mod klotski_huarong;
@@ -221,9 +224,11 @@ pub mod rubiks_cube;
 pub mod rummy_detailed;
 pub mod scrabble;
 pub mod script_kill_game;
+pub mod set_card_matching;
 pub mod seven_wonders;
 pub mod sheng_ji;
 pub mod shogi;
+pub mod slitherlink_loop;
 pub mod snap;
 pub mod spades;
 pub mod speed_card;
@@ -300,6 +305,7 @@ pub use canfield::CanfieldRules;
 pub use carcassonne::CarcassonneRules;
 pub use card_game_generic::CardGameGenericRules;
 pub use caribbean_stud::CaribbeanStudRules;
+pub use carrom_board_flick::CarromBoardFlickRules;
 pub use cassino::CassinoRules;
 pub use catan::CatanRules;
 pub use charades_drawing_guess::CharadesDrawingGuessRules;
@@ -346,6 +352,7 @@ pub use gomoku_detailed::GomokuDetailedRules;
 pub use gongzhu::GongzhuRules;
 pub use guandan::GuanDanRules;
 pub use hanabi_coop_card::HanabiCoopCardRules;
+pub use hashi_bridge_puzzle::HashiBridgePuzzleRules;
 pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
 pub use hide_and_seek::HideAndSeekRules;
@@ -355,6 +362,7 @@ pub use janggi::JanggiRules;
 pub use jump_chess_rules::JumpChessRules;
 pub use jump_rope_skipping::JumpRopeSkippingRules;
 pub use jungle::JungleRules;
+pub use kakuro_cross_sum::KakuroCrossSumRules;
 pub use killer_sudoku_sum35::KillerSudokuSumRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use klotski_huarong::KlotskiHuarongRules;
@@ -422,9 +430,11 @@ pub use rubiks_cube::{CubeType, RubiksCubeRules};
 pub use rummy_detailed::RummyDetailedRules;
 pub use scrabble::ScrabbleRules;
 pub use script_kill_game::ScriptKillGameRules;
+pub use set_card_matching::SetCardMatchingRules;
 pub use seven_wonders::SevenWondersRules;
 pub use sheng_ji::ShengJiRules;
 pub use shogi::ShogiRules;
+pub use slitherlink_loop::SlitherlinkLoopRules;
 pub use snap::SnapRules;
 pub use spades::SpadesRules;
 pub use speed_card::SpeedCardRules;
@@ -509,6 +519,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CarromBoardFlickRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SetCardMatchingRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SlitherlinkLoopRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HashiBridgePuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KakuroCrossSumRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AkariLightGridPuzzleRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
