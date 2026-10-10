@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "food_delivery_courier_manner",
+  "struct": "FoodDeliveryCourierMannerRules",
+  "name": "外卖取送相处礼仪",
+  "desc": "与外卖骑手互动时的礼节规则，包括地址清晰、及时接听、态度尊重与合理评价，营造互相体谅的配送体验。",
+  "origin": "城市生活中外卖配送高频互动场景",
+  "tags": [
+    "社交",
+    "生活",
+    "服务",
+    "礼仪"
+  ],
+  "category": "RuleCategory::social(\"delivery\")",
+  "sections": [
+    {
+      "title": "下单配合",
+      "method": "ordering",
+      "items": [
+        "地址填写准确到门牌",
+        "备注必要的门禁信息",
+        "合理选择配送时间",
+        "不频繁更改已派单订单"
+      ]
+    },
+    {
+      "title": "接单沟通",
+      "method": "communication",
+      "items": [
+        "保持电话畅通及时接听",
+        "语气平和说明需求",
+        "骑手迟到先问原因",
+        "不无端催促与指责"
+      ]
+    },
+    {
+      "title": "取餐礼节",
+      "method": "pickup",
+      "items": [
+        "提前到约定地点等候",
+        "当面道谢接取餐品",
+        "雨雪天多一分体谅",
+        "小费或好评表达感谢"
+      ]
+    },
+    {
+      "title": "纠纷处理",
+      "method": "dispute",
+      "items": [
+        "餐品问题先联系平台",
+        "客观评价不人身攻击",
+        "无理要求不强行提出",
+        "遇纠纷走正规投诉渠道"
+      ]
+    }
+  ]
+}

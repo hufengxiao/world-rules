@@ -162,11 +162,13 @@ pub mod elevator_luggage_etiquette;
 pub mod email;
 pub mod emoji_sticker_use;
 pub mod escalator_etiquette;
+pub mod escape_room_manner;
 pub mod farewell_leaving_party;
 pub mod festival;
 pub mod festival_family_gathering;
 pub mod fishing_etiquette;
 pub mod flight;
+pub mod food_delivery_courier_manner;
 pub mod food_festival;
 pub mod formal_banquet;
 pub mod formal_introduction;
@@ -203,6 +205,7 @@ pub mod interview;
 pub mod investor_relations_etiquette;
 pub mod japanese_cuisine;
 pub mod japanese_etiquette;
+pub mod karaoke_etiquette;
 pub mod korean_cuisine;
 pub mod korean_etiquette;
 pub mod labor_day;
@@ -269,6 +272,7 @@ pub mod resignation_etiquette;
 pub mod restaurant_ordering_etiquette;
 pub mod restaurant_tipping;
 pub mod retirement_party_etiquette;
+pub mod roommate_living_manner;
 pub mod russian_etiquette;
 pub mod sales_etiquette;
 pub mod salon_etiquette;
@@ -280,6 +284,7 @@ pub mod smoking;
 pub mod social_media_etiquette;
 pub mod spring_festival_visit;
 pub mod station_hall_manner;
+pub mod study_group_etiquette;
 pub mod subway_etiquette;
 pub mod supplier_relations_etiquette;
 pub mod sustainable_living;
@@ -436,11 +441,13 @@ pub use elevator_luggage_etiquette::ElevatorLuggageEtiquetteRules;
 pub use email::EmailEtiquette;
 pub use emoji_sticker_use::EmojiStickerUseRules;
 pub use escalator_etiquette::EscalatorEtiquetteRules;
+pub use escape_room_manner::EscapeRoomMannerRules;
 pub use farewell_leaving_party::FarewellLeavingPartyRules;
 pub use festival::{ChineseFestival, FestivalEtiquette};
 pub use festival_family_gathering::FestivalFamilyGatheringRules;
 pub use fishing_etiquette::FishingEtiquetteRules;
 pub use flight::FlightEtiquette;
+pub use food_delivery_courier_manner::FoodDeliveryCourierMannerRules;
 pub use food_festival::FoodFestivalRules;
 pub use formal_banquet::FormalBanquetRules;
 pub use formal_introduction::FormalIntroductionRules;
@@ -477,6 +484,7 @@ pub use interview::InterviewEtiquette;
 pub use investor_relations_etiquette::InvestorRelationsEtiquetteRules;
 pub use japanese_cuisine::JapaneseCuisineRules;
 pub use japanese_etiquette::JapaneseEtiquetteRules;
+pub use karaoke_etiquette::KaraokeEtiquetteRules;
 pub use korean_cuisine::KoreanCuisineRules;
 pub use korean_etiquette::KoreanEtiquetteRules;
 pub use labor_day::LaborDayRules;
@@ -543,6 +551,7 @@ pub use resignation_etiquette::ResignationEtiquetteRules;
 pub use restaurant_ordering_etiquette::RestaurantOrderingEtiquetteRules;
 pub use restaurant_tipping::RestaurantTippingRules;
 pub use retirement_party_etiquette::RetirementPartyEtiquetteRules;
+pub use roommate_living_manner::RoommateLivingMannerRules;
 pub use russian_etiquette::RussianEtiquetteRules;
 pub use sales_etiquette::SalesEtiquetteRules;
 pub use salon_etiquette::SalonEtiquetteRules;
@@ -554,6 +563,7 @@ pub use smoking::SmokingRules;
 pub use social_media_etiquette::SocialMediaEtiquetteRules;
 pub use spring_festival_visit::SpringFestivalVisitRules;
 pub use station_hall_manner::StationHallMannerRules;
+pub use study_group_etiquette::StudyGroupEtiquetteRules;
 pub use subway_etiquette::SubwayEtiquetteRules;
 pub use supplier_relations_etiquette::SupplierRelationsEtiquetteRules;
 pub use sustainable_living::SustainableLivingRules;
@@ -606,6 +616,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = RoommateLivingMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FoodDeliveryCourierMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = StudyGroupEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EscapeRoomMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KaraokeEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = OfferingAdviceTactRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
