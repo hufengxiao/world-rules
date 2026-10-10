@@ -132,6 +132,7 @@ pub mod dice_game;
 pub mod dice_game_quantum;
 pub mod dixit_storytelling;
 pub mod dominion;
+pub mod dominion_deck_builder;
 pub mod domino;
 pub mod domino_detailed;
 pub mod dots_and_boxes;
@@ -228,6 +229,7 @@ pub mod othello_detailed2;
 pub mod pai_gow_poker;
 pub mod pair_go;
 pub mod pandemic;
+pub mod pandemic_coop;
 pub mod pao_de_kuai;
 pub mod party_game;
 pub mod pentago_twist;
@@ -273,6 +275,7 @@ pub mod spades;
 pub mod speed_card;
 pub mod speed_mental_math;
 pub mod splendor;
+pub mod splendor_variant;
 pub mod spot_difference_visual;
 pub mod stratego;
 pub mod stud_poker;
@@ -284,6 +287,7 @@ pub mod tafl_hnefatafl;
 pub mod tak;
 pub mod tarot_cards;
 pub mod telestrations_draw;
+pub mod terraforming_mars;
 pub mod tetris_falling_blocks;
 pub mod texas_holdem;
 pub mod texas_holdem_detailed;
@@ -306,6 +310,7 @@ pub mod werewolf;
 pub mod werewolf_murder;
 pub mod whist_card;
 pub mod who_is_spy;
+pub mod wingspan_bird;
 pub mod word_game;
 pub mod word_guessing_puzzle;
 pub mod word_search_grid_find;
@@ -384,6 +389,7 @@ pub use dice_game::DiceGameRules;
 pub use dice_game_quantum::DiceGameQuantumRules;
 pub use dixit_storytelling::DixitStorytellingRules;
 pub use dominion::DominionRules;
+pub use dominion_deck_builder::DominionDeckBuilderRules;
 pub use domino::DominoRules;
 pub use domino_detailed::DominoDetailedRules;
 pub use dots_and_boxes::DotsAndBoxesRules;
@@ -480,6 +486,7 @@ pub use othello_detailed2::OthelloDetailed2Rules;
 pub use pai_gow_poker::PaiGowPokerRules;
 pub use pair_go::PairGoRules;
 pub use pandemic::PandemicRules;
+pub use pandemic_coop::PandemicCoopRules;
 pub use pao_de_kuai::PaoDeKuaiRules;
 pub use party_game::PartyGameRules;
 pub use pentago_twist::PentagoTwistRules;
@@ -524,6 +531,7 @@ pub use spades::SpadesRules;
 pub use speed_card::SpeedCardRules;
 pub use speed_mental_math::SpeedMentalMathRules;
 pub use splendor::SplendorRules;
+pub use splendor_variant::SplendorVariantRules;
 pub use spot_difference_visual::SpotDifferenceVisualRules;
 pub use stratego::StrategoRules;
 pub use stud_poker::StudPokerRules;
@@ -535,6 +543,7 @@ pub use tafl_hnefatafl::TaflHnefataflRules;
 pub use tak::TakRules;
 pub use tarot_cards::TarotCardsRules;
 pub use telestrations_draw::TelestrationsDrawRules;
+pub use terraforming_mars::TerraformingMarsRules;
 pub use tetris_falling_blocks::TetrisFallingBlocksRules;
 pub use texas_holdem::TexasHoldemRules;
 pub use texas_holdem_detailed::TexasHoldemDetailedRules;
@@ -557,6 +566,7 @@ pub use werewolf::WerewolfRules;
 pub use werewolf_murder::WerewolfMurderRules;
 pub use whist_card::WhistCardRules;
 pub use who_is_spy::WhoIsSpyRules;
+pub use wingspan_bird::WingspanBirdRules;
 pub use word_game::WordGameRules;
 pub use word_guessing_puzzle::WordGuessingPuzzleRules;
 pub use word_search_grid_find::WordSearchGridFindRules;
@@ -609,6 +619,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WingspanBirdRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TerraformingMarsRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PandemicCoopRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DominionDeckBuilderRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SplendorVariantRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = JassSwissRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
