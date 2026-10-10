@@ -57,6 +57,7 @@
 pub mod administrative_penalty;
 pub mod administrative_reconsideration;
 pub mod animal_raising_damage;
+pub mod annual_leave_law;
 pub mod car_repair_dispute;
 pub mod child_custody_rights;
 pub mod civil;
@@ -97,6 +98,7 @@ pub mod livestream_sales_law;
 pub mod marriage;
 pub mod marriage_property_basics;
 pub mod marriage_registration;
+pub mod maternity_leave_law;
 pub mod mortgage_loan_basics;
 pub mod neighbor_dispute_handling;
 pub mod neighborhood_noise_dispute;
@@ -124,6 +126,7 @@ pub mod resignation_procedure;
 pub mod return_exchange_warranty;
 pub mod road_safety;
 pub mod self_defense_law;
+pub mod severance_pay_law;
 pub mod shared_wall_renovate;
 pub mod short_video_copyright_law;
 pub mod social_security_basics;
@@ -172,6 +175,7 @@ pub mod traffic_accident_handling;
 pub mod traffic_points_demerit;
 pub mod traffic_violation_handling;
 pub mod unemployment_benefit;
+pub mod wage_arrears_law;
 pub mod warranty_claims;
 pub mod water;
 
@@ -447,6 +451,7 @@ pub mod whistleblower_protection;
 pub mod wildlife_protection_law;
 pub mod witness_protection;
 pub mod women_rights;
+pub mod work_injury_law_labor;
 pub mod worker_dismissal_pay;
 pub mod wto_law;
 
@@ -562,6 +567,7 @@ pub use administrative_reconsideration::AdministrativeReconsiderationRules;
 pub use advertising_detailed_law::AdvertisingDetailedLawRules;
 pub use ai_regulation::AiRegulationRules;
 pub use animal_raising_damage::AnimalRaisingDamageRules;
+pub use annual_leave_law::AnnualLeaveLawRules;
 pub use anti_corruption::AntiCorruptionRules;
 pub use anti_money_laundering::AntiMoneyLaunderingRules;
 pub use anti_monopoly_detailed_law::AntiMonopolyDetailedLawRules;
@@ -743,6 +749,7 @@ pub use marriage_detailed::MarriageDetailedRules;
 pub use marriage_detailed2::MarriageDetailed2Rules;
 pub use marriage_property_basics::MarriagePropertyBasicsRules;
 pub use marriage_registration::MarriageRegistrationRules;
+pub use maternity_leave_law::MaternityLeaveLawRules;
 pub use mediation_law::MediationLawRules;
 pub use mental_health_law::MentalHealthLawRules;
 pub use metaverse_law::MetaverseLawRules;
@@ -797,6 +804,7 @@ pub use securities_law_deep::SecuritiesLawDeepRules;
 pub use securities_law_detailed::SecuritiesLawDetailedRules;
 pub use self_defense_law::SelfDefenseLawRules;
 pub use sentencing_guideline_deep::SentencingGuidelineDeepRules;
+pub use severance_pay_law::SeverancePayLawRules;
 pub use shared_wall_renovate::SharedWallRenovateRules;
 pub use short_video_copyright_law::ShortVideoCopyrightLawRules;
 pub use smart_contract_law::SmartContractLawRules;
@@ -822,6 +830,7 @@ pub use unemployment_benefit::UnemploymentBenefitRules;
 pub use us_antitrust::UsAntitrustRules;
 pub use victim_protection_deep::VictimProtectionDeepRules;
 pub use victim_rights::VictimRightsRules;
+pub use wage_arrears_law::WageArrearsLawRules;
 pub use warranty_claims::WarrantyClaimsRules;
 pub use water_detailed::WaterDetailedRules;
 pub use water_leak_dispute_law::WaterLeakDisputeLawRules;
@@ -831,6 +840,7 @@ pub use wildlife_protection_law::WildlifeProtectionLawRules;
 pub use will_estate_planning::WillEstatePlanningRules;
 pub use witness_protection::WitnessProtectionRules;
 pub use women_rights::WomenRightsRules;
+pub use work_injury_law_labor::WorkInjuryLawLaborRules;
 pub use worker_dismissal_pay::WorkerDismissalPayRules;
 pub use wto_law::WtoLawRules;
 
@@ -842,6 +852,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SeverancePayLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WageArrearsLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorkInjuryLawLaborRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AnnualLeaveLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MaternityLeaveLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WeddingServiceDisputeLawRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
