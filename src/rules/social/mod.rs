@@ -146,6 +146,7 @@ pub mod constructive_criticism;
 pub mod contract_signing_etiquette;
 pub mod corporate_event_etiquette;
 pub mod cross_cultural;
+pub mod cubicle_neighbor_manner;
 pub mod customer_service_etiquette;
 pub mod cycling_etiquette;
 pub mod dating_etiquette;
@@ -230,6 +231,7 @@ pub mod mahjong_etiquette;
 pub mod market_etiquette;
 pub mod media_relations_etiquette;
 pub mod meeting_etiquette;
+pub mod meeting_room_booking_manner;
 pub mod meeting_speech_politeness;
 pub mod mentor_mentee_etiquette;
 pub mod metro_etiquette;
@@ -248,10 +250,12 @@ pub mod new_year_day;
 pub mod nursing_home_visit;
 pub mod offering_advice_tact;
 pub mod office_cooperation;
+pub mod office_kitchen_manner;
 pub mod one_month_banquet;
 pub mod online;
 pub mod online_classes_etiquette;
 pub mod online_review_manner;
+pub mod open_office_silence_manner;
 pub mod package_delivery_manner;
 pub mod parent_teacher_meeting;
 pub mod park_etiquette;
@@ -300,6 +304,7 @@ pub mod salon_etiquette;
 pub mod sauna_etiquette;
 pub mod screenshot_privacy_manner;
 pub mod seating;
+pub mod shared_fridge_manner;
 pub mod shared_office_courtesy;
 pub mod shopping_etiquette;
 pub mod sick_visit_gift_note;
@@ -455,6 +460,7 @@ pub use constructive_criticism::ConstructiveCriticismRules;
 pub use contract_signing_etiquette::ContractSigningEtiquetteRules;
 pub use corporate_event_etiquette::CorporateEventEtiquetteRules;
 pub use cross_cultural::CrossCulturalRules;
+pub use cubicle_neighbor_manner::CubicleNeighborMannerRules;
 pub use customer_service_etiquette::CustomerServiceEtiquetteRules;
 pub use cycling_etiquette::CyclingEtiquetteRules;
 pub use dating_etiquette::DatingEtiquetteRules;
@@ -539,6 +545,7 @@ pub use mahjong_etiquette::MahjongEtiquetteRules;
 pub use market_etiquette::MarketEtiquetteRules;
 pub use media_relations_etiquette::MediaRelationsEtiquetteRules;
 pub use meeting_etiquette::MeetingEtiquetteRules;
+pub use meeting_room_booking_manner::MeetingRoomBookingMannerRules;
 pub use meeting_speech_politeness::MeetingSpeechPolitenessRules;
 pub use mentor_mentee_etiquette::MentorMenteeEtiquetteRules;
 pub use metro_etiquette::MetroEtiquetteRules;
@@ -557,10 +564,12 @@ pub use new_year_day::NewYearDayRules;
 pub use nursing_home_visit::NursingHomeVisitRules;
 pub use offering_advice_tact::OfferingAdviceTactRules;
 pub use office_cooperation::OfficeCooperationRules;
+pub use office_kitchen_manner::OfficeKitchenMannerRules;
 pub use one_month_banquet::OneMonthBanquetRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
 pub use online_review_manner::OnlineReviewMannerRules;
+pub use open_office_silence_manner::OpenOfficeSilenceMannerRules;
 pub use package_delivery_manner::PackageDeliveryMannerRules;
 pub use parent_teacher_meeting::ParentTeacherMeetingRules;
 pub use park_etiquette::ParkEtiquetteRules;
@@ -609,6 +618,7 @@ pub use salon_etiquette::SalonEtiquetteRules;
 pub use sauna_etiquette::SaunaEtiquetteRules;
 pub use screenshot_privacy_manner::ScreenshotPrivacyMannerRules;
 pub use seating::SeatingEtiquette;
+pub use shared_fridge_manner::SharedFridgeMannerRules;
 pub use shared_office_courtesy::SharedOfficeCourtesyRules;
 pub use shopping_etiquette::ShoppingEtiquetteRules;
 pub use sick_visit_gift_note::SickVisitGiftNoteRules;
@@ -676,6 +686,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CubicleNeighborMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OfficeKitchenMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OpenOfficeSilenceMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MeetingRoomBookingMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SharedFridgeMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = TrashSortingMannerRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
