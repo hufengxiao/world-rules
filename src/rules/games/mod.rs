@@ -86,6 +86,7 @@ pub mod blind_go;
 pub mod blokus_pieces;
 pub mod board_game_etiquette;
 pub mod board_games;
+pub mod bocce_ball;
 pub mod brain_teaser_quiz;
 pub mod breakthrough_board;
 pub mod bridge;
@@ -123,6 +124,7 @@ pub mod codenames;
 pub mod connect_dots;
 pub mod connect_four;
 pub mod connect_four_hour;
+pub mod corn_hole;
 pub mod craps;
 pub mod crazy_eights;
 pub mod cribbage;
@@ -178,6 +180,7 @@ pub mod kakuro_cross_sum;
 pub mod killer_sudoku_sum35;
 pub mod klondike_solitaire;
 pub mod klotski_huarong;
+pub mod kubb_game;
 pub mod liars_dice;
 pub mod ludo_board_race;
 pub mod mafia;
@@ -213,6 +216,7 @@ pub mod military_chess;
 pub mod minesweeper_logic;
 pub mod mini_chess;
 pub mod mini_shogi;
+pub mod molkky_spillike;
 pub mod monopoly;
 pub mod monopoly_board_trade;
 pub mod musical_chairs_play;
@@ -274,6 +278,7 @@ pub mod snap;
 pub mod spades;
 pub mod speed_card;
 pub mod speed_mental_math;
+pub mod spikeball_roundnet;
 pub mod splendor;
 pub mod splendor_variant;
 pub mod spot_difference_visual;
@@ -344,6 +349,7 @@ pub use board_games::{
     ChessRules, ChessVariant, ChessVariantsRules, ChineseChessRules, GoRules, GomokuRules,
     InternationalChessRules, JanggiVariantRules, ShogiVariantRules,
 };
+pub use bocce_ball::BocceBallRules;
 pub use brain_teaser_quiz::BrainTeaserQuizRules;
 pub use breakthrough_board::BreakthroughBoardRules;
 pub use bridge::BridgeRules;
@@ -380,6 +386,7 @@ pub use codenames::CodenamesRules;
 pub use connect_dots::ConnectDotsRules;
 pub use connect_four::ConnectFourRules;
 pub use connect_four_hour::ConnectFourHourRules;
+pub use corn_hole::CornHoleRules;
 pub use craps::CrapsRules;
 pub use crazy_eights::CrazyEightsRules;
 pub use cribbage::CribbageRules;
@@ -435,6 +442,7 @@ pub use kakuro_cross_sum::KakuroCrossSumRules;
 pub use killer_sudoku_sum35::KillerSudokuSumRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use klotski_huarong::KlotskiHuarongRules;
+pub use kubb_game::KubbGameRules;
 pub use liars_dice::LiarsDiceRules;
 pub use ludo_board_race::LudoBoardRaceRules;
 pub use mafia::MafiaRules;
@@ -470,6 +478,7 @@ pub use military_chess::MilitaryChessRules;
 pub use minesweeper_logic::MinesweeperLogicRules;
 pub use mini_chess::MiniChessRules;
 pub use mini_shogi::MiniShogiRules;
+pub use molkky_spillike::MolkkySpillikeRules;
 pub use monopoly::MonopolyRules;
 pub use monopoly_board_trade::MonopolyBoardTradeRules;
 pub use musical_chairs_play::MusicalChairsPlayRules;
@@ -530,6 +539,7 @@ pub use snap::SnapRules;
 pub use spades::SpadesRules;
 pub use speed_card::SpeedCardRules;
 pub use speed_mental_math::SpeedMentalMathRules;
+pub use spikeball_roundnet::SpikeballRoundnetRules;
 pub use splendor::SplendorRules;
 pub use splendor_variant::SplendorVariantRules;
 pub use spot_difference_visual::SpotDifferenceVisualRules;
@@ -619,6 +629,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SpikeballRoundnetRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MolkkySpillikeRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KubbGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BocceBallRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CornHoleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WingspanBirdRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
