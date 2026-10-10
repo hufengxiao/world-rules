@@ -187,6 +187,7 @@ pub mod graduation_ceremony;
 pub mod greeting;
 pub mod grocery_supermarket_etiquette;
 pub mod group_chat_netiquette;
+pub mod group_video_call_manner;
 pub mod guest_reception;
 pub mod gym_etiquette;
 pub mod gym_shared_etiquette;
@@ -220,6 +221,7 @@ pub mod lending_borrowing_manner;
 pub mod library;
 pub mod line_queue_etiquette;
 pub mod live_streaming;
+pub mod location_sharing_manner;
 pub mod mahjong_etiquette;
 pub mod market_etiquette;
 pub mod media_relations_etiquette;
@@ -245,6 +247,7 @@ pub mod office_cooperation;
 pub mod one_month_banquet;
 pub mod online;
 pub mod online_classes_etiquette;
+pub mod online_review_manner;
 pub mod parent_teacher_meeting;
 pub mod park_etiquette;
 pub mod parking_courtesy;
@@ -265,6 +268,7 @@ pub mod politely_refusing;
 pub mod potluck_etiquette;
 pub mod praise_compliment_etiquette;
 pub mod presentation_etiquette;
+pub mod private_message_courtesy;
 pub mod project_management_etiquette;
 pub mod property_management_service;
 pub mod public_speaking_etiquette;
@@ -288,6 +292,7 @@ pub mod roommate_living_manner;
 pub mod russian_etiquette;
 pub mod sales_etiquette;
 pub mod salon_etiquette;
+pub mod screenshot_privacy_manner;
 pub mod seating;
 pub mod shared_office_courtesy;
 pub mod shopping_etiquette;
@@ -481,6 +486,7 @@ pub use graduation_ceremony::GraduationCeremonyRules;
 pub use greeting::GreetingEtiquette;
 pub use grocery_supermarket_etiquette::GrocerySupermarketEtiquetteRules;
 pub use group_chat_netiquette::GroupChatNetiquetteRules;
+pub use group_video_call_manner::GroupVideoCallMannerRules;
 pub use guest_reception::GuestReceptionRules;
 pub use gym_etiquette::GymEtiquetteRules;
 pub use gym_shared_etiquette::GymSharedEtiquetteRules;
@@ -514,6 +520,7 @@ pub use lending_borrowing_manner::LendingBorrowingMannerRules;
 pub use library::LibraryEtiquette;
 pub use line_queue_etiquette::LineQueueEtiquetteRules;
 pub use live_streaming::LiveStreamingRules;
+pub use location_sharing_manner::LocationSharingMannerRules;
 pub use mahjong_etiquette::MahjongEtiquetteRules;
 pub use market_etiquette::MarketEtiquetteRules;
 pub use media_relations_etiquette::MediaRelationsEtiquetteRules;
@@ -539,6 +546,7 @@ pub use office_cooperation::OfficeCooperationRules;
 pub use one_month_banquet::OneMonthBanquetRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
+pub use online_review_manner::OnlineReviewMannerRules;
 pub use parent_teacher_meeting::ParentTeacherMeetingRules;
 pub use park_etiquette::ParkEtiquetteRules;
 pub use parking_courtesy::ParkingCourtesyRules;
@@ -559,6 +567,7 @@ pub use politely_refusing::PolitelyRefusingRules;
 pub use potluck_etiquette::PotluckEtiquetteRules;
 pub use praise_compliment_etiquette::PraiseComplimentEtiquetteRules;
 pub use presentation_etiquette::PresentationEtiquetteRules;
+pub use private_message_courtesy::PrivateMessageCourtesyRules;
 pub use project_management_etiquette::ProjectManagementEtiquetteRules;
 pub use property_management_service::PropertyManagementServiceRules;
 pub use public_speaking_etiquette::PublicSpeakingEtiquetteRules;
@@ -582,6 +591,7 @@ pub use roommate_living_manner::RoommateLivingMannerRules;
 pub use russian_etiquette::RussianEtiquetteRules;
 pub use sales_etiquette::SalesEtiquetteRules;
 pub use salon_etiquette::SalonEtiquetteRules;
+pub use screenshot_privacy_manner::ScreenshotPrivacyMannerRules;
 pub use seating::SeatingEtiquette;
 pub use shared_office_courtesy::SharedOfficeCourtesyRules;
 pub use shopping_etiquette::ShoppingEtiquetteRules;
@@ -646,6 +656,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = LocationSharingMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ScreenshotPrivacyMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OnlineReviewMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PrivateMessageCourtesyRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GroupVideoCallMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = InLawRelationshipEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
