@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "team_conflict_mediation",
+  "struct": "TeamConflictMediationRules",
+  "name": "团队冲突调解",
+  "desc": "同事间矛盾冲突时的居中调解与化解分寸",
+  "origin": "职场通用",
+  "tags": [
+    "职场",
+    "冲突",
+    "调解"
+  ],
+  "category": "RuleCategory::social(\"team_conflict_mediation\")",
+  "sections": [
+    {
+      "title": "了解情况",
+      "method": "understanding",
+      "items": [
+        "分别听取双方陈述",
+        "不偏听偏信一方",
+        "厘清事实与误会",
+        "关注诉求而非立场"
+      ]
+    },
+    {
+      "title": "居中调解",
+      "method": "mediating",
+      "items": [
+        "保持中立不站队",
+        "引导换位思考",
+        "聚焦共同目标",
+        "避免当众指责任何一方"
+      ]
+    },
+    {
+      "title": "化解方法",
+      "method": "resolution",
+      "items": [
+        "把问题与人分开谈",
+        "寻找双方可接受的方案",
+        "明确各自改进承诺",
+        "必要时请上级介入"
+      ]
+    },
+    {
+      "title": "后续跟进",
+      "method": "followup",
+      "items": [
+        "约定观察与复盘时间",
+        "私下关注双方状态",
+        "不向外传播冲突细节",
+        "防止旧怨再起"
+      ]
+    }
+  ]
+}

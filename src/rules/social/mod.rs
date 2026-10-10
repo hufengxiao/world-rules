@@ -222,6 +222,7 @@ pub mod market_etiquette;
 pub mod media_relations_etiquette;
 pub mod meeting_etiquette;
 pub mod meeting_speech_politeness;
+pub mod mentor_mentee_etiquette;
 pub mod metro_etiquette;
 pub mod mid_autumn;
 pub mod middle_east_etiquette;
@@ -248,6 +249,7 @@ pub mod party;
 pub mod party_founding_day;
 pub mod party_invitation_reply;
 pub mod pedestrian_street_etiquette;
+pub mod performance_review_etiquette;
 pub mod pet_etiquette;
 pub mod pet_outdoor_etiquette;
 pub mod pharmacy_etiquette;
@@ -270,6 +272,7 @@ pub mod quiet_ward_manner;
 pub mod reading_room_etiquette;
 pub mod reception_etiquette;
 pub mod red_envelope_etiquette;
+pub mod remote_meeting_etiquette;
 pub mod remote_work_etiquette;
 pub mod reply_promptness;
 pub mod report_to_superior;
@@ -300,6 +303,7 @@ pub mod tea;
 pub mod tea_house;
 pub mod tea_serving_etiquette;
 pub mod teachers_day;
+pub mod team_conflict_mediation;
 pub mod thai_etiquette;
 pub mod theater_performance_etiquette;
 pub mod toasting;
@@ -330,6 +334,7 @@ pub mod wine_toast_etiquette;
 pub mod womens_day;
 pub mod work_email_protocol;
 pub mod work_from_home;
+pub mod work_handover_etiquette;
 pub mod workplace;
 pub mod workplace_respect;
 pub mod yuanxiao;
@@ -506,6 +511,7 @@ pub use market_etiquette::MarketEtiquetteRules;
 pub use media_relations_etiquette::MediaRelationsEtiquetteRules;
 pub use meeting_etiquette::MeetingEtiquetteRules;
 pub use meeting_speech_politeness::MeetingSpeechPolitenessRules;
+pub use mentor_mentee_etiquette::MentorMenteeEtiquetteRules;
 pub use metro_etiquette::MetroEtiquetteRules;
 pub use mid_autumn::MidAutumnRules;
 pub use middle_east_etiquette::MiddleEastEtiquetteRules;
@@ -532,6 +538,7 @@ pub use party::PartyRules;
 pub use party_founding_day::PartyFoundingDayRules;
 pub use party_invitation_reply::PartyInvitationReplyRules;
 pub use pedestrian_street_etiquette::PedestrianStreetEtiquetteRules;
+pub use performance_review_etiquette::PerformanceReviewEtiquetteRules;
 pub use pet_etiquette::PetEtiquetteRules;
 pub use pet_outdoor_etiquette::PetOutdoorEtiquetteRules;
 pub use pharmacy_etiquette::PharmacyEtiquetteRules;
@@ -554,6 +561,7 @@ pub use quiet_ward_manner::QuietWardMannerRules;
 pub use reading_room_etiquette::ReadingRoomEtiquetteRules;
 pub use reception_etiquette::ReceptionEtiquetteRules;
 pub use red_envelope_etiquette::RedEnvelopeEtiquetteRules;
+pub use remote_meeting_etiquette::RemoteMeetingEtiquetteRules;
 pub use remote_work_etiquette::RemoteWorkEtiquetteRules;
 pub use reply_promptness::ReplyPromptnessRules;
 pub use report_to_superior::ReportToSuperiorRules;
@@ -584,6 +592,7 @@ pub use tea::{TeaCulture, TeaEtiquette};
 pub use tea_house::TeaHouseRules;
 pub use tea_serving_etiquette::TeaServingEtiquetteRules;
 pub use teachers_day::TeachersDayRules;
+pub use team_conflict_mediation::TeamConflictMediationRules;
 pub use thai_etiquette::ThaiEtiquetteRules;
 pub use theater_performance_etiquette::TheaterPerformanceEtiquetteRules;
 pub use toasting::ToastingEtiquette;
@@ -614,6 +623,7 @@ pub use wine_toast_etiquette::WineToastEtiquetteRules;
 pub use womens_day::WomensDayRules;
 pub use work_email_protocol::WorkEmailProtocolRules;
 pub use work_from_home::WorkFromHomeRules;
+pub use work_handover_etiquette::WorkHandoverEtiquetteRules;
 pub use workplace::WorkplaceRules;
 pub use workplace_respect::WorkplaceRespectRules;
 pub use yuanxiao::YuanxiaoRules;
@@ -626,6 +636,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = TeamConflictMediationRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RemoteMeetingEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MentorMenteeEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WorkHandoverEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PerformanceReviewEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ParentTeacherMeetingRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

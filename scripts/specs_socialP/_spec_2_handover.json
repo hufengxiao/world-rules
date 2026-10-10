@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "work_handover_etiquette",
+  "struct": "WorkHandoverEtiquetteRules",
+  "name": "工作交接礼仪",
+  "desc": "离岗或转岗时与接手同事的交接规范与配合分寸",
+  "origin": "职场通用",
+  "tags": [
+    "职场",
+    "交接",
+    "协作"
+  ],
+  "category": "RuleCategory::social(\"work_handover_etiquette\")",
+  "sections": [
+    {
+      "title": "交接准备",
+      "method": "preparation",
+      "items": [
+        "整理任务清单与进度",
+        "标注关键节点与风险点",
+        "归档文件统一存放位置",
+        "列出对接人与联系方式"
+      ]
+    },
+    {
+      "title": "交接沟通",
+      "method": "communication",
+      "items": [
+        "约定充足时间当面交接",
+        "逐项讲解不留遗漏",
+        "耐心解答接手方疑问",
+        "重要事项书面确认"
+      ]
+    },
+    {
+      "title": "过渡配合",
+      "method": "transition",
+      "items": [
+        "交接后留缓冲期答疑",
+        "保持联系方式畅通",
+        "不越权插手新负责人事务",
+        "被问及时如实协助"
+      ]
+    },
+    {
+      "title": "责任边界",
+      "method": "boundary",
+      "items": [
+        "交接完成须双方签字",
+        "遗留问题如实说明",
+        "不隐瞒潜在隐患",
+        "离岗后不推诿旧责"
+      ]
+    }
+  ]
+}
