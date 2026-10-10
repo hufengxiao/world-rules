@@ -207,6 +207,7 @@ pub mod prenatal_health;
 pub mod procrastination_manage;
 pub mod progressive_relaxation;
 pub mod prolonged_sitting_safety;
+pub mod prostate_health_basic;
 pub mod protein_intake_estimation;
 pub mod read_dim_light_avoid;
 pub mod respiratory_health;
@@ -219,6 +220,7 @@ pub mod seasonal_health;
 pub mod seizure_response;
 pub mod self_compassion;
 pub mod shingles_zoster_care;
+pub mod sinusitis_care;
 pub mod sit_briefly_daily;
 pub mod skin_care_rules;
 pub mod skin_health;
@@ -237,16 +239,19 @@ pub mod sun_protection;
 pub mod teen_health;
 pub mod teenage_myopia_prevent;
 pub mod thyroid_care;
+pub mod tinea_pedis_care;
 pub mod tinnitus_ringing_relief;
 pub mod toddler_health;
 pub mod toddler_introducing_solids;
 pub mod tooth_ache_care;
 pub mod travel_health;
+pub mod traveler_diarrhea_care;
 pub mod urinary_tract_infection_care;
 pub mod vaccination_rules;
 pub mod varicose_vein_relief;
 pub mod vegetarian_balanced_nutrition;
 pub mod vertigo_balance_care;
+pub mod vertigo_rehab_balance;
 pub mod vision_care;
 pub mod weight_management;
 pub mod women_health;
@@ -407,6 +412,7 @@ pub use prenatal_health::PrenatalHealthRules;
 pub use procrastination_manage::ProcrastinationManageRules;
 pub use progressive_relaxation::ProgressiveRelaxationRules;
 pub use prolonged_sitting_safety::ProlongedSittingSafetyRules;
+pub use prostate_health_basic::ProstateHealthBasicRules;
 pub use protein_intake_estimation::ProteinIntakeEstimationRules;
 pub use read_dim_light_avoid::ReadDimLightAvoidRules;
 pub use respiratory_health::RespiratoryHealthRules;
@@ -419,6 +425,7 @@ pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
 pub use self_compassion::SelfCompassionRules;
 pub use shingles_zoster_care::ShinglesZosterCareRules;
+pub use sinusitis_care::SinusitisCareRules;
 pub use sit_briefly_daily::SitBreaksDailyRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
@@ -437,16 +444,19 @@ pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
 pub use teenage_myopia_prevent::TeenageMyopiaPreventRules;
 pub use thyroid_care::ThyroidCareRules;
+pub use tinea_pedis_care::TineaPedisCareRules;
 pub use tinnitus_ringing_relief::TinnitusRingingReliefRules;
 pub use toddler_health::ToddlerHealthRules;
 pub use toddler_introducing_solids::ToddlerIntroducingSolidsRules;
 pub use tooth_ache_care::ToothAcheCareRules;
 pub use travel_health::TravelHealthRules;
+pub use traveler_diarrhea_care::TravelerDiarrheaCareRules;
 pub use urinary_tract_infection_care::UrinaryTractInfectionCareRules;
 pub use vaccination_rules::VaccinationRulesRules;
 pub use varicose_vein_relief::VaricoseVeinReliefRules;
 pub use vegetarian_balanced_nutrition::VegetarianBalancedNutritionRules;
 pub use vertigo_balance_care::VertigoBalanceCareRules;
+pub use vertigo_rehab_balance::VertigoRehabBalanceRules;
 pub use vision_care::VisionCareRules;
 pub use weight_management::WeightManagementRules;
 pub use women_health::WomenHealthRules;
@@ -460,6 +470,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = TineaPedisCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VertigoRehabBalanceRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TravelerDiarrheaCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SinusitisCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ProstateHealthBasicRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = KidneyStonePreventionRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
