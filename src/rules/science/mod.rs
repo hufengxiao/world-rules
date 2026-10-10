@@ -168,6 +168,7 @@ pub mod dew_frost_formation;
 pub mod diagnostics;
 pub mod differential_equations;
 pub mod differential_geometry;
+pub mod digestion_process_steps;
 pub mod digital_literacy;
 pub mod discrete_math;
 pub mod distributed_systems;
@@ -241,6 +242,7 @@ pub mod graph_theory;
 pub mod group_theory;
 pub mod heat_transfer_three_ways;
 pub mod history;
+pub mod hormone_feedback_loop;
 pub mod human_organ_systems;
 pub mod hydrology;
 pub mod hydrology_detailed;
@@ -300,10 +302,12 @@ pub mod module_theory;
 pub mod mold_food_safety;
 pub mod molecular_biology;
 pub mod mountain_formation;
+pub mod muscle_contraction_mech;
 pub mod music_theory;
 pub mod musicology;
 pub mod nanotechnology;
 pub mod nanotechnology_detailed;
+pub mod nerve_signal_transmission;
 pub mod nervous_system_basics;
 pub mod network_science;
 pub mod neuroscience;
@@ -374,6 +378,7 @@ pub mod quantum_mechanics_detailed;
 pub mod radar_meteorology;
 pub mod rainbow_dispersion_light;
 pub mod real_analysis;
+pub mod reflex_arc_mech;
 pub mod refrigerator_cooling_cycle;
 pub mod relativity;
 pub mod relativity_general;
@@ -807,6 +812,7 @@ pub use cooking_chemistry::CookingChemistryRules;
 pub use crystallization_diamond_graphite::CrystallizationDiamondGraphiteRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use dew_frost_formation::DewFrostFormationRules;
+pub use digestion_process_steps::DigestionProcessStepsRules;
 pub use digital_literacy::DigitalLiteracyRules;
 pub use dna_genetics_basics::DnaGeneticsBasicsRules;
 pub use earth_rotation_facts::EarthRotationFactsRules;
@@ -822,6 +828,7 @@ pub use food_preservation_refrig::FoodPreservationRefrigRules;
 pub use geomorphology_detailed::GeomorphologyDetailedRules;
 pub use gis_detailed::GISDetailedRules;
 pub use heat_transfer_three_ways::HeatTransferThreeWaysRules;
+pub use hormone_feedback_loop::HormoneFeedbackLoopRules;
 pub use human_organ_systems::HumanOrganSystemsRules;
 pub use hydrology_detailed::HydrologyDetailedRules;
 pub use immune_system_basics::ImmuneSystemBasicsRules;
@@ -837,6 +844,8 @@ pub use microwave_heating_food::MicrowaveHeatingFoodRules;
 pub use mirage_refraction::MirageRefractionRules;
 pub use mold_food_safety::MoldFoodSafetyRules;
 pub use mountain_formation::MountainFormationRules;
+pub use muscle_contraction_mech::MuscleContractionMechRules;
+pub use nerve_signal_transmission::NerveSignalTransmissionRules;
 pub use nervous_system_basics::NervousSystemBasicsRules;
 pub use ocean_tide_cycle::OceanTideCycleRules;
 pub use ocean_waves::OceanWavesRules;
@@ -845,6 +854,7 @@ pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use pressure_cooker_physics::PressureCookerPhysicsRules;
 pub use quantum_basics::QuantumBasicsRules;
 pub use rainbow_dispersion_light::RainbowDispersionLightRules;
+pub use reflex_arc_mech::ReflexArcMechRules;
 pub use refrigerator_cooling_cycle::RefrigeratorCoolingCycleRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use renewable_energy_basics::RenewableEnergyBasicsRules;
@@ -881,6 +891,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ReflexArcMechRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DigestionProcessStepsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HormoneFeedbackLoopRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NerveSignalTransmissionRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MuscleContractionMechRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CapillaryActionDailyRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
