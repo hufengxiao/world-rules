@@ -77,6 +77,7 @@ pub mod arithmetic_command_game;
 pub mod azul;
 pub mod baccarat;
 pub mod backgammon;
+pub mod banqi_dark_chess;
 pub mod battleship_board_ship;
 pub mod big_two;
 pub mod blackjack;
@@ -111,7 +112,10 @@ pub mod chaturanga;
 pub mod checkers;
 pub mod chess960;
 pub mod chess960_detailed;
+pub mod chess_antichess;
+pub mod chess_atomic;
 pub mod chess_detailed;
+pub mod chess_king_of_hill;
 pub mod chinese_checkers;
 pub mod chinese_chess_opening;
 pub mod civilization;
@@ -133,6 +137,7 @@ pub mod domino_detailed;
 pub mod dots_and_boxes;
 pub mod dou_di_zhu_basics;
 pub mod doudizhu;
+pub mod doushouqi;
 pub mod euchre;
 pub mod euchre_detailed;
 pub mod fan_tan;
@@ -312,6 +317,7 @@ pub use arithmetic_command_game::ArithmeticCommandGameRules;
 pub use azul::AzulRules;
 pub use baccarat::BaccaratRules;
 pub use backgammon::BackgammonRules;
+pub use banqi_dark_chess::BanqiDarkChessRules;
 pub use battleship_board_ship::BattleshipBoardShipRules;
 pub use big_two::BigTwoRules;
 pub use blackjack::BlackjackRules;
@@ -348,7 +354,10 @@ pub use chaturanga::ChaturangaRules;
 pub use checkers::CheckersRules;
 pub use chess960::Chess960Rules;
 pub use chess960_detailed::Chess960DetailedRules;
+pub use chess_antichess::ChessAntichessRules;
+pub use chess_atomic::ChessAtomicRules;
 pub use chess_detailed::ChessDetailedRules;
+pub use chess_king_of_hill::ChessKingOfHillRules;
 pub use chinese_checkers::ChineseCheckersRules;
 pub use chinese_chess_opening::ChineseChessOpeningRules;
 pub use civilization::CivilizationRules;
@@ -370,6 +379,7 @@ pub use domino_detailed::DominoDetailedRules;
 pub use dots_and_boxes::DotsAndBoxesRules;
 pub use dou_di_zhu_basics::DouDiZhuBasicsRules;
 pub use doudizhu::DouDiZhuRules;
+pub use doushouqi::DoushouqiRules;
 pub use euchre::EuchreRules;
 pub use euchre_detailed::EuchreDetailedRules;
 pub use fan_tan::FanTanRules;
@@ -579,6 +589,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DoushouqiRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BanqiDarkChessRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChessKingOfHillRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChessAtomicRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChessAntichessRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = MahjongHubeiRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
