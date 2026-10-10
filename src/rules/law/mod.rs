@@ -79,9 +79,11 @@ pub mod escrow_transaction_law;
 pub mod esports_contract_law;
 pub mod evidence_preservation;
 pub mod evidence_retention_claim;
+pub mod flight_delay_compensation_law;
 pub mod food_hygiene_safe;
 pub mod fraud_prevention_basics;
 pub mod gym_membership_contract;
+pub mod home_renovation_law;
 pub mod identity_fraud_protection;
 pub mod inheritance;
 pub mod inheritance_basics;
@@ -116,6 +118,7 @@ pub mod probation_period_rules;
 pub mod product_defect_recall;
 pub mod property_management_fee;
 pub mod public_info_disclosure;
+pub mod rental_deposit_return_law;
 pub mod rental_lease_basics;
 pub mod resignation_procedure;
 pub mod return_exchange_warranty;
@@ -203,6 +206,8 @@ pub mod foreign_investment;
 pub mod children_protection;
 pub mod disability_protection;
 pub mod elderly_protection;
+pub mod water_leak_dispute_law;
+pub mod wedding_service_dispute_law;
 pub mod will_estate_planning;
 pub mod women_protection;
 
@@ -665,6 +670,7 @@ pub use evidence_preservation::EvidencePreservationRules;
 pub use evidence_retention_claim::EvidenceRetentionClaimRules;
 pub use family_violence::FamilyViolenceRules;
 pub use financial_regulation_deep::FinancialRegulationDeepRules;
+pub use flight_delay_compensation_law::FlightDelayCompensationLawRules;
 pub use food_hygiene_safe::FoodHygieneSafeRules;
 pub use food_safety_detailed::FoodSafetyDetailedRules;
 pub use food_safety_detailed2::FoodSafetyDetailed2Rules;
@@ -678,6 +684,7 @@ pub use gene_editing_law::GeneEditingLawRules;
 pub use german_company_law::GermanCompanyLawRules;
 pub use gym_membership_contract::GymMembershipContractRules;
 pub use hague_convention::HagueConventionRules;
+pub use home_renovation_law::HomeRenovationLawRules;
 pub use housing_fund_law::HousingFundLawRules;
 pub use humanitarian_law::HumanitarianLawRules;
 pub use icc_law::IccLawRules;
@@ -776,6 +783,7 @@ pub use public_info_disclosure::PublicInfoDisclosureRules;
 pub use public_interest_litigation::PublicInterestLitigationRules;
 pub use real_estate_detailed::RealEstateDetailedRules;
 pub use real_estate_law_detailed::RealEstateLawDetailedRules;
+pub use rental_deposit_return_law::RentalDepositReturnLawRules;
 pub use rental_lease_basics::RentalLeaseBasicsRules;
 pub use resignation_procedure::ResignationProcedureRules;
 pub use return_exchange_warranty::ReturnExchangeWarrantyRules;
@@ -816,6 +824,8 @@ pub use victim_protection_deep::VictimProtectionDeepRules;
 pub use victim_rights::VictimRightsRules;
 pub use warranty_claims::WarrantyClaimsRules;
 pub use water_detailed::WaterDetailedRules;
+pub use water_leak_dispute_law::WaterLeakDisputeLawRules;
+pub use wedding_service_dispute_law::WeddingServiceDisputeLawRules;
 pub use whistleblower_protection::WhistleblowerProtectionRules;
 pub use wildlife_protection_law::WildlifeProtectionLawRules;
 pub use will_estate_planning::WillEstatePlanningRules;
@@ -832,6 +842,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WeddingServiceDisputeLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FlightDelayCompensationLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RentalDepositReturnLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WaterLeakDisputeLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HomeRenovationLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ShortVideoCopyrightLawRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
