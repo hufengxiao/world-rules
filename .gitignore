@@ -3,6 +3,9 @@ __pycache__/
 world-rules.html
 world-rules.md
 
+# 规则生成临时 spec 目录（仅本地生成用，不入库）
+scripts/specs_*/
+
 # Benchmark results (keep directory but ignore contents)
 .bench-results/*
 !.bench-results/.gitkeep
