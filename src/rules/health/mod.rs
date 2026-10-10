@@ -73,6 +73,7 @@ pub mod bloating_gas;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
+pub mod breastfeeding_troubleshoot;
 pub mod brushing_technique_bass;
 pub mod burn_scalding_aid;
 pub mod burnout_prevention;
@@ -188,6 +189,7 @@ pub mod lymphedema_care;
 pub mod memory_brain_training;
 pub mod men_health;
 pub mod menopause_health;
+pub mod menstrual_irregular_care;
 pub mod mental_health;
 pub mod mental_wellness;
 pub mod migraine_management;
@@ -196,6 +198,7 @@ pub mod mindfulness_basics;
 pub mod minor_cut_disinfection;
 pub mod mobility_aid_walker;
 pub mod mood_diary;
+pub mod morning_sickness_relief;
 pub mod motion_sickness_prevent;
 pub mod motion_sickness_relief;
 pub mod muscle_stretch_routine;
@@ -218,10 +221,12 @@ pub mod outdoor_time_eye_health;
 pub mod panic_attack_care;
 pub mod parkinson_care_basic;
 pub mod plantar_fasciitis_care;
+pub mod postpartum_depression_help;
 pub mod postpartum_health;
 pub mod postpartum_mother_care;
 pub mod postpartum_recovery;
 pub mod posture_rules;
+pub mod pregnancy_nutrition;
 pub mod pregnancy_prenatal;
 pub mod premenstrual_syndrome_care;
 pub mod prenatal_health;
@@ -303,6 +308,7 @@ pub use bloating_gas::BloatingGasRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
+pub use breastfeeding_troubleshoot::BreastfeedingTroubleshootRules;
 pub use brushing_technique_bass::BrushingTechniqueBassRules;
 pub use burn_scalding_aid::BurnScaldingAidRules;
 pub use burnout_prevention::BurnoutPreventionRules;
@@ -418,6 +424,7 @@ pub use lymphedema_care::LymphedemaCareRules;
 pub use memory_brain_training::MemoryBrainTrainingRules;
 pub use men_health::MenHealthRules;
 pub use menopause_health::MenopauseHealthRules;
+pub use menstrual_irregular_care::MenstrualIrregularCareRules;
 pub use mental_health::MentalHealthRules;
 pub use mental_wellness::MentalWellnessRules;
 pub use migraine_management::MigraineManagementRules;
@@ -426,6 +433,7 @@ pub use mindfulness_basics::MindfulnessBasicsRules;
 pub use minor_cut_disinfection::MinorCutDisinfectionRules;
 pub use mobility_aid_walker::MobilityAidWalkerRules;
 pub use mood_diary::MoodDiaryRules;
+pub use morning_sickness_relief::MorningSicknessReliefRules;
 pub use motion_sickness_prevent::MotionSicknessPreventRules;
 pub use motion_sickness_relief::MotionSicknessReliefRules;
 pub use muscle_stretch_routine::MuscleStretchRoutineRules;
@@ -448,10 +456,12 @@ pub use outdoor_time_eye_health::OutdoorTimeEyeHealthRules;
 pub use panic_attack_care::PanicAttackCareRules;
 pub use parkinson_care_basic::ParkinsonCareBasicRules;
 pub use plantar_fasciitis_care::PlantarFasciitisCareRules;
+pub use postpartum_depression_help::PostpartumDepressionHelpRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use postpartum_mother_care::PostpartumMotherCareRules;
 pub use postpartum_recovery::PostpartumRecoveryRules;
 pub use posture_rules::PostureRulesRules;
+pub use pregnancy_nutrition::PregnancyNutritionRules;
 pub use pregnancy_prenatal::PregnancyPrenatalRules;
 pub use premenstrual_syndrome_care::PremenstrualSyndromeCareRules;
 pub use prenatal_health::PrenatalHealthRules;
@@ -520,6 +530,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = MenstrualIrregularCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BreastfeedingTroubleshootRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PostpartumDepressionHelpRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MorningSicknessReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PregnancyNutritionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SocialAnxietyCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
