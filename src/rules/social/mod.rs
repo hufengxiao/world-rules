@@ -194,6 +194,7 @@ pub mod gym_shared_etiquette;
 pub mod high_speed_rail_manner;
 pub mod hospital_etiquette;
 pub mod hosting_dinner_party;
+pub mod hot_spring_etiquette;
 pub mod hotel_stay_etiquette;
 pub mod hotel_stay_manner;
 pub mod housewarming_etiquette;
@@ -218,6 +219,7 @@ pub mod korean_cuisine;
 pub mod korean_etiquette;
 pub mod labor_day;
 pub mod lantern_festival_etiquette;
+pub mod laundry_room_manner;
 pub mod leadership_etiquette;
 pub mod lending_borrowing_manner;
 pub mod library;
@@ -250,6 +252,7 @@ pub mod one_month_banquet;
 pub mod online;
 pub mod online_classes_etiquette;
 pub mod online_review_manner;
+pub mod package_delivery_manner;
 pub mod parent_teacher_meeting;
 pub mod park_etiquette;
 pub mod parking_courtesy;
@@ -294,6 +297,7 @@ pub mod roommate_living_manner;
 pub mod russian_etiquette;
 pub mod sales_etiquette;
 pub mod salon_etiquette;
+pub mod sauna_etiquette;
 pub mod screenshot_privacy_manner;
 pub mod seating;
 pub mod shared_office_courtesy;
@@ -321,6 +325,7 @@ pub mod theater_performance_etiquette;
 pub mod toasting;
 pub mod trade_show_etiquette;
 pub mod train;
+pub mod trash_sorting_manner;
 pub mod travel_buddy_manners;
 pub mod travel_companion;
 pub mod turkish_etiquette;
@@ -498,6 +503,7 @@ pub use gym_shared_etiquette::GymSharedEtiquetteRules;
 pub use high_speed_rail_manner::HighSpeedRailMannerRules;
 pub use hospital_etiquette::HospitalEtiquetteRules;
 pub use hosting_dinner_party::HostingDinnerPartyRules;
+pub use hot_spring_etiquette::HotSpringEtiquetteRules;
 pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
 pub use hotel_stay_manner::HotelStayMannerRules;
 pub use housewarming_etiquette::HousewarmingEtiquetteRules;
@@ -522,6 +528,7 @@ pub use korean_cuisine::KoreanCuisineRules;
 pub use korean_etiquette::KoreanEtiquetteRules;
 pub use labor_day::LaborDayRules;
 pub use lantern_festival_etiquette::LanternFestivalEtiquetteRules;
+pub use laundry_room_manner::LaundryRoomMannerRules;
 pub use leadership_etiquette::LeadershipEtiquetteRules;
 pub use lending_borrowing_manner::LendingBorrowingMannerRules;
 pub use library::LibraryEtiquette;
@@ -554,6 +561,7 @@ pub use one_month_banquet::OneMonthBanquetRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
 pub use online_review_manner::OnlineReviewMannerRules;
+pub use package_delivery_manner::PackageDeliveryMannerRules;
 pub use parent_teacher_meeting::ParentTeacherMeetingRules;
 pub use park_etiquette::ParkEtiquetteRules;
 pub use parking_courtesy::ParkingCourtesyRules;
@@ -598,6 +606,7 @@ pub use roommate_living_manner::RoommateLivingMannerRules;
 pub use russian_etiquette::RussianEtiquetteRules;
 pub use sales_etiquette::SalesEtiquetteRules;
 pub use salon_etiquette::SalonEtiquetteRules;
+pub use sauna_etiquette::SaunaEtiquetteRules;
 pub use screenshot_privacy_manner::ScreenshotPrivacyMannerRules;
 pub use seating::SeatingEtiquette;
 pub use shared_office_courtesy::SharedOfficeCourtesyRules;
@@ -625,6 +634,7 @@ pub use theater_performance_etiquette::TheaterPerformanceEtiquetteRules;
 pub use toasting::ToastingEtiquette;
 pub use trade_show_etiquette::TradeShowEtiquetteRules;
 pub use train::TrainEtiquette;
+pub use trash_sorting_manner::TrashSortingMannerRules;
 pub use travel_buddy_manners::TravelBuddyMannersRules;
 pub use travel_companion::TravelCompanionRules;
 pub use turkish_etiquette::TurkishEtiquetteRules;
@@ -666,6 +676,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = TrashSortingMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PackageDeliveryMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LaundryRoomMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SaunaEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HotSpringEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = IndonesianEtiquetteRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
