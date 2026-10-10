@@ -65,6 +65,7 @@ pub mod baby_sleep_safety;
 pub mod balanced_breakfast;
 pub mod balanced_diet_plan;
 pub mod balanced_diet_plate;
+pub mod bed_sore_prevention;
 pub mod bedtime_ritual;
 pub mod bleeding_control_bandage;
 pub mod blister_care;
@@ -78,6 +79,7 @@ pub mod calcium_bone_health;
 pub mod callus_corn_foot;
 pub mod cancer_prevention;
 pub mod caregiver_stress_manage;
+pub mod cataract_post_op_care;
 pub mod chapped_lip_care;
 pub mod child_vaccination_schedule;
 pub mod children_health;
@@ -168,6 +170,7 @@ pub mod leg_cramp_relief;
 pub mod liver_health;
 pub mod loneliness_connection;
 pub mod lumbar_spine_protection;
+pub mod lymphedema_care;
 pub mod memory_brain_training;
 pub mod men_health;
 pub mod menopause_health;
@@ -197,6 +200,7 @@ pub mod oral_health;
 pub mod oral_ulcer_care;
 pub mod osteoporosis_walking_safe;
 pub mod outdoor_time_eye_health;
+pub mod parkinson_care_basic;
 pub mod postpartum_health;
 pub mod postpartum_mother_care;
 pub mod postpartum_recovery;
@@ -211,6 +215,7 @@ pub mod prostate_health_basic;
 pub mod protein_intake_estimation;
 pub mod read_dim_light_avoid;
 pub mod respiratory_health;
+pub mod restless_leg_care;
 pub mod salt_control_daily;
 pub mod scalds_burns;
 pub mod screen_eye_distance_rule;
@@ -270,6 +275,7 @@ pub use baby_sleep_safety::BabySleepSafetyRules;
 pub use balanced_breakfast::BalancedBreakfastRules;
 pub use balanced_diet_plan::BalancedDietPlanRules;
 pub use balanced_diet_plate::BalancedDietPlateRules;
+pub use bed_sore_prevention::BedSorePreventionRules;
 pub use bedtime_ritual::BedtimeRitualRules;
 pub use bleeding_control_bandage::BleedingControlBandageRules;
 pub use blister_care::BlisterCareRules;
@@ -283,6 +289,7 @@ pub use calcium_bone_health::CalciumBoneHealthRules;
 pub use callus_corn_foot::CallusCornFootRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use caregiver_stress_manage::CaregiverStressManageRules;
+pub use cataract_post_op_care::CataractPostOpCareRules;
 pub use chapped_lip_care::ChappedLipCareRules;
 pub use child_vaccination_schedule::ChildVaccinationScheduleRules;
 pub use children_health::ChildrenHealthRules;
@@ -373,6 +380,7 @@ pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
 pub use loneliness_connection::LonelinessConnectionRules;
 pub use lumbar_spine_protection::LumbarSpineProtectionRules;
+pub use lymphedema_care::LymphedemaCareRules;
 pub use memory_brain_training::MemoryBrainTrainingRules;
 pub use men_health::MenHealthRules;
 pub use menopause_health::MenopauseHealthRules;
@@ -402,6 +410,7 @@ pub use oral_health::OralHealthRules;
 pub use oral_ulcer_care::OralUlcerCareRules;
 pub use osteoporosis_walking_safe::OsteoporosisWalkingSafeRules;
 pub use outdoor_time_eye_health::OutdoorTimeEyeHealthRules;
+pub use parkinson_care_basic::ParkinsonCareBasicRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use postpartum_mother_care::PostpartumMotherCareRules;
 pub use postpartum_recovery::PostpartumRecoveryRules;
@@ -416,6 +425,7 @@ pub use prostate_health_basic::ProstateHealthBasicRules;
 pub use protein_intake_estimation::ProteinIntakeEstimationRules;
 pub use read_dim_light_avoid::ReadDimLightAvoidRules;
 pub use respiratory_health::RespiratoryHealthRules;
+pub use restless_leg_care::RestlessLegCareRules;
 pub use salt_control_daily::SaltControlDailyRules;
 pub use scalds_burns::ScaldBurnCareRules;
 pub use screen_eye_distance_rule::ScreenEyeDistanceRuleRules;
@@ -470,6 +480,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ParkinsonCareBasicRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RestlessLegCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BedSorePreventionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LymphedemaCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CataractPostOpCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = TineaPedisCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

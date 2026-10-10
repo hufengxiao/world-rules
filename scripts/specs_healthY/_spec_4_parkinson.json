@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "parkinson_care_basic",
+  "struct": "ParkinsonCareBasicRules",
+  "name": "帕金森日常照护",
+  "desc": "帕金森病患者的日常照护规则，包括用药管理、运动康复、居家安全与情绪支持，提升生活质量与自理能力。",
+  "origin": "神经内科与老年照护实践建议",
+  "tags": [
+    "健康",
+    "神经",
+    "老年",
+    "照护"
+  ],
+  "category": "RuleCategory::health(\"parkinson\")",
+  "sections": [
+    {
+      "title": "用药管理",
+      "method": "medication",
+      "items": [
+        "严格按时按量服药",
+        "不可自行增减或停药",
+        "记录药效波动情况",
+        "定期复诊调整方案"
+      ]
+    },
+    {
+      "title": "运动康复",
+      "method": "exercise",
+      "items": [
+        "坚持适度关节活动训练",
+        "练习平衡与步态改善",
+        "做面部与言语练习",
+        "量力而行循序渐进"
+      ]
+    },
+    {
+      "title": "居家安全",
+      "method": "safety",
+      "items": [
+        "通道通畅移除绊脚物",
+        "浴室加装扶手防跌倒",
+        "穿防滑鞋避免拖鞋",
+        "起步转身放慢动作"
+      ]
+    },
+    {
+      "title": "情绪与支持",
+      "method": "support",
+      "items": [
+        "耐心沟通不催促",
+        "鼓励参与社交活动",
+        "关注情绪变化防抑郁",
+        "家属学习照护知识"
+      ]
+    }
+  ]
+}
