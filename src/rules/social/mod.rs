@@ -200,6 +200,7 @@ pub mod housewarming_etiquette;
 pub mod housewarming_gift;
 pub mod in_law_relationship_etiquette;
 pub mod indian_etiquette;
+pub mod indonesian_etiquette;
 pub mod international_conference;
 pub mod international_gift;
 pub mod international_greeting;
@@ -208,6 +209,7 @@ pub mod internship_etiquette;
 pub mod interrupting_politely;
 pub mod interview;
 pub mod investor_relations_etiquette;
+pub mod italian_etiquette;
 pub mod japanese_cuisine;
 pub mod japanese_etiquette;
 pub mod job_offer_negotiation_etiquette;
@@ -299,6 +301,7 @@ pub mod shopping_etiquette;
 pub mod sick_visit_gift_note;
 pub mod smoking;
 pub mod social_media_etiquette;
+pub mod spanish_etiquette;
 pub mod spring_festival_visit;
 pub mod station_hall_manner;
 pub mod study_group_etiquette;
@@ -320,8 +323,10 @@ pub mod trade_show_etiquette;
 pub mod train;
 pub mod travel_buddy_manners;
 pub mod travel_companion;
+pub mod turkish_etiquette;
 pub mod umbrella_etiquette;
 pub mod vegan_etiquette;
+pub mod vietnamese_etiquette;
 pub mod vip_etiquette;
 pub mod visit_patient_hospital;
 pub mod voice_call_courtesy;
@@ -499,6 +504,7 @@ pub use housewarming_etiquette::HousewarmingEtiquetteRules;
 pub use housewarming_gift::HousewarmingGiftRules;
 pub use in_law_relationship_etiquette::InLawRelationshipEtiquetteRules;
 pub use indian_etiquette::IndianEtiquetteRules;
+pub use indonesian_etiquette::IndonesianEtiquetteRules;
 pub use international_conference::InternationalConferenceRules;
 pub use international_gift::InternationalGiftRules;
 pub use international_greeting::InternationalGreetingRules;
@@ -507,6 +513,7 @@ pub use internship_etiquette::InternshipEtiquetteRules;
 pub use interrupting_politely::InterruptingPolitelyRules;
 pub use interview::InterviewEtiquette;
 pub use investor_relations_etiquette::InvestorRelationsEtiquetteRules;
+pub use italian_etiquette::ItalianEtiquetteRules;
 pub use japanese_cuisine::JapaneseCuisineRules;
 pub use japanese_etiquette::JapaneseEtiquetteRules;
 pub use job_offer_negotiation_etiquette::JobOfferNegotiationEtiquetteRules;
@@ -598,6 +605,7 @@ pub use shopping_etiquette::ShoppingEtiquetteRules;
 pub use sick_visit_gift_note::SickVisitGiftNoteRules;
 pub use smoking::SmokingRules;
 pub use social_media_etiquette::SocialMediaEtiquetteRules;
+pub use spanish_etiquette::SpanishEtiquetteRules;
 pub use spring_festival_visit::SpringFestivalVisitRules;
 pub use station_hall_manner::StationHallMannerRules;
 pub use study_group_etiquette::StudyGroupEtiquetteRules;
@@ -619,8 +627,10 @@ pub use trade_show_etiquette::TradeShowEtiquetteRules;
 pub use train::TrainEtiquette;
 pub use travel_buddy_manners::TravelBuddyMannersRules;
 pub use travel_companion::TravelCompanionRules;
+pub use turkish_etiquette::TurkishEtiquetteRules;
 pub use umbrella_etiquette::UmbrellaEtiquetteRules;
 pub use vegan_etiquette::VeganEtiquetteRules;
+pub use vietnamese_etiquette::VietnameseEtiquetteRules;
 pub use vip_etiquette::VipEtiquetteRules;
 pub use visit_patient_hospital::VisitPatientHospitalRules;
 pub use voice_call_courtesy::VoiceCallCourtesyRules;
@@ -656,6 +666,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = IndonesianEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = VietnameseEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TurkishEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ItalianEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SpanishEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = LocationSharingMannerRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
