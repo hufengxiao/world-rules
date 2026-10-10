@@ -122,6 +122,7 @@ pub mod crossword_fill_in;
 pub mod dark_chess;
 pub mod dice_game;
 pub mod dice_game_quantum;
+pub mod dixit_storytelling;
 pub mod dominion;
 pub mod domino;
 pub mod domino_detailed;
@@ -206,6 +207,7 @@ pub mod pair_go;
 pub mod pandemic;
 pub mod pao_de_kuai;
 pub mod party_game;
+pub mod pentago_twist;
 pub mod pictionary;
 pub mod pinochle;
 pub mod poker_bluffing;
@@ -216,6 +218,7 @@ pub mod power_grid;
 pub mod puerto_rico;
 pub mod pyramid_solitaire;
 pub mod quarto;
+pub mod quoridor_maze_race;
 pub mod railway_tycoon;
 pub mod red_light_green;
 pub mod reversi;
@@ -225,8 +228,10 @@ pub mod risk;
 pub mod rpg;
 pub mod rubiks_cube;
 pub mod rummy_detailed;
+pub mod santorini_build;
 pub mod scrabble;
 pub mod script_kill_game;
+pub mod senet_egypt;
 pub mod set_card_matching;
 pub mod seven_wonders;
 pub mod sheng_ji;
@@ -334,6 +339,7 @@ pub use crossword_fill_in::CrosswordFillInRules;
 pub use dark_chess::DarkChessRules;
 pub use dice_game::DiceGameRules;
 pub use dice_game_quantum::DiceGameQuantumRules;
+pub use dixit_storytelling::DixitStorytellingRules;
 pub use dominion::DominionRules;
 pub use domino::DominoRules;
 pub use domino_detailed::DominoDetailedRules;
@@ -418,6 +424,7 @@ pub use pair_go::PairGoRules;
 pub use pandemic::PandemicRules;
 pub use pao_de_kuai::PaoDeKuaiRules;
 pub use party_game::PartyGameRules;
+pub use pentago_twist::PentagoTwistRules;
 pub use pictionary::PictionaryRules;
 pub use pinochle::PinochleRules;
 pub use poker_bluffing::PokerBluffingRules;
@@ -428,6 +435,7 @@ pub use power_grid::PowerGridRules;
 pub use puerto_rico::PuertoRicoRules;
 pub use pyramid_solitaire::PyramidSolitaireRules;
 pub use quarto::QuartoRules;
+pub use quoridor_maze_race::QuoridorMazeRaceRules;
 pub use railway_tycoon::RailwayTycoonRules;
 pub use red_light_green::RedLightGreenRules;
 pub use reversi::ReversiRules;
@@ -436,8 +444,10 @@ pub use riddle_lantern_festival::RiddleLanternFestivalRules;
 pub use risk::RiskRules;
 pub use rubiks_cube::{CubeType, RubiksCubeRules};
 pub use rummy_detailed::RummyDetailedRules;
+pub use santorini_build::SantoriniBuildRules;
 pub use scrabble::ScrabbleRules;
 pub use script_kill_game::ScriptKillGameRules;
+pub use senet_egypt::SenetEgyptRules;
 pub use set_card_matching::SetCardMatchingRules;
 pub use seven_wonders::SevenWondersRules;
 pub use sheng_ji::ShengJiRules;
@@ -529,6 +539,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = DixitStorytellingRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SantoriniBuildRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = QuoridorMazeRaceRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PentagoTwistRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SenetEgyptRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = TelestrationsDrawRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));

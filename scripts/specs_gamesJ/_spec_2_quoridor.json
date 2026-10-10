@@ -1,0 +1,57 @@
+{
+  "cat": "games",
+  "file": "quoridor_maze_race",
+  "struct": "QuoridorMazeRaceRules",
+  "name": "隔离棋（Quoridor）",
+  "desc": "Quoridor 是两人竞速棋，玩家每回合选择移动己方棋子或放置挡板阻挠对手，先让自己的棋子抵达对方底线者获胜。",
+  "origin": "由 Mirko Marchesi 于1997年设计",
+  "tags": [
+    "棋类",
+    "对战",
+    "迷宫",
+    "桌面游戏"
+  ],
+  "category": "RuleCategory::games(\"quoridor\")",
+  "sections": [
+    {
+      "title": "棋盘与棋子",
+      "method": "board",
+      "items": [
+        "棋盘为九乘九格点阵",
+        "双方各一枚棋子从底线出发",
+        "每人持有十块挡板",
+        "目标为抵达对方底线"
+      ]
+    },
+    {
+      "title": "回合行动",
+      "method": "action",
+      "items": [
+        "每回合二选一行动",
+        "移动己方棋子一格",
+        "或放置一块挡板",
+        "行动后轮到对手"
+      ]
+    },
+    {
+      "title": "移动与挡板",
+      "method": "moving",
+      "items": [
+        "棋子可前后左右移动一格",
+        "不可穿越挡板",
+        "正面对峙时可斜跳越过",
+        "挡板横竖放置阻隔两格间通行"
+      ]
+    },
+    {
+      "title": "限制与胜负",
+      "method": "winning",
+      "items": [
+        "挡板不得完全封死对手通路",
+        "挡板用尽后只能移动",
+        "先抵达对方底线者胜",
+        "无法移动则判负"
+      ]
+    }
+  ]
+}
