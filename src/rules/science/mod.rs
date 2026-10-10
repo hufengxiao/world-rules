@@ -82,6 +82,7 @@ pub mod atomic_physics;
 pub mod aurora_borealis_science;
 pub mod aviation_meteorology;
 pub mod bacteria_hygiene;
+pub mod battery_chemistry;
 pub mod behavioral_economics;
 pub mod bilinear_algebra;
 pub mod biochemistry;
@@ -106,6 +107,7 @@ pub mod cancer_biology;
 pub mod capillary_action_daily;
 pub mod carbon_cycle;
 pub mod carbon_footprint_low_carbon;
+pub mod catalyst_action;
 pub mod category_theory;
 pub mod celestial_mechanics;
 pub mod cell_biology;
@@ -113,6 +115,7 @@ pub mod cell_biology_detailed;
 pub mod chaos_theory;
 pub mod chemical_engineering;
 pub mod chemical_engineering_detailed;
+pub mod chemical_equilibrium;
 pub mod chemistry;
 pub mod circuit_theory;
 pub mod civil_engineering;
@@ -142,6 +145,7 @@ pub mod control_engineering_detailed;
 pub mod control_theory;
 pub mod cooking_boiling_science;
 pub mod cooking_chemistry;
+pub mod corrosion_rust;
 pub mod cosmology;
 pub mod cosmology_detailed;
 pub mod cryptography;
@@ -336,6 +340,7 @@ pub mod optics_detailed;
 pub mod optimization;
 pub mod organic_chemistry;
 pub mod organizational_behavior;
+pub mod oxidation_reduction;
 pub mod paleontology;
 pub mod paleontology_detailed;
 pub mod paleontology_earth;
@@ -799,16 +804,20 @@ pub use acid_base_ph_scale::AcidBasePhScaleRules;
 pub use air_pressure_weather::AirPressureWeatherRules;
 pub use aurora_borealis_science::AuroraBorealisScienceRules;
 pub use bacteria_hygiene::BacteriaHygieneRules;
+pub use battery_chemistry::BatteryChemistryRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use buoyancy_floating::BuoyancyFloatingRules;
 pub use capillary_action_daily::CapillaryActionDailyRules;
 pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
+pub use catalyst_action::CatalystActionRules;
+pub use chemical_equilibrium::ChemicalEquilibriumRules;
 pub use cleaning_agent_safety::CleaningAgentSafetyRules;
 pub use climate_change_facts::ClimateChangeFactsRules;
 pub use climatology_detailed::ClimatologyDetailedRules;
 pub use combustion_conditions_triangle::CombustionConditionsTriangleRules;
 pub use cooking_boiling_science::CookingBoilingScienceRules;
 pub use cooking_chemistry::CookingChemistryRules;
+pub use corrosion_rust::CorrosionRustRules;
 pub use crystallization_diamond_graphite::CrystallizationDiamondGraphiteRules;
 pub use cultural_geography_detailed::CulturalGeographyDetailedRules;
 pub use dew_frost_formation::DewFrostFormationRules;
@@ -849,6 +858,7 @@ pub use nerve_signal_transmission::NerveSignalTransmissionRules;
 pub use nervous_system_basics::NervousSystemBasicsRules;
 pub use ocean_tide_cycle::OceanTideCycleRules;
 pub use ocean_waves::OceanWavesRules;
+pub use oxidation_reduction::OxidationReductionRules;
 pub use plastic_recycling_basics::PlasticRecyclingBasicsRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
 pub use pressure_cooker_physics::PressureCookerPhysicsRules;
@@ -891,6 +901,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CatalystActionRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChemicalEquilibriumRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CorrosionRustRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BatteryChemistryRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OxidationReductionRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ReflexArcMechRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
