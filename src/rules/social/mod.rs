@@ -165,6 +165,7 @@ pub mod email;
 pub mod emoji_sticker_use;
 pub mod escalator_etiquette;
 pub mod escape_room_manner;
+pub mod family_reunion_dinner_etiquette;
 pub mod farewell_leaving_party;
 pub mod festival;
 pub mod festival_family_gathering;
@@ -196,6 +197,7 @@ pub mod hotel_stay_etiquette;
 pub mod hotel_stay_manner;
 pub mod housewarming_etiquette;
 pub mod housewarming_gift;
+pub mod in_law_relationship_etiquette;
 pub mod indian_etiquette;
 pub mod international_conference;
 pub mod international_gift;
@@ -212,6 +214,7 @@ pub mod karaoke_etiquette;
 pub mod korean_cuisine;
 pub mod korean_etiquette;
 pub mod labor_day;
+pub mod lantern_festival_etiquette;
 pub mod leadership_etiquette;
 pub mod lending_borrowing_manner;
 pub mod library;
@@ -239,6 +242,7 @@ pub mod new_year_day;
 pub mod nursing_home_visit;
 pub mod offering_advice_tact;
 pub mod office_cooperation;
+pub mod one_month_banquet;
 pub mod online;
 pub mod online_classes_etiquette;
 pub mod parent_teacher_meeting;
@@ -331,6 +335,7 @@ pub mod western_meal_etiquette;
 pub mod wine_pouring_method;
 pub mod wine_tasting;
 pub mod wine_toast_etiquette;
+pub mod winter_solstice_gathering;
 pub mod womens_day;
 pub mod work_email_protocol;
 pub mod work_from_home;
@@ -454,6 +459,7 @@ pub use email::EmailEtiquette;
 pub use emoji_sticker_use::EmojiStickerUseRules;
 pub use escalator_etiquette::EscalatorEtiquetteRules;
 pub use escape_room_manner::EscapeRoomMannerRules;
+pub use family_reunion_dinner_etiquette::FamilyReunionDinnerEtiquetteRules;
 pub use farewell_leaving_party::FarewellLeavingPartyRules;
 pub use festival::{ChineseFestival, FestivalEtiquette};
 pub use festival_family_gathering::FestivalFamilyGatheringRules;
@@ -485,6 +491,7 @@ pub use hotel_stay_etiquette::HotelStayEtiquetteRules;
 pub use hotel_stay_manner::HotelStayMannerRules;
 pub use housewarming_etiquette::HousewarmingEtiquetteRules;
 pub use housewarming_gift::HousewarmingGiftRules;
+pub use in_law_relationship_etiquette::InLawRelationshipEtiquetteRules;
 pub use indian_etiquette::IndianEtiquetteRules;
 pub use international_conference::InternationalConferenceRules;
 pub use international_gift::InternationalGiftRules;
@@ -501,6 +508,7 @@ pub use karaoke_etiquette::KaraokeEtiquetteRules;
 pub use korean_cuisine::KoreanCuisineRules;
 pub use korean_etiquette::KoreanEtiquetteRules;
 pub use labor_day::LaborDayRules;
+pub use lantern_festival_etiquette::LanternFestivalEtiquetteRules;
 pub use leadership_etiquette::LeadershipEtiquetteRules;
 pub use lending_borrowing_manner::LendingBorrowingMannerRules;
 pub use library::LibraryEtiquette;
@@ -528,6 +536,7 @@ pub use new_year_day::NewYearDayRules;
 pub use nursing_home_visit::NursingHomeVisitRules;
 pub use offering_advice_tact::OfferingAdviceTactRules;
 pub use office_cooperation::OfficeCooperationRules;
+pub use one_month_banquet::OneMonthBanquetRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
 pub use parent_teacher_meeting::ParentTeacherMeetingRules;
@@ -620,6 +629,7 @@ pub use western_meal_etiquette::WesternMealEtiquetteRules;
 pub use wine_pouring_method::WinePouringMethodRules;
 pub use wine_tasting::WineTastingRules;
 pub use wine_toast_etiquette::WineToastEtiquetteRules;
+pub use winter_solstice_gathering::WinterSolsticeGatheringRules;
 pub use womens_day::WomensDayRules;
 pub use work_email_protocol::WorkEmailProtocolRules;
 pub use work_from_home::WorkFromHomeRules;
@@ -636,6 +646,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = InLawRelationshipEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OneMonthBanquetRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FamilyReunionDinnerEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WinterSolsticeGatheringRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LanternFestivalEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = TeamConflictMediationRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));

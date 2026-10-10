@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "winter_solstice_gathering",
+  "struct": "WinterSolsticeGatheringRules",
+  "name": "冬至团聚礼仪",
+  "desc": "冬至节家人团聚吃饺子汤圆的习俗与礼节",
+  "origin": "中国",
+  "tags": [
+    "节庆",
+    "传统",
+    "团聚"
+  ],
+  "category": "RuleCategory::social(\"winter_solstice_gathering\")",
+  "sections": [
+    {
+      "title": "节令习俗",
+      "method": "customs",
+      "items": [
+        "冬至大如年之说",
+        "北方吃饺子防冻耳",
+        "南方吃汤圆庆团圆",
+        "祭祖祈福感念先人"
+      ]
+    },
+    {
+      "title": "家人团聚",
+      "method": "reunion",
+      "items": [
+        "尽量回家与家人团聚",
+        "长辈张罗节令饮食",
+        "晚辈帮忙备餐",
+        "共话家常叙亲情"
+      ]
+    },
+    {
+      "title": "餐桌礼仪",
+      "method": "dining",
+      "items": [
+        "长者先动筷",
+        "为长辈盛饭添菜",
+        "不挑食不浪费",
+        "饭后主动收拾"
+      ]
+    },
+    {
+      "title": "人情往来",
+      "method": "greetings",
+      "items": [
+        "问候远方亲友",
+        "送上冬至祝福",
+        "互赠节令食品",
+        "以温情御寒冬"
+      ]
+    }
+  ]
+}

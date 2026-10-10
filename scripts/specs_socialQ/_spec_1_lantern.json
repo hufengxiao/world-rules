@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "lantern_festival_etiquette",
+  "struct": "LanternFestivalEtiquetteRules",
+  "name": "元宵节礼仪",
+  "desc": "元宵赏灯猜谜吃汤圆的节庆礼节与团圆讲究",
+  "origin": "中国",
+  "tags": [
+    "节庆",
+    "传统",
+    "团圆"
+  ],
+  "category": "RuleCategory::social(\"lantern_festival_etiquette\")",
+  "sections": [
+    {
+      "title": "节庆习俗",
+      "method": "customs",
+      "items": [
+        "正月十五赏花灯",
+        "猜灯谜添雅趣",
+        "吃汤圆寓团圆",
+        "舞龙舞狮助兴"
+      ]
+    },
+    {
+      "title": "阖家团圆",
+      "method": "reunion",
+      "items": [
+        "家人团聚共吃元宵",
+        "长辈为小辈备灯",
+        "互道节日祝福",
+        "共享天伦之乐"
+      ]
+    },
+    {
+      "title": "观灯礼仪",
+      "method": "viewing",
+      "items": [
+        "人多处礼让不推挤",
+        "照看老人小孩",
+        "不攀爬灯架",
+        "爱护花灯设施"
+      ]
+    },
+    {
+      "title": "祝福往来",
+      "method": "greetings",
+      "items": [
+        "向亲友送上节日问候",
+        "祝福团圆美满",
+        "送汤圆寓意甜蜜",
+        "礼轻情意重"
+      ]
+    }
+  ]
+}

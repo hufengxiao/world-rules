@@ -1,0 +1,56 @@
+{
+  "cat": "social",
+  "file": "in_law_relationship_etiquette",
+  "struct": "InLawRelationshipEtiquetteRules",
+  "name": "姻亲相处礼仪",
+  "desc": "婆媳翁婿等姻亲之间的相处分寸与礼节",
+  "origin": "中国",
+  "tags": [
+    "家庭",
+    "关系",
+    "礼仪"
+  ],
+  "category": "RuleCategory::social(\"in_law_relationship_etiquette\")",
+  "sections": [
+    {
+      "title": "晚辈之道",
+      "method": "junior_duty",
+      "items": [
+        "尊敬长辈多问候",
+        "逢年过节探望",
+        "礼数周全不怠慢",
+        "有分歧委婉沟通"
+      ]
+    },
+    {
+      "title": "长辈之度",
+      "method": "senior_grace",
+      "items": [
+        "尊重小家庭界限",
+        "少干涉子女生活",
+        "不偏袒不挑剔",
+        "多包容少计较"
+      ]
+    },
+    {
+      "title": "相处分寸",
+      "method": "boundaries",
+      "items": [
+        "保持适度距离感",
+        "有事商量不擅作主张",
+        "避免当面指责",
+        "经济往来账目清楚"
+      ]
+    },
+    {
+      "title": "关系维护",
+      "method": "maintenance",
+      "items": [
+        "多念对方好处",
+        "矛盾私下化解",
+        "不搬弄是非",
+        "以和睦为贵"
+      ]
+    }
+  ]
+}
