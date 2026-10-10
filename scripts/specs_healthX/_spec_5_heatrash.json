@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "heat_rash_care",
+  "struct": "HeatRashCareRules",
+  "name": "痱子护理",
+  "desc": "暑热出汗导致的痱子预防与护理",
+  "origin": "中国",
+  "tags": [
+    "皮肤",
+    "暑热",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"heat_rash_care\")",
+  "sections": [
+    {
+      "title": "降温通风",
+      "method": "cooling",
+      "items": [
+        "保持环境凉爽通风",
+        "空调风扇适度降温",
+        "避免长时间暴晒",
+        "减少剧烈活动出汗"
+      ]
+    },
+    {
+      "title": "衣着选择",
+      "method": "clothing",
+      "items": [
+        "选宽松透气棉质衣物",
+        "勤换汗湿衣服",
+        "避免紧身化纤面料",
+        "婴儿勿包裹过厚"
+      ]
+    },
+    {
+      "title": "皮肤护理",
+      "method": "skin_care",
+      "items": [
+        "温水清洗后擦干",
+        "保持皮肤干爽",
+        "褶皱处尤为注意",
+        "可用痱子粉薄涂"
+      ]
+    },
+    {
+      "title": "护理禁忌",
+      "method": "avoid",
+      "items": [
+        "勿用热水烫洗",
+        "勿搔抓防感染",
+        "勿厚涂油性护肤品",
+        "脓痱须及时就医"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "hives_urticaria_care",
+  "struct": "HivesUrticariaCareRules",
+  "name": "荨麻疹护理",
+  "desc": "风团瘙痒发作时的缓解与诱因规避",
+  "origin": "中国",
+  "tags": [
+    "皮肤",
+    "过敏",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"hives_urticaria_care\")",
+  "sections": [
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "皮肤突发红色风团",
+        "剧烈瘙痒时起时消",
+        "单个风团多不超过一天",
+        "可伴眼睑口唇肿胀"
+      ]
+    },
+    {
+      "title": "止痒处理",
+      "method": "relief",
+      "items": [
+        "冷敷缓解瘙痒",
+        "避免热水烫洗",
+        "勿抓挠防皮肤破损",
+        "宽松棉质衣物减少摩擦"
+      ]
+    },
+    {
+      "title": "诱因规避",
+      "method": "avoidance",
+      "items": [
+        "回想近期可疑食物药物",
+        "避免接触过敏原",
+        "慎用新化妆品洗剂",
+        "注意冷热与情绪诱因"
+      ]
+    },
+    {
+      "title": "就医警示",
+      "method": "warning",
+      "items": [
+        "呼吸困难须立即急诊",
+        "喉头水肿有窒息风险",
+        "反复发作应查过敏原",
+        "遵医嘱规律用药"
+      ]
+    }
+  ]
+}

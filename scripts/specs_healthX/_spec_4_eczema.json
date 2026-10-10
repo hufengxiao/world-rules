@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "eczema_care",
+  "struct": "EczemaCareRules",
+  "name": "湿疹护理",
+  "desc": "湿疹皮肤的保湿、止痒与刺激规避",
+  "origin": "中国",
+  "tags": [
+    "皮肤",
+    "慢性",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"eczema_care\")",
+  "sections": [
+    {
+      "title": "保湿基础",
+      "method": "moisturizing",
+      "items": [
+        "每日多次涂抹保湿霜",
+        "洗澡后三分钟内涂",
+        "选无香料温和产品",
+        "保湿是护理核心"
+      ]
+    },
+    {
+      "title": "清洁注意",
+      "method": "cleaning",
+      "items": [
+        "温水短时淋浴",
+        "少用碱性皂类",
+        "避免搓澡用力擦",
+        "轻拍吸干勿摩擦"
+      ]
+    },
+    {
+      "title": "止痒防护",
+      "method": "itch_control",
+      "items": [
+        "剪短指甲防抓伤",
+        "冷敷缓解瘙痒",
+        "宽松棉质衣物",
+        "夜间可戴棉手套"
+      ]
+    },
+    {
+      "title": "诱因规避",
+      "method": "avoidance",
+      "items": [
+        "避免过热水与出汗刺激",
+        "远离羊毛化纤贴身衣物",
+        "留意食物与环境诱因",
+        "减少精神紧张"
+      ]
+    }
+  ]
+}

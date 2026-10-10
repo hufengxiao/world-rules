@@ -95,6 +95,7 @@ pub mod correct_sitting_posture;
 pub mod cpr_and_emergency;
 pub mod cut_wound_care;
 pub mod daily_hydration;
+pub mod dandruff_scalp_care;
 pub mod dementia_care_basic;
 pub mod dental_health;
 pub mod denture_care_cleaning;
@@ -110,8 +111,10 @@ pub mod drowning_rescue;
 pub mod dry_cough_soothes;
 pub mod dry_cracked_heel;
 pub mod ear_ache_care;
+pub mod ear_wax_care;
 pub mod early_morning_routine;
 pub mod earthquake_safety;
+pub mod eczema_care;
 pub mod elder_fall_prevention;
 pub mod elder_medication_remind;
 pub mod elderly_fall_prevention;
@@ -145,10 +148,12 @@ pub mod hand_washing_hygiene;
 pub mod hearing_health;
 pub mod heart_health;
 pub mod heartburn_reflux;
+pub mod heat_rash_care;
 pub mod heatstroke_prevention;
 pub mod heatstroke_response;
 pub mod hemorrhoid_care;
 pub mod hiccup_relief;
+pub mod hives_urticaria_care;
 pub mod home_first_aid_kit;
 pub mod home_medical_alert_senior;
 pub mod home_medicine_kit;
@@ -310,6 +315,7 @@ pub use correct_sitting_posture::CorrectSittingPostureRules;
 pub use cpr_and_emergency::CprEmergencyRules;
 pub use cut_wound_care::CutWoundCareRules;
 pub use daily_hydration::DailyHydrationRules;
+pub use dandruff_scalp_care::DandruffScalpCareRules;
 pub use dementia_care_basic::DementiaCareBasicRules;
 pub use dental_health::DentalHealthRules;
 pub use denture_care_cleaning::DentureCareCleaningRules;
@@ -325,8 +331,10 @@ pub use drowning_rescue::DrowningRescueRules;
 pub use dry_cough_soothes::DryCoughSoothesRules;
 pub use dry_cracked_heel::DryCrackedHeelCareRules;
 pub use ear_ache_care::EarAcheCareRules;
+pub use ear_wax_care::EarWaxCareRules;
 pub use early_morning_routine::EarlyMorningRoutineRules;
 pub use earthquake_safety::EarthquakeSafetyRules;
+pub use eczema_care::EczemaCareRules;
 pub use elder_fall_prevention::ElderFallPreventionRules;
 pub use elder_medication_remind::ElderMedicationRemindRules;
 pub use elderly_fall_prevention::ElderlyFallPreventionRules;
@@ -360,10 +368,12 @@ pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
 pub use heartburn_reflux::HeartburnRefluxRules;
+pub use heat_rash_care::HeatRashCareRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
 pub use heatstroke_response::HeatstrokeResponseRules;
 pub use hemorrhoid_care::HemorrhoidCareRules;
 pub use hiccup_relief::HiccupReliefRules;
+pub use hives_urticaria_care::HivesUrticariaCareRules;
 pub use home_first_aid_kit::HomeFirstAidKitRules;
 pub use home_medical_alert_senior::HomeMedicalAlertSeniorRules;
 pub use home_medicine_kit::HomeMedicineKitRules;
@@ -490,6 +500,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = HeatRashCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EczemaCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HivesUrticariaCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EarWaxCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DandruffScalpCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = LactoseIntoleranceCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
