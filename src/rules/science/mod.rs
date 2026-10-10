@@ -79,6 +79,7 @@ pub mod astronomy;
 pub mod astrophysics;
 pub mod astrophysics_detailed;
 pub mod atomic_physics;
+pub mod aurora_borealis_science;
 pub mod aviation_meteorology;
 pub mod bacteria_hygiene;
 pub mod behavioral_economics;
@@ -291,6 +292,7 @@ pub mod microbiology_detailed;
 pub mod microwave_technology;
 pub mod mineralogy;
 pub mod mineralogy_detailed;
+pub mod mirage_refraction;
 pub mod ml_theory;
 pub mod module_theory;
 pub mod mold_food_safety;
@@ -316,6 +318,7 @@ pub mod numerical_analysis;
 pub mod nutrition_science_detailed;
 pub mod obstetrics;
 pub mod obstetrics_gynecology;
+pub mod ocean_tide_cycle;
 pub mod ocean_waves;
 pub mod oceanography;
 pub mod oceanography_detailed;
@@ -389,6 +392,7 @@ pub mod seasonal_cycle;
 pub mod seismology;
 pub mod seismology_detailed;
 pub mod signal_processing;
+pub mod soap_bubble_interference;
 pub mod social_psychology;
 pub mod sociology;
 pub mod software_engineering;
@@ -400,6 +404,7 @@ pub mod solar_system_planets;
 pub mod solid_mechanics;
 pub mod solid_mechanics_detailed;
 pub mod sound_wave_physics;
+pub mod stalactite_cave_formation;
 pub mod statics;
 pub mod statistical_mechanics;
 pub mod statistical_physics;
@@ -782,6 +787,7 @@ pub use stem_cell_biology::StemCellBiologyRules;
 // Phase 31-01: 新增地理规则导出
 pub use acid_base_ph_scale::AcidBasePhScaleRules;
 pub use air_pressure_weather::AirPressureWeatherRules;
+pub use aurora_borealis_science::AuroraBorealisScienceRules;
 pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use buoyancy_floating::BuoyancyFloatingRules;
@@ -821,9 +827,11 @@ pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use lunar_phases::LunarPhasesRules;
 pub use magnet_polarity_basic::MagnetPolarityBasicRules;
 pub use material_properties::MaterialPropertiesRules;
+pub use mirage_refraction::MirageRefractionRules;
 pub use mold_food_safety::MoldFoodSafetyRules;
 pub use mountain_formation::MountainFormationRules;
 pub use nervous_system_basics::NervousSystemBasicsRules;
+pub use ocean_tide_cycle::OceanTideCycleRules;
 pub use ocean_waves::OceanWavesRules;
 pub use plastic_recycling_basics::PlasticRecyclingBasicsRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
@@ -836,10 +844,12 @@ pub use rock_cycle_basics::RockCycleBasicsRules;
 pub use salt_making_seawater::SaltMakingSeawaterRules;
 pub use season_solstice_equinox::SeasonSolsticeEquinoxRules;
 pub use seasonal_cycle::SeasonalCycleRules;
+pub use soap_bubble_interference::SoapBubbleInterferenceRules;
 pub use soil_geography::SoilGeographyRules;
 pub use solar_panel_green::SolarPanelGreenRules;
 pub use solar_system_planets::SolarSystemPlanetsRules;
 pub use sound_wave_physics::SoundWavePhysicsRules;
+pub use stalactite_cave_formation::StalactiteCaveFormationRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use steel_alloy_metal::SteelAlloyMetalRules;
 pub use sun_shadow_position::SunShadowPositionRules;
@@ -861,6 +871,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SoapBubbleInterferenceRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = StalactiteCaveFormationRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AuroraBorealisScienceRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MirageRefractionRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OceanTideCycleRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = EvaporationCoolingEffectRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

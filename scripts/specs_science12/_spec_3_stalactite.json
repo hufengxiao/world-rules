@@ -1,0 +1,57 @@
+{
+  "cat": "science",
+  "file": "stalactite_cave_formation",
+  "struct": "StalactiteCaveFormationRules",
+  "name": "钟乳石与溶洞形成",
+  "desc": "喀斯特溶洞中钟乳石与石笋的形成原理，包括碳酸钙溶解与沉积、生长速度与溶洞地貌的科学解释。",
+  "origin": "地质学与喀斯特地貌研究",
+  "tags": [
+    "科学",
+    "地质",
+    "溶洞",
+    "自然现象"
+  ],
+  "category": "RuleCategory::science(\"stalactite\")",
+  "sections": [
+    {
+      "title": "化学原理",
+      "method": "chemistry",
+      "items": [
+        "雨水溶入二氧化碳成碳酸",
+        "碳酸溶解石灰岩生成碳酸氢钙",
+        "水滴逸出二氧化碳析出碳酸钙",
+        "沉积形成碳酸钙结晶"
+      ]
+    },
+    {
+      "title": "形态类型",
+      "method": "forms",
+      "items": [
+        "自上而下生长为钟乳石",
+        "自下而上生长为石笋",
+        "上下相接形成石柱",
+        "薄层漫流形成石幔"
+      ]
+    },
+    {
+      "title": "生长速度",
+      "method": "growth",
+      "items": [
+        "生长极为缓慢常百年数毫米",
+        "受水量与二氧化碳浓度影响",
+        "气候湿润地区发育更快",
+        "形成大型景观需数万年"
+      ]
+    },
+    {
+      "title": "溶洞地貌",
+      "method": "landform",
+      "items": [
+        "地下水长期溶蚀形成洞穴",
+        "溶洞内恒温潮湿",
+        "常伴地下河与天坑",
+        "属脆弱不可再生景观"
+      ]
+    }
+  ]
+}

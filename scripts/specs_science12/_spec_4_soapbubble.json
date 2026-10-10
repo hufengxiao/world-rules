@@ -1,0 +1,57 @@
+{
+  "cat": "science",
+  "file": "soap_bubble_interference",
+  "struct": "SoapBubbleInterferenceRules",
+  "name": "肥皂泡与薄膜干涉",
+  "desc": "肥皂泡呈彩色的光学原理，包括薄膜干涉、表面张力、泡壁厚度变化与色彩随厚度改变的科学解释。",
+  "origin": "光学薄膜干涉与表面张力理论",
+  "tags": [
+    "科学",
+    "光学",
+    "物理",
+    "自然现象"
+  ],
+  "category": "RuleCategory::science(\"soap_bubble\")",
+  "sections": [
+    {
+      "title": "薄膜干涉",
+      "method": "interference",
+      "items": [
+        "光在泡壁内外表面分别反射",
+        "两束反射光发生干涉",
+        "不同波长加强或相消",
+        "形成彩色条纹"
+      ]
+    },
+    {
+      "title": "色彩变化",
+      "method": "colors",
+      "items": [
+        "颜色随泡壁厚度变化",
+        "顶部变薄色彩渐变",
+        "临近破裂时呈灰黑色",
+        "白光下呈现彩色环带"
+      ]
+    },
+    {
+      "title": "表面张力",
+      "method": "tension",
+      "items": [
+        "表面张力使泡呈球形",
+        "皂液降低水的表面张力",
+        "球形是表面积最小形态",
+        "泡越大壁越薄越易破"
+      ]
+    },
+    {
+      "title": "稳定性",
+      "method": "stability",
+      "items": [
+        "水分蒸发使泡破裂",
+        "灰尘扰动导致破裂",
+        "甘油可延缓蒸发增稳",
+        "气流与温度影响寿命"
+      ]
+    }
+  ]
+}
