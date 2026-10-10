@@ -81,6 +81,7 @@ pub mod big_two;
 pub mod blackjack;
 pub mod blind_chess;
 pub mod blind_go;
+pub mod blokus_pieces;
 pub mod board_game_etiquette;
 pub mod board_games;
 pub mod brain_teaser_quiz;
@@ -129,6 +130,7 @@ pub mod dou_di_zhu_basics;
 pub mod doudizhu;
 pub mod euchre;
 pub mod euchre_detailed;
+pub mod farkle_dice;
 pub mod flying_chess;
 pub mod four_player_chess;
 pub mod four_player_mahjong;
@@ -159,6 +161,7 @@ pub mod kakuro_cross_sum;
 pub mod killer_sudoku_sum35;
 pub mod klondike_solitaire;
 pub mod klotski_huarong;
+pub mod ludo_board_race;
 pub mod mafia;
 pub mod magic_square_fill;
 pub mod mahjong;
@@ -242,6 +245,7 @@ pub mod sudoku_logic;
 pub mod sudoku_variant;
 pub mod tak;
 pub mod tarot_cards;
+pub mod telestrations_draw;
 pub mod tetris_falling_blocks;
 pub mod texas_holdem;
 pub mod texas_holdem_detailed;
@@ -253,6 +257,7 @@ pub mod tower_of_hanoi;
 pub mod trick_taking_cards;
 pub mod trivia_game;
 pub mod twenty_four_point;
+pub mod twixt_connection_game;
 pub mod two_player_mahjong;
 pub mod uno;
 pub mod uno_house_rules;
@@ -286,6 +291,7 @@ pub use big_two::BigTwoRules;
 pub use blackjack::BlackjackRules;
 pub use blind_chess::BlindChessRules;
 pub use blind_go::BlindGoRules;
+pub use blokus_pieces::BlokusPiecesRules;
 pub use board_game_etiquette::BoardGameEtiquetteRules;
 pub use board_games::{
     ChessRules, ChessVariant, ChessVariantsRules, ChineseChessRules, GoRules, GomokuRules,
@@ -336,6 +342,7 @@ pub use dou_di_zhu_basics::DouDiZhuBasicsRules;
 pub use doudizhu::DouDiZhuRules;
 pub use euchre::EuchreRules;
 pub use euchre_detailed::EuchreDetailedRules;
+pub use farkle_dice::FarkleDiceRules;
 pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
@@ -366,6 +373,7 @@ pub use kakuro_cross_sum::KakuroCrossSumRules;
 pub use killer_sudoku_sum35::KillerSudokuSumRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use klotski_huarong::KlotskiHuarongRules;
+pub use ludo_board_race::LudoBoardRaceRules;
 pub use mafia::MafiaRules;
 pub use magic_square_fill::MagicSquareFillRules;
 pub use mahjong::*;
@@ -448,6 +456,7 @@ pub use sudoku_logic::SudokuLogicRules;
 pub use sudoku_variant::SudokuVariantRules;
 pub use tak::TakRules;
 pub use tarot_cards::TarotCardsRules;
+pub use telestrations_draw::TelestrationsDrawRules;
 pub use tetris_falling_blocks::TetrisFallingBlocksRules;
 pub use texas_holdem::TexasHoldemRules;
 pub use texas_holdem_detailed::TexasHoldemDetailedRules;
@@ -459,6 +468,7 @@ pub use tower_of_hanoi::TowerOfHanoiRules;
 pub use trick_taking_cards::TrickTakingCardsRules;
 pub use trivia_game::TriviaGameRules;
 pub use twenty_four_point::TwentyFourPointRules;
+pub use twixt_connection_game::TwixtConnectionGameRules;
 pub use two_player_mahjong::TwoPlayerMahjongRules;
 pub use uno::UnoRules;
 pub use uno_house_rules::UnoHouseRules;
@@ -519,6 +529,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = TelestrationsDrawRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LudoBoardRaceRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BlokusPiecesRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FarkleDiceRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TwixtConnectionGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CarromBoardFlickRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));

@@ -1,0 +1,57 @@
+{
+  "cat": "games",
+  "file": "telestrations_draw",
+  "struct": "TelestrationsDrawRules",
+  "name": "传画猜词（Telestrations）",
+  "desc": "传画猜词是聚会传阅游戏，玩家依次把词语画成图、再据图猜词，如此交替传递，最终对比首尾内容引发笑料。",
+  "origin": "由美式聚会游戏「电话图画」演化而来",
+  "tags": [
+    "聚会",
+    "绘画",
+    "猜词",
+    "桌面游戏"
+  ],
+  "category": "RuleCategory::games(\"telestrations\")",
+  "sections": [
+    {
+      "title": "准备",
+      "method": "setup",
+      "items": [
+        "每人一本可翻页画册",
+        "各自抽一个词语",
+        "在首页写下或默记词语",
+        "画册按序向右传递"
+      ]
+    },
+    {
+      "title": "传阅流程",
+      "method": "passing",
+      "items": [
+        "据他人画作猜词写在下一页",
+        "据他人词语作画在下一页",
+        "画与猜交替进行",
+        "翻页遮住前文只看得上一步"
+      ]
+    },
+    {
+      "title": "作画要求",
+      "method": "drawing",
+      "items": [
+        "不得书写文字或数字",
+        "只能以图画表达含义",
+        "限时作画不磨蹭",
+        "画技高低不影响得分"
+      ]
+    },
+    {
+      "title": "揭晓与计分",
+      "method": "scoring",
+      "items": [
+        "画册回到本人逐页揭晓",
+        "对比首词与末猜是否一致",
+        "猜对可得分",
+        "笑点越离谱越有趣"
+      ]
+    }
+  ]
+}
