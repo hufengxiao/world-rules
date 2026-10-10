@@ -92,6 +92,7 @@ pub mod bridge_duplicate;
 pub mod bridge_imp;
 pub mod bridge_minibridge;
 pub mod bridge_rubber;
+pub mod briscola;
 pub mod bubble_catching_blow;
 pub mod canasta;
 pub mod canfield;
@@ -132,6 +133,7 @@ pub mod dou_di_zhu_basics;
 pub mod doudizhu;
 pub mod euchre;
 pub mod euchre_detailed;
+pub mod fan_tan;
 pub mod farkle_dice;
 pub mod flying_chess;
 pub mod four_player_chess;
@@ -145,6 +147,7 @@ pub mod go_9x9;
 pub mod go_basics;
 pub mod go_detailed;
 pub mod go_fish;
+pub mod golf_card_game;
 pub mod gomoku_detailed;
 pub mod gongzhu;
 pub mod guandan;
@@ -219,6 +222,7 @@ pub mod poker_chinese;
 pub mod poker_five_card;
 pub mod poker_omaha;
 pub mod power_grid;
+pub mod president_card;
 pub mod puerto_rico;
 pub mod pyramid_solitaire;
 pub mod quarto;
@@ -233,6 +237,7 @@ pub mod rpg;
 pub mod rubiks_cube;
 pub mod rummy_detailed;
 pub mod santorini_build;
+pub mod scopa;
 pub mod scrabble;
 pub mod script_kill_game;
 pub mod senet_egypt;
@@ -315,6 +320,7 @@ pub use bridge_duplicate::BridgeDuplicateRules;
 pub use bridge_imp::BridgeImpRules;
 pub use bridge_minibridge::BridgeMinibridgeRules;
 pub use bridge_rubber::BridgeRubberRules;
+pub use briscola::BriscolaRules;
 pub use bubble_catching_blow::BubbleCatchingBlowRules;
 pub use canasta::CanastaRules;
 pub use canfield::CanfieldRules;
@@ -354,6 +360,7 @@ pub use dou_di_zhu_basics::DouDiZhuBasicsRules;
 pub use doudizhu::DouDiZhuRules;
 pub use euchre::EuchreRules;
 pub use euchre_detailed::EuchreDetailedRules;
+pub use fan_tan::FanTanRules;
 pub use farkle_dice::FarkleDiceRules;
 pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
@@ -367,6 +374,7 @@ pub use go_9x9::Go9x9Rules;
 pub use go_basics::GoBasicsRules;
 pub use go_detailed::GoDetailedRules;
 pub use go_fish::GoFishRules;
+pub use golf_card_game::GolfCardGameRules;
 pub use gomoku_detailed::GomokuDetailedRules;
 pub use gongzhu::GongzhuRules;
 pub use guandan::GuanDanRules;
@@ -441,6 +449,7 @@ pub use poker_chinese::PokerChineseRules;
 pub use poker_five_card::PokerFiveCardRules;
 pub use poker_omaha::PokerOmahaRules;
 pub use power_grid::PowerGridRules;
+pub use president_card::PresidentCardRules;
 pub use puerto_rico::PuertoRicoRules;
 pub use pyramid_solitaire::PyramidSolitaireRules;
 pub use quarto::QuartoRules;
@@ -454,6 +463,7 @@ pub use risk::RiskRules;
 pub use rubiks_cube::{CubeType, RubiksCubeRules};
 pub use rummy_detailed::RummyDetailedRules;
 pub use santorini_build::SantoriniBuildRules;
+pub use scopa::ScopaRules;
 pub use scrabble::ScrabbleRules;
 pub use script_kill_game::ScriptKillGameRules;
 pub use senet_egypt::SenetEgyptRules;
@@ -549,6 +559,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FanTanRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ScopaRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BriscolaRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PresidentCardRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GolfCardGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = NimGameRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
