@@ -1,0 +1,56 @@
+{
+  "cat": "science",
+  "file": "refrigerator_cooling_cycle",
+  "struct": "RefrigeratorCoolingCycleRules",
+  "name": "冰箱制冷原理",
+  "desc": "压缩制冷循环通过制冷剂相变搬运热量的原理",
+  "origin": "科学常识",
+  "tags": [
+    "物理",
+    "热学",
+    "家电"
+  ],
+  "category": "RuleCategory::science(\"refrigerator_cooling_cycle\")",
+  "sections": [
+    {
+      "title": "制冷循环",
+      "method": "cycle",
+      "items": [
+        "压缩机压缩制冷剂升温",
+        "冷凝器散热转为液态",
+        "节流降压温度骤降",
+        "蒸发器吸热变回气态"
+      ]
+    },
+    {
+      "title": "相变吸热",
+      "method": "phase_change",
+      "items": [
+        "液态蒸发吸收大量热",
+        "热量由箱内搬至箱外",
+        "并非产生冷而是移热",
+        "冰箱背面因此发热"
+      ]
+    },
+    {
+      "title": "热量搬运",
+      "method": "heat_transfer",
+      "items": [
+        "热总是自发由热传冷",
+        "制冷需外界做功",
+        "压缩机耗电做功",
+        "热量被逆势搬到外部"
+      ]
+    },
+    {
+      "title": "使用常识",
+      "method": "usage",
+      "items": [
+        "背面留出散热空间",
+        "少频繁开关门",
+        "热食放凉再入箱",
+        "结霜过厚影响效率"
+      ]
+    }
+  ]
+}

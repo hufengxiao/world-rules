@@ -103,6 +103,7 @@ pub mod botany_detailed;
 pub mod buoyancy_floating;
 pub mod calculus;
 pub mod cancer_biology;
+pub mod capillary_action_daily;
 pub mod carbon_cycle;
 pub mod carbon_footprint_low_carbon;
 pub mod category_theory;
@@ -289,6 +290,7 @@ pub mod metabolic_biology;
 pub mod meteorology_detailed;
 pub mod microbiology;
 pub mod microbiology_detailed;
+pub mod microwave_heating_food;
 pub mod microwave_technology;
 pub mod mineralogy;
 pub mod mineralogy_detailed;
@@ -357,6 +359,7 @@ pub mod political_science;
 pub mod polymer_chemistry;
 pub mod polynomial_algebra;
 pub mod population_biology;
+pub mod pressure_cooker_physics;
 pub mod preventive_medicine;
 pub mod probability_theory;
 pub mod proteomics;
@@ -371,6 +374,7 @@ pub mod quantum_mechanics_detailed;
 pub mod radar_meteorology;
 pub mod rainbow_dispersion_light;
 pub mod real_analysis;
+pub mod refrigerator_cooling_cycle;
 pub mod relativity;
 pub mod relativity_general;
 pub mod relativity_special;
@@ -415,6 +419,7 @@ pub mod steel_alloy_metal;
 pub mod stratigraphy;
 pub mod structural_biology;
 pub mod sun_shadow_position;
+pub mod surface_tension_water;
 pub mod surgery;
 pub mod survey_design;
 pub mod sustainability_science;
@@ -791,6 +796,7 @@ pub use aurora_borealis_science::AuroraBorealisScienceRules;
 pub use bacteria_hygiene::BacteriaHygieneRules;
 pub use biogeography_detailed::BiogeographyDetailedRules;
 pub use buoyancy_floating::BuoyancyFloatingRules;
+pub use capillary_action_daily::CapillaryActionDailyRules;
 pub use carbon_footprint_low_carbon::CarbonFootprintLowCarbonRules;
 pub use cleaning_agent_safety::CleaningAgentSafetyRules;
 pub use climate_change_facts::ClimateChangeFactsRules;
@@ -827,6 +833,7 @@ pub use logic_mistakes_avoid::LogicMistakesAvoidRules;
 pub use lunar_phases::LunarPhasesRules;
 pub use magnet_polarity_basic::MagnetPolarityBasicRules;
 pub use material_properties::MaterialPropertiesRules;
+pub use microwave_heating_food::MicrowaveHeatingFoodRules;
 pub use mirage_refraction::MirageRefractionRules;
 pub use mold_food_safety::MoldFoodSafetyRules;
 pub use mountain_formation::MountainFormationRules;
@@ -835,8 +842,10 @@ pub use ocean_tide_cycle::OceanTideCycleRules;
 pub use ocean_waves::OceanWavesRules;
 pub use plastic_recycling_basics::PlasticRecyclingBasicsRules;
 pub use political_geography_detailed::PoliticalGeographyDetailedRules;
+pub use pressure_cooker_physics::PressureCookerPhysicsRules;
 pub use quantum_basics::QuantumBasicsRules;
 pub use rainbow_dispersion_light::RainbowDispersionLightRules;
+pub use refrigerator_cooling_cycle::RefrigeratorCoolingCycleRules;
 pub use remote_sensing_detailed::RemoteSensingDetailedRules;
 pub use renewable_energy_basics::RenewableEnergyBasicsRules;
 pub use respiratory_system_basics::RespiratorySystemBasicsRules;
@@ -853,6 +862,7 @@ pub use stalactite_cave_formation::StalactiteCaveFormationRules;
 pub use statistics_ethics::StatisticsEthicsRules;
 pub use steel_alloy_metal::SteelAlloyMetalRules;
 pub use sun_shadow_position::SunShadowPositionRules;
+pub use surface_tension_water::SurfaceTensionWaterRules;
 pub use survey_design::SurveyDesignRules;
 pub use sustainable_living_science::SustainableLivingScienceRules;
 pub use urban_geography_detailed::UrbanGeographyDetailedRules;
@@ -871,6 +881,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CapillaryActionDailyRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SurfaceTensionWaterRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = RefrigeratorCoolingCycleRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PressureCookerPhysicsRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MicrowaveHeatingFoodRules::new();
+        rules.push(("science", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SoapBubbleInterferenceRules::new();
         rules.push(("science", r.metadata().clone(), r.category(), r.explain()));

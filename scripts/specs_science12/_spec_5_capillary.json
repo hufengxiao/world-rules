@@ -1,0 +1,56 @@
+{
+  "cat": "science",
+  "file": "capillary_action_daily",
+  "struct": "CapillaryActionDailyRules",
+  "name": "毛细现象",
+  "desc": "液体在细管中上升的毛细作用及其日常应用",
+  "origin": "科学常识",
+  "tags": [
+    "物理",
+    "流体",
+    "生活"
+  ],
+  "category": "RuleCategory::science(\"capillary_action_daily\")",
+  "sections": [
+    {
+      "title": "现象原理",
+      "method": "principle",
+      "items": [
+        "液体在细管中自动上升",
+        "管径越细上升越高",
+        "附着与内聚共同作用",
+        "润湿液体呈凹液面"
+      ]
+    },
+    {
+      "title": "两个作用",
+      "method": "forces",
+      "items": [
+        "附着力使液体沿壁爬升",
+        "内聚力使液体互相牵引",
+        "两者共同形成毛细现象",
+        "不润湿液体则下降"
+      ]
+    },
+    {
+      "title": "生活现象",
+      "method": "phenomena",
+      "items": [
+        "毛巾吸水灯芯吸油",
+        "纸巾浸水迅速洇湿",
+        "土壤水分沿缝隙上移",
+        "墙脚返潮与此有关"
+      ]
+    },
+    {
+      "title": "应用实例",
+      "method": "applications",
+      "items": [
+        "钢笔与棉芯灯使用",
+        "植物根部输水依赖",
+        "无纺布吸水材料",
+        "防水靠阻断毛细通道"
+      ]
+    }
+  ]
+}

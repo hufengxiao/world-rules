@@ -1,0 +1,56 @@
+{
+  "cat": "science",
+  "file": "surface_tension_water",
+  "struct": "SurfaceTensionWaterRules",
+  "name": "水的表面张力",
+  "desc": "水分子间引力形成表面张力及其生活现象",
+  "origin": "科学常识",
+  "tags": [
+    "物理",
+    "流体",
+    "生活"
+  ],
+  "category": "RuleCategory::science(\"surface_tension_water\")",
+  "sections": [
+    {
+      "title": "成因原理",
+      "method": "principle",
+      "items": [
+        "水分子间存在氢键吸引",
+        "表层分子受内部分子拉扯",
+        "表面似有一层弹性膜",
+        "使表面积趋于最小"
+      ]
+    },
+    {
+      "title": "生活现象",
+      "method": "phenomena",
+      "items": [
+        "水珠呈圆球形",
+        "硬币上水可鼓起",
+        "昆虫可立于水面",
+        "回形针轻放可浮"
+      ]
+    },
+    {
+      "title": "影响因素",
+      "method": "factors",
+      "items": [
+        "温度升高张力减小",
+        "洗涤剂显著降低张力",
+        "溶质影响张力大小",
+        "故皂液不易起水珠"
+      ]
+    },
+    {
+      "title": "应用实例",
+      "method": "applications",
+      "items": [
+        "洗涤剂帮助润湿去污",
+        "水面张力影响印染",
+        "毛细现象与之相关",
+        "表面活性剂广泛使用"
+      ]
+    }
+  ]
+}

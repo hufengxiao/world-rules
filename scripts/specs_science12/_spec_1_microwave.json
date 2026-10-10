@@ -1,0 +1,56 @@
+{
+  "cat": "science",
+  "file": "microwave_heating_food",
+  "struct": "MicrowaveHeatingFoodRules",
+  "name": "微波加热食物原理",
+  "desc": "微波炉加热食物的水分子振动与加热不均原理",
+  "origin": "科学常识",
+  "tags": [
+    "物理",
+    "生活",
+    "电磁"
+  ],
+  "category": "RuleCategory::science(\"microwave_heating_food\")",
+  "sections": [
+    {
+      "title": "加热原理",
+      "method": "principle",
+      "items": [
+        "微波使水分子快速振动",
+        "极性分子摩擦生热",
+        "热量由食物内部产生",
+        "无需介质传热"
+      ]
+    },
+    {
+      "title": "加热不均",
+      "method": "unevenness",
+      "items": [
+        "微波在腔内形成驻波",
+        "波节波腹冷热交替",
+        "转盘使受热更均匀",
+        "厚食物内外有差异"
+      ]
+    },
+    {
+      "title": "适用容器",
+      "method": "container",
+      "items": [
+        "可用陶瓷玻璃耐热塑料",
+        "禁用金属器皿",
+        "金属反射微波会打火",
+        "封闭容器须留气孔"
+      ]
+    },
+    {
+      "title": "安全注意",
+      "method": "safety",
+      "items": [
+        "带壳蛋不可直接加热",
+        "密封液体防过热暴沸",
+        "加热后静置片刻",
+        "取出时注意烫手"
+      ]
+    }
+  ]
+}
