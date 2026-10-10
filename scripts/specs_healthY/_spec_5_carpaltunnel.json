@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "carpal_tunnel_care",
+  "struct": "CarpalTunnelCareRules",
+  "name": "腕管综合征护理",
+  "desc": "手腕正中神经受压引起手指麻木的护理与预防",
+  "origin": "中国",
+  "tags": [
+    "骨骼",
+    "神经",
+    "劳损"
+  ],
+  "category": "RuleCategory::health(\"carpal_tunnel_care\")",
+  "sections": [
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "拇指食指中指麻木",
+        "夜间麻醒需甩手",
+        "握物无力易掉",
+        "拇指根部肌肉萎缩"
+      ]
+    },
+    {
+      "title": "姿势调整",
+      "method": "posture",
+      "items": [
+        "键盘鼠标置于合适高度",
+        "手腕保持中立位",
+        "避免长时间屈腕",
+        "使用腕托辅助支撑"
+      ]
+    },
+    {
+      "title": "休息锻炼",
+      "method": "exercise",
+      "items": [
+        "定时活动手腕手指",
+        "手指屈伸放松练习",
+        "神经滑动训练",
+        "避免重复性手腕动作"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seeking_help",
+      "items": [
+        "麻木持续加重应就诊",
+        "肌肉萎缩须及时就医",
+        "夜间症状明显可评估",
+        "必要时遵医嘱治疗"
+      ]
+    }
+  ]
+}

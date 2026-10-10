@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "frozen_shoulder_care",
+  "struct": "FrozenShoulderCareRules",
+  "name": "肩周炎护理",
+  "desc": "肩关节粘连僵硬的康复锻炼与日常护理",
+  "origin": "中国",
+  "tags": [
+    "骨骼",
+    "关节",
+    "康复"
+  ],
+  "category": "RuleCategory::health(\"frozen_shoulder_care\")",
+  "sections": [
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "肩部疼痛夜间加重",
+        "活动范围逐渐受限",
+        "梳头穿衣困难",
+        "常见于中年人群"
+      ]
+    },
+    {
+      "title": "康复锻炼",
+      "method": "exercise",
+      "items": [
+        "钟摆式前后摆动",
+        "爬墙动作逐步抬高",
+        "毛巾背后拉伸",
+        "循序渐进勿强拉"
+      ]
+    },
+    {
+      "title": "日常护理",
+      "method": "daily_care",
+      "items": [
+        "肩部保暖避免受凉",
+        "避免提重物与突然用力",
+        "保持良好坐姿",
+        "睡眠避免压迫患肩"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seeking_help",
+      "items": [
+        "疼痛剧烈影响睡眠就医",
+        "活动受限加重应就诊",
+        "康复训练遵医嘱进行",
+        "长期不愈须影像检查"
+      ]
+    }
+  ]
+}

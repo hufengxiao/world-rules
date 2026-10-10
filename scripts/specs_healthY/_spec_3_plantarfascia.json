@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "plantar_fasciitis_care",
+  "struct": "PlantarFasciitisCareRules",
+  "name": "足底筋膜炎护理",
+  "desc": "足跟疼痛的足底筋膜劳损缓解与康复",
+  "origin": "中国",
+  "tags": [
+    "骨骼",
+    "足部",
+    "康复"
+  ],
+  "category": "RuleCategory::health(\"plantar_fasciitis_care\")",
+  "sections": [
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "晨起下床足跟刺痛",
+        "走动片刻后减轻",
+        "久站久走后加重",
+        "足底内侧压痛"
+      ]
+    },
+    {
+      "title": "急性缓解",
+      "method": "relief",
+      "items": [
+        "冰敷滚动按摩足底",
+        "减少久站与长距离行走",
+        "抬高患足休息",
+        "避免赤脚硬地行走"
+      ]
+    },
+    {
+      "title": "牵伸锻炼",
+      "method": "stretching",
+      "items": [
+        "足底筋膜牵伸",
+        "小腿腓肠肌拉伸",
+        "起床前先做牵伸",
+        "循序渐进持之以恒"
+      ]
+    },
+    {
+      "title": "鞋具调整",
+      "method": "footwear",
+      "items": [
+        "选有足弓支撑的鞋",
+        "加软垫减轻足跟压力",
+        "避免平底硬底鞋",
+        "控制体重减少负荷"
+      ]
+    }
+  ]
+}

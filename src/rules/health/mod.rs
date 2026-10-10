@@ -80,6 +80,7 @@ pub mod calcium_bone_health;
 pub mod callus_corn_foot;
 pub mod cancer_prevention;
 pub mod caregiver_stress_manage;
+pub mod carpal_tunnel_care;
 pub mod cataract_post_op_care;
 pub mod chapped_lip_care;
 pub mod child_vaccination_schedule;
@@ -135,6 +136,7 @@ pub mod foot_blister_care;
 pub mod foot_care_basics;
 pub mod foot_soak_wellness;
 pub mod fresh_breath_habit;
+pub mod frozen_shoulder_care;
 pub mod gallstone_biliary_care;
 pub mod gout_management;
 pub mod gratitude_practice;
@@ -211,6 +213,7 @@ pub mod oral_ulcer_care;
 pub mod osteoporosis_walking_safe;
 pub mod outdoor_time_eye_health;
 pub mod parkinson_care_basic;
+pub mod plantar_fasciitis_care;
 pub mod postpartum_health;
 pub mod postpartum_mother_care;
 pub mod postpartum_recovery;
@@ -228,6 +231,7 @@ pub mod respiratory_health;
 pub mod restless_leg_care;
 pub mod salt_control_daily;
 pub mod scalds_burns;
+pub mod sciatica_relief;
 pub mod screen_eye_distance_rule;
 pub mod screen_eye_strain_care;
 pub mod seasonal_allergy_relief;
@@ -253,6 +257,7 @@ pub mod stress_relief_life;
 pub mod sun_protection;
 pub mod teen_health;
 pub mod teenage_myopia_prevent;
+pub mod tennis_elbow_care;
 pub mod thyroid_care;
 pub mod tinea_pedis_care;
 pub mod tinnitus_ringing_relief;
@@ -300,6 +305,7 @@ pub use calcium_bone_health::CalciumBoneHealthRules;
 pub use callus_corn_foot::CallusCornFootRules;
 pub use cancer_prevention::CancerPreventionRules;
 pub use caregiver_stress_manage::CaregiverStressManageRules;
+pub use carpal_tunnel_care::CarpalTunnelCareRules;
 pub use cataract_post_op_care::CataractPostOpCareRules;
 pub use chapped_lip_care::ChappedLipCareRules;
 pub use child_vaccination_schedule::ChildVaccinationScheduleRules;
@@ -355,6 +361,7 @@ pub use foot_blister_care::FootBlisterCareRules;
 pub use foot_care_basics::FootCareBasicsRules;
 pub use foot_soak_wellness::FootSoakWellnessRules;
 pub use fresh_breath_habit::FreshBreathHabitRules;
+pub use frozen_shoulder_care::FrozenShoulderCareRules;
 pub use gallstone_biliary_care::GallstoneBiliaryCareRules;
 pub use gout_management::GoutManagementRules;
 pub use gratitude_practice::GratitudePracticeRules;
@@ -431,6 +438,7 @@ pub use oral_ulcer_care::OralUlcerCareRules;
 pub use osteoporosis_walking_safe::OsteoporosisWalkingSafeRules;
 pub use outdoor_time_eye_health::OutdoorTimeEyeHealthRules;
 pub use parkinson_care_basic::ParkinsonCareBasicRules;
+pub use plantar_fasciitis_care::PlantarFasciitisCareRules;
 pub use postpartum_health::PostpartumHealthRules;
 pub use postpartum_mother_care::PostpartumMotherCareRules;
 pub use postpartum_recovery::PostpartumRecoveryRules;
@@ -448,6 +456,7 @@ pub use respiratory_health::RespiratoryHealthRules;
 pub use restless_leg_care::RestlessLegCareRules;
 pub use salt_control_daily::SaltControlDailyRules;
 pub use scalds_burns::ScaldBurnCareRules;
+pub use sciatica_relief::SciaticaReliefRules;
 pub use screen_eye_distance_rule::ScreenEyeDistanceRuleRules;
 pub use screen_eye_strain_care::ScreenEyeStrainCareRules;
 pub use seasonal_allergy_relief::SeasonalAllergyReliefRules;
@@ -473,6 +482,7 @@ pub use stress_relief_life::StressReliefRules;
 pub use sun_protection::SunProtectionRules;
 pub use teen_health::TeenHealthRules;
 pub use teenage_myopia_prevent::TeenageMyopiaPreventRules;
+pub use tennis_elbow_care::TennisElbowCareRules;
 pub use thyroid_care::ThyroidCareRules;
 pub use tinea_pedis_care::TineaPedisCareRules;
 pub use tinnitus_ringing_relief::TinnitusRingingReliefRules;
@@ -500,6 +510,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = CarpalTunnelCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SciaticaReliefRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PlantarFasciitisCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TennisElbowCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FrozenShoulderCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = HeatRashCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

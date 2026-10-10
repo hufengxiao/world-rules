@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "tennis_elbow_care",
+  "struct": "TennisElbowCareRules",
+  "name": "网球肘护理",
+  "desc": "肘部外侧肌腱劳损的休息与康复护理",
+  "origin": "中国",
+  "tags": [
+    "骨骼",
+    "肌腱",
+    "劳损"
+  ],
+  "category": "RuleCategory::health(\"tennis_elbow_care\")",
+  "sections": [
+    {
+      "title": "症状识别",
+      "method": "symptoms",
+      "items": [
+        "肘外侧按压疼痛",
+        "拧毛巾提物时加剧",
+        "握力下降",
+        "前臂用力时不适"
+      ]
+    },
+    {
+      "title": "休息制动",
+      "method": "rest",
+      "items": [
+        "减少重复手腕伸展动作",
+        "暂停诱发疼痛的活动",
+        "必要时佩戴护肘",
+        "急性期冷敷消肿"
+      ]
+    },
+    {
+      "title": "康复锻炼",
+      "method": "exercise",
+      "items": [
+        "前臂伸肌牵伸",
+        "离心力量训练",
+        "握力渐进恢复",
+        "疼痛缓解后循序渐进"
+      ]
+    },
+    {
+      "title": "预防复发",
+      "method": "prevention",
+      "items": [
+        "调整工具握柄粗细",
+        "注意工作姿势",
+        "运动前充分热身",
+        "避免过度单侧用力"
+      ]
+    }
+  ]
+}
