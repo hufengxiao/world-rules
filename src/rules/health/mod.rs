@@ -71,6 +71,7 @@ pub mod bleeding_control_bandage;
 pub mod blister_care;
 pub mod bloating_gas;
 pub mod blood_lipid_management;
+pub mod body_odor_care;
 pub mod bone_health;
 pub mod brain_health;
 pub mod breastfeeding_troubleshoot;
@@ -135,6 +136,7 @@ pub mod food_poisoning_care;
 pub mod food_safety;
 pub mod foot_blister_care;
 pub mod foot_care_basics;
+pub mod foot_odor_care;
 pub mod foot_soak_wellness;
 pub mod fresh_breath_habit;
 pub mod frozen_shoulder_care;
@@ -247,6 +249,7 @@ pub mod seasonal_allergy_relief;
 pub mod seasonal_health;
 pub mod seizure_response;
 pub mod self_compassion;
+pub mod sensitive_teeth_care;
 pub mod shingles_zoster_care;
 pub mod sinusitis_care;
 pub mod sit_briefly_daily;
@@ -265,6 +268,7 @@ pub mod sore_throat_soothe;
 pub mod stress_management;
 pub mod stress_relief_life;
 pub mod sun_protection;
+pub mod sweaty_hands_care;
 pub mod teen_health;
 pub mod teenage_myopia_prevent;
 pub mod tennis_elbow_care;
@@ -284,6 +288,7 @@ pub mod vertigo_balance_care;
 pub mod vertigo_rehab_balance;
 pub mod vision_care;
 pub mod weight_management;
+pub mod wisdom_tooth_care;
 pub mod women_health;
 
 pub mod wound_dressing;
@@ -306,6 +311,7 @@ pub use bleeding_control_bandage::BleedingControlBandageRules;
 pub use blister_care::BlisterCareRules;
 pub use bloating_gas::BloatingGasRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
+pub use body_odor_care::BodyOdorCareRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
 pub use breastfeeding_troubleshoot::BreastfeedingTroubleshootRules;
@@ -370,6 +376,7 @@ pub use food_poisoning_care::FoodPoisoningCareRules;
 pub use food_safety::FoodSafetyRules;
 pub use foot_blister_care::FootBlisterCareRules;
 pub use foot_care_basics::FootCareBasicsRules;
+pub use foot_odor_care::FootOdorCareRules;
 pub use foot_soak_wellness::FootSoakWellnessRules;
 pub use fresh_breath_habit::FreshBreathHabitRules;
 pub use frozen_shoulder_care::FrozenShoulderCareRules;
@@ -482,6 +489,7 @@ pub use seasonal_allergy_relief::SeasonalAllergyReliefRules;
 pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
 pub use self_compassion::SelfCompassionRules;
+pub use sensitive_teeth_care::SensitiveTeethCareRules;
 pub use shingles_zoster_care::ShinglesZosterCareRules;
 pub use sinusitis_care::SinusitisCareRules;
 pub use sit_briefly_daily::SitBreaksDailyRules;
@@ -500,6 +508,7 @@ pub use sore_throat_soothe::SoreThroatSootheRules;
 pub use stress_management::StressManagementRules;
 pub use stress_relief_life::StressReliefRules;
 pub use sun_protection::SunProtectionRules;
+pub use sweaty_hands_care::SweatyHandsCareRules;
 pub use teen_health::TeenHealthRules;
 pub use teenage_myopia_prevent::TeenageMyopiaPreventRules;
 pub use tennis_elbow_care::TennisElbowCareRules;
@@ -519,6 +528,7 @@ pub use vertigo_balance_care::VertigoBalanceCareRules;
 pub use vertigo_rehab_balance::VertigoRehabBalanceRules;
 pub use vision_care::VisionCareRules;
 pub use weight_management::WeightManagementRules;
+pub use wisdom_tooth_care::WisdomToothCareRules;
 pub use women_health::WomenHealthRules;
 pub use wound_dressing::WoundDressingRules;
 
@@ -530,6 +540,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = WisdomToothCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SensitiveTeethCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SweatyHandsCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FootOdorCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BodyOdorCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = MenstrualIrregularCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
