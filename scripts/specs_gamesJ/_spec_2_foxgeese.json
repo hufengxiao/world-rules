@@ -1,0 +1,66 @@
+{
+  "cat": "games",
+  "file": "fox_and_geese",
+  "struct": "FoxAndGeeseRules",
+  "name": "狐鹅棋",
+  "desc": "一狐对多鹅的非对称追捕棋，狐狸吃鹅或鹅困狐",
+  "origin": "欧洲",
+  "tags": [
+    "棋类",
+    "非对称",
+    "追捕"
+  ],
+  "category": "RuleCategory::games(\"fox_and_geese\")",
+  "sections": [
+    {
+      "title": "棋盘摆子",
+      "method": "setup",
+      "items": [
+        "十字形棋盘布点连线",
+        "一只狐狸居中",
+        "多只鹅占一侧底线",
+        "鹅方棋子数远超狐方"
+      ]
+    },
+    {
+      "title": "移动规则",
+      "method": "movement",
+      "items": [
+        "双方沿连线走一格",
+        "可走任意方向",
+        "目标点须为空",
+        "鹅方不得后退"
+      ]
+    },
+    {
+      "title": "狐狸吃鹅",
+      "method": "capturing",
+      "items": [
+        "狐狸跳过相邻一鹅",
+        "落点须为空位",
+        "被跳过的鹅被吃掉",
+        "可连跳连续吃子"
+      ]
+    },
+    {
+      "title": "胜负条件",
+      "method": "winning",
+      "items": [
+        "狐狸吃掉足够多鹅即胜",
+        "鹅方围死狐狸即胜",
+        "狐狸无路可走则败",
+        "鹅以数量取胜靠围困"
+      ]
+    },
+    {
+      "title": "策略要点",
+      "method": "strategy",
+      "items": [
+        "鹅方保持密集不露空档",
+        "狐狸寻找连跳机会",
+        "逐步收紧包围圈",
+        "耐心布局避免被吃"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "cat": "games",
+  "file": "breakthrough_board",
+  "struct": "BreakthroughBoardRules",
+  "name": "突破棋",
+  "desc": "兵棋前进突破对方底线的简明策略棋",
+  "origin": "美国",
+  "tags": [
+    "棋类",
+    "策略",
+    "抽象"
+  ],
+  "category": "RuleCategory::games(\"breakthrough_board\")",
+  "sections": [
+    {
+      "title": "棋盘布置",
+      "method": "setup",
+      "items": [
+        "常见八乘八方格棋盘",
+        "双方各占两排棋子",
+        "棋子如兵位于前列",
+        "中央区域空置"
+      ]
+    },
+    {
+      "title": "移动规则",
+      "method": "movement",
+      "items": [
+        "棋子只可向前移动",
+        "可斜前方吃子",
+        "可直前方走入空位",
+        "不可后退或横行"
+      ]
+    },
+    {
+      "title": "吃子方式",
+      "method": "capturing",
+      "items": [
+        "斜前一格有敌棋即吃",
+        "被吃棋移出棋盘",
+        "每次只吃一枚",
+        "直行方向不可吃子"
+      ]
+    },
+    {
+      "title": "胜负条件",
+      "method": "winning",
+      "items": [
+        "率先有棋抵达对方底线即胜",
+        "被吃光棋子则败",
+        "无法移动亦判负",
+        "突破即赢简洁明快"
+      ]
+    },
+    {
+      "title": "策略要点",
+      "method": "strategy",
+      "items": [
+        "保持兵力相互策应",
+        "寻找斜向突破缺口",
+        "牺牲棋子换通路",
+        "防守反击并重"
+      ]
+    }
+  ]
+}

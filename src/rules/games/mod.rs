@@ -72,6 +72,7 @@ pub mod abalone;
 pub mod aeroplane_chess;
 pub mod agricola;
 pub mod akari_light_grid_puzzle;
+pub mod amazons_game;
 pub mod arithmetic_command_game;
 pub mod azul;
 pub mod baccarat;
@@ -85,6 +86,7 @@ pub mod blokus_pieces;
 pub mod board_game_etiquette;
 pub mod board_games;
 pub mod brain_teaser_quiz;
+pub mod breakthrough_board;
 pub mod bridge;
 pub mod bridge_chicago;
 pub mod bridge_detailed;
@@ -138,6 +140,7 @@ pub mod farkle_dice;
 pub mod flying_chess;
 pub mod four_player_chess;
 pub mod four_player_mahjong;
+pub mod fox_and_geese;
 pub mod frisbee_play_catch;
 pub mod game_2048_tile;
 pub mod game_24_arithmetic_derive;
@@ -258,6 +261,8 @@ pub mod stud_poker;
 pub mod sudoku;
 pub mod sudoku_logic;
 pub mod sudoku_variant;
+pub mod surakarta;
+pub mod tafl_hnefatafl;
 pub mod tak;
 pub mod tarot_cards;
 pub mod telestrations_draw;
@@ -297,6 +302,7 @@ pub use abalone::AbaloneRules;
 pub use aeroplane_chess::AeroplaneChessRules;
 pub use agricola::AgricolaRules;
 pub use akari_light_grid_puzzle::AkariLightGridPuzzleRules;
+pub use amazons_game::AmazonsGameRules;
 pub use arithmetic_command_game::ArithmeticCommandGameRules;
 pub use azul::AzulRules;
 pub use baccarat::BaccaratRules;
@@ -313,6 +319,7 @@ pub use board_games::{
     InternationalChessRules, JanggiVariantRules, ShogiVariantRules,
 };
 pub use brain_teaser_quiz::BrainTeaserQuizRules;
+pub use breakthrough_board::BreakthroughBoardRules;
 pub use bridge::BridgeRules;
 pub use bridge_chicago::BridgeChicagoRules;
 pub use bridge_detailed::BridgeDetailedRules;
@@ -365,6 +372,7 @@ pub use farkle_dice::FarkleDiceRules;
 pub use flying_chess::FlyingChessRules;
 pub use four_player_chess::FourPlayerChessRules;
 pub use four_player_mahjong::FourPlayerMahjongRules;
+pub use fox_and_geese::FoxAndGeeseRules;
 pub use frisbee_play_catch::FrisbeePlayCatchRules;
 pub use game_2048_tile::Game2048TileRules;
 pub use game_24_arithmetic_derive::Game24ArithmeticDeriveRules;
@@ -484,6 +492,8 @@ pub use stud_poker::StudPokerRules;
 pub use sudoku::SudokuRules;
 pub use sudoku_logic::SudokuLogicRules;
 pub use sudoku_variant::SudokuVariantRules;
+pub use surakarta::SurakartaRules;
+pub use tafl_hnefatafl::TaflHnefataflRules;
 pub use tak::TakRules;
 pub use tarot_cards::TarotCardsRules;
 pub use telestrations_draw::TelestrationsDrawRules;
@@ -559,6 +569,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SurakartaRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BreakthroughBoardRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AmazonsGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FoxAndGeeseRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TaflHnefataflRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = FanTanRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
