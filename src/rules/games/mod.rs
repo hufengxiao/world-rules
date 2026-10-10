@@ -151,6 +151,7 @@ pub mod four_player_mahjong;
 pub mod four_square;
 pub mod fox_and_geese;
 pub mod frisbee_play_catch;
+pub mod futoshiki_puzzle;
 pub mod game_2048_tile;
 pub mod game_24_arithmetic_derive;
 pub mod gin_rummy;
@@ -168,6 +169,7 @@ pub mod hashi_bridge_puzzle;
 pub mod hearts;
 pub mod hearts_detailed;
 pub mod hide_and_seek;
+pub mod hitori_puzzle;
 pub mod hive;
 pub mod hopscotch_grounding_games;
 pub mod jacks_game;
@@ -177,6 +179,7 @@ pub mod jump_chess_rules;
 pub mod jump_rope_skipping;
 pub mod jungle;
 pub mod kakuro_cross_sum;
+pub mod kenken_puzzle;
 pub mod killer_sudoku_sum35;
 pub mod klondike_solitaire;
 pub mod klotski_huarong;
@@ -211,6 +214,7 @@ pub mod mahjong_wuhan_detailed;
 pub mod makruk;
 pub mod mancala;
 pub mod marble_shooter;
+pub mod masyu_puzzle;
 pub mod memory_match;
 pub mod military_chess;
 pub mod minesweeper_logic;
@@ -227,6 +231,7 @@ pub mod n_queens_puzzle;
 pub mod nim_game;
 pub mod niuniu;
 pub mod nonogram_logic_art;
+pub mod nurikabe_puzzle;
 pub mod old_maid;
 pub mod one_color_go;
 pub mod othello_detailed2;
@@ -413,6 +418,7 @@ pub use four_player_mahjong::FourPlayerMahjongRules;
 pub use four_square::FourSquareRules;
 pub use fox_and_geese::FoxAndGeeseRules;
 pub use frisbee_play_catch::FrisbeePlayCatchRules;
+pub use futoshiki_puzzle::FutoshikiPuzzleRules;
 pub use game_2048_tile::Game2048TileRules;
 pub use game_24_arithmetic_derive::Game24ArithmeticDeriveRules;
 pub use gin_rummy::GinRummyRules;
@@ -430,6 +436,7 @@ pub use hashi_bridge_puzzle::HashiBridgePuzzleRules;
 pub use hearts::HeartsRules;
 pub use hearts_detailed::HeartsDetailedRules;
 pub use hide_and_seek::HideAndSeekRules;
+pub use hitori_puzzle::HitoriPuzzleRules;
 pub use hive::HiveRules;
 pub use hopscotch_grounding_games::HopscotchGroundGamesRules;
 pub use jacks_game::JacksGameRules;
@@ -439,6 +446,7 @@ pub use jump_chess_rules::JumpChessRules;
 pub use jump_rope_skipping::JumpRopeSkippingRules;
 pub use jungle::JungleRules;
 pub use kakuro_cross_sum::KakuroCrossSumRules;
+pub use kenken_puzzle::KenkenPuzzleRules;
 pub use killer_sudoku_sum35::KillerSudokuSumRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use klotski_huarong::KlotskiHuarongRules;
@@ -473,6 +481,7 @@ pub use mahjong_wuhan_detailed::MahjongWuhanDetailedRules;
 pub use makruk::MakrukRules;
 pub use mancala::MancalaRules;
 pub use marble_shooter::MarbleShooterRules;
+pub use masyu_puzzle::MasyuPuzzleRules;
 pub use memory_match::MemoryMatchRules;
 pub use military_chess::MilitaryChessRules;
 pub use minesweeper_logic::MinesweeperLogicRules;
@@ -489,6 +498,7 @@ pub use n_queens_puzzle::NQueensPuzzleRules;
 pub use nim_game::NimGameRules;
 pub use niuniu::NiuniuRules;
 pub use nonogram_logic_art::NonogramLogicArtRules;
+pub use nurikabe_puzzle::NurikabePuzzleRules;
 pub use old_maid::OldMaidRules;
 pub use one_color_go::OneColorGoRules;
 pub use othello_detailed2::OthelloDetailed2Rules;
@@ -629,6 +639,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = FutoshikiPuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = KenkenPuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MasyuPuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NurikabePuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HitoriPuzzleRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SpikeballRoundnetRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
