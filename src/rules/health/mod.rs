@@ -69,6 +69,7 @@ pub mod bed_sore_prevention;
 pub mod bedtime_ritual;
 pub mod bleeding_control_bandage;
 pub mod blister_care;
+pub mod bloating_gas;
 pub mod blood_lipid_management;
 pub mod bone_health;
 pub mod brain_health;
@@ -143,6 +144,7 @@ pub mod hand_hygiene_wash;
 pub mod hand_washing_hygiene;
 pub mod hearing_health;
 pub mod heart_health;
+pub mod heartburn_reflux;
 pub mod heatstroke_prevention;
 pub mod heatstroke_response;
 pub mod hemorrhoid_care;
@@ -155,8 +157,10 @@ pub mod hydration_strategy;
 pub mod hypertension_lifestyle;
 pub mod hypertension_management;
 pub mod hypoglycemia_response;
+pub mod ibs_management;
 pub mod immune_health;
 pub mod immune_support_lifestyle;
+pub mod indigestion_care;
 pub mod infant_care_basics;
 pub mod infant_feeding_breast;
 pub mod infant_health;
@@ -166,6 +170,7 @@ pub mod joint_health;
 pub mod kidney_health;
 pub mod kidney_stone_prevention;
 pub mod knee_care;
+pub mod lactose_intolerance_care;
 pub mod leg_cramp_relief;
 pub mod liver_health;
 pub mod loneliness_connection;
@@ -279,6 +284,7 @@ pub use bed_sore_prevention::BedSorePreventionRules;
 pub use bedtime_ritual::BedtimeRitualRules;
 pub use bleeding_control_bandage::BleedingControlBandageRules;
 pub use blister_care::BlisterCareRules;
+pub use bloating_gas::BloatingGasRules;
 pub use blood_lipid_management::BloodLipidManagementRules;
 pub use bone_health::BoneHealthRules;
 pub use brain_health::BrainHealthRules;
@@ -353,6 +359,7 @@ pub use hand_hygiene_wash::HandHygieneWashRules;
 pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
 pub use heart_health::HeartHealthRules;
+pub use heartburn_reflux::HeartburnRefluxRules;
 pub use heatstroke_prevention::HeatstrokePreventionRules;
 pub use heatstroke_response::HeatstrokeResponseRules;
 pub use hemorrhoid_care::HemorrhoidCareRules;
@@ -365,8 +372,10 @@ pub use hydration_strategy::HydrationStrategyRules;
 pub use hypertension_lifestyle::HypertensionLifestyleRules;
 pub use hypertension_management::HypertensionManagementRules;
 pub use hypoglycemia_response::HypoglycemiaResponseRules;
+pub use ibs_management::IbsManagementRules;
 pub use immune_health::ImmuneHealthRules;
 pub use immune_support_lifestyle::ImmuneSupportLifestyleRules;
+pub use indigestion_care::IndigestionCareRules;
 pub use infant_care_basics::InfantCareBasicsRules;
 pub use infant_feeding_breast::InfantFeedingBreastRules;
 pub use infant_health::InfantHealthRules;
@@ -376,6 +385,7 @@ pub use joint_health::JointHealthRules;
 pub use kidney_health::KidneyHealthRules;
 pub use kidney_stone_prevention::KidneyStonePreventionRules;
 pub use knee_care::KneeCareRules;
+pub use lactose_intolerance_care::LactoseIntoleranceCareRules;
 pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
 pub use loneliness_connection::LonelinessConnectionRules;
@@ -480,6 +490,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = LactoseIntoleranceCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IbsManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BloatingGasRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HeartburnRefluxRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = IndigestionCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ParkinsonCareBasicRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));

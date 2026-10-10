@@ -1,0 +1,56 @@
+{
+  "cat": "health",
+  "file": "bloating_gas",
+  "struct": "BloatingGasRules",
+  "name": "腹胀排气护理",
+  "desc": "腹部胀气与排气过多的饮食调整与缓解方法",
+  "origin": "中国",
+  "tags": [
+    "消化",
+    "胀气",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"bloating_gas\")",
+  "sections": [
+    {
+      "title": "产气食物",
+      "method": "trigger_food",
+      "items": [
+        "豆类薯类易产气",
+        "洋葱韭菜萝卜慎食",
+        "碳酸饮料含气饮入",
+        "乳制品乳糖不耐者慎用"
+      ]
+    },
+    {
+      "title": "进食方式",
+      "method": "eating",
+      "items": [
+        "细嚼慢咽减少吞气",
+        "避免用吸管快速饮水",
+        "少嚼口香糖少含硬糖",
+        "勿边吃边说大口吞咽"
+      ]
+    },
+    {
+      "title": "缓解方法",
+      "method": "relief",
+      "items": [
+        "顺时针按摩腹部助排气",
+        "适度走动促进肠蠕动",
+        "热敷腹部放松肠道",
+        "薄荷茶茴香茶助舒缓"
+      ]
+    },
+    {
+      "title": "就医提示",
+      "method": "seeking_help",
+      "items": [
+        "持续胀痛须查因",
+        "伴呕吐便秘发热就诊",
+        "体重下降应排查",
+        "反复发作可查食物不耐受"
+      ]
+    }
+  ]
+}
