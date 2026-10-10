@@ -1,0 +1,57 @@
+{
+  "cat": "health",
+  "file": "urinary_tract_infection_care",
+  "struct": "UrinaryTractInfectionCareRules",
+  "name": "尿路感染护理",
+  "desc": "尿路感染的日常护理与预防规则，包括多饮水、及时排尿、注意卫生与识别就医信号，帮助减轻症状并防止复发。",
+  "origin": "泌尿科临床护理与公共卫生建议",
+  "tags": [
+    "健康",
+    "泌尿",
+    "感染",
+    "护理"
+  ],
+  "category": "RuleCategory::health(\"uti_care\")",
+  "sections": [
+    {
+      "title": "日常饮水",
+      "method": "hydration",
+      "items": [
+        "每日足量饮水稀释尿液",
+        "勤排尿不憋尿",
+        "排尿有助冲刷尿道细菌",
+        "避免长时间缺水"
+      ]
+    },
+    {
+      "title": "卫生习惯",
+      "method": "hygiene",
+      "items": [
+        "如厕后由前向后擦拭",
+        "保持会阴清洁干燥",
+        "勤换内裤选棉质透气",
+        "性生活前后注意清洁"
+      ]
+    },
+    {
+      "title": "生活调整",
+      "method": "lifestyle",
+      "items": [
+        "避免久坐与过度劳累",
+        "少喝浓茶咖啡与酒",
+        "注意下身保暖",
+        "规律作息增强免疫"
+      ]
+    },
+    {
+      "title": "就医信号",
+      "method": "medical",
+      "items": [
+        "尿频尿急尿痛明显",
+        "尿液浑浊或有血",
+        "腰痛发热寒战",
+        "症状反复或加重须就医"
+      ]
+    }
+  ]
+}

@@ -129,12 +129,14 @@ pub mod foot_blister_care;
 pub mod foot_care_basics;
 pub mod foot_soak_wellness;
 pub mod fresh_breath_habit;
+pub mod gallstone_biliary_care;
 pub mod gout_management;
 pub mod gratitude_practice;
 pub mod gum_bleeding_concern;
 pub mod gut_health;
 pub mod hair_fall_prevention;
 pub mod hair_health;
+pub mod hand_foot_mouth_care;
 pub mod hand_hygiene_wash;
 pub mod hand_washing_hygiene;
 pub mod hearing_health;
@@ -160,6 +162,7 @@ pub mod insect_bite_care;
 pub mod interdental_floss_tips;
 pub mod joint_health;
 pub mod kidney_health;
+pub mod kidney_stone_prevention;
 pub mod knee_care;
 pub mod leg_cramp_relief;
 pub mod liver_health;
@@ -215,6 +218,7 @@ pub mod seasonal_allergy_relief;
 pub mod seasonal_health;
 pub mod seizure_response;
 pub mod self_compassion;
+pub mod shingles_zoster_care;
 pub mod sit_briefly_daily;
 pub mod skin_care_rules;
 pub mod skin_health;
@@ -238,6 +242,7 @@ pub mod toddler_health;
 pub mod toddler_introducing_solids;
 pub mod tooth_ache_care;
 pub mod travel_health;
+pub mod urinary_tract_infection_care;
 pub mod vaccination_rules;
 pub mod varicose_vein_relief;
 pub mod vegetarian_balanced_nutrition;
@@ -324,12 +329,14 @@ pub use foot_blister_care::FootBlisterCareRules;
 pub use foot_care_basics::FootCareBasicsRules;
 pub use foot_soak_wellness::FootSoakWellnessRules;
 pub use fresh_breath_habit::FreshBreathHabitRules;
+pub use gallstone_biliary_care::GallstoneBiliaryCareRules;
 pub use gout_management::GoutManagementRules;
 pub use gratitude_practice::GratitudePracticeRules;
 pub use gum_bleeding_concern::GumBleedingConcernRules;
 pub use gut_health::GutHealthRules;
 pub use hair_fall_prevention::HairFallPreventionRules;
 pub use hair_health::HairHealthRules;
+pub use hand_foot_mouth_care::HandFootMouthCareRules;
 pub use hand_hygiene_wash::HandHygieneWashRules;
 pub use hand_washing_hygiene::HandWashingHygieneRules;
 pub use hearing_health::HearingHealthRules;
@@ -355,6 +362,7 @@ pub use insect_bite_care::InsectBiteCareRules;
 pub use interdental_floss_tips::InterdentalFlossTipsRules;
 pub use joint_health::JointHealthRules;
 pub use kidney_health::KidneyHealthRules;
+pub use kidney_stone_prevention::KidneyStonePreventionRules;
 pub use knee_care::KneeCareRules;
 pub use leg_cramp_relief::LegCrampReliefRules;
 pub use liver_health::LiverHealthRules;
@@ -410,6 +418,7 @@ pub use seasonal_allergy_relief::SeasonalAllergyReliefRules;
 pub use seasonal_health::SeasonalHealthRules;
 pub use seizure_response::SeizureResponseRules;
 pub use self_compassion::SelfCompassionRules;
+pub use shingles_zoster_care::ShinglesZosterCareRules;
 pub use sit_briefly_daily::SitBreaksDailyRules;
 pub use skin_care_rules::SkinCareRulesRules;
 pub use skin_health::SkinHealthRules;
@@ -433,6 +442,7 @@ pub use toddler_health::ToddlerHealthRules;
 pub use toddler_introducing_solids::ToddlerIntroducingSolidsRules;
 pub use tooth_ache_care::ToothAcheCareRules;
 pub use travel_health::TravelHealthRules;
+pub use urinary_tract_infection_care::UrinaryTractInfectionCareRules;
 pub use vaccination_rules::VaccinationRulesRules;
 pub use varicose_vein_relief::VaricoseVeinReliefRules;
 pub use vegetarian_balanced_nutrition::VegetarianBalancedNutritionRules;
@@ -450,6 +460,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = KidneyStonePreventionRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = HandFootMouthCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShinglesZosterCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = GallstoneBiliaryCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = UrinaryTractInfectionCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = ChappedLipCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
