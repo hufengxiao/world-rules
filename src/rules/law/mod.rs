@@ -70,11 +70,13 @@ pub mod contract_breach_remedy;
 pub mod criminal;
 pub mod crowdfunding_legal;
 pub mod deposit_refund_basics;
+pub mod digital_asset_inheritance;
 pub mod domestic_violence_guard;
 pub mod elderly_support_obligation;
 pub mod elevator_fee_agree;
 pub mod emergency_call_110;
 pub mod escrow_transaction_law;
+pub mod esports_contract_law;
 pub mod evidence_preservation;
 pub mod evidence_retention_claim;
 pub mod food_hygiene_safe;
@@ -88,6 +90,7 @@ pub mod intellectual_property;
 pub mod labor;
 pub mod labor_contract_basics;
 pub mod labor_contract_write;
+pub mod live_commerce_law;
 pub mod livestream_sales_law;
 pub mod marriage;
 pub mod marriage_property_basics;
@@ -98,6 +101,7 @@ pub mod neighborhood_noise_dispute;
 pub mod noise_dispute_neighbor;
 pub mod noncompete_agreement;
 pub mod notary_public;
+pub mod online_harassment_law;
 pub mod online_shopping_rights;
 pub mod overtime_compensation;
 pub mod overtime_reduction_rights;
@@ -118,6 +122,7 @@ pub mod return_exchange_warranty;
 pub mod road_safety;
 pub mod self_defense_law;
 pub mod shared_wall_renovate;
+pub mod short_video_copyright_law;
 pub mod social_security_basics;
 pub mod telecom_contract_order;
 pub mod traffic;
@@ -633,6 +638,7 @@ pub use data_security_detailed_law::DataSecurityDetailedLawRules;
 pub use death_penalty::DeathPenaltyRules;
 pub use deepfake_law::DeepfakeLawRules;
 pub use deposit_refund_basics::DepositRefundBasicsRules;
+pub use digital_asset_inheritance::DigitalAssetInheritanceRules;
 pub use digital_evidence::DigitalEvidenceRules;
 pub use disability_rights::DisabilityRightsRules;
 pub use domestic_violence_guard::DomesticViolenceGuardRules;
@@ -653,6 +659,7 @@ pub use environmental_detailed_law3::EnvironmentalDetailedLaw3Rules;
 pub use environmental_impact_law::EnvironmentalImpactLawRules;
 pub use environmental_litigation::EnvironmentalLitigationRules;
 pub use escrow_transaction_law::EscrowTransactionLawRules;
+pub use esports_contract_law::EsportsContractLawRules;
 pub use eu_gdpr::EuGdprRules;
 pub use evidence_preservation::EvidencePreservationRules;
 pub use evidence_retention_claim::EvidenceRetentionClaimRules;
@@ -721,6 +728,7 @@ pub use labor_dispute_law::LaborDisputeLawRules;
 pub use labor_international::LaborInternationalRules;
 pub use land_detailed::LandDetailedRules;
 pub use legal_aid::LegalAidRules;
+pub use live_commerce_law::LiveCommerceLawRules;
 pub use livestream_sales_law::LivestreamSalesLawRules;
 pub use maritime_detailed::MaritimeDetailedRules;
 pub use maritime_law_intl::MaritimeLawIntlRules;
@@ -743,6 +751,7 @@ pub use noise_pollution_law::NoisePollutionLawRules;
 pub use noncompete_agreement::NoncompeteAgreementRules;
 pub use notary_public::NotaryPublicRules;
 pub use online_dispute::OnlineDisputeRules;
+pub use online_harassment_law::OnlineHarassmentLawRules;
 pub use online_shopping_rights::OnlineShoppingRightsRules;
 pub use overtime_compensation::OvertimeCompensationRules;
 pub use overtime_reduction_rights::OvertimeReductionRightsRules;
@@ -781,6 +790,7 @@ pub use securities_law_detailed::SecuritiesLawDetailedRules;
 pub use self_defense_law::SelfDefenseLawRules;
 pub use sentencing_guideline_deep::SentencingGuidelineDeepRules;
 pub use shared_wall_renovate::SharedWallRenovateRules;
+pub use short_video_copyright_law::ShortVideoCopyrightLawRules;
 pub use smart_contract_law::SmartContractLawRules;
 pub use social_insurance_law_detailed::SocialInsuranceLawDetailedRules;
 pub use social_security_basics::SocialSecurityBasicsRules;
@@ -822,6 +832,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ShortVideoCopyrightLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = DigitalAssetInheritanceRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = OnlineHarassmentLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LiveCommerceLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = EsportsContractLawRules::new();
+        rules.push(("law", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = LivestreamSalesLawRules::new();
         rules.push(("law", r.metadata().clone(), r.category(), r.explain()));

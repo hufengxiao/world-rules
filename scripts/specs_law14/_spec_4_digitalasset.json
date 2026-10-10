@@ -1,0 +1,56 @@
+{
+  "cat": "law",
+  "file": "digital_asset_inheritance",
+  "struct": "DigitalAssetInheritanceRules",
+  "name": "数字遗产继承",
+  "desc": "网络账号、虚拟财产等数字资产的继承规则",
+  "origin": "中国",
+  "tags": [
+    "法律",
+    "继承",
+    "数字"
+  ],
+  "category": "RuleCategory::law(\"digital_asset_inheritance\")",
+  "sections": [
+    {
+      "title": "资产范围",
+      "method": "scope",
+      "items": [
+        "社交账号与内容",
+        "虚拟货币游戏装备",
+        "数字钱包与余额",
+        "云端照片文件"
+      ]
+    },
+    {
+      "title": "法律属性",
+      "method": "nature",
+      "items": [
+        "具财产价值者可继承",
+        "人身属性账号难继承",
+        "受平台服务协议约束",
+        "依民法典继承规则"
+      ]
+    },
+    {
+      "title": "继承方式",
+      "method": "methods",
+      "items": [
+        "法定继承或遗嘱指定",
+        "办理继承公证",
+        "向平台提交继承材料",
+        "有争议可诉讼解决"
+      ]
+    },
+    {
+      "title": "实践建议",
+      "method": "advice",
+      "items": [
+        "生前整理数字资产清单",
+        "重要账号做好安排",
+        "妥善保存密钥凭证",
+        "及时更新平台政策"
+      ]
+    }
+  ]
+}

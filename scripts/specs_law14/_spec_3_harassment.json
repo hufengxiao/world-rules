@@ -1,0 +1,56 @@
+{
+  "cat": "law",
+  "file": "online_harassment_law",
+  "struct": "OnlineHarassmentLawRules",
+  "name": "网络骚扰维权",
+  "desc": "遭遇网络辱骂骚扰诽谤时的取证与维权路径",
+  "origin": "中国",
+  "tags": [
+    "法律",
+    "网络",
+    "人格权"
+  ],
+  "category": "RuleCategory::law(\"online_harassment_law\")",
+  "sections": [
+    {
+      "title": "行为界定",
+      "method": "definition",
+      "items": [
+        "辱骂诽谤属侵权",
+        "恶意骚扰可违法",
+        "人肉搜索侵犯隐私",
+        "威胁恐吓或涉犯罪"
+      ]
+    },
+    {
+      "title": "证据固定",
+      "method": "evidence",
+      "items": [
+        "及时截图保存内容",
+        "记录发布者账号信息",
+        "可申请平台留存证据",
+        "必要时公证保全"
+      ]
+    },
+    {
+      "title": "处理途径",
+      "method": "channels",
+      "items": [
+        "要求平台删除屏蔽",
+        "向平台投诉举报",
+        "报警处理违法行为",
+        "提起民事诉讼索赔"
+      ]
+    },
+    {
+      "title": "法律责任",
+      "method": "liability",
+      "items": [
+        "侵权人承担民事赔偿",
+        "情节严重可治安处罚",
+        "构成犯罪追究刑责",
+        "平台失职亦担责"
+      ]
+    }
+  ]
+}
