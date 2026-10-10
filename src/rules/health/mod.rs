@@ -55,7 +55,9 @@
 pub mod acid_reflux_care;
 pub mod acne_skin_care;
 pub mod addiction_recovery;
+pub mod aed_use_guide;
 pub mod allergy_management;
+pub mod anaphylaxis_emergency;
 pub mod anemia_nutrition;
 pub mod anger_management;
 pub mod ankle_sprain_care;
@@ -138,6 +140,7 @@ pub mod foot_blister_care;
 pub mod foot_care_basics;
 pub mod foot_odor_care;
 pub mod foot_soak_wellness;
+pub mod fracture_first_aid;
 pub mod fresh_breath_habit;
 pub mod frozen_shoulder_care;
 pub mod gallstone_biliary_care;
@@ -211,6 +214,7 @@ pub mod neck_shoulder_stretch;
 pub mod nightly_oral_care;
 pub mod nightmare_soothing;
 pub mod nocturia_frequent_urination;
+pub mod nose_foreign_body;
 pub mod nosebleed_management;
 pub mod nutrition;
 pub mod nutrition_basics;
@@ -261,6 +265,7 @@ pub mod sleep_apnea;
 pub mod sleep_hygiene;
 pub mod sleep_quality;
 pub mod smoking_cessation;
+pub mod snakebite_first_aid;
 pub mod snoring_sleep_basic;
 pub mod social_anxiety_care;
 pub mod sore_throat_relief;
@@ -295,7 +300,9 @@ pub mod wound_dressing;
 pub use acid_reflux_care::AcidRefluxCareRules;
 pub use acne_skin_care::AcneSkinCareRules;
 pub use addiction_recovery::AddictionRecoveryRules;
+pub use aed_use_guide::AedUseGuideRules;
 pub use allergy_management::AllergyManagementRules;
+pub use anaphylaxis_emergency::AnaphylaxisEmergencyRules;
 pub use anemia_nutrition::AnemiaNutritionRules;
 pub use anger_management::AngerManagementRules;
 pub use ankle_sprain_care::AnkleSprainCareRules;
@@ -378,6 +385,7 @@ pub use foot_blister_care::FootBlisterCareRules;
 pub use foot_care_basics::FootCareBasicsRules;
 pub use foot_odor_care::FootOdorCareRules;
 pub use foot_soak_wellness::FootSoakWellnessRules;
+pub use fracture_first_aid::FractureFirstAidRules;
 pub use fresh_breath_habit::FreshBreathHabitRules;
 pub use frozen_shoulder_care::FrozenShoulderCareRules;
 pub use gallstone_biliary_care::GallstoneBiliaryCareRules;
@@ -451,6 +459,7 @@ pub use neck_shoulder_stretch::NeckShoulderStretchRules;
 pub use nightly_oral_care::NightlyOralCareRules;
 pub use nightmare_soothing::NightmareSoothingRules;
 pub use nocturia_frequent_urination::NocturiaFrequentUrinationRules;
+pub use nose_foreign_body::NoseForeignBodyRules;
 pub use nosebleed_management::NosebleedManagementRules;
 pub use nutrition::NutritionRules;
 pub use nutrition_basics::NutritionBasicsRules;
@@ -501,6 +510,7 @@ pub use sleep_apnea::SleepApneaRules;
 pub use sleep_hygiene::SleepHygieneRules;
 pub use sleep_quality::SleepQualityRules;
 pub use smoking_cessation::SmokingCessationRules;
+pub use snakebite_first_aid::SnakebiteFirstAidRules;
 pub use snoring_sleep_basic::SnoringSleepBasicRules;
 pub use social_anxiety_care::SocialAnxietyCareRules;
 pub use sore_throat_relief::SoreThroatReliefRules;
@@ -540,6 +550,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = AedUseGuideRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NoseForeignBodyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SnakebiteFirstAidRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FractureFirstAidRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = AnaphylaxisEmergencyRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = WisdomToothCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
