@@ -172,7 +172,9 @@ pub mod infant_care_basics;
 pub mod infant_feeding_breast;
 pub mod infant_health;
 pub mod insect_bite_care;
+pub mod insomnia_care;
 pub mod interdental_floss_tips;
+pub mod jet_lag_recovery;
 pub mod joint_health;
 pub mod kidney_health;
 pub mod kidney_stone_prevention;
@@ -202,6 +204,7 @@ pub mod nasal_congestion_relief;
 pub mod neck_shoulder_relief;
 pub mod neck_shoulder_stretch;
 pub mod nightly_oral_care;
+pub mod nightmare_soothing;
 pub mod nocturia_frequent_urination;
 pub mod nosebleed_management;
 pub mod nutrition;
@@ -212,6 +215,7 @@ pub mod oral_health;
 pub mod oral_ulcer_care;
 pub mod osteoporosis_walking_safe;
 pub mod outdoor_time_eye_health;
+pub mod panic_attack_care;
 pub mod parkinson_care_basic;
 pub mod plantar_fasciitis_care;
 pub mod postpartum_health;
@@ -250,6 +254,7 @@ pub mod sleep_hygiene;
 pub mod sleep_quality;
 pub mod smoking_cessation;
 pub mod snoring_sleep_basic;
+pub mod social_anxiety_care;
 pub mod sore_throat_relief;
 pub mod sore_throat_soothe;
 pub mod stress_management;
@@ -397,7 +402,9 @@ pub use infant_care_basics::InfantCareBasicsRules;
 pub use infant_feeding_breast::InfantFeedingBreastRules;
 pub use infant_health::InfantHealthRules;
 pub use insect_bite_care::InsectBiteCareRules;
+pub use insomnia_care::InsomniaCareRules;
 pub use interdental_floss_tips::InterdentalFlossTipsRules;
+pub use jet_lag_recovery::JetLagRecoveryRules;
 pub use joint_health::JointHealthRules;
 pub use kidney_health::KidneyHealthRules;
 pub use kidney_stone_prevention::KidneyStonePreventionRules;
@@ -427,6 +434,7 @@ pub use nasal_congestion_relief::NasalCongestionReliefRules;
 pub use neck_shoulder_relief::NeckShoulderReliefRules;
 pub use neck_shoulder_stretch::NeckShoulderStretchRules;
 pub use nightly_oral_care::NightlyOralCareRules;
+pub use nightmare_soothing::NightmareSoothingRules;
 pub use nocturia_frequent_urination::NocturiaFrequentUrinationRules;
 pub use nosebleed_management::NosebleedManagementRules;
 pub use nutrition::NutritionRules;
@@ -437,6 +445,7 @@ pub use oral_health::OralHealthRules;
 pub use oral_ulcer_care::OralUlcerCareRules;
 pub use osteoporosis_walking_safe::OsteoporosisWalkingSafeRules;
 pub use outdoor_time_eye_health::OutdoorTimeEyeHealthRules;
+pub use panic_attack_care::PanicAttackCareRules;
 pub use parkinson_care_basic::ParkinsonCareBasicRules;
 pub use plantar_fasciitis_care::PlantarFasciitisCareRules;
 pub use postpartum_health::PostpartumHealthRules;
@@ -475,6 +484,7 @@ pub use sleep_hygiene::SleepHygieneRules;
 pub use sleep_quality::SleepQualityRules;
 pub use smoking_cessation::SmokingCessationRules;
 pub use snoring_sleep_basic::SnoringSleepBasicRules;
+pub use social_anxiety_care::SocialAnxietyCareRules;
 pub use sore_throat_relief::SoreThroatReliefRules;
 pub use sore_throat_soothe::SoreThroatSootheRules;
 pub use stress_management::StressManagementRules;
@@ -510,6 +520,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = SocialAnxietyCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PanicAttackCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = NightmareSoothingRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JetLagRecoveryRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = InsomniaCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = CarpalTunnelCareRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
