@@ -1,0 +1,57 @@
+{
+  "cat": "social",
+  "file": "moving_out_etiquette",
+  "struct": "MovingOutEtiquetteRules",
+  "name": "搬家告别礼仪",
+  "desc": "搬迁前后的社交礼仪规则，包括提前告知邻居、妥善交接房屋、与旧邻道别及向新邻问好，保持良好邻里关系。",
+  "origin": "城市居住流动中的邻里交往场景",
+  "tags": [
+    "社交",
+    "邻里",
+    "搬迁",
+    "礼仪"
+  ],
+  "category": "RuleCategory::social(\"moving_out\")",
+  "sections": [
+    {
+      "title": "搬前告知",
+      "method": "notice",
+      "items": [
+        "提前告知房东与邻居",
+        "说明搬家时间减少打扰",
+        "错开休息时段搬运",
+        "妥善处理大件与噪音"
+      ]
+    },
+    {
+      "title": "房屋交接",
+      "method": "handover",
+      "items": [
+        "打扫干净再交还",
+        "结清水电燃气费用",
+        "清点归还钥匙与物品",
+        "损坏处如实说明"
+      ]
+    },
+    {
+      "title": "与旧邻道别",
+      "method": "farewell",
+      "items": [
+        "向相熟邻居当面告别",
+        "留下联系方式保持来往",
+        "感谢曾经的照应",
+        "可赠小礼聊表心意"
+      ]
+    },
+    {
+      "title": "与新邻相处",
+      "method": "greeting",
+      "items": [
+        "搬入后主动打招呼",
+        "介绍自己减少陌生感",
+        "装修搬迁提前告知",
+        "遵守公共秩序不扰邻"
+      ]
+    }
+  ]
+}

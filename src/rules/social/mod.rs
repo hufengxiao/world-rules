@@ -67,6 +67,7 @@ pub mod asking_directions;
 pub mod asking_for_favor;
 pub mod awards_ceremony_etiquette;
 pub mod baby_shower_etiquette;
+pub mod baby_stroller_manner;
 pub mod banquet_ceremony;
 pub mod banquet_seating;
 pub mod banquet_toast_etiquette;
@@ -75,6 +76,7 @@ pub mod barbecue_etiquette;
 pub mod beach_etiquette;
 pub mod birthday_celebration;
 pub mod birthday_senior_feast;
+pub mod blood_donation_etiquette;
 pub mod boardroom_etiquette;
 pub mod brazilian_etiquette;
 pub mod bridesmaid_bestman_duty;
@@ -205,6 +207,7 @@ pub mod interview;
 pub mod investor_relations_etiquette;
 pub mod japanese_cuisine;
 pub mod japanese_etiquette;
+pub mod job_offer_negotiation_etiquette;
 pub mod karaoke_etiquette;
 pub mod korean_cuisine;
 pub mod korean_etiquette;
@@ -224,6 +227,7 @@ pub mod mid_autumn;
 pub mod middle_east_etiquette;
 pub mod minimalism;
 pub mod mountain_hiking_etiquette;
+pub mod moving_out_etiquette;
 pub mod museum_etiquette;
 pub mod national_day;
 pub mod negotiation_etiquette;
@@ -236,6 +240,7 @@ pub mod offering_advice_tact;
 pub mod office_cooperation;
 pub mod online;
 pub mod online_classes_etiquette;
+pub mod parent_teacher_meeting;
 pub mod park_etiquette;
 pub mod parking_courtesy;
 pub mod partnership_etiquette;
@@ -346,6 +351,7 @@ pub use asking_directions::AskingDirectionsRules;
 pub use asking_for_favor::AskingForFavorRules;
 pub use awards_ceremony_etiquette::AwardsCeremonyEtiquetteRules;
 pub use baby_shower_etiquette::BabyShowerEtiquetteRules;
+pub use baby_stroller_manner::BabyStrollerMannerRules;
 pub use banquet_ceremony::BanquetCeremonyRules;
 pub use banquet_seating::BanquetSeatingRules;
 pub use banquet_toast_etiquette::BanquetToastEtiquetteRules;
@@ -354,6 +360,7 @@ pub use barbecue_etiquette::BarbecueEtiquetteRules;
 pub use beach_etiquette::BeachEtiquetteRules;
 pub use birthday_celebration::BirthdayCelebrationRules;
 pub use birthday_senior_feast::BirthdaySeniorFeastRules;
+pub use blood_donation_etiquette::BloodDonationEtiquetteRules;
 pub use boardroom_etiquette::BoardroomEtiquetteRules;
 pub use brazilian_etiquette::BrazilianEtiquetteRules;
 pub use bridesmaid_bestman_duty::BridesmaidBestmanDutyRules;
@@ -484,6 +491,7 @@ pub use interview::InterviewEtiquette;
 pub use investor_relations_etiquette::InvestorRelationsEtiquetteRules;
 pub use japanese_cuisine::JapaneseCuisineRules;
 pub use japanese_etiquette::JapaneseEtiquetteRules;
+pub use job_offer_negotiation_etiquette::JobOfferNegotiationEtiquetteRules;
 pub use karaoke_etiquette::KaraokeEtiquetteRules;
 pub use korean_cuisine::KoreanCuisineRules;
 pub use korean_etiquette::KoreanEtiquetteRules;
@@ -503,6 +511,7 @@ pub use mid_autumn::MidAutumnRules;
 pub use middle_east_etiquette::MiddleEastEtiquetteRules;
 pub use minimalism::MinimalismRules;
 pub use mountain_hiking_etiquette::MountainHikingEtiquetteRules;
+pub use moving_out_etiquette::MovingOutEtiquetteRules;
 pub use museum_etiquette::MuseumEtiquetteRules;
 pub use national_day::NationalDayRules;
 pub use negotiation_etiquette::NegotiationEtiquetteRules;
@@ -515,6 +524,7 @@ pub use offering_advice_tact::OfferingAdviceTactRules;
 pub use office_cooperation::OfficeCooperationRules;
 pub use online::OnlineRules;
 pub use online_classes_etiquette::OnlineClassesEtiquetteRules;
+pub use parent_teacher_meeting::ParentTeacherMeetingRules;
 pub use park_etiquette::ParkEtiquetteRules;
 pub use parking_courtesy::ParkingCourtesyRules;
 pub use partnership_etiquette::PartnershipEtiquetteRules;
@@ -616,6 +626,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = ParentTeacherMeetingRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = JobOfferNegotiationEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MovingOutEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BloodDonationEtiquetteRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = BabyStrollerMannerRules::new();
+        rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = RoommateLivingMannerRules::new();
         rules.push(("social", r.metadata().clone(), r.category(), r.explain()));
