@@ -174,6 +174,7 @@ pub mod ludo_board_race;
 pub mod mafia;
 pub mod magic_square_fill;
 pub mod mahjong;
+pub mod mahjong_american;
 pub mod mahjong_blood_battle;
 pub mod mahjong_cantonese_detailed;
 pub mod mahjong_changsha_detailed;
@@ -181,14 +182,18 @@ pub mod mahjong_filipino;
 pub mod mahjong_hand_analysis;
 pub mod mahjong_hangzhou_detailed;
 pub mod mahjong_hongkong;
+pub mod mahjong_hubei;
 pub mod mahjong_japanese_detailed;
 pub mod mahjong_korean;
 pub mod mahjong_malaysian;
 pub mod mahjong_riichi_detailed;
 pub mod mahjong_riichi_detailed2;
+pub mod mahjong_shanghai;
 pub mod mahjong_sichuan_detailed;
+pub mod mahjong_sichuan_xueliu;
 pub mod mahjong_singapore;
 pub mod mahjong_taiwanese_detailed;
+pub mod mahjong_three_player;
 pub mod mahjong_vietnamese;
 pub mod mahjong_wuhan_detailed;
 pub mod makruk;
@@ -406,6 +411,7 @@ pub use ludo_board_race::LudoBoardRaceRules;
 pub use mafia::MafiaRules;
 pub use magic_square_fill::MagicSquareFillRules;
 pub use mahjong::*;
+pub use mahjong_american::MahjongAmericanRules;
 pub use mahjong_blood_battle::MahjongBloodBattleRules;
 pub use mahjong_cantonese_detailed::MahjongCantoneseDetailedRules;
 pub use mahjong_changsha_detailed::MahjongChangshaDetailedRules;
@@ -413,14 +419,18 @@ pub use mahjong_filipino::MahjongFilipinoRules;
 pub use mahjong_hand_analysis::MahjongHandAnalysisRules;
 pub use mahjong_hangzhou_detailed::MahjongHangzhouDetailedRules;
 pub use mahjong_hongkong::MahjongHongkongRules;
+pub use mahjong_hubei::MahjongHubeiRules;
 pub use mahjong_japanese_detailed::MahjongJapaneseDetailedRules;
 pub use mahjong_korean::MahjongKoreanRules;
 pub use mahjong_malaysian::MahjongMalaysianRules;
 pub use mahjong_riichi_detailed::MahjongRiichiDetailedRules;
 pub use mahjong_riichi_detailed2::MahjongRiichiDetailed2Rules;
+pub use mahjong_shanghai::MahjongShanghaiRules;
 pub use mahjong_sichuan_detailed::MahjongSichuanDetailedRules;
+pub use mahjong_sichuan_xueliu::MahjongSichuanXueliuRules;
 pub use mahjong_singapore::MahjongSingaporeRules;
 pub use mahjong_taiwanese_detailed::MahjongTaiwaneseDetailedRules;
+pub use mahjong_three_player::MahjongThreePlayerRules;
 pub use mahjong_vietnamese::MahjongVietnameseRules;
 pub use mahjong_wuhan_detailed::MahjongWuhanDetailedRules;
 pub use makruk::MakrukRules;
@@ -569,6 +579,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = MahjongHubeiRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MahjongShanghaiRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MahjongSichuanXueliuRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MahjongAmericanRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = MahjongThreePlayerRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = SurakartaRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
