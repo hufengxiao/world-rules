@@ -113,6 +113,7 @@ pub mod chinese_checkers;
 pub mod chinese_chess_opening;
 pub mod civilization;
 pub mod codenames;
+pub mod connect_dots;
 pub mod connect_four;
 pub mod connect_four_hour;
 pub mod craps;
@@ -162,6 +163,7 @@ pub mod kakuro_cross_sum;
 pub mod killer_sudoku_sum35;
 pub mod klondike_solitaire;
 pub mod klotski_huarong;
+pub mod liars_dice;
 pub mod ludo_board_race;
 pub mod mafia;
 pub mod magic_square_fill;
@@ -197,6 +199,7 @@ pub mod musical_chairs_play;
 pub mod mystery_card;
 pub mod n_puzzle_sliding;
 pub mod n_queens_puzzle;
+pub mod nim_game;
 pub mod niuniu;
 pub mod nonogram_logic_art;
 pub mod old_maid;
@@ -209,6 +212,7 @@ pub mod pao_de_kuai;
 pub mod party_game;
 pub mod pentago_twist;
 pub mod pictionary;
+pub mod pig_dice;
 pub mod pinochle;
 pub mod poker_bluffing;
 pub mod poker_chinese;
@@ -236,6 +240,7 @@ pub mod set_card_matching;
 pub mod seven_wonders;
 pub mod sheng_ji;
 pub mod shogi;
+pub mod shut_the_box;
 pub mod slitherlink_loop;
 pub mod snap;
 pub mod spades;
@@ -330,6 +335,7 @@ pub use chinese_checkers::ChineseCheckersRules;
 pub use chinese_chess_opening::ChineseChessOpeningRules;
 pub use civilization::CivilizationRules;
 pub use codenames::CodenamesRules;
+pub use connect_dots::ConnectDotsRules;
 pub use connect_four::ConnectFourRules;
 pub use connect_four_hour::ConnectFourHourRules;
 pub use craps::CrapsRules;
@@ -379,6 +385,7 @@ pub use kakuro_cross_sum::KakuroCrossSumRules;
 pub use killer_sudoku_sum35::KillerSudokuSumRules;
 pub use klondike_solitaire::KlondikeSolitaireRules;
 pub use klotski_huarong::KlotskiHuarongRules;
+pub use liars_dice::LiarsDiceRules;
 pub use ludo_board_race::LudoBoardRaceRules;
 pub use mafia::MafiaRules;
 pub use magic_square_fill::MagicSquareFillRules;
@@ -414,6 +421,7 @@ pub use musical_chairs_play::MusicalChairsPlayRules;
 pub use mystery_card::MysteryCardRules;
 pub use n_puzzle_sliding::NPuzzleSlidingRules;
 pub use n_queens_puzzle::NQueensPuzzleRules;
+pub use nim_game::NimGameRules;
 pub use niuniu::NiuniuRules;
 pub use nonogram_logic_art::NonogramLogicArtRules;
 pub use old_maid::OldMaidRules;
@@ -426,6 +434,7 @@ pub use pao_de_kuai::PaoDeKuaiRules;
 pub use party_game::PartyGameRules;
 pub use pentago_twist::PentagoTwistRules;
 pub use pictionary::PictionaryRules;
+pub use pig_dice::PigDiceRules;
 pub use pinochle::PinochleRules;
 pub use poker_bluffing::PokerBluffingRules;
 pub use poker_chinese::PokerChineseRules;
@@ -452,6 +461,7 @@ pub use set_card_matching::SetCardMatchingRules;
 pub use seven_wonders::SevenWondersRules;
 pub use sheng_ji::ShengJiRules;
 pub use shogi::ShogiRules;
+pub use shut_the_box::ShutTheBoxRules;
 pub use slitherlink_loop::SlitherlinkLoopRules;
 pub use snap::SnapRules;
 pub use spades::SpadesRules;
@@ -539,6 +549,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = NimGameRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ConnectDotsRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = PigDiceRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = LiarsDiceRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ShutTheBoxRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = DixitStorytellingRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
