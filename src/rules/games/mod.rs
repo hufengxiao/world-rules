@@ -169,6 +169,7 @@ pub mod hive;
 pub mod hopscotch_grounding_games;
 pub mod jacks_game;
 pub mod janggi;
+pub mod jass_swiss;
 pub mod jump_chess_rules;
 pub mod jump_rope_skipping;
 pub mod jungle;
@@ -264,6 +265,8 @@ pub mod sheng_ji;
 pub mod shogi;
 pub mod shut_the_box;
 pub mod simon_says_game;
+pub mod sixty_six_card;
+pub mod skat_card;
 pub mod slitherlink_loop;
 pub mod snap;
 pub mod spades;
@@ -289,6 +292,7 @@ pub mod tic_tac_toe;
 pub mod ticket_to_ride;
 pub mod total_war;
 pub mod tower_of_hanoi;
+pub mod tressette;
 pub mod trick_taking_cards;
 pub mod trivia_game;
 pub mod twenty_four_point;
@@ -300,6 +304,7 @@ pub mod war_card;
 pub mod wargames;
 pub mod werewolf;
 pub mod werewolf_murder;
+pub mod whist_card;
 pub mod who_is_spy;
 pub mod word_game;
 pub mod word_guessing_puzzle;
@@ -416,6 +421,7 @@ pub use hive::HiveRules;
 pub use hopscotch_grounding_games::HopscotchGroundGamesRules;
 pub use jacks_game::JacksGameRules;
 pub use janggi::JanggiRules;
+pub use jass_swiss::JassSwissRules;
 pub use jump_chess_rules::JumpChessRules;
 pub use jump_rope_skipping::JumpRopeSkippingRules;
 pub use jungle::JungleRules;
@@ -510,6 +516,8 @@ pub use sheng_ji::ShengJiRules;
 pub use shogi::ShogiRules;
 pub use shut_the_box::ShutTheBoxRules;
 pub use simon_says_game::SimonSaysGameRules;
+pub use sixty_six_card::SixtySixCardRules;
+pub use skat_card::SkatCardRules;
 pub use slitherlink_loop::SlitherlinkLoopRules;
 pub use snap::SnapRules;
 pub use spades::SpadesRules;
@@ -535,6 +543,7 @@ pub use tic_tac_toe::TicTacToeRules;
 pub use ticket_to_ride::TicketToRideRules;
 pub use total_war::TotalWarRules;
 pub use tower_of_hanoi::TowerOfHanoiRules;
+pub use tressette::TressetteRules;
 pub use trick_taking_cards::TrickTakingCardsRules;
 pub use trivia_game::TriviaGameRules;
 pub use twenty_four_point::TwentyFourPointRules;
@@ -546,6 +555,7 @@ pub use war_card::WarCardRules;
 pub use wargames::{AgeOfSigmarRules, GenericWargameRules, MiniatureGameRules, Warhammer40KRules};
 pub use werewolf::WerewolfRules;
 pub use werewolf_murder::WerewolfMurderRules;
+pub use whist_card::WhistCardRules;
 pub use who_is_spy::WhoIsSpyRules;
 pub use word_game::WordGameRules;
 pub use word_guessing_puzzle::WordGuessingPuzzleRules;
@@ -599,6 +609,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = JassSwissRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = TressetteRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SixtySixCardRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = SkatCardRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = WhistCardRules::new();
+        rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = JacksGameRules::new();
         rules.push(("games", r.metadata().clone(), r.category(), r.explain()));
