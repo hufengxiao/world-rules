@@ -93,9 +93,11 @@ pub mod choking_airway_relief;
 pub mod choking_relief;
 pub mod cholesterol_exercise_plan;
 pub mod chronic_disease;
+pub mod chronic_kidney_care;
 pub mod cold_hands_feet_warm;
 pub mod common_cold_care;
 pub mod constipation_relief;
+pub mod copd_management;
 pub mod correct_sitting_posture;
 pub mod cpr_and_emergency;
 pub mod cut_wound_care;
@@ -131,6 +133,7 @@ pub mod eye_dryness_comfort;
 pub mod eye_health;
 pub mod eye_health_general;
 pub mod eye_strain_rules;
+pub mod fatty_liver_care;
 pub mod fever_care;
 pub mod fever_management_home;
 pub mod first_aid;
@@ -244,6 +247,7 @@ pub mod protein_intake_estimation;
 pub mod read_dim_light_avoid;
 pub mod respiratory_health;
 pub mod restless_leg_care;
+pub mod rheumatoid_arthritis_care;
 pub mod salt_control_daily;
 pub mod scalds_burns;
 pub mod sciatica_relief;
@@ -278,6 +282,7 @@ pub mod teen_health;
 pub mod teenage_myopia_prevent;
 pub mod tennis_elbow_care;
 pub mod thyroid_care;
+pub mod thyroid_nodule_care;
 pub mod tinea_pedis_care;
 pub mod tinnitus_ringing_relief;
 pub mod toddler_health;
@@ -338,9 +343,11 @@ pub use choking_airway_relief::ChokingAirwayReliefRules;
 pub use choking_relief::ChokingReliefRules;
 pub use cholesterol_exercise_plan::CholesterolExercisePlanRules;
 pub use chronic_disease::ChronicDiseaseRules;
+pub use chronic_kidney_care::ChronicKidneyCareRules;
 pub use cold_hands_feet_warm::ColdHandsFeetWarmRules;
 pub use common_cold_care::CommonColdCareRules;
 pub use constipation_relief::ConstipationReliefRules;
+pub use copd_management::CopdManagementRules;
 pub use correct_sitting_posture::CorrectSittingPostureRules;
 pub use cpr_and_emergency::CprEmergencyRules;
 pub use cut_wound_care::CutWoundCareRules;
@@ -376,6 +383,7 @@ pub use eye_dryness_comfort::EyeDrynessComfortRules;
 pub use eye_health::EyeHealthRules;
 pub use eye_health_general::EyeHealthGeneralRules;
 pub use eye_strain_rules::EyeStrainRulesRules;
+pub use fatty_liver_care::FattyLiverCareRules;
 pub use fever_care::FeverCareRules;
 pub use fever_management_home::FeverManagementHomeRules;
 pub use first_aid::FirstAidRules;
@@ -489,6 +497,7 @@ pub use protein_intake_estimation::ProteinIntakeEstimationRules;
 pub use read_dim_light_avoid::ReadDimLightAvoidRules;
 pub use respiratory_health::RespiratoryHealthRules;
 pub use restless_leg_care::RestlessLegCareRules;
+pub use rheumatoid_arthritis_care::RheumatoidArthritisCareRules;
 pub use salt_control_daily::SaltControlDailyRules;
 pub use scalds_burns::ScaldBurnCareRules;
 pub use sciatica_relief::SciaticaReliefRules;
@@ -523,6 +532,7 @@ pub use teen_health::TeenHealthRules;
 pub use teenage_myopia_prevent::TeenageMyopiaPreventRules;
 pub use tennis_elbow_care::TennisElbowCareRules;
 pub use thyroid_care::ThyroidCareRules;
+pub use thyroid_nodule_care::ThyroidNoduleCareRules;
 pub use tinea_pedis_care::TineaPedisCareRules;
 pub use tinnitus_ringing_relief::TinnitusRingingReliefRules;
 pub use toddler_health::ToddlerHealthRules;
@@ -550,6 +560,26 @@ pub fn all_rules() -> Vec<(
 )> {
     use crate::rules::core::Rule;
     let mut rules = Vec::new();
+    {
+        let r = RheumatoidArthritisCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ThyroidNoduleCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = FattyLiverCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = ChronicKidneyCareRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
+    {
+        let r = CopdManagementRules::new();
+        rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
+    }
     {
         let r = AedUseGuideRules::new();
         rules.push(("health", r.metadata().clone(), r.category(), r.explain()));
